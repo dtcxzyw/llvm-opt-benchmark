@@ -1970,7 +1970,7 @@ define linkonce_odr void @_ZN7CmdEditC1Ev(ptr noundef nonnull align 8 dereferenc
   store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV7CmdEdit, i64 0, i32 0, i64 6), ptr %0, align 8
   store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV7CmdEdit, i64 0, i32 1, i64 11), ptr %2, align 8
   store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV7CmdEdit, i64 0, i32 2, i64 10), ptr %24, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV7CmdEdit, i64 0, i32 3, i64 3), ptr %26, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV7CmdEdit, i64 1, i32 0, i64 0), ptr %26, align 8
   ret void
 
 29:                                               ; preds = %1
@@ -2489,7 +2489,7 @@ define linkonce_odr void @_ZN7CmdEditD1Ev(ptr noundef nonnull align 8 dereferenc
   %3 = getelementptr inbounds i8, ptr %0, i64 680
   store ptr getelementptr inbounds ({ [13 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC7CmdEdit0_N3nix18InstallableCommandE, i64 0, i32 2, i64 10), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 704
-  store ptr getelementptr inbounds ({ [13 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC7CmdEdit0_N3nix18InstallableCommandE, i64 0, i32 3, i64 3), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC7CmdEdit0_N3nix18InstallableCommandE, i64 1, i32 0, i64 0), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 440
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 456

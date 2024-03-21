@@ -5443,7 +5443,7 @@ define void @_ZN3nix19MixOperateOnOptionsC1Ev(ptr noundef nonnull align 8 derefe
   store ptr %23, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 208
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTVN3nix19MixOperateOnOptionsE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTVN3nix19MixOperateOnOptionsE, i64 0, i32 1, i64 0), ptr %0, align 8
   store ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTVN3nix19MixOperateOnOptionsE, i64 0, i32 1, i64 11), ptr %6, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %28, align 8
@@ -9966,7 +9966,7 @@ define void @_ZN3nix14MixEnvironmentC1Ev(ptr noundef nonnull align 8 dereference
   store ptr %37, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 352
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTVN3nix14MixEnvironmentE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTVN3nix14MixEnvironmentE, i64 0, i32 1, i64 0), ptr %0, align 8
   store ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTVN3nix14MixEnvironmentE, i64 0, i32 1, i64 11), ptr %20, align 8
   %42 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 0, ptr %42, align 8

@@ -3722,7 +3722,7 @@ define linkonce_odr void @_ZN9CmdSearchC1Ev(ptr noundef nonnull align 8 derefere
   store ptr getelementptr inbounds ({ [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC9CmdSearch0_N3nix23InstallableValueCommandE, i64 0, i32 0, i64 6), ptr %0, align 8
   store ptr getelementptr inbounds ({ [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC9CmdSearch0_N3nix23InstallableValueCommandE, i64 0, i32 1, i64 11), ptr %11, align 8
   store ptr getelementptr inbounds ({ [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC9CmdSearch0_N3nix23InstallableValueCommandE, i64 0, i32 2, i64 10), ptr %33, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC9CmdSearch0_N3nix23InstallableValueCommandE, i64 0, i32 3, i64 3), ptr %35, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC9CmdSearch0_N3nix23InstallableValueCommandE, i64 1, i32 0, i64 0), ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 472
   invoke void @_ZN3nix7MixJSONC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %38, ptr noundef nonnull getelementptr inbounds ([43 x ptr], ptr @_ZTT9CmdSearch, i64 0, i64 29))
           to label %39 unwind label %109
@@ -3731,8 +3731,8 @@ define linkonce_odr void @_ZN9CmdSearchC1Ev(ptr noundef nonnull align 8 derefere
   store ptr getelementptr inbounds ({ [16 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV9CmdSearch, i64 0, i32 0, i64 6), ptr %0, align 8
   store ptr getelementptr inbounds ({ [16 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV9CmdSearch, i64 0, i32 2, i64 11), ptr %11, align 8
   store ptr getelementptr inbounds ({ [16 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV9CmdSearch, i64 0, i32 3, i64 10), ptr %33, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV9CmdSearch, i64 0, i32 4, i64 3), ptr %35, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV9CmdSearch, i64 0, i32 1, i64 3), ptr %38, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV9CmdSearch, i64 1, i32 0, i64 0), ptr %35, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV9CmdSearch, i64 0, i32 2, i64 0), ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 488
   %41 = getelementptr inbounds i8, ptr %0, i64 512
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %40, i8 0, i64 48, i1 false)

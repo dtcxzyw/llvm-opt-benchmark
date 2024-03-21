@@ -1826,7 +1826,7 @@ define linkonce_odr void @_ZN3nix7CmdReplC1Ev(ptr noundef nonnull align 8 derefe
   store ptr getelementptr inbounds ({ [18 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTVN3nix7CmdReplE, i64 0, i32 0, i64 6), ptr %0, align 8
   store ptr getelementptr inbounds ({ [18 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTVN3nix7CmdReplE, i64 0, i32 1, i64 11), ptr %3, align 8
   store ptr getelementptr inbounds ({ [18 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTVN3nix7CmdReplE, i64 0, i32 2, i64 10), ptr %25, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTVN3nix7CmdReplE, i64 0, i32 3, i64 3), ptr %27, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTVN3nix7CmdReplE, i64 1, i32 0, i64 0), ptr %27, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 472
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false)
   store i8 0, ptr %2, align 1

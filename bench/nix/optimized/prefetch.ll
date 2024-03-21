@@ -6508,8 +6508,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ISt17basic_string_viewIcS
   store ptr getelementptr inbounds ({ [8 x ptr], [4 x ptr], [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTVZL21main_nix_prefetch_urliPPcE6MyArgs, i64 0, i32 3, i64 11), ptr %96, align 8
   %130 = getelementptr inbounds i8, ptr %24, i64 40
   store ptr getelementptr inbounds ({ [8 x ptr], [4 x ptr], [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTVZL21main_nix_prefetch_urliPPcE6MyArgs, i64 0, i32 1, i64 3), ptr %130, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [4 x ptr], [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTVZL21main_nix_prefetch_urliPPcE6MyArgs, i64 0, i32 2, i64 4), ptr %121, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [4 x ptr], [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTVZL21main_nix_prefetch_urliPPcE6MyArgs, i64 0, i32 4, i64 3), ptr %118, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [4 x ptr], [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTVZL21main_nix_prefetch_urliPPcE6MyArgs, i64 0, i32 3, i64 0), ptr %121, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [4 x ptr], [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTVZL21main_nix_prefetch_urliPPcE6MyArgs, i64 1, i32 0, i64 0), ptr %118, align 8
   %131 = load ptr, ptr %92, align 8
   %.not.i.i = icmp eq ptr %131, null
   br i1 %.not.i.i, label %_ZNSt8functionIFbRSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEERKS7_EED2Ev.exit, label %132
@@ -26580,7 +26580,7 @@ define linkonce_odr void @_ZN20CmdStorePrefetchFileC1Ev(ptr noundef nonnull alig
 53:                                               ; preds = %51
   store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [20 x ptr] }, ptr @_ZTV20CmdStorePrefetchFile, i64 0, i32 0, i64 8), ptr %0, align 8
   store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [20 x ptr] }, ptr @_ZTV20CmdStorePrefetchFile, i64 0, i32 2, i64 11), ptr %29, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [20 x ptr] }, ptr @_ZTV20CmdStorePrefetchFile, i64 0, i32 1, i64 3), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [20 x ptr] }, ptr @_ZTV20CmdStorePrefetchFile, i64 0, i32 2, i64 0), ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 40
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   %55 = getelementptr inbounds i8, ptr %0, i64 56

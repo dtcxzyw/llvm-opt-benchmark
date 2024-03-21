@@ -5076,10 +5076,10 @@ define linkonce_odr void @_ZN14CmdPrintDevEnvC1Ev(ptr noundef nonnull align 8 de
   store ptr getelementptr inbounds ({ [16 x ptr], [14 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV14CmdPrintDevEnv, i64 0, i32 0, i64 6), ptr %0, align 8
   store ptr getelementptr inbounds ({ [16 x ptr], [14 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV14CmdPrintDevEnv, i64 0, i32 3, i64 11), ptr %2, align 8
   store ptr getelementptr inbounds ({ [16 x ptr], [14 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV14CmdPrintDevEnv, i64 0, i32 4, i64 10), ptr %24, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr], [14 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV14CmdPrintDevEnv, i64 0, i32 5, i64 3), ptr %26, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr], [14 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV14CmdPrintDevEnv, i64 1, i32 0, i64 0), ptr %26, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 472
   store ptr getelementptr inbounds ({ [16 x ptr], [14 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV14CmdPrintDevEnv, i64 0, i32 1, i64 9), ptr %31, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr], [14 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV14CmdPrintDevEnv, i64 0, i32 2, i64 3), ptr %29, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr], [14 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV14CmdPrintDevEnv, i64 0, i32 3, i64 0), ptr %29, align 8
   ret void
 
 32:                                               ; preds = %1
@@ -64989,10 +64989,10 @@ define linkonce_odr void @_ZN10CmdDevelopC1Ev(ptr noundef nonnull align 8 derefe
   store ptr getelementptr inbounds ({ [15 x ptr], [14 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV10CmdDevelop, i64 0, i32 0, i64 6), ptr %0, align 8
   store ptr getelementptr inbounds ({ [15 x ptr], [14 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV10CmdDevelop, i64 0, i32 3, i64 11), ptr %52, align 8
   store ptr getelementptr inbounds ({ [15 x ptr], [14 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV10CmdDevelop, i64 0, i32 4, i64 10), ptr %74, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr], [14 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV10CmdDevelop, i64 0, i32 5, i64 3), ptr %76, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr], [14 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV10CmdDevelop, i64 1, i32 0, i64 0), ptr %76, align 8
   %81 = getelementptr inbounds i8, ptr %0, i64 472
   store ptr getelementptr inbounds ({ [15 x ptr], [14 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV10CmdDevelop, i64 0, i32 1, i64 9), ptr %81, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr], [14 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV10CmdDevelop, i64 0, i32 2, i64 3), ptr %79, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr], [14 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV10CmdDevelop, i64 0, i32 3, i64 0), ptr %79, align 8
   %82 = getelementptr inbounds i8, ptr %0, i64 752
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %82, i8 0, i64 24, i1 false)
   %83 = getelementptr inbounds i8, ptr %0, i64 776

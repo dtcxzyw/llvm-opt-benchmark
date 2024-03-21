@@ -1338,9 +1338,7 @@ if.end36.us:                                      ; preds = %floodout.i832.us, %
   %165 = or <2 x i64> %164, %or.i2187.us
   %or.i2181.us = or <2 x i64> %165, %state.1.us
   %vecext.i.us = extractelement <2 x i64> %or.i2181.us, i64 0
-  %cast58.i.us = bitcast <2 x i64> %or.i2181.us to <16 x i8>
-  %psrldq.i1283.us = shufflevector <16 x i8> %cast58.i.us, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>
-  %cast59.i.us = bitcast <16 x i8> %psrldq.i1283.us to <2 x i64>
+  %cast59.i.us = shufflevector <2 x i64> %or.i2181.us, <2 x i64> <i64 0, i64 poison>, <2 x i32> <i32 1, i32 2>
   %xor.i.us = xor i64 %vecext.i.us, -1
   store i64 %xor.i.us, ptr %conf0, align 8
   %add.ptr60.i.us = getelementptr inbounds i8, ptr %itPtr.1.us, i64 8
@@ -1425,9 +1423,7 @@ if.end36.us:                                      ; preds = %floodout.i832.us, %
   %or.i2160.us = or <2 x i64> %or.i2166.us, %or.i2175.us
   %or.i2157.us = or <2 x i64> %or.i2160.us, %or.i2163.us
   %vecext.i2442.us = extractelement <2 x i64> %or.i2157.us, i64 0
-  %cast122.i.us = bitcast <2 x i64> %or.i2157.us to <16 x i8>
-  %psrldq123.i.us = shufflevector <16 x i8> %cast122.i.us, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>
-  %cast124.i.us = bitcast <16 x i8> %psrldq123.i.us to <2 x i64>
+  %cast124.i.us = shufflevector <2 x i64> %or.i2157.us, <2 x i64> <i64 0, i64 poison>, <2 x i32> <i32 1, i32 2>
   %xor125.i.us = xor i64 %vecext.i2442.us, -1
   store i64 %xor125.i.us, ptr %conf8, align 8
   %tobool.i1583.not.us = icmp eq i64 %vecext.i.us, -1
@@ -2592,9 +2588,7 @@ if.end83.us:                                      ; preds = %floodout.i286.us, %
   %361 = or <2 x i64> %360, %cast36.i1692.us
   %or.i2145.us = or <2 x i64> %361, %state.2.us
   %vecext.i2444.us = extractelement <2 x i64> %or.i2145.us, i64 0
-  %cast42.i1693.us = bitcast <2 x i64> %or.i2145.us to <16 x i8>
-  %psrldq.i1694.us = shufflevector <16 x i8> %cast42.i1693.us, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>
-  %cast43.i1695.us = bitcast <16 x i8> %psrldq.i1694.us to <2 x i64>
+  %cast43.i1695.us = shufflevector <2 x i64> %or.i2145.us, <2 x i64> <i64 0, i64 poison>, <2 x i32> <i32 1, i32 2>
   %xor.i1696.us = xor i64 %vecext.i2444.us, -1
   store i64 %xor.i1696.us, ptr %conf085, align 8
   %cast44.i.us = bitcast <2 x i64> %vecinit1.i2085.us to <16 x i8>
@@ -2611,9 +2605,7 @@ if.end83.us:                                      ; preds = %floodout.i286.us, %
   %or.i2136.us = or <2 x i64> %or.i2139.us, %cast49.i.us
   %or.i2133.us = or <2 x i64> %or.i2136.us, %cast52.i.us
   %vecext.i2446.us = extractelement <2 x i64> %or.i2133.us, i64 0
-  %cast58.i1700.us = bitcast <2 x i64> %or.i2133.us to <16 x i8>
-  %psrldq59.i.us = shufflevector <16 x i8> %cast58.i1700.us, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>
-  %cast60.i.us = bitcast <16 x i8> %psrldq59.i.us to <2 x i64>
+  %cast60.i.us = shufflevector <2 x i64> %or.i2133.us, <2 x i64> <i64 0, i64 poison>, <2 x i32> <i32 1, i32 2>
   %xor61.i.us = xor i64 %vecext.i2446.us, -1
   store i64 %xor61.i.us, ptr %conf886, align 8
   %tobool.i1455.not.us = icmp eq i64 %vecext.i2444.us, -1
@@ -3745,17 +3737,13 @@ if.end135.us:                                     ; preds = %floodout.i.us, %for
   %531 = or <2 x i64> %vecinit1.i2100.us, %cast14.i.us
   %or.i2127.us = or <2 x i64> %531, %state.3.us
   %vecext.i2448.us = extractelement <2 x i64> %or.i2127.us, i64 0
-  %cast21.i.us = bitcast <2 x i64> %or.i2127.us to <16 x i8>
-  %psrldq.i1736.us = shufflevector <16 x i8> %cast21.i.us, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>
-  %cast22.i.us = bitcast <16 x i8> %psrldq.i1736.us to <2 x i64>
+  %cast22.i.us = shufflevector <2 x i64> %or.i2127.us, <2 x i64> <i64 0, i64 poison>, <2 x i32> <i32 1, i32 2>
   %xor.i1737.us = xor i64 %vecext.i2448.us, -1
   store i64 %xor.i1737.us, ptr %conf0137, align 8
   %or.i2124.us = or <2 x i64> %vecinit1.i2110.us, %cast17.i.us
   %or.i2121.us = or <2 x i64> %or.i2124.us, %cast22.i.us
   %vecext.i2450.us = extractelement <2 x i64> %or.i2121.us, i64 0
-  %cast26.i.us = bitcast <2 x i64> %or.i2121.us to <16 x i8>
-  %psrldq27.i.us = shufflevector <16 x i8> %cast26.i.us, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>
-  %cast28.i.us = bitcast <16 x i8> %psrldq27.i.us to <2 x i64>
+  %cast28.i.us = shufflevector <2 x i64> %or.i2121.us, <2 x i64> <i64 0, i64 poison>, <2 x i32> <i32 1, i32 2>
   %xor29.i.us = xor i64 %vecext.i2450.us, -1
   store i64 %xor29.i.us, ptr %conf8138, align 8
   %tobool.i1327.not.us = icmp eq i64 %vecext.i2448.us, -1

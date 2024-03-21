@@ -2357,7 +2357,7 @@ define linkonce_odr void @_ZN9CmdBundleC1Ev(ptr noundef nonnull align 8 derefere
   store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV9CmdBundle, i64 0, i32 0, i64 6), ptr %0, align 8
   store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV9CmdBundle, i64 0, i32 1, i64 11), ptr %16, align 8
   store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV9CmdBundle, i64 0, i32 2, i64 10), ptr %38, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV9CmdBundle, i64 0, i32 3, i64 3), ptr %40, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV9CmdBundle, i64 1, i32 0, i64 0), ptr %40, align 8
   %43 = getelementptr inbounds i8, ptr %0, i64 472
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull @.str.17, ptr noundef nonnull align 1 dereferenceable(1) %4)

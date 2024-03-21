@@ -2271,8 +2271,8 @@ define linkonce_odr void @_ZN23CmdMakeContentAddressedC1Ev(ptr noundef nonnull a
   store ptr getelementptr inbounds ({ [14 x ptr], [16 x ptr], [17 x ptr], [20 x ptr], [28 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV23CmdMakeContentAddressed, i64 0, i32 1, i64 10), ptr %24, align 8
   store ptr getelementptr inbounds ({ [14 x ptr], [16 x ptr], [17 x ptr], [20 x ptr], [28 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV23CmdMakeContentAddressed, i64 0, i32 3, i64 11), ptr %2, align 8
   store ptr getelementptr inbounds ({ [14 x ptr], [16 x ptr], [17 x ptr], [20 x ptr], [28 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV23CmdMakeContentAddressed, i64 0, i32 4, i64 17), ptr %32, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr], [16 x ptr], [17 x ptr], [20 x ptr], [28 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV23CmdMakeContentAddressed, i64 0, i32 5, i64 3), ptr %28, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr], [16 x ptr], [17 x ptr], [20 x ptr], [28 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV23CmdMakeContentAddressed, i64 0, i32 6, i64 3), ptr %30, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr], [16 x ptr], [17 x ptr], [20 x ptr], [28 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV23CmdMakeContentAddressed, i64 0, i32 6, i64 0), ptr %28, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr], [16 x ptr], [17 x ptr], [20 x ptr], [28 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV23CmdMakeContentAddressed, i64 1, i32 0, i64 0), ptr %30, align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 796
   store i32 0, ptr %35, align 4
   ret void

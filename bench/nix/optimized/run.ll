@@ -16627,7 +16627,7 @@ define linkonce_odr void @_ZN8CmdShellC1Ev(ptr noundef nonnull align 8 dereferen
   store ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC8CmdShell0_N3nix19InstallablesCommandE, i64 0, i32 0, i64 6), ptr %0, align 8
   store ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC8CmdShell0_N3nix19InstallablesCommandE, i64 0, i32 1, i64 11), ptr %14, align 8
   store ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC8CmdShell0_N3nix19InstallablesCommandE, i64 0, i32 2, i64 10), ptr %36, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC8CmdShell0_N3nix19InstallablesCommandE, i64 0, i32 3, i64 3), ptr %38, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC8CmdShell0_N3nix19InstallablesCommandE, i64 1, i32 0, i64 0), ptr %38, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 472
   invoke void @_ZN3nix14MixEnvironmentC2Ev(ptr noundef nonnull align 8 dereferenceable(153) %41, ptr noundef nonnull getelementptr inbounds ([43 x ptr], ptr @_ZTT8CmdShell, i64 0, i64 29))
           to label %42 unwind label %149
@@ -16636,8 +16636,8 @@ define linkonce_odr void @_ZN8CmdShellC1Ev(ptr noundef nonnull align 8 dereferen
   store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV8CmdShell, i64 0, i32 0, i64 6), ptr %0, align 8
   store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV8CmdShell, i64 0, i32 2, i64 11), ptr %14, align 8
   store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV8CmdShell, i64 0, i32 3, i64 10), ptr %36, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV8CmdShell, i64 0, i32 4, i64 3), ptr %38, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV8CmdShell, i64 0, i32 1, i64 3), ptr %41, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV8CmdShell, i64 1, i32 0, i64 0), ptr %38, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV8CmdShell, i64 0, i32 2, i64 0), ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %0, i64 632
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #28
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.56, ptr noundef nonnull align 1 dereferenceable(1) %6)
@@ -25207,7 +25207,7 @@ define linkonce_odr void @_ZN6CmdRunC1Ev(ptr noundef nonnull align 8 dereference
   store ptr getelementptr inbounds ({ [16 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV6CmdRun, i64 0, i32 0, i64 6), ptr %0, align 8
   store ptr getelementptr inbounds ({ [16 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV6CmdRun, i64 0, i32 1, i64 11), ptr %4, align 8
   store ptr getelementptr inbounds ({ [16 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV6CmdRun, i64 0, i32 2, i64 10), ptr %26, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV6CmdRun, i64 0, i32 3, i64 3), ptr %28, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV6CmdRun, i64 1, i32 0, i64 0), ptr %28, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 472
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #28

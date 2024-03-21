@@ -1801,7 +1801,7 @@ define linkonce_odr void @_ZN17CmdShowDerivationC1Ev(ptr noundef nonnull align 8
   store ptr getelementptr inbounds ({ [18 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdShowDerivation, i64 0, i32 0, i64 6), ptr %0, align 8
   store ptr getelementptr inbounds ({ [18 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdShowDerivation, i64 0, i32 1, i64 11), ptr %6, align 8
   store ptr getelementptr inbounds ({ [18 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdShowDerivation, i64 0, i32 2, i64 10), ptr %28, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdShowDerivation, i64 0, i32 3, i64 3), ptr %30, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdShowDerivation, i64 1, i32 0, i64 0), ptr %30, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 472
   store i8 0, ptr %33, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23

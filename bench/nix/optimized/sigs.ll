@@ -2552,8 +2552,8 @@ define linkonce_odr void @_ZN11CmdCopySigsC1Ev(ptr noundef nonnull align 8 deref
   store ptr getelementptr inbounds ({ [19 x ptr], [20 x ptr], [17 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV11CmdCopySigs, i64 0, i32 0, i64 7), ptr %0, align 8
   store ptr getelementptr inbounds ({ [19 x ptr], [20 x ptr], [17 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV11CmdCopySigs, i64 0, i32 1, i64 11), ptr %9, align 8
   store ptr getelementptr inbounds ({ [19 x ptr], [20 x ptr], [17 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV11CmdCopySigs, i64 0, i32 2, i64 10), ptr %31, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr], [20 x ptr], [17 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV11CmdCopySigs, i64 0, i32 3, i64 3), ptr %33, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr], [20 x ptr], [17 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV11CmdCopySigs, i64 0, i32 4, i64 3), ptr %35, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr], [20 x ptr], [17 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV11CmdCopySigs, i64 0, i32 4, i64 0), ptr %33, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr], [20 x ptr], [17 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV11CmdCopySigs, i64 1, i32 0, i64 0), ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 480
   %39 = getelementptr inbounds i8, ptr %0, i64 488
   store ptr %38, ptr %39, align 8
@@ -20121,8 +20121,8 @@ define linkonce_odr void @_ZN7CmdSignC1Ev(ptr noundef nonnull align 8 dereferenc
   store ptr getelementptr inbounds ({ [19 x ptr], [20 x ptr], [17 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV7CmdSign, i64 0, i32 0, i64 7), ptr %0, align 8
   store ptr getelementptr inbounds ({ [19 x ptr], [20 x ptr], [17 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV7CmdSign, i64 0, i32 1, i64 11), ptr %9, align 8
   store ptr getelementptr inbounds ({ [19 x ptr], [20 x ptr], [17 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV7CmdSign, i64 0, i32 2, i64 10), ptr %31, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr], [20 x ptr], [17 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV7CmdSign, i64 0, i32 3, i64 3), ptr %33, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr], [20 x ptr], [17 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV7CmdSign, i64 0, i32 4, i64 3), ptr %35, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr], [20 x ptr], [17 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV7CmdSign, i64 0, i32 4, i64 0), ptr %33, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr], [20 x ptr], [17 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV7CmdSign, i64 1, i32 0, i64 0), ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 480
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   %39 = getelementptr inbounds i8, ptr %0, i64 496
@@ -20356,9 +20356,9 @@ define linkonce_odr void @_ZN7CmdSignD1Ev(ptr noundef nonnull align 8 dereferenc
   %3 = getelementptr inbounds i8, ptr %0, i64 720
   store ptr getelementptr inbounds ({ [19 x ptr], [20 x ptr], [17 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV7CmdSign, i64 0, i32 2, i64 10), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 744
-  store ptr getelementptr inbounds ({ [19 x ptr], [20 x ptr], [17 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV7CmdSign, i64 0, i32 3, i64 3), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr], [20 x ptr], [17 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV7CmdSign, i64 0, i32 4, i64 0), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 760
-  store ptr getelementptr inbounds ({ [19 x ptr], [20 x ptr], [17 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV7CmdSign, i64 0, i32 4, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr], [20 x ptr], [17 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV7CmdSign, i64 1, i32 0, i64 0), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 480
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 496

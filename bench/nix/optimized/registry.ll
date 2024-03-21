@@ -15125,9 +15125,9 @@ define linkonce_odr void @_ZN14CmdRegistryAddC1Ev(ptr noundef nonnull align 8 de
 35:                                               ; preds = %32
   store ptr getelementptr inbounds ({ [9 x ptr], [8 x ptr], [3 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV14CmdRegistryAdd, i64 0, i32 0, i64 4), ptr %0, align 8
   store ptr getelementptr inbounds ({ [9 x ptr], [8 x ptr], [3 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV14CmdRegistryAdd, i64 0, i32 3, i64 11), ptr %8, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr], [8 x ptr], [3 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV14CmdRegistryAdd, i64 0, i32 4, i64 3), ptr %30, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [8 x ptr], [3 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV14CmdRegistryAdd, i64 1, i32 0, i64 0), ptr %30, align 8
   store ptr getelementptr inbounds ({ [9 x ptr], [8 x ptr], [3 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV14CmdRegistryAdd, i64 0, i32 1, i64 3), ptr %33, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr], [8 x ptr], [3 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV14CmdRegistryAdd, i64 0, i32 2, i64 3), ptr %34, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [8 x ptr], [3 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV14CmdRegistryAdd, i64 0, i32 3, i64 0), ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 184
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   %37 = getelementptr inbounds i8, ptr %0, i64 200
@@ -20521,7 +20521,7 @@ define linkonce_odr void @_ZN14CmdRegistryPinC1Ev(ptr noundef nonnull align 8 de
   store ptr getelementptr inbounds ({ [11 x ptr], [8 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV14CmdRegistryPin, i64 0, i32 2, i64 11), ptr %8, align 8
   store ptr getelementptr inbounds ({ [11 x ptr], [8 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV14CmdRegistryPin, i64 0, i32 1, i64 6), ptr %35, align 8
   store ptr getelementptr inbounds ({ [11 x ptr], [8 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV14CmdRegistryPin, i64 0, i32 3, i64 10), ptr %30, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr], [8 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV14CmdRegistryPin, i64 0, i32 4, i64 3), ptr %32, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr], [8 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV14CmdRegistryPin, i64 1, i32 0, i64 0), ptr %32, align 8
   %37 = getelementptr inbounds i8, ptr %0, i64 216
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   %38 = getelementptr inbounds i8, ptr %0, i64 232

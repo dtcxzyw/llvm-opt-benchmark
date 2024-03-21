@@ -2062,7 +2062,7 @@ define linkonce_odr void @_ZN12CmdPingStoreC1Ev(ptr noundef nonnull align 8 dere
 26:                                               ; preds = %24
   store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [20 x ptr] }, ptr @_ZTV12CmdPingStore, i64 0, i32 0, i64 8), ptr %0, align 8
   store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [20 x ptr] }, ptr @_ZTV12CmdPingStore, i64 0, i32 2, i64 11), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [20 x ptr] }, ptr @_ZTV12CmdPingStore, i64 0, i32 1, i64 3), ptr %25, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [20 x ptr] }, ptr @_ZTV12CmdPingStore, i64 0, i32 2, i64 0), ptr %25, align 8
   ret void
 
 27:                                               ; preds = %1
@@ -21767,7 +21767,7 @@ define linkonce_odr void @_ZN12CmdInfoStoreC1Ev(ptr noundef nonnull align 8 dere
 27:                                               ; preds = %.noexc
   store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [20 x ptr] }, ptr @_ZTV12CmdInfoStore, i64 0, i32 0, i64 8), ptr %0, align 8
   store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [20 x ptr] }, ptr @_ZTV12CmdInfoStore, i64 0, i32 2, i64 11), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [20 x ptr] }, ptr @_ZTV12CmdInfoStore, i64 0, i32 1, i64 3), ptr %24, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [20 x ptr] }, ptr @_ZTV12CmdInfoStore, i64 0, i32 2, i64 0), ptr %24, align 8
   ret void
 
 28:                                               ; preds = %1

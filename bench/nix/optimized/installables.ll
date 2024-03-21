@@ -5170,7 +5170,7 @@ define void @_ZN3nix17MixReadOnlyOptionC1Ev(ptr noundef nonnull align 8 derefere
   store ptr %23, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTVN3nix17MixReadOnlyOptionE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTVN3nix17MixReadOnlyOptionE, i64 0, i32 1, i64 0), ptr %0, align 8
   store ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTVN3nix17MixReadOnlyOptionE, i64 0, i32 1, i64 11), ptr %6, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #28
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.36, ptr noundef nonnull align 1 dereferenceable(1) %4)

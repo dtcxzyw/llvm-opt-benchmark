@@ -2512,7 +2512,7 @@ define linkonce_odr void @_ZN8CmdBuildC1Ev(ptr noundef nonnull align 8 dereferen
   store ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC8CmdBuild0_N3nix19InstallablesCommandE, i64 0, i32 0, i64 6), ptr %0, align 8
   store ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC8CmdBuild0_N3nix19InstallablesCommandE, i64 0, i32 1, i64 11), ptr %23, align 8
   store ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC8CmdBuild0_N3nix19InstallablesCommandE, i64 0, i32 2, i64 10), ptr %45, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC8CmdBuild0_N3nix19InstallablesCommandE, i64 0, i32 3, i64 3), ptr %47, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC8CmdBuild0_N3nix19InstallablesCommandE, i64 1, i32 0, i64 0), ptr %47, align 8
   %50 = getelementptr inbounds i8, ptr %0, i64 472
   invoke void @_ZN3nix9MixDryRunC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %50, ptr noundef nonnull getelementptr inbounds ([51 x ptr], ptr @_ZTT8CmdBuild, i64 0, i64 29))
           to label %51 unwind label %197
@@ -2531,9 +2531,9 @@ define linkonce_odr void @_ZN8CmdBuildC1Ev(ptr noundef nonnull align 8 dereferen
   store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [3 x ptr], [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV8CmdBuild, i64 0, i32 0, i64 6), ptr %0, align 8
   store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [3 x ptr], [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV8CmdBuild, i64 0, i32 4, i64 11), ptr %23, align 8
   store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [3 x ptr], [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV8CmdBuild, i64 0, i32 5, i64 10), ptr %45, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [3 x ptr], [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV8CmdBuild, i64 0, i32 6, i64 3), ptr %47, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [3 x ptr], [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV8CmdBuild, i64 0, i32 1, i64 3), ptr %50, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [3 x ptr], [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV8CmdBuild, i64 0, i32 2, i64 3), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [3 x ptr], [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV8CmdBuild, i64 1, i32 0, i64 0), ptr %47, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [3 x ptr], [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV8CmdBuild, i64 0, i32 2, i64 0), ptr %50, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [3 x ptr], [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV8CmdBuild, i64 0, i32 3, i64 0), ptr %52, align 8
   store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [3 x ptr], [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV8CmdBuild, i64 0, i32 3, i64 9), ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %0, i64 552
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #26

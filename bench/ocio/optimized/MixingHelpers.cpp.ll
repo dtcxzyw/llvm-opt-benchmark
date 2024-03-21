@@ -349,7 +349,7 @@ if.else.i:                                        ; preds = %cond.true
 if.then2.i:                                       ; preds = %if.else.i
   %sub.i = fadd float %3, 0xBFEAAF0400000000
   %div3.i = fdiv float %sub.i, 0x3FE19999A0000000
-  %__exp10f.i = tail call float @__exp10f(float %div3.i) #17
+  %call.i.i = tail call noundef float @powf(float noundef 1.000000e+01, float noundef %div3.i) #17
   br label %cond.end
 
 if.else4.i:                                       ; preds = %if.else.i
@@ -357,7 +357,7 @@ if.else4.i:                                       ; preds = %if.else.i
   br label %cond.end
 
 cond.end:                                         ; preds = %if.else4.i, %if.then2.i, %if.then.i, %entry
-  %cond = phi float [ %3, %entry ], [ %div.i, %if.then.i ], [ %__exp10f.i, %if.then2.i ], [ %square.i, %if.else4.i ]
+  %cond = phi float [ %3, %entry ], [ %div.i, %if.then.i ], [ %call.i.i, %if.then2.i ], [ %square.i, %if.else4.i ]
   ret float %cond
 }
 
@@ -4186,8 +4186,6 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 
 ; Function Attrs: nounwind
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #9
-
-declare float @__exp10f(float) local_unnamed_addr
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #16

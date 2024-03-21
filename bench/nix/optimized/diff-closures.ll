@@ -45893,8 +45893,8 @@ define linkonce_odr void @_ZN15CmdDiffClosuresC1Ev(ptr noundef nonnull align 8 d
   store ptr getelementptr inbounds ({ [14 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV15CmdDiffClosures, i64 0, i32 0, i64 6), ptr %0, align 8
   store ptr getelementptr inbounds ({ [14 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV15CmdDiffClosures, i64 0, i32 2, i64 11), ptr %8, align 8
   store ptr getelementptr inbounds ({ [14 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV15CmdDiffClosures, i64 0, i32 3, i64 10), ptr %30, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV15CmdDiffClosures, i64 0, i32 4, i64 3), ptr %32, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV15CmdDiffClosures, i64 0, i32 1, i64 3), ptr %35, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV15CmdDiffClosures, i64 1, i32 0, i64 0), ptr %32, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV15CmdDiffClosures, i64 0, i32 2, i64 0), ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %0, i64 456
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   %38 = getelementptr inbounds i8, ptr %0, i64 472

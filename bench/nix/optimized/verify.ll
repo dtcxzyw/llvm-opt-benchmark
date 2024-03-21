@@ -2285,8 +2285,8 @@ define linkonce_odr void @_ZN9CmdVerifyC1Ev(ptr noundef nonnull align 8 derefere
   store ptr getelementptr inbounds ({ [20 x ptr], [20 x ptr], [17 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV9CmdVerify, i64 0, i32 0, i64 7), ptr %0, align 8
   store ptr getelementptr inbounds ({ [20 x ptr], [20 x ptr], [17 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV9CmdVerify, i64 0, i32 1, i64 11), ptr %23, align 8
   store ptr getelementptr inbounds ({ [20 x ptr], [20 x ptr], [17 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV9CmdVerify, i64 0, i32 2, i64 10), ptr %45, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr], [20 x ptr], [17 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV9CmdVerify, i64 0, i32 3, i64 3), ptr %47, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr], [20 x ptr], [17 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV9CmdVerify, i64 0, i32 4, i64 3), ptr %49, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr], [20 x ptr], [17 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV9CmdVerify, i64 0, i32 4, i64 0), ptr %47, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr], [20 x ptr], [17 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV9CmdVerify, i64 1, i32 0, i64 0), ptr %49, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 480
   store i8 0, ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 481

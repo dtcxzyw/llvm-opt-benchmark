@@ -80904,22 +80904,22 @@ if.end.i:                                         ; preds = %_ZN6duckdb14Constan
 if.then.i.i.i:                                    ; preds = %if.end.i
   %fneg.i.i.i = fneg float %conv.i.i.i
   %conv1.i.i.i.i = fpext float %fneg.i.i.i to double
-  %__exp102 = tail call double @__exp10(double %conv1.i.i.i.i)
+  %call.i.i.i.i = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %conv1.i.i.i.i) #20
   %conv1.i.i.i = fpext float %9 to double
-  %div.i.i.i = fdiv double %conv1.i.i.i, %__exp102
+  %div.i.i.i = fdiv double %conv1.i.i.i, %call.i.i.i.i
   %11 = tail call double @llvm.round.f64(double %div.i.i.i)
-  %mul.i.i.i = fmul double %__exp102, %11
+  %mul.i.i.i = fmul double %call.i.i.i.i, %11
   %12 = tail call double @llvm.fabs.f64(double %mul.i.i.i)
   %or.cond.i.i.i = fcmp ueq double %12, 0x7FF0000000000000
   br i1 %or.cond.i.i.i, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEfifEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i, label %if.end19.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.end.i
   %conv1.i34.i.i.i = fpext float %conv.i.i.i to double
-  %__exp10 = tail call double @__exp10(double %conv1.i34.i.i.i)
+  %call.i35.i.i.i = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %conv1.i34.i.i.i) #20
   %conv8.i.i.i = fpext float %9 to double
-  %mul9.i.i.i = fmul double %__exp10, %conv8.i.i.i
+  %mul9.i.i.i = fmul double %call.i35.i.i.i, %conv8.i.i.i
   %13 = tail call double @llvm.round.f64(double %mul9.i.i.i)
-  %div10.i.i.i = fdiv double %13, %__exp10
+  %div10.i.i.i = fdiv double %13, %call.i35.i.i.i
   %14 = tail call double @llvm.fabs.f64(double %div10.i.i.i)
   %or.cond36.i.i.i = fcmp ueq double %14, 0x7FF0000000000000
   br i1 %or.cond36.i.i.i, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEfifEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i, label %if.end19.i.i.i
@@ -81617,11 +81617,11 @@ for.body42.us:                                    ; preds = %for.body42.lr.ph, %
   %i.0154.us = phi i64 [ %inc51.us, %for.body42.us ], [ 0, %for.body42.lr.ph ]
   %arrayidx44.us = getelementptr inbounds float, ptr %ldata, i64 %i.0154.us
   %2 = load float, ptr %arrayidx44.us, align 4, !tbaa !384
-  %__exp105 = tail call double @__exp10(double %conv1.i.i.i134)
+  %call.i.i.i135.us = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %conv1.i.i.i134) #20
   %conv1.i.i136.us = fpext float %2 to double
-  %div.i.i137.us = fdiv double %conv1.i.i136.us, %__exp105
+  %div.i.i137.us = fdiv double %conv1.i.i136.us, %call.i.i.i135.us
   %3 = tail call double @llvm.round.f64(double %div.i.i137.us)
-  %mul.i.i138.us = fmul double %__exp105, %3
+  %mul.i.i138.us = fmul double %call.i.i.i135.us, %3
   %4 = tail call double @llvm.fabs.f64(double %mul.i.i138.us)
   %or.cond.i.i139.us = fcmp ueq double %4, 0x7FF0000000000000
   %conv20.i.i130.us = fptrunc double %mul.i.i138.us to float
@@ -81681,11 +81681,11 @@ for.body9.us:                                     ; preds = %for.body9.lr.ph, %f
   %base_idx.1146.us = phi i64 [ %inc.us, %for.body9.us ], [ %base_idx.0152, %for.body9.lr.ph ]
   %arrayidx.us = getelementptr inbounds float, ptr %ldata, i64 %base_idx.1146.us
   %8 = load float, ptr %arrayidx.us, align 4, !tbaa !384
-  %__exp103 = tail call double @__exp10(double %conv1.i.i.i)
+  %call.i.i.i.us = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %conv1.i.i.i) #20
   %conv1.i.i.us = fpext float %8 to double
-  %div.i.i.us = fdiv double %conv1.i.i.us, %__exp103
+  %div.i.i.us = fdiv double %conv1.i.i.us, %call.i.i.i.us
   %9 = tail call double @llvm.round.f64(double %div.i.i.us)
-  %mul.i.i.us = fmul double %__exp103, %9
+  %mul.i.i.us = fmul double %call.i.i.i.us, %9
   %10 = tail call double @llvm.fabs.f64(double %mul.i.i.us)
   %or.cond.i.i.us = fcmp ueq double %10, 0x7FF0000000000000
   %conv20.i.i.us = fptrunc double %mul.i.i.us to float
@@ -81704,11 +81704,11 @@ for.body9:                                        ; preds = %for.body9.lr.ph, %f
   %base_idx.1146 = phi i64 [ %inc, %for.body9 ], [ %base_idx.0152, %for.body9.lr.ph ]
   %arrayidx = getelementptr inbounds float, ptr %ldata, i64 %base_idx.1146
   %11 = load float, ptr %arrayidx, align 4, !tbaa !384
-  %__exp102 = tail call double @__exp10(double %conv1.i34.i.i)
+  %call.i35.i.i = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %conv1.i34.i.i) #20
   %conv8.i.i = fpext float %11 to double
-  %mul9.i.i = fmul double %__exp102, %conv8.i.i
+  %mul9.i.i = fmul double %call.i35.i.i, %conv8.i.i
   %12 = tail call double @llvm.round.f64(double %mul9.i.i)
-  %div10.i.i = fdiv double %12, %__exp102
+  %div10.i.i = fdiv double %12, %call.i35.i.i
   %13 = tail call double @llvm.fabs.f64(double %div10.i.i)
   %or.cond36.i.i = fcmp ueq double %13, 0x7FF0000000000000
   %conv20.i.i = fptrunc double %div10.i.i to float
@@ -81738,22 +81738,22 @@ if.then20:                                        ; preds = %for.body18
 if.then.i.i110:                                   ; preds = %if.then20
   %fneg.i.i111 = fneg float %conv.i.i98
   %conv1.i.i.i112 = fpext float %fneg.i.i111 to double
-  %__exp101 = tail call double @__exp10(double %conv1.i.i.i112)
+  %call.i.i.i113 = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %conv1.i.i.i112) #20
   %conv1.i.i114 = fpext float %14 to double
-  %div.i.i115 = fdiv double %conv1.i.i114, %__exp101
+  %div.i.i115 = fdiv double %conv1.i.i114, %call.i.i.i113
   %16 = tail call double @llvm.round.f64(double %div.i.i115)
-  %mul.i.i116 = fmul double %__exp101, %16
+  %mul.i.i116 = fmul double %call.i.i.i113, %16
   %17 = tail call double @llvm.fabs.f64(double %mul.i.i116)
   %or.cond.i.i117 = fcmp ueq double %17, 0x7FF0000000000000
   br i1 %or.cond.i.i117, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEfifEET3_T_T1_T2_RNS_12ValidityMaskEm.exit118, label %if.end19.i.i106
 
 if.else.i.i99:                                    ; preds = %if.then20
   %conv1.i34.i.i100 = fpext float %conv.i.i98 to double
-  %__exp10 = tail call double @__exp10(double %conv1.i34.i.i100)
+  %call.i35.i.i101 = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %conv1.i34.i.i100) #20
   %conv8.i.i102 = fpext float %14 to double
-  %mul9.i.i103 = fmul double %__exp10, %conv8.i.i102
+  %mul9.i.i103 = fmul double %call.i35.i.i101, %conv8.i.i102
   %18 = tail call double @llvm.round.f64(double %mul9.i.i103)
-  %div10.i.i104 = fdiv double %18, %__exp10
+  %div10.i.i104 = fdiv double %18, %call.i35.i.i101
   %19 = tail call double @llvm.fabs.f64(double %div10.i.i104)
   %or.cond36.i.i105 = fcmp ueq double %19, 0x7FF0000000000000
   br i1 %or.cond36.i.i105, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEfifEET3_T_T1_T2_RNS_12ValidityMaskEm.exit118, label %if.end19.i.i106
@@ -81784,11 +81784,11 @@ for.body42:                                       ; preds = %for.body42.lr.ph, %
   %i.0154 = phi i64 [ %inc51, %for.body42 ], [ 0, %for.body42.lr.ph ]
   %arrayidx44 = getelementptr inbounds float, ptr %ldata, i64 %i.0154
   %20 = load float, ptr %arrayidx44, align 4, !tbaa !384
-  %__exp104 = tail call double @__exp10(double %conv1.i34.i.i122)
+  %call.i35.i.i123 = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %conv1.i34.i.i122) #20
   %conv8.i.i124 = fpext float %20 to double
-  %mul9.i.i125 = fmul double %__exp104, %conv8.i.i124
+  %mul9.i.i125 = fmul double %call.i35.i.i123, %conv8.i.i124
   %21 = tail call double @llvm.round.f64(double %mul9.i.i125)
-  %div10.i.i126 = fdiv double %21, %__exp104
+  %div10.i.i126 = fdiv double %21, %call.i35.i.i123
   %22 = tail call double @llvm.fabs.f64(double %div10.i.i126)
   %or.cond36.i.i127 = fcmp ueq double %22, 0x7FF0000000000000
   %conv20.i.i130 = fptrunc double %div10.i.i126 to float
@@ -81875,20 +81875,20 @@ for.body9:                                        ; preds = %_ZN6duckdb29BinaryS
 if.then.i.i:                                      ; preds = %for.body9
   %fneg.i.i = fneg float %conv.i.i
   %conv1.i.i.i = fpext float %fneg.i.i to double
-  %__exp103 = tail call double @__exp10(double %conv1.i.i.i)
-  %div.i.i = fdiv double %conv8.i.i, %__exp103
+  %call.i.i.i = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %conv1.i.i.i) #20
+  %div.i.i = fdiv double %conv8.i.i, %call.i.i.i
   %6 = tail call double @llvm.round.f64(double %div.i.i)
-  %mul.i.i = fmul double %__exp103, %6
+  %mul.i.i = fmul double %call.i.i.i, %6
   %7 = tail call double @llvm.fabs.f64(double %mul.i.i)
   %or.cond.i.i = fcmp ueq double %7, 0x7FF0000000000000
   br i1 %or.cond.i.i, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEfifEET3_T_T1_T2_RNS_12ValidityMaskEm.exit, label %if.end19.i.i
 
 if.else.i.i:                                      ; preds = %for.body9
   %conv1.i34.i.i = fpext float %conv.i.i to double
-  %__exp102 = tail call double @__exp10(double %conv1.i34.i.i)
-  %mul9.i.i = fmul double %__exp102, %conv8.i.i
+  %call.i35.i.i = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %conv1.i34.i.i) #20
+  %mul9.i.i = fmul double %call.i35.i.i, %conv8.i.i
   %8 = tail call double @llvm.round.f64(double %mul9.i.i)
-  %div10.i.i = fdiv double %8, %__exp102
+  %div10.i.i = fdiv double %8, %call.i35.i.i
   %9 = tail call double @llvm.fabs.f64(double %div10.i.i)
   %or.cond36.i.i = fcmp ueq double %9, 0x7FF0000000000000
   br i1 %or.cond36.i.i, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEfifEET3_T_T1_T2_RNS_12ValidityMaskEm.exit, label %if.end19.i.i
@@ -81925,22 +81925,22 @@ if.then20:                                        ; preds = %for.body18
 if.then.i.i110:                                   ; preds = %if.then20
   %fneg.i.i111 = fneg float %conv.i.i98
   %conv1.i.i.i112 = fpext float %fneg.i.i111 to double
-  %__exp101 = tail call double @__exp10(double %conv1.i.i.i112)
+  %call.i.i.i113 = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %conv1.i.i.i112) #20
   %conv1.i.i114 = fpext float %10 to double
-  %div.i.i115 = fdiv double %conv1.i.i114, %__exp101
+  %div.i.i115 = fdiv double %conv1.i.i114, %call.i.i.i113
   %12 = tail call double @llvm.round.f64(double %div.i.i115)
-  %mul.i.i116 = fmul double %__exp101, %12
+  %mul.i.i116 = fmul double %call.i.i.i113, %12
   %13 = tail call double @llvm.fabs.f64(double %mul.i.i116)
   %or.cond.i.i117 = fcmp ueq double %13, 0x7FF0000000000000
   br i1 %or.cond.i.i117, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEfifEET3_T_T1_T2_RNS_12ValidityMaskEm.exit118, label %if.end19.i.i106
 
 if.else.i.i99:                                    ; preds = %if.then20
   %conv1.i34.i.i100 = fpext float %conv.i.i98 to double
-  %__exp10 = tail call double @__exp10(double %conv1.i34.i.i100)
+  %call.i35.i.i101 = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %conv1.i34.i.i100) #20
   %conv8.i.i102 = fpext float %10 to double
-  %mul9.i.i103 = fmul double %__exp10, %conv8.i.i102
+  %mul9.i.i103 = fmul double %call.i35.i.i101, %conv8.i.i102
   %14 = tail call double @llvm.round.f64(double %mul9.i.i103)
-  %div10.i.i104 = fdiv double %14, %__exp10
+  %div10.i.i104 = fdiv double %14, %call.i35.i.i101
   %15 = tail call double @llvm.fabs.f64(double %div10.i.i104)
   %or.cond36.i.i105 = fcmp ueq double %15, 0x7FF0000000000000
   br i1 %or.cond36.i.i105, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEfifEET3_T_T1_T2_RNS_12ValidityMaskEm.exit118, label %if.end19.i.i106
@@ -81978,20 +81978,20 @@ for.body42:                                       ; preds = %_ZN6duckdb29BinaryS
 if.then.i.i132:                                   ; preds = %for.body42
   %fneg.i.i133 = fneg float %conv.i.i120
   %conv1.i.i.i134 = fpext float %fneg.i.i133 to double
-  %__exp105 = tail call double @__exp10(double %conv1.i.i.i134)
-  %div.i.i137 = fdiv double %conv8.i.i124, %__exp105
+  %call.i.i.i135 = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %conv1.i.i.i134) #20
+  %div.i.i137 = fdiv double %conv8.i.i124, %call.i.i.i135
   %17 = tail call double @llvm.round.f64(double %div.i.i137)
-  %mul.i.i138 = fmul double %__exp105, %17
+  %mul.i.i138 = fmul double %call.i.i.i135, %17
   %18 = tail call double @llvm.fabs.f64(double %mul.i.i138)
   %or.cond.i.i139 = fcmp ueq double %18, 0x7FF0000000000000
   br i1 %or.cond.i.i139, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEfifEET3_T_T1_T2_RNS_12ValidityMaskEm.exit140, label %if.end19.i.i128
 
 if.else.i.i121:                                   ; preds = %for.body42
   %conv1.i34.i.i122 = fpext float %conv.i.i120 to double
-  %__exp104 = tail call double @__exp10(double %conv1.i34.i.i122)
-  %mul9.i.i125 = fmul double %__exp104, %conv8.i.i124
+  %call.i35.i.i123 = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %conv1.i34.i.i122) #20
+  %mul9.i.i125 = fmul double %call.i35.i.i123, %conv8.i.i124
   %19 = tail call double @llvm.round.f64(double %mul9.i.i125)
-  %div10.i.i126 = fdiv double %19, %__exp104
+  %div10.i.i126 = fdiv double %19, %call.i35.i.i123
   %20 = tail call double @llvm.fabs.f64(double %div10.i.i126)
   %or.cond36.i.i127 = fcmp ueq double %20, 0x7FF0000000000000
   br i1 %or.cond36.i.i127, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEfifEET3_T_T1_T2_RNS_12ValidityMaskEm.exit140, label %if.end19.i.i128
@@ -82077,22 +82077,22 @@ for.body11:                                       ; preds = %for.cond9.preheader
 if.then.i.i:                                      ; preds = %for.body11
   %fneg.i.i = fneg float %conv.i.i
   %conv1.i.i.i = fpext float %fneg.i.i to double
-  %__exp103 = tail call double @__exp10(double %conv1.i.i.i)
+  %call.i.i.i = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %conv1.i.i.i) #20
   %conv1.i.i = fpext float %3 to double
-  %div.i.i = fdiv double %conv1.i.i, %__exp103
+  %div.i.i = fdiv double %conv1.i.i, %call.i.i.i
   %5 = tail call double @llvm.round.f64(double %div.i.i)
-  %mul.i.i = fmul double %__exp103, %5
+  %mul.i.i = fmul double %call.i.i.i, %5
   %6 = tail call double @llvm.fabs.f64(double %mul.i.i)
   %or.cond.i.i = fcmp ueq double %6, 0x7FF0000000000000
   br i1 %or.cond.i.i, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEfifEET3_T_T1_T2_RNS_12ValidityMaskEm.exit, label %if.end19.i.i
 
 if.else.i.i:                                      ; preds = %for.body11
   %conv1.i34.i.i = fpext float %conv.i.i to double
-  %__exp102 = tail call double @__exp10(double %conv1.i34.i.i)
+  %call.i35.i.i = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %conv1.i34.i.i) #20
   %conv8.i.i = fpext float %3 to double
-  %mul9.i.i = fmul double %__exp102, %conv8.i.i
+  %mul9.i.i = fmul double %call.i35.i.i, %conv8.i.i
   %7 = tail call double @llvm.round.f64(double %mul9.i.i)
-  %div10.i.i = fdiv double %7, %__exp102
+  %div10.i.i = fdiv double %7, %call.i35.i.i
   %8 = tail call double @llvm.fabs.f64(double %div10.i.i)
   %or.cond36.i.i = fcmp ueq double %8, 0x7FF0000000000000
   br i1 %or.cond36.i.i, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEfifEET3_T_T1_T2_RNS_12ValidityMaskEm.exit, label %if.end19.i.i
@@ -82130,22 +82130,22 @@ if.then22:                                        ; preds = %for.body20
 if.then.i.i121:                                   ; preds = %if.then22
   %fneg.i.i122 = fneg float %conv.i.i109
   %conv1.i.i.i123 = fpext float %fneg.i.i122 to double
-  %__exp101 = tail call double @__exp10(double %conv1.i.i.i123)
+  %call.i.i.i124 = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %conv1.i.i.i123) #20
   %conv1.i.i125 = fpext float %9 to double
-  %div.i.i126 = fdiv double %conv1.i.i125, %__exp101
+  %div.i.i126 = fdiv double %conv1.i.i125, %call.i.i.i124
   %11 = tail call double @llvm.round.f64(double %div.i.i126)
-  %mul.i.i127 = fmul double %__exp101, %11
+  %mul.i.i127 = fmul double %call.i.i.i124, %11
   %12 = tail call double @llvm.fabs.f64(double %mul.i.i127)
   %or.cond.i.i128 = fcmp ueq double %12, 0x7FF0000000000000
   br i1 %or.cond.i.i128, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEfifEET3_T_T1_T2_RNS_12ValidityMaskEm.exit129, label %if.end19.i.i117
 
 if.else.i.i110:                                   ; preds = %if.then22
   %conv1.i34.i.i111 = fpext float %conv.i.i109 to double
-  %__exp10 = tail call double @__exp10(double %conv1.i34.i.i111)
+  %call.i35.i.i112 = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %conv1.i34.i.i111) #20
   %conv8.i.i113 = fpext float %9 to double
-  %mul9.i.i114 = fmul double %__exp10, %conv8.i.i113
+  %mul9.i.i114 = fmul double %call.i35.i.i112, %conv8.i.i113
   %13 = tail call double @llvm.round.f64(double %mul9.i.i114)
-  %div10.i.i115 = fdiv double %13, %__exp10
+  %div10.i.i115 = fdiv double %13, %call.i35.i.i112
   %14 = tail call double @llvm.fabs.f64(double %div10.i.i115)
   %or.cond36.i.i116 = fcmp ueq double %14, 0x7FF0000000000000
   br i1 %or.cond36.i.i116, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEfifEET3_T_T1_T2_RNS_12ValidityMaskEm.exit129, label %if.end19.i.i117
@@ -82185,22 +82185,22 @@ for.body44:                                       ; preds = %for.cond41.preheade
 if.then.i.i143:                                   ; preds = %for.body44
   %fneg.i.i144 = fneg float %conv.i.i131
   %conv1.i.i.i145 = fpext float %fneg.i.i144 to double
-  %__exp105 = tail call double @__exp10(double %conv1.i.i.i145)
+  %call.i.i.i146 = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %conv1.i.i.i145) #20
   %conv1.i.i147 = fpext float %15 to double
-  %div.i.i148 = fdiv double %conv1.i.i147, %__exp105
+  %div.i.i148 = fdiv double %conv1.i.i147, %call.i.i.i146
   %17 = tail call double @llvm.round.f64(double %div.i.i148)
-  %mul.i.i149 = fmul double %__exp105, %17
+  %mul.i.i149 = fmul double %call.i.i.i146, %17
   %18 = tail call double @llvm.fabs.f64(double %mul.i.i149)
   %or.cond.i.i150 = fcmp ueq double %18, 0x7FF0000000000000
   br i1 %or.cond.i.i150, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEfifEET3_T_T1_T2_RNS_12ValidityMaskEm.exit151, label %if.end19.i.i139
 
 if.else.i.i132:                                   ; preds = %for.body44
   %conv1.i34.i.i133 = fpext float %conv.i.i131 to double
-  %__exp104 = tail call double @__exp10(double %conv1.i34.i.i133)
+  %call.i35.i.i134 = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %conv1.i34.i.i133) #20
   %conv8.i.i135 = fpext float %15 to double
-  %mul9.i.i136 = fmul double %__exp104, %conv8.i.i135
+  %mul9.i.i136 = fmul double %call.i35.i.i134, %conv8.i.i135
   %19 = tail call double @llvm.round.f64(double %mul9.i.i136)
-  %div10.i.i137 = fdiv double %19, %__exp104
+  %div10.i.i137 = fdiv double %19, %call.i35.i.i134
   %20 = tail call double @llvm.fabs.f64(double %div10.i.i137)
   %or.cond36.i.i138 = fcmp ueq double %20, 0x7FF0000000000000
   br i1 %or.cond36.i.i138, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEfifEET3_T_T1_T2_RNS_12ValidityMaskEm.exit151, label %if.end19.i.i139
@@ -82317,22 +82317,22 @@ if.then6:                                         ; preds = %_ZNK6duckdb21Templa
 if.then.i.i:                                      ; preds = %if.then6
   %fneg.i.i = fneg float %conv.i.i
   %conv1.i.i.i = fpext float %fneg.i.i to double
-  %__exp107 = tail call double @__exp10(double %conv1.i.i.i)
+  %call.i.i.i = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %conv1.i.i.i) #20
   %conv1.i.i = fpext float %12 to double
-  %div.i.i = fdiv double %conv1.i.i, %__exp107
+  %div.i.i = fdiv double %conv1.i.i, %call.i.i.i
   %14 = tail call double @llvm.round.f64(double %div.i.i)
-  %mul.i.i = fmul double %__exp107, %14
+  %mul.i.i = fmul double %call.i.i.i, %14
   %15 = tail call double @llvm.fabs.f64(double %mul.i.i)
   %or.cond.i.i = fcmp ueq double %15, 0x7FF0000000000000
   br i1 %or.cond.i.i, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEfifEET3_T_T1_T2_RNS_12ValidityMaskEm.exit, label %if.end19.i.i
 
 if.else.i.i:                                      ; preds = %if.then6
   %conv1.i34.i.i = fpext float %conv.i.i to double
-  %__exp10 = tail call double @__exp10(double %conv1.i34.i.i)
+  %call.i35.i.i = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %conv1.i34.i.i) #20
   %conv8.i.i = fpext float %12 to double
-  %mul9.i.i = fmul double %__exp10, %conv8.i.i
+  %mul9.i.i = fmul double %call.i35.i.i, %conv8.i.i
   %16 = tail call double @llvm.round.f64(double %mul9.i.i)
-  %div10.i.i = fdiv double %16, %__exp10
+  %div10.i.i = fdiv double %16, %call.i35.i.i
   %17 = tail call double @llvm.fabs.f64(double %div10.i.i)
   %or.cond36.i.i = fcmp ueq double %17, 0x7FF0000000000000
   br i1 %or.cond36.i.i, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEfifEET3_T_T1_T2_RNS_12ValidityMaskEm.exit, label %if.end19.i.i
@@ -82409,22 +82409,22 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit88:  ; preds = %cond.true.i84, %_ZN
 if.then.i.i102:                                   ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit88
   %fneg.i.i103 = fneg float %conv.i.i90
   %conv1.i.i.i104 = fpext float %fneg.i.i103 to double
-  %__exp109 = tail call double @__exp10(double %conv1.i.i.i104)
+  %call.i.i.i105 = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %conv1.i.i.i104) #20
   %conv1.i.i106 = fpext float %23 to double
-  %div.i.i107 = fdiv double %conv1.i.i106, %__exp109
+  %div.i.i107 = fdiv double %conv1.i.i106, %call.i.i.i105
   %26 = tail call double @llvm.round.f64(double %div.i.i107)
-  %mul.i.i108 = fmul double %__exp109, %26
+  %mul.i.i108 = fmul double %call.i.i.i105, %26
   %27 = tail call double @llvm.fabs.f64(double %mul.i.i108)
   %or.cond.i.i109 = fcmp ueq double %27, 0x7FF0000000000000
   br i1 %or.cond.i.i109, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEfifEET3_T_T1_T2_RNS_12ValidityMaskEm.exit110, label %if.end19.i.i98
 
 if.else.i.i91:                                    ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit88
   %conv1.i34.i.i92 = fpext float %conv.i.i90 to double
-  %__exp108 = tail call double @__exp10(double %conv1.i34.i.i92)
+  %call.i35.i.i93 = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %conv1.i34.i.i92) #20
   %conv8.i.i94 = fpext float %23 to double
-  %mul9.i.i95 = fmul double %__exp108, %conv8.i.i94
+  %mul9.i.i95 = fmul double %call.i35.i.i93, %conv8.i.i94
   %28 = tail call double @llvm.round.f64(double %mul9.i.i95)
-  %div10.i.i96 = fdiv double %28, %__exp108
+  %div10.i.i96 = fdiv double %28, %call.i35.i.i93
   %29 = tail call double @llvm.fabs.f64(double %div10.i.i96)
   %or.cond36.i.i97 = fcmp ueq double %29, 0x7FF0000000000000
   br i1 %or.cond36.i.i97, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEfifEET3_T_T1_T2_RNS_12ValidityMaskEm.exit110, label %if.end19.i.i98
@@ -83209,10 +83209,10 @@ if.end.i:                                         ; preds = %_ZN6duckdb14Constan
 
 if.then.i.i.i:                                    ; preds = %if.end.i
   %fneg.i.i.i = fneg double %conv.i.i.i
-  %__exp102 = tail call double @__exp10(double %fneg.i.i.i)
-  %div.i.i.i = fdiv double %9, %__exp102
+  %call.i.i.i.i = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %fneg.i.i.i) #20
+  %div.i.i.i = fdiv double %9, %call.i.i.i.i
   %11 = tail call double @llvm.round.f64(double %div.i.i.i)
-  %mul.i.i.i = fmul double %__exp102, %11
+  %mul.i.i.i = fmul double %call.i.i.i.i, %11
   %12 = tail call double @llvm.fabs.f64(double %mul.i.i.i)
   %or.cond.i.i.i = fcmp ueq double %12, 0x7FF0000000000000
   br i1 %or.cond.i.i.i, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEdidEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i, label %if.end.i.i.i
@@ -83221,10 +83221,10 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i.i
   br label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEdidEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.end.i
-  %__exp10 = tail call double @__exp10(double %conv.i.i.i)
-  %mul7.i.i.i = fmul double %9, %__exp10
+  %call.i31.i.i.i = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %conv.i.i.i) #20
+  %mul7.i.i.i = fmul double %9, %call.i31.i.i.i
   %13 = tail call double @llvm.round.f64(double %mul7.i.i.i)
-  %div8.i.i.i = fdiv double %13, %__exp10
+  %div8.i.i.i = fdiv double %13, %call.i31.i.i.i
   %14 = tail call double @llvm.fabs.f64(double %div8.i.i.i)
   %or.cond32.i.i.i = fcmp ueq double %14, 0x7FF0000000000000
   br i1 %or.cond32.i.i.i, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEdidEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i, label %if.end13.i.i.i
@@ -83915,10 +83915,10 @@ for.body42.us:                                    ; preds = %for.body42.lr.ph, %
   %i.0144.us = phi i64 [ %inc51.us, %for.body42.us ], [ 0, %for.body42.lr.ph ]
   %arrayidx44.us = getelementptr inbounds double, ptr %ldata, i64 %i.0144.us
   %2 = load double, ptr %arrayidx44.us, align 8, !tbaa !313
-  %__exp105 = tail call double @__exp10(double %fneg.i.i124)
-  %div.i.i126.us = fdiv double %2, %__exp105
+  %call.i.i.i125.us = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %fneg.i.i124) #20
+  %div.i.i126.us = fdiv double %2, %call.i.i.i125.us
   %3 = tail call double @llvm.round.f64(double %div.i.i126.us)
-  %mul.i.i127.us = fmul double %__exp105, %3
+  %mul.i.i127.us = fmul double %call.i.i.i125.us, %3
   %4 = tail call double @llvm.fabs.f64(double %mul.i.i127.us)
   %or.cond.i.i128.us = fcmp ueq double %4, 0x7FF0000000000000
   %retval.2.i.i122.us = select i1 %or.cond.i.i128.us, double 0.000000e+00, double %mul.i.i127.us
@@ -83975,10 +83975,10 @@ for.body9.us:                                     ; preds = %for.body9.lr.ph, %f
   %base_idx.1136.us = phi i64 [ %inc.us, %for.body9.us ], [ %base_idx.0142, %for.body9.lr.ph ]
   %arrayidx.us = getelementptr inbounds double, ptr %ldata, i64 %base_idx.1136.us
   %8 = load double, ptr %arrayidx.us, align 8, !tbaa !313
-  %__exp103 = tail call double @__exp10(double %fneg.i.i)
-  %div.i.i.us = fdiv double %8, %__exp103
+  %call.i.i.i.us = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %fneg.i.i) #20
+  %div.i.i.us = fdiv double %8, %call.i.i.i.us
   %9 = tail call double @llvm.round.f64(double %div.i.i.us)
-  %mul.i.i.us = fmul double %__exp103, %9
+  %mul.i.i.us = fmul double %call.i.i.i.us, %9
   %10 = tail call double @llvm.fabs.f64(double %mul.i.i.us)
   %or.cond.i.i.us = fcmp ueq double %10, 0x7FF0000000000000
   %retval.2.i.i.us = select i1 %or.cond.i.i.us, double 0.000000e+00, double %mul.i.i.us
@@ -83996,10 +83996,10 @@ for.body9:                                        ; preds = %for.body9.lr.ph, %f
   %base_idx.1136 = phi i64 [ %inc, %for.body9 ], [ %base_idx.0142, %for.body9.lr.ph ]
   %arrayidx = getelementptr inbounds double, ptr %ldata, i64 %base_idx.1136
   %11 = load double, ptr %arrayidx, align 8, !tbaa !313
-  %__exp102 = tail call double @__exp10(double %conv.i.i)
-  %mul7.i.i = fmul double %11, %__exp102
+  %call.i31.i.i = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %conv.i.i) #20
+  %mul7.i.i = fmul double %11, %call.i31.i.i
   %12 = tail call double @llvm.round.f64(double %mul7.i.i)
-  %div8.i.i = fdiv double %12, %__exp102
+  %div8.i.i = fdiv double %12, %call.i31.i.i
   %13 = tail call double @llvm.fabs.f64(double %div8.i.i)
   %or.cond32.i.i = fcmp ueq double %13, 0x7FF0000000000000
   %retval.2.i.i = select i1 %or.cond32.i.i, double %11, double %div8.i.i
@@ -84027,10 +84027,10 @@ if.then20:                                        ; preds = %for.body18
 
 if.then.i.i106:                                   ; preds = %if.then20
   %fneg.i.i107 = fneg double %conv.i.i98
-  %__exp101 = tail call double @__exp10(double %fneg.i.i107)
-  %div.i.i109 = fdiv double %14, %__exp101
+  %call.i.i.i108 = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %fneg.i.i107) #20
+  %div.i.i109 = fdiv double %14, %call.i.i.i108
   %16 = tail call double @llvm.round.f64(double %div.i.i109)
-  %mul.i.i110 = fmul double %__exp101, %16
+  %mul.i.i110 = fmul double %call.i.i.i108, %16
   %17 = tail call double @llvm.fabs.f64(double %mul.i.i110)
   %or.cond.i.i111 = fcmp ueq double %17, 0x7FF0000000000000
   br i1 %or.cond.i.i111, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEdidEET3_T_T1_T2_RNS_12ValidityMaskEm.exit113, label %if.end.i.i112
@@ -84039,10 +84039,10 @@ if.end.i.i112:                                    ; preds = %if.then.i.i106
   br label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEdidEET3_T_T1_T2_RNS_12ValidityMaskEm.exit113
 
 if.else.i.i99:                                    ; preds = %if.then20
-  %__exp10 = tail call double @__exp10(double %conv.i.i98)
-  %mul7.i.i101 = fmul double %14, %__exp10
+  %call.i31.i.i100 = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %conv.i.i98) #20
+  %mul7.i.i101 = fmul double %14, %call.i31.i.i100
   %18 = tail call double @llvm.round.f64(double %mul7.i.i101)
-  %div8.i.i102 = fdiv double %18, %__exp10
+  %div8.i.i102 = fdiv double %18, %call.i31.i.i100
   %19 = tail call double @llvm.fabs.f64(double %div8.i.i102)
   %or.cond32.i.i103 = fcmp ueq double %19, 0x7FF0000000000000
   br i1 %or.cond32.i.i103, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEdidEET3_T_T1_T2_RNS_12ValidityMaskEm.exit113, label %if.end13.i.i104
@@ -84071,10 +84071,10 @@ for.body42:                                       ; preds = %for.body42.lr.ph, %
   %i.0144 = phi i64 [ %inc51, %for.body42 ], [ 0, %for.body42.lr.ph ]
   %arrayidx44 = getelementptr inbounds double, ptr %ldata, i64 %i.0144
   %20 = load double, ptr %arrayidx44, align 8, !tbaa !313
-  %__exp104 = tail call double @__exp10(double %conv.i.i115)
-  %mul7.i.i118 = fmul double %20, %__exp104
+  %call.i31.i.i117 = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %conv.i.i115) #20
+  %mul7.i.i118 = fmul double %20, %call.i31.i.i117
   %21 = tail call double @llvm.round.f64(double %mul7.i.i118)
-  %div8.i.i119 = fdiv double %21, %__exp104
+  %div8.i.i119 = fdiv double %21, %call.i31.i.i117
   %22 = tail call double @llvm.fabs.f64(double %div8.i.i119)
   %or.cond32.i.i120 = fcmp ueq double %22, 0x7FF0000000000000
   %retval.2.i.i122 = select i1 %or.cond32.i.i120, double %20, double %div8.i.i119
@@ -84157,10 +84157,10 @@ for.body9:                                        ; preds = %_ZN6duckdb29BinaryS
 
 if.then.i.i:                                      ; preds = %for.body9
   %fneg.i.i = fneg double %conv.i.i
-  %__exp103 = tail call double @__exp10(double %fneg.i.i)
-  %div.i.i = fdiv double %4, %__exp103
+  %call.i.i.i = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %fneg.i.i) #20
+  %div.i.i = fdiv double %4, %call.i.i.i
   %6 = tail call double @llvm.round.f64(double %div.i.i)
-  %mul.i.i = fmul double %__exp103, %6
+  %mul.i.i = fmul double %call.i.i.i, %6
   %7 = tail call double @llvm.fabs.f64(double %mul.i.i)
   %or.cond.i.i = fcmp ueq double %7, 0x7FF0000000000000
   br i1 %or.cond.i.i, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEdidEET3_T_T1_T2_RNS_12ValidityMaskEm.exit, label %if.end.i.i
@@ -84169,10 +84169,10 @@ if.end.i.i:                                       ; preds = %if.then.i.i
   br label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEdidEET3_T_T1_T2_RNS_12ValidityMaskEm.exit
 
 if.else.i.i:                                      ; preds = %for.body9
-  %__exp102 = tail call double @__exp10(double %conv.i.i)
-  %mul7.i.i = fmul double %4, %__exp102
+  %call.i31.i.i = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %conv.i.i) #20
+  %mul7.i.i = fmul double %4, %call.i31.i.i
   %8 = tail call double @llvm.round.f64(double %mul7.i.i)
-  %div8.i.i = fdiv double %8, %__exp102
+  %div8.i.i = fdiv double %8, %call.i31.i.i
   %9 = tail call double @llvm.fabs.f64(double %div8.i.i)
   %or.cond32.i.i = fcmp ueq double %9, 0x7FF0000000000000
   br i1 %or.cond32.i.i, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEdidEET3_T_T1_T2_RNS_12ValidityMaskEm.exit, label %if.end13.i.i
@@ -84206,10 +84206,10 @@ if.then20:                                        ; preds = %for.body18
 
 if.then.i.i106:                                   ; preds = %if.then20
   %fneg.i.i107 = fneg double %conv.i.i98
-  %__exp101 = tail call double @__exp10(double %fneg.i.i107)
-  %div.i.i109 = fdiv double %10, %__exp101
+  %call.i.i.i108 = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %fneg.i.i107) #20
+  %div.i.i109 = fdiv double %10, %call.i.i.i108
   %12 = tail call double @llvm.round.f64(double %div.i.i109)
-  %mul.i.i110 = fmul double %__exp101, %12
+  %mul.i.i110 = fmul double %call.i.i.i108, %12
   %13 = tail call double @llvm.fabs.f64(double %mul.i.i110)
   %or.cond.i.i111 = fcmp ueq double %13, 0x7FF0000000000000
   br i1 %or.cond.i.i111, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEdidEET3_T_T1_T2_RNS_12ValidityMaskEm.exit113, label %if.end.i.i112
@@ -84218,10 +84218,10 @@ if.end.i.i112:                                    ; preds = %if.then.i.i106
   br label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEdidEET3_T_T1_T2_RNS_12ValidityMaskEm.exit113
 
 if.else.i.i99:                                    ; preds = %if.then20
-  %__exp10 = tail call double @__exp10(double %conv.i.i98)
-  %mul7.i.i101 = fmul double %10, %__exp10
+  %call.i31.i.i100 = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %conv.i.i98) #20
+  %mul7.i.i101 = fmul double %10, %call.i31.i.i100
   %14 = tail call double @llvm.round.f64(double %mul7.i.i101)
-  %div8.i.i102 = fdiv double %14, %__exp10
+  %div8.i.i102 = fdiv double %14, %call.i31.i.i100
   %15 = tail call double @llvm.fabs.f64(double %div8.i.i102)
   %or.cond32.i.i103 = fcmp ueq double %15, 0x7FF0000000000000
   br i1 %or.cond32.i.i103, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEdidEET3_T_T1_T2_RNS_12ValidityMaskEm.exit113, label %if.end13.i.i104
@@ -84256,10 +84256,10 @@ for.body42:                                       ; preds = %_ZN6duckdb29BinaryS
 
 if.then.i.i123:                                   ; preds = %for.body42
   %fneg.i.i124 = fneg double %conv.i.i115
-  %__exp105 = tail call double @__exp10(double %fneg.i.i124)
-  %div.i.i126 = fdiv double %1, %__exp105
+  %call.i.i.i125 = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %fneg.i.i124) #20
+  %div.i.i126 = fdiv double %1, %call.i.i.i125
   %17 = tail call double @llvm.round.f64(double %div.i.i126)
-  %mul.i.i127 = fmul double %__exp105, %17
+  %mul.i.i127 = fmul double %call.i.i.i125, %17
   %18 = tail call double @llvm.fabs.f64(double %mul.i.i127)
   %or.cond.i.i128 = fcmp ueq double %18, 0x7FF0000000000000
   br i1 %or.cond.i.i128, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEdidEET3_T_T1_T2_RNS_12ValidityMaskEm.exit130, label %if.end.i.i129
@@ -84268,10 +84268,10 @@ if.end.i.i129:                                    ; preds = %if.then.i.i123
   br label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEdidEET3_T_T1_T2_RNS_12ValidityMaskEm.exit130
 
 if.else.i.i116:                                   ; preds = %for.body42
-  %__exp104 = tail call double @__exp10(double %conv.i.i115)
-  %mul7.i.i118 = fmul double %1, %__exp104
+  %call.i31.i.i117 = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %conv.i.i115) #20
+  %mul7.i.i118 = fmul double %1, %call.i31.i.i117
   %19 = tail call double @llvm.round.f64(double %mul7.i.i118)
-  %div8.i.i119 = fdiv double %19, %__exp104
+  %div8.i.i119 = fdiv double %19, %call.i31.i.i117
   %20 = tail call double @llvm.fabs.f64(double %div8.i.i119)
   %or.cond32.i.i120 = fcmp ueq double %20, 0x7FF0000000000000
   br i1 %or.cond32.i.i120, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEdidEET3_T_T1_T2_RNS_12ValidityMaskEm.exit130, label %if.end13.i.i121
@@ -84354,10 +84354,10 @@ for.body11:                                       ; preds = %for.cond9.preheader
 
 if.then.i.i:                                      ; preds = %for.body11
   %fneg.i.i = fneg double %conv.i.i
-  %__exp103 = tail call double @__exp10(double %fneg.i.i)
-  %div.i.i = fdiv double %3, %__exp103
+  %call.i.i.i = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %fneg.i.i) #20
+  %div.i.i = fdiv double %3, %call.i.i.i
   %5 = tail call double @llvm.round.f64(double %div.i.i)
-  %mul.i.i = fmul double %__exp103, %5
+  %mul.i.i = fmul double %call.i.i.i, %5
   %6 = tail call double @llvm.fabs.f64(double %mul.i.i)
   %or.cond.i.i = fcmp ueq double %6, 0x7FF0000000000000
   br i1 %or.cond.i.i, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEdidEET3_T_T1_T2_RNS_12ValidityMaskEm.exit, label %if.end.i.i
@@ -84366,10 +84366,10 @@ if.end.i.i:                                       ; preds = %if.then.i.i
   br label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEdidEET3_T_T1_T2_RNS_12ValidityMaskEm.exit
 
 if.else.i.i:                                      ; preds = %for.body11
-  %__exp102 = tail call double @__exp10(double %conv.i.i)
-  %mul7.i.i = fmul double %3, %__exp102
+  %call.i31.i.i = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %conv.i.i) #20
+  %mul7.i.i = fmul double %3, %call.i31.i.i
   %7 = tail call double @llvm.round.f64(double %mul7.i.i)
-  %div8.i.i = fdiv double %7, %__exp102
+  %div8.i.i = fdiv double %7, %call.i31.i.i
   %8 = tail call double @llvm.fabs.f64(double %div8.i.i)
   %or.cond32.i.i = fcmp ueq double %8, 0x7FF0000000000000
   br i1 %or.cond32.i.i, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEdidEET3_T_T1_T2_RNS_12ValidityMaskEm.exit, label %if.end13.i.i
@@ -84404,10 +84404,10 @@ if.then22:                                        ; preds = %for.body20
 
 if.then.i.i117:                                   ; preds = %if.then22
   %fneg.i.i118 = fneg double %conv.i.i109
-  %__exp101 = tail call double @__exp10(double %fneg.i.i118)
-  %div.i.i120 = fdiv double %9, %__exp101
+  %call.i.i.i119 = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %fneg.i.i118) #20
+  %div.i.i120 = fdiv double %9, %call.i.i.i119
   %11 = tail call double @llvm.round.f64(double %div.i.i120)
-  %mul.i.i121 = fmul double %__exp101, %11
+  %mul.i.i121 = fmul double %call.i.i.i119, %11
   %12 = tail call double @llvm.fabs.f64(double %mul.i.i121)
   %or.cond.i.i122 = fcmp ueq double %12, 0x7FF0000000000000
   br i1 %or.cond.i.i122, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEdidEET3_T_T1_T2_RNS_12ValidityMaskEm.exit124, label %if.end.i.i123
@@ -84416,10 +84416,10 @@ if.end.i.i123:                                    ; preds = %if.then.i.i117
   br label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEdidEET3_T_T1_T2_RNS_12ValidityMaskEm.exit124
 
 if.else.i.i110:                                   ; preds = %if.then22
-  %__exp10 = tail call double @__exp10(double %conv.i.i109)
-  %mul7.i.i112 = fmul double %9, %__exp10
+  %call.i31.i.i111 = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %conv.i.i109) #20
+  %mul7.i.i112 = fmul double %9, %call.i31.i.i111
   %13 = tail call double @llvm.round.f64(double %mul7.i.i112)
-  %div8.i.i113 = fdiv double %13, %__exp10
+  %div8.i.i113 = fdiv double %13, %call.i31.i.i111
   %14 = tail call double @llvm.fabs.f64(double %div8.i.i113)
   %or.cond32.i.i114 = fcmp ueq double %14, 0x7FF0000000000000
   br i1 %or.cond32.i.i114, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEdidEET3_T_T1_T2_RNS_12ValidityMaskEm.exit124, label %if.end13.i.i115
@@ -84456,10 +84456,10 @@ for.body44:                                       ; preds = %for.cond41.preheade
 
 if.then.i.i134:                                   ; preds = %for.body44
   %fneg.i.i135 = fneg double %conv.i.i126
-  %__exp105 = tail call double @__exp10(double %fneg.i.i135)
-  %div.i.i137 = fdiv double %15, %__exp105
+  %call.i.i.i136 = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %fneg.i.i135) #20
+  %div.i.i137 = fdiv double %15, %call.i.i.i136
   %17 = tail call double @llvm.round.f64(double %div.i.i137)
-  %mul.i.i138 = fmul double %__exp105, %17
+  %mul.i.i138 = fmul double %call.i.i.i136, %17
   %18 = tail call double @llvm.fabs.f64(double %mul.i.i138)
   %or.cond.i.i139 = fcmp ueq double %18, 0x7FF0000000000000
   br i1 %or.cond.i.i139, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEdidEET3_T_T1_T2_RNS_12ValidityMaskEm.exit141, label %if.end.i.i140
@@ -84468,10 +84468,10 @@ if.end.i.i140:                                    ; preds = %if.then.i.i134
   br label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEdidEET3_T_T1_T2_RNS_12ValidityMaskEm.exit141
 
 if.else.i.i127:                                   ; preds = %for.body44
-  %__exp104 = tail call double @__exp10(double %conv.i.i126)
-  %mul7.i.i129 = fmul double %15, %__exp104
+  %call.i31.i.i128 = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %conv.i.i126) #20
+  %mul7.i.i129 = fmul double %15, %call.i31.i.i128
   %19 = tail call double @llvm.round.f64(double %mul7.i.i129)
-  %div8.i.i130 = fdiv double %19, %__exp104
+  %div8.i.i130 = fdiv double %19, %call.i31.i.i128
   %20 = tail call double @llvm.fabs.f64(double %div8.i.i130)
   %or.cond32.i.i131 = fcmp ueq double %20, 0x7FF0000000000000
   br i1 %or.cond32.i.i131, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEdidEET3_T_T1_T2_RNS_12ValidityMaskEm.exit141, label %if.end13.i.i132
@@ -84585,10 +84585,10 @@ if.then6:                                         ; preds = %_ZNK6duckdb21Templa
 
 if.then.i.i:                                      ; preds = %if.then6
   %fneg.i.i = fneg double %conv.i.i
-  %__exp107 = tail call double @__exp10(double %fneg.i.i)
-  %div.i.i = fdiv double %12, %__exp107
+  %call.i.i.i = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %fneg.i.i) #20
+  %div.i.i = fdiv double %12, %call.i.i.i
   %14 = tail call double @llvm.round.f64(double %div.i.i)
-  %mul.i.i = fmul double %__exp107, %14
+  %mul.i.i = fmul double %call.i.i.i, %14
   %15 = tail call double @llvm.fabs.f64(double %mul.i.i)
   %or.cond.i.i = fcmp ueq double %15, 0x7FF0000000000000
   br i1 %or.cond.i.i, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEdidEET3_T_T1_T2_RNS_12ValidityMaskEm.exit, label %if.end.i.i
@@ -84597,10 +84597,10 @@ if.end.i.i:                                       ; preds = %if.then.i.i
   br label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEdidEET3_T_T1_T2_RNS_12ValidityMaskEm.exit
 
 if.else.i.i:                                      ; preds = %if.then6
-  %__exp10 = tail call double @__exp10(double %conv.i.i)
-  %mul7.i.i = fmul double %12, %__exp10
+  %call.i31.i.i = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %conv.i.i) #20
+  %mul7.i.i = fmul double %12, %call.i31.i.i
   %16 = tail call double @llvm.round.f64(double %mul7.i.i)
-  %div8.i.i = fdiv double %16, %__exp10
+  %div8.i.i = fdiv double %16, %call.i31.i.i
   %17 = tail call double @llvm.fabs.f64(double %div8.i.i)
   %or.cond32.i.i = fcmp ueq double %17, 0x7FF0000000000000
   br i1 %or.cond32.i.i, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEdidEET3_T_T1_T2_RNS_12ValidityMaskEm.exit, label %if.end13.i.i
@@ -84674,10 +84674,10 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit88:  ; preds = %cond.true.i84, %_ZN
 
 if.then.i.i98:                                    ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit88
   %fneg.i.i99 = fneg double %conv.i.i90
-  %__exp109 = tail call double @__exp10(double %fneg.i.i99)
-  %div.i.i101 = fdiv double %23, %__exp109
+  %call.i.i.i100 = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %fneg.i.i99) #20
+  %div.i.i101 = fdiv double %23, %call.i.i.i100
   %26 = tail call double @llvm.round.f64(double %div.i.i101)
-  %mul.i.i102 = fmul double %__exp109, %26
+  %mul.i.i102 = fmul double %call.i.i.i100, %26
   %27 = tail call double @llvm.fabs.f64(double %mul.i.i102)
   %or.cond.i.i103 = fcmp ueq double %27, 0x7FF0000000000000
   br i1 %or.cond.i.i103, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEdidEET3_T_T1_T2_RNS_12ValidityMaskEm.exit105, label %if.end.i.i104
@@ -84686,10 +84686,10 @@ if.end.i.i104:                                    ; preds = %if.then.i.i98
   br label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEdidEET3_T_T1_T2_RNS_12ValidityMaskEm.exit105
 
 if.else.i.i91:                                    ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit88
-  %__exp108 = tail call double @__exp10(double %conv.i.i90)
-  %mul7.i.i93 = fmul double %23, %__exp108
+  %call.i31.i.i92 = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %conv.i.i90) #20
+  %mul7.i.i93 = fmul double %23, %call.i31.i.i92
   %28 = tail call double @llvm.round.f64(double %mul7.i.i93)
-  %div8.i.i94 = fdiv double %28, %__exp108
+  %div8.i.i94 = fdiv double %28, %call.i31.i.i92
   %29 = tail call double @llvm.fabs.f64(double %div8.i.i94)
   %or.cond32.i.i95 = fcmp ueq double %29, 0x7FF0000000000000
   br i1 %or.cond32.i.i95, label %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_22RoundOperatorPrecisionEdidEET3_T_T1_T2_RNS_12ValidityMaskEm.exit105, label %if.end13.i.i96
@@ -121895,8 +121895,6 @@ declare <2 x double> @llvm.round.v2f64(<2 x double>) #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <2 x double> @llvm.fabs.v2f64(<2 x double>) #14
-
-declare double @__exp10(double) local_unnamed_addr
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <2 x i16> @llvm.abs.v2i16(<2 x i16>, i1 immarg) #19

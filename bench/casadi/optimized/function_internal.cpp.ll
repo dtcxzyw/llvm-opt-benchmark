@@ -71954,7 +71954,7 @@ define void @_ZNK6casadi13ProtoFunction11format_timeEPcd(ptr nocapture nonnull r
 
 26:                                               ; preds = %25
   invoke void @__cxa_throw(ptr nonnull %16, ptr nonnull @_ZTIN6casadi15CasadiExceptionE, ptr nonnull @_ZN6casadi15CasadiExceptionD2Ev) #34
-          to label %80 unwind label %40
+          to label %81 unwind label %40
 
 .thread:                                          ; preds = %15
   %27 = landingpad { ptr, i32 }
@@ -72036,12 +72036,12 @@ define void @_ZNK6casadi13ProtoFunction11format_timeEPcd(ptr nocapture nonnull r
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %46 ], [ %29, %28 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #35
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #35
-  br i1 %.640, label %48, label %79
+  br i1 %.640, label %48, label %80
 
 48:                                               ; preds = %.thread, %47
   %.pn.pn.pn.pn.pn.pn.pn54 = phi { ptr, i32 } [ %27, %.thread ], [ %.pn.pn.pn.pn.pn.pn, %47 ]
   call void @__cxa_free_exception(ptr %16) #35
-  br label %79
+  br label %80
 
 49:                                               ; preds = %3
   %50 = tail call double @log10(double noundef %2) #35
@@ -72055,7 +72055,7 @@ define void @_ZNK6casadi13ProtoFunction11format_timeEPcd(ptr nocapture nonnull r
 
 57:                                               ; preds = %49
   tail call void (ptr, ptr, i64, ptr, ...) @_ZNK6casadi13ProtoFunction6sprintEPcmPKcz(ptr nonnull align 8 poison, ptr noundef %1, i64 noundef 10, ptr noundef nonnull @.str.651)
-  br label %78
+  br label %79
 
 58:                                               ; preds = %49
   %59 = icmp sgt i32 %55, 4
@@ -72063,7 +72063,7 @@ define void @_ZNK6casadi13ProtoFunction11format_timeEPcd(ptr nocapture nonnull r
 
 60:                                               ; preds = %58
   tail call void (ptr, ptr, i64, ptr, ...) @_ZNK6casadi13ProtoFunction6sprintEPcmPKcz(ptr nonnull align 8 poison, ptr noundef %1, i64 noundef 10, ptr noundef nonnull @.str.652)
-  br label %78
+  br label %79
 
 61:                                               ; preds = %58
   %62 = sub nsw i32 4, %55
@@ -72072,38 +72072,38 @@ define void @_ZNK6casadi13ProtoFunction11format_timeEPcd(ptr nocapture nonnull r
   %65 = load i8, ptr %64, align 1
   %66 = mul nsw i32 %55, 3
   %67 = sitofp i32 %66 to double
-  %__exp10 = tail call double @__exp10(double %67)
-  %68 = fdiv double %2, %__exp10
-  %69 = icmp eq i32 %66, %52
-  br i1 %69, label %70, label %72
+  %68 = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %67) #35
+  %69 = fdiv double %2, %68
+  %70 = icmp eq i32 %66, %52
+  br i1 %70, label %71, label %73
 
-70:                                               ; preds = %61
-  %71 = sext i8 %65 to i32
-  tail call void (ptr, ptr, i64, ptr, ...) @_ZNK6casadi13ProtoFunction6sprintEPcmPKcz(ptr nonnull align 8 poison, ptr noundef %1, i64 noundef 10, ptr noundef nonnull @.str.653, double noundef %68, i32 noundef %71)
-  br label %78
+71:                                               ; preds = %61
+  %72 = sext i8 %65 to i32
+  tail call void (ptr, ptr, i64, ptr, ...) @_ZNK6casadi13ProtoFunction6sprintEPcmPKcz(ptr nonnull align 8 poison, ptr noundef %1, i64 noundef 10, ptr noundef nonnull @.str.653, double noundef %69, i32 noundef %72)
+  br label %79
 
-72:                                               ; preds = %61
-  %73 = sub nsw i32 %52, %66
-  %74 = icmp eq i32 %73, 1
-  %75 = sext i8 %65 to i32
-  br i1 %74, label %76, label %77
+73:                                               ; preds = %61
+  %74 = sub nsw i32 %52, %66
+  %75 = icmp eq i32 %74, 1
+  %76 = sext i8 %65 to i32
+  br i1 %75, label %77, label %78
 
-76:                                               ; preds = %72
-  tail call void (ptr, ptr, i64, ptr, ...) @_ZNK6casadi13ProtoFunction6sprintEPcmPKcz(ptr nonnull align 8 poison, ptr noundef %1, i64 noundef 10, ptr noundef nonnull @.str.654, double noundef %68, i32 noundef %75)
-  br label %78
+77:                                               ; preds = %73
+  tail call void (ptr, ptr, i64, ptr, ...) @_ZNK6casadi13ProtoFunction6sprintEPcmPKcz(ptr nonnull align 8 poison, ptr noundef %1, i64 noundef 10, ptr noundef nonnull @.str.654, double noundef %69, i32 noundef %76)
+  br label %79
 
-77:                                               ; preds = %72
-  tail call void (ptr, ptr, i64, ptr, ...) @_ZNK6casadi13ProtoFunction6sprintEPcmPKcz(ptr nonnull align 8 poison, ptr noundef %1, i64 noundef 10, ptr noundef nonnull @.str.655, double noundef %68, i32 noundef %75)
-  br label %78
+78:                                               ; preds = %73
+  tail call void (ptr, ptr, i64, ptr, ...) @_ZNK6casadi13ProtoFunction6sprintEPcmPKcz(ptr nonnull align 8 poison, ptr noundef %1, i64 noundef 10, ptr noundef nonnull @.str.655, double noundef %69, i32 noundef %76)
+  br label %79
 
-78:                                               ; preds = %76, %77, %70, %60, %57
+79:                                               ; preds = %77, %78, %71, %60, %57
   ret void
 
-79:                                               ; preds = %47, %48
+80:                                               ; preds = %47, %48
   %.pn.pn.pn.pn.pn.pn.pn53 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %47 ], [ %.pn.pn.pn.pn.pn.pn.pn54, %48 ]
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn53
 
-80:                                               ; preds = %26
+81:                                               ; preds = %26
   unreachable
 }
 
@@ -86235,6 +86235,9 @@ declare void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(
 
 declare noundef zeroext i1 @_ZNK6casadi8Sparsity8is_equalERKS0_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+declare double @pow(double noundef, double noundef) local_unnamed_addr #22
+
 declare void @_ZN6casadi6SwitchC1ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(1338), ptr noundef nonnull align 8 dereferenceable(41)) unnamed_addr #0
 
 declare void @_ZN6casadi11FmuFunctionC1ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(1752), ptr noundef nonnull align 8 dereferenceable(41)) unnamed_addr #0
@@ -97101,8 +97104,6 @@ declare i64 @llvm.smin.i64(i64, i64) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #30
-
-declare double @__exp10(double) local_unnamed_addr
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -1937,7 +1937,7 @@ define linkonce_odr void @_ZN10CmdCopyLogC1Ev(ptr noundef nonnull align 8 derefe
   store ptr getelementptr inbounds ({ [20 x ptr], [16 x ptr], [17 x ptr], [20 x ptr], [23 x ptr], [3 x ptr] }, ptr @_ZTV10CmdCopyLog, i64 0, i32 0, i64 12), ptr %0, align 8
   store ptr getelementptr inbounds ({ [20 x ptr], [16 x ptr], [17 x ptr], [20 x ptr], [23 x ptr], [3 x ptr] }, ptr @_ZTV10CmdCopyLog, i64 0, i32 3, i64 11), ptr %2, align 8
   store ptr getelementptr inbounds ({ [20 x ptr], [16 x ptr], [17 x ptr], [20 x ptr], [23 x ptr], [3 x ptr] }, ptr @_ZTV10CmdCopyLog, i64 0, i32 4, i64 14), ptr %30, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr], [16 x ptr], [17 x ptr], [20 x ptr], [23 x ptr], [3 x ptr] }, ptr @_ZTV10CmdCopyLog, i64 0, i32 5, i64 3), ptr %28, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr], [16 x ptr], [17 x ptr], [20 x ptr], [23 x ptr], [3 x ptr] }, ptr @_ZTV10CmdCopyLog, i64 1, i32 0, i64 0), ptr %28, align 8
   ret void
 
 32:                                               ; preds = %1

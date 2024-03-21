@@ -1806,7 +1806,7 @@ define linkonce_odr void @_ZN11CmdCatStoreC1Ev(ptr noundef nonnull align 8 deref
 
 27:                                               ; preds = %1
   %28 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC11CmdCatStore24_6MixCat, i64 0, i32 0, i64 3), ptr %28, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC11CmdCatStore24_6MixCat, i64 0, i32 1, i64 0), ptr %28, align 8
   store ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC11CmdCatStore24_6MixCat, i64 0, i32 1, i64 11), ptr %5, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
@@ -1822,7 +1822,7 @@ define linkonce_odr void @_ZN11CmdCatStoreC1Ev(ptr noundef nonnull align 8 deref
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [20 x ptr] }, ptr @_ZTV11CmdCatStore, i64 0, i32 0, i64 8), ptr %0, align 8
   store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [20 x ptr] }, ptr @_ZTV11CmdCatStore, i64 0, i32 2, i64 11), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [20 x ptr] }, ptr @_ZTV11CmdCatStore, i64 0, i32 1, i64 3), ptr %28, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [20 x ptr] }, ptr @_ZTV11CmdCatStore, i64 0, i32 2, i64 0), ptr %28, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.13, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %33 unwind label %65
@@ -14740,7 +14740,7 @@ define linkonce_odr void @_ZN9CmdCatNarC1Ev(ptr noundef nonnull align 8 derefere
 
 30:                                               ; preds = %1
   %31 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC9CmdCatNar24_6MixCat, i64 0, i32 0, i64 3), ptr %31, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC9CmdCatNar24_6MixCat, i64 0, i32 1, i64 0), ptr %31, align 8
   store ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC9CmdCatNar24_6MixCat, i64 0, i32 1, i64 11), ptr %8, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
@@ -14756,7 +14756,7 @@ define linkonce_odr void @_ZN9CmdCatNarC1Ev(ptr noundef nonnull align 8 derefere
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [20 x ptr] }, ptr @_ZTV9CmdCatNar, i64 0, i32 0, i64 8), ptr %0, align 8
   store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [20 x ptr] }, ptr @_ZTV9CmdCatNar, i64 0, i32 2, i64 11), ptr %8, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [20 x ptr] }, ptr @_ZTV9CmdCatNar, i64 0, i32 1, i64 3), ptr %31, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [20 x ptr] }, ptr @_ZTV9CmdCatNar, i64 0, i32 2, i64 0), ptr %31, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 64
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
   %37 = getelementptr inbounds i8, ptr %0, i64 80

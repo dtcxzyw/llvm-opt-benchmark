@@ -2983,8 +2983,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ISt17basic_string_viewIcS
   store ptr getelementptr inbounds ({ [8 x ptr], [4 x ptr], [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTVZL12main_nix_enviPPcE6MyArgs, i64 0, i32 3, i64 11), ptr %139, align 8
   %173 = getelementptr inbounds i8, ptr %18, i64 40
   store ptr getelementptr inbounds ({ [8 x ptr], [4 x ptr], [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTVZL12main_nix_enviPPcE6MyArgs, i64 0, i32 1, i64 3), ptr %173, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [4 x ptr], [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTVZL12main_nix_enviPPcE6MyArgs, i64 0, i32 2, i64 4), ptr %164, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [4 x ptr], [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTVZL12main_nix_enviPPcE6MyArgs, i64 0, i32 4, i64 3), ptr %161, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [4 x ptr], [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTVZL12main_nix_enviPPcE6MyArgs, i64 0, i32 3, i64 0), ptr %164, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [4 x ptr], [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTVZL12main_nix_enviPPcE6MyArgs, i64 1, i32 0, i64 0), ptr %161, align 8
   %174 = load ptr, ptr %135, align 8
   %.not.i.i = icmp eq ptr %174, null
   br i1 %.not.i.i, label %_ZNSt8functionIFbRSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEERKS7_EED2Ev.exit, label %175

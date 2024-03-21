@@ -3059,9 +3059,9 @@ define void @_ZN3nix11MixEvalArgsC1Ev(ptr noundef nonnull align 8 dereferenceabl
           to label %82 unwind label %502
 
 82:                                               ; preds = %1
-  store ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTVN3nix11MixEvalArgsE, i64 0, i32 0, i64 4), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTVN3nix11MixEvalArgsE, i64 0, i32 1, i64 0), ptr %0, align 8
   store ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTVN3nix11MixEvalArgsE, i64 0, i32 1, i64 11), ptr %59, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTVN3nix11MixEvalArgsE, i64 0, i32 2, i64 3), ptr %81, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTVN3nix11MixEvalArgsE, i64 1, i32 0, i64 0), ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %0, i64 8
   %84 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %83, ptr %84, align 8

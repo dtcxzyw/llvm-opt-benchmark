@@ -1587,8 +1587,8 @@ define linkonce_odr void @_ZN7CmdCopyC1Ev(ptr noundef nonnull align 8 dereferenc
   store ptr getelementptr inbounds ({ [21 x ptr], [16 x ptr], [17 x ptr], [20 x ptr], [26 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV7CmdCopy, i64 0, i32 0, i64 13), ptr %0, align 8
   store ptr getelementptr inbounds ({ [21 x ptr], [16 x ptr], [17 x ptr], [20 x ptr], [26 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV7CmdCopy, i64 0, i32 3, i64 11), ptr %10, align 8
   store ptr getelementptr inbounds ({ [21 x ptr], [16 x ptr], [17 x ptr], [20 x ptr], [26 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV7CmdCopy, i64 0, i32 4, i64 16), ptr %40, align 8
-  store ptr getelementptr inbounds ({ [21 x ptr], [16 x ptr], [17 x ptr], [20 x ptr], [26 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV7CmdCopy, i64 0, i32 5, i64 3), ptr %36, align 8
-  store ptr getelementptr inbounds ({ [21 x ptr], [16 x ptr], [17 x ptr], [20 x ptr], [26 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV7CmdCopy, i64 0, i32 6, i64 3), ptr %38, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr], [16 x ptr], [17 x ptr], [20 x ptr], [26 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV7CmdCopy, i64 0, i32 6, i64 0), ptr %36, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr], [16 x ptr], [17 x ptr], [20 x ptr], [26 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV7CmdCopy, i64 1, i32 0, i64 0), ptr %38, align 8
   %42 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 1, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %0, i64 9

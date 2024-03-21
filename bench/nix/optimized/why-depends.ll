@@ -2113,8 +2113,8 @@ define linkonce_odr void @_ZN13CmdWhyDependsC1Ev(ptr noundef nonnull align 8 der
   store ptr getelementptr inbounds ({ [15 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV13CmdWhyDepends, i64 0, i32 0, i64 6), ptr %0, align 8
   store ptr getelementptr inbounds ({ [15 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV13CmdWhyDepends, i64 0, i32 2, i64 11), ptr %16, align 8
   store ptr getelementptr inbounds ({ [15 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV13CmdWhyDepends, i64 0, i32 3, i64 10), ptr %38, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV13CmdWhyDepends, i64 0, i32 4, i64 3), ptr %40, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV13CmdWhyDepends, i64 0, i32 1, i64 3), ptr %43, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV13CmdWhyDepends, i64 1, i32 0, i64 0), ptr %40, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr], [3 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV13CmdWhyDepends, i64 0, i32 2, i64 0), ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 456
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   %46 = getelementptr inbounds i8, ptr %0, i64 472

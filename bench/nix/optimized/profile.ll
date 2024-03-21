@@ -17959,7 +17959,7 @@ define linkonce_odr void @_ZN17CmdProfileInstallC1Ev(ptr noundef nonnull align 8
   store ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix19InstallablesCommandE, i64 0, i32 0, i64 6), ptr %0, align 8
   store ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix19InstallablesCommandE, i64 0, i32 1, i64 11), ptr %8, align 8
   store ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix19InstallablesCommandE, i64 0, i32 2, i64 10), ptr %30, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix19InstallablesCommandE, i64 0, i32 3, i64 3), ptr %32, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix19InstallablesCommandE, i64 1, i32 0, i64 0), ptr %32, align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 472
   invoke void @_ZN3nix17MixDefaultProfileC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef nonnull getelementptr inbounds ([49 x ptr], ptr @_ZTT17CmdProfileInstall, i64 0, i64 29))
           to label %36 unwind label %83
@@ -17968,7 +17968,7 @@ define linkonce_odr void @_ZN17CmdProfileInstallC1Ev(ptr noundef nonnull align 8
   store ptr getelementptr inbounds ({ [17 x ptr], [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileInstall, i64 0, i32 0, i64 6), ptr %0, align 8
   store ptr getelementptr inbounds ({ [17 x ptr], [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileInstall, i64 0, i32 2, i64 11), ptr %8, align 8
   store ptr getelementptr inbounds ({ [17 x ptr], [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileInstall, i64 0, i32 3, i64 10), ptr %30, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr], [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileInstall, i64 0, i32 4, i64 3), ptr %32, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileInstall, i64 1, i32 0, i64 0), ptr %32, align 8
   store ptr getelementptr inbounds ({ [17 x ptr], [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileInstall, i64 0, i32 1, i64 9), ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %0, i64 520
   %38 = getelementptr inbounds i8, ptr %0, i64 528
@@ -64697,8 +64697,8 @@ define linkonce_odr void @_ZN16CmdProfileRemoveC1Ev(ptr noundef nonnull align 8 
   store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV16CmdProfileRemove, i64 0, i32 2, i64 7), ptr %28, align 8
   store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV16CmdProfileRemove, i64 0, i32 3, i64 10), ptr %24, align 8
   store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV16CmdProfileRemove, i64 0, i32 4, i64 11), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV16CmdProfileRemove, i64 0, i32 5, i64 3), ptr %26, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV16CmdProfileRemove, i64 0, i32 1, i64 3), ptr %31, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV16CmdProfileRemove, i64 1, i32 0, i64 0), ptr %26, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV16CmdProfileRemove, i64 0, i32 2, i64 0), ptr %31, align 8
   ret void
 
 33:                                               ; preds = %1
@@ -96851,8 +96851,8 @@ define linkonce_odr void @_ZN17CmdProfileUpgradeC1Ev(ptr noundef nonnull align 8
   store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileUpgrade, i64 0, i32 2, i64 10), ptr %28, align 8
   store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileUpgrade, i64 0, i32 3, i64 11), ptr %2, align 8
   store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileUpgrade, i64 0, i32 4, i64 10), ptr %24, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileUpgrade, i64 0, i32 5, i64 3), ptr %26, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileUpgrade, i64 0, i32 1, i64 3), ptr %31, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileUpgrade, i64 1, i32 0, i64 0), ptr %26, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileUpgrade, i64 0, i32 2, i64 0), ptr %31, align 8
   ret void
 
 33:                                               ; preds = %1
@@ -102839,8 +102839,8 @@ define linkonce_odr void @_ZN14CmdProfileListC1Ev(ptr noundef nonnull align 8 de
   store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV14CmdProfileList, i64 0, i32 2, i64 7), ptr %28, align 8
   store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV14CmdProfileList, i64 0, i32 3, i64 10), ptr %24, align 8
   store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV14CmdProfileList, i64 0, i32 4, i64 11), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV14CmdProfileList, i64 0, i32 5, i64 3), ptr %26, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV14CmdProfileList, i64 0, i32 1, i64 3), ptr %31, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV14CmdProfileList, i64 1, i32 0, i64 0), ptr %26, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV14CmdProfileList, i64 0, i32 2, i64 0), ptr %31, align 8
   ret void
 
 33:                                               ; preds = %1
@@ -106549,7 +106549,7 @@ define linkonce_odr void @_ZN17CmdProfileHistoryC1Ev(ptr noundef nonnull align 8
   store ptr getelementptr inbounds ({ [11 x ptr], [14 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileHistory, i64 0, i32 0, i64 6), ptr %0, align 8
   store ptr getelementptr inbounds ({ [11 x ptr], [14 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileHistory, i64 0, i32 2, i64 10), ptr %24, align 8
   store ptr getelementptr inbounds ({ [11 x ptr], [14 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileHistory, i64 0, i32 3, i64 11), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr], [14 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileHistory, i64 0, i32 4, i64 3), ptr %26, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr], [14 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileHistory, i64 1, i32 0, i64 0), ptr %26, align 8
   store ptr getelementptr inbounds ({ [11 x ptr], [14 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileHistory, i64 0, i32 1, i64 9), ptr %29, align 8
   ret void
 
@@ -110767,7 +110767,7 @@ define linkonce_odr void @_ZN18CmdProfileRollbackC1Ev(ptr noundef nonnull align 
   store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV18CmdProfileRollback, i64 0, i32 0, i64 9), ptr %0, align 8
   store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV18CmdProfileRollback, i64 0, i32 2, i64 10), ptr %30, align 8
   store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV18CmdProfileRollback, i64 0, i32 3, i64 11), ptr %8, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV18CmdProfileRollback, i64 0, i32 1, i64 3), ptr %33, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV18CmdProfileRollback, i64 0, i32 2, i64 0), ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 64
   %36 = getelementptr inbounds i8, ptr %0, i64 72
   store i8 0, ptr %36, align 8
@@ -112307,7 +112307,7 @@ define linkonce_odr void @_ZN21CmdProfileWipeHistoryC1Ev(ptr noundef nonnull ali
   store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV21CmdProfileWipeHistory, i64 0, i32 0, i64 9), ptr %0, align 8
   store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV21CmdProfileWipeHistory, i64 0, i32 2, i64 10), ptr %30, align 8
   store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV21CmdProfileWipeHistory, i64 0, i32 3, i64 11), ptr %8, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV21CmdProfileWipeHistory, i64 0, i32 1, i64 3), ptr %33, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV21CmdProfileWipeHistory, i64 0, i32 2, i64 0), ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 64
   %36 = getelementptr inbounds i8, ptr %0, i64 96
   store i8 0, ptr %36, align 8

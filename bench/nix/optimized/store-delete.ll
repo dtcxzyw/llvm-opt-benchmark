@@ -1940,8 +1940,8 @@ define linkonce_odr void @_ZN14CmdStoreDeleteC1Ev(ptr noundef nonnull align 8 de
   store ptr getelementptr inbounds ({ [20 x ptr], [20 x ptr], [17 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV14CmdStoreDelete, i64 0, i32 0, i64 7), ptr %0, align 8
   store ptr getelementptr inbounds ({ [20 x ptr], [20 x ptr], [17 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV14CmdStoreDelete, i64 0, i32 1, i64 11), ptr %6, align 8
   store ptr getelementptr inbounds ({ [20 x ptr], [20 x ptr], [17 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV14CmdStoreDelete, i64 0, i32 2, i64 10), ptr %28, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr], [20 x ptr], [17 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV14CmdStoreDelete, i64 0, i32 3, i64 3), ptr %30, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr], [20 x ptr], [17 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV14CmdStoreDelete, i64 0, i32 4, i64 3), ptr %32, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr], [20 x ptr], [17 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV14CmdStoreDelete, i64 0, i32 4, i64 0), ptr %30, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr], [20 x ptr], [17 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV14CmdStoreDelete, i64 1, i32 0, i64 0), ptr %32, align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 480
   store i32 3, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 484
@@ -2808,9 +2808,9 @@ define linkonce_odr void @_ZN14CmdStoreDeleteD1Ev(ptr noundef nonnull align 8 de
   %3 = getelementptr inbounds i8, ptr %0, i64 752
   store ptr getelementptr inbounds ({ [20 x ptr], [20 x ptr], [17 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV14CmdStoreDelete, i64 0, i32 2, i64 10), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 776
-  store ptr getelementptr inbounds ({ [20 x ptr], [20 x ptr], [17 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV14CmdStoreDelete, i64 0, i32 3, i64 3), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr], [20 x ptr], [17 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV14CmdStoreDelete, i64 0, i32 4, i64 0), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 792
-  store ptr getelementptr inbounds ({ [20 x ptr], [20 x ptr], [17 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV14CmdStoreDelete, i64 0, i32 4, i64 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr], [20 x ptr], [17 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTV14CmdStoreDelete, i64 1, i32 0, i64 0), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 488
   %7 = getelementptr inbounds i8, ptr %0, i64 504
   %8 = load ptr, ptr %7, align 8

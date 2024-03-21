@@ -1914,7 +1914,7 @@ define linkonce_odr void @_ZN10CmdStoreGCC1Ev(ptr noundef nonnull align 8 derefe
 32:                                               ; preds = %30
   store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [20 x ptr] }, ptr @_ZTV10CmdStoreGC, i64 0, i32 0, i64 8), ptr %0, align 8
   store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [20 x ptr] }, ptr @_ZTV10CmdStoreGC, i64 0, i32 2, i64 11), ptr %8, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [20 x ptr] }, ptr @_ZTV10CmdStoreGC, i64 0, i32 1, i64 3), ptr %31, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [20 x ptr] }, ptr @_ZTV10CmdStoreGC, i64 0, i32 2, i64 0), ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 2, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 44
