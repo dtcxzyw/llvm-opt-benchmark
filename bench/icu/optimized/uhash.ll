@@ -91,17 +91,17 @@ _ZL11_uhash_initP10UHashtablePFi8UElementEPFaS1_S1_ES5_iP10UErrorCode.exit: ; pr
   %count.i.i = getelementptr inbounds i8, ptr %call1, i64 48
   store i32 0, ptr %count.i.i, align 8
   %conv11.i.i = sitofp i32 %2 to float
+  %lowWaterMark.i.i = getelementptr inbounds i8, ptr %call1, i64 60
+  store i32 0, ptr %lowWaterMark.i.i, align 4
+  %mul16.i.i = fmul float %conv11.i.i, 5.000000e-01
+  %conv17.i.i = fptosi float %mul16.i.i to i32
   %highWaterMark.i.i = getelementptr inbounds i8, ptr %call1, i64 56
-  %3 = insertelement <2 x float> poison, float %conv11.i.i, i64 0
-  %4 = shufflevector <2 x float> %3, <2 x float> poison, <2 x i32> zeroinitializer
-  %5 = fmul <2 x float> %4, <float 5.000000e-01, float 0.000000e+00>
-  %6 = fptosi <2 x float> %5 to <2 x i32>
-  store <2 x i32> %6, ptr %highWaterMark.i.i, align 8
+  store i32 %conv17.i.i, ptr %highWaterMark.i.i, align 8
   %.pre = load i32, ptr %status, align 4
-  %7 = icmp slt i32 %.pre, 1
+  %3 = icmp slt i32 %.pre, 1
   %allocated = getelementptr inbounds i8, ptr %call1, i64 73
   store i8 1, ptr %allocated, align 1
-  br i1 %7, label %return, label %if.then7
+  br i1 %3, label %return, label %if.then7
 
 if.then7:                                         ; preds = %_ZL11_uhash_initP10UHashtablePFi8UElementEPFaS1_S1_ES5_iP10UErrorCode.exit.thread, %_ZL11_uhash_initP10UHashtablePFi8UElementEPFaS1_S1_ES5_iP10UErrorCode.exit
   tail call void @uprv_free_75(ptr noundef nonnull %call1)

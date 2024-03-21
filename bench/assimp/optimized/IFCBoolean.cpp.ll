@@ -2040,7 +2040,7 @@ for.body22.lr.ph:                                 ; preds = %for.end
   %18 = fneg double %17
   %_M_finish.i.i207 = getelementptr inbounds i8, ptr %intersect_results, i64 8
   %_M_end_of_storage.i226 = getelementptr inbounds i8, ptr %intersect_results, i64 16
-  %mul2.i183 = fmul double %windingOrder.0.lcssa, 0.000000e+00
+  %mul2.i183 = tail call double @llvm.copysign.f64(double 0.000000e+00, double %windingOrder.0.lcssa)
   %umax315 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   %19 = extractelement <2 x double> %14, i64 1
   br label %for.body22
@@ -9475,6 +9475,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.copysign.f64(double, double) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #16
