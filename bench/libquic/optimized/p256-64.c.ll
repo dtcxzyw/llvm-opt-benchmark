@@ -4501,7 +4501,7 @@ if.then16.i:                                      ; preds = %if.end.i
   %shr2.i75.i = lshr i32 %conv.i73.i, %and.i.i428
   %96 = shl nuw nsw i32 %shr2.i75.i, 2
   %97 = and i32 %96, 4
-  %or56350.i = or disjoint i32 %97, %94
+  %or56345.i = or disjoint i32 %97, %94
   %shr.i81.i = or disjoint i64 %conv17.i, 12
   %arrayidx.i83.i = getelementptr inbounds i8, ptr %cond220, i64 %shr.i81.i
   %98 = load i8, ptr %arrayidx.i83.i, align 1
@@ -4509,15 +4509,15 @@ if.then16.i:                                      ; preds = %if.end.i
   %shr2.i86.i = lshr i32 %conv.i84.i, %and.i.i428
   %99 = shl nuw nsw i32 %shr2.i86.i, 1
   %100 = and i32 %99, 2
-  %or3257351.i = or disjoint i32 %or56350.i, %100
+  %or3257346.i = or disjoint i32 %or56345.i, %100
   %shr.i92.i = or disjoint i64 %conv17.i, 4
   %arrayidx.i94.i = getelementptr inbounds i8, ptr %cond220, i64 %shr.i92.i
   %101 = load i8, ptr %arrayidx.i94.i, align 1
   %conv.i95.i = zext i8 %101 to i32
   %shr2.i97.i = lshr i32 %conv.i95.i, %and.i.i428
   %102 = and i32 %shr2.i97.i, 1
-  %or3758352.i = or disjoint i32 %or3257351.i, %102
-  %or3758.i = zext nneg i32 %or3758352.i to i64
+  %or3758347.i = or disjoint i32 %or3257346.i, %102
+  %or3758.i = zext nneg i32 %or3758347.i to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %tmp.i, i8 0, i64 96, i1 false)
   br label %for.body.i.i
 
@@ -4609,13 +4609,13 @@ if.end.i125.i:                                    ; preds = %if.end71.i
   %118 = load i8, ptr %arrayidx.i128.i, align 1
   %conv.i129.i = zext i8 %118 to i32
   %shr2.i131.i = lshr i32 %conv.i129.i, %and.i.i428
-  %119 = trunc i32 %shr2.i131.i to i8
-  %conv4.i132.i = and i8 %119, 1
+  %119 = and i32 %shr2.i131.i, 1
+  %conv4.i132.i = zext nneg i32 %119 to i64
   br label %get_bit.exit134.i
 
 get_bit.exit134.i:                                ; preds = %if.end.i125.i, %if.end71.i
-  %retval.0.i133.i = phi i8 [ %conv4.i132.i, %if.end.i125.i ], [ 0, %if.end71.i ]
-  %120 = shl nuw nsw i8 %retval.0.i133.i, 3
+  %retval.0.i133.i = phi i64 [ %conv4.i132.i, %if.end.i125.i ], [ 0, %if.end71.i ]
+  %120 = shl nuw nsw i64 %retval.0.i133.i, 3
   %conv79.i = or disjoint i32 %91, 128
   %or.cond.i135.i = icmp ugt i32 %conv79.i, 255
   br i1 %or.cond.i135.i, label %get_bit.exit145.i, label %if.end.i136.i
@@ -4627,57 +4627,55 @@ if.end.i136.i:                                    ; preds = %get_bit.exit134.i
   %121 = load i8, ptr %arrayidx.i139.i, align 1
   %conv.i140.i = zext i8 %121 to i32
   %shr2.i142.i = lshr i32 %conv.i140.i, %and.i.i428
-  %122 = trunc i32 %shr2.i142.i to i8
-  %conv4.i143.i = and i8 %122, 1
+  %122 = and i32 %shr2.i142.i, 1
+  %conv4.i143.i = zext nneg i32 %122 to i64
   br label %get_bit.exit145.i
 
 get_bit.exit145.i:                                ; preds = %if.end.i136.i, %get_bit.exit134.i
-  %retval.0.i144.i = phi i8 [ %conv4.i143.i, %if.end.i136.i ], [ 0, %get_bit.exit134.i ]
-  %123 = shl nuw nsw i8 %retval.0.i144.i, 2
-  %or8459.i = or disjoint i8 %123, %120
+  %retval.0.i144.i = phi i64 [ %conv4.i143.i, %if.end.i136.i ], [ 0, %get_bit.exit134.i ]
+  %123 = shl nuw nsw i64 %retval.0.i144.i, 2
+  %or8459.i = or i64 %123, %120
   %conv86.i = or disjoint i32 %91, 64
   %or.cond.i146.i = icmp ugt i32 %conv86.i, 255
-  br i1 %or.cond.i146.i, label %get_bit.exit156.i, label %get_bit.exit156.thread.i
+  br i1 %or.cond.i146.i, label %get_bit.exit156.i, label %if.end.i147.i
 
-get_bit.exit156.thread.i:                         ; preds = %get_bit.exit145.i
+if.end.i147.i:                                    ; preds = %get_bit.exit145.i
   %shr.i148.i = lshr i32 %conv86.i, 3
   %idxprom.i149.i = zext nneg i32 %shr.i148.i to i64
   %arrayidx.i150.i = getelementptr inbounds i8, ptr %cond220, i64 %idxprom.i149.i
   %124 = load i8, ptr %arrayidx.i150.i, align 1
   %conv.i151.i = zext i8 %124 to i32
   %shr2.i153.i = lshr i32 %conv.i151.i, %and.i.i428
-  %125 = trunc i32 %shr2.i153.i to i8
-  %conv4.i154.i = shl i8 %125, 1
-  %126 = and i8 %conv4.i154.i, 2
-  %or9160346.i = or disjoint i8 %126, %or8459.i
-  br label %if.end.i158.i
+  %125 = and i32 %shr2.i153.i, 1
+  %conv4.i154.i = zext nneg i32 %125 to i64
+  br label %get_bit.exit156.i
 
-get_bit.exit156.i:                                ; preds = %get_bit.exit145.i
+get_bit.exit156.i:                                ; preds = %if.end.i147.i, %get_bit.exit145.i
+  %retval.0.i155.i = phi i64 [ %conv4.i154.i, %if.end.i147.i ], [ 0, %get_bit.exit145.i ]
+  %126 = shl nuw nsw i64 %retval.0.i155.i, 1
+  %or9160.i = or i64 %or8459.i, %126
   %or.cond.i157.i = icmp ugt i32 %91, 255
   br i1 %or.cond.i157.i, label %get_bit.exit167.i, label %if.end.i158.i
 
-if.end.i158.i:                                    ; preds = %get_bit.exit156.i, %get_bit.exit156.thread.i
-  %or9160348.i = phi i8 [ %or9160346.i, %get_bit.exit156.thread.i ], [ %or8459.i, %get_bit.exit156.i ]
+if.end.i158.i:                                    ; preds = %get_bit.exit156.i
   %arrayidx.i161.i = getelementptr inbounds i8, ptr %cond220, i64 %conv17.i
   %127 = load i8, ptr %arrayidx.i161.i, align 1
   %conv.i162.i = zext i8 %127 to i32
   %shr2.i164.i = lshr i32 %conv.i162.i, %and.i.i428
-  %128 = trunc i32 %shr2.i164.i to i8
-  %conv4.i165.i = and i8 %128, 1
+  %128 = and i32 %shr2.i164.i, 1
+  %conv4.i165.i = zext nneg i32 %128 to i64
   br label %get_bit.exit167.i
 
 get_bit.exit167.i:                                ; preds = %if.end.i158.i, %get_bit.exit156.i
-  %or9160349.i = phi i8 [ %or9160348.i, %if.end.i158.i ], [ %or8459.i, %get_bit.exit156.i ]
-  %retval.0.i166.i = phi i8 [ %conv4.i165.i, %if.end.i158.i ], [ 0, %get_bit.exit156.i ]
-  %or9561.i = or disjoint i8 %retval.0.i166.i, %or9160349.i
-  %or95.i = zext nneg i8 %or9561.i to i64
+  %retval.0.i166.i = phi i64 [ %conv4.i165.i, %if.end.i158.i ], [ 0, %get_bit.exit156.i ]
+  %or9561.i = or i64 %or9160.i, %retval.0.i166.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %tmp.i, i8 0, i64 96, i1 false)
   br label %for.body.i168.i
 
 for.body.i168.i:                                  ; preds = %for.inc16.i178.i, %get_bit.exit167.i
   %i.018.i169.i = phi i64 [ %inc17.i179.i, %for.inc16.i178.i ], [ 0, %get_bit.exit167.i ]
   %arrayidx2.i170.i = getelementptr inbounds [3 x [4 x i64]], ptr @g_pre_comp, i64 %i.018.i169.i
-  %xor.i171.i = xor i64 %i.018.i169.i, %or95.i
+  %xor.i171.i = xor i64 %i.018.i169.i, %or9561.i
   %shr.i172.i = lshr i64 %xor.i171.i, 4
   %or.i173.i = or i64 %shr.i172.i, %xor.i171.i
   %shr5.i174.i = lshr i64 %or.i173.i, 2

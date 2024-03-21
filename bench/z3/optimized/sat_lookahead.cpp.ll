@@ -3960,7 +3960,7 @@ for.body.i.i:                                     ; preds = %_ZNK6vectorIN3sat9l
   %k.034.i.i = phi i32 [ %k.0.i.i, %if.end17.i.i ], [ %k.030.i.i, %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit7.i ]
   %k.0.in33.i.i = phi i32 [ %k.0.in.i.i, %if.end17.i.i ], [ %k.0.in29.i.i, %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit7.i ]
   %i.032.i.i = phi i32 [ %k.1.i.i, %if.end17.i.i ], [ %indvars.i, %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit7.i ]
-  %add2.i.i = add i32 %k.0.in33.i.i, 2
+  %add2.i.i = add nuw i32 %k.0.in33.i.i, 2
   %cmp3.i.i = icmp ult i32 %add2.i.i, %7
   %.pre.i.i = load ptr, ptr %m_candidates, align 8
   %idxprom.i17.i.i = zext i32 %k.034.i.i to i64
@@ -4023,12 +4023,12 @@ _ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit9: ; preds = %_ZN3sat9lo
   %arrayidx.i7 = getelementptr inbounds i8, ptr %12, i64 -4
   %13 = load i32, ptr %arrayidx.i7, align 4
   %14 = add i32 %13, -1
-  %cmp4.not19 = icmp eq i32 %14, 0
-  br i1 %cmp4.not19, label %if.end, label %for.body.preheader
+  %cmp4.not24 = icmp eq i32 %14, 0
+  br i1 %cmp4.not24, label %if.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %_ZN3sat9lookahead7heapifyEv.exit, %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit9
-  %retval.0.i824 = phi i32 [ %14, %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit9 ], [ -1, %_ZN3sat9lookahead7heapifyEv.exit ]
-  %15 = zext i32 %retval.0.i824 to i64
+  %retval.0.i831 = phi i32 [ %14, %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit9 ], [ -1, %_ZN3sat9lookahead7heapifyEv.exit ]
+  %15 = zext i32 %retval.0.i831 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %_ZN3sat9lookahead9sift_downEjj.exit
@@ -4050,7 +4050,7 @@ for.body.i:                                       ; preds = %for.body, %if.end17
   %k.034.i = phi i32 [ %k.0.i, %if.end17.i ], [ 1, %for.body ]
   %k.0.in33.i = phi i32 [ %k.0.in.i, %if.end17.i ], [ 0, %for.body ]
   %i.032.i = phi i32 [ %k.1.i, %if.end17.i ], [ 0, %for.body ]
-  %add2.i = add i32 %k.0.in33.i, 2
+  %add2.i = add nuw i32 %k.0.in33.i, 2
   %19 = zext i32 %add2.i to i64
   %cmp3.i = icmp ugt i64 %indvars.iv, %19
   %.pre.i = load ptr, ptr %m_candidates, align 8
@@ -4085,16 +4085,20 @@ if.end17.i:                                       ; preds = %if.end.i14
   %k.0.i = or disjoint i32 %k.0.in.i, 1
   %23 = zext i32 %k.0.i to i64
   %cmp.i15 = icmp ugt i64 %indvars.iv, %23
-  br i1 %cmp.i15, label %for.body.i, label %for.end.i, !llvm.loop !27
+  br i1 %cmp.i15, label %for.body.i, label %if.then25.i.loopexit, !llvm.loop !27
 
-for.end.i:                                        ; preds = %if.end17.i, %if.end.i14
-  %i.0.lcssa.i = phi i32 [ %k.1.i, %if.end17.i ], [ %i.032.i, %if.end.i14 ]
-  %cmp24.i.not = icmp eq i32 %i.0.lcssa.i, 0
+for.end.i:                                        ; preds = %if.end.i14
+  %cmp24.i.not = icmp eq i32 %i.032.i, 0
   br i1 %cmp24.i.not, label %_ZN3sat9lookahead9sift_downEjj.exit, label %if.then25.i
 
-if.then25.i:                                      ; preds = %for.end.i
-  %24 = load ptr, ptr %m_candidates, align 8
-  %idxprom.i27.i = zext i32 %i.0.lcssa.i to i64
+if.then25.i.loopexit:                             ; preds = %if.end17.i
+  %.pre = load ptr, ptr %m_candidates, align 8
+  br label %if.then25.i
+
+if.then25.i:                                      ; preds = %if.then25.i.loopexit, %for.end.i
+  %24 = phi ptr [ %.pre.i, %for.end.i ], [ %.pre, %if.then25.i.loopexit ]
+  %i.0.lcssa.i20 = phi i32 [ %i.032.i, %for.end.i ], [ %k.1.i, %if.then25.i.loopexit ]
+  %idxprom.i27.i = zext i32 %i.0.lcssa.i20 to i64
   %arrayidx.i28.i = getelementptr inbounds %"struct.sat::lookahead::candidate", ptr %24, i64 %idxprom.i27.i
   store i64 %c.sroa.0.0.copyload.i, ptr %arrayidx.i28.i, align 8
   %c.sroa.2.0.call27.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i28.i, i64 8
@@ -4153,7 +4157,7 @@ for.body.i:                                       ; preds = %_ZNK6vectorIN3sat9l
   %k.034.i = phi i32 [ %k.0.i, %if.end17.i ], [ %k.030.i, %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit7 ]
   %k.0.in33.i = phi i32 [ %k.0.in.i, %if.end17.i ], [ %k.0.in29.i, %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit7 ]
   %i.032.i = phi i32 [ %k.1.i, %if.end17.i ], [ %indvars, %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit7 ]
-  %add2.i = add i32 %k.0.in33.i, 2
+  %add2.i = add nuw i32 %k.0.in33.i, 2
   %cmp3.i = icmp ult i32 %add2.i, %7
   %.pre.i = load ptr, ptr %m_candidates, align 8
   %idxprom.i17.i = zext i32 %k.034.i to i64
@@ -4230,7 +4234,7 @@ for.body:                                         ; preds = %entry, %if.end17
   %k.034 = phi i32 [ %k.0, %if.end17 ], [ %k.030, %entry ]
   %k.0.in33 = phi i32 [ %k.0.in, %if.end17 ], [ %k.0.in29, %entry ]
   %i.032 = phi i32 [ %k.1, %if.end17 ], [ %j, %entry ]
-  %add2 = add i32 %k.0.in33, 2
+  %add2 = add nuw i32 %k.0.in33, 2
   %cmp3 = icmp ult i32 %add2, %sz
   %.pre = load ptr, ptr %m_candidates, align 8
   %idxprom.i17 = zext i32 %k.034 to i64
