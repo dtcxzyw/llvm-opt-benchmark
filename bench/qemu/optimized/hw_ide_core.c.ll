@@ -6515,8 +6515,7 @@ sw.bb25:                                          ; preds = %sw.bb19, %sw.bb19
 sw.bb29:                                          ; preds = %sw.bb19
   %conv21 = and i32 %7, 7
   %add.ptr30 = getelementptr i8, ptr %s, i64 180
-  %add = or disjoint i32 %conv21, 8
-  %shl = shl nuw nsw i32 1, %add
+  %shl = shl nuw nsw i32 256, %conv21
   %8 = trunc i32 %shl to i16
   %conv.i = or disjoint i16 %8, 7
   store i16 %conv.i, ptr %add.ptr30, align 2
@@ -6531,8 +6530,7 @@ sw.bb34:                                          ; preds = %sw.bb19
   store i16 7, ptr %add.ptr35, align 2
   %add.ptr36 = getelementptr i8, ptr %s, i64 182
   %conv37 = and i32 %7, 7
-  %add38 = or disjoint i32 %conv37, 8
-  %shl39 = shl nuw nsw i32 1, %add38
+  %shl39 = shl nuw nsw i32 256, %conv37
   %9 = trunc i32 %shl39 to i16
   %conv.i32 = or disjoint i16 %9, 7
   store i16 %conv.i32, ptr %add.ptr36, align 2
@@ -6547,8 +6545,7 @@ sw.bb42:                                          ; preds = %sw.bb19
   store i16 7, ptr %add.ptr44, align 2
   %add.ptr45 = getelementptr i8, ptr %s, i64 232
   %conv46 = and i32 %7, 7
-  %add47 = or disjoint i32 %conv46, 8
-  %shl48 = shl nuw nsw i32 1, %add47
+  %shl48 = shl nuw nsw i32 256, %conv46
   %10 = trunc i32 %shl48 to i16
   %conv.i33 = or disjoint i16 %10, 63
   store i16 %conv.i33, ptr %add.ptr45, align 2

@@ -548,28 +548,27 @@ define dso_local i32 @intel_mpllb_calc_port_clock(ptr nocapture noundef readnone
   %23 = load i32, ptr %22, align 4
   %24 = lshr i32 %23, 5
   %25 = and i32 %24, 7
-  %26 = or disjoint i32 %25, 16
-  %27 = shl nuw nsw i32 10, %26
-  %28 = shl i32 %4, 15
-  %29 = and i32 %28, 134152192
-  %30 = add nuw nsw i32 %29, 1048576
-  %31 = or disjoint i32 %17, %30
-  %32 = zext nneg i32 %21 to i64
-  %33 = zext nneg i32 %31 to i64
-  %34 = mul nuw nsw i64 %33, %32
-  %35 = mul i32 %16, %21
-  %36 = lshr i32 %15, 1
-  %37 = add i32 %35, %36
-  %38 = udiv i32 %37, %15
-  %39 = zext i32 %38 to i64
-  %40 = add nuw nsw i64 %34, %39
-  %41 = lshr exact i32 %27, 1
-  %42 = zext nneg i32 %41 to i64
-  %43 = add nuw nsw i64 %40, %42
-  %44 = zext nneg i32 %27 to i64
-  %45 = udiv i64 %43, %44
-  %46 = trunc i64 %45 to i32
-  ret i32 %46
+  %26 = shl nuw nsw i32 655360, %25
+  %27 = shl i32 %4, 15
+  %28 = and i32 %27, 134152192
+  %29 = add nuw nsw i32 %28, 1048576
+  %30 = or disjoint i32 %17, %29
+  %31 = zext nneg i32 %21 to i64
+  %32 = zext nneg i32 %30 to i64
+  %33 = mul nuw nsw i64 %32, %31
+  %34 = mul i32 %16, %21
+  %35 = lshr i32 %15, 1
+  %36 = add i32 %34, %35
+  %37 = udiv i32 %36, %15
+  %38 = zext i32 %37 to i64
+  %39 = add nuw nsw i64 %33, %38
+  %40 = lshr exact i32 %26, 1
+  %41 = zext nneg i32 %40 to i64
+  %42 = add nuw nsw i64 %39, %41
+  %43 = zext nneg i32 %26 to i64
+  %44 = udiv i64 %42, %43
+  %45 = trunc i64 %44 to i32
+  ret i32 %45
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

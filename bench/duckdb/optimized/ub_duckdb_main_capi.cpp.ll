@@ -16978,8 +16978,7 @@ for.body32:                                       ; preds = %for.body32, %for.bo
   %arrayidx = getelementptr inbounds i8, ptr %18, i64 %row.1284
   %frombool = zext i1 %tobool.i.i.i.i to i8
   store i8 %frombool, ptr %arrayidx, align 1, !tbaa !352
-  %rem.i.i.i.i.1 = or disjoint i64 %rem.i.i.i.i, 1
-  %shl.i.i.i.i.1 = shl nuw i64 1, %rem.i.i.i.i.1
+  %shl.i.i.i.i.1 = shl nuw i64 2, %rem.i.i.i.i
   %and.i.i.i.i.1 = and i64 %23, %shl.i.i.i.i.1
   %tobool.i.i.i.i.1 = icmp eq i64 %and.i.i.i.i.1, 0
   %inc.1 = add i64 %row.1284, 2

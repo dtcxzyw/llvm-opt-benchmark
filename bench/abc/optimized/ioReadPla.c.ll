@@ -1082,46 +1082,40 @@ define noalias noundef ptr @Io_ReadPlaCubeSetup(ptr nocapture noundef readonly %
   br i1 %exitcond.not, label %.preheader39, label %21, !llvm.loop !22
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.critedge
-  %24 = phi i8 [ %18, %.preheader.lr.ph ], [ %43, %.critedge ]
+  %24 = phi i8 [ %18, %.preheader.lr.ph ], [ %40, %.critedge ]
   %indvars.iv48 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next49, %.critedge ]
-  %.043 = phi ptr [ %.val, %.preheader.lr.ph ], [ %42, %.critedge ]
+  %.043 = phi ptr [ %.val, %.preheader.lr.ph ], [ %39, %.critedge ]
   %25 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv48
   br label %26
 
-26:                                               ; preds = %.preheader, %41
-  %27 = phi i8 [ %24, %.preheader ], [ %.pre, %41 ]
-  %indvars.iv45 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next46, %41 ]
-  switch i8 %27, label %41 [
+26:                                               ; preds = %.preheader, %38
+  %27 = phi i8 [ %24, %.preheader ], [ %.pre, %38 ]
+  %indvars.iv45 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next46, %38 ]
+  switch i8 %27, label %38 [
     i8 32, label %.critedge
     i8 0, label %.critedge
-    i8 48, label %28
-    i8 49, label %31
+    i8 48, label %.sink.split
+    i8 49, label %28
   ]
 
 28:                                               ; preds = %26
-  %29 = shl nuw i64 %indvars.iv45, 1
-  %30 = and i64 %29, 62
   br label %.sink.split
 
-31:                                               ; preds = %26
-  %32 = shl nuw i64 %indvars.iv45, 1
-  %33 = and i64 %32, 62
-  %34 = or disjoint i64 %33, 1
-  br label %.sink.split
+.sink.split:                                      ; preds = %26, %28
+  %.sink = phi i64 [ 2, %28 ], [ 1, %26 ]
+  %29 = load ptr, ptr %25, align 8
+  %30 = shl nuw i64 %indvars.iv45, 1
+  %31 = and i64 %30, 62
+  %32 = shl nuw i64 %.sink, %31
+  %33 = lshr i64 %indvars.iv45, 5
+  %34 = and i64 %33, 134217727
+  %35 = getelementptr inbounds i64, ptr %29, i64 %34
+  %36 = load i64, ptr %35, align 8
+  %37 = or i64 %36, %32
+  store i64 %37, ptr %35, align 8
+  br label %38
 
-.sink.split:                                      ; preds = %31, %28
-  %.sink = phi i64 [ %34, %31 ], [ %30, %28 ]
-  %.sink54 = load ptr, ptr %25, align 8
-  %35 = shl nuw i64 1, %.sink
-  %36 = lshr i64 %indvars.iv45, 5
-  %37 = and i64 %36, 134217727
-  %38 = getelementptr inbounds i64, ptr %.sink54, i64 %37
-  %39 = load i64, ptr %38, align 8
-  %40 = or i64 %39, %35
-  store i64 %40, ptr %38, align 8
-  br label %41
-
-41:                                               ; preds = %.sink.split, %26
+38:                                               ; preds = %.sink.split, %26
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.043, i64 %indvars.iv.next46
   %.pre = load i8, ptr %.phi.trans.insert, align 1
@@ -1129,9 +1123,9 @@ define noalias noundef ptr @Io_ReadPlaCubeSetup(ptr nocapture noundef readonly %
 
 .critedge:                                        ; preds = %26, %26
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
-  %42 = getelementptr inbounds i8, ptr %.043, i64 %20
-  %43 = load i8, ptr %42, align 1
-  %.not = icmp eq i8 %43, 0
+  %39 = getelementptr inbounds i8, ptr %.043, i64 %20
+  %40 = load i8, ptr %39, align 1
+  %.not = icmp eq i8 %40, 0
   br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.critedge, %.preheader39

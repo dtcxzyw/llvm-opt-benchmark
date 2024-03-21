@@ -6017,8 +6017,7 @@ _ZL9mytolowerc.exit.i.i:                          ; preds = %for.body.i.i
   %arrayidx.i.i.i.i19.i.i = getelementptr inbounds [4 x i64], ptr %props.i.i, i64 0, i64 %div1.i.i.i.i.i
   %35 = load i64, ptr %arrayidx.i.i.i.i19.i.i, align 8
   %conv.i18.i.i = and i64 %i.034.i.i, 31
-  %rem.i.i.i.i.i = or disjoint i64 %conv.i18.i.i, 32
-  %shl.i.i.i.i.i = shl nuw i64 1, %rem.i.i.i.i.i
+  %shl.i.i.i.i.i = shl nuw i64 4294967296, %conv.i18.i.i
   %and.i.i.i.i = and i64 %35, %shl.i.i.i.i.i
   %tobool.i.i.not.i.i = icmp eq i64 %and.i.i.i.i, 0
   br i1 %tobool.i.i.not.i.i, label %if.end7.i.i, label %for.inc.i.i
@@ -6262,8 +6261,7 @@ invoke.cont65.i:                                  ; preds = %for.body58.i
   %arrayidx.i.i.i.i66.i = getelementptr inbounds [4 x i64], ptr %props.i.i, i64 0, i64 %div1.i.i.i.i
   %56 = load i64, ptr %arrayidx.i.i.i.i66.i, align 8
   %conv.i65.i = and i64 %i.036.i, 31
-  %rem.i.i.i67.i = or disjoint i64 %conv.i65.i, 32
-  %shl.i.i.i68.i = shl nuw i64 1, %rem.i.i.i67.i
+  %shl.i.i.i68.i = shl nuw i64 4294967296, %conv.i65.i
   %and.i.i.i = and i64 %56, %shl.i.i.i68.i
   %tobool.i.i.not.i = icmp eq i64 %and.i.i.i, 0
   br i1 %tobool.i.i.not.i, label %land.end.i, label %for.inc89.i
@@ -9245,8 +9243,7 @@ _ZL9mytolowerc.exit:                              ; preds = %for.body
   %arrayidx.i.i.i.i18 = getelementptr inbounds [4 x i64], ptr %cr, i64 0, i64 %div1.i.i.i
   %4 = load i64, ptr %arrayidx.i.i.i.i18, align 8
   %conv.i = and i64 %i.042, 31
-  %rem.i.i.i = or disjoint i64 %conv.i, 32
-  %shl.i.i.i = shl nuw i64 1, %rem.i.i.i
+  %shl.i.i.i = shl nuw i64 4294967296, %conv.i
   %and.i.i = and i64 %4, %shl.i.i.i
   %tobool.i.i.not = icmp eq i64 %and.i.i, 0
   br i1 %tobool.i.i.not, label %land.end, label %for.inc

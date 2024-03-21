@@ -1578,7 +1578,7 @@ define dso_local noundef i32 @ehci_setup(ptr noundef %0) #0 align 16 {
   %49 = getelementptr inbounds i8, ptr %0, i64 1248
   store ptr %48, ptr %49, align 8
   %50 = icmp eq ptr %48, null
-  br i1 %50, label %187, label %51
+  br i1 %50, label %186, label %51
 
 51:                                               ; preds = %45
   %52 = load ptr, ptr %46, align 8
@@ -1586,14 +1586,14 @@ define dso_local noundef i32 @ehci_setup(ptr noundef %0) #0 align 16 {
   %54 = getelementptr inbounds i8, ptr %0, i64 1240
   store ptr %53, ptr %54, align 8
   %55 = icmp eq ptr %53, null
-  br i1 %55, label %187, label %56
+  br i1 %55, label %186, label %56
 
 56:                                               ; preds = %51
   %57 = tail call fastcc ptr @ehci_qh_alloc(ptr noundef %2, i32 noundef 3264)
   %58 = getelementptr inbounds i8, ptr %0, i64 840
   store ptr %57, ptr %58, align 8
   %59 = icmp eq ptr %57, null
-  br i1 %59, label %187, label %60
+  br i1 %59, label %186, label %60
 
 60:                                               ; preds = %56
   %61 = load ptr, ptr %46, align 8
@@ -1601,7 +1601,7 @@ define dso_local noundef i32 @ehci_setup(ptr noundef %0) #0 align 16 {
   %63 = getelementptr inbounds i8, ptr %0, i64 1256
   store ptr %62, ptr %63, align 8
   %64 = icmp eq ptr %62, null
-  br i1 %64, label %187, label %65
+  br i1 %64, label %186, label %65
 
 65:                                               ; preds = %60
   %66 = load ptr, ptr %46, align 8
@@ -1609,7 +1609,7 @@ define dso_local noundef i32 @ehci_setup(ptr noundef %0) #0 align 16 {
   %68 = getelementptr inbounds i8, ptr %0, i64 1264
   store ptr %67, ptr %68, align 8
   %69 = icmp eq ptr %67, null
-  br i1 %69, label %187, label %70
+  br i1 %69, label %186, label %70
 
 70:                                               ; preds = %65
   %71 = load ptr, ptr %46, align 8
@@ -1621,7 +1621,7 @@ define dso_local noundef i32 @ehci_setup(ptr noundef %0) #0 align 16 {
   %77 = getelementptr inbounds i8, ptr %0, i64 912
   store ptr %76, ptr %77, align 8
   %78 = icmp eq ptr %76, null
-  br i1 %78, label %187, label %79
+  br i1 %78, label %186, label %79
 
 79:                                               ; preds = %70
   %80 = load i32, ptr %16, align 4
@@ -1639,7 +1639,7 @@ define dso_local noundef i32 @ehci_setup(ptr noundef %0) #0 align 16 {
   %88 = getelementptr inbounds i8, ptr %0, i64 848
   store ptr %87, ptr %88, align 8
   %89 = icmp eq ptr %87, null
-  br i1 %89, label %187, label %90
+  br i1 %89, label %186, label %90
 
 90:                                               ; preds = %86
   %91 = load ptr, ptr %87, align 8
@@ -1688,7 +1688,7 @@ define dso_local noundef i32 @ehci_setup(ptr noundef %0) #0 align 16 {
   %119 = getelementptr inbounds i8, ptr %0, i64 952
   store ptr %118, ptr %119, align 8
   %120 = icmp eq ptr %118, null
-  br i1 %120, label %187, label %121
+  br i1 %120, label %186, label %121
 
 121:                                              ; preds = %.loopexit
   %122 = and i32 %23, 128
@@ -1737,76 +1737,75 @@ define dso_local noundef i32 @ehci_setup(ptr noundef %0) #0 align 16 {
 
 153:                                              ; preds = %152, %121
   %154 = phi i32 [ 0, %152 ], [ %150, %121 ]
-  %155 = or disjoint i32 %154, 16
-  %156 = shl nuw nsw i32 1, %155
-  %157 = and i32 %23, 262144
-  %158 = icmp eq i32 %157, 0
-  br i1 %158, label %164, label %159
+  %155 = shl nuw nsw i32 65536, %154
+  %156 = and i32 %23, 262144
+  %157 = icmp eq i32 %156, 0
+  br i1 %157, label %163, label %158
 
-159:                                              ; preds = %153
-  %160 = getelementptr inbounds i8, ptr %0, i64 1312
-  %161 = load i8, ptr %160, align 8
-  %162 = or i8 %161, 4
-  store i8 %162, ptr %160, align 8
-  %163 = or disjoint i32 %156, 32768
-  br label %164
+158:                                              ; preds = %153
+  %159 = getelementptr inbounds i8, ptr %0, i64 1312
+  %160 = load i8, ptr %159, align 8
+  %161 = or i8 %160, 4
+  store i8 %161, ptr %159, align 8
+  %162 = or disjoint i32 %155, 32768
+  br label %163
 
-164:                                              ; preds = %159, %153
-  %165 = phi i32 [ %163, %159 ], [ %156, %153 ]
-  %166 = and i32 %23, 4
-  %167 = icmp ne i32 %166, 0
-  %168 = load i32, ptr @park, align 4
-  %169 = icmp ne i32 %168, 0
-  %170 = select i1 %167, i1 %169, i1 false
-  br i1 %170, label %171, label %176
+163:                                              ; preds = %158, %153
+  %164 = phi i32 [ %162, %158 ], [ %155, %153 ]
+  %165 = and i32 %23, 4
+  %166 = icmp ne i32 %165, 0
+  %167 = load i32, ptr @park, align 4
+  %168 = icmp ne i32 %167, 0
+  %169 = select i1 %166, i1 %168, i1 false
+  br i1 %169, label %170, label %175
 
-171:                                              ; preds = %164
-  %172 = tail call i32 @llvm.umin.i32(i32 %168, i32 3)
-  store i32 %172, ptr @park, align 4
-  %173 = shl nuw nsw i32 %172, 8
-  %174 = or i32 %165, %173
-  %175 = or i32 %174, 2048
-  br label %176
+170:                                              ; preds = %163
+  %171 = tail call i32 @llvm.umin.i32(i32 %167, i32 3)
+  store i32 %171, ptr @park, align 4
+  %172 = shl nuw nsw i32 %171, 8
+  %173 = or i32 %164, %172
+  %174 = or i32 %173, 2048
+  br label %175
 
-176:                                              ; preds = %171, %164
-  %177 = phi i32 [ %175, %171 ], [ %165, %164 ]
-  %178 = and i32 %177, -13
-  %179 = or disjoint i32 %178, 4
-  %180 = select i1 %43, i32 %177, i32 %179
-  %181 = getelementptr inbounds i8, ptr %0, i64 1296
-  store i32 %180, ptr %181, align 8
-  %182 = getelementptr inbounds i8, ptr %0, i64 600
-  %183 = load ptr, ptr %182, align 8
-  %184 = icmp eq ptr %183, null
-  br i1 %184, label %185, label %188
+175:                                              ; preds = %170, %163
+  %176 = phi i32 [ %174, %170 ], [ %164, %163 ]
+  %177 = and i32 %176, -13
+  %178 = or disjoint i32 %177, 4
+  %179 = select i1 %43, i32 %176, i32 %178
+  %180 = getelementptr inbounds i8, ptr %0, i64 1296
+  store i32 %179, ptr %180, align 8
+  %181 = getelementptr inbounds i8, ptr %0, i64 600
+  %182 = load ptr, ptr %181, align 8
+  %183 = icmp eq ptr %182, null
+  br i1 %183, label %184, label %187
 
-185:                                              ; preds = %176
-  %186 = getelementptr inbounds i8, ptr %0, i64 36
-  store i32 -1, ptr %186, align 4
-  br label %188
+184:                                              ; preds = %175
+  %185 = getelementptr inbounds i8, ptr %0, i64 36
+  store i32 -1, ptr %185, align 4
+  br label %187
 
-187:                                              ; preds = %45, %51, %56, %60, %65, %70, %86, %.loopexit
+186:                                              ; preds = %45, %51, %56, %60, %65, %70, %86, %.loopexit
   tail call fastcc void @ehci_mem_cleanup(ptr noundef %2)
-  br label %195
+  br label %194
 
-188:                                              ; preds = %176, %185
-  %189 = getelementptr inbounds i8, ptr %0, i64 896
-  store i32 -1, ptr %189, align 8
-  %190 = tail call fastcc i32 @ehci_halt(ptr noundef %2), !range !20
-  %191 = icmp eq i32 %190, 0
-  br i1 %191, label %193, label %192
+187:                                              ; preds = %175, %184
+  %188 = getelementptr inbounds i8, ptr %0, i64 896
+  store i32 -1, ptr %188, align 8
+  %189 = tail call fastcc i32 @ehci_halt(ptr noundef %2), !range !20
+  %190 = icmp eq i32 %189, 0
+  br i1 %190, label %192, label %191
 
-192:                                              ; preds = %188
+191:                                              ; preds = %187
   tail call fastcc void @ehci_mem_cleanup(ptr noundef %2)
-  br label %195
+  br label %194
 
-193:                                              ; preds = %188
-  %194 = tail call i32 @ehci_reset(ptr noundef %2), !range !20
-  br label %195
+192:                                              ; preds = %187
+  %193 = tail call i32 @ehci_reset(ptr noundef %2), !range !20
+  br label %194
 
-195:                                              ; preds = %187, %193, %192
-  %196 = phi i32 [ %190, %192 ], [ 0, %193 ], [ -12, %187 ]
-  ret i32 %196
+194:                                              ; preds = %186, %192, %191
+  %195 = phi i32 [ %189, %191 ], [ 0, %192 ], [ -12, %186 ]
+  ret i32 %195
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
