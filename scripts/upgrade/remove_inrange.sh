@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sed -i 's/ inrange / /' $1
+sed -i 's/ inrange / /g' $1
