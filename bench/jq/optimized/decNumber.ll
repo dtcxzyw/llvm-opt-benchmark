@@ -5537,7 +5537,7 @@ define internal fastcc noundef ptr @decExpOp(ptr noundef returned %0, ptr nounde
   %144 = add nsw i32 %., %spec.select
   %145 = add nsw i32 %144, 2
   %146 = shl nsw i32 %145, 1
-  %147 = icmp slt i32 %144, 23
+  %147 = icmp slt i32 %146, 50
   br i1 %147, label %148, label %153
 
 148:                                              ; preds = %141
@@ -5558,8 +5558,8 @@ define internal fastcc noundef ptr @decExpOp(ptr noundef returned %0, ptr nounde
   br i1 %158, label %159, label %168
 
 159:                                              ; preds = %156
-  %160 = shl nuw i32 %157, 1
-  %161 = add nuw i32 %160, 10
+  %160 = shl nuw nsw i32 %157, 1
+  %161 = add nuw nsw i32 %160, 10
   %162 = zext nneg i32 %161 to i64
   %163 = call noalias ptr @malloc(i64 noundef %162) #19
   %164 = icmp eq ptr %163, null
@@ -6189,18 +6189,18 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
   %67 = add nuw i32 %61, 8
   %68 = udiv i32 %67, 9
   %69 = add nsw i32 %66, %68
-  %70 = icmp sgt i32 %62, 90
-  br i1 %70, label %71, label %75
+  %70 = shl nsw i32 %66, 2
+  %71 = icmp sgt i32 %70, 40
+  br i1 %71, label %72, label %75
 
-71:                                               ; preds = %64
-  %72 = shl nuw nsw i32 %66, 2
-  %73 = zext nneg i32 %72 to i64
+72:                                               ; preds = %64
+  %73 = zext nneg i32 %70 to i64
   %74 = tail call noalias ptr @malloc(i64 noundef %73) #19
   br label %75
 
-75:                                               ; preds = %71, %64
-  %.0261 = phi ptr [ %74, %71 ], [ %8, %64 ]
-  %.0258 = phi ptr [ %74, %71 ], [ null, %64 ]
+75:                                               ; preds = %72, %64
+  %.0261 = phi ptr [ %74, %72 ], [ %8, %64 ]
+  %.0258 = phi ptr [ %74, %72 ], [ null, %64 ]
   %76 = icmp ugt i32 %61, 90
   br i1 %76, label %77, label %81
 

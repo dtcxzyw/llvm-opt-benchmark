@@ -34,7 +34,7 @@ entry:
 define dso_local ptr @lwDrawSchotter(i32 noundef %console_cols, i32 noundef %squares_per_row, i32 noundef %squares_per_col) local_unnamed_addr #1 {
 entry:
   %mul = shl nsw i32 %console_cols, 1
-  %cmp = icmp sgt i32 %console_cols, 2
+  %cmp = icmp sgt i32 %mul, 4
   %cond = select i1 %cmp, i32 2, i32 0
   %mul1 = shl nuw nsw i32 %cond, 1
   %sub = sub nsw i32 %mul, %mul1

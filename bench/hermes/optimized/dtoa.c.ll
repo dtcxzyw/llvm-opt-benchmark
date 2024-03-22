@@ -5229,7 +5229,7 @@ for.end:                                          ; preds = %for.body.preheader,
   %add.ptr17.idx = shl nsw i64 %idx.ext16, 2
   %17 = getelementptr i8, ptr %spec.select, i64 %add.ptr17.idx
   %add.ptr17.ptr = getelementptr i8, ptr %17, i64 24
-  %cmp2141 = icmp sgt i32 %4, 0
+  %cmp2141 = icmp sgt i64 %add.ptr17.idx, 0
   br i1 %cmp2141, label %for.body22.preheader, label %for.cond43.preheader
 
 for.body22.preheader:                             ; preds = %for.end
@@ -5707,11 +5707,11 @@ do.end.if.end29_crit_edge:                        ; preds = %do.end
   br label %if.end29
 
 while.cond.preheader:                             ; preds = %do.end
-  %cmp2357 = icmp sgt i32 %0, 2
+  %cmp2357 = icmp sgt i64 %add.ptr5.idx, 4
   br i1 %cmp2357, label %land.rhs.preheader, label %while.end
 
 land.rhs.preheader:                               ; preds = %while.cond.preheader
-  %bxe.0.add56 = add nsw i64 %add.ptr5.idx, 20
+  %bxe.0.add56 = add nuw nsw i64 %add.ptr5.idx, 20
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %while.body
@@ -5802,7 +5802,7 @@ do.end54:                                         ; preds = %do.body37
   br i1 %tobool59.not, label %while.cond61.preheader, label %return
 
 while.cond61.preheader:                           ; preds = %do.end54
-  %cmp6362 = icmp sgt i32 %n.1, 1
+  %cmp6362 = icmp sgt i64 %add.ptr58.idx, 4
   br i1 %cmp6362, label %land.rhs65.preheader, label %while.end71
 
 land.rhs65.preheader:                             ; preds = %while.cond61.preheader
@@ -8044,7 +8044,7 @@ cond.end:                                         ; preds = %if.then, %cond.true
   br label %ret_d
 
 if.end:                                           ; preds = %entry
-  %cmp8 = icmp sgt i32 %0, 1
+  %cmp8 = icmp sgt i64 %add.ptr.idx, 4
   br i1 %cmp8, label %cond.true9, label %cond.end12
 
 cond.true9:                                       ; preds = %if.end

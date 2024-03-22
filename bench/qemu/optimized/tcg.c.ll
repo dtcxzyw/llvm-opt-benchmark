@@ -6873,7 +6873,7 @@ if.end32:                                         ; preds = %for.inc, %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end32
-  %cmp.i.i = icmp sgt i32 %sub.i, 32775
+  %cmp.i.i = icmp sgt i32 %mul.i, 32768
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
@@ -8065,7 +8065,7 @@ tcg_reg_alloc_start.exit:                         ; preds = %sw.epilog.i159, %if
   br i1 %cmp.i166, label %if.then.i168, label %if.else.i167
 
 if.then.i168:                                     ; preds = %tcg_reg_alloc_start.exit
-  %cmp.i.i169 = icmp ugt i32 %mul70, 32775
+  %cmp.i.i169 = icmp ugt i32 %mul70, 32768
   br i1 %cmp.i.i169, label %if.then.i.i172, label %if.else.i.i
 
 if.then.i.i172:                                   ; preds = %if.then.i168
@@ -15319,7 +15319,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %cmp.i.i = icmp sgt i32 %sub.i, 32775
+  %cmp.i.i = icmp sgt i32 %mul.i, 32768
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i

@@ -635,12 +635,12 @@ ompi_request_cancel.exit.i77.i:                   ; preds = %289, %286
 
 303:                                              ; preds = %._crit_edge.i32
   %304 = load i32, ptr %9, align 4
-  %305 = icmp sgt i32 %304, 0
-  br i1 %305, label %.lr.ph.preheader.i79.i, label %mca_coll_basic_neighbor_alltoall_graph.exit
+  %305 = shl nsw i32 %304, 1
+  %306 = icmp sgt i32 %305, 0
+  br i1 %306, label %.lr.ph.preheader.i79.i, label %mca_coll_basic_neighbor_alltoall_graph.exit
 
 .lr.ph.preheader.i79.i:                           ; preds = %303
-  %306 = shl nuw nsw i32 %304, 1
-  %wide.trip.count.i80.i = zext nneg i32 %306 to i64
+  %wide.trip.count.i80.i = zext nneg i32 %305 to i64
   br label %.lr.ph.i81.i
 
 .lr.ph.i81.i:                                     ; preds = %323, %.lr.ph.preheader.i79.i

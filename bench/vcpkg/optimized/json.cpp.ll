@@ -7644,10 +7644,10 @@ _ZN5vcpkg4JsonL19invalid_json_fieldsB5cxx11ERKNS0_6ObjectENS_4SpanIKNS_10StringV
 .lr.ph49:                                         ; preds = %_ZN5vcpkg4JsonL19invalid_json_fieldsB5cxx11ERKNS0_6ObjectENS_4SpanIKNS_10StringViewEEE.exit
   %.sroa.210.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
   %45 = getelementptr inbounds i8, ptr %10, i64 8
-  %.idx = shl nsw i64 %.fr, 4
+  %.idx = shl i64 %.fr, 4
   %46 = getelementptr inbounds i8, ptr %2, i64 %.idx
   %.02741 = getelementptr inbounds i8, ptr %2, i64 16
-  %.not42 = icmp eq i64 %.fr, 1
+  %.not42 = icmp eq i64 %.idx, 16
   %47 = getelementptr inbounds i8, ptr %11, i64 8
   %48 = getelementptr inbounds i8, ptr %12, i64 8
   br i1 %.not42, label %.lr.ph49.split.us, label %.lr.ph49.split

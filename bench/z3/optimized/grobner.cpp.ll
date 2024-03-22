@@ -1652,7 +1652,7 @@ _ZNK6vectorIP4exprLb0EjE5emptyEv.exit34:          ; preds = %_ZNK6vectorIP4exprL
 _ZNK6vectorIP4exprLb0EjE3endEv.exit:              ; preds = %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit34
   %12 = zext i32 %11 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %12, 3
-  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %10, i64 %add.ptr.i.idx
+  %add.ptr.i = getelementptr inbounds i8, ptr %10, i64 %add.ptr.i.idx
   %13 = load ptr, ptr %10, align 8
   %cmp.not44 = icmp eq i32 %11, 1
   br i1 %cmp.not44, label %for.end, label %for.body.lr.ph
@@ -1706,7 +1706,7 @@ for.inc:                                          ; preds = %if.then18, %if.end2
   %power.1 = phi i32 [ %inc, %if.then18 ], [ 1, %if.end23 ]
   %prev.1 = phi ptr [ %prev.046, %if.then18 ], [ %14, %if.end23 ]
   %it.0 = getelementptr inbounds i8, ptr %it.047, i64 8
-  %cmp.not = icmp eq ptr %it.0, %add.ptr.i.ptr
+  %cmp.not = icmp eq ptr %it.0, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !12
 
 for.end:                                          ; preds = %for.inc, %_ZNK6vectorIP4exprLb0EjE3endEv.exit
@@ -11791,8 +11791,8 @@ if.then17:                                        ; preds = %for.cond
 if.then19:                                        ; preds = %if.then17
   %2 = load ptr, ptr %__p.0, align 8
   %add.ptr21.idx58 = shl nsw i64 %__n.0, 3
-  %add.ptr21.ptr = getelementptr inbounds i8, ptr %__p.0, i64 %add.ptr21.idx58
-  %tobool.not.i.i.i.i.i = icmp eq i64 %__n.0, 1
+  %add.ptr21 = getelementptr inbounds i8, ptr %__p.0, i64 %add.ptr21.idx58
+  %tobool.not.i.i.i.i.i = icmp eq i64 %add.ptr21.idx58, 8
   br i1 %tobool.not.i.i.i.i.i, label %_ZSt4moveIPP4exprS2_ET0_T_S4_S3_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then19
@@ -11802,7 +11802,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then19
   br label %_ZSt4moveIPP4exprS2_ET0_T_S4_S3_.exit
 
 _ZSt4moveIPP4exprS2_ET0_T_S4_S3_.exit:            ; preds = %if.then19, %if.then.i.i.i.i.i
-  %add.ptr24 = getelementptr inbounds i8, ptr %add.ptr21.ptr, i64 -8
+  %add.ptr24 = getelementptr inbounds i8, ptr %add.ptr21, i64 -8
   store ptr %2, ptr %add.ptr24, align 8
   br label %return
 
@@ -13291,8 +13291,8 @@ if.then17:                                        ; preds = %for.cond
 if.then19:                                        ; preds = %if.then17
   %2 = load ptr, ptr %__p.0, align 8
   %add.ptr21.idx58 = shl nsw i64 %__n.0, 3
-  %add.ptr21.ptr = getelementptr inbounds i8, ptr %__p.0, i64 %add.ptr21.idx58
-  %tobool.not.i.i.i.i.i = icmp eq i64 %__n.0, 1
+  %add.ptr21 = getelementptr inbounds i8, ptr %__p.0, i64 %add.ptr21.idx58
+  %tobool.not.i.i.i.i.i = icmp eq i64 %add.ptr21.idx58, 8
   br i1 %tobool.not.i.i.i.i.i, label %_ZSt4moveIPPN7grobner8monomialES3_ET0_T_S5_S4_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then19
@@ -13302,7 +13302,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then19
   br label %_ZSt4moveIPPN7grobner8monomialES3_ET0_T_S5_S4_.exit
 
 _ZSt4moveIPPN7grobner8monomialES3_ET0_T_S5_S4_.exit: ; preds = %if.then19, %if.then.i.i.i.i.i
-  %add.ptr24 = getelementptr inbounds i8, ptr %add.ptr21.ptr, i64 -8
+  %add.ptr24 = getelementptr inbounds i8, ptr %add.ptr21, i64 -8
   store ptr %2, ptr %add.ptr24, align 8
   br label %return
 

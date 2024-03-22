@@ -1301,13 +1301,12 @@ define i32 @Ssw_RarManObjHashWord(ptr nocapture noundef readonly %0, ptr nocaptu
   %7 = mul nsw i32 %.val.val, %4
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds i64, ptr %.val11, i64 %8
-  %10 = icmp sgt i32 %.val.val, 0
-  br i1 %10, label %.lr.ph.preheader, label %._crit_edge
+  %10 = shl nsw i32 %.val.val, 1
+  %11 = icmp sgt i32 %10, 0
+  br i1 %11, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %2
-  %11 = shl nuw i32 %.val.val, 1
-  %smax = tail call i32 @llvm.smax.i32(i32 %11, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %10 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -3594,14 +3593,13 @@ define internal fastcc void @Ssw_RarTransferPatterns(ptr nocapture noundef reado
 .preheader:                                       ; preds = %.preheader.lr.ph, %Vec_IntPush.exit79
   %91 = phi i32 [ %84, %.preheader.lr.ph ], [ %181, %Vec_IntPush.exit79 ]
   %.261102 = phi i32 [ 0, %.preheader.lr.ph ], [ %178, %Vec_IntPush.exit79 ]
-  %92 = icmp sgt i32 %91, 0
+  %92 = shl nsw i32 %91, 6
+  %93 = icmp sgt i32 %92, 0
   %.pre115 = load ptr, ptr %86, align 8
-  br i1 %92, label %.lr.ph95, label %._crit_edge96
+  br i1 %93, label %.lr.ph95, label %._crit_edge96
 
 .lr.ph95:                                         ; preds = %.preheader
-  %93 = shl i32 %91, 6
-  %smax = tail call i32 @llvm.smax.i32(i32 %93, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %92 to i64
   br label %94
 
 94:                                               ; preds = %.lr.ph95, %94

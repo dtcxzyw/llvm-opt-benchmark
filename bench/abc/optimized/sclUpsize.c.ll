@@ -6686,7 +6686,7 @@ Vec_IntFree.exit:                                 ; preds = %259, %262
 Vec_IntFree.exit280:                              ; preds = %Vec_IntFree.exit, %265
   call void @free(ptr noundef nonnull %160) #24
   %266 = shl nsw i32 %.0216351, 1
-  %267 = icmp slt i32 %.0216351, 51
+  %267 = icmp slt i32 %266, 101
   br i1 %267, label %152, label %._crit_edge, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %Vec_IntFree.exit280

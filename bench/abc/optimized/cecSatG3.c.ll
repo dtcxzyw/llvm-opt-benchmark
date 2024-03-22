@@ -2750,23 +2750,21 @@ define i32 @Cec5_ManSimHashKey(ptr nocapture noundef readonly %0, i32 noundef %1
   %5 = load i32, ptr %0, align 4
   %6 = and i32 %5, 1
   %.not = icmp eq i32 %6, 0
-  %7 = icmp sgt i32 %1, 0
+  %7 = icmp sgt i32 %4, 0
   br i1 %.not, label %.preheader, label %.preheader20
 
 .preheader20:                                     ; preds = %3
   br i1 %7, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %.preheader20
-  %smax = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %4 to i64
   br label %.lr.ph
 
 .preheader:                                       ; preds = %3
   br i1 %7, label %.lr.ph26.preheader, label %.loopexit
 
 .lr.ph26.preheader:                               ; preds = %.preheader
-  %smax34 = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
-  %wide.trip.count35 = zext nneg i32 %smax34 to i64
+  %wide.trip.count34 = zext nneg i32 %4 to i64
   br label %.lr.ph26
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -2795,8 +2793,8 @@ define i32 @Cec5_ManSimHashKey(ptr nocapture noundef readonly %0, i32 noundef %1
   %21 = mul i32 %20, %17
   %22 = xor i32 %21, %.125
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
-  %exitcond36.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count35
-  br i1 %exitcond36.not, label %.loopexit, label %.lr.ph26, !llvm.loop !18
+  %exitcond35.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count34
+  br i1 %exitcond35.not, label %.loopexit, label %.lr.ph26, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph26, %.preheader20, %.preheader
   %.2 = phi i32 [ 0, %.preheader ], [ 0, %.preheader20 ], [ %22, %.lr.ph26 ], [ %15, %.lr.ph ]
@@ -3071,23 +3069,21 @@ define void @Cec5_RefineOneClass(ptr nocapture noundef readonly %0, ptr nocaptur
   %31 = load i32, ptr %28, align 4
   %32 = and i32 %31, 1
   %.not.i = icmp eq i32 %32, 0
-  %33 = icmp sgt i32 %.val49, 0
+  %33 = icmp sgt i32 %30, 0
   br i1 %.not.i, label %.preheader.i, label %.preheader20.i
 
 .preheader20.i:                                   ; preds = %22
   br i1 %33, label %.lr.ph.preheader.i, label %Cec5_ManSimHashKey.exit
 
 .lr.ph.preheader.i:                               ; preds = %.preheader20.i
-  %smax.i = tail call i32 @llvm.smax.i32(i32 %30, i32 1)
-  %wide.trip.count.i = zext nneg i32 %smax.i to i64
+  %wide.trip.count.i = zext nneg i32 %30 to i64
   br label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %22
   br i1 %33, label %.lr.ph26.preheader.i, label %Cec5_ManSimHashKey.exit
 
 .lr.ph26.preheader.i:                             ; preds = %.preheader.i
-  %smax34.i = tail call i32 @llvm.smax.i32(i32 %30, i32 1)
-  %wide.trip.count35.i = zext nneg i32 %smax34.i to i64
+  %wide.trip.count34.i = zext nneg i32 %30 to i64
   br label %.lr.ph26.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -3116,8 +3112,8 @@ define void @Cec5_RefineOneClass(ptr nocapture noundef readonly %0, ptr nocaptur
   %47 = mul i32 %46, %43
   %48 = xor i32 %47, %.125.i
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
-  %exitcond36.not.i = icmp eq i64 %indvars.iv.next32.i, %wide.trip.count35.i
-  br i1 %exitcond36.not.i, label %Cec5_ManSimHashKey.exit, label %.lr.ph26.i, !llvm.loop !18
+  %exitcond35.not.i = icmp eq i64 %indvars.iv.next32.i, %wide.trip.count34.i
+  br i1 %exitcond35.not.i, label %Cec5_ManSimHashKey.exit, label %.lr.ph26.i, !llvm.loop !18
 
 Cec5_ManSimHashKey.exit:                          ; preds = %.lr.ph.i, %.lr.ph26.i, %.preheader20.i, %.preheader.i
   %.2.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader20.i ], [ %48, %.lr.ph26.i ], [ %41, %.lr.ph.i ]
@@ -6300,16 +6296,16 @@ define noundef i32 @Cec5_ManPackAddPatternTry(ptr nocapture noundef readonly %0,
 define i32 @Cec5_ManPackAddPattern(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #12 {
   %4 = getelementptr inbounds i8, ptr %0, i64 816
   %5 = load i32, ptr %4, align 8
-  %6 = icmp sgt i32 %5, 0
-  br i1 %6, label %.lr.ph, label %Cec5_ManPackAddPatterns.exit.thread
+  %6 = shl nsw i32 %5, 6
+  %7 = icmp sgt i32 %6, 2
+  br i1 %7, label %.lr.ph, label %Cec5_ManPackAddPatterns.exit.thread
 
 .lr.ph:                                           ; preds = %3
-  %7 = shl nsw i32 %5, 6
   %8 = getelementptr inbounds i8, ptr %0, i64 812
   br label %9
 
 9:                                                ; preds = %.lr.ph, %66
-  %10 = phi i32 [ %7, %.lr.ph ], [ %68, %66 ]
+  %10 = phi i32 [ %6, %.lr.ph ], [ %68, %66 ]
   %.062 = phi i32 [ 1, %.lr.ph ], [ %67, %66 ]
   %11 = load i32, ptr %8, align 4
   %12 = add nsw i32 %11, 1

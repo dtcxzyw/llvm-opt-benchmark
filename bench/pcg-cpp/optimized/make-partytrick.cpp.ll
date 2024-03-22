@@ -157,7 +157,7 @@ for.body:                                         ; preds = %invoke.cont, %for.i
   %6 = load i8, ptr %arrayidx2, align 1
   %conv = sext i8 %6 to i32
   %sub = shl nsw i32 %conv, 6
-  %cmp3 = icmp sgt i8 %6, 48
+  %cmp3 = icmp sgt i32 %sub, 3072
   br i1 %cmp3, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body
@@ -190,7 +190,7 @@ _ZN10pcg_extras13seed_seq_fromISt13random_deviceED2Ev.exit13: ; preds = %lpad
   resume { ptr, i32 } %lpad.phi
 
 if.else:                                          ; preds = %for.body
-  %cmp5.not = icmp eq i8 %6, 48
+  %cmp5.not = icmp eq i32 %sub, 3072
   br i1 %cmp5.not, label %if.end9, label %if.then6
 
 if.then6:                                         ; preds = %if.else

@@ -4182,13 +4182,12 @@ Vec_IntFill.exit.i.i:                             ; preds = %286, %Vec_IntGrow.e
 
 309:                                              ; preds = %296
   %310 = load ptr, ptr %258, align 8
-  %311 = icmp sgt i32 %303, 0
-  br i1 %311, label %.lr.ph.preheader.i.i.i.i, label %Vec_MemHashKey.exit.i.i.i
+  %311 = shl nsw i32 %303, 1
+  %312 = icmp sgt i32 %311, 0
+  br i1 %312, label %.lr.ph.preheader.i.i.i.i, label %Vec_MemHashKey.exit.i.i.i
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %309
-  %312 = shl nuw i32 %303, 1
-  %smax.i.i.i.i = call i32 @llvm.smax.i32(i32 %312, i32 1)
-  %wide.trip.count.i.i.i.i = zext nneg i32 %smax.i.i.i.i to i64
+  %wide.trip.count.i.i.i.i = zext nneg i32 %311 to i64
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.preheader.i.i.i.i
@@ -4349,13 +4348,12 @@ Vec_IntPush.exit.i.i:                             ; preds = %379, %Vec_IntGrow.e
 Vec_MemHashResize.exit.i:                         ; preds = %Vec_IntPush.exit.i.i, %296, %Vec_IntFill.exit.i.i, %252
   %388 = load ptr, ptr %258, align 8
   %389 = load i32, ptr %256, align 8
-  %390 = icmp sgt i32 %389, 0
-  br i1 %390, label %.lr.ph.preheader.i.i.i, label %Vec_MemHashKey.exit.i.i
+  %390 = shl nsw i32 %389, 1
+  %391 = icmp sgt i32 %390, 0
+  br i1 %391, label %.lr.ph.preheader.i.i.i, label %Vec_MemHashKey.exit.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %Vec_MemHashResize.exit.i
-  %391 = shl nuw i32 %389, 1
-  %smax.i.i.i = call i32 @llvm.smax.i32(i32 %391, i32 1)
-  %wide.trip.count.i.i21.i = zext nneg i32 %smax.i.i.i to i64
+  %wide.trip.count.i.i21.i = zext nneg i32 %390 to i64
   br label %.lr.ph.i.i22.i
 
 .lr.ph.i.i22.i:                                   ; preds = %.lr.ph.i.i22.i, %.lr.ph.preheader.i.i.i

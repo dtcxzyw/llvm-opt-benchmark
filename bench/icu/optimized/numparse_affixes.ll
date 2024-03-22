@@ -1048,7 +1048,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %mul = shl nsw i32 %0, 1
-  %cmp.i = icmp sgt i32 %0, 0
+  %cmp.i = icmp sgt i32 %mul, 0
   br i1 %cmp.i, label %if.then.i, label %if.end
 
 if.then.i:                                        ; preds = %if.then
@@ -1105,7 +1105,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %mul.i = shl nsw i32 %0, 1
-  %cmp.i.i = icmp sgt i32 %0, 0
+  %cmp.i.i = icmp sgt i32 %mul.i, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN6icu_758numparse4impl26AffixPatternMatcherBuilder10addMatcherERNS1_18NumberParseMatcherE.exit
 
 if.then.i.i:                                      ; preds = %if.then.i

@@ -186,7 +186,7 @@ for.end:                                          ; preds = %for.body, %entry
 if.then:                                          ; preds = %for.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %in_buf, i8 0, i64 128, i1 false)
   %mul17 = shl nsw i32 %conv9, 2
-  %cmp18129 = icmp sgt i32 %conv9, 0
+  %cmp18129 = icmp sgt i32 %mul17, 0
   br i1 %cmp18129, label %for.body19.preheader, label %for.end37
 
 for.body19.preheader:                             ; preds = %if.then
@@ -481,7 +481,7 @@ for.end:                                          ; preds = %for.body, %entry
 if.then:                                          ; preds = %for.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %in_buf, i8 0, i64 128, i1 false)
   %mul17 = shl nsw i32 %conv9, 2
-  %cmp18133 = icmp sgt i32 %conv9, 0
+  %cmp18133 = icmp sgt i32 %mul17, 0
   br i1 %cmp18133, label %for.body19.preheader, label %for.end37
 
 for.body19.preheader:                             ; preds = %if.then
@@ -782,7 +782,7 @@ for.end:                                          ; preds = %for.body, %entry
 if.then:                                          ; preds = %for.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %in_buf, i8 0, i64 128, i1 false)
   %mul17 = shl nsw i32 %conv9, 2
-  %cmp18133 = icmp sgt i32 %conv9, 0
+  %cmp18133 = icmp sgt i32 %mul17, 0
   br i1 %cmp18133, label %for.body19.preheader, label %for.end37
 
 for.body19.preheader:                             ; preds = %if.then
@@ -1083,7 +1083,7 @@ for.end:                                          ; preds = %for.body, %entry
 if.then:                                          ; preds = %for.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %in_buf, i8 0, i64 128, i1 false)
   %mul17 = shl nsw i32 %conv9, 2
-  %cmp18133 = icmp sgt i32 %conv9, 0
+  %cmp18133 = icmp sgt i32 %mul17, 0
   br i1 %cmp18133, label %for.body19.preheader, label %for.end37
 
 for.body19.preheader:                             ; preds = %if.then
@@ -1353,7 +1353,7 @@ for.end:                                          ; preds = %for.body, %entry
 if.then:                                          ; preds = %for.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %in_buf, i8 0, i64 128, i1 false)
   %mul17 = shl nsw i32 %conv9, 2
-  %cmp18121 = icmp sgt i32 %conv9, 0
+  %cmp18121 = icmp sgt i32 %mul17, 0
   br i1 %cmp18121, label %for.body19.preheader, label %for.end37
 
 for.body19.preheader:                             ; preds = %if.then
@@ -1586,7 +1586,7 @@ for.end:                                          ; preds = %for.body, %entry
 if.then:                                          ; preds = %for.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %in_buf, i8 0, i64 128, i1 false)
   %mul15 = shl nsw i32 %conv8, 2
-  %cmp16113 = icmp sgt i32 %conv8, 0
+  %cmp16113 = icmp sgt i32 %mul15, 0
   br i1 %cmp16113, label %for.body17.preheader, label %for.end35
 
 for.body17.preheader:                             ; preds = %if.then

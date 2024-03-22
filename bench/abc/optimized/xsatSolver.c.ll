@@ -1519,7 +1519,7 @@ xSAT_SolverReadClause.exit:                       ; preds = %78, %81
   %.idx = shl nsw i64 %111, 2
   %.add = add nsw i64 %.idx, 8
   %.ptr171 = getelementptr inbounds i8, ptr %86, i64 %.add
-  %112 = icmp sgt i32 %110, 2
+  %112 = icmp sgt i64 %.idx, 8
   br i1 %112, label %.lr.ph149, label %._crit_edge150
 
 .lr.ph149:                                        ; preds = %108

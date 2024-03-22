@@ -17416,11 +17416,11 @@ lpad147:                                          ; preds = %do.body153, %invoke
 _ZN5arrow6StatusD2Ev.exit299:                     ; preds = %_ZN5arrow6StatusD2Ev.exit226
   %add183 = add i32 %.sroa.speculated, %start_row.0
   %141 = load i32, ptr %minibatch_size_, align 8
-  %cmp186 = icmp slt i32 %141, 513
+  %mul185 = shl nsw i32 %141, 1
+  %cmp186 = icmp slt i32 %mul185, 1025
   br i1 %cmp186, label %if.then187, label %cleanup191
 
 if.then187:                                       ; preds = %_ZN5arrow6StatusD2Ev.exit299
-  %mul185 = shl nsw i32 %141, 1
   store i32 %mul185, ptr %minibatch_size_, align 8
   br label %cleanup191
 

@@ -404,7 +404,7 @@ Vec_IntFill.exit63:                               ; preds = %145, %Vec_IntGrow.e
   br label %Vec_IntGrow.exit.i65
 
 Vec_IntGrow.exit.i65:                             ; preds = %162, %Vec_IntFill.exit63
-  %164 = icmp sgt i32 %150, 0
+  %164 = icmp sgt i32 %151, 0
   br i1 %164, label %.lr.ph.i66, label %Vec_IntFill.exit72
 
 .lr.ph.i66:                                       ; preds = %Vec_IntGrow.exit.i65
@@ -3522,7 +3522,7 @@ Cbs3_ManReset.exit.i:                             ; preds = %.lr.ph.i.i.i, %Abc_
 
 Vec_StrGrow.exit.i.i.i:                           ; preds = %164, %154
   store i32 %155, ptr %54, align 4
-  %166 = icmp sgt i32 %152, 0
+  %166 = icmp sgt i32 %155, 0
   br i1 %166, label %.lr.ph.i.i12.i, label %Vec_StrFill.exit.i.i
 
 .lr.ph.i.i12.i:                                   ; preds = %Vec_StrGrow.exit.i.i.i, %.lr.ph.i.i12.i
@@ -3698,7 +3698,7 @@ Vec_IntFill.exit34.i.i:                           ; preds = %219, %Vec_IntGrow.e
   br label %Vec_IntGrow.exit.i36.i.i
 
 Vec_IntGrow.exit.i36.i.i:                         ; preds = %233, %Vec_IntFill.exit34.i.i
-  %235 = icmp sgt i32 %222, 0
+  %235 = icmp sgt i32 %223, 0
   br i1 %235, label %.lr.ph.i37.i.i, label %Vec_IntFill.exit43.i.i
 
 .lr.ph.i37.i.i:                                   ; preds = %Vec_IntGrow.exit.i36.i.i

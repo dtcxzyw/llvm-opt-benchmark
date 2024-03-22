@@ -104,13 +104,14 @@ define noundef i32 @Abc_NtkSuperChoiceLut(ptr noundef %0, i32 noundef %1, i32 no
   %45 = sext i32 %44 to i64
   tail call void @llvm.memset.p0.i64(ptr align 4 %41, i8 0, i64 %45, i1 false)
   %46 = icmp sgt i32 %2, 0
-  %47 = icmp sgt i32 %32, 0
-  %or.cond.i = and i1 %46, %47
-  br i1 %or.cond.i, label %.preheader.us.preheader.i, label %Abc_ManSclStart.exit
+  br i1 %46, label %.preheader.lr.ph.i, label %Abc_ManSclStart.exit
 
-.preheader.us.preheader.i:                        ; preds = %.critedge
-  %48 = shl i32 %32, 5
-  %smax.i = tail call i32 @llvm.smax.i32(i32 %48, i32 1)
+.preheader.lr.ph.i:                               ; preds = %.critedge
+  %47 = shl nsw i32 %32, 5
+  %48 = icmp sgt i32 %47, 0
+  br i1 %48, label %.preheader.us.preheader.i, label %Abc_ManSclStart.exit
+
+.preheader.us.preheader.i:                        ; preds = %.preheader.lr.ph.i
   %wide.trip.count.i = zext nneg i32 %2 to i64
   br label %.preheader.us.i
 
@@ -141,7 +142,7 @@ define noundef i32 @Abc_NtkSuperChoiceLut(ptr noundef %0, i32 noundef %1, i32 no
 
 63:                                               ; preds = %54, %52
   %64 = add nuw nsw i32 %.03334.us.i, 1
-  %exitcond.not.i = icmp eq i32 %64, %smax.i
+  %exitcond.not.i = icmp eq i32 %64, %47
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %52, !llvm.loop !6
 
 ._crit_edge.us.i:                                 ; preds = %63
@@ -149,7 +150,7 @@ define noundef i32 @Abc_NtkSuperChoiceLut(ptr noundef %0, i32 noundef %1, i32 no
   %exitcond39.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond39.not.i, label %Abc_ManSclStart.exit, label %.preheader.us.i, !llvm.loop !7
 
-Abc_ManSclStart.exit:                             ; preds = %._crit_edge.us.i, %.critedge
+Abc_ManSclStart.exit:                             ; preds = %._crit_edge.us.i, %.critedge, %.preheader.lr.ph.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) getelementptr inbounds (%struct.Cut_ParamsStruct_t_, ptr @Abc_NtkStartCutManForScl.Params, i64 0, i32 2), i8 0, i64 68, i1 false)
   store i32 %1, ptr @Abc_NtkStartCutManForScl.Params, align 4
   store i32 500, ptr getelementptr inbounds (%struct.Cut_ParamsStruct_t_, ptr @Abc_NtkStartCutManForScl.Params, i64 0, i32 1), align 4

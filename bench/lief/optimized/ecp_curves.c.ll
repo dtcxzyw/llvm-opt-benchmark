@@ -1372,6 +1372,7 @@ define internal i32 @ecp_mod_p192(ptr noundef %0) #0 {
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
+  %.idx = shl i64 %7, 3
   %8 = getelementptr inbounds i8, ptr %5, i64 24
   %9 = load i64, ptr %5, align 8
   %10 = load i64, ptr %8, align 8
@@ -1446,12 +1447,11 @@ define internal i32 @ecp_mod_p192(ptr noundef %0) #0 {
   %70 = zext i1 %69 to i64
   %71 = add nuw nsw i64 %63, %70
   store i64 %71, ptr %8, align 8
-  %72 = icmp sgt i64 %7, 4
+  %72 = icmp sgt i64 %.idx, 32
   br i1 %72, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %3
   %73 = getelementptr i8, ptr %5, i64 32
-  %.idx = shl i64 %7, 3
   %74 = ptrtoint ptr %5 to i64
   %75 = add i64 %.idx, %74
   %76 = add i64 %74, 40

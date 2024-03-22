@@ -2046,7 +2046,7 @@ if.else124:                                       ; preds = %for.body98
   %mul126 = shl nsw i32 %46, 2
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %c.i)
   %in.promoted14.i = load ptr, ptr %readPtr, align 8
-  %cmp16.i = icmp sgt i32 %46, 255
+  %cmp16.i = icmp sgt i32 %mul126, 1023
   br i1 %cmp16.i, label %while.body.i.preheader.i, label %while.end.i
 
 while.body.i.preheader.i:                         ; preds = %if.else124, %if.end.i
@@ -2152,7 +2152,7 @@ if.else162:                                       ; preds = %for.body135
   %mul164 = shl nsw i32 %54, 1
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %c.i581)
   %in.promoted14.i582 = load ptr, ptr %readPtr, align 8
-  %cmp16.i583 = icmp sgt i32 %54, 511
+  %cmp16.i583 = icmp sgt i32 %mul164, 1023
   br i1 %cmp16.i583, label %while.body.i.preheader.i596, label %while.end.i584
 
 while.body.i.preheader.i596:                      ; preds = %if.else162, %if.end.i607
@@ -2258,7 +2258,7 @@ if.else200:                                       ; preds = %for.body173
   %mul202 = shl nsw i32 %62, 2
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %c.i629)
   %in.promoted14.i630 = load ptr, ptr %readPtr, align 8
-  %cmp16.i631 = icmp sgt i32 %62, 255
+  %cmp16.i631 = icmp sgt i32 %mul202, 1023
   br i1 %cmp16.i631, label %while.body.i.preheader.i644, label %while.end.i632
 
 while.body.i.preheader.i644:                      ; preds = %if.else200, %if.end.i655
@@ -2454,7 +2454,7 @@ if.else245:                                       ; preds = %for.body217
   %mul247 = shl nsw i32 %83, 2
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %c.i678)
   %in.promoted14.i679 = load ptr, ptr %readPtr, align 8
-  %cmp16.i680 = icmp sgt i32 %83, 255
+  %cmp16.i680 = icmp sgt i32 %mul247, 1023
   br i1 %cmp16.i680, label %while.body.i.preheader.i693, label %while.end.i681
 
 while.body.i.preheader.i693:                      ; preds = %if.else245, %if.end.i704
@@ -2559,7 +2559,7 @@ if.else282:                                       ; preds = %for.body256
   %mul284 = shl nsw i32 %91, 1
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %c.i727)
   %in.promoted14.i728 = load ptr, ptr %readPtr, align 8
-  %cmp16.i729 = icmp sgt i32 %91, 511
+  %cmp16.i729 = icmp sgt i32 %mul284, 1023
   br i1 %cmp16.i729, label %while.body.i.preheader.i742, label %while.end.i730
 
 while.body.i.preheader.i742:                      ; preds = %if.else282, %if.end.i753
@@ -2665,7 +2665,7 @@ if.else323:                                       ; preds = %for.body293
   %mul325 = shl nsw i32 %99, 2
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %c.i776)
   %in.promoted14.i777 = load ptr, ptr %readPtr, align 8
-  %cmp16.i778 = icmp sgt i32 %99, 255
+  %cmp16.i778 = icmp sgt i32 %mul325, 1023
   br i1 %cmp16.i778, label %while.body.i.preheader.i791, label %while.end.i779
 
 while.body.i.preheader.i791:                      ; preds = %if.else323, %if.end.i802
@@ -2861,7 +2861,7 @@ if.else368:                                       ; preds = %for.body340
   %mul370 = shl nsw i32 %120, 2
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %c.i825)
   %in.promoted14.i826 = load ptr, ptr %readPtr, align 8
-  %cmp16.i827 = icmp sgt i32 %120, 255
+  %cmp16.i827 = icmp sgt i32 %mul370, 1023
   br i1 %cmp16.i827, label %while.body.i.preheader.i840, label %while.end.i828
 
 while.body.i.preheader.i840:                      ; preds = %if.else368, %if.end.i851
@@ -2970,7 +2970,7 @@ if.else407:                                       ; preds = %for.body379
   %mul409 = shl nsw i32 %128, 1
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %c.i874)
   %in.promoted14.i875 = load ptr, ptr %readPtr, align 8
-  %cmp16.i876 = icmp sgt i32 %128, 511
+  %cmp16.i876 = icmp sgt i32 %mul409, 1023
   br i1 %cmp16.i876, label %while.body.i.preheader.i889, label %while.end.i877
 
 while.body.i.preheader.i889:                      ; preds = %if.else407, %if.end.i900
@@ -3075,7 +3075,7 @@ if.else444:                                       ; preds = %for.body418
   %mul446 = shl nsw i32 %138, 2
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %c.i923)
   %in.promoted14.i924 = load ptr, ptr %readPtr, align 8
-  %cmp16.i925 = icmp sgt i32 %138, 255
+  %cmp16.i925 = icmp sgt i32 %mul446, 1023
   br i1 %cmp16.i925, label %while.body.i.preheader.i938, label %while.end.i926
 
 while.body.i.preheader.i938:                      ; preds = %if.else444, %if.end.i949

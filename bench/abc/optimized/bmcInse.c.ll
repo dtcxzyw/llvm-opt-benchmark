@@ -405,7 +405,7 @@ define i32 @Gia_ManInseHighestScore(ptr nocapture noundef readonly %0, ptr nocap
   %17 = getelementptr i8, ptr %.val54, i64 4
   %.val54.val = load i32, ptr %17, align 4
   %.val58 = load ptr, ptr %14, align 8
-  br i1 %13, label %.preheader.lr.ph.us.preheader, label %._crit_edge
+  br i1 %13, label %.preheader.lr.ph.us.preheader, label %.critedge
 
 .preheader.lr.ph.us.preheader:                    ; preds = %.lr.ph.split
   %wide.trip.count81 = zext nneg i32 %.val52 to i64
@@ -474,14 +474,13 @@ define i32 @Gia_ManInseHighestScore(ptr nocapture noundef readonly %0, ptr nocap
   %.pre = load i32, ptr %7, align 4
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph, %2
-  %46 = phi i32 [ %.pre, %.critedge.loopexit ], [ 0, %.lr.ph ], [ 0, %2 ]
-  %47 = icmp sgt i32 %4, 0
+.critedge:                                        ; preds = %.lr.ph.split, %.critedge.loopexit, %.lr.ph, %2
+  %46 = phi i32 [ %.pre, %.critedge.loopexit ], [ 0, %.lr.ph ], [ 0, %2 ], [ 0, %.lr.ph.split ]
+  %47 = icmp sgt i32 %5, 1
   br i1 %47, label %.lr.ph69.preheader, label %._crit_edge
 
 .lr.ph69.preheader:                               ; preds = %.critedge
-  %smax = tail call i32 @llvm.smax.i32(i32 %5, i32 2)
-  %wide.trip.count86 = zext nneg i32 %smax to i64
+  %wide.trip.count86 = zext nneg i32 %5 to i64
   br label %.lr.ph69
 
 .lr.ph69:                                         ; preds = %.lr.ph69.preheader, %.lr.ph69
@@ -498,9 +497,9 @@ define i32 @Gia_ManInseHighestScore(ptr nocapture noundef readonly %0, ptr nocap
   %exitcond87.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count86
   br i1 %exitcond87.not, label %._crit_edge, label %.lr.ph69, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %.lr.ph69, %.lr.ph.split, %.critedge
-  %.046.lcssa = phi i32 [ %46, %.critedge ], [ 0, %.lr.ph.split ], [ %spec.select, %.lr.ph69 ]
-  %.0.lcssa = phi i32 [ 0, %.critedge ], [ 0, %.lr.ph.split ], [ %spec.select51, %.lr.ph69 ]
+._crit_edge:                                      ; preds = %.lr.ph69, %.critedge
+  %.046.lcssa = phi i32 [ %46, %.critedge ], [ %spec.select, %.lr.ph69 ]
+  %.0.lcssa = phi i32 [ 0, %.critedge ], [ %spec.select51, %.lr.ph69 ]
   %52 = sub nsw i32 %.val52, %.046.lcssa
   store i32 %52, ptr %1, align 4
   tail call void @free(ptr noundef nonnull %7) #14

@@ -568,11 +568,11 @@ invoke.cont57:                                    ; preds = %for.body8.lr.ph.i, 
 
 invoke.cont60:                                    ; preds = %invoke.cont57
   %62 = load i32, ptr %m_size.i, align 4
-  %cmp.i394 = icmp sgt i32 %62, 0
+  %mul = shl nsw i32 %62, 1
+  %cmp.i394 = icmp sgt i32 %mul, 0
   br i1 %cmp.i394, label %if.then.i.i396, label %invoke.cont65
 
 if.then.i.i396:                                   ; preds = %invoke.cont60
-  %mul = shl nuw nsw i32 %62, 1
   %conv.i.i.i = zext nneg i32 %mul to i64
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i.i, 4
   %call.i.i.i405 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %mul.i.i.i, i32 noundef 16)

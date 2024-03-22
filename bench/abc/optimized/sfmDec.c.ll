@@ -5519,7 +5519,7 @@ define internal fastcc void @Sfm_ObjSetupSimInfo(ptr nocapture noundef readonly 
   br label %Vec_WrdGrow.exit.i
 
 Vec_WrdGrow.exit.i:                               ; preds = %20, %1
-  %22 = icmp sgt i32 %8, 0
+  %22 = icmp sgt i32 %9, 0
   br i1 %22, label %.lr.ph.i, label %Vec_WrdFill.exit
 
 .lr.ph.i:                                         ; preds = %Vec_WrdGrow.exit.i
@@ -5569,7 +5569,7 @@ Vec_WrdFill.exit:                                 ; preds = %24, %Vec_WrdGrow.ex
   br label %Vec_WrdGrow.exit.i83
 
 Vec_WrdGrow.exit.i83:                             ; preds = %41, %Vec_WrdFill.exit
-  %43 = icmp sgt i32 %29, 0
+  %43 = icmp sgt i32 %30, 0
   br i1 %43, label %.lr.ph.i84, label %Vec_WrdFill.exit90
 
 .lr.ph.i84:                                       ; preds = %Vec_WrdGrow.exit.i83
@@ -13655,7 +13655,7 @@ define void @Abc_NtkPerformMfs3(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br label %Vec_WrdGrow.exit.i.i
 
 Vec_WrdGrow.exit.i.i:                             ; preds = %110, %92
-  %112 = icmp sgt i32 %.val30.val.i, 0
+  %112 = icmp sgt i32 %99, 0
   br i1 %112, label %.lr.ph.i.i, label %Vec_WrdFill.exit.i
 
 .lr.ph.i.i:                                       ; preds = %Vec_WrdGrow.exit.i.i
@@ -13707,7 +13707,7 @@ Vec_WrdFill.exit.i:                               ; preds = %114, %Vec_WrdGrow.e
   br label %Vec_WrdGrow.exit.i35.i
 
 Vec_WrdGrow.exit.i35.i:                           ; preds = %131, %Vec_WrdFill.exit.i
-  %133 = icmp sgt i32 %.val29.val.i, 0
+  %133 = icmp sgt i32 %120, 0
   br i1 %133, label %.lr.ph.i36.i, label %Vec_WrdFill.exit42.i
 
 .lr.ph.i36.i:                                     ; preds = %Vec_WrdGrow.exit.i35.i

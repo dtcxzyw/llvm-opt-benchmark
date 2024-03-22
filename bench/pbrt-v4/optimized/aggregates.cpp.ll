@@ -2616,7 +2616,8 @@ sw.bb89:                                          ; preds = %"_ZSt9partitionIPN4
 
 if.end.i:                                         ; preds = %sw.bb89
   %sub.ptr.rhs.cast.i = ptrtoint ptr %6 to i64
-  %cmp114.i.i = icmp sgt i64 %7, 3
+  %add.ptr.i.idx = shl nsw i64 %7, 5
+  %cmp114.i.i = icmp sgt i64 %add.ptr.i.idx, 96
   br i1 %cmp114.i.i, label %while.body.i.preheader.i, label %while.end.i.i
 
 while.body.i.preheader.i:                         ; preds = %if.end.i
@@ -2625,11 +2626,7 @@ while.body.i.preheader.i:                         ; preds = %if.end.i
   %sub.i.i = shl nuw nsw i64 %70, 1
   %mul.i189 = xor i64 %sub.i.i, 126
   %cmp2.i16.i = icmp eq i64 %mul.i189, 0
-  br i1 %cmp2.i16.i, label %if.then.i.i, label %if.end.i.i.preheader
-
-if.end.i.i.preheader:                             ; preds = %while.body.i.preheader.i
-  %add.ptr.i.idx = shl nsw i64 %7, 5
-  br label %if.end.i.i
+  br i1 %cmp2.i16.i, label %if.then.i.i, label %if.end.i.i
 
 while.body.i.i:                                   ; preds = %"_ZSt27__unguarded_partition_pivotIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEET_SR_SR_T0_.exit.i.i"
   %cmp2.i.i = icmp eq i64 %dec.i.i, 0
@@ -2748,11 +2745,11 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %"_Z
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %__tmp.i.i.i.i186)
   br label %sw.epilog
 
-if.end.i.i:                                       ; preds = %if.end.i.i.preheader, %while.body.i.i
-  %__depth_limit.addr.0115.i20.i = phi i64 [ %dec.i.i, %while.body.i.i ], [ %mul.i189, %if.end.i.i.preheader ]
-  %__last.addr.0116.i19.i = phi ptr [ %call.__last.addr.0.i.i, %while.body.i.i ], [ %add.ptr.i, %if.end.i.i.preheader ]
-  %__first.addr.0117.i18.i = phi ptr [ %__first.addr.0.call.i.i, %while.body.i.i ], [ %6, %if.end.i.i.preheader ]
-  %sub.ptr.sub119.i17.i = phi i64 [ %sub.ptr.sub.i.i, %while.body.i.i ], [ %add.ptr.i.idx, %if.end.i.i.preheader ]
+if.end.i.i:                                       ; preds = %while.body.i.preheader.i, %while.body.i.i
+  %__depth_limit.addr.0115.i20.i = phi i64 [ %dec.i.i, %while.body.i.i ], [ %mul.i189, %while.body.i.preheader.i ]
+  %__last.addr.0116.i19.i = phi ptr [ %call.__last.addr.0.i.i, %while.body.i.i ], [ %add.ptr.i, %while.body.i.preheader.i ]
+  %__first.addr.0117.i18.i = phi ptr [ %__first.addr.0.call.i.i, %while.body.i.i ], [ %6, %while.body.i.preheader.i ]
+  %sub.ptr.sub119.i17.i = phi i64 [ %sub.ptr.sub.i.i, %while.body.i.i ], [ %add.ptr.i.idx, %while.body.i.preheader.i ]
   %dec.i.i = add nsw i64 %__depth_limit.addr.0115.i20.i, -1
   %div.i100101.i.i = lshr i64 %sub.ptr.sub119.i17.i, 6
   %add.ptr.i.i.i = getelementptr inbounds %"struct.pbrt::BVHPrimitive", ptr %__first.addr.0117.i18.i, i64 %div.i100101.i.i

@@ -4262,7 +4262,7 @@ Vec_FltAlloc.exit:                                ; preds = %Vec_IntAlloc.exit10
   br label %Vec_IntGrow.exit.i
 
 Vec_IntGrow.exit.i:                               ; preds = %69, %Vec_FltAlloc.exit
-  %71 = icmp sgt i32 %.val94.val, -50
+  %71 = icmp sgt i32 %12, -100
   br i1 %71, label %.lr.ph.i, label %Vec_IntFill.exit
 
 .lr.ph.i:                                         ; preds = %Vec_IntGrow.exit.i

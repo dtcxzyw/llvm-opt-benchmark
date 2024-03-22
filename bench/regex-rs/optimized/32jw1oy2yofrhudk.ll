@@ -10349,7 +10349,7 @@ define hidden void @_ZN14regex_automata4util8captures9GroupInfo3new17h8f7e76da28
           to label %.preheader unwind label %56
 
 .preheader:                                       ; preds = %62
-  %63 = icmp eq i64 %30, 1
+  %63 = icmp eq i64 %.idx, 16
   br i1 %63, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader

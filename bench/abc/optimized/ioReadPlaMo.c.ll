@@ -914,7 +914,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %1
   %12 = getelementptr i8, ptr %11, i64 4
   %.val2428 = load i32, ptr %12, align 4
   %13 = icmp sgt i32 %.val2428, 0
-  %14 = icmp sgt i32 %3, 0
+  %14 = icmp sgt i32 %4, 0
   %or.cond = and i1 %13, %14
   br i1 %or.cond, label %.lr.ph30.split.us.preheader, label %.critedge
 
@@ -928,7 +928,6 @@ Vec_IntStart.exit.thread:                         ; preds = %1
   %16 = getelementptr i8, ptr %0, i64 24
   %17 = getelementptr i8, ptr %0, i64 12
   %18 = getelementptr i8, ptr %0, i64 16
-  %smax = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
   %19 = getelementptr i8, ptr %11, i64 8
   %.val.us = load i32, ptr %2, align 8
   %.val21.us = load ptr, ptr %18, align 8
@@ -938,7 +937,7 @@ Vec_IntStart.exit.thread:                         ; preds = %1
   %21 = getelementptr i8, ptr %.val23.us, i64 8
   %22 = icmp sgt i32 %.val22.us, 0
   %wide.trip.count.i.us = zext nneg i32 %.val22.us to i64
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %4 to i64
   br label %.lr.ph30.split.us
 
 .lr.ph30.split.us:                                ; preds = %.lr.ph30.split.us.preheader, %._crit_edge.us

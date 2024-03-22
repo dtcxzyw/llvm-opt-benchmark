@@ -53282,7 +53282,7 @@ define internal void @_ZN12SparseMatrixIfE7SolveGSIfEEiRKSt6vectorIS2_IiSaIiEESa
   %47 = load ptr, ptr %4, align 8
   %48 = getelementptr inbounds float, ptr %47, i64 %35
   %49 = load float, ptr %48, align 4
-  %.not3941 = icmp eq i32 %44, 1
+  %.not3941 = icmp eq i64 %.idx, 8
   %.pre = load ptr, ptr %5, align 8
   br i1 %.not3941, label %._crit_edge, label %.lr.ph
 

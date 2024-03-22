@@ -2630,7 +2630,7 @@ Vec_IntAlloc.exit:                                ; preds = %11
 Vec_IntAlloc.exit.thread:                         ; preds = %11
   %22 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr null, ptr %22, align 8
-  %.not.i.i169 = icmp sgt i32 %.val145.val, 0
+  %.not.i.i169 = icmp sgt i32 %14, 0
   br i1 %.not.i.i169, label %.thread, label %Vec_IntFill.exit
 
 .thread:                                          ; preds = %Vec_IntAlloc.exit.thread
@@ -2663,7 +2663,7 @@ Vec_IntAlloc.exit.thread:                         ; preds = %11
 
 Vec_IntGrow.exit.i:                               ; preds = %34, %Vec_IntAlloc.exit
   %37 = phi ptr [ %35, %34 ], [ %21, %Vec_IntAlloc.exit ]
-  %38 = icmp sgt i32 %.val145.val, 0
+  %38 = icmp sgt i32 %14, 0
   br i1 %38, label %.lr.ph.i, label %Vec_IntFill.exit
 
 .lr.ph.i:                                         ; preds = %Vec_IntGrow.exit.i

@@ -4494,8 +4494,8 @@ define internal fastcc i32 @Gia_ManSifCutOne(ptr nocapture noundef readonly %0, 
   %.idx73.i = shl nsw i64 %46, 2
   %47 = getelementptr i8, ptr %29, i64 %.idx73.i
   %.ptr75.i = getelementptr i8, ptr %47, i64 4
-  %48 = icmp sgt i32 %42, 0
-  %49 = icmp sgt i32 %45, 0
+  %48 = icmp sgt i64 %.idx.i, 0
+  %49 = icmp sgt i64 %.idx73.i, 0
   %50 = select i1 %48, i1 %49, i1 false
   br i1 %50, label %.lr.ph.i, label %.preheader53.i
 
@@ -4617,7 +4617,7 @@ define internal fastcc i32 @Gia_ManSifCutOne(ptr nocapture noundef readonly %0, 
   %.idx.i85 = shl nsw i64 %102, 2
   %103 = getelementptr i8, ptr %26, i64 %.idx.i85
   %.ptr72.i86 = getelementptr i8, ptr %103, i64 4
-  %104 = icmp sgt i32 %101, 0
+  %104 = icmp sgt i64 %.idx.i85, 0
   br i1 %104, label %.lr.ph.i104, label %.preheader53.i89
 
 .lr.ph.i104:                                      ; preds = %100
@@ -4735,7 +4735,7 @@ define internal fastcc i32 @Gia_ManSifCutOne(ptr nocapture noundef readonly %0, 
   %.idx.i114 = shl nsw i64 %150, 2
   %151 = getelementptr i8, ptr %29, i64 %.idx.i114
   %.ptr72.i115 = getelementptr i8, ptr %151, i64 4
-  %152 = icmp sgt i32 %149, 0
+  %152 = icmp sgt i64 %.idx.i114, 0
   br i1 %152, label %.lr.ph.i133, label %.preheader53.i118
 
 .lr.ph.i133:                                      ; preds = %148

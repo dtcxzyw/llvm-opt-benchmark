@@ -1255,17 +1255,17 @@ if.end72:                                         ; preds = %if.then68
   br label %err
 
 if.end84:                                         ; preds = %land.lhs.true, %if.else59, %land.lhs.true62, %land.lhs.true65
-  %cmp85 = icmp sgt i32 %1, 14
+  %cmp85 = icmp sgt i32 %mul, 937
   br i1 %cmp85, label %cond.end96, label %cond.false
 
 cond.false:                                       ; preds = %if.end84
-  %cmp86 = icmp sgt i32 %1, 4
+  %cmp86 = icmp sgt i32 %mul, 306
   br i1 %cmp86, label %cond.end96, label %cond.false88
 
 cond.false88:                                     ; preds = %cond.false
-  %cmp89 = icmp sgt i32 %1, 1
-  %cmp92.inv = icmp slt i32 %1, 1
-  %cond = select i1 %cmp92.inv, i32 1, i32 3
+  %cmp89 = icmp sgt i32 %mul, 89
+  %cmp92 = icmp sgt i32 %mul, 22
+  %cond = select i1 %cmp92, i32 3, i32 1
   %cond93 = select i1 %cmp89, i32 4, i32 %cond
   br label %cond.end96
 

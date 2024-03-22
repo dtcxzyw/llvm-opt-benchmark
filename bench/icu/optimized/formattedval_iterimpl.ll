@@ -682,7 +682,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %cmp54 = phi i1 [ true, %for.body.lr.ph ], [ %cmp, %for.inc ]
   %i.053 = phi i32 [ %conv, %for.body.lr.ph ], [ %inc, %for.inc ]
   %mul = shl nsw i32 %i.053, 2
-  %cmp.i = icmp sgt i32 %i.053, -1
+  %cmp.i = icmp sgt i32 %mul, -1
   %3 = load i32, ptr %count.i, align 8
   %cmp5.i = icmp sgt i32 %3, %mul
   %or.cond.i = select i1 %cmp.i, i1 %cmp5.i, i1 false
@@ -698,8 +698,9 @@ cond.true.i:                                      ; preds = %for.body
 _ZNK6icu_759UVector3210elementAtiEi.exit:         ; preds = %for.body, %cond.true.i
   %cond.i = phi i32 [ %5, %cond.true.i ], [ 0, %for.body ]
   %add = or disjoint i32 %mul, 1
+  %cmp.i18 = icmp sgt i32 %mul, -2
   %cmp5.i20 = icmp sgt i32 %3, %add
-  %or.cond.i21 = select i1 %cmp.i, i1 %cmp5.i20, i1 false
+  %or.cond.i21 = select i1 %cmp.i18, i1 %cmp5.i20, i1 false
   br i1 %or.cond.i21, label %cond.true.i23, label %_ZNK6icu_759UVector3210elementAtiEi.exit27
 
 cond.true.i23:                                    ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit

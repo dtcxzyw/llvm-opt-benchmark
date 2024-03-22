@@ -17279,7 +17279,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %25 = mul nsw i64 %22, %23
   %26 = sdiv i64 %25, 2
   %27 = shl nsw i64 %26, 1
-  %28 = icmp sgt i64 %25, 1
+  %28 = icmp sgt i64 %27, 0
   br i1 %28, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %21, %.lr.ph.i

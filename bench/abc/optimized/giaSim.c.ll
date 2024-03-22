@@ -478,7 +478,7 @@ Vec_IntAlloc.exit.i91:                            ; preds = %Vec_IntFree.exit
 
 Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.thread.i93, %Vec_IntAlloc.exit.i91, %102
   %.val83 = phi ptr [ null, %Vec_IntAlloc.exit.thread.i93 ], [ null, %Vec_IntAlloc.exit.i91 ], [ %100, %102 ]
-  %105 = icmp sgt i32 %.val67, 0
+  %105 = icmp sgt i32 %11, 0
   br i1 %105, label %.lr.ph116, label %.critedge4
 
 .lr.ph116:                                        ; preds = %Vec_IntStartFull.exit

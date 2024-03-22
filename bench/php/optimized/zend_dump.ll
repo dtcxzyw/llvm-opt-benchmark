@@ -4055,7 +4055,7 @@ define internal fastcc void @zend_dump_block_info(ptr nocapture noundef readonly
   %122 = load ptr, ptr @stderr, align 8
   %123 = load i32, ptr %119, align 4
   %124 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %122, ptr noundef nonnull @.str.200, i32 noundef %123) #8
-  %125 = icmp sgt i32 %112, 1
+  %125 = icmp sgt i64 %.idx, 4
   br i1 %125, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %113

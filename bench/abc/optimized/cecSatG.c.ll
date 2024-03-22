@@ -2246,23 +2246,21 @@ define i32 @Cec3_ManSimHashKey(ptr nocapture noundef readonly %0, i32 noundef %1
   %5 = load i32, ptr %0, align 4
   %6 = and i32 %5, 1
   %.not = icmp eq i32 %6, 0
-  %7 = icmp sgt i32 %1, 0
+  %7 = icmp sgt i32 %4, 0
   br i1 %.not, label %.preheader, label %.preheader20
 
 .preheader20:                                     ; preds = %3
   br i1 %7, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %.preheader20
-  %smax = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %4 to i64
   br label %.lr.ph
 
 .preheader:                                       ; preds = %3
   br i1 %7, label %.lr.ph26.preheader, label %.loopexit
 
 .lr.ph26.preheader:                               ; preds = %.preheader
-  %smax34 = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
-  %wide.trip.count35 = zext nneg i32 %smax34 to i64
+  %wide.trip.count34 = zext nneg i32 %4 to i64
   br label %.lr.ph26
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -2291,8 +2289,8 @@ define i32 @Cec3_ManSimHashKey(ptr nocapture noundef readonly %0, i32 noundef %1
   %21 = mul i32 %20, %17
   %22 = xor i32 %21, %.125
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
-  %exitcond36.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count35
-  br i1 %exitcond36.not, label %.loopexit, label %.lr.ph26, !llvm.loop !33
+  %exitcond35.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count34
+  br i1 %exitcond35.not, label %.loopexit, label %.lr.ph26, !llvm.loop !33
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph26, %.preheader20, %.preheader
   %.2 = phi i32 [ 0, %.preheader ], [ 0, %.preheader20 ], [ %22, %.lr.ph26 ], [ %15, %.lr.ph ]
@@ -2377,9 +2375,8 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %23
 .lr.ph:                                           ; preds = %Abc_PrimeCudd.exit
   %33 = getelementptr i8, ptr %0, i64 832
   %34 = shl i32 %6, 1
-  %35 = icmp sgt i32 %6, 0
-  %smax.i = tail call i32 @llvm.smax.i32(i32 %34, i32 1)
-  %wide.trip.count.i = zext nneg i32 %smax.i to i64
+  %35 = icmp sgt i32 %34, 0
+  %wide.trip.count.i = zext nneg i32 %34 to i64
   %.val136 = load ptr, ptr %31, align 8
   %.not66137 = icmp eq ptr %.val136, null
   br i1 %.not66137, label %.critedge, label %.lr.ph140
@@ -2452,8 +2449,8 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %23
   %66 = mul i32 %65, %62
   %67 = xor i32 %66, %.125.i
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
-  %exitcond36.not.i = icmp eq i64 %indvars.iv.next32.i, %wide.trip.count.i
-  br i1 %exitcond36.not.i, label %Cec3_ManSimHashKey.exit, label %.lr.ph26.i, !llvm.loop !33
+  %exitcond35.not.i = icmp eq i64 %indvars.iv.next32.i, %wide.trip.count.i
+  br i1 %exitcond35.not.i, label %Cec3_ManSimHashKey.exit, label %.lr.ph26.i, !llvm.loop !33
 
 Cec3_ManSimHashKey.exit:                          ; preds = %.lr.ph.i87, %.lr.ph26.i, %.preheader20.i, %.preheader.i88
   %.2.i = phi i32 [ 0, %.preheader.i88 ], [ 0, %.preheader20.i ], [ %67, %.lr.ph26.i ], [ %60, %.lr.ph.i87 ]

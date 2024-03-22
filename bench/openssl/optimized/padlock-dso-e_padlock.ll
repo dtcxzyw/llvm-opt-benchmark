@@ -1214,18 +1214,22 @@ sw.bb42:                                          ; preds = %if.end19, %if.end19
 if.end.i:                                         ; preds = %sw.bb42
   %rounds.i = getelementptr inbounds i8, ptr %add.ptr, i64 272
   %6 = load i32, ptr %rounds.i, align 4
-  %cmp169.i = icmp sgt i32 %6, 0
-  br i1 %cmp169.i, label %for.body.preheader.i, label %if.end54
+  %mul.i = shl nsw i32 %6, 2
+  %cmp169.i = icmp sgt i32 %mul.i, 0
+  br i1 %cmp169.i, label %for.body.preheader.i, label %for.cond44.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.end.i
-  %mul.i = shl i32 %6, 2
-  %7 = sext i32 %mul.i to i64
+  %7 = zext nneg i32 %mul.i to i64
   br label %for.body.i
 
-for.cond44.preheader.i:                           ; preds = %for.body.i
+for.cond44.preheader.loopexit.i:                  ; preds = %for.body.i
   %.pre.i = load i32, ptr %rounds.i, align 4
-  %8 = icmp sgt i32 %.pre.i, 1
-  br i1 %8, label %for.body47.i, label %if.end54
+  br label %for.cond44.preheader.i
+
+for.cond44.preheader.i:                           ; preds = %for.cond44.preheader.loopexit.i, %if.end.i
+  %8 = phi i32 [ %.pre.i, %for.cond44.preheader.loopexit.i ], [ %6, %if.end.i ]
+  %cmp4673.i = icmp sgt i32 %8, 1
+  br i1 %cmp4673.i, label %for.body47.i, label %if.end54
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %indvars.iv79.i = phi i64 [ %7, %for.body.preheader.i ], [ %indvars.iv.next80.i, %for.body.i ]
@@ -1263,7 +1267,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %indvars.iv.next80.i = add nsw i64 %indvars.iv79.i, -4
   %cmp1.i = icmp slt i64 %indvars.iv.next.i, %indvars.iv.next80.i
-  br i1 %cmp1.i, label %for.body.i, label %for.cond44.preheader.i, !llvm.loop !5
+  br i1 %cmp1.i, label %for.body.i, label %for.cond44.preheader.loopexit.i, !llvm.loop !5
 
 for.body47.i:                                     ; preds = %for.cond44.preheader.i, %for.inc91.i
   %rk.075.i = phi ptr [ %add.ptr.i, %for.inc91.i ], [ %ks52, %for.cond44.preheader.i ]
@@ -1320,7 +1324,7 @@ for.inc91.i:                                      ; preds = %for.body50.i
   %cmp46.i = icmp slt i32 %inc92.i, %31
   br i1 %cmp46.i, label %for.body47.i, label %if.end54, !llvm.loop !8
 
-if.end54:                                         ; preds = %for.inc91.i, %sw.bb42, %for.cond44.preheader.i, %if.end.i
+if.end54:                                         ; preds = %for.inc91.i, %sw.bb42, %for.cond44.preheader.i
   %ks55 = getelementptr inbounds i8, ptr %add.ptr, i64 32
   tail call void @padlock_key_bswap(ptr noundef nonnull %ks55) #9
   %bf.load57 = load i16, ptr %cword21, align 4

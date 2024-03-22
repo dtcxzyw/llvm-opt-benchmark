@@ -278,7 +278,7 @@ for.end:                                          ; preds = %for.body, %entry
 if.then:                                          ; preds = %for.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %in_buf, i8 0, i64 64, i1 false)
   %mul17 = shl nsw i32 %conv9, 2
-  %cmp18293 = icmp sgt i32 %conv9, 0
+  %cmp18293 = icmp sgt i32 %mul17, 0
   br i1 %cmp18293, label %for.body19.preheader, label %for.end37
 
 for.body19.preheader:                             ; preds = %if.then
@@ -792,7 +792,7 @@ for.end:                                          ; preds = %for.body, %entry
 if.then:                                          ; preds = %for.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %in_buf, i8 0, i64 64, i1 false)
   %mul17 = shl nsw i32 %conv9, 2
-  %cmp18289 = icmp sgt i32 %conv9, 0
+  %cmp18289 = icmp sgt i32 %mul17, 0
   br i1 %cmp18289, label %for.body19.preheader, label %for.end37
 
 for.body19.preheader:                             ; preds = %if.then
@@ -1300,7 +1300,7 @@ for.end:                                          ; preds = %for.body, %entry
 if.then:                                          ; preds = %for.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %in_buf, i8 0, i64 64, i1 false)
   %mul17 = shl nsw i32 %conv9, 2
-  %cmp18289 = icmp sgt i32 %conv9, 0
+  %cmp18289 = icmp sgt i32 %mul17, 0
   br i1 %cmp18289, label %for.body19.preheader, label %for.end37
 
 for.body19.preheader:                             ; preds = %if.then
@@ -1808,7 +1808,7 @@ for.end:                                          ; preds = %for.body, %entry
 if.then:                                          ; preds = %for.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %in_buf, i8 0, i64 64, i1 false)
   %mul17 = shl nsw i32 %conv9, 2
-  %cmp18289 = icmp sgt i32 %conv9, 0
+  %cmp18289 = icmp sgt i32 %mul17, 0
   br i1 %cmp18289, label %for.body19.preheader, label %for.end37
 
 for.body19.preheader:                             ; preds = %if.then
@@ -2505,7 +2505,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 if.then:                                          ; preds = %for.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %in_buf, i8 0, i64 64, i1 false)
   %mul17 = shl nsw i32 %conv9, 2
-  %cmp18396 = icmp sgt i32 %conv9, 0
+  %cmp18396 = icmp sgt i32 %mul17, 0
   br i1 %cmp18396, label %for.body19.preheader, label %for.end37
 
 for.body19.preheader:                             ; preds = %if.then
@@ -3191,7 +3191,7 @@ for.end:                                          ; preds = %for.body, %entry
 if.then:                                          ; preds = %for.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %in_buf, i8 0, i64 64, i1 false)
   %mul15 = shl nsw i32 %conv8, 2
-  %cmp16298 = icmp sgt i32 %conv8, 0
+  %cmp16298 = icmp sgt i32 %mul15, 0
   br i1 %cmp16298, label %for.body17.preheader, label %for.end35
 
 for.body17.preheader:                             ; preds = %if.then

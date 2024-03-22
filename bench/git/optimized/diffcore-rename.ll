@@ -2529,7 +2529,7 @@ for.body34.i363:                                  ; preds = %for.cond31.preheade
   %arrayidx.i365 = getelementptr inbounds %struct.string_list_item, ptr %353, i64 %indvars.iv.i364
   %354 = load ptr, ptr %arrayidx.i365, align 8
   call void @strmap_remove(ptr noundef %352, ptr noundef %354, i32 noundef 1) #14
-  %indvars.iv.next.i366 = add nuw i64 %indvars.iv.i364, 1
+  %indvars.iv.next.i366 = add nuw nsw i64 %indvars.iv.i364, 1
   %355 = load i64, ptr %nr.phi.trans.insert.i, align 8
   %cmp32.i367 = icmp ugt i64 %355, %indvars.iv.next.i366
   br i1 %cmp32.i367, label %for.body34.i363, label %for.end37.i, !llvm.loop !34
@@ -3090,14 +3090,13 @@ return:                                           ; preds = %if.else, %if.end17,
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @find_renames(ptr nocapture noundef readonly %mx, i32 noundef %dst_cnt, i32 noundef %minimum_score, i32 noundef %copies, ptr nocapture noundef readonly %info, ptr noundef %dirs_removed) unnamed_addr #0 {
 entry:
-  %cmp21 = icmp sgt i32 %dst_cnt, 0
+  %mul = shl nsw i32 %dst_cnt, 2
+  %cmp21 = icmp sgt i32 %mul, 0
   br i1 %cmp21, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %mul = shl i32 %dst_cnt, 2
   %tobool14.not = icmp eq i32 %copies, 0
-  %smax = tail call i32 @llvm.smax.i32(i32 %mul, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %mul to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc

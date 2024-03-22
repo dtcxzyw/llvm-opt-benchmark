@@ -10357,7 +10357,7 @@ if.then19:                                        ; preds = %if.then17
   %2 = load i32, ptr %__p.0, align 4
   %add.ptr21.idx58 = shl nsw i64 %__n.0, 2
   %add.ptr21 = getelementptr inbounds i8, ptr %__p.0, i64 %add.ptr21.idx58
-  %tobool.not.i.i.i.i.i = icmp eq i64 %__n.0, 1
+  %tobool.not.i.i.i.i.i = icmp eq i64 %add.ptr21.idx58, 4
   br i1 %tobool.not.i.i.i.i.i, label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then19

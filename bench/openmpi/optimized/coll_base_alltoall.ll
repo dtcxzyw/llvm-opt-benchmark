@@ -425,7 +425,7 @@ opal_datatype_span.exit:                          ; preds = %13, %30
   %89 = load ptr, ptr %9, align 8
   %90 = mul nsw i32 %spec.select, %4
   %91 = sext i32 %90 to i64
-  %92 = mul nsw i64 %indvars.iv, %factor.op.mul
+  %92 = mul i64 %indvars.iv, %factor.op.mul
   %93 = call i32 @opal_datatype_add(ptr noundef %89, ptr noundef %5, i64 noundef %91, i64 noundef %92, i64 noundef %22) #7
   %indvars.iv.next = add nsw i64 %indvars.iv, %85
   %94 = icmp slt i64 %indvars.iv.next, %23
@@ -673,12 +673,11 @@ define i32 @ompi_coll_base_alltoall_intra_linear_sync(ptr noundef %0, i32 nounde
   br i1 %73, label %76, label %.preheader200
 
 .preheader200:                                    ; preds = %._crit_edge
-  %74 = icmp sgt i32 %.val.val, 1
+  %74 = icmp sgt i32 %72, 0
   br i1 %74, label %.lr.ph239, label %ompi_coll_base_free_reqs.exit
 
 .lr.ph239:                                        ; preds = %.preheader200
   %75 = sext i32 %54 to i64
-  %smax = tail call i32 @llvm.smax.i32(i32 %72, i32 1)
   br label %80
 
 76:                                               ; preds = %._crit_edge
@@ -751,7 +750,7 @@ define i32 @ompi_coll_base_alltoall_intra_linear_sync(ptr noundef %0, i32 nounde
   %.2148 = phi i32 [ %.1147235, %97 ], [ %.1147235, %89 ], [ %112, %109 ], [ %.1147235, %101 ]
   %.2143 = phi i32 [ %98, %97 ], [ %.1142236, %89 ], [ %.1142236, %109 ], [ %.1142236, %101 ]
   %.2140 = phi i32 [ %.1139237, %97 ], [ %.1139237, %89 ], [ %110, %109 ], [ %.1139237, %101 ]
-  %exitcond267.not = icmp eq i32 %87, %smax
+  %exitcond267.not = icmp eq i32 %87, %72
   br i1 %exitcond267.not, label %ompi_coll_base_free_reqs.exit, label %80, !llvm.loop !13
 
 .loopexit202.loopexit246:                         ; preds = %.lr.ph229
@@ -1131,9 +1130,6 @@ declare i32 @opal_datatype_copy_content_same_ddt(ptr noundef, i32 noundef, ptr n
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -48284,7 +48284,7 @@ define linkonce_odr ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPPN3v
   %30 = load ptr, ptr %.sroa.035.0, align 8
   %.idx80 = shl nsw i64 %.077, 3
   %31 = getelementptr inbounds i8, ptr %.sroa.035.0, i64 %.idx80
-  %.not.i.i.i.i.i = icmp eq i64 %.077, 1
+  %.not.i.i.i.i.i = icmp eq i64 %.idx80, 8
   br i1 %.not.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN3vcg7SVertexESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, label %32
 
 32:                                               ; preds = %29

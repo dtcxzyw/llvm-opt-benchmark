@@ -4927,20 +4927,19 @@ define internal fastcc i32 @write_dot_dot_entry(ptr noundef %0, ptr nocapture no
 10:                                               ; preds = %7
   %11 = getelementptr inbounds i8, ptr %4, i64 220
   %12 = load i32, ptr %11, align 4
-  %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %.lr.ph, label %.loopexit
+  %13 = shl nsw i32 %12, 2
+  %14 = icmp sgt i32 %13, 0
+  br i1 %14, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %10
-  %14 = shl i32 %12, 2
   %15 = getelementptr inbounds i8, ptr %4, i64 88
-  %smax = tail call i32 @llvm.smax.i32(i32 %14, i32 1)
   br label %16
 
 16:                                               ; preds = %.lr.ph, %16
   %.02329 = phi i32 [ 0, %.lr.ph ], [ %18, %16 ]
   %17 = tail call ptr @archive_strappend_char(ptr noundef nonnull %15, i8 noundef signext 32) #14
   %18 = add nuw nsw i32 %.02329, 1
-  %exitcond.not = icmp eq i32 %18, %smax
+  %exitcond.not = icmp eq i32 %18, %13
   br i1 %exitcond.not, label %.loopexit.loopexit, label %16, !llvm.loop !28
 
 .loopexit.loopexit:                               ; preds = %16

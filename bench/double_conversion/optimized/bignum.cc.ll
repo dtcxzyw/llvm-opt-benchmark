@@ -1514,8 +1514,12 @@ entry:
   %0 = load i16, ptr %this, align 4
   %conv = sext i16 %0 to i32
   %mul = shl nsw i32 %conv, 1
-  %cmp.i = icmp sgt i16 %0, 64
+  %cmp.i = icmp sgt i32 %mul, 128
   br i1 %cmp.i, label %if.then.i, label %for.cond.preheader
+
+if.then.i:                                        ; preds = %entry
+  tail call void @abort() #11
+  unreachable
 
 for.cond.preheader:                               ; preds = %entry
   %cmp852 = icmp sgt i16 %0, 0
@@ -1527,10 +1531,6 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %2 = load i16, ptr %this, align 4
   %3 = sext i16 %2 to i64
   br label %for.body
-
-if.then.i:                                        ; preds = %entry
-  tail call void @abort() #11
-  unreachable
 
 for.cond11.preheader.loopexit:                    ; preds = %for.body
   %conv7 = sext i16 %2 to i32

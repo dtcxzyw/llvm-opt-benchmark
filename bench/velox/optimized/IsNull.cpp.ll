@@ -28982,8 +28982,7 @@ if.then.i:                                        ; preds = %for.body
   %mul.i62 = shl nsw i32 %div16, 6
   %mul4.i = add i32 %mul.i62, 64
   %conv5.i = sext i32 %mul4.i to i64
-  %i.0.off = add i32 %i.0103, 127
-  %cmp620.not.i = icmp ult i32 %i.0.off, 64
+  %cmp620.not.i = icmp eq i32 %mul.i62, -64
   br i1 %cmp620.not.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_10FlatVectorImE18copyValuesAndNullsEPKNS0_10BaseVectorERKNS0_17SelectivityVectorEPKiEUlT_E_EEvPKmiibSD_ENKUliE_clEi.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then.i
@@ -29244,8 +29243,7 @@ if.then.i:                                        ; preds = %for.body
   %mul.i62 = shl nsw i32 %div16, 6
   %mul4.i = add i32 %mul.i62, 64
   %conv5.i = sext i32 %mul4.i to i64
-  %i.0.off = add i32 %i.0103, 127
-  %cmp620.not.i = icmp ult i32 %i.0.off, 64
+  %cmp620.not.i = icmp eq i32 %mul.i62, -64
   br i1 %cmp620.not.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_10FlatVectorImE18copyValuesAndNullsEPKNS0_10BaseVectorERKNS0_17SelectivityVectorEPKiEUlT_E0_EEvPKmiibSD_ENKUliE_clEi.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then.i
@@ -29520,8 +29518,7 @@ if.then.i:                                        ; preds = %for.body
   %mul.i62 = shl nsw i32 %div16, 6
   %mul4.i = add i32 %mul.i62, 64
   %conv5.i = sext i32 %mul4.i to i64
-  %i.0.off = add i32 %i.0103, 127
-  %cmp618.not.i = icmp ult i32 %i.0.off, 64
+  %cmp618.not.i = icmp eq i32 %mul.i62, -64
   br i1 %cmp618.not.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_10FlatVectorImE18copyValuesAndNullsEPKNS0_10BaseVectorERKNS0_17SelectivityVectorEPKiEUlT_E1_EEvPKmiibSD_ENKUliE_clEi.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then.i
@@ -29789,8 +29786,7 @@ if.then.i:                                        ; preds = %for.body
   %mul.i60 = shl nsw i32 %div16, 6
   %mul4.i = add i32 %mul.i60, 64
   %conv5.i = sext i32 %mul4.i to i64
-  %i.0.off = add i32 %i.097, 127
-  %cmp616.not.i = icmp ult i32 %i.0.off, 64
+  %cmp616.not.i = icmp eq i32 %mul.i60, -64
   br i1 %cmp616.not.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_10FlatVectorImE18copyValuesAndNullsEPKNS0_10BaseVectorERKNS0_17SelectivityVectorEPKiEUlT_E2_EEvPKmiibSD_ENKUliE_clEi.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then.i
@@ -30041,8 +30037,7 @@ if.then.i:                                        ; preds = %for.body
   %mul.i62 = shl nsw i32 %div16, 6
   %mul4.i = add i32 %mul.i62, 64
   %conv5.i = sext i32 %mul4.i to i64
-  %i.0.off = add i32 %i.0103, 127
-  %cmp620.not.i = icmp ult i32 %i.0.off, 64
+  %cmp620.not.i = icmp eq i32 %mul.i62, -64
   br i1 %cmp620.not.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_10FlatVectorImE18copyValuesAndNullsEPKNS0_10BaseVectorERKNS0_17SelectivityVectorEPKiEUliE_EEvPKmiibT_ENKUliE_clEi.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then.i
@@ -31140,8 +31135,7 @@ if.then.i:                                        ; preds = %for.body
   %mul.i58 = shl nsw i32 %div16, 6
   %mul4.i = add i32 %mul.i58, 64
   %conv5.i = sext i32 %mul4.i to i64
-  %i.0.off = add i32 %i.094, 127
-  %cmp617.not.i = icmp ult i32 %i.0.off, 64
+  %cmp617.not.i = icmp eq i32 %mul.i58, -64
   br i1 %cmp617.not.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_10FlatVectorImE18copyValuesAndNullsEPKNS0_10BaseVectorERKNS0_17SelectivityVectorEPKiEUliE1_EEvPKmiibT_ENKUliE_clEi.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then.i
@@ -32938,8 +32932,7 @@ if.then.i:                                        ; preds = %for.body
   %mul.i59 = shl nsw i32 %div16, 6
   %mul4.i = add i32 %mul.i59, 64
   %conv5.i = sext i32 %mul4.i to i64
-  %i.0.off = add i32 %i.097, 127
-  %cmp618.not.i = icmp ult i32 %i.0.off, 64
+  %cmp618.not.i = icmp eq i32 %mul.i59, -64
   br i1 %cmp618.not.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_10FlatVectorImE14ensureWritableERKNS0_17SelectivityVectorEEUliE_EEvPKmiibT_ENKUliE_clEi.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then.i
@@ -36178,8 +36171,7 @@ if.then.i:                                        ; preds = %for.body
   %mul.i62 = shl nsw i32 %div16, 6
   %mul4.i = add i32 %mul.i62, 64
   %conv5.i = sext i32 %mul4.i to i64
-  %i.0.off = add i32 %i.0103, 127
-  %cmp620.not.i = icmp ult i32 %i.0.off, 64
+  %cmp620.not.i = icmp eq i32 %mul.i62, -64
   br i1 %cmp620.not.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_10FlatVectorIbE18copyValuesAndNullsEPKNS0_10BaseVectorERKNS0_17SelectivityVectorEPKiEUlT_E_EEvPKmiibSD_ENKUliE_clEi.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then.i
@@ -36437,8 +36429,7 @@ if.then.i:                                        ; preds = %for.body
   %mul.i62 = shl nsw i32 %div16, 6
   %mul4.i = add i32 %mul.i62, 64
   %conv5.i = sext i32 %mul4.i to i64
-  %i.0.off = add i32 %i.0103, 127
-  %cmp620.not.i = icmp ult i32 %i.0.off, 64
+  %cmp620.not.i = icmp eq i32 %mul.i62, -64
   br i1 %cmp620.not.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_10FlatVectorIbE18copyValuesAndNullsEPKNS0_10BaseVectorERKNS0_17SelectivityVectorEPKiEUlT_E0_EEvPKmiibSD_ENKUliE_clEi.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then.i
@@ -37536,8 +37527,7 @@ if.then.i:                                        ; preds = %for.body
   %mul.i62 = shl nsw i32 %div16, 6
   %mul4.i = add i32 %mul.i62, 64
   %conv5.i = sext i32 %mul4.i to i64
-  %i.0.off = add i32 %i.0103, 127
-  %cmp620.not.i = icmp ult i32 %i.0.off, 64
+  %cmp620.not.i = icmp eq i32 %mul.i62, -64
   br i1 %cmp620.not.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_10FlatVectorIbE18copyValuesAndNullsEPKNS0_10BaseVectorERKNS0_17SelectivityVectorEPKiEUliE_EEvPKmiibT_ENKUliE_clEi.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then.i

@@ -1365,18 +1365,21 @@ define internal fastcc noundef i32 @load_iv(ptr nocapture noundef %fromp, ptr no
 entry:
   %0 = load ptr, ptr %fromp, align 8
   %cmp25 = icmp sgt i32 %num, 0
-  br i1 %cmp25, label %for.body3.preheader, label %for.end43
+  br i1 %cmp25, label %for.body.preheader, label %for.end
 
-for.body3.preheader:                              ; preds = %entry
+for.body.preheader:                               ; preds = %entry
   %1 = zext nneg i32 %num to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %to, i8 0, i64 %1, i1 false)
-  %mul = shl nuw i32 %num, 1
-  %smax = tail call i32 @llvm.smax.i32(i32 %mul, i32 1)
-  br label %for.body3
+  br label %for.end
 
-for.body3:                                        ; preds = %for.body3.preheader, %if.end34
-  %from.029 = phi ptr [ %incdec.ptr, %if.end34 ], [ %0, %for.body3.preheader ]
-  %i.128 = phi i32 [ %inc42, %if.end34 ], [ 0, %for.body3.preheader ]
+for.end:                                          ; preds = %for.body.preheader, %entry
+  %mul = shl nsw i32 %num, 1
+  %cmp227 = icmp sgt i32 %mul, 0
+  br i1 %cmp227, label %for.body3, label %for.end43
+
+for.body3:                                        ; preds = %for.end, %if.end34
+  %from.029 = phi ptr [ %incdec.ptr, %if.end34 ], [ %0, %for.end ]
+  %i.128 = phi i32 [ %inc42, %if.end34 ], [ 0, %for.end ]
   %2 = load i8, ptr %from.029, align 1
   %3 = add i8 %2, -48
   %or.cond = icmp ult i8 %3, 10
@@ -1425,11 +1428,11 @@ if.end34:                                         ; preds = %if.then17, %if.then
   %conv40 = or i8 %8, %9
   store i8 %conv40, ptr %arrayidx38, align 1
   %inc42 = add nuw nsw i32 %i.128, 1
-  %exitcond.not = icmp eq i32 %inc42, %smax
+  %exitcond.not = icmp eq i32 %inc42, %mul
   br i1 %exitcond.not, label %for.end43, label %for.body3, !llvm.loop !16
 
-for.end43:                                        ; preds = %if.end34, %entry
-  %from.0.lcssa = phi ptr [ %0, %entry ], [ %incdec.ptr, %if.end34 ]
+for.end43:                                        ; preds = %if.end34, %for.end
+  %from.0.lcssa = phi ptr [ %0, %for.end ], [ %incdec.ptr, %if.end34 ]
   store ptr %from.0.lcssa, ptr %fromp, align 8
   br label %return
 
@@ -1534,9 +1537,6 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #10

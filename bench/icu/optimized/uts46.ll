@@ -2975,7 +2975,7 @@ _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %if.end, %if.then7.i
   %idx.ext3 = sext i32 %labelLength to i64
   %add.ptr4.idx = shl nsw i64 %idx.ext3, 1
   %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 %add.ptr4.idx
-  %cmp620 = icmp sgt i32 %labelLength, 4
+  %cmp620 = icmp sgt i64 %add.ptr4.idx, 8
   br i1 %cmp620, label %for.body.lr.ph, label %if.then24
 
 for.body.lr.ph:                                   ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit

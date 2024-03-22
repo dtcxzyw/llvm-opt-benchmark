@@ -269,7 +269,7 @@ Vec_IntFill.exit:                                 ; preds = %80, %Vec_IntGrow.ex
   br label %Vec_IntGrow.exit.i53
 
 Vec_IntGrow.exit.i53:                             ; preds = %96, %Vec_IntFill.exit
-  %98 = icmp sgt i32 %.val36, 0
+  %98 = icmp sgt i32 %85, 0
   br i1 %98, label %.lr.ph.i54, label %Vec_IntFill.exit60
 
 .lr.ph.i54:                                       ; preds = %Vec_IntGrow.exit.i53
@@ -368,7 +368,7 @@ Vec_IntFill.exit69:                               ; preds = %119, %Vec_IntGrow.e
   br label %Vec_IntGrow.exit.i71
 
 Vec_IntGrow.exit.i71:                             ; preds = %135, %Vec_IntFill.exit69
-  %137 = icmp sgt i32 %.val38, 0
+  %137 = icmp sgt i32 %124, 0
   br i1 %137, label %.lr.ph.i72, label %Vec_IntFill.exit78
 
 .lr.ph.i72:                                       ; preds = %Vec_IntGrow.exit.i71

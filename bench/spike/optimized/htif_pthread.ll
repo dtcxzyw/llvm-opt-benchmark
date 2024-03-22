@@ -362,7 +362,7 @@ define noundef i64 @_ZN14htif_pthread_t4readEPvm(ptr noundef nonnull align 8 der
 
 _ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit.i.i.i.i: ; preds = %59, %52
   %60 = getelementptr inbounds i8, ptr %1, i64 %58
-  %.not1117.i.i.i.i = icmp eq i64 %53, 1
+  %.not1117.i.i.i.i = icmp eq i64 %.idx, 8
   br i1 %.not1117.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit.i.i.i.i
@@ -609,7 +609,7 @@ define noundef zeroext i1 @_ZN14htif_pthread_t16recv_nonblockingEPvm(ptr noundef
 
 _ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit.i.i.i.i: ; preds = %58, %51
   %59 = getelementptr inbounds i8, ptr %1, i64 %57
-  %.not1117.i.i.i.i = icmp eq i64 %52, 1
+  %.not1117.i.i.i.i = icmp eq i64 %.idx, 8
   br i1 %.not1117.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit.i.i.i.i

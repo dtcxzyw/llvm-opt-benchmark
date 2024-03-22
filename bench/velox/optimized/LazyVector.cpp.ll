@@ -804,7 +804,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.then3.i.i.i.i, %
   %42 = tail call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i, i1 true), !range !7
   %cast.i.i.i.i.i = trunc i64 %42 to i32
   %add.i26.i.i.i.i = or disjoint i32 %40, %cast.i.i.i.i.i
-  %indvars.iv.next66 = add nuw i64 %indvars.iv65, 1
+  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %add.ptr.i.i.i.i.i.i.i25 = getelementptr inbounds i32, ptr %positions.sroa.0.0, i64 %indvars.iv65
   store i32 %add.i26.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i25, align 4
   %sub.i27.i.i.i.i = add nsw i64 %word.0.i.i.i.i.i, -1
@@ -842,7 +842,7 @@ while.body.i43.i.i.i.i:                           ; preds = %while.body.i43.i.i.
   %44 = tail call i64 @llvm.cttz.i64(i64 %word.0.i44.i.i.i.i, i1 true), !range !7
   %cast.i45.i.i.i.i = trunc i64 %44 to i32
   %add.i46.i.i.i.i = or disjoint i32 %mul.i42.i.i.i.i, %cast.i45.i.i.i.i
-  %indvars.iv.next54 = add nuw i64 %indvars.iv53, 1
+  %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %add.ptr.i.i.i51.i.i.i.i = getelementptr inbounds i32, ptr %positions.sroa.0.0, i64 %indvars.iv53
   store i32 %add.i46.i.i.i.i, ptr %add.ptr.i.i.i51.i.i.i.i, align 4
   %sub.i52.i.i.i.i = add i64 %word.0.i44.i.i.i.i, -1
@@ -882,8 +882,7 @@ if.then.i.i.i.i.i24:                              ; preds = %for.body.i.i.i5.i
   %mul.i61.i.i.i.i = shl nsw i32 %div16.i.i.i.i, 6
   %mul4.i.i.i.i.i = add i32 %mul.i61.i.i.i.i, 64
   %conv5.i.i.i.i.i = sext i32 %mul4.i.i.i.i.i to i64
-  %i.0.off.i.i.i.i = add i32 %i.099.i.i.i.i, 127
-  %cmp620.not.i.i.i.i.i = icmp ult i32 %i.0.off.i.i.i.i, 64
+  %cmp620.not.i.i.i.i.i = icmp eq i32 %mul.i61.i.i.i.i, -64
   br i1 %cmp620.not.i.i.i.i.i, label %"_ZZN8facebook5velox4bits10forEachBitIZNS0_12VectorLoader12loadInternalERKNS0_17SelectivityVectorEPNS0_9ValueHookEiPSt10shared_ptrINS0_10BaseVectorEEE3$_0EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i", label %for.body.lr.ph.i.i.i.i.i
 
 for.body.lr.ph.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i24
@@ -895,7 +894,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %indvars.iv56 = phi i64 [ %indvars.iv.next57, %for.body.i.i.i.i.i ], [ %48, %for.body.lr.ph.i.i.i.i.i ]
   %row.021.i.i.i.i.i = phi i64 [ %inc.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %conv.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i ]
   %conv7.i.i.i.i.i = trunc i64 %row.021.i.i.i.i.i to i32
-  %indvars.iv.next57 = add i64 %indvars.iv56, 1
+  %indvars.iv.next57 = add nsw i64 %indvars.iv56, 1
   %add.ptr.i.i.i64.i.i.i.i = getelementptr inbounds i32, ptr %positions.sroa.0.0, i64 %indvars.iv56
   store i32 %conv7.i.i.i.i.i, ptr %add.ptr.i.i.i64.i.i.i.i, align 4
   %inc.i.i.i.i.i = add nuw i64 %row.021.i.i.i.i.i, 1
@@ -908,7 +907,7 @@ while.body.i65.i.i.i.i:                           ; preds = %while.body.i65.i.i.
   %49 = tail call i64 @llvm.cttz.i64(i64 %word.019.i.i.i.i.i, i1 true), !range !7
   %cast.i66.i.i.i.i = trunc i64 %49 to i32
   %add10.i.i.i.i.i = or disjoint i32 %mul9.i.i.i.i.i, %cast.i66.i.i.i.i
-  %indvars.iv.next60 = add i64 %indvars.iv59, 1
+  %indvars.iv.next60 = add nsw i64 %indvars.iv59, 1
   %add.ptr.i.i16.i.i.i.i.i = getelementptr inbounds i32, ptr %positions.sroa.0.0, i64 %indvars.iv59
   store i32 %add10.i.i.i.i.i, ptr %add.ptr.i.i16.i.i.i.i.i, align 4
   %sub.i68.i.i.i.i = add i64 %word.019.i.i.i.i.i, -1
@@ -958,7 +957,7 @@ while.body.i82.i.i.i.i:                           ; preds = %while.body.i82.i.i.
   %54 = tail call i64 @llvm.cttz.i64(i64 %word.0.i83.i.i.i.i, i1 true), !range !7
   %cast.i84.i.i.i.i = trunc i64 %54 to i32
   %add.i85.i.i.i.i = or disjoint i32 %40, %cast.i84.i.i.i.i
-  %indvars.iv.next63 = add i64 %indvars.iv62, 1
+  %indvars.iv.next63 = add nsw i64 %indvars.iv62, 1
   %add.ptr.i.i.i90.i.i.i.i = getelementptr inbounds i32, ptr %positions.sroa.0.0, i64 %indvars.iv62
   store i32 %add.i85.i.i.i.i, ptr %add.ptr.i.i.i90.i.i.i.i, align 4
   %sub.i91.i.i.i.i = add nsw i64 %word.0.i83.i.i.i.i, -1
@@ -2866,8 +2865,7 @@ if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i5.i
   %mul.i58.i.i.i.i = shl nsw i32 %div16.i.i.i.i, 6
   %mul4.i.i.i.i.i = add i32 %mul.i58.i.i.i.i, 64
   %conv5.i.i.i.i.i = sext i32 %mul4.i.i.i.i.i to i64
-  %i.0.off.i.i.i.i = add i32 %i.091.i.i.i.i, 127
-  %cmp617.not.i.i.i.i.i = icmp ult i32 %i.0.off.i.i.i.i, 64
+  %cmp617.not.i.i.i.i.i = icmp eq i32 %mul.i58.i.i.i.i, -64
   br i1 %cmp617.not.i.i.i.i.i, label %"_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_120selectBaseRowsToLoadERKNS0_13DecodedVectorERNS0_17SelectivityVectorERKS7_E3$_0EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i", label %for.body.lr.ph.i.i.i.i.i
 
 for.body.lr.ph.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i

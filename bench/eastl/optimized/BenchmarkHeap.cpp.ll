@@ -603,7 +603,7 @@ do.body.i.i:                                      ; preds = %_ZN5eastl11adjust_h
   %52 = load i32, ptr %add.ptr.i.i192, align 4
   %childPosition.0.in20.i.i.i.i = shl nsw i64 %dec.i.i191, 1
   %childPosition.021.i.i.i.i = add nuw nsw i64 %childPosition.0.in20.i.i.i.i, 2
-  %cmp22.i.i.i.i = icmp ult i64 %parentPosition.0.i.i, 50000
+  %cmp22.i.i.i.i = icmp ult i64 %childPosition.0.in20.i.i.i.i, 99998
   br i1 %cmp22.i.i.i.i, label %for.body.i.i.i.i, label %for.end.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %do.body.i.i, %for.body.i.i.i.i
@@ -623,7 +623,7 @@ for.body.i.i.i.i:                                 ; preds = %do.body.i.i, %for.b
   store i32 %55, ptr %add.ptr4.i.i.i.i, align 4
   %childPosition.0.in.i.i.i.i = shl nsw i64 %spec.select.i.i.i.i, 1
   %childPosition.0.i.i.i.i = add nsw i64 %childPosition.0.in.i.i.i.i, 2
-  %cmp.i.i.i2.i = icmp slt i64 %spec.select.i.i.i.i, 49999
+  %cmp.i.i.i2.i = icmp slt i64 %childPosition.0.in.i.i.i.i, 99998
   br i1 %cmp.i.i.i2.i, label %for.body.i.i.i.i, label %for.end.i.i.i.i, !llvm.loop !13
 
 for.end.i.i.i.i:                                  ; preds = %for.body.i.i.i.i, %do.body.i.i

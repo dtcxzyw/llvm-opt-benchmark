@@ -1127,12 +1127,12 @@ define i32 @If_CluHashKey(ptr nocapture noundef readonly %0, i32 noundef %1, i32
   br label %18
 
 .preheader:                                       ; preds = %3
-  %6 = icmp sgt i32 %1, 0
-  br i1 %6, label %.lr.ph.preheader, label %.loopexit
+  %6 = shl nsw i32 %1, 3
+  %7 = icmp sgt i32 %6, 0
+  br i1 %7, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %7 = shl nuw nsw i32 %1, 3
-  %wide.trip.count34 = zext nneg i32 %7 to i64
+  %wide.trip.count34 = zext nneg i32 %6 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1310,12 +1310,12 @@ If_CluPrimeCudd.exit151:                          ; preds = %.preheader.i146, %5
   br label %85
 
 .preheader.i153:                                  ; preds = %66
-  %73 = icmp sgt i32 %12, 0
-  br i1 %73, label %.lr.ph.preheader.i, label %If_CluHashKey.exit
+  %73 = shl nsw i32 %12, 3
+  %74 = icmp sgt i32 %73, 0
+  br i1 %74, label %.lr.ph.preheader.i, label %If_CluHashKey.exit
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i153
-  %74 = shl nuw nsw i32 %12, 3
-  %wide.trip.count34.i = zext nneg i32 %74 to i64
+  %wide.trip.count34.i = zext nneg i32 %73 to i64
   br label %.lr.ph.i154
 
 .lr.ph.i154:                                      ; preds = %.lr.ph.i154, %.lr.ph.preheader.i
@@ -1536,9 +1536,9 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 .lr.ph196:                                        ; preds = %._crit_edge193
   %175 = shl nuw nsw i32 %12, 1
   %wide.trip.count.i157 = zext nneg i32 %175 to i64
-  %176 = icmp sgt i32 %12, 0
-  %177 = shl nuw nsw i32 %12, 3
-  %wide.trip.count34.i166 = zext nneg i32 %177 to i64
+  %176 = shl nsw i32 %12, 3
+  %177 = icmp sgt i32 %176, 0
+  %wide.trip.count34.i166 = zext nneg i32 %176 to i64
   %wide.trip.count = zext nneg i32 %.val140.pre to i64
   br label %178
 
@@ -1551,7 +1551,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %71, label %.preheader.i164, label %.preheader22.i156
 
 .preheader.i164:                                  ; preds = %178
-  br i1 %176, label %.lr.ph.i167, label %If_CluHashKey.exit172
+  br i1 %177, label %.lr.ph.i167, label %If_CluHashKey.exit172
 
 .lr.ph.i167:                                      ; preds = %.preheader.i164, %.lr.ph.i167
   %indvars.iv31.i168 = phi i64 [ %indvars.iv.next32.i170, %.lr.ph.i167 ], [ 0, %.preheader.i164 ]

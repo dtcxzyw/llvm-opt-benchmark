@@ -11587,7 +11587,7 @@ define void @_ZNK5Yosys5RTLIL5Const13decode_stringB5cxx11Ev(ptr dead_on_unwind n
           to label %._crit_edge.thread unwind label %.loopexit.split-lp
 
 ._crit_edge.thread:                               ; preds = %.preheader39, %._crit_edge, %32, %15
-  %34 = icmp sgt i32 %12, 7
+  %34 = icmp sgt i32 %16, 7
   br i1 %34, label %.preheader.preheader, label %._crit_edge46
 
 .preheader.preheader:                             ; preds = %._crit_edge.thread

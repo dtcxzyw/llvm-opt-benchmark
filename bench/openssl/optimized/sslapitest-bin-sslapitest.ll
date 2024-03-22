@@ -18214,14 +18214,13 @@ entry:
   %clientssl = alloca ptr, align 8
   store ptr null, ptr %serverssl, align 8
   store ptr null, ptr %clientssl, align 8
-  %cmp7 = icmp sgt i32 %idx, 0
+  %mul = shl nsw i32 %idx, 1
+  %cmp7 = icmp sgt i32 %mul, 0
   br i1 %cmp7, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %entry
-  %mul = shl nuw i32 %idx, 1
   %tobool15.not = icmp eq i32 %succ, 0
-  %smax = tail call i32 @llvm.smax.i32(i32 %mul, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %mul to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end45
@@ -22107,9 +22106,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #21
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -587,7 +587,7 @@ Sfm_TimNodeArrival.exit:                          ; preds = %23, %16
   br label %Vec_IntGrow.exit.i
 
 Vec_IntGrow.exit.i:                               ; preds = %68, %.critedge2
-  %70 = icmp sgt i32 %.val42.val, 0
+  %70 = icmp sgt i32 %57, 0
   br i1 %70, label %.lr.ph.i58, label %Vec_IntFill.exit
 
 .lr.ph.i58:                                       ; preds = %Vec_IntGrow.exit.i

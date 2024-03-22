@@ -1142,12 +1142,12 @@ define noundef i32 @Pdr_SetContains(ptr nocapture noundef readonly %0, ptr nocap
   br i1 %.not, label %12, label %.loopexit
 
 12:                                               ; preds = %8
-  %.not2741 = icmp slt i32 %6, 1
+  %13 = sext i32 %6 to i64
+  %.idx = shl nsw i64 %13, 2
+  %.not2741 = icmp slt i64 %.idx, 4
   br i1 %.not2741, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %12
-  %13 = zext nneg i32 %6 to i64
-  %.idx = shl nuw nsw i64 %13, 2
   %.add28 = add nuw nsw i64 %.idx, 16
   %14 = sext i32 %4 to i64
   %.idx32 = shl nsw i64 %14, 2
@@ -1191,12 +1191,12 @@ define noundef i32 @Pdr_SetContains(ptr nocapture noundef readonly %0, ptr nocap
 define noundef i32 @Pdr_SetContainsSimple(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
-  %.not3840 = icmp slt i32 %4, 1
+  %5 = sext i32 %4 to i64
+  %.idx = shl nsw i64 %5, 2
+  %.not3840 = icmp slt i64 %.idx, 4
   br i1 %.not3840, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
-  %5 = zext nneg i32 %4 to i64
-  %.idx = shl nuw nsw i64 %5, 2
   %.add22 = add nuw nsw i64 %.idx, 16
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8

@@ -13566,7 +13566,7 @@ define internal fastcc ptr @_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPZNK
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.059.0.i, i64 16, i1 false)
   %.idx86.i = shl nsw i64 %.083.i, 4
   %33 = getelementptr inbounds i8, ptr %.sroa.059.0.i, i64 %.idx86.i
-  %.not.i.i.i.i.i.i = icmp eq i64 %.083.i, 1
+  %.not.i.i.i.i.i.i = icmp eq i64 %.idx86.i, 16
   br i1 %.not.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i, label %34
 
 34:                                               ; preds = %32

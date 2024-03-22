@@ -11557,7 +11557,7 @@ _ZN5vcpkg14RealFilesystem17ExclusiveFileLock12lock_attemptERSt10error_code.exit1
 
 80:                                               ; preds = %78, %.thread32
   %81 = shl nsw i64 %.sroa.022.0, 1
-  %82 = icmp sgt i64 %.sroa.022.0, 499
+  %82 = icmp sgt i64 %81, 999
   br i1 %82, label %83, label %62, !llvm.loop !125
 
 83:                                               ; preds = %80

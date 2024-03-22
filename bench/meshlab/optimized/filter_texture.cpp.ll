@@ -61486,7 +61486,7 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE13InnerIteratorC2ERKS
 
 82:                                               ; preds = %._crit_edge141.thread
   %83 = load <2 x i64>, ptr %.sroa.0112.0130, align 16
-  %84 = icmp sgt i64 %5, 7
+  %84 = icmp sgt i64 %81, 4
   br i1 %84, label %85, label %105
 
 85:                                               ; preds = %82
@@ -61494,7 +61494,7 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE13InnerIteratorC2ERKS
   %87 = load <4 x i32>, ptr %86, align 16
   %88 = bitcast <2 x i64> %83 to <4 x i32>
   %invariant.gep.i.i.i = getelementptr i8, ptr %.sroa.0112.0130, i64 48
-  %89 = icmp ugt i64 %5, 15
+  %89 = icmp sgt i64 %79, 8
   br i1 %89, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %85, %.lr.ph.i.i.i
@@ -62043,7 +62043,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
 40:                                               ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i
   %41 = getelementptr i32, ptr %12, i64 %.0.i.i.i.i.i.i.i.i
   %42 = load <2 x i64>, ptr %41, align 1
-  %43 = icmp sgt i64 %33, 7
+  %43 = icmp sgt i64 %37, 4
   br i1 %43, label %44, label %64
 
 44:                                               ; preds = %40
@@ -62051,7 +62051,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %46 = load <4 x i32>, ptr %45, align 1
   %47 = bitcast <2 x i64> %42 to <4 x i32>
   %invariant.gep.i.i.i.i = getelementptr i8, ptr %12, i64 48
-  %48 = icmp ugt i64 %33, 15
+  %48 = icmp sgt i64 %35, 8
   br i1 %48, label %.lr.ph.preheader.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %44
@@ -63495,7 +63495,7 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i:
   br label %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_3MapINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEENS5_INS_14CwiseNullaryOpINS0_18scalar_constant_opIiEES8_EEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i
 
 _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_3MapINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEENS5_INS_14CwiseNullaryOpINS0_18scalar_constant_opIiEES8_EEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader.i, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i
-  %33 = icmp sgt i64 %27, 3
+  %33 = icmp sgt i64 %29, 0
   br i1 %33, label %.lr.ph.i.i.i.i.i.i.i.i.i.preheader.i, label %._crit_edge.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.preheader.i:             ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_3MapINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEENS5_INS_14CwiseNullaryOpINS0_18scalar_constant_opIiEES8_EEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i
@@ -65191,15 +65191,15 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEaSINS_7ProductINS_17P
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.i.i.i.i.i.i.i: ; preds = %14
   tail call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %17, i64 noundef %17, i64 noundef 1)
-  %.pr.i.i.i.i.i.i = load i64, ptr %18, align 8
+  %.pre.i.i.i.i.i.i = load i64, ptr %18, align 8
   br label %20
 
 20:                                               ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.i.i.i.i.i.i.i, %14
-  %21 = phi i64 [ %.pr.i.i.i.i.i.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.i.i.i.i.i.i.i ], [ %17, %14 ]
+  %21 = phi i64 [ %.pre.i.i.i.i.i.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.i.i.i.i.i.i.i ], [ %17, %14 ]
   %22 = load ptr, ptr %2, align 8
   %23 = sdiv i64 %21, 2
   %24 = shl nsw i64 %23, 1
-  %25 = icmp sgt i64 %21, 1
+  %25 = icmp sgt i64 %24, 0
   br i1 %25, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %20, %.lr.ph.i.i.i.i.i.i.i
@@ -65278,7 +65278,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
 67:                                               ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i
   %68 = getelementptr i32, ptr %37, i64 %.0.i.i.i.i.i.i.i.i
   %69 = load <2 x i64>, ptr %68, align 1
-  %70 = icmp sgt i64 %60, 7
+  %70 = icmp sgt i64 %64, 4
   br i1 %70, label %71, label %91
 
 71:                                               ; preds = %67
@@ -65286,7 +65286,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %73 = load <4 x i32>, ptr %72, align 1
   %74 = bitcast <2 x i64> %69 to <4 x i32>
   %invariant.gep.i.i.i.i = getelementptr i8, ptr %37, i64 48
-  %75 = icmp ugt i64 %60, 15
+  %75 = icmp sgt i64 %62, 8
   br i1 %75, label %.lr.ph.preheader.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %71
@@ -65606,16 +65606,16 @@ _ZNK5Eigen18TriangularViewImplIKNS_12SparseMatrixIdLi0EiEELj5ENS_6SparseEE12solv
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.i.i.i.i.i.i.i25: ; preds = %239
   tail call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %237, i64 noundef %237, i64 noundef 1)
-  %.pr.i.i.i.i.i.i26 = load i64, ptr %243, align 8
+  %.pre.i.i.i.i.i.i26 = load i64, ptr %243, align 8
   %.pre = load ptr, ptr %2, align 8
   br label %245
 
 245:                                              ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.i.i.i.i.i.i.i25, %239
   %246 = phi ptr [ %.pre, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.i.i.i.i.i.i.i25 ], [ %242, %239 ]
-  %247 = phi i64 [ %.pr.i.i.i.i.i.i26, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.i.i.i.i.i.i.i25 ], [ %237, %239 ]
+  %247 = phi i64 [ %.pre.i.i.i.i.i.i26, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.i.i.i.i.i.i.i25 ], [ %237, %239 ]
   %248 = sdiv i64 %247, 2
   %249 = shl nsw i64 %248, 1
-  %250 = icmp sgt i64 %247, 1
+  %250 = icmp sgt i64 %249, 0
   br i1 %250, label %.lr.ph.i.i.i.i.i.i.i31, label %._crit_edge.i.i.i.i.i.i.i27
 
 .lr.ph.i.i.i.i.i.i.i31:                           ; preds = %245, %.lr.ph.i.i.i.i.i.i.i31
@@ -65701,7 +65701,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
 299:                                              ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i34
   %300 = getelementptr i32, ptr %269, i64 %.0.i.i.i.i.i.i.i.i35
   %301 = load <2 x i64>, ptr %300, align 1
-  %302 = icmp sgt i64 %292, 7
+  %302 = icmp sgt i64 %296, 4
   br i1 %302, label %303, label %323
 
 303:                                              ; preds = %299
@@ -65709,7 +65709,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %305 = load <4 x i32>, ptr %304, align 1
   %306 = bitcast <2 x i64> %301 to <4 x i32>
   %invariant.gep.i.i.i.i53 = getelementptr i8, ptr %269, i64 48
-  %307 = icmp ugt i64 %292, 15
+  %307 = icmp sgt i64 %294, 8
   br i1 %307, label %.lr.ph.preheader.i.i.i.i57, label %._crit_edge.i.i.i.i54
 
 .lr.ph.preheader.i.i.i.i57:                       ; preds = %303

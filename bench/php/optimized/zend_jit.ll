@@ -117678,7 +117678,7 @@ define internal void @zend_jit_pre_inc_typed_ref(ptr noundef %0, ptr noundef wri
   %.idx.i = shl nsw i64 %29, 3
   %30 = getelementptr i8, ptr %28, i64 %.idx.i
   %.ptr27.i = getelementptr i8, ptr %30, i64 16
-  %31 = icmp sgt i64 %29, 0
+  %31 = icmp sgt i64 %.idx.i, 0
   br i1 %31, label %.lr.ph.preheader.i, label %zend_jit_get_prop_not_accepting_double.exit.thread
 
 .lr.ph.preheader.i:                               ; preds = %26, %.thread.i
@@ -117803,7 +117803,7 @@ define internal void @zend_jit_pre_dec_typed_ref(ptr noundef %0, ptr noundef wri
   %.idx.i = shl nsw i64 %29, 3
   %30 = getelementptr i8, ptr %28, i64 %.idx.i
   %.ptr27.i = getelementptr i8, ptr %30, i64 16
-  %31 = icmp sgt i64 %29, 0
+  %31 = icmp sgt i64 %.idx.i, 0
   br i1 %31, label %.lr.ph.preheader.i, label %zend_jit_get_prop_not_accepting_double.exit.thread
 
 .lr.ph.preheader.i:                               ; preds = %26, %.thread.i
@@ -117929,7 +117929,7 @@ define internal void @zend_jit_post_inc_typed_ref(ptr noundef %0, ptr nocapture 
   %.idx.i = shl nsw i64 %29, 3
   %30 = getelementptr i8, ptr %28, i64 %.idx.i
   %.ptr27.i = getelementptr i8, ptr %30, i64 16
-  %31 = icmp sgt i64 %29, 0
+  %31 = icmp sgt i64 %.idx.i, 0
   br i1 %31, label %.lr.ph.preheader.i, label %zend_jit_get_prop_not_accepting_double.exit.thread
 
 .lr.ph.preheader.i:                               ; preds = %26, %.thread.i
@@ -118036,7 +118036,7 @@ define internal void @zend_jit_post_dec_typed_ref(ptr noundef %0, ptr nocapture 
   %.idx.i = shl nsw i64 %29, 3
   %30 = getelementptr i8, ptr %28, i64 %.idx.i
   %.ptr27.i = getelementptr i8, ptr %30, i64 16
-  %31 = icmp sgt i64 %29, 0
+  %31 = icmp sgt i64 %.idx.i, 0
   br i1 %31, label %.lr.ph.preheader.i, label %zend_jit_get_prop_not_accepting_double.exit.thread
 
 .lr.ph.preheader.i:                               ; preds = %26, %.thread.i

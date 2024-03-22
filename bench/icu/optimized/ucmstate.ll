@@ -1495,7 +1495,7 @@ for.inc93.i:                                      ; preds = %if.else88.i, %if.th
 for.end95.i:                                      ; preds = %for.inc93.i
   %mul.i = shl nsw i32 %savings.1.i, 1
   %sub.i = add nsw i32 %mul.i, -1024
-  %cmp96.i = icmp slt i32 %savings.1.i, 513
+  %cmp96.i = icmp slt i32 %mul.i, 1025
   br i1 %cmp96.i, label %_ZL17compactToUnicode2P9UCMStatesPPtP16_MBCSToUFallbackia.exit, label %if.end98.i
 
 if.end98.i:                                       ; preds = %for.end95.i
@@ -2166,7 +2166,7 @@ if.else:                                          ; preds = %if.then
 if.then8:                                         ; preds = %if.else
   %conv12 = zext nneg i32 %call to i64
   %call13 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.60, i64 noundef %2, i64 noundef %idxprom, i64 noundef %conv12)
-  %add14 = add nsw i32 %call, %belowSavings.035
+  %add14 = add nuw nsw i32 %call, %belowSavings.035
   br label %for.inc
 
 if.else16:                                        ; preds = %for.body

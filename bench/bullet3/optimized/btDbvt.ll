@@ -2172,7 +2172,7 @@ entry:
   %m_leaves = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i32, ptr %m_leaves, align 4
   %mul = shl nsw i32 %0, 1
-  %cmp.i = icmp sgt i32 %0, 0
+  %cmp.i = icmp sgt i32 %mul, 0
   br i1 %cmp.i, label %if.then.i.i, label %invoke.cont
 
 if.then.i.i:                                      ; preds = %entry

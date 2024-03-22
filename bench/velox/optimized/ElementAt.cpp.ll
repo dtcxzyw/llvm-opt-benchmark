@@ -8353,8 +8353,7 @@ if.then.i:                                        ; preds = %for.body
   %mul.i56 = shl nsw i32 %div16, 6
   %mul4.i = add i32 %mul.i56, 64
   %conv5.i = sext i32 %mul4.i to i64
-  %i.0.off = add i32 %i.086, 127
-  %cmp614.not.i = icmp ult i32 %i.0.off, 64
+  %cmp614.not.i = icmp eq i32 %mul.i56, -64
   br i1 %cmp614.not.i, label %_ZZN8facebook5velox4bits10forEachBitIZNKS0_9functions13SubscriptImplILb1ELb0ELb1ELb1EE15applyArrayTypedIiEESt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorERKS9_SE_RNS0_4exec7EvalCtxEEUlT_E0_EEvPKmiibSI_ENKUliE_clEi.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then.i
@@ -9737,8 +9736,7 @@ if.then.i:                                        ; preds = %for.body
   %mul.i56 = shl nsw i32 %div16, 6
   %mul4.i = add i32 %mul.i56, 64
   %conv5.i = sext i32 %mul4.i to i64
-  %i.0.off = add i32 %i.086, 127
-  %cmp614.not.i = icmp ult i32 %i.0.off, 64
+  %cmp614.not.i = icmp eq i32 %mul.i56, -64
   br i1 %cmp614.not.i, label %_ZZN8facebook5velox4bits10forEachBitIZNKS0_9functions13SubscriptImplILb1ELb0ELb1ELb1EE15applyArrayTypedIlEESt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorERKS9_SE_RNS0_4exec7EvalCtxEEUlT_E0_EEvPKmiibSI_ENKUliE_clEi.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then.i

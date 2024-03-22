@@ -135,7 +135,7 @@ _ZN6icu_75L16adjustConfidenceEDsi.exit:           ; preds = %if.then.i, %if.else
   ]
 
 for.inc:                                          ; preds = %_ZN6icu_75L16adjustConfidenceEDsi.exit
-  %indvars.iv.next = add nuw i64 %indvars.iv, 2
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %6 = trunc i64 %indvars.iv.next to i32
   %cmp2 = icmp sgt i32 %sub, %6
   br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !4
@@ -248,7 +248,7 @@ _ZN6icu_75L16adjustConfidenceEDsi.exit:           ; preds = %if.then.i, %if.else
   ]
 
 for.inc:                                          ; preds = %_ZN6icu_75L16adjustConfidenceEDsi.exit
-  %indvars.iv.next = add nuw i64 %indvars.iv, 2
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %8 = trunc i64 %indvars.iv.next to i32
   %cmp2 = icmp sgt i32 %sub, %8
   br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !6
@@ -288,7 +288,7 @@ entry:
   %1 = load i32, ptr %fRawLength, align 8
   %div = sdiv i32 %1, 4
   %mul = shl nsw i32 %div, 2
-  %cmp = icmp sgt i32 %1, 3
+  %cmp = icmp sgt i32 %mul, 0
   br i1 %cmp, label %for.body.preheader, label %if.end44
 
 for.body.preheader:                               ; preds = %entry

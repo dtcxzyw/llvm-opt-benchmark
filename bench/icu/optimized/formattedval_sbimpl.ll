@@ -1414,7 +1414,7 @@ if.end.if.end11_crit_edge:                        ; preds = %if.end
 
 if.then3:                                         ; preds = %if.end
   %mul = shl nsw i32 %1, 1
-  %cmp.i2 = icmp sgt i32 %1, 0
+  %cmp.i2 = icmp sgt i32 %mul, 0
   br i1 %cmp.i2, label %if.then.i, label %if.then9
 
 if.then.i:                                        ; preds = %if.then3
@@ -1491,7 +1491,7 @@ if.end:                                           ; preds = %entry
 
 if.then3:                                         ; preds = %if.end
   %mul = shl nsw i32 %1, 1
-  %cmp.i5 = icmp sgt i32 %1, 0
+  %cmp.i5 = icmp sgt i32 %mul, 0
   br i1 %cmp.i5, label %if.then.i, label %if.then9
 
 if.then.i:                                        ; preds = %if.then3

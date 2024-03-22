@@ -126,7 +126,7 @@ entry:
   store i32 0, ptr %m_size.i.i.i47, align 4
   %m_capacity.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 0, ptr %m_capacity.i.i.i, align 8
-  %or.cond.i = icmp sgt i32 %0, 0
+  %or.cond.i = icmp sgt i32 %mul, 0
   br i1 %or.cond.i, label %if.then.i.i.i.i, label %_ZN9btVectorXIfEC2Ei.exit
 
 if.then.i.i.i.i:                                  ; preds = %entry
@@ -437,7 +437,8 @@ for.inc8.i90:                                     ; preds = %for.inc8.loopexit.i
   br i1 %cmp.i92, label %for.cond2.preheader.i87, label %invoke.cont15, !llvm.loop !11
 
 invoke.cont15:                                    ; preds = %for.inc8.i90, %for.cond2.preheader.lr.ph.i81, %invoke.cont11
-  br i1 %or.cond.i, label %for.cond4.preheader.us.i, label %invoke.cont19
+  %cmp9.i = icmp sgt i32 %0, 0
+  br i1 %cmp9.i, label %for.cond4.preheader.us.i, label %invoke.cont19
 
 for.cond4.preheader.us.i:                         ; preds = %invoke.cont15, %for.cond4.preheader.us.i
   %row.010.us.i = phi i32 [ %inc10.us.i, %for.cond4.preheader.us.i ], [ 0, %invoke.cont15 ]
@@ -496,10 +497,10 @@ invoke.cont26:                                    ; preds = %for.body5.i118, %in
   store i32 0, ptr %m_size.i.i125, align 4
   %m_capacity.i.i = getelementptr inbounds i8, ptr %basis, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
-  br i1 %or.cond.i, label %for.body, label %for.end44.thread
+  br i1 %cmp9.i, label %for.body, label %for.end44.thread
 
 for.cond31.preheader:                             ; preds = %for.inc
-  br i1 %or.cond.i, label %invoke.cont36.lr.ph, label %for.end44.thread
+  br i1 %cmp9.i, label %invoke.cont36.lr.ph, label %for.end44.thread
 
 invoke.cont36.lr.ph:                              ; preds = %for.cond31.preheader
   %60 = load i32, ptr %m_cols.i54, align 4

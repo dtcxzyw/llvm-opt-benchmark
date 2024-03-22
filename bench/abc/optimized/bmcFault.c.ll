@@ -7788,7 +7788,7 @@ thread-pre-split:                                 ; preds = %31
   %144 = xor i32 %143, -1
   %145 = add i32 %136, %144
   %146 = shl nsw i32 %145, 1
-  %.not.i.i = icmp sgt i32 %145, 0
+  %.not.i.i = icmp sgt i32 %146, 0
   br i1 %.not.i.i, label %.lr.ph.i, label %Vec_IntFill.exit
 
 .lr.ph.i:                                         ; preds = %134
@@ -7863,7 +7863,7 @@ Vec_IntFill.exit369:                              ; preds = %167, %152
   %179 = xor i32 %178, -1
   %180 = add i32 %171, %179
   %181 = shl nsw i32 %180, 2
-  %.not.i.i372 = icmp sgt i32 %180, 0
+  %.not.i.i372 = icmp sgt i32 %181, 0
   br i1 %.not.i.i372, label %.lr.ph.i374, label %Vec_IntFill.exit380
 
 .lr.ph.i374:                                      ; preds = %169

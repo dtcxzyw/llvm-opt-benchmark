@@ -4391,17 +4391,14 @@ _ZN6google14LogDestination13FlushLogFilesEi.exit: ; preds = %_ZNSt10lock_guardIS
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6google19FlushLogFilesUnsafeENS_11LogSeverityE(i32 noundef %0) local_unnamed_addr #2 {
 _ZSt4nextIPSt10unique_ptrIN6google14LogDestinationESt14default_deleteIS2_EEET_S7_NSt15iterator_traitsIS7_E15difference_typeE.exit.i:
-  %1 = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #40
-  %.not5.i.i = icmp eq i32 %0, 4
-  br i1 %.not5.i.i, label %_ZN6google14LogDestination19FlushLogFilesUnsafeEi.exit, label %.lr.ph.i.preheader.i
+  %1 = sext i32 %0 to i64
+  %.idx.i = shl nsw i64 %1, 3
+  %2 = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #40
+  %.not5.i.i = icmp eq i64 %.idx.i, 32
+  br i1 %.not5.i.i, label %_ZN6google14LogDestination19FlushLogFilesUnsafeEi.exit, label %.lr.ph.i.i
 
-.lr.ph.i.preheader.i:                             ; preds = %_ZSt4nextIPSt10unique_ptrIN6google14LogDestinationESt14default_deleteIS2_EEET_S7_NSt15iterator_traitsIS7_E15difference_typeE.exit.i
-  %2 = sext i32 %0 to i64
-  %.idx.i = shl nsw i64 %2, 3
-  br label %.lr.ph.i.i
-
-.lr.ph.i.i:                                       ; preds = %_ZZN6google14LogDestination19FlushLogFilesUnsafeEiENKUlRSt10unique_ptrIS0_St14default_deleteIS0_EEE_clES5_.exit.i.i, %.lr.ph.i.preheader.i
-  %.06.i.i.idx = phi i64 [ %.06.i.i.add, %_ZZN6google14LogDestination19FlushLogFilesUnsafeEiENKUlRSt10unique_ptrIS0_St14default_deleteIS0_EEE_clES5_.exit.i.i ], [ %.idx.i, %.lr.ph.i.preheader.i ]
+.lr.ph.i.i:                                       ; preds = %_ZSt4nextIPSt10unique_ptrIN6google14LogDestinationESt14default_deleteIS2_EEET_S7_NSt15iterator_traitsIS7_E15difference_typeE.exit.i, %_ZZN6google14LogDestination19FlushLogFilesUnsafeEiENKUlRSt10unique_ptrIS0_St14default_deleteIS0_EEE_clES5_.exit.i.i
+  %.06.i.i.idx = phi i64 [ %.06.i.i.add, %_ZZN6google14LogDestination19FlushLogFilesUnsafeEiENKUlRSt10unique_ptrIS0_St14default_deleteIS0_EEE_clES5_.exit.i.i ], [ %.idx.i, %_ZSt4nextIPSt10unique_ptrIN6google14LogDestinationESt14default_deleteIS2_EEET_S7_NSt15iterator_traitsIS7_E15difference_typeE.exit.i ]
   %.06.i.i.ptr = getelementptr inbounds i8, ptr @_ZN6google14LogDestination17log_destinations_E, i64 %.06.i.i.idx
   %3 = load ptr, ptr %.06.i.i.ptr, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -4423,7 +4420,7 @@ _ZN6google12_GLOBAL__N_113LogFileObject13FlushUnlockedERKNSt6chrono10time_pointI
   %10 = load i32, ptr @_ZN3fLI16FLAGS_logbufsecsE, align 4
   %11 = sext i32 %10 to i64
   %12 = mul nsw i64 %11, 1000000000
-  %13 = add nsw i64 %12, %1
+  %13 = add nsw i64 %12, %2
   %14 = getelementptr inbounds i8, ptr %3, i64 184
   store i64 %13, ptr %14, align 8
   br label %_ZZN6google14LogDestination19FlushLogFilesUnsafeEiENKUlRSt10unique_ptrIS0_St14default_deleteIS0_EEE_clES5_.exit.i.i

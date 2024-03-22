@@ -16131,16 +16131,16 @@ define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6Mat
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit.i: ; preds = %14, %11
   %18 = mul nsw i64 %8, %6
   tail call void @_ZN5Eigen12DenseStorageIiLin1ELin1ELi3ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %18, i64 noundef %6, i64 noundef %8)
-  %.pr = load i64, ptr %9, align 8
+  %.pre = load i64, ptr %9, align 8
   br label %19
 
 19:                                               ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit.i, %3
-  %20 = phi i64 [ %.pr, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit.i ], [ %6, %3 ]
+  %20 = phi i64 [ %.pre, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit.i ], [ %6, %3 ]
   %21 = load ptr, ptr %0, align 8
   %22 = mul nsw i64 %20, 3
   %23 = sdiv i64 %22, 4
   %24 = shl nsw i64 %23, 2
-  %25 = icmp sgt i64 %20, 1
+  %25 = icmp sgt i64 %24, 0
   br i1 %25, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %19, %.lr.ph.i
@@ -16446,16 +16446,16 @@ define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6Mat
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi2ELi0ELin1ELi2EEEE6resizeEll.exit.i: ; preds = %14, %11
   %18 = mul nsw i64 %8, %6
   tail call void @_ZN5Eigen12DenseStorageIiLin1ELin1ELi2ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %18, i64 noundef %6, i64 noundef %8)
-  %.pr = load i64, ptr %9, align 8
+  %.pre = load i64, ptr %9, align 8
   br label %19
 
 19:                                               ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi2ELi0ELin1ELi2EEEE6resizeEll.exit.i, %3
-  %20 = phi i64 [ %.pr, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi2ELi0ELin1ELi2EEEE6resizeEll.exit.i ], [ %6, %3 ]
+  %20 = phi i64 [ %.pre, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi2ELi0ELin1ELi2EEEE6resizeEll.exit.i ], [ %6, %3 ]
   %21 = load ptr, ptr %0, align 8
   %22 = shl nsw i64 %20, 1
   %23 = sdiv i64 %20, 2
   %24 = shl nsw i64 %23, 2
-  %25 = icmp sgt i64 %20, 1
+  %25 = icmp sgt i64 %24, 0
   br i1 %25, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %19, %.lr.ph.i

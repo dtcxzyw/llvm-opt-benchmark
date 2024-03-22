@@ -6650,8 +6650,7 @@ if.then.i:                                        ; preds = %for.body
   %mul.i56 = shl nsw i32 %div16, 6
   %mul4.i = add i32 %mul.i56, 64
   %conv5.i = sext i32 %mul4.i to i64
-  %i.0.off = add i32 %i.088, 127
-  %cmp614.not.i = icmp ult i32 %i.0.off, 64
+  %cmp614.not.i = icmp eq i32 %mul.i56, -64
   br i1 %cmp614.not.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_9functions13toElementRowsINS0_9MapVectorEEENS0_17SelectivityVectorEiRKS6_PKT_PKiEUliE_EEvPKmiibS9_ENKUliE_clEi.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then.i

@@ -3456,7 +3456,7 @@ _ZNSt6vectorI12CVQualifiersSaIS0_EE9push_backERKS0_.exit: ; preds = %.noexc, %56
   br i1 %brmerge, label %.thread, label %71
 
 71:                                               ; preds = %69
-  %72 = icmp slt i32 %6, 1
+  %72 = icmp slt i32 %7, 3
   br i1 %72, label %73, label %74
 
 73:                                               ; preds = %71

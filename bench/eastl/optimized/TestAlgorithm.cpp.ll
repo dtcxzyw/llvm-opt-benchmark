@@ -19793,12 +19793,14 @@ for.body.i10228:                                  ; preds = %for.body.i10228.pre
 invoke.cont5446:                                  ; preds = %for.body.i10228
   %add.ptr.i.i.i10239.idx = shl nsw i64 %i5434.013158, 2
   %add.ptr.i.i.i10239 = getelementptr inbounds i8, ptr %call.i.i.i.i.i10210, i64 %add.ptr.i.i.i10239.idx
-  switch i64 %i5434.013158, label %if.end.i11153 [
-    i64 0, label %for.body5455.preheader
-    i64 1, label %_ZN5eastl8Internal23move_rotate_left_by_oneIPiEET_S3_S3_.exit.i11204
-  ]
+  %cmp.not.i10241 = icmp eq i64 %i5434.013158, 0
+  br i1 %cmp.not.i10241, label %for.body5455.preheader, label %if.then.i10242
 
-_ZN5eastl8Internal23move_rotate_left_by_oneIPiEET_S3_S3_.exit.i11204: ; preds = %invoke.cont5446
+if.then.i10242:                                   ; preds = %invoke.cont5446
+  %cmp.i11152 = icmp eq i64 %add.ptr.i.i.i10239.idx, 4
+  br i1 %cmp.i11152, label %_ZN5eastl8Internal23move_rotate_left_by_oneIPiEET_S3_S3_.exit.i11204, label %if.end.i11153
+
+_ZN5eastl8Internal23move_rotate_left_by_oneIPiEET_S3_S3_.exit.i11204: ; preds = %if.then.i10242
   %2000 = load i32, ptr %call.i.i.i.i.i10210, align 4
   %2001 = ptrtoint ptr %add.ptr.i.i.i10239 to i64
   %sub.i.i.i.i.i.i11202 = sub i64 %sub.ptr.lhs.cast.i11157, %2001
@@ -19807,7 +19809,7 @@ _ZN5eastl8Internal23move_rotate_left_by_oneIPiEET_S3_S3_.exit.i11204: ; preds = 
   store i32 %2000, ptr %add.ptr.i.i.i.i.i.i11203, align 4
   br label %for.body5455.preheader
 
-if.end.i11153:                                    ; preds = %invoke.cont5446
+if.end.i11153:                                    ; preds = %if.then.i10242
   %add.ptr.i.i.i14.i11154 = getelementptr inbounds i8, ptr %add.ptr.i.i.i10239, i64 4
   %cmp3.i11155 = icmp eq ptr %add.ptr.i.i.i14.i11154, %add.ptr.i10224
   br i1 %cmp3.i11155, label %if.then4.i11196, label %if.end6.i11156
@@ -19907,13 +19909,12 @@ _ZN5eastl8Internal13rotate_helperINS_26random_access_iterator_tagELb0EE11rotate_
   %add.ptr17.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i10210, i64 %sub.ptr.sub3.i.i
   br label %for.body5455.preheader
 
-for.body5455.preheader:                           ; preds = %while.body.i.i11184, %invoke.cont5446, %_ZN5eastl8Internal23move_rotate_left_by_oneIPiEET_S3_S3_.exit.i11204, %if.then4.i11196, %while.cond.preheader.i.i11182, %_ZN5eastl8Internal13rotate_helperINS_26random_access_iterator_tagELb0EE11rotate_implIPiEET_S6_S6_S6_.exit.i
-  %j5452.013157.ph = phi i64 [ 0, %_ZN5eastl8Internal13rotate_helperINS_26random_access_iterator_tagELb0EE11rotate_implIPiEET_S6_S6_S6_.exit.i ], [ 0, %while.cond.preheader.i.i11182 ], [ 0, %if.then4.i11196 ], [ 0, %_ZN5eastl8Internal23move_rotate_left_by_oneIPiEET_S3_S3_.exit.i11204 ], [ %i5434.013158, %invoke.cont5446 ], [ 0, %while.body.i.i11184 ]
-  %intVectorIt.013156.ph = phi ptr [ %add.ptr17.i.i, %_ZN5eastl8Internal13rotate_helperINS_26random_access_iterator_tagELb0EE11rotate_implIPiEET_S6_S6_S6_.exit.i ], [ %incdec.ptr.i.i11177, %while.cond.preheader.i.i11182 ], [ %add.ptr.i.i.i.i.i17.i11198, %if.then4.i11196 ], [ %add.ptr.i.i.i.i.i.i11203, %_ZN5eastl8Internal23move_rotate_left_by_oneIPiEET_S3_S3_.exit.i11204 ], [ %add.ptr.i10224, %invoke.cont5446 ], [ %incdec.ptr.i.i11177, %while.body.i.i11184 ]
+for.body5455.preheader:                           ; preds = %while.body.i.i11184, %_ZN5eastl8Internal23move_rotate_left_by_oneIPiEET_S3_S3_.exit.i11204, %if.then4.i11196, %while.cond.preheader.i.i11182, %_ZN5eastl8Internal13rotate_helperINS_26random_access_iterator_tagELb0EE11rotate_implIPiEET_S6_S6_S6_.exit.i, %invoke.cont5446
+  %intVectorIt.013156.ph = phi ptr [ %add.ptr.i10224, %invoke.cont5446 ], [ %add.ptr17.i.i, %_ZN5eastl8Internal13rotate_helperINS_26random_access_iterator_tagELb0EE11rotate_implIPiEET_S6_S6_S6_.exit.i ], [ %incdec.ptr.i.i11177, %while.cond.preheader.i.i11182 ], [ %add.ptr.i.i.i.i.i17.i11198, %if.then4.i11196 ], [ %add.ptr.i.i.i.i.i.i11203, %_ZN5eastl8Internal23move_rotate_left_by_oneIPiEET_S3_S3_.exit.i11204 ], [ %incdec.ptr.i.i11177, %while.body.i.i11184 ]
   br label %for.body5455
 
 for.body5455:                                     ; preds = %for.body5455.preheader, %for.inc5466
-  %j5452.013157 = phi i64 [ %inc5467, %for.inc5466 ], [ %j5452.013157.ph, %for.body5455.preheader ]
+  %j5452.013157 = phi i64 [ %inc5467, %for.inc5466 ], [ 0, %for.body5455.preheader ]
   %intVectorIt.013156 = phi ptr [ %incdec.ptr5461, %for.inc5466 ], [ %intVectorIt.013156.ph, %for.body5455.preheader ]
   %cmp5457 = icmp eq ptr %intVectorIt.013156, %add.ptr.i10224
   %spec.select12316 = select i1 %cmp5457, ptr %call.i.i.i.i.i10210, ptr %intVectorIt.013156

@@ -12299,7 +12299,7 @@ clear_undiffnons.exit.i53.i:                      ; preds = %.lr.ph.i36.i.i, %pi
   %371 = sext i32 %370 to i64
   %.idx.i.i.i.i.i = shl nsw i64 %371, 2
   %372 = getelementptr inbounds i8, ptr %367, i64 %.idx.i.i.i.i.i
-  %.not12.i.i.i.i.i = icmp eq i32 %369, 0
+  %.not12.i.i.i.i.i = icmp eq i64 %.idx.i.i.i.i.i, 4
   br i1 %.not12.i.i.i.i.i, label %find_min.exit.i.i, label %.lr.ph.preheader.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %366

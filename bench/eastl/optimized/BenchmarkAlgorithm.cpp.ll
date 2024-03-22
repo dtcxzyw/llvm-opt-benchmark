@@ -11329,7 +11329,7 @@ if.then24.i.i.i:                                  ; preds = %if.then22.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %__t.sroa.0.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %__p.sroa.0.0.i.i.i, i64 32, i1 false)
   %add.ptr.i32.idx72.i.i.i = shl nsw i64 %__n.0.i.i.i, 5
   %add.ptr.i32.i.i.i = getelementptr inbounds i8, ptr %__p.sroa.0.0.i.i.i, i64 %add.ptr.i32.idx72.i.i.i
-  %tobool.not.i.i.i.i.i.i.i.i = icmp eq i64 %__n.0.i.i.i, 1
+  %tobool.not.i.i.i.i.i.i.i.i = icmp eq i64 %add.ptr.i32.idx72.i.i.i, 32
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_18SizedPODILm32EEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then24.i.i.i
@@ -15837,8 +15837,8 @@ if.else.i.i.i:                                    ; preds = %if.then18
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEEC2EPKcS4_RKS1_.exit
 
 _ZN5eastl12basic_stringIcNS_9allocatorEEC2EPKcS4_RKS1_.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
-  %tobool.i.i.i.i = phi ptr [ %call.i.i.i.i.i, %if.then.i.i.i ], [ %stackTemp, %if.else.i.i.i ]
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %tobool.i.i.i.i, ptr align 1 %pBegin, i64 %sub.ptr.sub5, i1 false)
+  %spec.select.i.i.i = phi ptr [ %call.i.i.i.i.i, %if.then.i.i.i ], [ %stackTemp, %if.else.i.i.i ]
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %spec.select.i.i.i, ptr align 1 %pBegin, i64 %sub.ptr.sub5, i1 false)
   %5 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   %tobool.i.i5.i.i = icmp slt i8 %5, 0
   %6 = load ptr, ptr %stackTemp, align 8
@@ -18885,7 +18885,7 @@ if.then24:                                        ; preds = %if.then22
   %2 = load i32, ptr %__p.sroa.0.0, align 4
   %add.ptr.i15.idx73 = shl nsw i64 %__n.0, 2
   %add.ptr.i15 = getelementptr inbounds i8, ptr %__p.sroa.0.0, i64 %add.ptr.i15.idx73
-  %tobool.not.i.i.i.i.i = icmp eq i64 %__n.0, 1
+  %tobool.not.i.i.i.i.i = icmp eq i64 %add.ptr.i15.idx73, 4
   br i1 %tobool.not.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then24

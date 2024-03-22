@@ -8014,7 +8014,7 @@ Abc_NtkAddBuffsEval.exit:                         ; preds = %118, %124, %101
   %133 = or disjoint i32 %131, %132
   store i32 %133, ptr %128, align 4
   %134 = add nsw i32 %.0166264, 1
-  %135 = add nsw i32 %125, %.0164265
+  %135 = add nuw nsw i32 %125, %.0164265
   %.val189.pre = load i32, ptr %25, align 4
   br label %.critedge10.thread
 
@@ -9299,7 +9299,7 @@ Vec_IntAlloc.exit:                                ; preds = %1, %8
   br label %Vec_IntGrow.exit.i
 
 Vec_IntGrow.exit.i:                               ; preds = %23, %Vec_IntAlloc.exit
-  %25 = icmp sgt i32 %.val23.val, 0
+  %25 = icmp sgt i32 %15, 0
   br i1 %25, label %.lr.ph.i, label %Vec_IntFill.exit
 
 .lr.ph.i:                                         ; preds = %Vec_IntGrow.exit.i

@@ -10610,7 +10610,7 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h653508ab617eb21dE(p
   %17 = extractvalue { i64, i64 } %16, 0
   %18 = extractvalue { i64, i64 } %16, 1
   %switch.i.i = icmp eq i64 %17, 0
-  %19 = call noundef i64 @llvm.umin.i64(i64 %18, i64 10922)
+  %19 = call i64 @llvm.umin.i64(i64 %18, i64 10922)
   %.0.sroa.speculated.i.i.i = select i1 %switch.i.i, i64 0, i64 %19
   %20 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17haec52a1c7fb9115bE, align 8, !range !422, !noalias !2734, !noundef !4
   %trunc.not.i.i.i.i.i = icmp eq i64 %20, 0
@@ -19478,7 +19478,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17hecfc7142b7bb2ec4E(ptr noa
   %42 = load ptr, ptr %31, align 8, !alias.scope !4445, !nonnull !4, !noundef !4
   %43 = getelementptr inbounds i8, ptr %42, i64 %41
   %44 = sub i64 %.fca.1.extract, %41
-  %45 = icmp eq i64 %2, 1
+  %45 = icmp eq i64 %.idx, 16
   switch i64 %4, label %.preheader [
     i64 0, label %.preheader266
     i64 1, label %.preheader268
@@ -36420,18 +36420,18 @@ _ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit.i.i.i: ; preds =
   store ptr %202, ptr %208, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
   %209 = icmp eq ptr %199, null
-  br i1 %209, label %.thread116, label %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h2b7a3b8eb48eb183E.exit59"
+  br i1 %209, label %.thread116, label %.thread103
 
-"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h2b7a3b8eb48eb183E.exit59": ; preds = %207
+.thread103:                                       ; preds = %207
   %210 = icmp eq ptr %202, null
   br i1 %210, label %.thread116, label %211
 
-.thread116:                                       ; preds = %207, %211, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h2b7a3b8eb48eb183E.exit59"
-  %.217110122 = phi ptr [ %199, %211 ], [ %199, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h2b7a3b8eb48eb183E.exit59" ], [ %202, %207 ]
+.thread116:                                       ; preds = %207, %211, %.thread103
+  %.217110122 = phi ptr [ %199, %211 ], [ %199, %.thread103 ], [ %202, %207 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)
   br label %78
 
-211:                                              ; preds = %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h2b7a3b8eb48eb183E.exit59"
+211:                                              ; preds = %.thread103
   call void @"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_json..error..ErrorImpl$GT$$GT$17h518fdeb1c81bc310E.llvm.15559585470061597875"(ptr noalias noundef nonnull align 8 dereferenceable(8) %208)
   br label %.thread116
 

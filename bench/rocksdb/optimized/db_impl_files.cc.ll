@@ -13336,7 +13336,7 @@ if.then.i.i.i.i.i.i.i90:                          ; preds = %if.then.i.i.i.i84
 
 _ZSt14__copy_move_a1ILb0EPmS0_ET1_T0_S2_S1_.exit.i.i.i.i91: ; preds = %if.then.i.i.i.i.i.i.i90, %if.then.i.i.i.i84
   %add.ptr.i.i.i.i.i.i.i92 = getelementptr inbounds i8, ptr %7, i64 %sub.ptr.sub10.i.i.i
-  %cmp4.not26.i.i.i.i94 = icmp eq i64 %cond.i.i.i, 1
+  %cmp4.not26.i.i.i.i94 = icmp eq i64 %add.ptr11.i.i.i.idx, 8
   br i1 %cmp4.not26.i.i.i.i94, label %for.end.i.i.i.i101, label %for.body.i.i.i.i95.preheader
 
 for.body.i.i.i.i95.preheader:                     ; preds = %_ZSt14__copy_move_a1ILb0EPmS0_ET1_T0_S2_S1_.exit.i.i.i.i91

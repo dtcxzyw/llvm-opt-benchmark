@@ -148,7 +148,7 @@ define hidden void @_ZN5ceres8internal22SparseIterativeRefiner6RefineERKNS0_12Sp
   %27 = shl nsw i64 %26, 1
   %28 = add nsw i64 %27, %spec.select
   %29 = icmp sgt i64 %spec.select, 0
-  %30 = icmp sgt i64 %25, 1
+  %30 = icmp sgt i64 %27, 0
   %31 = icmp slt i64 %28, %12
   br label %32
 
@@ -184,15 +184,15 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.
           to label %.noexc unwind label %97
 
 .noexc:                                           ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i
-  %.pr.i.i.i.i.i.i.i = load i64, ptr %19, align 8
+  %.pre.i.i.i.i.i.i.i = load i64, ptr %19, align 8
   br label %46
 
 46:                                               ; preds = %.noexc, %42
-  %47 = phi i64 [ %.pr.i.i.i.i.i.i.i, %.noexc ], [ %44, %42 ]
+  %47 = phi i64 [ %.pre.i.i.i.i.i.i.i, %.noexc ], [ %44, %42 ]
   %48 = load ptr, ptr %11, align 8
   %49 = sdiv i64 %47, 2
   %50 = shl nsw i64 %49, 1
-  %51 = icmp sgt i64 %47, 1
+  %51 = icmp sgt i64 %50, 0
   br i1 %51, label %.lr.ph.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %46, %.lr.ph.i.i.i.i.i.i.i.i
@@ -383,7 +383,7 @@ define hidden void @_ZN5ceres8internal21DenseIterativeRefiner6RefineEiPKdS3_PNS0
   %25 = shl nsw i64 %24, 1
   %26 = add nsw i64 %25, %spec.select
   %27 = icmp sgt i64 %spec.select, 0
-  %28 = icmp sgt i64 %23, 1
+  %28 = icmp sgt i64 %25, 0
   %29 = icmp slt i64 %26, %11
   br label %30
 
@@ -569,15 +569,15 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.
           to label %.noexc unwind label %31
 
 .noexc:                                           ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.i.i.i.i
-  %.pr.i.i.i = load i64, ptr %12, align 8
+  %.pre.i.i.i = load i64, ptr %12, align 8
   br label %14
 
 14:                                               ; preds = %.noexc, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_3MapIKS1_Li0ENS_6StrideILi0ELi0EEEEEKNS_7ProductINS7_IKNS0_IdLin1ELin1ELi1ELin1ELin1EEELi0ESA_EENS7_IS1_Li0ESA_EELi0EEEEEEERKT_.exit
-  %15 = phi i64 [ %.pr.i.i.i, %.noexc ], [ %11, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_3MapIKS1_Li0ENS_6StrideILi0ELi0EEEEEKNS_7ProductINS7_IKNS0_IdLin1ELin1ELi1ELin1ELin1EEELi0ESA_EENS7_IS1_Li0ESA_EELi0EEEEEEERKT_.exit ]
+  %15 = phi i64 [ %.pre.i.i.i, %.noexc ], [ %11, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_3MapIKS1_Li0ENS_6StrideILi0ELi0EEEEEKNS_7ProductINS7_IKNS0_IdLin1ELin1ELi1ELin1ELin1EEELi0ESA_EENS7_IS1_Li0ESA_EELi0EEEEEEERKT_.exit ]
   %16 = load ptr, ptr %0, align 8
   %17 = sdiv i64 %15, 2
   %18 = shl nsw i64 %17, 1
-  %19 = icmp sgt i64 %15, 1
+  %19 = icmp sgt i64 %18, 0
   br i1 %19, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %14, %.lr.ph.i.i.i.i
@@ -630,15 +630,15 @@ define linkonce_odr hidden void @_ZN5Eigen8internal30assignment_from_xpr_op_prod
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.i.i.i.i: ; preds = %3
   tail call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %9, i64 noundef %9, i64 noundef 1)
-  %.pr.i.i.i = load i64, ptr %10, align 8
+  %.pre.i.i.i = load i64, ptr %10, align 8
   br label %12
 
 12:                                               ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.i.i.i.i, %3
-  %13 = phi i64 [ %.pr.i.i.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.i.i.i.i ], [ %9, %3 ]
+  %13 = phi i64 [ %.pre.i.i.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.i.i.i.i ], [ %9, %3 ]
   %14 = load ptr, ptr %0, align 8
   %15 = sdiv i64 %13, 2
   %16 = shl nsw i64 %15, 1
-  %17 = icmp sgt i64 %13, 1
+  %17 = icmp sgt i64 %16, 0
   br i1 %17, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %12, %.lr.ph.i.i.i.i
@@ -698,7 +698,7 @@ _ZN5Eigen8internal24call_assignment_no_aliasINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EE
   %45 = load <2 x double>, ptr %34, align 1
   %46 = load <2 x double>, ptr %35, align 1
   %47 = fmul <2 x double> %45, %46
-  %48 = icmp sgt i64 %37, 3
+  %48 = icmp sgt i64 %43, 2
   br i1 %48, label %49, label %79
 
 49:                                               ; preds = %44
@@ -707,7 +707,7 @@ _ZN5Eigen8internal24call_assignment_no_aliasINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EE
   %52 = getelementptr inbounds i8, ptr %35, i64 16
   %53 = load <2 x double>, ptr %52, align 1
   %54 = fmul <2 x double> %51, %53
-  %55 = icmp ugt i64 %37, 7
+  %55 = icmp sgt i64 %41, 4
   br i1 %55, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %49, %.lr.ph.i.i.i.i.i.i.i.i.i.i

@@ -75,14 +75,13 @@ gv_calloc.exit:                                   ; preds = %10
 
 18:                                               ; preds = %gv_calloc.exit, %0
   %19 = phi ptr [ %12, %gv_calloc.exit ], [ %3, %0 ]
-  %20 = icmp sgt i32 %1, 0
+  %20 = icmp sgt i32 %2, 0
   br i1 %20, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %18
-  %smax = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
-  %21 = zext nneg i32 %smax to i64
+  %21 = zext nneg i32 %2 to i64
   %22 = shl nuw nsw i64 %21, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %19, i8 0, i64 %22, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %19, i8 0, i64 %22, i1 false)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %18

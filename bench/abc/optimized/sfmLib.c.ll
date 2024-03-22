@@ -2764,13 +2764,12 @@ Vec_IntFill.exit.i:                               ; preds = %33, %Vec_IntGrow.ex
 
 56:                                               ; preds = %43
   %57 = load ptr, ptr %5, align 8
-  %58 = icmp sgt i32 %50, 0
-  br i1 %58, label %.lr.ph.preheader.i.i.i, label %Vec_MemHashKey.exit.i.i
+  %58 = shl nsw i32 %50, 1
+  %59 = icmp sgt i32 %58, 0
+  br i1 %59, label %.lr.ph.preheader.i.i.i, label %Vec_MemHashKey.exit.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %56
-  %59 = shl nuw i32 %50, 1
-  %smax.i.i.i = tail call i32 @llvm.smax.i32(i32 %59, i32 1)
-  %wide.trip.count.i.i.i = zext nneg i32 %smax.i.i.i to i64
+  %wide.trip.count.i.i.i = zext nneg i32 %58 to i64
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
@@ -2931,13 +2930,12 @@ Vec_IntPush.exit.i:                               ; preds = %126, %Vec_IntGrow.e
 Vec_MemHashResize.exit:                           ; preds = %Vec_IntPush.exit.i, %43, %Vec_IntFill.exit.i, %2
   %135 = load ptr, ptr %5, align 8
   %136 = load i32, ptr %0, align 8
-  %137 = icmp sgt i32 %136, 0
-  br i1 %137, label %.lr.ph.preheader.i.i, label %Vec_MemHashKey.exit.i
+  %137 = shl nsw i32 %136, 1
+  %138 = icmp sgt i32 %137, 0
+  br i1 %138, label %.lr.ph.preheader.i.i, label %Vec_MemHashKey.exit.i
 
 .lr.ph.preheader.i.i:                             ; preds = %Vec_MemHashResize.exit
-  %138 = shl nuw i32 %136, 1
-  %smax.i.i = tail call i32 @llvm.smax.i32(i32 %138, i32 1)
-  %wide.trip.count.i.i21 = zext nneg i32 %smax.i.i to i64
+  %wide.trip.count.i.i21 = zext nneg i32 %137 to i64
   br label %.lr.ph.i.i22
 
 .lr.ph.i.i22:                                     ; preds = %.lr.ph.i.i22, %.lr.ph.preheader.i.i
@@ -4691,13 +4689,12 @@ define i32 @Sfm_LibFindAreaMatch(ptr nocapture noundef readonly %0, ptr nocaptur
   %7 = getelementptr inbounds i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %6, align 8
-  %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %.lr.ph.preheader.i.i, label %Vec_MemHashKey.exit.i
+  %10 = shl nsw i32 %9, 1
+  %11 = icmp sgt i32 %10, 0
+  br i1 %11, label %.lr.ph.preheader.i.i, label %Vec_MemHashKey.exit.i
 
 .lr.ph.preheader.i.i:                             ; preds = %4
-  %11 = shl nuw i32 %9, 1
-  %smax.i.i = tail call i32 @llvm.smax.i32(i32 %11, i32 1)
-  %wide.trip.count.i.i = zext nneg i32 %smax.i.i to i64
+  %wide.trip.count.i.i = zext nneg i32 %10 to i64
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
@@ -4841,13 +4838,12 @@ define i32 @Sfm_LibFindDelayMatches(ptr nocapture noundef readonly %0, ptr nound
   %15 = getelementptr inbounds i8, ptr %14, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr %14, align 8
-  %18 = icmp sgt i32 %17, 0
-  br i1 %18, label %.lr.ph.preheader.i.i, label %Vec_MemHashKey.exit.i
+  %18 = shl nsw i32 %17, 1
+  %19 = icmp sgt i32 %18, 0
+  br i1 %19, label %.lr.ph.preheader.i.i, label %Vec_MemHashKey.exit.i
 
 .lr.ph.preheader.i.i:                             ; preds = %10
-  %19 = shl nuw i32 %17, 1
-  %smax.i.i = call i32 @llvm.smax.i32(i32 %19, i32 1)
-  %wide.trip.count.i.i = zext nneg i32 %smax.i.i to i64
+  %wide.trip.count.i.i = zext nneg i32 %18 to i64
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
@@ -6543,9 +6539,6 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #20
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #18
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #18
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #21
 
@@ -6554,6 +6547,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #18
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

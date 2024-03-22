@@ -40446,7 +40446,7 @@ if.then24:                                        ; preds = %if.then22
   %2 = load i32, ptr %__p.sroa.0.0, align 4
   %add.ptr.i15.idx73 = shl nsw i64 %__n.0, 2
   %add.ptr.i15 = getelementptr inbounds i8, ptr %__p.sroa.0.0, i64 %add.ptr.i15.idx73
-  %tobool.not.i.i.i.i.i = icmp eq i64 %__n.0, 1
+  %tobool.not.i.i.i.i.i = icmp eq i64 %add.ptr.i15.idx73, 4
   br i1 %tobool.not.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then24
@@ -61083,7 +61083,7 @@ if.then24.i:                                      ; preds = %if.then22.i
   %2 = load i64, ptr %__p.sroa.0.0.i, align 4
   %add.ptr.i32.idx71.i = shl nsw i64 %__n.0.i, 3
   %add.ptr.i32.i = getelementptr inbounds i8, ptr %__p.sroa.0.0.i, i64 %add.ptr.i32.idx71.i
-  %tobool.not.i.i.i.i.i.i = icmp eq i64 %__n.0.i, 1
+  %tobool.not.i.i.i.i.i.i = icmp eq i64 %add.ptr.i32.idx71.i, 8
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then24.i

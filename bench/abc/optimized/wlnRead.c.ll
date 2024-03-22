@@ -13831,7 +13831,7 @@ define void @Rtl_NtkBlastMap(ptr nocapture noundef %0, i32 noundef %1) local_unn
   br label %Vec_IntGrow.exit.i
 
 Vec_IntGrow.exit.i:                               ; preds = %15, %2
-  %17 = icmp sgt i32 %1, 0
+  %17 = icmp sgt i32 %4, 0
   br i1 %17, label %.lr.ph.i, label %Vec_IntFill.exit
 
 .lr.ph.i:                                         ; preds = %Vec_IntGrow.exit.i

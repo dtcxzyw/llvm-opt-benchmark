@@ -11844,7 +11844,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17hd860c76fa34e8e9bE(ptr noa
   %43 = load ptr, ptr %32, align 8, !alias.scope !3934, !nonnull !4, !noundef !4
   %44 = getelementptr inbounds i8, ptr %43, i64 %42
   %45 = sub i64 %.0.i.i.i, %42
-  %46 = icmp eq i64 %2, 1
+  %46 = icmp eq i64 %.idx, 16
   switch i64 %4, label %.preheader [
     i64 0, label %.preheader269
     i64 1, label %.preheader271

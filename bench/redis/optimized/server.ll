@@ -3630,7 +3630,7 @@ while.cond.preheader:                             ; preds = %if.end
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.preheader, %while.body
-  %4 = phi i32 [ %mul, %while.body ], [ %1, %while.cond.preheader ]
+  %4 = phi i32 [ %1, %while.cond.preheader ], [ %mul, %while.body ]
   %5 = load i64, ptr %len, align 8
   %conv = sext i32 %4 to i64
   %div = udiv i64 %5, %conv
@@ -3640,7 +3640,7 @@ while.cond:                                       ; preds = %while.cond.preheade
 while.body:                                       ; preds = %while.cond
   %mul = shl nsw i32 %4, 1
   store i32 %mul, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 8), align 4
-  %cmp4 = icmp sgt i32 %4, 250
+  %cmp4 = icmp sgt i32 %mul, 500
   br i1 %cmp4, label %if.then6, label %while.cond, !llvm.loop !15
 
 if.then6:                                         ; preds = %while.body

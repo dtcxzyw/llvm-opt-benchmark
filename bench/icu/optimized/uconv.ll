@@ -1856,7 +1856,7 @@ entry:
   %str2 = alloca %"class.icu_75::UnicodeString", align 8
   %idx.ext = sext i32 %argc to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 3
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %argv, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %argv, i64 %add.ptr.idx
   store i32 0, ptr %status, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %cf, i8 0, i64 33, i1 false)
   invoke void @u_init_75(ptr noundef nonnull %status)
@@ -1970,7 +1970,7 @@ if.end:                                           ; preds = %invoke.cont
   %incdec.ptr = getelementptr inbounds i8, ptr %call6, i64 1
   %pname.0 = select i1 %tobool7.not, ptr %3, ptr %incdec.ptr
   %add.ptr10.ptr = getelementptr inbounds i8, ptr %argv, i64 8
-  %cmp.not785 = icmp eq i32 %argc, 1
+  %cmp.not785 = icmp eq i64 %add.ptr.idx, 8
   br i1 %cmp.not785, label %if.end342.thread, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
@@ -2008,7 +2008,7 @@ lor.lhs.false:                                    ; preds = %for.body
 
 if.then16:                                        ; preds = %lor.lhs.false, %for.body
   %incdec.ptr17 = getelementptr inbounds i8, ptr %iter.0794, i64 8
-  %cmp18.not = icmp eq ptr %incdec.ptr17, %add.ptr.ptr
+  %cmp18.not = icmp eq ptr %incdec.ptr17, %add.ptr
   br i1 %cmp18.not, label %if.then298.invoke, label %if.then19
 
 if.then19:                                        ; preds = %if.then16
@@ -2027,7 +2027,7 @@ lor.lhs.false26:                                  ; preds = %if.else23
 
 if.then29:                                        ; preds = %lor.lhs.false26, %if.else23
   %incdec.ptr30 = getelementptr inbounds i8, ptr %iter.0794, i64 8
-  %cmp31.not = icmp eq ptr %incdec.ptr30, %add.ptr.ptr
+  %cmp31.not = icmp eq ptr %incdec.ptr30, %add.ptr
   br i1 %cmp31.not, label %if.then298.invoke, label %if.then32
 
 if.then32:                                        ; preds = %if.then29
@@ -2041,7 +2041,7 @@ if.else36:                                        ; preds = %lor.lhs.false26
 
 if.then39:                                        ; preds = %if.else36
   %incdec.ptr40 = getelementptr inbounds i8, ptr %iter.0794, i64 8
-  %cmp41.not = icmp eq ptr %incdec.ptr40, %add.ptr.ptr
+  %cmp41.not = icmp eq ptr %incdec.ptr40, %add.ptr
   br i1 %cmp41.not, label %if.then298.invoke, label %if.then42
 
 if.then42:                                        ; preds = %if.then39
@@ -2070,7 +2070,7 @@ lor.lhs.false57:                                  ; preds = %if.else54
 
 if.then60:                                        ; preds = %lor.lhs.false57, %if.else54
   %incdec.ptr61 = getelementptr inbounds i8, ptr %iter.0794, i64 8
-  %cmp62.not = icmp eq ptr %incdec.ptr61, %add.ptr.ptr
+  %cmp62.not = icmp eq ptr %incdec.ptr61, %add.ptr
   br i1 %cmp62.not, label %if.then298.invoke, label %if.then63
 
 if.then63:                                        ; preds = %if.then60
@@ -2150,7 +2150,7 @@ if.then104:                                       ; preds = %if.else101
 
 if.end108:                                        ; preds = %if.then104
   %incdec.ptr109 = getelementptr inbounds i8, ptr %iter.0794, i64 8
-  %cmp110.not = icmp eq ptr %incdec.ptr109, %add.ptr.ptr
+  %cmp110.not = icmp eq ptr %incdec.ptr109, %add.ptr
   br i1 %cmp110.not, label %if.then298.invoke, label %if.then111
 
 if.then111:                                       ; preds = %if.end108
@@ -2240,7 +2240,7 @@ if.else162:                                       ; preds = %if.else158
 
 if.then165:                                       ; preds = %if.else162
   %incdec.ptr166 = getelementptr inbounds i8, ptr %iter.0794, i64 8
-  %cmp167.not = icmp eq ptr %incdec.ptr166, %add.ptr.ptr
+  %cmp167.not = icmp eq ptr %incdec.ptr166, %add.ptr
   br i1 %cmp167.not, label %if.then298.invoke, label %if.then168
 
 if.then168:                                       ; preds = %if.then165
@@ -2305,7 +2305,7 @@ if.else187:                                       ; preds = %if.else162
 
 if.then190:                                       ; preds = %if.else187
   %incdec.ptr191 = getelementptr inbounds i8, ptr %iter.0794, i64 8
-  %cmp192.not = icmp eq ptr %incdec.ptr191, %add.ptr.ptr
+  %cmp192.not = icmp eq ptr %incdec.ptr191, %add.ptr
   br i1 %cmp192.not, label %if.then298.invoke, label %if.then193
 
 if.then193:                                       ; preds = %if.then190
@@ -2375,7 +2375,7 @@ if.else217:                                       ; preds = %if.else213
 
 if.then220:                                       ; preds = %if.else217
   %incdec.ptr221 = getelementptr inbounds i8, ptr %iter.0794, i64 8
-  %cmp222.not = icmp eq ptr %incdec.ptr221, %add.ptr.ptr
+  %cmp222.not = icmp eq ptr %incdec.ptr221, %add.ptr
   br i1 %cmp222.not, label %if.then298.invoke, label %if.then223
 
 if.then223:                                       ; preds = %if.then220
@@ -2483,7 +2483,7 @@ lor.lhs.false272:                                 ; preds = %if.else269
 
 if.then275:                                       ; preds = %lor.lhs.false272, %if.else269
   %incdec.ptr276 = getelementptr inbounds i8, ptr %iter.0794, i64 8
-  %cmp277 = icmp eq ptr %incdec.ptr276, %add.ptr.ptr
+  %cmp277 = icmp eq ptr %incdec.ptr276, %add.ptr
   %tobool278 = icmp ne ptr %outfilestr.0788, null
   %or.cond1 = select i1 %cmp277, i1 true, i1 %tobool278
   br i1 %or.cond1, label %if.then298.invoke, label %if.then279
@@ -2554,7 +2554,7 @@ for.inc:                                          ; preds = %if.else253, %lor.lh
   %verbose.1 = phi i8 [ %verbose.0802, %if.then19 ], [ %verbose.0802, %if.then32 ], [ %verbose.0802, %if.then42 ], [ %verbose.0802, %if.then63 ], [ %verbose.0802, %invoke.cont112 ], [ %verbose.0802, %if.then286 ], [ %verbose.0802, %if.then290 ], [ %verbose.0802, %if.else300 ], [ %verbose.0802, %if.then279 ], [ %verbose.0802, %if.then228 ], [ %verbose.0802, %if.then198 ], [ %verbose.0802, %if.then172 ], [ %verbose.0802, %if.else46 ], [ %verbose.0802, %if.else50 ], [ %verbose.0802, %if.then86 ], [ %verbose.0802, %if.end98 ], [ %verbose.0802, %if.else132 ], [ %verbose.0802, %if.then142 ], [ %verbose.0802, %if.else158 ], [ %verbose.0802, %if.else213 ], [ 0, %lor.lhs.false249 ], [ 0, %if.else246 ], [ 1, %lor.lhs.false256 ], [ 1, %if.else253 ]
   %incdec.ptr326 = getelementptr inbounds i8, ptr %iter.1, i64 8
   %remainArgvLimit.0.ptr.ptr = getelementptr inbounds i8, ptr %argv, i64 %remainArgvLimit.1.idx
-  %cmp.not = icmp eq ptr %incdec.ptr326, %add.ptr.ptr
+  %cmp.not = icmp eq ptr %incdec.ptr326, %add.ptr
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !16
 
 for.end:                                          ; preds = %for.inc

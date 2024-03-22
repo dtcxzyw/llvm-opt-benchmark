@@ -5065,13 +5065,12 @@ define noundef i32 @Abc_TtHieRetrieveOrInsert(ptr noundef %0, i32 noundef %1, pt
   %17 = getelementptr inbounds i8, ptr %16, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %16, align 8
-  %20 = icmp sgt i32 %19, 0
-  br i1 %20, label %.lr.ph.preheader.i.i, label %Vec_MemHashKey.exit.i
+  %20 = shl nsw i32 %19, 1
+  %21 = icmp sgt i32 %20, 0
+  br i1 %21, label %.lr.ph.preheader.i.i, label %Vec_MemHashKey.exit.i
 
 .lr.ph.preheader.i.i:                             ; preds = %12
-  %21 = shl nuw i32 %19, 1
-  %smax.i.i = tail call i32 @llvm.smax.i32(i32 %21, i32 1)
-  %wide.trip.count.i.i = zext nneg i32 %smax.i.i to i64
+  %wide.trip.count.i.i = zext nneg i32 %20 to i64
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
@@ -5264,13 +5263,12 @@ Vec_IntFill.exit.i.i:                             ; preds = %92, %Vec_IntGrow.ex
 
 115:                                              ; preds = %102
   %116 = load ptr, ptr %17, align 8
-  %117 = icmp sgt i32 %109, 0
-  br i1 %117, label %.lr.ph.preheader.i.i.i.i, label %Vec_MemHashKey.exit.i.i.i
+  %117 = shl nsw i32 %109, 1
+  %118 = icmp sgt i32 %117, 0
+  br i1 %118, label %.lr.ph.preheader.i.i.i.i, label %Vec_MemHashKey.exit.i.i.i
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %115
-  %118 = shl nuw i32 %109, 1
-  %smax.i.i.i.i = tail call i32 @llvm.smax.i32(i32 %118, i32 1)
-  %wide.trip.count.i.i.i.i = zext nneg i32 %smax.i.i.i.i to i64
+  %wide.trip.count.i.i.i.i = zext nneg i32 %117 to i64
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.preheader.i.i.i.i
@@ -5431,13 +5429,12 @@ Vec_IntPush.exit.i.i:                             ; preds = %185, %Vec_IntGrow.e
 Vec_MemHashResize.exit.i:                         ; preds = %Vec_IntPush.exit.i.i, %102, %Vec_IntFill.exit.i.i, %Vec_MemHashLookup.exit.thread
   %194 = load ptr, ptr %17, align 8
   %195 = load i32, ptr %16, align 8
-  %196 = icmp sgt i32 %195, 0
-  br i1 %196, label %.lr.ph.preheader.i.i.i, label %Vec_MemHashKey.exit.i.i
+  %196 = shl nsw i32 %195, 1
+  %197 = icmp sgt i32 %196, 0
+  br i1 %197, label %.lr.ph.preheader.i.i.i, label %Vec_MemHashKey.exit.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %Vec_MemHashResize.exit.i
-  %197 = shl nuw i32 %195, 1
-  %smax.i.i.i = tail call i32 @llvm.smax.i32(i32 %197, i32 1)
-  %wide.trip.count.i.i21.i = zext nneg i32 %smax.i.i.i to i64
+  %wide.trip.count.i.i21.i = zext nneg i32 %196 to i64
   br label %.lr.ph.i.i22.i
 
 .lr.ph.i.i22.i:                                   ; preds = %.lr.ph.i.i22.i, %.lr.ph.preheader.i.i.i

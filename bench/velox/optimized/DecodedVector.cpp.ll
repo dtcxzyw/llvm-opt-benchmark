@@ -1776,8 +1776,7 @@ if.then.i.i.i.i.i.i26:                            ; preds = %for.body.i.i.i4.i.i
   %mul.i89.i.i.i.i.i = shl nsw i32 %div16.i.i.i.i.i, 6
   %mul4.i.i.i.i.i.i = add i32 %mul.i89.i.i.i.i.i, 64
   %conv5.i.i.i.i.i.i = sext i32 %mul4.i.i.i.i.i.i to i64
-  %i.0.off.i.i.i.i.i = add i32 %i.0187.i.i.i.i.i, 127
-  %cmp649.not.i.i.i.i.i.i = icmp ult i32 %i.0.off.i.i.i.i.i, 64
+  %cmp649.not.i.i.i.i.i.i = icmp eq i32 %mul.i89.i.i.i.i.i, -64
   br i1 %cmp649.not.i.i.i.i.i.i, label %"_ZZN8facebook5velox4bits10forEachBitIZNKS0_13DecodedVector11applyToRowsIZNS3_22applyDictionaryWrapperERKNS0_10BaseVectorEPKNS0_17SelectivityVectorEE3$_0EEvSA_OT_EUliE_EEvPKmiibSC_ENKUliE_clEi.exit.i.i.i.i.i", label %for.body.lr.ph.i.i.i.i.i.i
 
 for.body.lr.ph.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i26
@@ -2890,8 +2889,7 @@ if.then.i.i.i.i.i.i14:                            ; preds = %for.body.i.i.i4.i.i
   %mul.i84.i.i.i.i.i = shl nsw i32 %div16.i.i.i.i.i, 6
   %mul4.i.i.i.i.i.i = add i32 %mul.i84.i.i.i.i.i, 64
   %conv5.i.i.i.i.i.i = sext i32 %mul4.i.i.i.i.i.i to i64
-  %i.0.off.i.i.i.i.i = add i32 %i.0172.i.i.i.i.i, 127
-  %cmp644.not.i.i.i.i.i.i = icmp ult i32 %i.0.off.i.i.i.i.i, 64
+  %cmp644.not.i.i.i.i.i.i = icmp eq i32 %mul.i84.i.i.i.i.i, -64
   %brmerge = or i1 %cmp644.not.i.i.i.i.i.i, %tobool.not.i.i.i95.i.i.i.i.i
   br i1 %brmerge, label %"_ZZN8facebook5velox4bits10forEachBitIZNKS0_13DecodedVector11applyToRowsIZNS3_12setFlatNullsERKNS0_10BaseVectorEPKNS0_17SelectivityVectorEE3$_0EEvSA_OT_EUliE_EEvPKmiibSC_ENKUliE_clEi.exit.i.i.i.i.i", label %for.body.i.i.i.i.i.i.preheader
 
@@ -3496,8 +3494,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i5.i.i
   %mul.i61.i.i.i.i.i = shl nsw i32 %div16.i.i.i.i.i, 6
   %mul4.i.i.i.i.i.i = add i32 %mul.i61.i.i.i.i.i, 64
   %conv5.i.i.i.i.i.i = sext i32 %mul4.i.i.i.i.i.i to i64
-  %i.0.off.i.i.i.i.i = add i32 %i.0102.i.i.i.i.i, 127
-  %cmp619.not.i.i.i.i.i.i = icmp ult i32 %i.0.off.i.i.i.i.i, 64
+  %cmp619.not.i.i.i.i.i.i = icmp eq i32 %mul.i61.i.i.i.i.i, -64
   br i1 %cmp619.not.i.i.i.i.i.i, label %"_ZZN8facebook5velox4bits10forEachBitIZNKS0_13DecodedVector11applyToRowsIZNS3_22setBaseDataForConstantERKNS0_10BaseVectorEPKNS0_17SelectivityVectorEE3$_0EEvSA_OT_EUliE_EEvPKmiibSC_ENKUliE_clEi.exit.i.i.i.i.i", label %for.body.lr.ph.i.i.i.i.i.i
 
 for.body.lr.ph.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i

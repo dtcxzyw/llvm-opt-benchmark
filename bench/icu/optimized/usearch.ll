@@ -403,7 +403,7 @@ if.else.i:                                        ; preds = %if.end.i
   %4 = load ptr, ptr @_ZL9g_nfcImpl, align 8
   %idx.ext1.i.i = sext i32 %2 to i64
   %add.ptr2.i.idx.i = shl nsw i64 %idx.ext1.i.i, 1
-  %add.ptr2.i.ptr.i = getelementptr inbounds i8, ptr %1, i64 %add.ptr2.i.idx.i
+  %add.ptr2.i.i = getelementptr inbounds i8, ptr %1, i64 %add.ptr2.i.idx.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 2
   %5 = load i16, ptr %1, align 2
   %conv.i.i.i = zext i16 %5 to i32
@@ -432,7 +432,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.else.i
 if.end.i.i.i:                                     ; preds = %lor.lhs.false.i.i.i
   %and.i.i.i = and i32 %conv.i.i.i, 64512
   %cmp3.i.i.i = icmp ne i32 %and.i.i.i, 55296
-  %cmp4.not.i.i.i = icmp eq i32 %2, 1
+  %cmp4.not.i.i.i = icmp eq i64 %add.ptr2.i.idx.i, 2
   %or.cond.i.i.i = select i1 %cmp3.i.i.i, i1 true, i1 %cmp4.not.i.i.i
   br i1 %or.cond.i.i.i, label %if.end12.i.i.i, label %land.lhs.true5.i.i.i
 
@@ -516,7 +516,7 @@ lor.lhs.false.i.i28.i:                            ; preds = %do.end.i
 if.end.i.i39.i:                                   ; preds = %lor.lhs.false.i.i28.i
   %and.i.i40.i = and i32 %conv.i.i25.i, 64512
   %cmp3.i.i41.i = icmp ne i32 %and.i.i40.i, 55296
-  %cmp4.not.i.i42.i = icmp eq ptr %incdec.ptr.i.i24.i, %add.ptr2.i.ptr.i
+  %cmp4.not.i.i42.i = icmp eq ptr %incdec.ptr.i.i24.i, %add.ptr2.i.i
   %or.cond.i.i43.i = select i1 %cmp3.i.i41.i, i1 true, i1 %cmp4.not.i.i42.i
   br i1 %or.cond.i.i43.i, label %if.end12.i.i48.i, label %land.lhs.true5.i.i44.i
 

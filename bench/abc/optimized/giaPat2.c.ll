@@ -773,7 +773,7 @@ define void @Min_LitMinimize(ptr noundef %0, i32 noundef %1, ptr nocapture nound
   br i1 %37, label %38, label %147
 
 38:                                               ; preds = %28
-  %39 = icmp sgt i32 %30, 0
+  %39 = icmp sgt i32 %31, 1
   br i1 %39, label %Min_LitIsCi.exit, label %Min_LitIsCi.exit.thread
 
 Min_LitIsCi.exit:                                 ; preds = %38

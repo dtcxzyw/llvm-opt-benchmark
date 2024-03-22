@@ -5911,8 +5911,8 @@ entry:
   %3 = insertelement <4 x ptr> %2, ptr %prime, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer
   %5 = bitcast <4 x i1> %4 to i4
-  %.not = icmp eq i4 %5, 0
-  br i1 %.not, label %if.then7, label %if.end33
+  %6 = icmp eq i4 %5, 0
+  br i1 %6, label %if.then7, label %if.end33
 
 if.then7:                                         ; preds = %entry
   %call = tail call i32 @sp_cmp(ptr noundef nonnull %ecp, ptr noundef nonnull %prime) #19
@@ -5927,14 +5927,14 @@ if.then13:                                        ; preds = %if.then7
 
 if.then21:                                        ; preds = %if.then13
   %z = getelementptr inbounds i8, ptr %ecp, i64 2080
-  %6 = load i32, ptr %z, align 8
-  %cmp23 = icmp eq i32 %6, 1
+  %7 = load i32, ptr %z, align 8
+  %cmp23 = icmp eq i32 %7, 1
   br i1 %cmp23, label %land.lhs.true, label %if.end33
 
 land.lhs.true:                                    ; preds = %if.then21
   %dp = getelementptr inbounds i8, ptr %ecp, i64 2088
-  %7 = load i64, ptr %dp, align 8
-  %cmp26 = icmp eq i64 %7, 1
+  %8 = load i64, ptr %dp, align 8
+  %cmp26 = icmp eq i64 %8, 1
   br i1 %cmp26, label %if.then31, label %if.end33
 
 if.then31:                                        ; preds = %land.lhs.true
@@ -7037,7 +7037,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 define i32 @wc_ecc_sig_size_calc(i32 noundef %sz) local_unnamed_addr #5 {
 entry:
   %mul = shl nsw i32 %sz, 1
-  %cmp = icmp slt i32 %sz, 61
+  %cmp = icmp slt i32 %mul, 121
   %spec.select.v = select i1 %cmp, i32 8, i32 9
   %spec.select = add nsw i32 %spec.select.v, %mul
   ret i32 %spec.select

@@ -10194,11 +10194,11 @@ return.sink.split.i:                              ; preds = %if.else.i.i.i, %if.
   %conv3033.i.sink.i.shrunk = phi i32 [ 1, %if.end ], [ %retval.0.i.i.i111418, %if.else.i.i.i ], [ %retval.0.i.i.i, %if.then.i.i.i ]
   %conv3033.i.sink.i = zext nneg i32 %conv3033.i.sink.i.shrunk to i64
   store i8 %.sink.i, ptr %add.ptr, align 1
-  %add.ptr.i111.i = getelementptr inbounds i8, ptr %add.ptr, i64 %conv3033.i.sink.i
+  %add.ptr.i109.i = getelementptr inbounds i8, ptr %add.ptr, i64 %conv3033.i.sink.i
   br label %_ZSt12__to_chars_iIjENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i.exit
 
 _ZSt12__to_chars_iIjENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i.exit: ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i, %return.sink.split.i
-  %retval.sroa.0.0.i = phi ptr [ %add.ptr4, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i ], [ %add.ptr.i111.i, %return.sink.split.i ]
+  %retval.sroa.0.0.i = phi ptr [ %add.ptr4, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i ], [ %add.ptr.i109.i, %return.sink.split.i ]
   %arrayidx5 = getelementptr inbounds i8, ptr %2, i64 22
   store i8 93, ptr %arrayidx5, align 2
   %arrayidx6 = getelementptr inbounds i8, ptr %2, i64 23
@@ -47243,13 +47243,13 @@ if.then.i9:                                       ; preds = %if.then
   store i64 %add.i.i.i.i.i.i.i.i, ptr %total_consumed_.i4.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp ne i32 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i, 0
   %cmp.i.i.i.i.i.i.i = icmp ne i64 %22, 0
-  %or.cond.not.not14.not.i.i.i.i.i.i.i = or i1 %cmp.i.i.i.i.i.i.i.i, %cmp.i.i.i.i.i.i.i
+  %or.cond.not.not14.not17.i.i.i.i.i.i.i = or i1 %cmp.i.i.i.i.i.i.i.i, %cmp.i.i.i.i.i.i.i
   %size_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %handler, i64 16
   %24 = load i64, ptr %size_.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i6.i.i.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i.i.i.i, %24
-  %or.cond.i.i.i.i.i.i.i = select i1 %or.cond.not.not14.not.i.i.i.i.i.i.i, i1 %cmp.i6.i.i.i.i.i.i.i, i1 false
+  %or.cond.not16.i.i.i.i.i.i.i = select i1 %or.cond.not.not14.not17.i.i.i.i.i.i.i, i1 %cmp.i6.i.i.i.i.i.i.i, i1 false
   %cmp.i.not.i.i8.not.i.i.i.i.i.i.i = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i, 0
-  %or.cond15.i.i.i.i.i.i.i = and i1 %cmp.i.not.i.i8.not.i.i.i.i.i.i.i, %or.cond.i.i.i.i.i.i.i
+  %or.cond15.i.i.i.i.i.i.i = and i1 %cmp.i.not.i.i8.not.i.i.i.i.i.i.i, %or.cond.not16.i.i.i.i.i.i.i
   br i1 %or.cond15.i.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i.i, label %for.end.i.i.i.i.i.i.i, !llvm.loop !730
 
 for.cond.i.i.i.i.i.i.i:                           ; preds = %if.then.i9
@@ -47557,13 +47557,13 @@ entry:
   store i64 %add.i.i.i, ptr %total_consumed_.i4.i.i, align 8
   %cmp.i.i.i = icmp ne i32 %agg.tmp.sroa.0.0.copyload.i, 0
   %cmp.i.i = icmp ne i64 %0, 0
-  %or.cond.not.not14.not.i.i = or i1 %cmp.i.i.i, %cmp.i.i
+  %or.cond.not.not14.not17.i.i = or i1 %cmp.i.i.i, %cmp.i.i
   %size_.i.i.i.i = getelementptr inbounds i8, ptr %f, i64 16
   %2 = load i64, ptr %size_.i.i.i.i, align 8
   %cmp.i6.i.i = icmp ult i64 %add.i.i.i, %2
-  %or.cond.i.i = select i1 %or.cond.not.not14.not.i.i, i1 %cmp.i6.i.i, i1 false
+  %or.cond.not16.i.i = select i1 %or.cond.not.not14.not17.i.i, i1 %cmp.i6.i.i, i1 false
   %cmp.i.not.i.i8.not.i.i = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i, 0
-  %or.cond15.i.i = and i1 %cmp.i.not.i.i8.not.i.i, %or.cond.i.i
+  %or.cond15.i.i = and i1 %cmp.i.not.i.i8.not.i.i, %or.cond.not16.i.i
   br i1 %or.cond15.i.i, label %for.cond.i.i, label %for.end.i.i, !llvm.loop !730
 
 for.cond.i.i:                                     ; preds = %entry
@@ -47746,13 +47746,13 @@ if.then:                                          ; preds = %invoke.cont2
   store i64 %add.i.i.i.i.i.i.i.i.i, ptr %total_consumed_.i4.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i = icmp ne i32 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i, 0
   %cmp.i.i.i.i.i.i.i.i = icmp ne i64 %2, 0
-  %or.cond.not.not14.not.i.i.i.i.i.i.i.i = or i1 %cmp.i.i.i.i.i.i.i.i.i, %cmp.i.i.i.i.i.i.i.i
+  %or.cond.not.not14.not17.i.i.i.i.i.i.i.i = or i1 %cmp.i.i.i.i.i.i.i.i.i, %cmp.i.i.i.i.i.i.i.i
   %size_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %function, i64 16
   %10 = load i64, ptr %size_.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i6.i.i.i.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i.i.i.i.i, %10
-  %or.cond.i.i.i.i.i.i.i.i = select i1 %or.cond.not.not14.not.i.i.i.i.i.i.i.i, i1 %cmp.i6.i.i.i.i.i.i.i.i, i1 false
+  %or.cond.not16.i.i.i.i.i.i.i.i = select i1 %or.cond.not.not14.not17.i.i.i.i.i.i.i.i, i1 %cmp.i6.i.i.i.i.i.i.i.i, i1 false
   %cmp.i.not.i.i8.not.i.i.i.i.i.i.i.i = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i, 0
-  %or.cond15.i.i.i.i.i.i.i.i = and i1 %cmp.i.not.i.i8.not.i.i.i.i.i.i.i.i, %or.cond.i.i.i.i.i.i.i.i
+  %or.cond15.i.i.i.i.i.i.i.i = and i1 %cmp.i.not.i.i8.not.i.i.i.i.i.i.i.i, %or.cond.not16.i.i.i.i.i.i.i.i
   br i1 %or.cond15.i.i.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i.i.i, label %for.end.i.i.i.i.i.i.i.i, !llvm.loop !730
 
 for.cond.i.i.i.i.i.i.i.i:                         ; preds = %if.then
@@ -52841,14 +52841,14 @@ for.cond:                                         ; preds = %lor.lhs.false, %sw.
   %buffers_3 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !779)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, i8 0, i64 56, i1 false), !alias.scope !779
+  %add.ptr.i.i4.idx.i = shl nsw i64 %0, 4
   %count.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
-  %cmp13.i = icmp ne i64 %0, 3
+  %cmp13.i = icmp ne i64 %add.ptr.i.i4.idx.i, 48
   %cmp414.i = icmp ne i64 %max_size.0, 0
   %or.cond15.i = and i1 %cmp414.i, %cmp13.i
   br i1 %or.cond15.i, label %while.body.preheader.i, label %_ZN4asio6detail17consuming_buffersINS_12const_bufferESt5arrayIS2_Lm3EEPKS2_E7prepareEm.exit
 
 while.body.preheader.i:                           ; preds = %for.cond
-  %add.ptr.i.i4.idx.i = shl nsw i64 %0, 4
   %next_elem_offset_.i = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load i64, ptr %next_elem_offset_.i, align 8, !noalias !779
   br label %while.body.i
@@ -52907,14 +52907,14 @@ sw.default:                                       ; preds = %entry
   store i64 %add.i, ptr %total_consumed_.i3, align 8
   %next_elem_.i4 = getelementptr inbounds i8, ptr %this, i64 72
   %9 = load i64, ptr %next_elem_.i4, align 8
+  %add.ptr.i.i5.idx.i = shl nsw i64 %9, 4
   %invariant.gep.i = getelementptr inbounds i8, ptr %this, i64 16
-  %cmp13.i13 = icmp ne i64 %9, 3
+  %cmp13.i13 = icmp ne i64 %add.ptr.i.i5.idx.i, 48
   %cmp414.i14 = icmp ne i64 %bytes_transferred, 0
   %10 = and i1 %cmp414.i14, %cmp13.i13
   br i1 %10, label %while.body.lr.ph.i, label %_ZN4asio6detail17consuming_buffersINS_12const_bufferESt5arrayIS2_Lm3EEPKS2_E7consumeEm.exit
 
 while.body.lr.ph.i:                               ; preds = %sw.default
-  %add.ptr.i.i5.idx.i = shl nsw i64 %9, 4
   %next_elem_offset_.i15 = getelementptr inbounds i8, ptr %this, i64 80
   %next_elem_offset_.promoted.i = load i64, ptr %next_elem_offset_.i15, align 8
   br label %while.body.i16
@@ -57293,9 +57293,9 @@ CoroSave58:                                       ; preds = %entry.resume
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   store i32 1, ptr %start_.i.i.i.i.i.i.i.i, align 8
   %size_.i.i.i.phi.trans.insert.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i.i, i64 16
-  %.pre16.i.i.i.i.i.i.i.i = load i64, ptr %size_.i.i.i.phi.trans.insert.i.i.i.i.i.i.i.i, align 8
+  %.pre18.i.i.i.i.i.i.i.i = load i64, ptr %size_.i.i.i.phi.trans.insert.i.i.i.i.i.i.i.i, align 8
   %7 = load ptr, ptr %buffers_.i.i.i.i.i.i.i.i, align 8
-  %spec.select.i2.i.i.i.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.pre16.i.i.i.i.i.i.i.i, i64 65536)
+  %spec.select.i2.i.i.i.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.pre18.i.i.i.i.i.i.i.i, i64 65536)
   store ptr %7, ptr %ref.tmp.i.i.i.i.i.i.i.i, align 8
   %8 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i.i.i, i64 8
   store i64 %spec.select.i2.i.i.i.i.i.i.i.i.i, ptr %8, align 8

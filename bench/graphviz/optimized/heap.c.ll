@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 define void @PQinsert(ptr noundef %0, ptr noundef %1, double noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %1, ptr %4, align 8
-  tail call void @ref(ptr noundef %1) #13
+  tail call void @ref(ptr noundef %1) #12
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load double, ptr %5, align 8
   %7 = fadd double %6, %2
@@ -177,7 +177,7 @@ PQbucket.exit:                                    ; preds = %21, %24
   %35 = add nsw i32 %34, -1
   store i32 %35, ptr @PQcount, align 4
   %36 = load ptr, ptr %2, align 8
-  tail call void @deref(ptr noundef %36) #13
+  tail call void @deref(ptr noundef %36) #12
   store ptr null, ptr %2, align 8
   br label %37
 
@@ -248,7 +248,7 @@ define ptr @PQextractmin() local_unnamed_addr #4 {
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @PQcleanup() local_unnamed_addr #5 {
   %1 = load ptr, ptr @PQhash, align 8
-  tail call void @free(ptr noundef %1) #13
+  tail call void @free(ptr noundef %1) #12
   store ptr null, ptr @PQhash, align 8
   ret void
 }
@@ -274,13 +274,13 @@ define void @PQinitialize() local_unnamed_addr #0 {
 
 7:                                                ; preds = %5
   %8 = load ptr, ptr @stderr, align 8
-  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.1, i64 noundef %6, i64 noundef 56) #14
-  tail call fastcc void @graphviz_exit() #15
+  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.1, i64 noundef %6, i64 noundef 56) #13
+  tail call fastcc void @graphviz_exit() #14
   unreachable
 
 10:                                               ; preds = %5
   %11 = icmp ne i32 %1, 0
-  %12 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 56) #16
+  %12 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 56) #15
   %13 = icmp eq ptr %12, null
   %or.cond3.i = and i1 %11, %13
   br i1 %or.cond3.i, label %14, label %gv_calloc.exit
@@ -288,8 +288,8 @@ define void @PQinitialize() local_unnamed_addr #0 {
 14:                                               ; preds = %10
   %15 = load ptr, ptr @stderr, align 8
   %16 = mul nuw nsw i64 %6, 56
-  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.2, i64 noundef %16) #14
-  tail call fastcc void @graphviz_exit() #15
+  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.2, i64 noundef %16) #13
+  tail call fastcc void @graphviz_exit() #14
   unreachable
 
 gv_calloc.exit:                                   ; preds = %10
@@ -298,12 +298,11 @@ gv_calloc.exit:                                   ; preds = %10
 
 18:                                               ; preds = %gv_calloc.exit, %0
   %19 = phi ptr [ %12, %gv_calloc.exit ], [ %3, %0 ]
-  %20 = icmp sgt i32 %1, 0
+  %20 = icmp sgt i32 %2, 0
   br i1 %20, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %18
-  %smax = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %2 to i64
   br label %21
 
 21:                                               ; preds = %.lr.ph, %21
@@ -392,7 +391,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 
 ; Function Attrs: noreturn nounwind uwtable
 define internal fastcc void @graphviz_exit() unnamed_addr #9 {
-  tail call void @exit(i32 noundef 1) #17
+  tail call void @exit(i32 noundef 1) #16
   unreachable
 }
 
@@ -401,9 +400,6 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 
 ; Function Attrs: noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #11
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -417,12 +413,11 @@ attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true
 attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nounwind }
-attributes #14 = { cold nounwind }
-attributes #15 = { noreturn }
-attributes #16 = { nounwind allocsize(0,1) }
-attributes #17 = { noreturn nounwind }
+attributes #12 = { nounwind }
+attributes #13 = { cold nounwind }
+attributes #14 = { noreturn }
+attributes #15 = { nounwind allocsize(0,1) }
+attributes #16 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

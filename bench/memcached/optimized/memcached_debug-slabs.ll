@@ -401,7 +401,7 @@ if.else17:                                        ; preds = %if.then14
   br label %if.end20
 
 if.end20:                                         ; preds = %if.else8, %if.else17, %if.then16, %if.then6, %if.else
-  %do_slab_prealloc.0 = phi i1 [ false, %if.then6 ], [ true, %if.else ], [ false, %if.then16 ], [ false, %if.else17 ], [ true, %if.else8 ]
+  %do_slab_prealloc.0.not = phi i1 [ false, %if.then6 ], [ true, %if.else ], [ false, %if.then16 ], [ false, %if.else17 ], [ true, %if.else8 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2560) @slabclass, i8 0, i64 2560, i1 false)
   %cmp23.not = icmp eq ptr %slab_sizes, null
   br i1 %cmp23.not, label %while.body.us.preheader, label %while.body
@@ -522,7 +522,7 @@ if.then95:                                        ; preds = %if.then93
   br label %if.end97
 
 if.end97:                                         ; preds = %if.then93, %if.then95, %if.end90
-  %brmerge = or i1 %do_slab_prealloc.0, %reuse_mem
+  %brmerge = or i1 %do_slab_prealloc.0.not, %reuse_mem
   br i1 %brmerge, label %if.end103, label %if.then101
 
 if.then101:                                       ; preds = %if.end97
@@ -2252,8 +2252,7 @@ if.else13:                                        ; preds = %if.end10
 if.then15:                                        ; preds = %if.else13
   %call16 = tail call i32 @usleep(i32 noundef %backoff_timer.0) #22
   %mul = shl nsw i32 %backoff_timer.0, 1
-  %cmp17 = icmp sgt i32 %backoff_timer.0, 500
-  %spec.select = select i1 %cmp17, i32 1000, i32 %mul
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %mul, i32 1000)
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then33.i, %if.end18.i, %if.then15, %if.else13
@@ -2614,6 +2613,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #20
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

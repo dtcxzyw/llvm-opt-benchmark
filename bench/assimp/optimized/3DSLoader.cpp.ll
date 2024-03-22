@@ -15005,7 +15005,7 @@ if.then24:                                        ; preds = %if.then22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__t, ptr noundef nonnull align 8 dereferenceable(16) %__p.sroa.0.0, i64 16, i1 false)
   %add.ptr.i15.idx74 = shl nsw i64 %__n.0, 4
   %add.ptr.i15 = getelementptr inbounds i8, ptr %__p.sroa.0.0, i64 %add.ptr.i15.idx74
-  %tobool.not.i.i.i.i.i = icmp eq i64 %__n.0, 1
+  %tobool.not.i.i.i.i.i = icmp eq i64 %add.ptr.i15.idx74, 16
   br i1 %tobool.not.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then24
@@ -15459,7 +15459,9 @@ entry:
 
 while.body.lr.ph:                                 ; preds = %entry
   %add.ptr.i.idx = shl nsw i64 %__chunk_size, 4
-  %or.cond = icmp ult i64 %__chunk_size, 2
+  %cmp.i.i = icmp eq i64 %__chunk_size, 0
+  %cmp.i1.not10.i = icmp eq i64 %add.ptr.i.idx, 16
+  %or.cond = select i1 %cmp.i.i, i1 true, i1 %cmp.i1.not10.i
   br i1 %or.cond, label %while.body.us, label %while.body
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %while.body.us

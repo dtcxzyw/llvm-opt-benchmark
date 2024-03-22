@@ -35678,7 +35678,7 @@ define noalias noundef ptr @Gia_ManDupUifBuildMap(ptr nocapture noundef readonly
   %4 = tail call ptr @Gia_ManDupUifBoxTypes(ptr noundef %3)
   %5 = getelementptr i8, ptr %4, i64 4
   %.val46 = load i32, ptr %5, align 4
-  %6 = shl i32 %.val46, 1
+  %6 = shl nsw i32 %.val46, 1
   %7 = sext i32 %6 to i64
   %8 = shl nsw i64 %7, 3
   %9 = tail call noalias ptr @malloc(i64 noundef %8) #27
@@ -35715,18 +35715,16 @@ Vec_IntAlloc.exit:                                ; preds = %1, %15
 
 .critedge.preheader.loopexit:                     ; preds = %65
   %.val45.pre = load i32, ptr %5, align 4
-  %.pre88 = shl i32 %.val45.pre, 1
+  %.pre88 = shl nsw i32 %.val45.pre, 1
   br label %.critedge.preheader
 
 .critedge.preheader:                              ; preds = %.critedge.preheader.loopexit, %Vec_IntAlloc.exit
   %.pre-phi = phi i32 [ %.pre88, %.critedge.preheader.loopexit ], [ %6, %Vec_IntAlloc.exit ]
-  %.val45 = phi i32 [ %.val45.pre, %.critedge.preheader.loopexit ], [ %.val46, %Vec_IntAlloc.exit ]
-  %25 = icmp sgt i32 %.val45, 0
+  %25 = icmp sgt i32 %.pre-phi, 0
   br i1 %25, label %.critedge.preheader74, label %.preheader
 
 .critedge.preheader74:                            ; preds = %.critedge.preheader
-  %smax = tail call i32 @llvm.smax.i32(i32 %.pre-phi, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %.pre-phi to i64
   br label %.critedge
 
 26:                                               ; preds = %.lr.ph, %65
@@ -36443,13 +36441,12 @@ Abc_UtilStrsav.exit84:                            ; preds = %Abc_UtilStrsav.exit
 .critedge2:                                       ; preds = %.lr.ph96, %117, %.critedge
   %130 = tail call ptr @Gia_ManCleanup(ptr noundef nonnull %7) #29
   tail call void @Gia_ManStop(ptr noundef nonnull %7) #29
-  %131 = icmp sgt i32 %.val73, 0
-  br i1 %131, label %.lr.ph99.preheader, label %._crit_edge
+  %131 = shl nsw i32 %.val73, 1
+  %132 = icmp sgt i32 %131, 0
+  br i1 %132, label %.lr.ph99.preheader, label %._crit_edge
 
 .lr.ph99.preheader:                               ; preds = %.critedge2
-  %132 = shl nuw i32 %.val73, 1
-  %smax = tail call i32 @llvm.smax.i32(i32 %132, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %131 to i64
   br label %.lr.ph99
 
 .lr.ph99:                                         ; preds = %.lr.ph99.preheader, %Vec_WecFree.exit

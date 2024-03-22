@@ -5498,7 +5498,7 @@ entry:
   %idx.ext1 = sext i32 %mul to i64
   %idx.neg = sub nsw i64 0, %idx.ext1
   %add.ptr2 = getelementptr inbounds float, ptr %add.ptr, i64 %idx.neg
-  %cmp64 = icmp sgt i32 %n, 0
+  %cmp64 = icmp sgt i32 %mul, 0
   br i1 %cmp64, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry

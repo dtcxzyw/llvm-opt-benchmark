@@ -3066,9 +3066,8 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i, %3
 Vec_PtrCleanSimInfo.exit:                         ; preds = %33, %Vec_PtrAllocSimInfo.exit
   %36 = getelementptr i8, ptr %1, i64 4
   %37 = getelementptr i8, ptr %1, i64 8
-  %38 = icmp sgt i32 %10, 0
+  %38 = icmp sgt i32 %11, 1
   %39 = add nsw i32 %11, -1
-  %smax100 = tail call i32 @llvm.smax.i32(i32 %11, i32 2)
   br label %.outer
 
 .outer:                                           ; preds = %Cec_ManLoadCounterExamplesTry.exit.thread, %Vec_PtrCleanSimInfo.exit
@@ -3149,8 +3148,8 @@ Vec_PtrCleanSimInfo.exit:                         ; preds = %33, %Vec_PtrAllocSi
 
 Cec_ManLoadCounterExamplesTry.exit.us:            ; preds = %67
   %76 = add nuw nsw i32 %.13569.us, 1
-  %exitcond101.not = icmp eq i32 %76, %smax100
-  br i1 %exitcond101.not, label %Cec_ManLoadCounterExamplesTry.exit.thread, label %.lr.ph.i47.us, !llvm.loop !35
+  %exitcond100.not = icmp eq i32 %76, %11
+  br i1 %exitcond100.not, label %Cec_ManLoadCounterExamplesTry.exit.thread, label %.lr.ph.i47.us, !llvm.loop !35
 
 77:                                               ; preds = %67, %57
   %indvars.iv.next.i50.us = add nuw nsw i64 %indvars.iv.i49.us, 1
@@ -3268,7 +3267,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %exitcond47.not.i, label %Cec_ManLoadCounterExamplesTry.exit.thread, label %.lr.ph40.i, !llvm.loop !31
 
 Cec_ManLoadCounterExamplesTry.exit.thread:        ; preds = %Cec_ManLoadCounterExamplesTry.exit.us, %129, %.preheader, %.lr.ph
-  %.13563 = phi i32 [ 1, %.preheader ], [ 1, %.lr.ph ], [ %.13569.us, %129 ], [ %smax100, %Cec_ManLoadCounterExamplesTry.exit.us ]
+  %.13563 = phi i32 [ 1, %.preheader ], [ 1, %.lr.ph ], [ %.13569.us, %129 ], [ %11, %Cec_ManLoadCounterExamplesTry.exit.us ]
   %130 = icmp eq i32 %.13563, %39
   br i1 %130, label %.loopexit, label %.outer, !llvm.loop !34
 

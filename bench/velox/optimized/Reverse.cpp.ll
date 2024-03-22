@@ -12419,8 +12419,7 @@ if.then.i:                                        ; preds = %for.body
   %mul.i58 = shl nsw i32 %div16, 6
   %mul4.i = add i32 %mul.i58, 64
   %conv5.i = sext i32 %mul4.i to i64
-  %i.0.off = add i32 %i.091, 127
-  %cmp615.not.i = icmp ult i32 %i.0.off, 64
+  %cmp615.not.i = icmp eq i32 %mul.i58, -64
   br i1 %cmp615.not.i, label %_ZZN8facebook5velox4bits10forEachBitIZNKS0_9functions15ReverseFunction12applyVarcharERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERNS0_4exec7EvalCtxERSB_EUlT_E_EEvPKmiibSJ_ENKUliE_clEi.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then.i
@@ -12962,8 +12961,7 @@ if.then.i:                                        ; preds = %for.body
   %mul.i56 = shl nsw i32 %div16, 6
   %mul4.i = add i32 %mul.i56, 64
   %conv5.i = sext i32 %mul4.i to i64
-  %i.0.off = add i32 %i.085, 127
-  %cmp614.not.i = icmp ult i32 %i.0.off, 64
+  %cmp614.not.i = icmp eq i32 %mul.i56, -64
   br i1 %cmp614.not.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_9functions15ReverseFunction20ApplyVarcharInternalILb1EE5applyERKNS0_17SelectivityVectorEPKNS0_10FlatVectorINS0_10StringViewEEEPSC_EUliE_EEvPKmiibT_ENKUliE_clEi.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then.i
@@ -13602,8 +13600,7 @@ if.then.i:                                        ; preds = %for.body
   %mul.i56 = shl nsw i32 %div16, 6
   %mul4.i = add i32 %mul.i56, 64
   %conv5.i = sext i32 %mul4.i to i64
-  %i.0.off = add i32 %i.085, 127
-  %cmp614.not.i = icmp ult i32 %i.0.off, 64
+  %cmp614.not.i = icmp eq i32 %mul.i56, -64
   br i1 %cmp614.not.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_9functions15ReverseFunction20ApplyVarcharInternalILb0EE5applyERKNS0_17SelectivityVectorEPKNS0_10FlatVectorINS0_10StringViewEEEPSC_EUliE_EEvPKmiibT_ENKUliE_clEi.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then.i

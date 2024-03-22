@@ -3096,7 +3096,7 @@ Balloc.exit:                                      ; preds = %25, %27
   %.idx80 = shl nsw i64 %50, 2
   %51 = getelementptr i8, ptr %spec.select, i64 %.idx80
   %.ptr83 = getelementptr i8, ptr %51, i64 24
-  %52 = icmp sgt i32 %14, 0
+  %52 = icmp sgt i64 %.idx80, 0
   br i1 %52, label %.lr.ph73.preheader, label %.preheader
 
 .lr.ph73.preheader:                               ; preds = %._crit_edge
@@ -5420,11 +5420,11 @@ define internal fastcc i32 @quorem(ptr nocapture noundef %0, ptr noundef readonl
   br label %41
 
 .preheader5:                                      ; preds = %34
-  %36 = icmp sgt i32 %4, 2
+  %36 = icmp sgt i64 %.idx, 4
   br i1 %36, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %.preheader5
-  %.068.add10 = add nsw i64 %.idx, 20
+  %.068.add10 = add nuw nsw i64 %.idx, 20
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %38
@@ -5515,7 +5515,7 @@ cmp.exit.thread:                                  ; preds = %cmp.exit.thread.pre
   br i1 %.not84, label %.preheader, label %cmp.exit.thread2
 
 .preheader:                                       ; preds = %64
-  %69 = icmp sgt i32 %.173, 1
+  %69 = icmp sgt i64 %.idx85, 4
   br i1 %69, label %.lr.ph18.preheader, label %.critedge2
 
 .lr.ph18.preheader:                               ; preds = %.preheader
@@ -5868,7 +5868,7 @@ define internal fastcc double @b2d(ptr noundef readonly %0, ptr nocapture nounde
   br label %53
 
 31:                                               ; preds = %2
-  %32 = icmp sgt i32 %4, 1
+  %32 = icmp sgt i64 %.idx, 4
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %31

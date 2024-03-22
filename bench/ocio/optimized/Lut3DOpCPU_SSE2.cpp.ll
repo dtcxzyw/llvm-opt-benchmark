@@ -38,7 +38,7 @@ entry:
   %div.i = sdiv i32 %total_pixel_count, 4
   %mul13.i = shl nsw i32 %div.i, 2
   %sub14.i = sub nsw i32 %total_pixel_count, %mul13.i
-  %cmp272.i = icmp sgt i32 %total_pixel_count, 3
+  %cmp272.i = icmp sgt i32 %mul13.i, 0
   br i1 %cmp272.i, label %for.body.i, label %for.end.i
 
 for.body.i:                                       ; preds = %entry, %for.body.i
@@ -297,7 +297,7 @@ for.end.i:                                        ; preds = %for.body.i, %entry
 if.then.i:                                        ; preds = %for.end.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %in_buf.i, i8 0, i64 64, i1 false)
   %mul34.i = shl nsw i32 %sub14.i, 2
-  %cmp35277.i = icmp sgt i32 %sub14.i, 0
+  %cmp35277.i = icmp sgt i32 %mul34.i, 0
   br i1 %cmp35277.i, label %for.body36.preheader.i, label %for.end54.i
 
 for.body36.preheader.i:                           ; preds = %if.then.i

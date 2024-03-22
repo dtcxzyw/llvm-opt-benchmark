@@ -1817,22 +1817,18 @@ streamCompareID.exit:                             ; preds = %if.end15.thread294,
   %last_id16259 = phi ptr [ %last_id16, %if.end15 ], [ %last_id16258, %if.else6.i ], [ %last_id16297, %if.end15.thread294 ]
   %id.sroa.15.1257 = phi i64 [ %id.sroa.15.1, %if.end15 ], [ %id.sroa.15.1256, %if.else6.i ], [ 0, %if.end15.thread294 ]
   %id.sroa.0.1255 = phi i64 [ %id.sroa.0.1, %if.end15 ], [ %id.sroa.0.1254, %if.else6.i ], [ %inc.i.i, %if.end15.thread294 ]
-  %cmp22270 = icmp sgt i64 %numfields, 0
-  br i1 %cmp22270, label %for.body.preheader, label %if.end28
-
-for.body.preheader:                               ; preds = %streamCompareID.exit
-  %mul = shl nuw i64 %numfields, 1
-  %smax = tail call i64 @llvm.smax.i64(i64 %mul, i64 1)
-  br label %for.body
+  %mul = shl nsw i64 %numfields, 1
+  %cmp22270 = icmp sgt i64 %mul, 0
+  br i1 %cmp22270, label %for.body, label %if.end28
 
 if.then19:                                        ; preds = %if.then.i.i, %if.else6.i, %if.else.i91
   %call20 = tail call ptr @__errno_location() #19
   store i32 33, ptr %call20, align 4
   br label %return
 
-for.body:                                         ; preds = %for.body.preheader, %sdslen.exit
-  %totelelen.0272 = phi i64 [ %add, %sdslen.exit ], [ 0, %for.body.preheader ]
-  %i.0271 = phi i64 [ %inc24, %sdslen.exit ], [ 0, %for.body.preheader ]
+for.body:                                         ; preds = %streamCompareID.exit, %sdslen.exit
+  %totelelen.0272 = phi i64 [ %add, %sdslen.exit ], [ 0, %streamCompareID.exit ]
+  %i.0271 = phi i64 [ %inc24, %sdslen.exit ], [ 0, %streamCompareID.exit ]
   %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 %i.0271
   %7 = load ptr, ptr %arrayidx, align 8
   %ptr = getelementptr inbounds i8, ptr %7, i64 8
@@ -1881,7 +1877,7 @@ sdslen.exit:                                      ; preds = %for.body, %sw.bb.i,
   %retval.0.i93 = phi i64 [ %13, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %for.body ]
   %add = add i64 %retval.0.i93, %totelelen.0272
   %inc24 = add nuw nsw i64 %i.0271, 1
-  %exitcond.not = icmp eq i64 %inc24, %smax
+  %exitcond.not = icmp eq i64 %inc24, %mul
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !20
 
 for.end:                                          ; preds = %sdslen.exit
@@ -2009,7 +2005,8 @@ if.then69:                                        ; preds = %if.end34, %if.then6
   %call75 = call ptr @lpAppendInteger(ptr noundef %call74, i64 noundef 1) #16
   %call76 = call ptr @lpAppendInteger(ptr noundef %call75, i64 noundef 0) #16
   %call77 = call ptr @lpAppendInteger(ptr noundef %call76, i64 noundef %numfields) #16
-  br i1 %cmp22270, label %for.body81, label %for.end89
+  %cmp80278 = icmp sgt i64 %numfields, 0
+  br i1 %cmp80278, label %for.body81, label %for.end89
 
 for.body81:                                       ; preds = %if.then69, %sdslen.exit133
   %lp.2280 = phi ptr [ %call86, %sdslen.exit133 ], [ %call77, %if.then69 ]
@@ -2154,7 +2151,8 @@ lpGetIntegerIfValid.exit164:                      ; preds = %if.end2.i155, %lpGe
   br i1 %cmp113, label %for.cond117.preheader, label %if.end146
 
 for.cond117.preheader:                            ; preds = %lpGetIntegerIfValid.exit164
-  br i1 %cmp22270, label %for.body120, label %for.end139
+  %cmp118273 = icmp sgt i64 %numfields, 0
+  br i1 %cmp118273, label %for.body120, label %for.end139
 
 for.body120:                                      ; preds = %for.cond117.preheader, %if.end135
   %42 = phi ptr [ %call136, %if.end135 ], [ %call112, %for.cond117.preheader ]
@@ -2249,7 +2247,8 @@ if.then157:                                       ; preds = %if.end146
 
 if.end159:                                        ; preds = %if.then157, %if.end146
   %lp.4 = phi ptr [ %call155, %if.end146 ], [ %call158, %if.then157 ]
-  br i1 %cmp22270, label %for.body164, label %for.end185
+  %cmp162282 = icmp sgt i64 %numfields, 0
+  br i1 %cmp162282, label %for.body164, label %for.end185
 
 for.body164:                                      ; preds = %if.end159, %sdslen.exit221
   %i160.0284 = phi i64 [ %inc184, %sdslen.exit221 ], [ 0, %if.end159 ]

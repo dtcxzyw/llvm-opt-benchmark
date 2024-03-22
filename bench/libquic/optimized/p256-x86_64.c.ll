@@ -314,11 +314,11 @@ if.end18:                                         ; preds = %if.end13, %lor.lhs.
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(33) %p_str, i8 0, i64 33, i1 false)
   %top = getelementptr inbounds i8, ptr %g_scalar.addr.0, i64 8
   %0 = load i32, ptr %top, align 8
-  %cmp19115 = icmp sgt i32 %0, 0
+  %mul = shl nsw i32 %0, 3
+  %cmp19115 = icmp sgt i32 %mul, 0
   br i1 %cmp19115, label %for.body.lr.ph, label %for.body68.preheader
 
 for.body.lr.ph:                                   ; preds = %if.end18
-  %mul = shl nsw i32 %0, 3
   %1 = load ptr, ptr %g_scalar.addr.0, align 8
   %2 = zext nneg i32 %mul to i64
   br label %for.body
@@ -560,11 +560,11 @@ if.end16.i:                                       ; preds = %if.end11.i, %lor.lh
   %p_scalar.addr.0.i = phi ptr [ %p_scalar, %lor.lhs.false.i ], [ %call8.i, %if.end11.i ]
   %top.i = getelementptr inbounds i8, ptr %p_scalar.addr.0.i, i64 8
   %45 = load i32, ptr %top.i, align 8
-  %cmp17193.i = icmp sgt i32 %45, 0
+  %mul.i = shl nsw i32 %45, 3
+  %cmp17193.i = icmp sgt i32 %mul.i, 0
   br i1 %cmp17193.i, label %for.body.lr.ph.i, label %for.body66.preheader.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end16.i
-  %mul.i = shl nsw i32 %45, 3
   %46 = load ptr, ptr %p_scalar.addr.0.i, align 8
   %47 = zext nneg i32 %mul.i to i64
   br label %for.body.i

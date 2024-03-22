@@ -4421,7 +4421,7 @@ define void @Ifn_TtComparisonConstr(ptr nocapture noundef %0, i32 noundef %1, i3
   %6 = alloca [4 x i64], align 16
   %7 = alloca [4 x i64], align 16
   %8 = shl nsw i32 %1, 1
-  %9 = icmp slt i32 %1, 4
+  %9 = icmp slt i32 %8, 7
   %10 = add nsw i32 %8, -6
   %11 = shl nuw i32 1, %10
   %12 = select i1 %9, i32 1, i32 %11
@@ -4906,7 +4906,7 @@ Ifn_NtkAddConstrOne.exit:                         ; preds = %.lr.ph29.split.i, %
   %indvars.iv101 = phi i64 [ 0, %.lr.ph92 ], [ %indvars.iv.next102, %Ifn_NtkAddConstrOne.exit78 ]
   %98 = load i32, ptr %17, align 8
   %99 = icmp sgt i32 %98, 0
-  br i1 %99, label %.lr.ph88, label %._crit_edge89.thread
+  br i1 %99, label %.lr.ph88, label %._crit_edge89
 
 .lr.ph88:                                         ; preds = %97
   %100 = getelementptr inbounds [121 x i32], ptr %95, i64 0, i64 %indvars.iv101
@@ -4935,24 +4935,16 @@ Ifn_NtkAddConstrOne.exit:                         ; preds = %.lr.ph29.split.i, %
   %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99
   br i1 %exitcond100.not, label %._crit_edge89, label %107, !llvm.loop !88
 
-._crit_edge89:                                    ; preds = %107
-  %116 = shl nuw nsw i32 %98, 1
+._crit_edge89:                                    ; preds = %107, %97
+  %116 = shl nsw i32 %98, 1
   call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %3)
   %.val26.i57 = load i32, ptr %9, align 4
   %117 = icmp sgt i32 %.val26.i57, 0
   br i1 %117, label %.lr.ph29.i58, label %Ifn_NtkAddConstrOne.exit78
 
-._crit_edge89.thread:                             ; preds = %97
-  call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %3)
-  %.val26.i57105 = load i32, ptr %9, align 4
-  %118 = icmp sgt i32 %.val26.i57105, 0
-  br i1 %118, label %.lr.ph29.split.i59.preheader, label %Ifn_NtkAddConstrOne.exit78
-
 .lr.ph29.i58:                                     ; preds = %._crit_edge89
-  br i1 %99, label %.lr.ph.us.preheader.i62, label %.lr.ph29.split.i59.preheader
-
-.lr.ph29.split.i59.preheader:                     ; preds = %._crit_edge89.thread, %.lr.ph29.i58
-  br label %.lr.ph29.split.i59
+  %118 = icmp sgt i32 %116, 0
+  br i1 %118, label %.lr.ph.us.preheader.i62, label %.lr.ph29.split.i59
 
 .lr.ph.us.preheader.i62:                          ; preds = %.lr.ph29.i58
   %wide.trip.count.i63 = zext nneg i32 %116 to i64
@@ -5014,15 +5006,15 @@ Ifn_NtkAddConstrOne.exit:                         ; preds = %.lr.ph29.split.i, %
   %142 = icmp slt i64 %indvars.iv.next33.i76, %141
   br i1 %142, label %.lr.ph.us.i64, label %Ifn_NtkAddConstrOne.exit78, !llvm.loop !85
 
-.lr.ph29.split.i59:                               ; preds = %.lr.ph29.split.i59.preheader, %.lr.ph29.split.i59
-  %.02127.i60 = phi i32 [ %144, %.lr.ph29.split.i59 ], [ 0, %.lr.ph29.split.i59.preheader ]
+.lr.ph29.split.i59:                               ; preds = %.lr.ph29.i58, %.lr.ph29.split.i59
+  %.02127.i60 = phi i32 [ %144, %.lr.ph29.split.i59 ], [ 0, %.lr.ph29.i58 ]
   %143 = call i32 @sat_solver_addclause(ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %3) #23
   %144 = add nuw nsw i32 %.02127.i60, 1
   %.val.i61 = load i32, ptr %9, align 4
   %145 = icmp slt i32 %144, %.val.i61
   br i1 %145, label %.lr.ph29.split.i59, label %Ifn_NtkAddConstrOne.exit78, !llvm.loop !85
 
-Ifn_NtkAddConstrOne.exit78:                       ; preds = %.lr.ph29.split.i59, %._crit_edge.us.i75, %._crit_edge89.thread, %._crit_edge89
+Ifn_NtkAddConstrOne.exit78:                       ; preds = %.lr.ph29.split.i59, %._crit_edge.us.i75, %._crit_edge89
   call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %3)
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %146 = load i32, ptr %83, align 4

@@ -11511,7 +11511,7 @@ define void @_ZN5image6codecs4webp7huffman11HuffmanTree14build_implicit17ha9dec7
 43:                                               ; preds = %38
   %44 = getelementptr inbounds i8, ptr %39, i64 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1435)
-  %45 = icmp eq i64 %40, 1
+  %45 = icmp eq i64 %.idx.i, 2
   br i1 %45, label %_ZN4core4iter6traits8iterator8Iterator6reduce17he12294bda8d9b14bE.exit.thread62.i, label %46
 
 46:                                               ; preds = %43

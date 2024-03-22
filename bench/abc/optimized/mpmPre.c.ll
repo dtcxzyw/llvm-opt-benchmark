@@ -3710,7 +3710,7 @@ define ptr @Ifd_ManDsdTruths(i32 noundef %0) local_unnamed_addr #4 {
   %119 = shl nsw i64 %indvars.iv262, 1
   %120 = icmp eq i64 %indvars.iv262, 0
   %121 = or disjoint i64 %119, 1
-  %122 = icmp slt i64 %indvars.iv262, 1
+  %122 = icmp slt i64 %119, 2
   %123 = trunc i64 %119 to i32
   %124 = trunc i64 %119 to i32
   %125 = trunc i64 %121 to i32
@@ -3925,7 +3925,7 @@ Ifd_ManOper.exit177.thread:                       ; preds = %Ifd_ManOper.exit177
   br i1 %222, label %.lr.ph.i183, label %Ifd_ManOper.exit189, !llvm.loop !19
 
 Ifd_ManOper.exit189:                              ; preds = %.lr.ph.i183, %Ifd_ManOper.exit165, %202, %Ifd_ManOper.exit177.thread, %Ifd_ManOper.exit177
-  %223 = icmp slt i64 %indvars.iv334, 1
+  %223 = icmp slt i64 %134, 2
   %or.cond212 = or i1 %122, %223
   br i1 %or.cond212, label %Ifd_ManOper.exit201, label %224
 

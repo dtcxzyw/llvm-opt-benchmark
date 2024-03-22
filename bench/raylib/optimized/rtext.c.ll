@@ -1262,14 +1262,13 @@ GetLine.exit133.i:                                ; preds = %101, %.split.loop.e
   %129 = mul nsw i32 %128, %126
   %130 = sext i32 %129 to i64
   %131 = call noalias ptr @calloc(i64 noundef %130, i64 noundef 2) #43
-  %132 = icmp sgt i32 %129, 0
-  br i1 %132, label %.lr.ph.i, label %._crit_edge.i
+  %132 = shl nsw i32 %129, 1
+  %133 = icmp sgt i32 %132, 0
+  br i1 %133, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %124
-  %133 = shl nuw i32 %129, 1
   %134 = load ptr, ptr %117, align 8, !noalias !7
-  %smax.i = call i32 @llvm.smax.i32(i32 %133, i32 2)
-  %135 = add nsw i32 %smax.i, -1
+  %135 = add nsw i32 %132, -1
   %136 = lshr i32 %135, 1
   %137 = add nuw nsw i32 %136, 1
   %wide.trip.count.i = zext nneg i32 %137 to i64

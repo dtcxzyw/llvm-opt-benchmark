@@ -2109,8 +2109,8 @@ define i32 @Fx_ManDivFindCubeFree(ptr nocapture noundef readonly %0, ptr nocaptu
   %14 = getelementptr inbounds i8, ptr %.val85, i64 %.idx151
   %15 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %15, align 4
-  %16 = icmp sgt i32 %.val94, 1
-  %17 = icmp sgt i32 %.val96, 1
+  %16 = icmp sgt i64 %.idx, 4
+  %17 = icmp sgt i64 %.idx151, 4
   %18 = select i1 %16, i1 %17, i1 false
   br i1 %18, label %.lr.ph, label %.preheader135
 

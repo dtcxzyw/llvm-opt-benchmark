@@ -399,8 +399,8 @@ define noundef ptr @Part_ManMergeEntry(ptr nocapture noundef %0, ptr noundef rea
   %.idx61 = shl nsw i64 %20, 2
   %21 = getelementptr i8, ptr %2, i64 %.idx61
   %.ptr63 = getelementptr i8, ptr %21, i64 12
-  %22 = icmp sgt i32 %16, 0
-  %23 = icmp sgt i32 %19, 0
+  %22 = icmp sgt i64 %.idx, 0
+  %23 = icmp sgt i64 %.idx61, 0
   %24 = select i1 %22, i1 %23, i1 false
   br i1 %24, label %.lr.ph, label %.preheader46
 
@@ -756,8 +756,8 @@ Vec_PtrAlloc.exit:                                ; preds = %.critedge2, %43
   %.idx61.i = shl nsw i64 %92, 2
   %93 = getelementptr i8, ptr %75, i64 %.idx61.i
   %.ptr63.i = getelementptr i8, ptr %93, i64 12
-  %94 = icmp sgt i32 %88, 0
-  %95 = icmp sgt i32 %91, 0
+  %94 = icmp sgt i64 %.idx.i, 0
+  %95 = icmp sgt i64 %.idx61.i, 0
   %96 = select i1 %94, i1 %95, i1 false
   br i1 %96, label %.lr.ph.i, label %.preheader46.i
 

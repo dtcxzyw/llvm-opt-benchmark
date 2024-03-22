@@ -505,7 +505,7 @@ graph_ensure_capacity.exit.i:                     ; preds = %st_mult.exit30.i.i,
   %mul.i = shl nsw i32 %add.i, 1
   %mapping_size.i = getelementptr inbounds i8, ptr %graph, i64 68
   store i32 %mul.i, ptr %mapping_size.i, align 4
-  %cmp149.i = icmp sgt i32 %add.i, 0
+  %cmp149.i = icmp sgt i32 %mul.i, 0
   br i1 %cmp149.i, label %for.body.lr.ph.i, label %for.end.i
 
 for.body.lr.ph.i:                                 ; preds = %graph_ensure_capacity.exit.i

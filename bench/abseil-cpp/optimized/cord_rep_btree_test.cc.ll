@@ -47367,7 +47367,7 @@ _ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit: ; preds = %_ZN
   %retval.0.i = phi ptr [ %call.i.i, %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit.i ], [ %call2.i, %if.end.i ]
   %add.ptr.i.idx = shl nsw i64 %reps.coerce1, 3
   %add.ptr.i = getelementptr inbounds i8, ptr %reps.coerce0, i64 %add.ptr.i.idx
-  %cmp.not17 = icmp eq i64 %reps.coerce1, 1
+  %cmp.not17 = icmp eq i64 %add.ptr.i.idx, 8
   br i1 %cmp.not17, label %while.end, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit

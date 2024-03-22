@@ -31618,7 +31618,7 @@ if.then19:                                        ; preds = %if.then17
   %2 = load ptr, ptr %__p.0, align 8
   %add.ptr21.idx58 = shl nsw i64 %__n.0, 3
   %add.ptr21 = getelementptr inbounds i8, ptr %__p.0, i64 %add.ptr21.idx58
-  %tobool.not.i.i.i.i.i = icmp eq i64 %__n.0, 1
+  %tobool.not.i.i.i.i.i = icmp eq i64 %add.ptr21.idx58, 8
   br i1 %tobool.not.i.i.i.i.i, label %_ZSt4moveIPPN2pb10constraintES3_ET0_T_S5_S4_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then19
@@ -32216,7 +32216,9 @@ entry:
 
 while.body.lr.ph:                                 ; preds = %entry
   %add.ptr.idx = shl nsw i64 %__chunk_size, 3
-  %or.cond = icmp ult i64 %__chunk_size, 2
+  %cmp.i = icmp eq i64 %__chunk_size, 0
+  %cmp1.not15.i = icmp eq i64 %add.ptr.idx, 8
+  %or.cond = select i1 %cmp.i, i1 true, i1 %cmp1.not15.i
   br i1 %or.cond, label %while.body.us, label %while.body
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %while.body.us

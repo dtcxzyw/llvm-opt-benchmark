@@ -1151,13 +1151,12 @@ Vec_IntFill.exit.i.i:                             ; preds = %140, %Vec_IntGrow.e
   %167 = phi i32 [ %150, %.lr.ph168 ], [ %152, %.lr.ph32.i.i ]
   %168 = phi ptr [ %146, %.lr.ph168 ], [ %151, %.lr.ph32.i.i ]
   %.031.i.i166 = phi i32 [ 0, %.lr.ph168 ], [ %241, %.lr.ph32.i.i ]
-  %169 = icmp sgt i32 %166, 0
-  br i1 %169, label %.lr.ph.preheader.i.i.i.i, label %Vec_MemHashKey.exit.i.i.i
+  %169 = shl nsw i32 %166, 1
+  %170 = icmp sgt i32 %169, 0
+  br i1 %170, label %.lr.ph.preheader.i.i.i.i, label %Vec_MemHashKey.exit.i.i.i
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %163
-  %170 = shl nuw i32 %166, 1
-  %smax.i.i.i.i = call i32 @llvm.smax.i32(i32 %170, i32 1)
-  %wide.trip.count.i.i.i.i = zext nneg i32 %smax.i.i.i.i to i64
+  %wide.trip.count.i.i.i.i = zext nneg i32 %169 to i64
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.preheader.i.i.i.i
@@ -1321,13 +1320,12 @@ Vec_MemHashResize.exit.i:                         ; preds = %.lr.ph32.i.i, %.lr.
   %243 = phi i32 [ %54, %Vec_IntFill.exit.i.i ], [ %54, %112 ], [ %.pre103.pre, %Vec_IntPush.exit.i.i.Vec_MemHashResize.exit.i.loopexit_crit_edge ], [ %148, %.lr.ph32.i.i.preheader ], [ %157, %.lr.ph32.i.i ]
   %244 = phi ptr [ %113, %Vec_IntFill.exit.i.i ], [ %113, %112 ], [ %.pre102.pre, %Vec_IntPush.exit.i.i.Vec_MemHashResize.exit.i.loopexit_crit_edge ], [ %.pre102.pre108165, %.lr.ph32.i.i.preheader ], [ %.pre102.pre108, %.lr.ph32.i.i ]
   %245 = phi i32 [ %55, %Vec_IntFill.exit.i.i ], [ %55, %112 ], [ %.val14.i.i, %Vec_IntPush.exit.i.i.Vec_MemHashResize.exit.i.loopexit_crit_edge ], [ %55, %.lr.ph32.i.i.preheader ], [ %.val14.i.i, %.lr.ph32.i.i ]
-  %246 = icmp sgt i32 %243, 0
-  br i1 %246, label %.lr.ph.preheader.i.i.i, label %Vec_MemHashKey.exit.i.i
+  %246 = shl nsw i32 %243, 1
+  %247 = icmp sgt i32 %246, 0
+  br i1 %247, label %.lr.ph.preheader.i.i.i, label %Vec_MemHashKey.exit.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %Vec_MemHashResize.exit.i
-  %247 = shl nuw i32 %243, 1
-  %smax.i.i.i = call i32 @llvm.smax.i32(i32 %247, i32 1)
-  %wide.trip.count.i.i21.i = zext nneg i32 %smax.i.i.i to i64
+  %wide.trip.count.i.i21.i = zext nneg i32 %246 to i64
   br label %.lr.ph.i.i22.i
 
 .lr.ph.i.i22.i:                                   ; preds = %.lr.ph.i.i22.i, %.lr.ph.preheader.i.i.i

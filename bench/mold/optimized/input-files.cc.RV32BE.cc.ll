@@ -21531,8 +21531,10 @@ entry:
 
 while.body.lr.ph:                                 ; preds = %entry
   %add.ptr.i.idx = shl nsw i64 %__chunk_size, 4
-  %switch = icmp ult i64 %__chunk_size, 2
-  br i1 %switch, label %while.body.us, label %while.body
+  %cmp.i.i = icmp eq i64 %__chunk_size, 0
+  %cmp.i112.i = icmp eq i64 %add.ptr.i.idx, 16
+  %or.cond = select i1 %cmp.i.i, i1 true, i1 %cmp.i112.i
+  br i1 %or.cond, label %while.body.us, label %while.body
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %while.body.us
   %__first.sroa.0.054.us = phi ptr [ %add.ptr.i.us, %while.body.us ], [ %__first.coerce, %while.body.lr.ph ]

@@ -4469,7 +4469,7 @@ _ZNSt12__shared_ptrIN8facebook5velox10BaseVectorELN9__gnu_cxx12_Lock_policyE2EED
   ret void
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -35167,8 +35167,7 @@ if.then.i:                                        ; preds = %for.body
   %mul.i62 = shl nsw i32 %div16, 6
   %mul4.i = add i32 %mul.i62, 64
   %conv5.i = sext i32 %mul4.i to i64
-  %i.0.off = add i32 %i.0103, 127
-  %cmp620.not.i = icmp ult i32 %i.0.off, 64
+  %cmp620.not.i = icmp eq i32 %mul.i62, -64
   br i1 %cmp620.not.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_10FlatVectorImE18copyValuesAndNullsEPKNS0_10BaseVectorERKNS0_17SelectivityVectorEPKiEUlT_E_EEvPKmiibSD_ENKUliE_clEi.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then.i
@@ -35426,8 +35425,7 @@ if.then.i:                                        ; preds = %for.body
   %mul.i62 = shl nsw i32 %div16, 6
   %mul4.i = add i32 %mul.i62, 64
   %conv5.i = sext i32 %mul4.i to i64
-  %i.0.off = add i32 %i.0103, 127
-  %cmp620.not.i = icmp ult i32 %i.0.off, 64
+  %cmp620.not.i = icmp eq i32 %mul.i62, -64
   br i1 %cmp620.not.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_10FlatVectorImE18copyValuesAndNullsEPKNS0_10BaseVectorERKNS0_17SelectivityVectorEPKiEUlT_E0_EEvPKmiibSD_ENKUliE_clEi.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then.i
@@ -35702,8 +35700,7 @@ if.then.i:                                        ; preds = %for.body
   %mul.i62 = shl nsw i32 %div16, 6
   %mul4.i = add i32 %mul.i62, 64
   %conv5.i = sext i32 %mul4.i to i64
-  %i.0.off = add i32 %i.0103, 127
-  %cmp618.not.i = icmp ult i32 %i.0.off, 64
+  %cmp618.not.i = icmp eq i32 %mul.i62, -64
   br i1 %cmp618.not.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_10FlatVectorImE18copyValuesAndNullsEPKNS0_10BaseVectorERKNS0_17SelectivityVectorEPKiEUlT_E1_EEvPKmiibSD_ENKUliE_clEi.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then.i
@@ -35971,8 +35968,7 @@ if.then.i:                                        ; preds = %for.body
   %mul.i60 = shl nsw i32 %div16, 6
   %mul4.i = add i32 %mul.i60, 64
   %conv5.i = sext i32 %mul4.i to i64
-  %i.0.off = add i32 %i.097, 127
-  %cmp616.not.i = icmp ult i32 %i.0.off, 64
+  %cmp616.not.i = icmp eq i32 %mul.i60, -64
   br i1 %cmp616.not.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_10FlatVectorImE18copyValuesAndNullsEPKNS0_10BaseVectorERKNS0_17SelectivityVectorEPKiEUlT_E2_EEvPKmiibSD_ENKUliE_clEi.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then.i
@@ -36223,8 +36219,7 @@ if.then.i:                                        ; preds = %for.body
   %mul.i62 = shl nsw i32 %div16, 6
   %mul4.i = add i32 %mul.i62, 64
   %conv5.i = sext i32 %mul4.i to i64
-  %i.0.off = add i32 %i.0103, 127
-  %cmp620.not.i = icmp ult i32 %i.0.off, 64
+  %cmp620.not.i = icmp eq i32 %mul.i62, -64
   br i1 %cmp620.not.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_10FlatVectorImE18copyValuesAndNullsEPKNS0_10BaseVectorERKNS0_17SelectivityVectorEPKiEUliE_EEvPKmiibT_ENKUliE_clEi.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then.i
@@ -37322,8 +37317,7 @@ if.then.i:                                        ; preds = %for.body
   %mul.i58 = shl nsw i32 %div16, 6
   %mul4.i = add i32 %mul.i58, 64
   %conv5.i = sext i32 %mul4.i to i64
-  %i.0.off = add i32 %i.094, 127
-  %cmp617.not.i = icmp ult i32 %i.0.off, 64
+  %cmp617.not.i = icmp eq i32 %mul.i58, -64
   br i1 %cmp617.not.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_10FlatVectorImE18copyValuesAndNullsEPKNS0_10BaseVectorERKNS0_17SelectivityVectorEPKiEUliE1_EEvPKmiibT_ENKUliE_clEi.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then.i
@@ -38590,8 +38584,7 @@ if.then.i:                                        ; preds = %for.body
   %mul.i59 = shl nsw i32 %div16, 6
   %mul4.i = add i32 %mul.i59, 64
   %conv5.i = sext i32 %mul4.i to i64
-  %i.0.off = add i32 %i.097, 127
-  %cmp618.not.i = icmp ult i32 %i.0.off, 64
+  %cmp618.not.i = icmp eq i32 %mul.i59, -64
   br i1 %cmp618.not.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_10FlatVectorImE14ensureWritableERKNS0_17SelectivityVectorEEUliE_EEvPKmiibT_ENKUliE_clEi.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then.i
@@ -40695,8 +40688,7 @@ if.then.i:                                        ; preds = %for.body
   %mul.i59 = shl nsw i32 %div16, 6
   %mul4.i = add i32 %mul.i59, 64
   %conv5.i = sext i32 %mul4.i to i64
-  %i.0.off = add i32 %i.097, 127
-  %cmp618.not.i = icmp ult i32 %i.0.off, 64
+  %cmp618.not.i = icmp eq i32 %mul.i59, -64
   br i1 %cmp618.not.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_10FlatVectorINS0_10StringViewEE14ensureWritableERKNS0_17SelectivityVectorEEUliE_EEvPKmiibT_ENKUliE_clEi.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then.i
@@ -40952,7 +40944,7 @@ attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #9 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #12 = { nofree nounwind memory(read) }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #13 = { alwaysinline mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

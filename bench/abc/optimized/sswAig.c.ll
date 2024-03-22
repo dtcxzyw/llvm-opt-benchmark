@@ -17,7 +17,7 @@ define noalias noundef ptr @Ssw_FrmStart(ptr noundef %0) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %calloc, i64 24
   store ptr %calloc.i, ptr %5, align 8
   %6 = shl nsw i32 %.val.val, 1
-  %.not.i.i = icmp sgt i32 %.val.val, 0
+  %.not.i.i = icmp sgt i32 %6, 0
   br i1 %.not.i.i, label %.lr.ph.i, label %Vec_PtrFill.exit
 
 .lr.ph.i:                                         ; preds = %1

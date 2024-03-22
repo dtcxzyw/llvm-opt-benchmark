@@ -3580,7 +3580,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %mul = shl nsw i32 %0, 1
-  %cmp.i = icmp sgt i32 %0, 0
+  %cmp.i = icmp sgt i32 %mul, 0
   br i1 %cmp.i, label %if.then.i, label %if.end
 
 if.then.i:                                        ; preds = %if.then

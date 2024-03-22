@@ -6650,7 +6650,7 @@ define internal fastcc i32 @_parse_range_list(ptr noundef %0, ptr noundef %1, pt
 _grow_ranges.exit.us:                             ; preds = %26
   %28 = shl nsw i32 %25, 1
   %29 = add nsw i32 %28, 10
-  %30 = icmp sgt i32 %25, 131067
+  %30 = icmp sgt i32 %28, 262134
   %spec.select.i.us = select i1 %30, i32 262144, i32 %29
   %31 = sext i32 %spec.select.i.us to i64
   %32 = mul nsw i64 %31, 24
@@ -6715,7 +6715,7 @@ _grow_ranges.exit.us:                             ; preds = %26
 _grow_ranges.exit:                                ; preds = %51
   %53 = shl nsw i32 %49, 1
   %54 = add nsw i32 %53, 10
-  %55 = icmp sgt i32 %49, 131067
+  %55 = icmp sgt i32 %53, 262134
   %spec.select.i = select i1 %55, i32 262144, i32 %54
   %56 = sext i32 %spec.select.i to i64
   %57 = mul nsw i64 %56, 24
@@ -7379,7 +7379,7 @@ define internal fastcc noundef i32 @_add_box_ranges(i32 noundef %0, i32 noundef 
 _grow_ranges.exit.us:                             ; preds = %32
   %34 = shl nsw i32 %31, 1
   %35 = add nsw i32 %34, 10
-  %36 = icmp sgt i32 %31, 131067
+  %36 = icmp sgt i32 %34, 262134
   %spec.select.i.us = select i1 %36, i32 262144, i32 %35
   %37 = sext i32 %spec.select.i.us to i64
   %38 = mul nsw i64 %37, 24

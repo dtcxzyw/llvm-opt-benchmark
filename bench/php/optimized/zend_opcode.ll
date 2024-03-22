@@ -951,7 +951,7 @@ define void @zend_cleanup_internal_class_data(ptr noundef %0) local_unnamed_addr
   %.idx = shl nsw i64 %33, 3
   %34 = getelementptr i8, ptr %32, i64 %.idx
   %.ptr82 = getelementptr i8, ptr %34, i64 16
-  %35 = icmp sgt i64 %33, 0
+  %35 = icmp sgt i64 %.idx, 0
   br i1 %35, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.thread, %30

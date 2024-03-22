@@ -12210,7 +12210,7 @@ Vec_BitStart.exit:                                ; preds = %2, %15
   br i1 %56, label %31, label %.critedge.preheader, !llvm.loop !78
 
 .critedge4.preheader:                             ; preds = %.critedge, %Vec_BitStart.exit, %.critedge.preheader
-  %57 = icmp sgt i32 %12, 0
+  %57 = icmp sgt i32 %14, 0
   br i1 %57, label %.lr.ph77, label %.critedge6
 
 58:                                               ; preds = %.lr.ph74, %.critedge

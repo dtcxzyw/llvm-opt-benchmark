@@ -2148,15 +2148,14 @@ define void @Cec_ManSimSavePattern(ptr nocapture noundef %0, i32 noundef %1) loc
 define void @Cec_ManSimFindBestPattern(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
-  %4 = icmp sgt i32 %3, 0
-  br i1 %4, label %.lr.ph, label %._crit_edge
+  %4 = shl nsw i32 %3, 5
+  %5 = icmp sgt i32 %4, 0
+  br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %5 = shl i32 %3, 5
   %6 = getelementptr inbounds i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8
-  %smax = tail call i32 @llvm.smax.i32(i32 %5, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %4 to i64
   br label %8
 
 8:                                                ; preds = %.lr.ph, %8
@@ -3896,14 +3895,13 @@ Cec_ManSimSimDeref.exit265:                       ; preds = %413, %433
 
 468:                                              ; preds = %466
   %469 = load i32, ptr %6, align 8
-  %470 = icmp sgt i32 %469, 0
-  br i1 %470, label %.lr.ph.i271, label %._crit_edge.i
+  %470 = shl nsw i32 %469, 5
+  %471 = icmp sgt i32 %470, 0
+  br i1 %471, label %.lr.ph.i271, label %._crit_edge.i
 
 .lr.ph.i271:                                      ; preds = %468
-  %471 = shl i32 %469, 5
   %472 = load ptr, ptr %32, align 8
-  %smax.i = tail call i32 @llvm.smax.i32(i32 %471, i32 1)
-  %wide.trip.count.i272 = zext nneg i32 %smax.i to i64
+  %wide.trip.count.i272 = zext nneg i32 %470 to i64
   br label %473
 
 473:                                              ; preds = %473, %.lr.ph.i271

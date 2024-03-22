@@ -947,7 +947,7 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %ptr.i, align 8
   %add.ptr.i.idx = shl nsw i64 %0, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %add.ptr.i.idx
-  %cmp1.not9.i.i = icmp eq i64 %0, 1
+  %cmp1.not9.i.i = icmp eq i64 %add.ptr.i.idx, 4
   br i1 %cmp1.not9.i.i, label %_ZSt11max_elementIPKfET_S2_S2_.exit, label %while.body.preheader.i.i
 
 while.body.preheader.i.i:                         ; preds = %if.end
