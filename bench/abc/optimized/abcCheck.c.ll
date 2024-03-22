@@ -1788,8 +1788,8 @@ Abc_NtkComparePis.exit:                           ; preds = %28, %.preheader.i
   %61 = icmp slt i64 %indvars.iv.next.i34, %60
   br i1 %61, label %.lr.ph.i25, label %Abc_NtkComparePos.exit, !llvm.loop !26
 
-Abc_NtkComparePos.exit:                           ; preds = %58, %50, %40, %20, %10, %Abc_NtkComparePis.exit, %.preheader.i24, %32
-  %.0 = phi i32 [ 0, %32 ], [ 1, %.preheader.i24 ], [ 1, %Abc_NtkComparePis.exit ], [ 0, %10 ], [ 0, %20 ], [ 0, %40 ], [ 0, %50 ], [ 1, %58 ]
+Abc_NtkComparePos.exit:                           ; preds = %58, %20, %10, %.preheader.i24, %40, %50, %Abc_NtkComparePis.exit, %32
+  %.0 = phi i32 [ 0, %32 ], [ 1, %Abc_NtkComparePis.exit ], [ 1, %.preheader.i24 ], [ 0, %40 ], [ 0, %50 ], [ 0, %10 ], [ 0, %20 ], [ 1, %58 ]
   ret i32 %.0
 }
 

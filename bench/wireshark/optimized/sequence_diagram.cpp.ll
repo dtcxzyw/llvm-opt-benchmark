@@ -2483,7 +2483,7 @@ define noundef double @_ZNK15SequenceDiagram10selectTestERK7QPointFbP8QVariant(p
   %11 = fadd double %9, %10
   %12 = fptosi double %11 to i32
   %13 = icmp sgt i32 %12, -1
-  br i1 %13, label %14, label %25
+  br i1 %13, label %14, label %26
 
 14:                                               ; preds = %4
   %15 = sitofp i32 %12 to double
@@ -2504,11 +2504,11 @@ _ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit:       ; preds = %14, %19
   %24 = fcmp ogt double %23, %15
   br i1 %24, label %26, label %25
 
-25:                                               ; preds = %_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit, %4
+25:                                               ; preds = %_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit
   br label %26
 
-26:                                               ; preds = %_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit, %25
-  %.0 = phi double [ -1.000000e+00, %25 ], [ 1.000000e+00, %_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit ]
+26:                                               ; preds = %4, %_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit, %25
+  %.0 = phi double [ 1.000000e+00, %_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit ], [ -1.000000e+00, %4 ], [ -1.000000e+00, %25 ]
   ret double %.0
 }
 

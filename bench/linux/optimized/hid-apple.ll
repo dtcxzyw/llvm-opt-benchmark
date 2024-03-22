@@ -759,8 +759,8 @@ define internal noundef i32 @apple_event(ptr nocapture noundef readonly %0, ptr 
   tail call void @input_event(ptr noundef %49, i32 noundef %251, i32 noundef %252, i32 noundef %3) #9
   br label %253
 
-253:                                              ; preds = %44, %.thread27, %250, %42, %15, %11, %4
-  %254 = phi i32 [ 1, %42 ], [ 0, %15 ], [ 0, %11 ], [ 0, %4 ], [ 1, %250 ], [ 0, %.thread27 ], [ 0, %44 ]
+253:                                              ; preds = %250, %44, %.thread27, %42, %15, %11, %4
+  %254 = phi i32 [ 1, %42 ], [ 0, %15 ], [ 0, %11 ], [ 0, %4 ], [ 0, %.thread27 ], [ 0, %44 ], [ 1, %250 ]
   ret i32 %254
 }
 

@@ -416,7 +416,7 @@ define dso_local i32 @nf_confirm(ptr nocapture readnone %0, ptr noundef %1, ptr 
   %150 = icmp eq i32 %149, 1
   br i1 %150, label %.thread13, label %172
 
-.thread13:                                        ; preds = %146, %143, %141
+.thread13:                                        ; preds = %143, %146, %141
   br i1 %67, label %151, label %160
 
 151:                                              ; preds = %.thread13
@@ -451,8 +451,8 @@ define dso_local i32 @nf_confirm(ptr nocapture readnone %0, ptr noundef %1, ptr 
   %171 = call i32 @__nf_conntrack_confirm(ptr noundef %1) #9
   br label %172
 
-172:                                              ; preds = %146, %170, %164, %160, %154, %139, %133, %129, %127, %121, %117, %79, %73, %69, %63, %57, %53, %3
-  %173 = phi i32 [ 0, %154 ], [ 1, %3 ], [ 1, %53 ], [ 1, %57 ], [ %64, %63 ], [ 1, %69 ], [ 1, %73 ], [ %80, %79 ], [ 1, %117 ], [ 1, %121 ], [ %128, %127 ], [ 1, %129 ], [ 1, %133 ], [ %140, %139 ], [ 1, %160 ], [ 1, %164 ], [ %171, %170 ], [ %149, %146 ]
+172:                                              ; preds = %170, %164, %160, %154, %146, %139, %133, %129, %127, %121, %117, %79, %73, %69, %63, %57, %53, %3
+  %173 = phi i32 [ 0, %154 ], [ %149, %146 ], [ 1, %3 ], [ 1, %53 ], [ 1, %57 ], [ %64, %63 ], [ 1, %69 ], [ 1, %73 ], [ %80, %79 ], [ 1, %117 ], [ 1, %121 ], [ %128, %127 ], [ 1, %129 ], [ 1, %133 ], [ %140, %139 ], [ 1, %160 ], [ 1, %164 ], [ %171, %170 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #9
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #9
   ret i32 %173

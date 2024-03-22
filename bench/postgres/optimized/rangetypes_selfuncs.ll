@@ -560,8 +560,8 @@ switch.lookup57:                                  ; preds = %.thread
   %switch.load60 = load double, ptr %switch.gep59, align 8
   br label %default_range_selectivity.exit49
 
-default_range_selectivity.exit49:                 ; preds = %61, %62, %switch.lookup57, %.thread, %calc_rangesel.exit
-  %.027 = phi double [ %.1.i, %calc_rangesel.exit ], [ 1.000000e-02, %.thread ], [ %switch.load60, %switch.lookup57 ], [ 5.000000e-03, %62 ], [ 5.000000e-03, %61 ]
+default_range_selectivity.exit49:                 ; preds = %switch.lookup57, %.thread, %62, %61, %calc_rangesel.exit
+  %.027 = phi double [ %.1.i, %calc_rangesel.exit ], [ 1.000000e-02, %.thread ], [ 5.000000e-03, %61 ], [ 5.000000e-03, %62 ], [ %switch.load60, %switch.lookup57 ]
   %255 = getelementptr inbounds i8, ptr %8, i64 16
   %256 = load ptr, ptr %255, align 8
   %.not42 = icmp eq ptr %256, null

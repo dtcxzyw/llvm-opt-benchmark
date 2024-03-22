@@ -76,8 +76,8 @@ cvProjCreate.exit:                                ; preds = %16
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -20, i32 noundef 79, ptr noundef nonnull @__func__.CVodeSetProjFn, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #8
   br label %27
 
-23:                                               ; preds = %cvProjSetDefaults.exit.i, %12
-  %24 = phi ptr [ %calloc.i, %cvProjSetDefaults.exit.i ], [ %14, %12 ]
+23:                                               ; preds = %12, %cvProjSetDefaults.exit.i
+  %24 = phi ptr [ %14, %12 ], [ %calloc.i, %cvProjSetDefaults.exit.i ]
   store i32 0, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 40
   store ptr %1, ptr %25, align 8

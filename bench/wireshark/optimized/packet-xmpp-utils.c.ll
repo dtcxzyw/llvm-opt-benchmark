@@ -1014,14 +1014,10 @@ define hidden ptr @xmpp_get_first_element(ptr nocapture noundef readonly %0) loc
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %3, align 8
-  %.not6 = icmp eq ptr %5, null
-  br i1 %.not6, label %6, label %7
+  br label %6
 
 6:                                                ; preds = %4, %1
-  br label %7
-
-7:                                                ; preds = %4, %6
-  %.0 = phi ptr [ null, %6 ], [ %5, %4 ]
+  %.0 = phi ptr [ null, %1 ], [ %5, %4 ]
   ret ptr %.0
 }
 

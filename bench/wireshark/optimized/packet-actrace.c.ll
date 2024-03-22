@@ -753,7 +753,7 @@ dissect_actrace_cas.exit:                         ; preds = %152, %151, %142, %1
   br label %is_actrace.exit.thread
 
 is_actrace.exit.thread:                           ; preds = %14, %11, %dissect_actrace_cas.exit
-  %.0 = phi i32 [ %193, %dissect_actrace_cas.exit ], [ 0, %14 ], [ 0, %11 ]
+  %.0 = phi i32 [ %193, %dissect_actrace_cas.exit ], [ 0, %11 ], [ 0, %14 ]
   ret i32 %.0
 }
 

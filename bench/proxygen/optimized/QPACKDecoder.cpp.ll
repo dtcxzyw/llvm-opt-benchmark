@@ -3533,8 +3533,8 @@ lpad:                                             ; preds = %invoke.cont8, %invo
 
 invoke.cont46:                                    ; preds = %_ZN5folly15DestructorCheck6SafetyC2ERS0_.exit
   %15 = load ptr, ptr %prev_.i, align 8
-  %cmp.i = icmp eq ptr %15, null
-  br i1 %cmp.i, label %return, label %if.then.i11
+  %cmp.i.not = icmp eq ptr %15, null
+  br i1 %cmp.i.not, label %return, label %if.then.i11
 
 if.then.i11:                                      ; preds = %invoke.cont46
   %16 = load ptr, ptr %safety, align 8
@@ -3567,8 +3567,8 @@ if.then4.i17:                                     ; preds = %if.then.i15
   store ptr %21, ptr %prev_7.i18, align 8
   br label %eh.resume
 
-return:                                           ; preds = %if.then4.i, %if.then.i11, %entry, %invoke.cont46
-  %retval.1 = phi i1 [ true, %invoke.cont46 ], [ false, %entry ], [ false, %if.then.i11 ], [ false, %if.then4.i ]
+return:                                           ; preds = %if.then4.i, %if.then.i11, %invoke.cont46, %entry
+  %retval.1 = phi i1 [ false, %entry ], [ true, %invoke.cont46 ], [ false, %if.then.i11 ], [ false, %if.then4.i ]
   ret i1 %retval.1
 
 eh.resume:                                        ; preds = %if.then4.i17, %if.then.i15, %lpad45, %lpad

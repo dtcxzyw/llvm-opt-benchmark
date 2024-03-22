@@ -340,18 +340,14 @@ do.body28:                                        ; preds = %if.then19, %do.body
   %restype = getelementptr inbounds i8, ptr %myself, i64 96
   %3 = load ptr, ptr %restype, align 8
   %tobool29.not = icmp eq ptr %3, null
-  br i1 %tobool29.not, label %do.end38, label %if.then30
+  br i1 %tobool29.not, label %return, label %if.then30
 
 if.then30:                                        ; preds = %do.body28
   %call33 = tail call i32 %visit(ptr noundef nonnull %3, ptr noundef %arg) #6
-  %tobool34.not = icmp eq i32 %call33, 0
-  br i1 %tobool34.not, label %do.end38, label %return
-
-do.end38:                                         ; preds = %do.body28, %if.then30
   br label %return
 
-return:                                           ; preds = %if.then30, %if.then19, %if.then8, %if.then, %do.end38
-  %retval.0 = phi i32 [ 0, %do.end38 ], [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ %call33, %if.then30 ]
+return:                                           ; preds = %if.then30, %do.body28, %if.then19, %if.then8, %if.then
+  %retval.0 = phi i32 [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ 0, %do.body28 ], [ %call33, %if.then30 ]
   ret i32 %retval.0
 }
 

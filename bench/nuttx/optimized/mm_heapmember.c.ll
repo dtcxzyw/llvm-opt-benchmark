@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @mm_heapmember(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #0 {
+define zeroext i1 @mm_heapmember(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = icmp ult ptr %4, %1
@@ -14,13 +14,10 @@ define noundef zeroext i1 @mm_heapmember(ptr nocapture noundef readonly %0, ptr 
   %7 = getelementptr inbounds i8, ptr %0, i64 72
   %8 = load ptr, ptr %7, align 8
   %9 = icmp ugt ptr %8, %1
-  br i1 %9, label %11, label %10
+  br label %10
 
 10:                                               ; preds = %6, %2
-  br label %11
-
-11:                                               ; preds = %6, %10
-  %.0 = phi i1 [ false, %10 ], [ true, %6 ]
+  %.0 = phi i1 [ false, %2 ], [ %9, %6 ]
   ret i1 %.0
 }
 

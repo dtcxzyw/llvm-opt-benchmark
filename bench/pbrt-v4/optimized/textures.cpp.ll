@@ -3863,7 +3863,7 @@ entry:
   %add9 = fadd float %5, 5.000000e-01
   %call10 = tail call noundef float @_ZN4pbrt5NoiseEfff(float noundef %add7, float noundef %add9, float noundef 5.000000e-01)
   %cmp = fcmp ogt float %call10, 0.000000e+00
-  br i1 %cmp, label %if.then, label %if.end35
+  br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
   %add13 = fadd float %4, 1.500000e+00
@@ -3884,11 +3884,11 @@ if.then:                                          ; preds = %entry
   %cmp33 = fcmp olt float %add.i, 0x3FBF5C28E0000000
   br i1 %cmp33, label %return, label %if.end35
 
-if.end35:                                         ; preds = %if.then, %entry
+if.end35:                                         ; preds = %if.then
   br label %return
 
-return:                                           ; preds = %if.then, %if.end35
-  %retval.0 = phi i1 [ false, %if.end35 ], [ true, %if.then ]
+return:                                           ; preds = %entry, %if.then, %if.end35
+  %retval.0 = phi i1 [ true, %if.then ], [ false, %entry ], [ false, %if.end35 ]
   ret i1 %retval.0
 }
 

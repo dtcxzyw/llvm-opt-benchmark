@@ -3395,7 +3395,7 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit203: ; preds = %_ZN5Ipopt8Smar
   %551 = getelementptr inbounds i8, ptr %0, i64 144
   %552 = load double, ptr %551, align 8
   %553 = fcmp olt double %552, 1.000000e+20
-  br i1 %553, label %554, label %562
+  br i1 %553, label %554, label %563
 
 554:                                              ; preds = %550
   %555 = call noundef double @_ZN5Ipopt13WallclockTimeEv()
@@ -3407,11 +3407,11 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit203: ; preds = %_ZN5Ipopt8Smar
   %561 = fcmp ult double %559, %560
   br i1 %561, label %562, label %563
 
-562:                                              ; preds = %554, %550
+562:                                              ; preds = %554
   br label %563
 
-563:                                              ; preds = %554, %542, %532, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit203, %_ZN5Ipopt9IpoptData18Append_info_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %423, %374, %_ZN5Ipopt8SmartPtrIKNS_9IpoptDataEED2Ev.exit, %562
-  %.034 = phi i32 [ 0, %562 ], [ 7, %_ZN5Ipopt8SmartPtrIKNS_9IpoptDataEED2Ev.exit ], [ 1, %374 ], [ 1, %423 ], [ 2, %_ZN5Ipopt9IpoptData18Append_info_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ 6, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit203 ], [ 3, %532 ], [ 4, %542 ], [ 5, %554 ]
+563:                                              ; preds = %550, %554, %542, %532, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit203, %_ZN5Ipopt9IpoptData18Append_info_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %423, %374, %_ZN5Ipopt8SmartPtrIKNS_9IpoptDataEED2Ev.exit, %562
+  %.034 = phi i32 [ 7, %_ZN5Ipopt8SmartPtrIKNS_9IpoptDataEED2Ev.exit ], [ 1, %374 ], [ 1, %423 ], [ 2, %_ZN5Ipopt9IpoptData18Append_info_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ 6, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit203 ], [ 3, %532 ], [ 4, %542 ], [ 5, %554 ], [ 0, %550 ], [ 0, %562 ]
   ret i32 %.034
 
 _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit154: ; preds = %528, %523, %309, %304, %_ZN5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEED2Ev.exit163, %236, %231, %436, %437, %.body

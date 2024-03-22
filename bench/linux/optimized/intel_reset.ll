@@ -3626,8 +3626,8 @@ define internal fastcc i32 @__gen11_reset_engines(ptr nocapture noundef readonly
   tail call void asm sideeffect "856: nop\0A\09.pushsection .discard.instr_end\0A\09.long 856b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 856) #10, !srcloc !106
   br label %253
 
-253:                                              ; preds = %241, %242, %250
-  %254 = phi i32 [ 2188, %250 ], [ 2188, %242 ], [ 8220, %241 ]
+253:                                              ; preds = %242, %241, %250
+  %254 = phi i32 [ 2188, %250 ], [ 8220, %241 ], [ 2188, %242 ]
   %255 = getelementptr inbounds i8, ptr %228, i64 72
   %256 = load i32, ptr %255, align 8
   %257 = add i32 %256, %254

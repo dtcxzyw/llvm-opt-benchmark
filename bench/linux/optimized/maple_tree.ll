@@ -4135,7 +4135,7 @@ default.unreachable91:                            ; preds = %591
   br label %.thread69
 
 .thread69:                                        ; preds = %712, %700
-  %717 = phi i64 [ %spec.select85, %712 ], [ 8, %700 ]
+  %717 = phi i64 [ 8, %700 ], [ %spec.select85, %712 ]
   %718 = getelementptr inbounds i8, ptr %707, i64 %717
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !60
   %719 = getelementptr ptr, ptr %718, i64 %705
@@ -12087,7 +12087,7 @@ define internal fastcc void @mas_wr_modify(ptr noundef %0) unnamed_addr #4 align
   br label %.thread78
 
 .thread78:                                        ; preds = %520, %508
-  %525 = phi i64 [ %spec.select, %520 ], [ 8, %508 ]
+  %525 = phi i64 [ 8, %508 ], [ %spec.select, %520 ]
   %526 = getelementptr inbounds i8, ptr %515, i64 %525
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !60
   %527 = getelementptr ptr, ptr %526, i64 %513
@@ -13897,7 +13897,7 @@ mab_mas_cp.exit68:                                ; preds = %1513, %.loopexit.i6
   br label %.thread112
 
 .thread112:                                       ; preds = %1572, %1560
-  %1577 = phi i64 [ %spec.select115, %1572 ], [ 8, %1560 ]
+  %1577 = phi i64 [ 8, %1560 ], [ %spec.select115, %1572 ]
   %1578 = getelementptr inbounds i8, ptr %1567, i64 %1577
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !60
   %1579 = getelementptr ptr, ptr %1578, i64 %1565
@@ -17560,7 +17560,7 @@ define internal fastcc void @mas_wmb_replace(ptr nocapture noundef %0, ptr nound
   br label %.thread
 
 .thread:                                          ; preds = %50, %38
-  %55 = phi i64 [ %spec.select, %50 ], [ 8, %38 ]
+  %55 = phi i64 [ 8, %38 ], [ %spec.select, %50 ]
   %56 = getelementptr inbounds i8, ptr %45, i64 %55
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !60
   %57 = getelementptr ptr, ptr %56, i64 %43

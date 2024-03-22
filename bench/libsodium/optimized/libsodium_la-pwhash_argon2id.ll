@@ -264,13 +264,13 @@ if.end4:                                          ; preds = %entry
 if.then10:                                        ; preds = %if.end4
   %call11 = tail call ptr @__errno_location() #5
   store i32 22, ptr %call11, align 4
-  br label %if.end12
-
-if.end12:                                         ; preds = %if.end4, %if.then10
   br label %return
 
-return:                                           ; preds = %if.end4, %if.end12, %if.then
-  %retval.0 = phi i32 [ -1, %if.then ], [ -1, %if.end12 ], [ %call5, %if.end4 ]
+if.end12:                                         ; preds = %if.end4
+  br label %return
+
+return:                                           ; preds = %if.then10, %if.end4, %if.end12, %if.then
+  %retval.0 = phi i32 [ -1, %if.then ], [ %call5, %if.end4 ], [ -1, %if.then10 ], [ -1, %if.end12 ]
   ret i32 %retval.0
 }
 

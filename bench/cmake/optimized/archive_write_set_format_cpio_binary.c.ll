@@ -722,19 +722,17 @@ synthesize_ino_value.exit.thread:                 ; preds = %63, %synthesize_ino
   %188 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %187) #11
   %189 = and i64 %188, 1
   %.not83 = icmp eq i64 %189, 0
-  br i1 %.not83, label %.thread102, label %190
+  br i1 %.not83, label %.critedge87, label %190
 
 190:                                              ; preds = %186
   %191 = call i32 @__archive_write_nulls(ptr noundef nonnull %0, i64 noundef 1) #9
   %.fr = freeze i32 %191
   %192 = icmp eq i32 %.fr, 0
-  br i1 %192, label %.thread102, label %.critedge87
-
-.thread102:                                       ; preds = %186, %190
+  %spec.select108 = select i1 %192, i32 %.165, i32 -30
   br label %.critedge87
 
-.critedge87:                                      ; preds = %182, %.thread102, %190, %167, %174, %164, %.critedge, %180, %160, %156, %146, %132, %98, %92, %85, %synthesize_ino_value.exit.thread, %23
-  %.2 = phi i32 [ -30, %23 ], [ -30, %synthesize_ino_value.exit.thread ], [ -30, %85 ], [ -30, %92 ], [ -30, %98 ], [ -30, %132 ], [ -30, %146 ], [ %.165, %180 ], [ %.165, %.critedge ], [ -25, %156 ], [ -25, %160 ], [ -30, %164 ], [ -30, %174 ], [ -30, %167 ], [ %.165, %.thread102 ], [ -30, %190 ], [ -30, %182 ]
+.critedge87:                                      ; preds = %190, %186, %182, %167, %174, %164, %.critedge, %180, %160, %156, %146, %132, %98, %92, %85, %synthesize_ino_value.exit.thread, %23
+  %.2 = phi i32 [ -30, %23 ], [ -30, %synthesize_ino_value.exit.thread ], [ -30, %85 ], [ -30, %92 ], [ -30, %98 ], [ -30, %132 ], [ -30, %146 ], [ %.165, %180 ], [ %.165, %.critedge ], [ -25, %156 ], [ -25, %160 ], [ -30, %164 ], [ -30, %174 ], [ -30, %167 ], [ -30, %182 ], [ %.165, %186 ], [ %spec.select108, %190 ]
   call void @archive_entry_free(ptr noundef null) #9
   ret i32 %.2
 }

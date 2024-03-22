@@ -2592,8 +2592,8 @@ pmix_obj_run_destructors.exit467:                 ; preds = %.lr.ph.i464, %436
   %switch.selectcmp = icmp eq i16 %489, 20
   br label %490
 
-490:                                              ; preds = %483, %486
-  %.0318 = phi i1 [ %switch.selectcmp, %486 ], [ true, %483 ]
+490:                                              ; preds = %486, %483
+  %.0318 = phi i1 [ true, %483 ], [ %switch.selectcmp, %486 ]
   %491 = call noalias ptr @hwloc_bitmap_alloc() #14
   %492 = getelementptr inbounds i8, ptr %482, i64 160
   %493 = load ptr, ptr %492, align 8

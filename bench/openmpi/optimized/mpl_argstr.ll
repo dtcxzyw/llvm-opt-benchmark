@@ -764,7 +764,7 @@ next_token.exit37:                                ; preds = %.preheader.i31.i27
 .critedge.i41:                                    ; preds = %75, %73, %73
   store i32 %.0.i40, ptr %4, align 4
   %90 = icmp eq i32 %.032.i, 0
-  br i1 %90, label %91, label %93
+  br i1 %90, label %91, label %decode_buffer.exit
 
 91:                                               ; preds = %.critedge.i41
   %92 = load i8, ptr %.1.i39, align 1
@@ -774,11 +774,11 @@ next_token.exit37:                                ; preds = %.preheader.i31.i27
     i8 34, label %93
   ]
 
-93:                                               ; preds = %91, %91, %91, %.critedge.i41
+93:                                               ; preds = %91, %91, %91
   br label %decode_buffer.exit
 
-decode_buffer.exit:                               ; preds = %78, %next_token.exit37, %91, %93
-  %.031.i = phi i32 [ 0, %93 ], [ 4, %next_token.exit37 ], [ 6, %91 ], [ 6, %78 ]
+decode_buffer.exit:                               ; preds = %78, %next_token.exit37, %.critedge.i41, %91, %93
+  %.031.i = phi i32 [ 4, %next_token.exit37 ], [ 6, %91 ], [ 0, %.critedge.i41 ], [ 0, %93 ], [ 6, %78 ]
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   br label %first_token.exit.thread

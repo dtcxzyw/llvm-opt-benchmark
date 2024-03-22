@@ -5253,8 +5253,8 @@ land.lhs.true:                                    ; preds = %if.end
   %2 = select i1 %switch.selectcmp, i32 100, i32 0
   br label %return
 
-return:                                           ; preds = %if.end, %land.lhs.true, %entry
-  %retval.0 = phi i32 [ 50, %entry ], [ %2, %land.lhs.true ], [ 0, %if.end ]
+return:                                           ; preds = %land.lhs.true, %if.end, %entry
+  %retval.0 = phi i32 [ 50, %entry ], [ 0, %if.end ], [ %2, %land.lhs.true ]
   ret i32 %retval.0
 }
 

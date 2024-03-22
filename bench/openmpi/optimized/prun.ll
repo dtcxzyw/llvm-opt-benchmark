@@ -239,9 +239,9 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i79, %78
   %88 = load ptr, ptr @prte_tool_basename, align 8
   %89 = call ptr @prte_strerror(i32 noundef %77) #8
   %90 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %87, ptr noundef nonnull @.str.10, ptr noundef %88, ptr noundef %89) #12
-  br label %91
+  br label %100
 
-91:                                               ; preds = %pmix_obj_run_destructors.exit, %86
+91:                                               ; preds = %pmix_obj_run_destructors.exit
   br label %100
 
 92:                                               ; preds = %pmix_obj_run_constructors.exit77
@@ -259,8 +259,8 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i79, %78
   %99 = call i32 @prun_common(ptr noundef nonnull %5, ptr noundef nonnull %52, i32 noundef %0, ptr noundef %20) #8
   br label %100
 
-100:                                              ; preds = %pmix_obj_run_destructors.exit, %59, %57, %40, %37, %35, %33, %25, %23, %pmix_obj_run_constructors.exit, %98, %91, %54
-  %.048 = phi i32 [ 1, %54 ], [ %77, %91 ], [ %99, %98 ], [ %22, %pmix_obj_run_constructors.exit ], [ %24, %23 ], [ %26, %25 ], [ %34, %33 ], [ %34, %35 ], [ %38, %37 ], [ %38, %40 ], [ 1, %57 ], [ 1, %59 ], [ 0, %pmix_obj_run_destructors.exit ]
+100:                                              ; preds = %86, %pmix_obj_run_destructors.exit, %59, %57, %40, %37, %35, %33, %25, %23, %pmix_obj_run_constructors.exit, %98, %91, %54
+  %.048 = phi i32 [ 1, %54 ], [ %99, %98 ], [ %22, %pmix_obj_run_constructors.exit ], [ %24, %23 ], [ %26, %25 ], [ %34, %33 ], [ %34, %35 ], [ %38, %37 ], [ %38, %40 ], [ 1, %57 ], [ 1, %59 ], [ 0, %pmix_obj_run_destructors.exit ], [ %77, %86 ], [ -43, %91 ]
   ret i32 %.048
 }
 

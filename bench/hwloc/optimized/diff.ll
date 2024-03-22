@@ -1398,9 +1398,9 @@ define internal fastcc noundef i32 @hwloc_apply_diff_one(ptr noundef %0, ptr noc
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %63, !llvm.loop !24
 
-.critedge.sink.split:                             ; preds = %71, %52
-  %.sink99 = phi ptr [ %46, %52 ], [ %59, %71 ]
-  %.sink98 = phi ptr [ %48, %52 ], [ %72, %71 ]
+.critedge.sink.split:                             ; preds = %52, %71
+  %.sink99 = phi ptr [ %59, %71 ], [ %46, %52 ]
+  %.sink98 = phi ptr [ %72, %71 ], [ %48, %52 ]
   %74 = tail call noalias ptr @strdup(ptr noundef %.sink99) #12
   store ptr %74, ptr %.sink98, align 8
   br label %.critedge

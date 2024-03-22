@@ -757,13 +757,13 @@ define internal noundef i32 @virtscsi_queuecommand(ptr noundef %0, ptr noundef %
   %58 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %8) #12
   tail call fastcc void @virtscsi_complete_cmd(ptr noundef %9)
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %8, i64 noundef %58) #12
-  br label %59
-
-59:                                               ; preds = %56, %27
   br label %60
 
-60:                                               ; preds = %59, %27
-  %61 = phi i32 [ 0, %59 ], [ 4181, %27 ]
+59:                                               ; preds = %27
+  br label %60
+
+60:                                               ; preds = %56, %59, %27
+  %61 = phi i32 [ 4181, %27 ], [ 0, %56 ], [ 0, %59 ]
   ret i32 %61
 }
 

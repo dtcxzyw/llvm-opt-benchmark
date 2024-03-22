@@ -10585,14 +10585,11 @@ define noundef zeroext i1 @_ZNK3irr5video11CNullDriver26needsTransparentRenderPa
   %12 = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(8) %8) #24
-  br i1 %14, label %16, label %15
+  br label %15
 
 15:                                               ; preds = %10, %2
-  br label %16
-
-16:                                               ; preds = %15, %10
-  %17 = phi i1 [ false, %15 ], [ true, %10 ]
-  ret i1 %17
+  %16 = phi i1 [ false, %2 ], [ %14, %10 ]
+  ret i1 %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

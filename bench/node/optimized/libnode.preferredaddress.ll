@@ -390,8 +390,8 @@ if.then:                                          ; preds = %entry
   %switch.select6 = select i1 %switch.selectcmp5, i64 1, i64 %switch.select
   br label %return
 
-return:                                           ; preds = %entry, %if.then
-  %retval.sroa.0.0 = phi i64 [ %switch.select6, %if.then ], [ 0, %entry ]
+return:                                           ; preds = %if.then, %entry
+  %retval.sroa.0.0 = phi i64 [ 0, %entry ], [ %switch.select6, %if.then ]
   ret i64 %retval.sroa.0.0
 }
 

@@ -485,18 +485,14 @@ do.body193:                                       ; preds = %if.then184, %do.bod
   %psyco_adapters = getelementptr inbounds i8, ptr %call.i, i64 96
   %18 = load ptr, ptr %psyco_adapters, align 8
   %tobool194.not = icmp eq ptr %18, null
-  br i1 %tobool194.not, label %do.end203, label %if.then195
+  br i1 %tobool194.not, label %return, label %if.then195
 
 if.then195:                                       ; preds = %do.body193
   %call198 = tail call i32 %visit(ptr noundef nonnull %18, ptr noundef %arg) #5
-  %tobool199.not = icmp eq i32 %call198, 0
-  br i1 %tobool199.not, label %do.end203, label %return
-
-do.end203:                                        ; preds = %do.body193, %if.then195
   br label %return
 
-return:                                           ; preds = %if.then195, %if.then184, %if.then173, %if.then162, %if.then151, %if.then140, %if.then129, %if.then118, %if.then107, %if.then96, %if.then85, %if.then74, %if.then63, %if.then52, %if.then41, %if.then30, %if.then19, %if.then8, %if.then, %do.end203
-  %retval.0 = phi i32 [ 0, %do.end203 ], [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ %call33, %if.then30 ], [ %call44, %if.then41 ], [ %call55, %if.then52 ], [ %call66, %if.then63 ], [ %call77, %if.then74 ], [ %call88, %if.then85 ], [ %call99, %if.then96 ], [ %call110, %if.then107 ], [ %call121, %if.then118 ], [ %call132, %if.then129 ], [ %call143, %if.then140 ], [ %call154, %if.then151 ], [ %call165, %if.then162 ], [ %call176, %if.then173 ], [ %call187, %if.then184 ], [ %call198, %if.then195 ]
+return:                                           ; preds = %if.then195, %do.body193, %if.then184, %if.then173, %if.then162, %if.then151, %if.then140, %if.then129, %if.then118, %if.then107, %if.then96, %if.then85, %if.then74, %if.then63, %if.then52, %if.then41, %if.then30, %if.then19, %if.then8, %if.then
+  %retval.0 = phi i32 [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ %call33, %if.then30 ], [ %call44, %if.then41 ], [ %call55, %if.then52 ], [ %call66, %if.then63 ], [ %call77, %if.then74 ], [ %call88, %if.then85 ], [ %call99, %if.then96 ], [ %call110, %if.then107 ], [ %call121, %if.then118 ], [ %call132, %if.then129 ], [ %call143, %if.then140 ], [ %call154, %if.then151 ], [ %call165, %if.then162 ], [ %call176, %if.then173 ], [ %call187, %if.then184 ], [ 0, %do.body193 ], [ %call198, %if.then195 ]
   ret i32 %retval.0
 }
 

@@ -7361,8 +7361,8 @@ switch.lookup:                                    ; preds = %14
   %switch.masked = icmp ne i42 %18, 0
   br label %19
 
-19:                                               ; preds = %10, %14, %switch.lookup, %2, %7
-  %.0 = phi i1 [ false, %7 ], [ false, %2 ], [ %switch.masked, %switch.lookup ], [ false, %14 ], [ false, %10 ]
+19:                                               ; preds = %14, %switch.lookup, %10, %2, %7
+  %.0 = phi i1 [ false, %7 ], [ false, %2 ], [ false, %10 ], [ %switch.masked, %switch.lookup ], [ false, %14 ]
   ret i1 %.0
 }
 

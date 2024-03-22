@@ -532,8 +532,8 @@ X509_VERIFY_PARAM_set1_ip.exit:                   ; preds = %if.end8.i.i75, %if.
   store i64 %srclen.addr.1.i.i76, ptr %iplen6.i, align 8
   br label %return
 
-return:                                           ; preds = %if.end.i.i71, %if.then148, %lor.lhs.false139.thread, %if.end.i.i, %lor.lhs.false139, %lor.lhs.false144, %X509_VERIFY_PARAM_set1_ip.exit, %if.then79.thread, %if.then107, %if.then79, %if.end7, %entry
-  %retval.0 = phi i32 [ 1, %entry ], [ 1, %if.end7 ], [ 0, %if.then79 ], [ 0, %if.then107 ], [ 0, %if.then79.thread ], [ 1, %X509_VERIFY_PARAM_set1_ip.exit ], [ 1, %lor.lhs.false144 ], [ 1, %lor.lhs.false139 ], [ 0, %if.end.i.i ], [ 1, %lor.lhs.false139.thread ], [ 0, %if.then148 ], [ 0, %if.end.i.i71 ]
+return:                                           ; preds = %lor.lhs.false139.thread, %if.end.i.i, %X509_VERIFY_PARAM_set1_ip.exit, %if.then148, %if.end.i.i71, %if.then79.thread, %lor.lhs.false139, %lor.lhs.false144, %if.then107, %if.then79, %if.end7, %entry
+  %retval.0 = phi i32 [ 1, %entry ], [ 1, %if.end7 ], [ 0, %if.then79 ], [ 0, %if.then107 ], [ 1, %lor.lhs.false144 ], [ 1, %lor.lhs.false139 ], [ 0, %if.then79.thread ], [ 1, %X509_VERIFY_PARAM_set1_ip.exit ], [ 0, %if.then148 ], [ 0, %if.end.i.i71 ], [ 0, %if.end.i.i ], [ 1, %lor.lhs.false139.thread ]
   ret i32 %retval.0
 }
 

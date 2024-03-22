@@ -160,7 +160,7 @@ define dso_local i32 @nghttp2_hd_huff_encode(ptr noundef %0, ptr noundef readonl
   %.246.lcssa = phi i64 [ %.044, %.preheader ], [ %66, %65 ]
   %.2.lcssa = phi i64 [ %.042, %.preheader ], [ %67, %65 ]
   %.not53 = icmp eq i64 %.2.lcssa, 0
-  br i1 %.not53, label %78, label %69
+  br i1 %.not53, label %.loopexit, label %69
 
 69:                                               ; preds = %._crit_edge75
   %70 = lshr i64 %.246.lcssa, 56
@@ -172,14 +172,10 @@ define dso_local i32 @nghttp2_hd_huff_encode(ptr noundef %0, ptr noundef readonl
   %75 = or i16 %74, %71
   %76 = trunc i16 %75 to i8
   %77 = tail call i32 @nghttp2_bufs_addb(ptr noundef %0, i8 noundef zeroext %76) #8
-  %.not54 = icmp eq i32 %77, 0
-  br i1 %.not54, label %78, label %.loopexit
-
-78:                                               ; preds = %69, %._crit_edge75
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph74, %69, %78
-  %.043 = phi i32 [ 0, %78 ], [ %77, %69 ], [ %64, %.lr.ph74 ], [ %49, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph74, %69, %._crit_edge75
+  %.043 = phi i32 [ 0, %._crit_edge75 ], [ %77, %69 ], [ %64, %.lr.ph74 ], [ %49, %.lr.ph ]
   ret i32 %.043
 }
 

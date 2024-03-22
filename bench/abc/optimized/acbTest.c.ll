@@ -2149,13 +2149,11 @@ Abc_Clock.exit13:                                 ; preds = %Abc_Clock.exit, %28
   %36 = sitofp i64 %35 to double
   %37 = fdiv double %36, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.34, double noundef %37)
-  br i1 %22, label %39, label %38
+  %spec.select = select i1 %22, ptr %20, ptr null
+  br label %38
 
 38:                                               ; preds = %Abc_Clock.exit13, %1
-  br label %39
-
-39:                                               ; preds = %Abc_Clock.exit13, %38
-  %.0 = phi ptr [ null, %38 ], [ %20, %Abc_Clock.exit13 ]
+  %.0 = phi ptr [ null, %1 ], [ %spec.select, %Abc_Clock.exit13 ]
   ret ptr %.0
 }
 

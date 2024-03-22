@@ -15948,8 +15948,8 @@ land.lhs.true:                                    ; preds = %lor.lhs.false21
   %cmp24 = icmp eq i32 %rem.i, 0
   br i1 %cmp24, label %if.end28, label %for.inc
 
-if.end28:                                         ; preds = %_ZNK3sat9lookahead8mix_diffEdd.exit, %land.lhs.true
-  %count.2 = phi i32 [ %inc, %land.lhs.true ], [ 1, %_ZNK3sat9lookahead8mix_diffEdd.exit ]
+if.end28:                                         ; preds = %land.lhs.true, %_ZNK3sat9lookahead8mix_diffEdd.exit
+  %count.2 = phi i32 [ 1, %_ZNK3sat9lookahead8mix_diffEdd.exit ], [ %inc, %land.lhs.true ]
   %cmp29 = fcmp olt double %9, %10
   br i1 %cmp29, label %for.inc, label %cond.false
 
@@ -17274,7 +17274,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false21.i
   br i1 %cmp24.i, label %if.end28.i, label %for.inc.i
 
 if.end28.i:                                       ; preds = %land.lhs.true.i, %_ZNK3sat9lookahead8mix_diffEdd.exit.i
-  %count.2.i = phi i32 [ %inc.i38, %land.lhs.true.i ], [ 1, %_ZNK3sat9lookahead8mix_diffEdd.exit.i ]
+  %count.2.i = phi i32 [ 1, %_ZNK3sat9lookahead8mix_diffEdd.exit.i ], [ %inc.i38, %land.lhs.true.i ]
   %cmp29.i = fcmp olt double %25, %26
   br i1 %cmp29.i, label %for.inc.i, label %cond.false.i
 

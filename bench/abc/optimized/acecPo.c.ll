@@ -1019,7 +1019,7 @@ Acec_ParseSignatureOne.exit:                      ; preds = %15
 Acec_ParseSignatureOne.exit68:                    ; preds = %33
   %36 = getelementptr inbounds i8, ptr %strchr58, i64 1
   %37 = load i8, ptr %36, align 1
-  switch i8 %37, label %72 [
+  switch i8 %37, label %73 [
     i8 0, label %38
     i8 43, label %40
   ]
@@ -1105,11 +1105,11 @@ Acec_ParseSignatureOne.exit75:                    ; preds = %69, %47
   tail call void @free(ptr noundef %51) #27
   br label %73
 
-72:                                               ; preds = %Acec_ParseSignatureOne.exit68, %Acec_ParseSignatureOne.exit
+72:                                               ; preds = %Acec_ParseSignatureOne.exit
   br label %73
 
-73:                                               ; preds = %40, %20, %Acec_ParseSignatureOne.exit, %4, %72, %Acec_ParseSignatureOne.exit75, %44, %38
-  %.0 = phi ptr [ %39, %38 ], [ %46, %44 ], [ null, %72 ], [ %60, %Acec_ParseSignatureOne.exit75 ], [ null, %4 ], [ %7, %Acec_ParseSignatureOne.exit ], [ null, %20 ], [ null, %40 ]
+73:                                               ; preds = %Acec_ParseSignatureOne.exit68, %40, %20, %Acec_ParseSignatureOne.exit, %4, %72, %Acec_ParseSignatureOne.exit75, %44, %38
+  %.0 = phi ptr [ %39, %38 ], [ %46, %44 ], [ %60, %Acec_ParseSignatureOne.exit75 ], [ null, %4 ], [ %7, %Acec_ParseSignatureOne.exit ], [ null, %20 ], [ null, %40 ], [ null, %Acec_ParseSignatureOne.exit68 ], [ null, %72 ]
   ret ptr %.0
 }
 

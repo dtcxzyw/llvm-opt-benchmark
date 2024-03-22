@@ -332,13 +332,13 @@ _ZNK5QListIjEeqIjEENSt9enable_ifIXsr3stdE13conjunction_vISt11disjunctionIJSt10is
 
 90:                                               ; preds = %87, %87
   invoke void @_ZN9QSplitter14setOrientationEN2Qt11OrientationE(ptr noundef nonnull align 8 dereferenceable(40) %.ptr13.ptr, i32 noundef 2)
-          to label %91 unwind label %60
+          to label %.invoke109 unwind label %60
 
-91:                                               ; preds = %90, %87
+91:                                               ; preds = %87
   br label %.invoke109
 
-.invoke109:                                       ; preds = %87, %89, %91
-  %92 = phi i32 [ 1, %91 ], [ 2, %89 ], [ 2, %87 ]
+.invoke109:                                       ; preds = %90, %87, %89, %91
+  %92 = phi i32 [ 2, %89 ], [ 2, %87 ], [ 1, %90 ], [ 1, %91 ]
   %93 = getelementptr inbounds i8, ptr %0, i64 80
   invoke void @_ZN9QSplitter14setOrientationEN2Qt11OrientationE(ptr noundef nonnull align 8 dereferenceable(40) %93, i32 noundef %92)
           to label %94 unwind label %60

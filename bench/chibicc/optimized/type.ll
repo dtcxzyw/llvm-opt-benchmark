@@ -226,8 +226,8 @@ land.lhs.true:                                    ; preds = %if.end57
 return.loopexit110:                               ; preds = %if.end13, %if.end13, %if.end13
   br label %return
 
-return:                                           ; preds = %tailrecurse, %for.body, %if.end9, %if.end13, %return.loopexit110, %land.lhs.true, %if.end57, %sw.bb52, %if.end29, %sw.bb25, %for.end, %sw.bb
-  %retval.0 = phi i1 [ %18, %for.end ], [ %cmp19, %sw.bb ], [ false, %sw.bb25 ], [ false, %if.end29 ], [ false, %sw.bb52 ], [ false, %if.end57 ], [ %cmp66, %land.lhs.true ], [ true, %return.loopexit110 ], [ false, %if.end13 ], [ false, %if.end9 ], [ false, %for.body ], [ true, %tailrecurse ]
+return:                                           ; preds = %if.end9, %tailrecurse, %for.body, %if.end13, %return.loopexit110, %land.lhs.true, %if.end57, %sw.bb52, %if.end29, %sw.bb25, %for.end, %sw.bb
+  %retval.0 = phi i1 [ %18, %for.end ], [ %cmp19, %sw.bb ], [ false, %sw.bb25 ], [ false, %if.end29 ], [ false, %sw.bb52 ], [ false, %if.end57 ], [ %cmp66, %land.lhs.true ], [ false, %if.end13 ], [ false, %for.body ], [ true, %tailrecurse ], [ %cmp11.not, %if.end9 ], [ %cmp11.not, %return.loopexit110 ]
   ret i1 %retval.0
 }
 

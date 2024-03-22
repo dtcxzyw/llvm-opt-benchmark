@@ -1229,18 +1229,15 @@ if.else5:                                         ; preds = %if.else
   %1 = load ptr, ptr %vfn7, align 8
   %call8 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(32) %this)
   %cmp.not = icmp eq ptr %call8, null
-  br i1 %cmp.not, label %if.else11, label %land.lhs.true
+  br i1 %cmp.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.else5
   %call.i4 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull %call8) #16
   %cmp.i5 = icmp eq i32 %call.i4, 0
-  br i1 %cmp.i5, label %return, label %if.else11
-
-if.else11:                                        ; preds = %land.lhs.true, %if.else5
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.else, %entry, %if.else11
-  %retval.0 = phi i1 [ false, %if.else11 ], [ false, %entry ], [ true, %if.else ], [ true, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %if.else5, %if.else, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.else ], [ false, %if.else5 ], [ %cmp.i5, %land.lhs.true ]
   ret i1 %retval.0
 }
 

@@ -131,18 +131,14 @@ do.body18:                                        ; preds = %if.then9, %do.end
   %PyCursesPanel_Type = getelementptr inbounds i8, ptr %call.i, i64 8
   %2 = load ptr, ptr %PyCursesPanel_Type, align 8
   %tobool19.not = icmp eq ptr %2, null
-  br i1 %tobool19.not, label %do.end28, label %if.then20
+  br i1 %tobool19.not, label %return, label %if.then20
 
 if.then20:                                        ; preds = %do.body18
   %call23 = tail call i32 %visit(ptr noundef nonnull %2, ptr noundef %arg) #3
-  %tobool24.not = icmp eq i32 %call23, 0
-  br i1 %tobool24.not, label %do.end28, label %return
-
-do.end28:                                         ; preds = %do.body18, %if.then20
   br label %return
 
-return:                                           ; preds = %if.then20, %if.then9, %if.then, %do.end28
-  %retval.0 = phi i32 [ 0, %do.end28 ], [ %call2, %if.then ], [ %call12, %if.then9 ], [ %call23, %if.then20 ]
+return:                                           ; preds = %if.then20, %do.body18, %if.then9, %if.then
+  %retval.0 = phi i32 [ %call2, %if.then ], [ %call12, %if.then9 ], [ 0, %do.body18 ], [ %call23, %if.then20 ]
   ret i32 %retval.0
 }
 

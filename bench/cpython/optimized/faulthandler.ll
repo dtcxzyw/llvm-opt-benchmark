@@ -1329,18 +1329,14 @@ for.inc:                                          ; preds = %if.then8, %do.body6
 do.body19:                                        ; preds = %for.inc, %do.end
   %5 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 26, i32 0, i32 1), align 8
   %tobool20.not = icmp eq ptr %5, null
-  br i1 %tobool20.not, label %do.end28, label %if.then21
+  br i1 %tobool20.not, label %return, label %if.then21
 
 if.then21:                                        ; preds = %do.body19
   %call23 = tail call i32 %visit(ptr noundef nonnull %5, ptr noundef %arg) #15
-  %tobool24.not = icmp eq i32 %call23, 0
-  br i1 %tobool24.not, label %do.end28, label %return
-
-do.end28:                                         ; preds = %do.body19, %if.then21
   br label %return
 
-return:                                           ; preds = %if.then8, %if.then21, %if.then, %do.end28
-  %retval.0 = phi i32 [ 0, %do.end28 ], [ %call, %if.then ], [ %call23, %if.then21 ], [ %call12, %if.then8 ]
+return:                                           ; preds = %if.then8, %if.then21, %do.body19, %if.then
+  %retval.0 = phi i32 [ %call, %if.then ], [ 0, %do.body19 ], [ %call23, %if.then21 ], [ %call12, %if.then8 ]
   ret i32 %retval.0
 }
 

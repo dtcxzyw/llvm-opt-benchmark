@@ -62,18 +62,14 @@ entry:
   %module.val = load ptr, ptr %0, align 8
   %1 = load ptr, ptr %module.val, align 8
   %tobool.not = icmp eq ptr %1, null
-  br i1 %tobool.not, label %do.end, label %if.then
+  br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
   %call3 = tail call i32 %visit(ptr noundef nonnull %1, ptr noundef %arg) #8
-  %tobool4.not = icmp eq i32 %call3, 0
-  br i1 %tobool4.not, label %do.end, label %return
-
-do.end:                                           ; preds = %entry, %if.then
   br label %return
 
-return:                                           ; preds = %if.then, %do.end
-  %retval.0 = phi i32 [ 0, %do.end ], [ %call3, %if.then ]
+return:                                           ; preds = %if.then, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ %call3, %if.then ]
   ret i32 %retval.0
 }
 

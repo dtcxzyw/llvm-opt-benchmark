@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @ItemPointerEquals(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local zeroext i1 @ItemPointerEquals(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %.val = load i16, ptr %0, align 2
   %3 = getelementptr i8, ptr %0, i64 2
   %.val5 = load i16, ptr %3, align 2
@@ -28,13 +28,10 @@ define dso_local noundef zeroext i1 @ItemPointerEquals(ptr nocapture noundef rea
   %16 = getelementptr i8, ptr %1, i64 4
   %.val9 = load i16, ptr %16, align 2
   %17 = icmp eq i16 %.val8, %.val9
-  br i1 %17, label %19, label %18
+  br label %18
 
 18:                                               ; preds = %14, %2
-  br label %19
-
-19:                                               ; preds = %14, %18
-  %.0 = phi i1 [ false, %18 ], [ true, %14 ]
+  %.0 = phi i1 [ false, %2 ], [ %17, %14 ]
   ret i1 %.0
 }
 

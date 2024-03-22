@@ -6045,7 +6045,7 @@ Py_DECREF.exit218:                                ; preds = %if.end31, %if.then1
 
 if.end35:                                         ; preds = %Py_DECREF.exit218
   %_Py_TrueStruct._Py_FalseStruct = select i1 %tobool2, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
-  br i1 %tobool2, label %land.lhs.true41, label %if.else47
+  br i1 %tobool2, label %land.lhs.true41, label %if.then50
 
 land.lhs.true41:                                  ; preds = %if.end35
   %tobool42.not = icmp eq i32 %call32, 0
@@ -6055,13 +6055,11 @@ lor.lhs.false43:                                  ; preds = %land.lhs.true41
   %3 = load ptr, ptr @stderr, align 8
   %call44 = call i32 @fileno(ptr noundef %3) #19
   %cmp45 = icmp eq i32 %call44, %fd
-  br i1 %cmp45, label %if.then50, label %if.else47
-
-if.else47:                                        ; preds = %lor.lhs.false43, %if.end35
+  %spec.select = select i1 %cmp45, ptr @_Py_TrueStruct, ptr @_Py_FalseStruct
   br label %if.then50
 
-if.then50:                                        ; preds = %if.else47, %lor.lhs.false43, %land.lhs.true41
-  %line_buffering.0 = phi ptr [ @_Py_FalseStruct, %if.else47 ], [ @_Py_TrueStruct, %lor.lhs.false43 ], [ @_Py_TrueStruct, %land.lhs.true41 ]
+if.then50:                                        ; preds = %land.lhs.true41, %if.end35, %lor.lhs.false43
+  %line_buffering.0 = phi ptr [ @_Py_TrueStruct, %land.lhs.true41 ], [ @_Py_FalseStruct, %if.end35 ], [ %spec.select, %lor.lhs.false43 ]
   %4 = load i64, ptr %raw.0, align 8
   %5 = and i64 %4, 2147483648
   %cmp.i223.not = icmp eq i64 %5, 0

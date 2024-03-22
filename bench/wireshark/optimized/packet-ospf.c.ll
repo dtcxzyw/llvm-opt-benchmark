@@ -1780,7 +1780,7 @@ proto_item_set_hidden.exit:                       ; preds = %40, %37, %30, %4
   %232 = call ptr @proto_tree_add_bitmask(ptr noundef %202, ptr noundef %0, i32 noundef 23, i32 noundef %230, i32 noundef %231, ptr noundef nonnull @bf_dbd, i32 noundef 0) #6
   %233 = load i32, ptr @hf_ospf_db_dd_sequence, align 4
   %234 = call ptr @proto_tree_add_item(ptr noundef %202, i32 noundef %233, ptr noundef %0, i32 noundef 24, i32 noundef 4, i32 noundef 0) #6
-  br label %236
+  br label %.thread72.i
 
 235:                                              ; preds = %196
   switch i8 %11, label %.preheader.i [
@@ -1788,11 +1788,11 @@ proto_item_set_hidden.exit:                       ; preds = %40, %37, %30, %4
     i8 3, label %236
   ]
 
-236:                                              ; preds = %235, %.thread69.i
+236:                                              ; preds = %235
   br label %.thread72.i
 
-.thread72.i:                                      ; preds = %236, %235, %.thread.i
-  %.sink.i = phi i32 [ 12, %236 ], [ 8, %.thread.i ], [ 8, %235 ]
+.thread72.i:                                      ; preds = %236, %235, %.thread69.i, %.thread.i
+  %.sink.i = phi i32 [ 8, %.thread.i ], [ 8, %235 ], [ 12, %.thread69.i ], [ 12, %236 ]
   %237 = add nuw nsw i32 %.sink.i, %switch.select193
   br label %.preheader.i
 

@@ -516,7 +516,7 @@ read_packet_data.exit.thread:                     ; preds = %83, %.split.us.i
   br label %155
 
 .loopexit.i:                                      ; preds = %.lr.ph.split.i, %process_timestamp.exit.i42, %.lr.ph.split.us.i, %process_timestamp.exit.us.i, %.preheader.i, %.split.us.i
-  %.027.i.in = phi i16 [ %.us-phi38.i, %.split.us.i ], [ 0, %.preheader.i ], [ %.035.us.i, %.lr.ph.split.us.i ], [ %.1.us.i, %process_timestamp.exit.us.i ], [ %.035.i, %.lr.ph.split.i ], [ %.1.i, %process_timestamp.exit.i42 ]
+  %.027.i.in = phi i16 [ %.us-phi38.i, %.split.us.i ], [ 0, %.preheader.i ], [ %.1.us.i, %process_timestamp.exit.us.i ], [ %.035.us.i, %.lr.ph.split.us.i ], [ %.1.i, %process_timestamp.exit.i42 ], [ %.035.i, %.lr.ph.split.i ]
   %.027.i = zext i16 %.027.i.in to i32
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7)
   %138 = add nuw nsw i32 %.027.i, 4

@@ -5173,8 +5173,8 @@ define internal i64 @inhibited_store(ptr noundef %0, ptr nocapture readnone %1, 
   %75 = sext i32 %65 to i64
   br label %76
 
-76:                                               ; preds = %.thread, %.thread8, %74, %4
-  %77 = phi i64 [ -22, %4 ], [ %75, %74 ], [ %3, %.thread8 ], [ %3, %.thread ]
+76:                                               ; preds = %74, %.thread8, %.thread, %4
+  %77 = phi i64 [ -22, %4 ], [ %3, %.thread8 ], [ %3, %.thread ], [ %75, %74 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #19
   ret i64 %77
 }

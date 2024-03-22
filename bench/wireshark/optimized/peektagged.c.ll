@@ -150,7 +150,7 @@ wtap_file_read_till_separator.exit.thread.i:      ; preds = %37, %wtap_file_read
 wtap_file_read_number.exit.thread85:              ; preds = %wtap_file_read_till_separator.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %45
+  br label %89
 
 wtap_file_read_number.exit:                       ; preds = %wtap_file_read_till_separator.exit.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
@@ -160,7 +160,7 @@ wtap_file_read_number.exit:                       ; preds = %wtap_file_read_till
     i32 0, label %45
   ]
 
-45:                                               ; preds = %wtap_file_read_number.exit.thread85, %wtap_file_read_number.exit
+45:                                               ; preds = %wtap_file_read_number.exit
   br label %89
 
 46:                                               ; preds = %wtap_file_read_till_separator.exit.thread.i
@@ -284,8 +284,8 @@ switch.lookup:                                    ; preds = %73
   call void @wtap_add_generated_idb(ptr noundef nonnull %0) #7
   br label %89
 
-89:                                               ; preds = %wtap_file_read_pattern.exit, %73, %70, %61, %57, %53, %49, %wtap_file_read_number.exit, %13, %11, %switch.lookup, %72, %68, %63, %59, %55, %51, %.thread, %45
-  %.0 = phi i32 [ 0, %45 ], [ -1, %.thread ], [ -1, %51 ], [ -1, %55 ], [ -1, %59 ], [ -1, %63 ], [ -1, %68 ], [ -1, %72 ], [ 1, %switch.lookup ], [ %., %11 ], [ 0, %13 ], [ %.019.i.i, %wtap_file_read_number.exit ], [ %50, %49 ], [ %54, %53 ], [ %58, %57 ], [ %62, %61 ], [ %71, %70 ], [ -1, %73 ], [ %spec.select, %wtap_file_read_pattern.exit ]
+89:                                               ; preds = %wtap_file_read_pattern.exit, %wtap_file_read_number.exit.thread85, %73, %70, %61, %57, %53, %49, %wtap_file_read_number.exit, %13, %11, %switch.lookup, %72, %68, %63, %59, %55, %51, %.thread, %45
+  %.0 = phi i32 [ -1, %.thread ], [ -1, %51 ], [ -1, %55 ], [ -1, %59 ], [ -1, %63 ], [ -1, %68 ], [ -1, %72 ], [ 1, %switch.lookup ], [ %., %11 ], [ 0, %13 ], [ %.019.i.i, %wtap_file_read_number.exit ], [ %50, %49 ], [ %54, %53 ], [ %58, %57 ], [ %62, %61 ], [ %71, %70 ], [ -1, %73 ], [ 0, %wtap_file_read_number.exit.thread85 ], [ 0, %45 ], [ %spec.select, %wtap_file_read_pattern.exit ]
   ret i32 %.0
 }
 

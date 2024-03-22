@@ -2424,7 +2424,7 @@ if.end197:                                        ; preds = %land.lhs.true190, %
 
 if.else201:                                       ; preds = %if.end197
   %cmp202 = icmp ugt i64 %call198, 3
-  br i1 %cmp202, label %land.lhs.true203, label %if.else217
+  br i1 %cmp202, label %land.lhs.true203, label %if.end220
 
 land.lhs.true203:                                 ; preds = %if.else201
   %46 = getelementptr i8, ptr %infilename, i64 %call198
@@ -2436,13 +2436,11 @@ land.lhs.true203:                                 ; preds = %if.else201
 land.lhs.true211:                                 ; preds = %land.lhs.true203
   %call214 = call i32 @strcasecmp(ptr noundef %add.ptr205, ptr noundef nonnull @.str.482) #24
   %cmp215 = icmp eq i32 %call214, 0
-  br i1 %cmp215, label %if.end220, label %if.else217
-
-if.else217:                                       ; preds = %if.else201, %land.lhs.true211
+  %spec.select = zext i1 %cmp215 to i32
   br label %if.end220
 
-if.end220:                                        ; preds = %land.lhs.true211, %land.lhs.true203, %if.end197, %if.else217
-  %treat_as_ogg.0 = phi i32 [ 0, %if.else217 ], [ 1, %if.end197 ], [ 1, %land.lhs.true203 ], [ 1, %land.lhs.true211 ]
+if.end220:                                        ; preds = %land.lhs.true211, %land.lhs.true203, %if.else201, %if.end197
+  %treat_as_ogg.0 = phi i32 [ 1, %if.end197 ], [ 1, %land.lhs.true203 ], [ 0, %if.else201 ], [ %spec.select, %land.lhs.true211 ]
   %47 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @option_values, i64 0, i32 38), align 8
   %skip_specification = getelementptr inbounds i8, ptr %decode_options, i64 48
   %call221 = call i32 @flac__utils_parse_skip_until_specification(ptr noundef %47, ptr noundef nonnull %skip_specification) #21

@@ -1175,7 +1175,7 @@ if.end:                                           ; preds = %if.else, %if.then
 
 declare noundef ptr @_ZNK6icu_7511Formattable9getObjectEv(ptr noundef nonnull align 8 dereferenceable(112)) local_unnamed_addr #5
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #12
 
 declare ptr @u_strcpy_75(ptr noundef, ptr noundef) local_unnamed_addr #5
@@ -1770,8 +1770,8 @@ delete.notnull.i:                                 ; preds = %cleanup.done
   call void %11(ptr noundef nonnull align 8 dereferenceable(128) %call11) #19
   br label %cleanup36
 
-cleanup36:                                        ; preds = %cleanup.thread, %delete.notnull.i, %invoke.cont2, %invoke.cont7, %cleanup.done
-  %retval.1 = phi ptr [ %call11, %cleanup.done ], [ null, %invoke.cont7 ], [ null, %invoke.cont2 ], [ null, %delete.notnull.i ], [ null, %cleanup.thread ]
+cleanup36:                                        ; preds = %cleanup.thread, %delete.notnull.i, %cleanup.done, %invoke.cont2, %invoke.cont7
+  %retval.1 = phi ptr [ null, %invoke.cont7 ], [ null, %invoke.cont2 ], [ %call11, %cleanup.done ], [ null, %delete.notnull.i ], [ null, %cleanup.thread ]
   call void @_ZN6icu_7511FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %parseResult) #19
   ret ptr %retval.1
 
@@ -4658,7 +4658,7 @@ attributes #8 = { mustprogress noreturn nounwind memory(inaccessiblemem: write) 
 attributes #9 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nounwind memory(read) }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

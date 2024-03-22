@@ -1763,7 +1763,7 @@ land.lhs.true8:                                   ; preds = %land.lhs.true
   %2 = load i8, ptr %m_wasOnGround, align 4
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %lor.lhs.false, label %if.then10
+  br i1 %tobool.not, label %lor.lhs.false, label %invoke.cont26
 
 lor.lhs.false:                                    ; preds = %land.lhs.true8
   %m_wasJumping = getelementptr inbounds i8, ptr %this, i64 277
@@ -1772,11 +1772,11 @@ lor.lhs.false:                                    ; preds = %land.lhs.true8
   %tobool9.not = icmp eq i8 %5, 0
   br i1 %tobool9.not, label %if.then10, label %invoke.cont26
 
-if.then10:                                        ; preds = %lor.lhs.false, %land.lhs.true8
+if.then10:                                        ; preds = %lor.lhs.false
   br label %invoke.cont26
 
-invoke.cont26:                                    ; preds = %if.end, %land.lhs.true, %lor.lhs.false, %if.then10
-  %downVelocity.0 = phi float [ %1, %if.then10 ], [ %mul, %lor.lhs.false ], [ %mul, %land.lhs.true ], [ %mul, %if.end ]
+invoke.cont26:                                    ; preds = %if.end, %land.lhs.true, %lor.lhs.false, %if.then10, %land.lhs.true8
+  %downVelocity.0 = phi float [ %mul, %lor.lhs.false ], [ %mul, %land.lhs.true ], [ %mul, %if.end ], [ %1, %land.lhs.true8 ], [ %1, %if.then10 ]
   %m_up = getelementptr inbounds i8, ptr %this, i64 284
   %m_currentStepOffset = getelementptr inbounds i8, ptr %this, i64 164
   %6 = load float, ptr %m_currentStepOffset, align 4

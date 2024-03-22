@@ -1110,16 +1110,16 @@ ExecParallelHashJoinOuterGetTuple.exit:           ; preds = %218
   br i1 %307, label %.thread209, label %ExecParallelHashJoinOuterGetTuple.exit.thread204
 
 ExecParallelHashJoinOuterGetTuple.exit.thread204: ; preds = %204, %302, %264, %ExecParallelHashJoinOuterGetTuple.exit
-  %.0142208 = phi ptr [ %306, %ExecParallelHashJoinOuterGetTuple.exit ], [ %283, %302 ], [ %.145.i, %264 ], [ %.03037.i, %204 ]
-  %.1197207 = phi ptr [ %.0141, %ExecParallelHashJoinOuterGetTuple.exit ], [ %.1198, %302 ], [ %.1198, %264 ], [ %.0141, %204 ]
+  %.0142208 = phi ptr [ %306, %ExecParallelHashJoinOuterGetTuple.exit ], [ %.145.i, %264 ], [ %283, %302 ], [ %.03037.i, %204 ]
+  %.1197207 = phi ptr [ %.0141, %ExecParallelHashJoinOuterGetTuple.exit ], [ %.1198, %264 ], [ %.1198, %302 ], [ %.0141, %204 ]
   %308 = getelementptr inbounds i8, ptr %.0142208, i64 4
   %309 = load i16, ptr %308, align 4
   %310 = and i16 %309, 2
   %.not163 = icmp eq i16 %310, 0
   br i1 %.not163, label %319, label %ExecParallelHashJoinOuterGetTuple.exit.thread
 
-ExecParallelHashJoinOuterGetTuple.exit.thread:    ; preds = %.lr.ph.i180, %ExecProcNode.exit40.i, %250, %271, %ExecHashJoinGetSavedTuple.exit.thread.i, %ExecHashJoinGetSavedTuple.exit.i, %302, %275, %.critedge.i, %ExecParallelHashJoinOuterGetTuple.exit.thread204
-  %.1197201 = phi ptr [ %.1197207, %ExecParallelHashJoinOuterGetTuple.exit.thread204 ], [ %.1198, %275 ], [ %.0141, %.critedge.i ], [ %.1198, %302 ], [ %.1198, %ExecHashJoinGetSavedTuple.exit.i ], [ %.1198, %ExecHashJoinGetSavedTuple.exit.thread.i ], [ %.1198, %271 ], [ %.1198, %250 ], [ %.1198, %ExecProcNode.exit40.i ], [ %.1198, %.lr.ph.i180 ]
+ExecParallelHashJoinOuterGetTuple.exit.thread:    ; preds = %ExecProcNode.exit40.i, %.lr.ph.i180, %250, %ExecHashJoinGetSavedTuple.exit.thread.i, %302, %ExecHashJoinGetSavedTuple.exit.i, %271, %275, %.critedge.i, %ExecParallelHashJoinOuterGetTuple.exit.thread204
+  %.1197201 = phi ptr [ %.1197207, %ExecParallelHashJoinOuterGetTuple.exit.thread204 ], [ %.1198, %302 ], [ %.1198, %ExecHashJoinGetSavedTuple.exit.i ], [ %.1198, %ExecHashJoinGetSavedTuple.exit.thread.i ], [ %.1198, %275 ], [ %.1198, %271 ], [ %.1198, %250 ], [ %.0141, %.critedge.i ], [ %.1198, %.lr.ph.i180 ], [ %.1198, %ExecProcNode.exit40.i ]
   %311 = load ptr, ptr %39, align 8
   %.not170 = icmp eq ptr %311, null
   br i1 %.not170, label %318, label %313

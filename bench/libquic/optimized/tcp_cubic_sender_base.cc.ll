@@ -749,7 +749,7 @@ if.end20:                                         ; preds = %if.end14
   %8 = load i8, ptr %rate_based_sending_, align 1
   %9 = and i8 %8, 1
   %tobool21.not = icmp eq i8 %9, 0
-  br i1 %tobool21.not, label %if.end30, label %land.lhs.true22
+  br i1 %tobool21.not, label %return, label %land.lhs.true22
 
 land.lhs.true22:                                  ; preds = %if.end20
   %vtable23 = load ptr, ptr %this, align 8
@@ -762,11 +762,11 @@ land.lhs.true22:                                  ; preds = %if.end20
   %cmp27 = fcmp ogt float %mul, %conv26
   br i1 %cmp27, label %return, label %if.end30
 
-if.end30:                                         ; preds = %land.lhs.true22, %if.end20
+if.end30:                                         ; preds = %land.lhs.true22
   br label %return
 
-return:                                           ; preds = %land.lhs.true22, %if.end14, %if.end, %if.end30, %if.then
-  %call13.pn = phi { i64, i64 } [ { i64 0, i64 9223372036854775807 }, %if.end30 ], [ %call8, %if.then ], [ zeroinitializer, %if.end ], [ zeroinitializer, %if.end14 ], [ zeroinitializer, %land.lhs.true22 ]
+return:                                           ; preds = %if.end20, %land.lhs.true22, %if.end14, %if.end, %if.end30, %if.then
+  %call13.pn = phi { i64, i64 } [ %call8, %if.then ], [ zeroinitializer, %if.end ], [ zeroinitializer, %if.end14 ], [ zeroinitializer, %land.lhs.true22 ], [ { i64 0, i64 9223372036854775807 }, %if.end20 ], [ { i64 0, i64 9223372036854775807 }, %if.end30 ]
   ret { i64, i64 } %call13.pn
 }
 

@@ -1241,18 +1241,14 @@ do.body6:                                         ; preds = %if.then, %entry
   %dict = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load ptr, ptr %dict, align 8
   %tobool7.not = icmp eq ptr %1, null
-  br i1 %tobool7.not, label %do.end16, label %if.then8
+  br i1 %tobool7.not, label %return, label %if.then8
 
 if.then8:                                         ; preds = %do.body6
   %call11 = tail call i32 %visit(ptr noundef nonnull %1, ptr noundef %arg) #10
-  %tobool12.not = icmp eq i32 %call11, 0
-  br i1 %tobool12.not, label %do.end16, label %return
-
-do.end16:                                         ; preds = %do.body6, %if.then8
   br label %return
 
-return:                                           ; preds = %if.then8, %if.then, %do.end16
-  %retval.0 = phi i32 [ 0, %do.end16 ], [ %call2, %if.then ], [ %call11, %if.then8 ]
+return:                                           ; preds = %if.then8, %do.body6, %if.then
+  %retval.0 = phi i32 [ %call2, %if.then ], [ 0, %do.body6 ], [ %call11, %if.then8 ]
   ret i32 %retval.0
 }
 

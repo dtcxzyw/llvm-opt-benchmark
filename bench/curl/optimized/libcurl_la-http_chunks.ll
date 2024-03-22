@@ -487,13 +487,13 @@ sw.epilog:                                        ; preds = %if.end197, %if.end1
   %blen.addr.2 = phi i64 [ %blen.addr.0172, %while.body ], [ %blen.addr.0172, %if.then239 ], [ %blen.addr.1, %if.end241 ], [ %dec226, %if.then223 ], [ %blen.addr.0172, %if.end197 ], [ %dec218, %if.end216 ], [ %blen.addr.0172, %if.else205 ], [ %dec154, %if.end152 ], [ %sub127, %if.then131 ], [ %sub127, %if.end125 ], [ %dec91, %if.end89 ], [ %dec, %if.end49 ], [ %blen.addr.0172, %if.end73 ]
   %buf.addr.2 = phi ptr [ %buf.addr.0173, %while.body ], [ %buf.addr.0173, %if.then239 ], [ %buf.addr.1, %if.end241 ], [ %incdec.ptr225, %if.then223 ], [ %buf.addr.0173, %if.end197 ], [ %incdec.ptr217, %if.end216 ], [ %buf.addr.0173, %if.else205 ], [ %incdec.ptr153, %if.end152 ], [ %add.ptr, %if.then131 ], [ %add.ptr, %if.end125 ], [ %incdec.ptr90, %if.end89 ], [ %incdec.ptr, %if.end49 ], [ %buf.addr.0173, %if.end73 ]
   %tobool19.not = icmp eq i64 %blen.addr.2, 0
-  br i1 %tobool19.not, label %return.loopexit, label %while.body, !llvm.loop !4
+  br i1 %tobool19.not, label %return, label %while.body, !llvm.loop !4
 
-return.loopexit:                                  ; preds = %sw.epilog, %while.body
+return.loopexit:                                  ; preds = %while.body
   br label %return
 
-return:                                           ; preds = %while.body, %return.loopexit, %if.end18, %entry, %if.else258, %if.then254, %if.else227, %if.then212, %if.then193, %if.then170, %if.then148, %if.then121, %if.then68, %if.then56, %if.then46, %if.then15, %if.then3
-  %retval.0 = phi i32 [ 56, %if.then3 ], [ 0, %if.then254 ], [ 56, %if.else258 ], [ 56, %if.else227 ], [ %call168, %if.then170 ], [ %result.2, %if.then193 ], [ %call210, %if.then212 ], [ 56, %if.then148 ], [ %result.1, %if.then121 ], [ 56, %if.then46 ], [ 56, %if.then56 ], [ 56, %if.then68 ], [ %result.0, %if.then15 ], [ 0, %entry ], [ 0, %if.end18 ], [ 0, %return.loopexit ], [ 56, %while.body ]
+return:                                           ; preds = %sw.epilog, %while.body, %return.loopexit, %if.end18, %entry, %if.else258, %if.then254, %if.else227, %if.then212, %if.then193, %if.then170, %if.then148, %if.then121, %if.then68, %if.then56, %if.then46, %if.then15, %if.then3
+  %retval.0 = phi i32 [ 56, %if.then3 ], [ 0, %if.then254 ], [ 56, %if.else258 ], [ 56, %if.else227 ], [ %call168, %if.then170 ], [ %result.2, %if.then193 ], [ %call210, %if.then212 ], [ 56, %if.then148 ], [ %result.1, %if.then121 ], [ 56, %if.then46 ], [ 56, %if.then56 ], [ 56, %if.then68 ], [ %result.0, %if.then15 ], [ 0, %entry ], [ 0, %if.end18 ], [ 56, %while.body ], [ 0, %sw.epilog ], [ 0, %return.loopexit ]
   ret i32 %retval.0
 }
 

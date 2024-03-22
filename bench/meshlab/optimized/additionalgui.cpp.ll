@@ -969,7 +969,8 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i: ; preds = %_ZN9QtPrivate8Re
   %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %145, %144 ]
   %148 = load ptr, ptr %.2.i.i.i.i.i, align 8
   %149 = icmp eq ptr %148, %147
-  br i1 %149, label %.loopexit75, label %.thread
+  %spec.select.i.i.i.i.i = select i1 %149, ptr %.2.i.i.i.i.i, ptr %106
+  br label %.loopexit75
 
 .loopexit75.loopexit.split.loop.exit:             ; preds = %125
   %150 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 24
@@ -984,11 +985,11 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i: ; preds = %_ZN9QtPrivate8Re
   br label %.loopexit75
 
 .loopexit75:                                      ; preds = %114, %.loopexit75.loopexit.split.loop.exit, %.loopexit75.loopexit.split.loop.exit106, %.loopexit75.loopexit.split.loop.exit108, %146, %140, %134
-  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %134 ], [ %.1.i.i.i.i.i, %140 ], [ %.2.i.i.i.i.i, %146 ], [ %150, %.loopexit75.loopexit.split.loop.exit ], [ %151, %.loopexit75.loopexit.split.loop.exit106 ], [ %152, %.loopexit75.loopexit.split.loop.exit108 ], [ %.02946.i.i.i.i.i, %114 ]
+  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %134 ], [ %.1.i.i.i.i.i, %140 ], [ %spec.select.i.i.i.i.i, %146 ], [ %150, %.loopexit75.loopexit.split.loop.exit ], [ %151, %.loopexit75.loopexit.split.loop.exit106 ], [ %152, %.loopexit75.loopexit.split.loop.exit108 ], [ %.02946.i.i.i.i.i, %114 ]
   %.not74 = icmp eq ptr %.028.i.i.i.i.i, %106
   br i1 %.not74, label %.thread, label %_ZN5QListIP7QActionE9push_backERKS1_.exit
 
-.thread:                                          ; preds = %146, %._crit_edge.i.i.i.i.i, %.loopexit75, %95
+.thread:                                          ; preds = %._crit_edge.i.i.i.i.i, %.loopexit75, %95
   invoke void @_ZN5QListIP7QActionE6appendERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %_ZN5QListIP7QActionE9push_backERKS1_.exit unwind label %.loopexit.split-lp.loopexit
 

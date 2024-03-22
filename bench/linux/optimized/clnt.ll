@@ -4757,13 +4757,13 @@ define internal void @call_refreshresult(ptr noundef %0) #0 align 16 {
 
 9:                                                ; preds = %5, %1
   tail call void @rpc_delay(ptr noundef %0, i64 noundef 3000) #20
-  br label %10
-
-10:                                               ; preds = %9, %1
   br label %11
 
-11:                                               ; preds = %10, %1
-  %12 = phi i32 [ %3, %1 ], [ -13, %10 ]
+10:                                               ; preds = %1
+  br label %11
+
+11:                                               ; preds = %9, %10, %1
+  %12 = phi i32 [ %3, %1 ], [ -13, %9 ], [ -13, %10 ]
   %13 = getelementptr inbounds i8, ptr %0, i64 222
   %14 = load i8, ptr %13, align 2
   %15 = and i8 %14, 48

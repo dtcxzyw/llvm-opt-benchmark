@@ -65,8 +65,8 @@ define dso_local ptr @hdac_get_device_id(ptr nocapture noundef readonly %0, ptr 
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %.loopexit, label %13, !llvm.loop !5
 
-.loopexit:                                        ; preds = %24, %17, %21, %2, %6
-  %28 = phi ptr [ null, %6 ], [ null, %2 ], [ null, %24 ], [ %15, %17 ], [ %15, %21 ]
+.loopexit:                                        ; preds = %17, %21, %24, %2, %6
+  %28 = phi ptr [ null, %6 ], [ null, %2 ], [ %15, %17 ], [ %15, %21 ], [ null, %24 ]
   ret ptr %28
 }
 
@@ -140,8 +140,8 @@ define internal i32 @hda_bus_match(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %42 = zext i1 %41 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %36, %40, %18, %14, %12, %2
-  %43 = phi i32 [ %13, %12 ], [ 0, %2 ], [ %42, %40 ], [ 0, %18 ], [ 0, %14 ], [ 0, %36 ]
+.loopexit:                                        ; preds = %36, %18, %14, %40, %12, %2
+  %43 = phi i32 [ %13, %12 ], [ 0, %2 ], [ 0, %18 ], [ 0, %14 ], [ %42, %40 ], [ 0, %36 ]
   ret i32 %43
 }
 

@@ -2514,8 +2514,8 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %29 = fcmp ogt double %27, %28
   br i1 %29, label %tailrecurse.backedge, label %31
 
-tailrecurse.backedge:                             ; preds = %26, %16, %is_left_of.exit99, %171, %180, %196, %204, %is_left_of.exit, %106, %115, %132, %140, %86, %31, %35, %46, %41, %49, %is_left_of.exit.thread105, %is_left_of.exit99.thread113
-  %.sink = phi i64 [ 32, %49 ], [ 36, %is_left_of.exit.thread105 ], [ 36, %is_left_of.exit99.thread113 ], [ 36, %41 ], [ 36, %46 ], [ 32, %35 ], [ 32, %31 ], [ %., %86 ], [ 32, %140 ], [ 32, %132 ], [ 32, %115 ], [ 32, %106 ], [ 32, %is_left_of.exit ], [ 32, %204 ], [ 32, %196 ], [ 32, %180 ], [ 32, %171 ], [ 32, %is_left_of.exit99 ], [ 36, %16 ], [ 36, %26 ]
+tailrecurse.backedge:                             ; preds = %26, %16, %is_left_of.exit99, %171, %180, %196, %204, %is_left_of.exit, %106, %115, %132, %140, %86, %31, %35, %44, %46, %41, %49, %is_left_of.exit.thread105, %is_left_of.exit99.thread113
+  %.sink = phi i64 [ 36, %is_left_of.exit.thread105 ], [ 36, %is_left_of.exit99.thread113 ], [ 36, %41 ], [ 36, %46 ], [ 32, %44 ], [ 32, %49 ], [ 32, %35 ], [ 32, %31 ], [ %., %86 ], [ 32, %140 ], [ 32, %132 ], [ 32, %115 ], [ 32, %106 ], [ 32, %is_left_of.exit ], [ 32, %204 ], [ 32, %196 ], [ 32, %180 ], [ 32, %171 ], [ 32, %is_left_of.exit99 ], [ 36, %16 ], [ 36, %26 ]
   %30 = getelementptr inbounds i8, ptr %11, i64 %.sink
   %.tr116.be = load i32, ptr %30, align 4
   br label %tailrecurse
@@ -2541,14 +2541,14 @@ tailrecurse.backedge:                             ; preds = %26, %16, %is_left_o
 
 44:                                               ; preds = %41
   %45 = fcmp olt double %42, %24
-  br i1 %45, label %49, label %46
+  br i1 %45, label %tailrecurse.backedge, label %46
 
 46:                                               ; preds = %44
   %47 = load double, ptr %1, align 8
   %48 = fcmp ogt double %47, %37
   br i1 %48, label %tailrecurse.backedge, label %49
 
-49:                                               ; preds = %44, %46
+49:                                               ; preds = %46
   br label %tailrecurse.backedge
 
 50:                                               ; preds = %tailrecurse

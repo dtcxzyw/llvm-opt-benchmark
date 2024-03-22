@@ -574,18 +574,14 @@ do.body17:                                        ; preds = %if.then8, %do.body6
   %description = getelementptr inbounds i8, ptr %self, i64 24
   %2 = load ptr, ptr %description, align 8
   %tobool18.not = icmp eq ptr %2, null
-  br i1 %tobool18.not, label %do.end27, label %if.then19
+  br i1 %tobool18.not, label %return, label %if.then19
 
 if.then19:                                        ; preds = %do.body17
   %call22 = tail call i32 %visit(ptr noundef nonnull %2, ptr noundef %arg) #3
-  %tobool23.not = icmp eq i32 %call22, 0
-  br i1 %tobool23.not, label %do.end27, label %return
-
-do.end27:                                         ; preds = %do.body17, %if.then19
   br label %return
 
-return:                                           ; preds = %if.then19, %if.then8, %if.then, %do.end27
-  %retval.0 = phi i32 [ 0, %do.end27 ], [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ]
+return:                                           ; preds = %if.then19, %do.body17, %if.then8, %if.then
+  %retval.0 = phi i32 [ %call2, %if.then ], [ %call11, %if.then8 ], [ 0, %do.body17 ], [ %call22, %if.then19 ]
   ret i32 %retval.0
 }
 

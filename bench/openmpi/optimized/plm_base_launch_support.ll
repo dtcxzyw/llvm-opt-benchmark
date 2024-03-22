@@ -9967,7 +9967,7 @@ pmix_list_remove_first.exit623.thread:            ; preds = %.backedge, %942, %9
   %1163 = getelementptr inbounds i8, ptr %42, i64 144
   %1164 = load i32, ptr %1163, align 8
   %1165 = icmp sgt i32 %1164, 0
-  br i1 %1165, label %1166, label %1170
+  br i1 %1165, label %1166, label %.loopexit662
 
 1166:                                             ; preds = %1159
   %1167 = call i32 @prte_set_attribute(ptr noundef nonnull %43, i16 noundef zeroext 235, i1 noundef zeroext true, ptr noundef null, i16 noundef zeroext 1) #15
@@ -9981,11 +9981,11 @@ pmix_list_remove_first.exit623.thread:            ; preds = %.backedge, %942, %9
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef %1169, ptr noundef nonnull @.str.7, i32 noundef 2676) #15
   br label %.loopexit662
 
-1170:                                             ; preds = %1166, %1159
+1170:                                             ; preds = %1166
   br label %.loopexit662
 
-.loopexit662:                                     ; preds = %464, %818, %1168, %1166, %1089, %1088, %1056, %1071, %1070, %820, %467, %1170, %pmix_obj_new_tma.exit640.thread, %pmix_obj_run_destructors.exit621, %pmix_pointer_array_get_item.exit603.thread, %pmix_obj_run_destructors.exit600, %pmix_obj_run_destructors.exit592, %.loopexit667, %.loopexit668, %405, %pmix_pointer_array_get_item.exit558.thread, %319, %pmix_obj_run_destructors.exit555, %pmix_pointer_array_get_item.exit550.thread, %pmix_obj_run_destructors.exit, %pmix_pointer_array_get_item.exit.thread, %45, %17
-  %.0416 = phi i32 [ -13, %17 ], [ 0, %45 ], [ 0, %pmix_obj_run_destructors.exit600 ], [ -13, %pmix_pointer_array_get_item.exit603.thread ], [ 0, %pmix_obj_run_destructors.exit621 ], [ 0, %1170 ], [ -2, %pmix_obj_new_tma.exit640.thread ], [ -13, %pmix_pointer_array_get_item.exit550.thread ], [ 0, %pmix_obj_run_destructors.exit555 ], [ -6, %319 ], [ -13, %pmix_pointer_array_get_item.exit558.thread ], [ %402, %405 ], [ 0, %pmix_obj_run_destructors.exit592 ], [ %429, %.loopexit668 ], [ %447, %.loopexit667 ], [ -13, %pmix_pointer_array_get_item.exit.thread ], [ 0, %pmix_obj_run_destructors.exit ], [ %466, %467 ], [ %819, %820 ], [ -2, %1070 ], [ -2, %1071 ], [ -2, %1056 ], [ -43, %1088 ], [ %1086, %1089 ], [ %1167, %1166 ], [ %1167, %1168 ], [ %819, %818 ], [ %466, %464 ]
+.loopexit662:                                     ; preds = %464, %818, %1159, %1168, %1166, %1089, %1088, %1056, %1071, %1070, %820, %467, %1170, %pmix_obj_new_tma.exit640.thread, %pmix_obj_run_destructors.exit621, %pmix_pointer_array_get_item.exit603.thread, %pmix_obj_run_destructors.exit600, %pmix_obj_run_destructors.exit592, %.loopexit667, %.loopexit668, %405, %pmix_pointer_array_get_item.exit558.thread, %319, %pmix_obj_run_destructors.exit555, %pmix_pointer_array_get_item.exit550.thread, %pmix_obj_run_destructors.exit, %pmix_pointer_array_get_item.exit.thread, %45, %17
+  %.0416 = phi i32 [ -13, %17 ], [ 0, %45 ], [ 0, %pmix_obj_run_destructors.exit600 ], [ -13, %pmix_pointer_array_get_item.exit603.thread ], [ 0, %pmix_obj_run_destructors.exit621 ], [ -2, %pmix_obj_new_tma.exit640.thread ], [ -13, %pmix_pointer_array_get_item.exit550.thread ], [ 0, %pmix_obj_run_destructors.exit555 ], [ -6, %319 ], [ -13, %pmix_pointer_array_get_item.exit558.thread ], [ %402, %405 ], [ 0, %pmix_obj_run_destructors.exit592 ], [ %429, %.loopexit668 ], [ %447, %.loopexit667 ], [ -13, %pmix_pointer_array_get_item.exit.thread ], [ 0, %pmix_obj_run_destructors.exit ], [ %466, %467 ], [ %819, %820 ], [ -2, %1070 ], [ -2, %1071 ], [ -2, %1056 ], [ -43, %1088 ], [ %1086, %1089 ], [ %1167, %1166 ], [ %1167, %1168 ], [ 0, %1159 ], [ 0, %1170 ], [ %819, %818 ], [ %466, %464 ]
   ret i32 %.0416
 }
 

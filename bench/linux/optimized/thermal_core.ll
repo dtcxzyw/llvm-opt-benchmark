@@ -3224,7 +3224,7 @@ define dso_local ptr @thermal_zone_get_zone_by_name(ptr noundef readonly %0) #1 
 
 .thread:                                          ; preds = %3
   tail call void @mutex_unlock(ptr noundef nonnull @thermal_list_lock) #19
-  br label %19
+  br label %21
 
 .preheader:                                       ; preds = %3, %.preheader
   %6 = phi ptr [ %16, %.preheader ], [ %4, %3 ]
@@ -3248,14 +3248,14 @@ define dso_local ptr @thermal_zone_get_zone_by_name(ptr noundef readonly %0) #1 
     i32 1, label %21
   ]
 
-19:                                               ; preds = %.thread, %18
+19:                                               ; preds = %18
   br label %21
 
 20:                                               ; preds = %18
   br label %21
 
-21:                                               ; preds = %20, %19, %18, %1
-  %22 = phi ptr [ inttoptr (i64 -19 to ptr), %19 ], [ inttoptr (i64 -17 to ptr), %20 ], [ inttoptr (i64 -22 to ptr), %1 ], [ %15, %18 ]
+21:                                               ; preds = %.thread, %20, %19, %18, %1
+  %22 = phi ptr [ inttoptr (i64 -17 to ptr), %20 ], [ inttoptr (i64 -22 to ptr), %1 ], [ %15, %18 ], [ inttoptr (i64 -19 to ptr), %.thread ], [ inttoptr (i64 -19 to ptr), %19 ]
   ret ptr %22
 }
 

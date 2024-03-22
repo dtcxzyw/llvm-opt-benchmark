@@ -2230,7 +2230,7 @@ Vec_IntPush.exit123:                              ; preds = %.Vec_IntGrow.exit10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge2, %48, %.loopexit.loopexit, %.critedge4
-  %.0 = phi i32 [ 1, %.critedge4 ], [ %56, %.loopexit.loopexit ], [ -1, %48 ], [ -1, %.critedge2 ]
+  %.0 = phi i32 [ 1, %.critedge4 ], [ -1, %48 ], [ -1, %.critedge2 ], [ %56, %.loopexit.loopexit ]
   ret i32 %.0
 }
 

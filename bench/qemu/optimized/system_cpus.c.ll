@@ -648,18 +648,15 @@ if.end:                                           ; preds = %entry
   %2 = load i8, ptr %stopped.i, align 1
   %3 = and i8 %2, 1
   %tobool.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i, label %cpu_is_stopped.exit, label %cpu_is_stopped.exit.thread
+  br i1 %tobool.not.i, label %cpu_is_stopped.exit, label %return
 
 cpu_is_stopped.exit:                              ; preds = %if.end
   %call.i = tail call zeroext i1 @runstate_is_running() #15
   %call.i.fr = freeze i1 %call.i
-  br i1 %call.i.fr, label %return, label %cpu_is_stopped.exit.thread
-
-cpu_is_stopped.exit.thread:                       ; preds = %if.end, %cpu_is_stopped.exit
   br label %return
 
-return:                                           ; preds = %cpu_is_stopped.exit.thread, %cpu_is_stopped.exit, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %cpu_is_stopped.exit.thread ], [ true, %cpu_is_stopped.exit ]
+return:                                           ; preds = %cpu_is_stopped.exit, %if.end, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ %call.i.fr, %cpu_is_stopped.exit ]
   ret i1 %retval.0
 }
 

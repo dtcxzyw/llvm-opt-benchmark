@@ -36,7 +36,7 @@ land.lhs.true:                                    ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 24
   %call = call i32 @luaO_str2d(ptr noundef nonnull %add.ptr, ptr noundef nonnull %num) #9
   %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.else, label %if.then3
+  br i1 %tobool.not, label %cleanup, label %if.then3
 
 if.then3:                                         ; preds = %land.lhs.true
   %2 = load double, ptr %num, align 8, !tbaa !10
@@ -45,11 +45,11 @@ if.then3:                                         ; preds = %land.lhs.true
   store i32 3, ptr %tt5, align 8, !tbaa !4
   br label %cleanup
 
-if.else:                                          ; preds = %land.lhs.true, %entry
+if.else:                                          ; preds = %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %if.else, %if.then3, %entry
-  %retval.0 = phi ptr [ %n, %if.then3 ], [ null, %if.else ], [ %obj, %entry ]
+cleanup:                                          ; preds = %land.lhs.true, %if.else, %if.then3, %entry
+  %retval.0 = phi ptr [ %n, %if.then3 ], [ %obj, %entry ], [ null, %land.lhs.true ], [ null, %if.else ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %num) #9
   ret ptr %retval.0
 }

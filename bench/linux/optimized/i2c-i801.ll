@@ -1602,8 +1602,8 @@ define internal i32 @i801_access(ptr nocapture noundef readonly %0, i16 noundef 
   %cond = icmp eq i32 %5, 5
   br i1 %cond, label %.thread29, label %.thread23
 
-.thread29:                                        ; preds = %.thread14, %184, %.thread16
-  %185 = phi i32 [ 28, %.thread16 ], [ 20, %184 ], [ 20, %.thread14 ]
+.thread29:                                        ; preds = %184, %.thread14, %.thread16
+  %185 = phi i32 [ 28, %.thread16 ], [ 20, %.thread14 ], [ 20, %184 ]
   %186 = load i64, ptr %19, align 8
   %187 = trunc i64 %186 to i16
   %188 = add i16 %187, 13

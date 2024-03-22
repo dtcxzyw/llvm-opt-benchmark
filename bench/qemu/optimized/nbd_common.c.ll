@@ -378,7 +378,7 @@ entry:
     i32 75, label %sw.epilog
     i32 95, label %sw.epilog
     i32 108, label %sw.epilog
-    i32 22, label %sw.bb8
+    i32 22, label %sw.epilog
   ]
 
 sw.default:                                       ; preds = %entry
@@ -417,13 +417,10 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_nbd_unknown_error.exit:                     ; preds = %sw.default, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  br label %sw.bb8
-
-sw.bb8:                                           ; preds = %trace_nbd_unknown_error.exit, %entry
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %sw.bb8
-  %ret.0 = phi i32 [ 22, %sw.bb8 ], [ %err, %entry ], [ %err, %entry ], [ %err, %entry ], [ %err, %entry ], [ %err, %entry ], [ %err, %entry ], [ %err, %entry ], [ %err, %entry ]
+sw.epilog:                                        ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %trace_nbd_unknown_error.exit, %entry
+  %ret.0 = phi i32 [ %err, %entry ], [ 22, %trace_nbd_unknown_error.exit ], [ %err, %entry ], [ %err, %entry ], [ %err, %entry ], [ %err, %entry ], [ %err, %entry ], [ %err, %entry ], [ %err, %entry ], [ %err, %entry ]
   ret i32 %ret.0
 }
 

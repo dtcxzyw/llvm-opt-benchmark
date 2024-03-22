@@ -747,14 +747,11 @@ cond.true:                                        ; preds = %sw.bb
 
 land.rhs.i:                                       ; preds = %cond.true
   %cmp.i2.i.i = icmp eq i64 %value.coerce0, 0
-  br i1 %cmp.i2.i.i, label %if.then.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
+  br i1 %cmp.i2.i.i, label %return, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %land.rhs.i
   %bcmp.i = tail call i32 @bcmp(ptr %value.coerce1, ptr %4, i64 %value.coerce0)
   %cmp.i.i = icmp eq i32 %bcmp.i, 0
-  br i1 %cmp.i.i, label %if.then.i.i, label %return
-
-if.then.i.i:                                      ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %land.rhs.i
   br label %return
 
 cond.false:                                       ; preds = %sw.bb
@@ -1003,8 +1000,8 @@ ehcleanup:                                        ; preds = %lpad78, %lpad76
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp75) #13
   br label %eh.resume
 
-return:                                           ; preds = %cond.true46, %if.end.i.i.i, %land.rhs.i9, %lor.rhs.i7, %cond.true29, %land.rhs.i4, %lor.rhs.i, %cond.true12, %if.then.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %cond.true, %cond.end64, %entry, %cond.false35, %cond.false18, %cond.false, %cleanup.action, %invoke.cont81
-  %retval.0 = phi i1 [ %call.i.i42, %invoke.cont81 ], [ %cond6552, %cleanup.action ], [ %call8, %cond.false ], [ %call23, %cond.false18 ], [ %call40, %cond.false35 ], [ false, %entry ], [ %cond65, %cond.end64 ], [ false, %cond.true ], [ true, %if.then.i.i ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ true, %cond.true12 ], [ false, %lor.rhs.i ], [ %cmp7.i, %land.rhs.i4 ], [ true, %cond.true29 ], [ false, %lor.rhs.i7 ], [ %cmp9.i, %land.rhs.i9 ], [ true, %cond.true46 ], [ false, %if.end.i.i.i ]
+return:                                           ; preds = %cond.true46, %if.end.i.i.i, %land.rhs.i9, %lor.rhs.i7, %cond.true29, %land.rhs.i4, %lor.rhs.i, %cond.true12, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %land.rhs.i, %cond.true, %cond.end64, %entry, %cond.false35, %cond.false18, %cond.false, %cleanup.action, %invoke.cont81
+  %retval.0 = phi i1 [ %call.i.i42, %invoke.cont81 ], [ %cond6552, %cleanup.action ], [ %call8, %cond.false ], [ %call23, %cond.false18 ], [ %call40, %cond.false35 ], [ false, %entry ], [ %cond65, %cond.end64 ], [ false, %cond.true ], [ true, %land.rhs.i ], [ %cmp.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ true, %cond.true12 ], [ false, %lor.rhs.i ], [ %cmp7.i, %land.rhs.i4 ], [ true, %cond.true29 ], [ false, %lor.rhs.i7 ], [ %cmp9.i, %land.rhs.i9 ], [ true, %cond.true46 ], [ false, %if.end.i.i.i ]
   ret i1 %retval.0
 
 eh.resume:                                        ; preds = %lpad, %ehcleanup

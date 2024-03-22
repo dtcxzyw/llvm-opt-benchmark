@@ -1002,8 +1002,8 @@ sw.epilog.i.i:                                    ; preds = %if.end15.i.i58.i.i,
 host_to_target_nlmsg_route.exit.loopexit:         ; preds = %if.end.i.i
   br label %host_to_target_nlmsg_route.exit
 
-host_to_target_nlmsg_route.exit:                  ; preds = %while.body.i.i, %if.end.i.i, %if.end.i.i, %sw.epilog.i.i, %host_to_target_nlmsg_route.exit.loopexit, %entry
-  %47 = phi i64 [ %len, %entry ], [ -22, %host_to_target_nlmsg_route.exit.loopexit ], [ %len, %sw.epilog.i.i ], [ %len, %if.end.i.i ], [ %len, %if.end.i.i ], [ %len, %while.body.i.i ]
+host_to_target_nlmsg_route.exit:                  ; preds = %while.body.i.i, %sw.epilog.i.i, %if.end.i.i, %if.end.i.i, %host_to_target_nlmsg_route.exit.loopexit, %entry
+  %47 = phi i64 [ %len, %entry ], [ %len, %if.end.i.i ], [ %len, %if.end.i.i ], [ %len, %while.body.i.i ], [ %len, %sw.epilog.i.i ], [ -22, %host_to_target_nlmsg_route.exit.loopexit ]
   ret i64 %47
 }
 
@@ -1330,8 +1330,8 @@ sw.epilog.i.i:                                    ; preds = %sw.default.sw.epilo
 target_to_host_nlmsg_route.exit.loopexit:         ; preds = %if.end.i.i
   br label %target_to_host_nlmsg_route.exit
 
-target_to_host_nlmsg_route.exit:                  ; preds = %while.body.i.i, %if.end.i.i, %if.end.i.i, %sw.epilog.i.i, %target_to_host_nlmsg_route.exit.loopexit, %entry
-  %25 = phi i64 [ %len, %entry ], [ -95, %target_to_host_nlmsg_route.exit.loopexit ], [ %len, %sw.epilog.i.i ], [ %len, %if.end.i.i ], [ %len, %if.end.i.i ], [ %len, %while.body.i.i ]
+target_to_host_nlmsg_route.exit:                  ; preds = %while.body.i.i, %sw.epilog.i.i, %if.end.i.i, %if.end.i.i, %target_to_host_nlmsg_route.exit.loopexit, %entry
+  %25 = phi i64 [ %len, %entry ], [ %len, %if.end.i.i ], [ %len, %if.end.i.i ], [ %len, %while.body.i.i ], [ %len, %sw.epilog.i.i ], [ -95, %target_to_host_nlmsg_route.exit.loopexit ]
   ret i64 %25
 }
 

@@ -16758,14 +16758,12 @@ invoke.cont164.i:                                 ; preds = %invoke.cont162.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp154.i) #22
   %186 = load i64, ptr %second.i, align 8, !tbaa !518
   %cmp169.not.i = icmp eq i64 %186, %i117.01424.i
-  br i1 %cmp169.not.i, label %lor.lhs.false.i, label %if.then173.i
+  br i1 %cmp169.not.i, label %lor.lhs.false.i, label %if.end174.i
 
 lor.lhs.false.i:                                  ; preds = %invoke.cont164.i
   %187 = load i64, ptr %second161.i, align 8, !tbaa !518
   %cmp172.not.i = icmp eq i64 %187, %i117.01424.i
-  br i1 %cmp172.not.i, label %if.end174.i, label %if.then173.i
-
-if.then173.i:                                     ; preds = %lor.lhs.false.i, %invoke.cont164.i
+  %spec.select = select i1 %cmp172.not.i, i8 %need_reorder.01423.i, i8 1
   br label %if.end174.i
 
 lpad123.loopexit.i:                               ; preds = %for.body.i.i713.i
@@ -16809,8 +16807,8 @@ lpad156.i:                                        ; preds = %invoke.cont162.i, %
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp154.i) #22
   br label %ehcleanup223.i
 
-if.end174.i:                                      ; preds = %if.then173.i, %lor.lhs.false.i
-  %need_reorder.1.i = phi i8 [ 1, %if.then173.i ], [ %need_reorder.01423.i, %lor.lhs.false.i ]
+if.end174.i:                                      ; preds = %lor.lhs.false.i, %invoke.cont164.i
+  %need_reorder.1.i = phi i8 [ 1, %invoke.cont164.i ], [ %spec.select, %lor.lhs.false.i ]
   %call179.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorImLb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %left_reorder_idx.i, i64 noundef %186)
           to label %invoke.cont178.i unwind label %lpad177.i
 

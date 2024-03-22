@@ -1924,8 +1924,8 @@ define internal fastcc noundef zeroext i1 @sg_miter_get_next_page(ptr nocapture 
   store i32 %66, ptr %2, align 4
   br label %.critedge
 
-.critedge:                                        ; preds = %45, %.thread, %10, %5, %1, %51
-  %67 = phi i1 [ true, %51 ], [ true, %1 ], [ false, %5 ], [ false, %10 ], [ false, %.thread ], [ false, %45 ]
+.critedge:                                        ; preds = %45, %.thread, %10, %5, %51, %1
+  %67 = phi i1 [ true, %1 ], [ true, %51 ], [ false, %5 ], [ false, %10 ], [ false, %.thread ], [ false, %45 ]
   ret i1 %67
 }
 

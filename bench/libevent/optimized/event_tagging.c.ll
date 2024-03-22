@@ -1240,8 +1240,8 @@ decode_int_internal.exit:                         ; preds = %while.body.i6
   store i32 %number.1.i, ptr %plength, align 4
   br label %return
 
-return:                                           ; preds = %while.cond.i, %if.then4.i, %decode_tag_internal.exit, %if.end.i, %lor.lhs.false.i, %if.end5.i, %if.end16.i, %decode_int_internal.exit, %entry
-  %retval.0 = phi i32 [ 0, %decode_int_internal.exit ], [ -1, %entry ], [ -1, %if.end16.i ], [ -1, %if.end5.i ], [ -1, %lor.lhs.false.i ], [ -1, %if.end.i ], [ -1, %decode_tag_internal.exit ], [ -1, %if.then4.i ], [ -1, %while.cond.i ]
+return:                                           ; preds = %while.cond.i, %if.then4.i, %decode_int_internal.exit, %if.end16.i, %if.end5.i, %lor.lhs.false.i, %if.end.i, %decode_tag_internal.exit, %entry
+  %retval.0 = phi i32 [ -1, %entry ], [ -1, %decode_tag_internal.exit ], [ -1, %if.end.i ], [ -1, %lor.lhs.false.i ], [ -1, %if.end5.i ], [ -1, %if.end16.i ], [ 0, %decode_int_internal.exit ], [ -1, %if.then4.i ], [ -1, %while.cond.i ]
   ret i32 %retval.0
 }
 

@@ -173,7 +173,7 @@ if.then.i.i:                                      ; preds = %entry
   br label %ParseAlias.exit.i
 
 ParseAlias.exit.i:                                ; preds = %if.then.i.i, %entry
-  %retval.0.i.i = phi i32 [ %2, %if.then.i.i ], [ 0, %entry ]
+  %retval.0.i.i = phi i32 [ 0, %entry ], [ %2, %if.then.i.i ]
   %cmp795.i = icmp sgt i32 %argc, 1
   br i1 %cmp795.i, label %for.body.i, label %for.end559.i
 
@@ -2082,7 +2082,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %4 = phi i32 [ %inc8, %while.body ], [ %inc, %while.cond.preheader ]
   %inc8 = add nsw i32 %4, 1
   store i32 %inc8, ptr %iterator, align 8
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %5 = trunc i64 %indvars.iv.next to i32
   store i32 %5, ptr %ignore, align 4
   %arrayidx = getelementptr inbounds [20 x i32], ptr %not_input_indices, i64 0, i64 %indvars.iv.next
