@@ -5003,7 +5003,7 @@ define dso_local noundef zeroext i1 @_ZNK5Catch6Approx22equalityComparisonImplEd
   %9 = fadd double %6, %1
   %10 = fcmp oge double %9, %4
   %11 = and i1 %8, %10
-  br i1 %11, label %27, label %12
+  br i1 %11, label %26, label %12
 
 12:                                               ; preds = %2
   %13 = load double, ptr %0, align 8
@@ -5011,20 +5011,19 @@ define dso_local noundef zeroext i1 @_ZNK5Catch6Approx22equalityComparisonImplEd
   %15 = load double, ptr %14, align 8
   %16 = tail call double @llvm.fabs.f64(double %4)
   %17 = fcmp oeq double %16, 0x7FF0000000000000
-  %18 = select i1 %17, double 0.000000e+00, double %4
-  %19 = tail call double @llvm.fabs.f64(double %18)
-  %20 = fadd double %19, %15
-  %21 = fmul double %13, %20
-  %22 = fadd double %4, %21
-  %23 = fcmp oge double %22, %1
-  %24 = fadd double %21, %1
-  %25 = fcmp oge double %24, %4
-  %26 = and i1 %23, %25
-  br label %27
+  %18 = select i1 %17, double 0.000000e+00, double %16
+  %19 = fadd double %18, %15
+  %20 = fmul double %13, %19
+  %21 = fadd double %4, %20
+  %22 = fcmp oge double %21, %1
+  %23 = fadd double %20, %1
+  %24 = fcmp oge double %23, %4
+  %25 = and i1 %22, %24
+  br label %26
 
-27:                                               ; preds = %12, %2
-  %28 = phi i1 [ true, %2 ], [ %26, %12 ]
-  ret i1 %28
+26:                                               ; preds = %12, %2
+  %27 = phi i1 [ true, %2 ], [ %25, %12 ]
+  ret i1 %27
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
