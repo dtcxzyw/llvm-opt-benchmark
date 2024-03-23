@@ -1669,22 +1669,22 @@ define void @sat_solver3_setnvars(ptr nocapture noundef %0, i32 noundef %1) loca
 
 196:                                              ; preds = %193, %186
   %197 = phi ptr [ %.pre173, %193 ], [ %187, %186 ]
-  %198 = or disjoint i64 %188, 1
-  %199 = getelementptr inbounds %struct.veci_t, ptr %197, i64 %198
-  %200 = getelementptr inbounds i8, ptr %199, i64 8
-  %201 = load ptr, ptr %200, align 8
-  %202 = icmp eq ptr %201, null
-  br i1 %202, label %203, label %206
+  %198 = getelementptr %struct.veci_t, ptr %197, i64 %188
+  %199 = getelementptr i8, ptr %198, i64 24
+  %200 = load ptr, ptr %199, align 8
+  %201 = icmp eq ptr %200, null
+  br i1 %201, label %202, label %206
 
-203:                                              ; preds = %196
-  store i32 4, ptr %199, align 8
-  %204 = getelementptr inbounds i8, ptr %199, i64 4
+202:                                              ; preds = %196
+  %203 = getelementptr i8, ptr %198, i64 16
+  store i32 4, ptr %203, align 8
+  %204 = getelementptr i8, ptr %198, i64 20
   store i32 0, ptr %204, align 4
   %205 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #26
-  store ptr %205, ptr %200, align 8
+  store ptr %205, ptr %199, align 8
   br label %206
 
-206:                                              ; preds = %203, %196
+206:                                              ; preds = %202, %196
   %207 = load i32, ptr %170, align 4
   %208 = icmp ult i32 %207, 3
   br i1 %208, label %switch.lookup, label %212

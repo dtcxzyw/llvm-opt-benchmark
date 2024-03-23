@@ -421,9 +421,9 @@ define void @dormbr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %225 = add nsw i32 %39, -1
   store i32 %225, ptr %15, align 4, !tbaa !3
   %226 = shl i32 %22, 1
-  %227 = or disjoint i32 %226, 1
-  %228 = sext i32 %227 to i64
-  %229 = getelementptr inbounds double, ptr %25, i64 %228
+  %227 = sext i32 %226 to i64
+  %228 = getelementptr double, ptr %25, i64 %227
+  %229 = getelementptr i8, ptr %228, i64 8
   %230 = mul nsw i32 %224, %26
   %231 = add nsw i32 %230, %223
   %232 = sext i32 %231 to i64

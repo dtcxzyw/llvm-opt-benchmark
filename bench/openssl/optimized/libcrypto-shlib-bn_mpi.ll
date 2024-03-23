@@ -16,11 +16,11 @@ entry:
   %and = and i32 %call, 7
   %cmp1 = icmp eq i32 %and, 0
   %narrow = and i1 %cmp, %cmp1
-  %ext.0 = zext i1 %narrow to i32
   %cmp2 = icmp eq ptr %d, null
   br i1 %cmp2, label %return, label %if.end7
 
 if.end7:                                          ; preds = %entry
+  %ext.0 = zext i1 %narrow to i32
   %add8 = add nsw i32 %div, %ext.0
   %conv11 = lshr i32 %add8, 24
   %conv13 = trunc i32 %conv11 to i8
@@ -44,20 +44,20 @@ if.then31:                                        ; preds = %if.end7
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then31, %if.end7
-  %add34 = or disjoint i32 %ext.0, 4
-  %idxprom = zext nneg i32 %add34 to i64
-  %arrayidx35 = getelementptr inbounds i8, ptr %d, i64 %idxprom
-  %call36 = tail call i32 @BN_bn2bin(ptr noundef %a, ptr noundef nonnull %arrayidx35) #2
+  %2 = zext i1 %narrow to i64
+  %3 = getelementptr i8, ptr %d, i64 %2
+  %arrayidx35 = getelementptr i8, ptr %3, i64 4
+  %call36 = tail call i32 @BN_bn2bin(ptr noundef %a, ptr noundef %arrayidx35) #2
   %neg = getelementptr inbounds i8, ptr %a, i64 16
-  %2 = load i32, ptr %neg, align 8
-  %tobool37.not = icmp eq i32 %2, 0
+  %4 = load i32, ptr %neg, align 8
+  %tobool37.not = icmp eq i32 %4, 0
   br i1 %tobool37.not, label %return, label %if.then38
 
 if.then38:                                        ; preds = %if.end33
   %arrayidx39 = getelementptr inbounds i8, ptr %d, i64 4
-  %3 = load i8, ptr %arrayidx39, align 1
-  %4 = or i8 %3, -128
-  store i8 %4, ptr %arrayidx39, align 1
+  %5 = load i8, ptr %arrayidx39, align 1
+  %6 = or i8 %5, -128
+  store i8 %6, ptr %arrayidx39, align 1
   br label %return
 
 return:                                           ; preds = %if.end33, %if.then38, %entry

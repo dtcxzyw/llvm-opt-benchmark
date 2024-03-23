@@ -433,6 +433,7 @@ define internal fastcc void @rankSort(i32 noundef %0, ptr nocapture noundef %1) 
 
 .lr.ph.preheader:                                 ; preds = %2
   %wide.trip.count = zext nneg i32 %0 to i64
+  %invariant.gep51 = getelementptr i8, ptr %5, i64 4
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %23
@@ -466,23 +467,21 @@ define internal fastcc void @rankSort(i32 noundef %0, ptr nocapture noundef %1) 
 
 23:                                               ; preds = %.lr.ph, %17, %21
   %.sink = phi i32 [ %22, %21 ], [ 0, %17 ], [ 0, %.lr.ph ]
-  %sext = shl i64 %indvars.iv, 33
-  %24 = ashr exact i64 %sext, 32
-  %25 = getelementptr i32, ptr %5, i64 %24
-  store i32 %.sink, ptr %25, align 4
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
-  %26 = shl i32 %indvars.iv.tr, 1
-  %27 = or disjoint i32 %26, 1
-  %28 = sext i32 %27 to i64
-  %29 = getelementptr i32, ptr %5, i64 %28
-  %30 = trunc i64 %indvars.iv to i32
-  store i32 %30, ptr %29, align 4
+  %24 = shl i32 %indvars.iv.tr, 1
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr i32, ptr %5, i64 %25
+  store i32 %.sink, ptr %26, align 4
+  %gep52 = getelementptr i32, ptr %invariant.gep51, i64 %25
+  %27 = trunc i64 %indvars.iv to i32
+  store i32 %27, ptr %gep52, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %23
   tail call void @pg_qsort(ptr noundef nonnull %5, i64 noundef %3, i64 noundef 8, ptr noundef nonnull @rankCompare) #10
+  %invariant.gep = getelementptr i8, ptr %5, i64 4
   br i1 %6, label %.lr.ph37.preheader, label %._crit_edge38
 
 .lr.ph37.preheader:                               ; preds = %._crit_edge
@@ -492,15 +491,14 @@ define internal fastcc void @rankSort(i32 noundef %0, ptr nocapture noundef %1) 
 .lr.ph37:                                         ; preds = %.lr.ph37.preheader, %.lr.ph37
   %indvars.iv40 = phi i64 [ 0, %.lr.ph37.preheader ], [ %indvars.iv.next41, %.lr.ph37 ]
   %indvars.iv40.tr = trunc i64 %indvars.iv40 to i32
-  %31 = shl i32 %indvars.iv40.tr, 1
-  %32 = or disjoint i32 %31, 1
-  %33 = sext i32 %32 to i64
-  %34 = getelementptr i32, ptr %5, i64 %33
-  %35 = load i32, ptr %34, align 4
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr %struct._pivot_field, ptr %1, i64 %36, i32 2
-  %38 = trunc i64 %indvars.iv40 to i32
-  store i32 %38, ptr %37, align 8
+  %28 = shl i32 %indvars.iv40.tr, 1
+  %29 = sext i32 %28 to i64
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %29
+  %30 = load i32, ptr %gep, align 4
+  %31 = sext i32 %30 to i64
+  %32 = getelementptr %struct._pivot_field, ptr %1, i64 %31, i32 2
+  %33 = trunc i64 %indvars.iv40 to i32
+  store i32 %33, ptr %32, align 8
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next41, %wide.trip.count43
   br i1 %exitcond44.not, label %._crit_edge38, label %.lr.ph37, !llvm.loop !10

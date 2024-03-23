@@ -640,11 +640,11 @@ while.cond.preheader:                             ; preds = %if.end
   br i1 %cmp367, label %while.body.preheader, label %if.end102
 
 while.body.preheader:                             ; preds = %while.cond.preheader
-  %wide.trip.count101 = zext nneg i32 %length to i64
+  %wide.trip.count100 = zext nneg i32 %length to i64
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
-  %indvars.iv98 = phi i64 [ 0, %while.body.preheader ], [ %indvars.iv.next99, %while.body ]
+  %indvars.iv97 = phi i64 [ 0, %while.body.preheader ], [ %indvars.iv.next98, %while.body ]
   %valueStringLength.068 = phi i32 [ 0, %while.body.preheader ], [ %add, %while.body ]
   %inc = add nsw i32 %valueStringLength.068, 1
   %idxprom = sext i32 %valueStringLength.068 to i64
@@ -657,18 +657,17 @@ while.body:                                       ; preds = %while.body.preheade
   %idx.ext = sext i32 %inc4 to i64
   %add.ptr = getelementptr inbounds i16, ptr %uniValueString, i64 %idx.ext
   %sub = sub nsw i32 46, %valueStringLength.068
-  %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
-  %arrayidx9 = getelementptr inbounds i8, ptr %codeUnits, i64 %indvars.iv98
+  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
+  %arrayidx9 = getelementptr inbounds i8, ptr %codeUnits, i64 %indvars.iv97
   %0 = load i8, ptr %arrayidx9, align 1
   %conv = zext i8 %0 to i32
   %call = call i32 @uprv_itou_75(ptr noundef nonnull %add.ptr, i32 noundef %sub, i32 noundef %conv, i32 noundef 16, i32 noundef 2)
   %add = add nsw i32 %call, %inc4
-  %exitcond102.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count101
-  br i1 %exitcond102.not, label %if.end102, label %while.body, !llvm.loop !8
+  %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count100
+  br i1 %exitcond101.not, label %if.end102, label %while.body, !llvm.loop !8
 
 if.else:                                          ; preds = %if.end
   %1 = load i8, ptr %context, align 1
-  %cmp8363 = icmp sgt i32 %length, 0
   switch i8 %1, label %while.cond82.preheader [
     i8 68, label %while.cond11.preheader
     i8 88, label %while.cond35.preheader
@@ -676,31 +675,36 @@ if.else:                                          ; preds = %if.end
   ]
 
 while.cond62.preheader:                           ; preds = %if.else
-  br i1 %cmp8363, label %while.body64.preheader, label %if.end102
+  %cmp6352 = icmp sgt i32 %length, 0
+  br i1 %cmp6352, label %while.body64.preheader, label %if.end102
 
 while.body64.preheader:                           ; preds = %while.cond62.preheader
   %wide.trip.count = zext nneg i32 %length to i64
   br label %while.body64
 
 while.cond35.preheader:                           ; preds = %if.else
-  br i1 %cmp8363, label %while.body37.preheader, label %if.end102
+  %cmp3655 = icmp sgt i32 %length, 0
+  br i1 %cmp3655, label %while.body37.preheader, label %if.end102
 
 while.body37.preheader:                           ; preds = %while.cond35.preheader
   %wide.trip.count79 = zext nneg i32 %length to i64
   br label %while.body37
 
 while.cond11.preheader:                           ; preds = %if.else
-  br i1 %cmp8363, label %while.body13.preheader, label %if.end102
+  %cmp1259 = icmp sgt i32 %length, 0
+  br i1 %cmp1259, label %while.body13.preheader, label %if.end102
 
 while.body13.preheader:                           ; preds = %while.cond11.preheader
   %wide.trip.count84 = zext nneg i32 %length to i64
   br label %while.body13
 
 while.cond82.preheader:                           ; preds = %if.else
+  %invariant.gep = getelementptr inbounds i8, ptr %uniValueString, i64 4
+  %cmp8363 = icmp sgt i32 %length, 0
   br i1 %cmp8363, label %while.body84.preheader, label %if.end102
 
 while.body84.preheader:                           ; preds = %while.cond82.preheader
-  %wide.trip.count96 = zext nneg i32 %length to i64
+  %wide.trip.count95 = zext nneg i32 %length to i64
   br label %while.body84
 
 while.body13:                                     ; preds = %while.body13.preheader, %while.body13
@@ -790,27 +794,26 @@ while.body84:                                     ; preds = %while.body84.prehea
   %5 = or disjoint i64 %indvars.iv88, 1
   %arrayidx87 = getelementptr inbounds [48 x i16], ptr %uniValueString, i64 0, i64 %indvars.iv88
   store i16 37, ptr %arrayidx87, align 8
-  %6 = or disjoint i64 %indvars.iv88, 2
   %arrayidx90 = getelementptr inbounds [48 x i16], ptr %uniValueString, i64 0, i64 %5
   store i16 88, ptr %arrayidx90, align 2
-  %add.ptr93 = getelementptr inbounds i16, ptr %uniValueString, i64 %6
+  %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv88
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %arrayidx97 = getelementptr inbounds i8, ptr %codeUnits, i64 %indvars.iv86
-  %7 = load i8, ptr %arrayidx97, align 1
-  %conv98 = zext i8 %7 to i32
-  %8 = trunc i64 %indvars.iv88 to i32
-  %9 = sub i32 46, %8
-  %call99 = call i32 @uprv_itou_75(ptr noundef nonnull %add.ptr93, i32 noundef %9, i32 noundef %conv98, i32 noundef 16, i32 noundef 2)
+  %6 = load i8, ptr %arrayidx97, align 1
+  %conv98 = zext i8 %6 to i32
+  %7 = trunc i64 %indvars.iv88 to i32
+  %8 = sub i32 46, %7
+  %call99 = call i32 @uprv_itou_75(ptr noundef nonnull %gep, i32 noundef %8, i32 noundef %conv98, i32 noundef 16, i32 noundef 2)
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 4
-  %exitcond97.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count96
-  br i1 %exitcond97.not, label %if.end102.loopexit71, label %while.body84, !llvm.loop !12
+  %exitcond96.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count95
+  br i1 %exitcond96.not, label %if.end102.loopexit71, label %while.body84, !llvm.loop !12
 
 if.end102.loopexit71:                             ; preds = %while.body84
-  %10 = trunc i64 %indvars.iv.next89 to i32
+  %9 = trunc i64 %indvars.iv.next89 to i32
   br label %if.end102
 
 if.end102:                                        ; preds = %while.body64, %while.body37, %while.body13, %while.body, %if.end102.loopexit71, %while.cond62.preheader, %while.cond35.preheader, %while.cond11.preheader, %while.cond82.preheader, %while.cond.preheader
-  %valueStringLength.5 = phi i32 [ 0, %while.cond.preheader ], [ 0, %while.cond82.preheader ], [ 0, %while.cond11.preheader ], [ 0, %while.cond35.preheader ], [ 0, %while.cond62.preheader ], [ %10, %if.end102.loopexit71 ], [ %add, %while.body ], [ %inc30, %while.body13 ], [ %inc57, %while.body37 ], [ %add80, %while.body64 ]
+  %valueStringLength.5 = phi i32 [ 0, %while.cond.preheader ], [ 0, %while.cond82.preheader ], [ 0, %while.cond11.preheader ], [ 0, %while.cond35.preheader ], [ 0, %while.cond62.preheader ], [ %9, %if.end102.loopexit71 ], [ %add, %while.body ], [ %inc30, %while.body13 ], [ %inc57, %while.body37 ], [ %add80, %while.body64 ]
   store i32 0, ptr %err, align 4
   call void @ucnv_cbToUWriteUChars_75(ptr noundef %toArgs, ptr noundef nonnull %uniValueString, i32 noundef %valueStringLength.5, i32 noundef 0, ptr noundef nonnull %err)
   br label %return

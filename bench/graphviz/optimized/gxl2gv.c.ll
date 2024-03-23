@@ -245,8 +245,8 @@ get_xml_attr.exit.thread:                         ; preds = %22, %17, %get_xml_a
 
 .lr.ph.i159.preheader:                            ; preds = %get_xml_attr.exit
   %28 = and i64 %indvars.iv.i, 2147483646
-  %29 = or disjoint i64 %28, 1
-  %30 = getelementptr inbounds ptr, ptr %2, i64 %29
+  %29 = getelementptr ptr, ptr %2, i64 %28
+  %30 = getelementptr i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
   br label %.lr.ph.i159
 
@@ -271,8 +271,8 @@ get_xml_attr.exit164:                             ; preds = %.lr.ph.i159
 
 40:                                               ; preds = %get_xml_attr.exit164
   %41 = and i64 %indvars.iv.i160, 2147483646
-  %42 = or disjoint i64 %41, 1
-  %43 = getelementptr inbounds ptr, ptr %2, i64 %42
+  %42 = getelementptr ptr, ptr %2, i64 %41
+  %43 = getelementptr i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
   br label %get_xml_attr.exit164.thread
 
@@ -365,8 +365,8 @@ get_xml_attr.exit172:                             ; preds = %.lr.ph.i167
 83:                                               ; preds = %get_xml_attr.exit172
   %84 = load ptr, ptr @G, align 8
   %85 = and i64 %indvars.iv.i168, 2147483646
-  %86 = or disjoint i64 %85, 1
-  %87 = getelementptr inbounds ptr, ptr %2, i64 %86
+  %86 = getelementptr ptr, ptr %2, i64 %85
+  %87 = getelementptr i8, ptr %86, i64 8
   %88 = load ptr, ptr %87, align 8
   call fastcc void @setGraphAttr(ptr noundef %84, ptr noundef nonnull @.str.14, ptr noundef %88, ptr noundef %0)
   %.pr.pre = load ptr, ptr %2, align 8
@@ -399,8 +399,8 @@ get_xml_attr.exit179:                             ; preds = %.lr.ph.i174
 97:                                               ; preds = %get_xml_attr.exit179
   %98 = load ptr, ptr @G, align 8
   %99 = and i64 %indvars.iv.i175, 2147483646
-  %100 = or disjoint i64 %99, 1
-  %101 = getelementptr inbounds ptr, ptr %2, i64 %100
+  %100 = getelementptr ptr, ptr %2, i64 %99
+  %101 = getelementptr i8, ptr %100, i64 8
   %102 = load ptr, ptr %101, align 8
   call fastcc void @setGraphAttr(ptr noundef %98, ptr noundef nonnull @.str.16, ptr noundef %102, ptr noundef %0)
   br label %get_xml_attr.exit179.thread
@@ -437,8 +437,8 @@ get_xml_attr.exit186:                             ; preds = %.lr.ph.i181
 
 116:                                              ; preds = %get_xml_attr.exit186
   %117 = and i64 %indvars.iv.i182, 2147483646
-  %118 = or disjoint i64 %117, 1
-  %119 = getelementptr inbounds ptr, ptr %2, i64 %118
+  %118 = getelementptr ptr, ptr %2, i64 %117
+  %119 = getelementptr i8, ptr %118, i64 8
   %120 = load ptr, ptr %119, align 8
   %.not155 = icmp eq ptr %120, null
   br i1 %.not155, label %get_xml_attr.exit179.thread, label %121
@@ -486,8 +486,8 @@ get_xml_attr.exit193:                             ; preds = %.lr.ph.i188
 
 138:                                              ; preds = %get_xml_attr.exit193
   %139 = and i64 %indvars.iv.i189, 2147483646
-  %140 = or disjoint i64 %139, 1
-  %141 = getelementptr inbounds ptr, ptr %2, i64 %140
+  %140 = getelementptr ptr, ptr %2, i64 %139
+  %141 = getelementptr i8, ptr %140, i64 8
   %142 = load ptr, ptr %141, align 8
   br label %.lr.ph.i195.preheader
 
@@ -516,8 +516,8 @@ get_xml_attr.exit200:                             ; preds = %.lr.ph.i195
 
 151:                                              ; preds = %get_xml_attr.exit200
   %152 = and i64 %indvars.iv.i196, 2147483646
-  %153 = or disjoint i64 %152, 1
-  %154 = getelementptr inbounds ptr, ptr %2, i64 %153
+  %153 = getelementptr ptr, ptr %2, i64 %152
+  %154 = getelementptr i8, ptr %153, i64 8
   %155 = load ptr, ptr %154, align 8
   br label %get_xml_attr.exit200.thread
 
@@ -612,8 +612,8 @@ get_xml_attr.exit212:                             ; preds = %.lr.ph.i207
 198:                                              ; preds = %get_xml_attr.exit212
   %199 = load ptr, ptr @E, align 8
   %200 = and i64 %indvars.iv.i208, 2147483646
-  %201 = or disjoint i64 %200, 1
-  %202 = getelementptr inbounds ptr, ptr %2, i64 %201
+  %201 = getelementptr ptr, ptr %2, i64 %200
+  %202 = getelementptr i8, ptr %201, i64 8
   %203 = load ptr, ptr %202, align 8
   tail call fastcc void @setEdgeAttr(ptr noundef %199, ptr noundef nonnull @.str.22, ptr noundef %203, ptr noundef %0, i1 noundef zeroext false)
   %.pr258.pre = load ptr, ptr %2, align 8
@@ -646,8 +646,8 @@ get_xml_attr.exit219:                             ; preds = %.lr.ph.i214
 212:                                              ; preds = %get_xml_attr.exit219
   %213 = load ptr, ptr @E, align 8
   %214 = and i64 %indvars.iv.i215, 2147483646
-  %215 = or disjoint i64 %214, 1
-  %216 = getelementptr inbounds ptr, ptr %2, i64 %215
+  %215 = getelementptr ptr, ptr %2, i64 %214
+  %216 = getelementptr i8, ptr %215, i64 8
   %217 = load ptr, ptr %216, align 8
   tail call fastcc void @setEdgeAttr(ptr noundef %213, ptr noundef nonnull @.str.24, ptr noundef %217, ptr noundef %0, i1 noundef zeroext false)
   %.pr260.pre = load ptr, ptr %2, align 8
@@ -680,8 +680,8 @@ get_xml_attr.exit226:                             ; preds = %.lr.ph.i221
 226:                                              ; preds = %get_xml_attr.exit226
   %227 = load ptr, ptr @E, align 8
   %228 = and i64 %indvars.iv.i222, 2147483646
-  %229 = or disjoint i64 %228, 1
-  %230 = getelementptr inbounds ptr, ptr %2, i64 %229
+  %229 = getelementptr ptr, ptr %2, i64 %228
+  %230 = getelementptr i8, ptr %229, i64 8
   %231 = load ptr, ptr %230, align 8
   tail call fastcc void @setEdgeAttr(ptr noundef %227, ptr noundef nonnull @.str.25, ptr noundef %231, ptr noundef %0, i1 noundef zeroext false)
   br label %get_xml_attr.exit179.thread
@@ -805,8 +805,8 @@ get_xml_attr.exit240:                             ; preds = %.lr.ph.i235
 
 284:                                              ; preds = %get_xml_attr.exit240
   %285 = and i64 %indvars.iv.i236, 2147483646
-  %286 = or disjoint i64 %285, 1
-  %287 = getelementptr inbounds ptr, ptr %2, i64 %286
+  %286 = getelementptr ptr, ptr %2, i64 %285
+  %287 = getelementptr i8, ptr %286, i64 8
   %288 = load ptr, ptr %287, align 8
   %289 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.17, ptr noundef nonnull dereferenceable(1) %288) #25
   %290 = icmp eq i32 %289, 0

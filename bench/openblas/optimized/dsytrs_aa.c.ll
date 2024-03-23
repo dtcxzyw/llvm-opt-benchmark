@@ -143,9 +143,9 @@ define void @dsytrs_aa_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   %87 = add nsw i32 %86, -1
   store i32 %87, ptr %12, align 4, !tbaa !3
   %88 = shl i32 %14, 1
-  %89 = or disjoint i32 %88, 1
-  %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds double, ptr %17, i64 %90
+  %89 = sext i32 %88 to i64
+  %90 = getelementptr double, ptr %17, i64 %89
+  %91 = getelementptr i8, ptr %90, i64 8
   %92 = getelementptr i8, ptr %70, i64 16
   call void @dtrsm_(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, ptr noundef nonnull %12, ptr noundef nonnull %2, ptr noundef nonnull @c_b9, ptr noundef nonnull %91, ptr noundef nonnull %4, ptr noundef %92, ptr noundef nonnull %7) #4
   %.pre = load i32, ptr %4, align 4, !tbaa !3
@@ -171,9 +171,9 @@ define void @dsytrs_aa_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   %104 = add nsw i32 %103, 1
   store i32 %104, ptr %13, align 4, !tbaa !3
   %105 = shl i32 %14, 1
-  %106 = or disjoint i32 %105, 1
-  %107 = sext i32 %106 to i64
-  %108 = getelementptr inbounds double, ptr %17, i64 %107
+  %106 = sext i32 %105 to i64
+  %107 = getelementptr double, ptr %17, i64 %106
+  %108 = getelementptr i8, ptr %107, i64 8
   call void @dlacpy_(ptr noundef nonnull @.str.4, ptr noundef nonnull @c__1, ptr noundef nonnull %12, ptr noundef nonnull %108, ptr noundef nonnull %13, ptr noundef %8, ptr noundef nonnull @c__1) #4
   %109 = load i32, ptr %1, align 4, !tbaa !3
   %110 = add nsw i32 %109, -1
@@ -204,9 +204,9 @@ define void @dsytrs_aa_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   %126 = add nsw i32 %123, -1
   store i32 %126, ptr %12, align 4, !tbaa !3
   %127 = shl i32 %14, 1
-  %128 = or disjoint i32 %127, 1
-  %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds double, ptr %17, i64 %129
+  %128 = sext i32 %127 to i64
+  %129 = getelementptr double, ptr %17, i64 %128
+  %130 = getelementptr i8, ptr %129, i64 8
   %131 = sext i32 %19 to i64
   %132 = getelementptr double, ptr %22, i64 %131
   %133 = getelementptr i8, ptr %132, i64 16

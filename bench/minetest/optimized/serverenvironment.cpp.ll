@@ -13111,9 +13111,9 @@ define dso_local void @_ZN17ServerEnvironment15activateObjectsEP8MapBlockj(ptr n
   br i1 %172, label %173, label %180
 
 173:                                              ; preds = %170
-  %174 = or disjoint i64 %171, %155
-  %175 = load ptr, ptr %34, align 8, !tbaa !11
-  %176 = getelementptr inbounds i8, ptr %175, i64 %174
+  %174 = load ptr, ptr %34, align 8, !tbaa !11
+  %175 = getelementptr i8, ptr %174, i64 %171
+  %176 = getelementptr i8, ptr %175, i64 %155
   %177 = load i8, ptr %176, align 1, !tbaa !13
   %178 = sext i8 %177 to i32
   %179 = invoke noundef i32 (ptr, i64, ptr, ...) @_ZN7porting11mt_snprintfEPcmPKcz(ptr noundef nonnull %7, i64 noundef 4, ptr noundef nonnull @.str.165, i32 noundef %178)

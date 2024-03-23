@@ -2422,9 +2422,9 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %1518, ptr %15, align 4, !tbaa !3
   store i32 %1518, ptr %16, align 4, !tbaa !3
   %1519 = shl i32 %32, 1
-  %1520 = or disjoint i32 %1519, 1
-  %1521 = sext i32 %1520 to i64
-  %1522 = getelementptr inbounds double, ptr %35, i64 %1521
+  %1520 = sext i32 %1519 to i64
+  %1521 = getelementptr double, ptr %35, i64 %1520
+  %1522 = getelementptr i8, ptr %1521, i64 8
   call void @dlaset_(ptr noundef nonnull @.str.10, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull @c_b57, ptr noundef nonnull @c_b57, ptr noundef nonnull %1522, ptr noundef nonnull %5) #7
   %1523 = load i32, ptr %2, align 4, !tbaa !3
   %1524 = add nsw i32 %1523, 1
@@ -2706,9 +2706,9 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %1692, ptr %16, align 4, !tbaa !3
   store i32 %1692, ptr %15, align 4, !tbaa !3
   %1693 = shl i32 %36, 1
-  %1694 = or disjoint i32 %1693, 1
-  %1695 = sext i32 %1694 to i64
-  %1696 = getelementptr inbounds double, ptr %39, i64 %1695
+  %1694 = sext i32 %1693 to i64
+  %1695 = getelementptr double, ptr %39, i64 %1694
+  %1696 = getelementptr i8, ptr %1695, i64 8
   call void @dlaset_(ptr noundef nonnull @.str.10, ptr noundef nonnull %16, ptr noundef nonnull %15, ptr noundef nonnull @c_b57, ptr noundef nonnull @c_b57, ptr noundef nonnull %1696, ptr noundef nonnull %8) #7
   %1697 = load i32, ptr %12, align 4, !tbaa !3
   %reass.sub218 = sub i32 %1697, %1684
@@ -2799,9 +2799,9 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %1754, ptr %15, align 4, !tbaa !3
   store i32 %1754, ptr %16, align 4, !tbaa !3
   %1755 = shl i32 %36, 1
-  %1756 = or disjoint i32 %1755, 1
-  %1757 = sext i32 %1756 to i64
-  %1758 = getelementptr inbounds double, ptr %39, i64 %1757
+  %1756 = sext i32 %1755 to i64
+  %1757 = getelementptr double, ptr %39, i64 %1756
+  %1758 = getelementptr i8, ptr %1757, i64 8
   call void @dlaset_(ptr noundef nonnull @.str.10, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull @c_b57, ptr noundef nonnull @c_b57, ptr noundef nonnull %1758, ptr noundef nonnull %8) #7
   %1759 = load i32, ptr %12, align 4, !tbaa !3
   %1760 = sub i32 %1759, %638
@@ -2935,9 +2935,9 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %1844, ptr %15, align 4, !tbaa !3
   store i32 %1844, ptr %16, align 4, !tbaa !3
   %1845 = shl i32 %32, 1
-  %1846 = or disjoint i32 %1845, 1
-  %1847 = sext i32 %1846 to i64
-  %1848 = getelementptr inbounds double, ptr %35, i64 %1847
+  %1846 = sext i32 %1845 to i64
+  %1847 = getelementptr double, ptr %35, i64 %1846
+  %1848 = getelementptr i8, ptr %1847, i64 8
   call void @dlaset_(ptr noundef nonnull @.str.10, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull @c_b57, ptr noundef nonnull @c_b57, ptr noundef nonnull %1848, ptr noundef nonnull %5) #7
   %1849 = load i32, ptr %12, align 4, !tbaa !3
   %reass.sub216 = sub i32 %1849, %1843
@@ -3093,9 +3093,9 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %1940, ptr %15, align 4, !tbaa !3
   store i32 %1940, ptr %16, align 4, !tbaa !3
   %1941 = shl i32 %32, 1
-  %1942 = or disjoint i32 %1941, 1
-  %1943 = sext i32 %1942 to i64
-  %1944 = getelementptr inbounds double, ptr %35, i64 %1943
+  %1942 = sext i32 %1941 to i64
+  %1943 = getelementptr double, ptr %35, i64 %1942
+  %1944 = getelementptr i8, ptr %1943, i64 8
   call void @dlaset_(ptr noundef nonnull @.str.10, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull @c_b57, ptr noundef nonnull @c_b57, ptr noundef nonnull %1944, ptr noundef nonnull %5) #7
   %1945 = load i32, ptr %12, align 4, !tbaa !3
   %reass.sub211 = sub i32 %1945, %1939
@@ -3222,9 +3222,9 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %2021, ptr %15, align 4, !tbaa !3
   store i32 %2021, ptr %16, align 4, !tbaa !3
   %2022 = shl i32 %36, 1
-  %2023 = or disjoint i32 %2022, 1
-  %2024 = sext i32 %2023 to i64
-  %2025 = getelementptr inbounds double, ptr %39, i64 %2024
+  %2023 = sext i32 %2022 to i64
+  %2024 = getelementptr double, ptr %39, i64 %2023
+  %2025 = getelementptr i8, ptr %2024, i64 8
   call void @dlaset_(ptr noundef nonnull @.str.10, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull @c_b57, ptr noundef nonnull @c_b57, ptr noundef nonnull %2025, ptr noundef nonnull %8) #7
   %2026 = load i32, ptr %2, align 4, !tbaa !3
   %2027 = add nsw i32 %2026, 1
@@ -3359,9 +3359,9 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %2111, ptr %15, align 4, !tbaa !3
   store i32 %2111, ptr %16, align 4, !tbaa !3
   %2112 = shl i32 %32, 1
-  %2113 = or disjoint i32 %2112, 1
-  %2114 = sext i32 %2113 to i64
-  %2115 = getelementptr inbounds double, ptr %35, i64 %2114
+  %2113 = sext i32 %2112 to i64
+  %2114 = getelementptr double, ptr %35, i64 %2113
+  %2115 = getelementptr i8, ptr %2114, i64 8
   call void @dlaset_(ptr noundef nonnull @.str.10, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull @c_b57, ptr noundef nonnull @c_b57, ptr noundef nonnull %2115, ptr noundef nonnull %5) #7
   %2116 = load i32, ptr %12, align 4, !tbaa !3
   %reass.sub201 = sub i32 %2116, %2110
@@ -3522,9 +3522,9 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %2209, ptr %15, align 4, !tbaa !3
   store i32 %2209, ptr %16, align 4, !tbaa !3
   %2210 = shl i32 %32, 1
-  %2211 = or disjoint i32 %2210, 1
-  %2212 = sext i32 %2211 to i64
-  %2213 = getelementptr inbounds double, ptr %35, i64 %2212
+  %2211 = sext i32 %2210 to i64
+  %2212 = getelementptr double, ptr %35, i64 %2211
+  %2213 = getelementptr i8, ptr %2212, i64 8
   call void @dlaset_(ptr noundef nonnull @.str.10, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull @c_b57, ptr noundef nonnull @c_b57, ptr noundef nonnull %2213, ptr noundef nonnull %5) #7
   %2214 = load i32, ptr %12, align 4, !tbaa !3
   %reass.sub196 = sub i32 %2214, %2208
@@ -3656,9 +3656,9 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %2293, ptr %15, align 4, !tbaa !3
   store i32 %2293, ptr %16, align 4, !tbaa !3
   %2294 = shl i32 %36, 1
-  %2295 = or disjoint i32 %2294, 1
-  %2296 = sext i32 %2295 to i64
-  %2297 = getelementptr inbounds double, ptr %39, i64 %2296
+  %2295 = sext i32 %2294 to i64
+  %2296 = getelementptr double, ptr %39, i64 %2295
+  %2297 = getelementptr i8, ptr %2296, i64 8
   call void @dlaset_(ptr noundef nonnull @.str.10, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull @c_b57, ptr noundef nonnull @c_b57, ptr noundef nonnull %2297, ptr noundef nonnull %8) #7
   %2298 = load i32, ptr %2, align 4, !tbaa !3
   %2299 = add nsw i32 %2298, 1

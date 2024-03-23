@@ -7344,11 +7344,10 @@ if.then55.i.i:                                    ; preds = %do.end52.i.i
 
 if.end56.i.i:                                     ; preds = %if.then55.i.i, %do.end52.i.i
   %pos.0.i.i = phi i64 [ 4, %if.then55.i.i ], [ 0, %do.end52.i.i ]
-  %inc.i.i = or disjoint i64 %pos.0.i.i, 1
   %arrayidx.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 %pos.0.i.i
   store i8 %add37.i.i, ptr %arrayidx.i.i, align 1
   %spec.select.i = select i1 %tobool11.i.not.i, i8 %conv18.i.i, i8 0
-  %6 = getelementptr inbounds i8, ptr %add.ptr, i64 %inc.i.i
+  %6 = getelementptr i8, ptr %arrayidx.i.i, i64 1
   store i8 %spec.select.i, ptr %6, align 1
   %retval.0.i.ph.i = or disjoint i64 %pos.0.i.i, 2
   %sub.i = sub nuw i64 %sub, %retval.0.i.ph.i

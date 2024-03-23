@@ -469,7 +469,7 @@ define internal fastcc void @chacha20_block(ptr nocapture noundef readonly %0, p
   br label %166
 
 166:                                              ; preds = %133, %166
-  %.164 = phi i64 [ 0, %133 ], [ %184, %166 ]
+  %.164 = phi i64 [ 0, %133 ], [ %181, %166 ]
   %167 = shl nuw nsw i64 %.164, 2
   %168 = getelementptr inbounds [16 x i32], ptr %3, i64 0, i64 %.164
   %169 = load i32, ptr %168, align 4
@@ -478,24 +478,21 @@ define internal fastcc void @chacha20_block(ptr nocapture noundef readonly %0, p
   store i8 %170, ptr %171, align 1
   %172 = lshr i32 %169, 8
   %173 = trunc i32 %172 to i8
-  %174 = or disjoint i64 %167, 1
-  %175 = getelementptr inbounds i8, ptr %1, i64 %174
-  store i8 %173, ptr %175, align 1
-  %176 = lshr i32 %169, 16
-  %177 = trunc i32 %176 to i8
-  %178 = or disjoint i64 %167, 2
-  %179 = getelementptr inbounds i8, ptr %1, i64 %178
-  store i8 %177, ptr %179, align 1
-  %180 = lshr i32 %169, 24
-  %181 = trunc i32 %180 to i8
-  %182 = or disjoint i64 %167, 3
-  %183 = getelementptr inbounds i8, ptr %1, i64 %182
-  store i8 %181, ptr %183, align 1
-  %184 = add nuw nsw i64 %.164, 1
-  %exitcond80.not = icmp eq i64 %184, 16
-  br i1 %exitcond80.not, label %185, label %166, !llvm.loop !10
+  %174 = getelementptr i8, ptr %171, i64 1
+  store i8 %173, ptr %174, align 1
+  %175 = lshr i32 %169, 16
+  %176 = trunc i32 %175 to i8
+  %177 = getelementptr i8, ptr %171, i64 2
+  store i8 %176, ptr %177, align 1
+  %178 = lshr i32 %169, 24
+  %179 = trunc i32 %178 to i8
+  %180 = getelementptr i8, ptr %171, i64 3
+  store i8 %179, ptr %180, align 1
+  %181 = add nuw nsw i64 %.164, 1
+  %exitcond80.not = icmp eq i64 %181, 16
+  br i1 %exitcond80.not, label %182, label %166, !llvm.loop !10
 
-185:                                              ; preds = %166
+182:                                              ; preds = %166
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %3, i64 noundef 64) #10
   ret void
 }

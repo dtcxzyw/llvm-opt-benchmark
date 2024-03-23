@@ -982,8 +982,8 @@ thread-pre-split:                                 ; preds = %61
   %157 = icmp ugt i32 %156, 2
   %158 = select i1 %157, i64 21504, i64 64
   %159 = getelementptr i8, ptr %155, i64 %158
-  %160 = or disjoint i64 %150, 4
-  %161 = getelementptr i8, ptr %159, i64 %160
+  %160 = getelementptr i8, ptr %159, i64 %150
+  %161 = getelementptr i8, ptr %160, i64 4
   call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %161) #7, !srcloc !6
   %162 = load ptr, ptr %0, align 8
   %163 = getelementptr i8, ptr %162, i64 8

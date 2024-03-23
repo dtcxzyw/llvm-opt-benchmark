@@ -3392,7 +3392,7 @@ define dso_local void @_ZN15TestCompression17testZlibLargeDataEv(ptr nocapture n
 
 .preheader:                                       ; preds = %99, %.preheader
   %105 = phi i64 [ %120, %.preheader ], [ 0, %99 ]
-  %106 = phi i32 [ %115, %.preheader ], [ 9420, %99 ]
+  %106 = phi i32 [ %114, %.preheader ], [ 9420, %99 ]
   %107 = mul i32 %106, 1103515245
   %108 = add i32 %107, 12345
   %109 = sdiv i32 %108, 65536
@@ -3400,14 +3400,14 @@ define dso_local void @_ZN15TestCompression17testZlibLargeDataEv(ptr nocapture n
   %111 = load ptr, ptr %2, align 8, !tbaa !7
   %112 = getelementptr inbounds i8, ptr %111, i64 %105
   store i8 %110, ptr %112, align 1, !tbaa !19
-  %113 = or disjoint i64 %105, 1
-  %114 = mul i32 %108, 1103515245
-  %115 = add i32 %114, 12345
-  %116 = sdiv i32 %115, 65536
-  %117 = trunc i32 %116 to i8
-  %118 = load ptr, ptr %2, align 8, !tbaa !7
-  %119 = getelementptr inbounds i8, ptr %118, i64 %113
-  store i8 %117, ptr %119, align 1, !tbaa !19
+  %113 = mul i32 %108, 1103515245
+  %114 = add i32 %113, 12345
+  %115 = sdiv i32 %114, 65536
+  %116 = trunc i32 %115 to i8
+  %117 = load ptr, ptr %2, align 8, !tbaa !7
+  %118 = getelementptr i8, ptr %117, i64 %105
+  %119 = getelementptr i8, ptr %118, i64 1
+  store i8 %116, ptr %119, align 1, !tbaa !19
   %120 = add nuw nsw i64 %105, 2
   %121 = icmp eq i64 %120, 50000
   br i1 %121, label %102, label %.preheader, !llvm.loop !77
@@ -4521,7 +4521,7 @@ define dso_local void @_ZN15TestCompression17testZstdLargeDataEv(ptr nocapture n
 
 .preheader:                                       ; preds = %99, %.preheader
   %105 = phi i64 [ %120, %.preheader ], [ 0, %99 ]
-  %106 = phi i32 [ %115, %.preheader ], [ 9420, %99 ]
+  %106 = phi i32 [ %114, %.preheader ], [ 9420, %99 ]
   %107 = mul i32 %106, 1103515245
   %108 = add i32 %107, 12345
   %109 = sdiv i32 %108, 65536
@@ -4529,14 +4529,14 @@ define dso_local void @_ZN15TestCompression17testZstdLargeDataEv(ptr nocapture n
   %111 = load ptr, ptr %2, align 8, !tbaa !7
   %112 = getelementptr inbounds i8, ptr %111, i64 %105
   store i8 %110, ptr %112, align 1, !tbaa !19
-  %113 = or disjoint i64 %105, 1
-  %114 = mul i32 %108, 1103515245
-  %115 = add i32 %114, 12345
-  %116 = sdiv i32 %115, 65536
-  %117 = trunc i32 %116 to i8
-  %118 = load ptr, ptr %2, align 8, !tbaa !7
-  %119 = getelementptr inbounds i8, ptr %118, i64 %113
-  store i8 %117, ptr %119, align 1, !tbaa !19
+  %113 = mul i32 %108, 1103515245
+  %114 = add i32 %113, 12345
+  %115 = sdiv i32 %114, 65536
+  %116 = trunc i32 %115 to i8
+  %117 = load ptr, ptr %2, align 8, !tbaa !7
+  %118 = getelementptr i8, ptr %117, i64 %105
+  %119 = getelementptr i8, ptr %118, i64 1
+  store i8 %116, ptr %119, align 1, !tbaa !19
   %120 = add nuw nsw i64 %105, 2
   %121 = icmp eq i64 %120, 500000
   br i1 %121, label %102, label %.preheader, !llvm.loop !108

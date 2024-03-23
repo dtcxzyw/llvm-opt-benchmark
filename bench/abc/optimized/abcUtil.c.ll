@@ -8014,7 +8014,7 @@ Abc_NtkAddBuffsEval.exit:                         ; preds = %118, %124, %101
   %133 = or disjoint i32 %131, %132
   store i32 %133, ptr %128, align 4
   %134 = add nsw i32 %.0166264, 1
-  %135 = add nsw i32 %125, %.0164265
+  %135 = add nuw nsw i32 %125, %.0164265
   %.val189.pre = load i32, ptr %25, align 4
   br label %.critedge10.thread
 
@@ -9159,9 +9159,9 @@ Vec_IntGrow.exit.i:                               ; preds = %35, %33
   %96 = getelementptr i8, ptr %.val49.val, i64 8
   %.val49.val.val51 = load ptr, ptr %96, align 8
   %97 = shl i32 %.val50, 1
-  %98 = or disjoint i32 %97, 1
-  %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds i32, ptr %.val49.val.val51, i64 %99
+  %98 = sext i32 %97 to i64
+  %99 = getelementptr i32, ptr %.val49.val.val51, i64 %98
+  %100 = getelementptr i8, ptr %99, i64 4
   store i32 %.val49.val.val, ptr %100, align 4
   %.pre = load ptr, ptr %0, align 8
   br label %101

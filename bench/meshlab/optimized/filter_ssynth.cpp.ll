@@ -44928,14 +44928,14 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %44, %47
           to label %69 unwind label %.loopexit41
 
 69:                                               ; preds = %59
-  %70 = or disjoint i64 %60, 1
-  %71 = load ptr, ptr %8, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 16
-  %73 = getelementptr inbounds i8, ptr %71, i64 8
-  %74 = load i32, ptr %73, align 8
-  %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds ptr, ptr %72, i64 %75
-  %77 = getelementptr inbounds ptr, ptr %76, i64 %70
+  %70 = load ptr, ptr %8, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 16
+  %72 = getelementptr inbounds i8, ptr %70, i64 8
+  %73 = load i32, ptr %72, align 8
+  %74 = sext i32 %73 to i64
+  %75 = getelementptr inbounds ptr, ptr %71, i64 %74
+  %76 = getelementptr ptr, ptr %75, i64 %60
+  %77 = getelementptr i8, ptr %76, i64 8
   %78 = invoke noundef float @_ZNK7QString7toFloatEPb(ptr noundef nonnull align 8 dereferenceable(8) %77, ptr noundef null)
           to label %79 unwind label %.loopexit41
 
@@ -45263,14 +45263,14 @@ _ZN7QStringD2Ev.exit74:                           ; preds = %_ZN7QStringD2Ev.exi
           to label %40 unwind label %.loopexit
 
 40:                                               ; preds = %.lr.ph200
-  %41 = or disjoint i64 %indvars.iv, 1
-  %42 = load ptr, ptr %9, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 16
-  %44 = getelementptr inbounds i8, ptr %42, i64 8
-  %45 = load i32, ptr %44, align 8
-  %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds ptr, ptr %43, i64 %46
-  %48 = getelementptr inbounds ptr, ptr %47, i64 %41
+  %41 = load ptr, ptr %9, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 16
+  %43 = getelementptr inbounds i8, ptr %41, i64 8
+  %44 = load i32, ptr %43, align 8
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr inbounds ptr, ptr %42, i64 %45
+  %47 = getelementptr ptr, ptr %46, i64 %indvars.iv
+  %48 = getelementptr i8, ptr %47, i64 8
   %49 = invoke noundef float @_ZNK7QString7toFloatEPb(ptr noundef nonnull align 8 dereferenceable(8) %48, ptr noundef null)
           to label %.preheader unwind label %.loopexit
 

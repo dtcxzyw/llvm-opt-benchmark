@@ -144,9 +144,9 @@ define void @dlasd6_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 115:                                              ; preds = %112
   call void @dcopy_(ptr noundef %20, ptr noundef nonnull %4, ptr noundef nonnull @c__1, ptr noundef %16, ptr noundef nonnull @c__1) #3
   %116 = shl i32 %33, 1
-  %117 = or disjoint i32 %116, 1
-  %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds double, ptr %36, i64 %118
+  %117 = sext i32 %116 to i64
+  %118 = getelementptr double, ptr %36, i64 %117
+  %119 = getelementptr i8, ptr %118, i64 8
   call void @dcopy_(ptr noundef %20, ptr noundef %23, ptr noundef nonnull @c__1, ptr noundef nonnull %119, ptr noundef nonnull @c__1) #3
   br label %120
 

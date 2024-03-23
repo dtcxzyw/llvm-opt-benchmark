@@ -128,7 +128,7 @@ define hidden void @zend_finalize_system_id() local_unnamed_addr #0 {
   br label %28
 
 28:                                               ; preds = %28, %27
-  %.01.i = phi i64 [ 0, %27 ], [ %43, %28 ]
+  %.01.i = phi i64 [ 0, %27 ], [ %42, %28 ]
   %29 = getelementptr inbounds i8, ptr %1, i64 %.01.i
   %30 = load i8, ptr %29, align 1
   %31 = lshr i8 %30, 4
@@ -142,11 +142,10 @@ define hidden void @zend_finalize_system_id() local_unnamed_addr #0 {
   %38 = zext nneg i8 %37 to i64
   %39 = getelementptr inbounds [17 x i8], ptr @php_hash_bin2hex.hexits, i64 0, i64 %38
   %40 = load i8, ptr %39, align 1
-  %41 = or disjoint i64 %35, 1
-  %42 = getelementptr inbounds i8, ptr @zend_system_id, i64 %41
-  store i8 %40, ptr %42, align 1
-  %43 = add nuw nsw i64 %.01.i, 1
-  %exitcond.not.i = icmp eq i64 %43, 16
+  %41 = getelementptr i8, ptr %36, i64 1
+  store i8 %40, ptr %41, align 1
+  %42 = add nuw nsw i64 %.01.i, 1
+  %exitcond.not.i = icmp eq i64 %42, 16
   br i1 %exitcond.not.i, label %php_hash_bin2hex.exit, label %28
 
 php_hash_bin2hex.exit:                            ; preds = %28

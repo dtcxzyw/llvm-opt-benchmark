@@ -122,8 +122,7 @@ for.body.i15:                                     ; preds = %for.cond.preheader.
   %shr.i = lshr exact i64 %i.017.i, 1
   %arrayidx5.i = getelementptr inbounds i8, ptr %pass, i64 %shr.i
   %2 = load i8, ptr %arrayidx5.i, align 1
-  %add6.i = or disjoint i64 %i.017.i, 1
-  %arrayidx7.i = getelementptr inbounds i8, ptr %call.i, i64 %add6.i
+  %arrayidx7.i = getelementptr i8, ptr %arrayidx.i16, i64 1
   store i8 %2, ptr %arrayidx7.i, align 1
   %add8.i = add nuw i64 %i.017.i, 2
   %cmp4.i = icmp ult i64 %add8.i, %mul.i
@@ -132,8 +131,7 @@ for.body.i15:                                     ; preds = %for.cond.preheader.
 ascii_to_ucs2.exit:                               ; preds = %for.body.i15, %for.cond.preheader.i
   %arrayidx10.i = getelementptr inbounds i8, ptr %call.i, i64 %mul.i
   store i8 0, ptr %arrayidx10.i, align 1
-  %sub11.i = or disjoint i64 %mul.i, 1
-  %arrayidx12.i = getelementptr inbounds i8, ptr %call.i, i64 %sub11.i
+  %arrayidx12.i = getelementptr i8, ptr %arrayidx10.i, i64 1
   store i8 0, ptr %arrayidx12.i, align 1
   store i64 %add.i, ptr %out_pass_raw_len, align 8
   store ptr %call.i, ptr %out_pass_raw, align 8
@@ -642,7 +640,7 @@ cond.end.thread25:                                ; preds = %if.end44.split
   %password_len20 = getelementptr inbounds i8, ptr %ctx, i64 24
   %password4919 = getelementptr inbounds i8, ptr %ctx, i64 16
   store i8 0, ptr %call.i, align 1
-  %arrayidx12.i = getelementptr inbounds i8, ptr %call.i, i64 1
+  %arrayidx12.i = getelementptr i8, ptr %call.i, i64 1
   store i8 0, ptr %arrayidx12.i, align 1
   store i64 2, ptr %password_len20, align 8
   store ptr %call.i, ptr %password4919, align 8
@@ -830,8 +828,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %shr = lshr exact i64 %i.017, 1
   %arrayidx5 = getelementptr inbounds i8, ptr %ascii, i64 %shr
   %0 = load i8, ptr %arrayidx5, align 1
-  %add6 = or disjoint i64 %i.017, 1
-  %arrayidx7 = getelementptr inbounds i8, ptr %call, i64 %add6
+  %arrayidx7 = getelementptr i8, ptr %arrayidx, i64 1
   store i8 %0, ptr %arrayidx7, align 1
   %add8 = add nuw i64 %i.017, 2
   %cmp4 = icmp ult i64 %add8, %mul
@@ -840,8 +837,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   %arrayidx10 = getelementptr inbounds i8, ptr %call, i64 %mul
   store i8 0, ptr %arrayidx10, align 1
-  %sub11 = or disjoint i64 %mul, 1
-  %arrayidx12 = getelementptr inbounds i8, ptr %call, i64 %sub11
+  %arrayidx12 = getelementptr i8, ptr %arrayidx10, i64 1
   store i8 0, ptr %arrayidx12, align 1
   store i64 %add, ptr %out_len, align 8
   store ptr %call, ptr %out, align 8

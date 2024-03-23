@@ -259,8 +259,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %encr
   %84 = shufflevector <2 x i64> %xor.i18.i23.i.i, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
   %xor.i24.i26.i.i = xor <2 x i64> %83, %80
   %xor.i.i27.i.i = xor <2 x i64> %xor.i24.i26.i.i, %84
-  %add.i.i = or disjoint i64 %i.028.i.i, 1
-  %arrayidx6.i.i = getelementptr <2 x i64>, ptr %hx, i64 %add.i.i
+  %arrayidx6.i.i = getelementptr i8, ptr %68, i64 16
   store <2 x i64> %xor.i.i27.i.i, ptr %arrayidx6.i.i, align 16
   %add7.i.i = add nuw nsw i64 %i.028.i.i, 2
   %cmp.i.i = icmp ult i64 %i.028.i.i, 12

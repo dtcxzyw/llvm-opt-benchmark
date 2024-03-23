@@ -3951,15 +3951,15 @@ if.then47:                                        ; preds = %if.then38, %cond.en
 
 if.end49:                                         ; preds = %cond.end45
   store i64 0, ptr %pos, align 8
+  %invariant.gep = getelementptr i8, ptr %call44, i64 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond, %if.end49
   %i.0 = phi i64 [ 0, %if.end49 ], [ %add54, %while.cond ]
   %21 = load ptr, ptr %kwargs, align 8
   %arrayidx50 = getelementptr ptr, ptr %call44, i64 %i.0
-  %add = or disjoint i64 %i.0, 1
-  %arrayidx51 = getelementptr ptr, ptr %call44, i64 %add
-  %call52 = call i32 @PyDict_Next(ptr noundef %21, ptr noundef nonnull %pos, ptr noundef %arrayidx50, ptr noundef %arrayidx51) #15
+  %gep = getelementptr ptr, ptr %invariant.gep, i64 %i.0
+  %call52 = call i32 @PyDict_Next(ptr noundef %21, ptr noundef nonnull %pos, ptr noundef %arrayidx50, ptr noundef %gep) #15
   %tobool53.not = icmp eq i32 %call52, 0
   %add54 = add i64 %i.0, 2
   br i1 %tobool53.not, label %while.end, label %while.cond, !llvm.loop !15

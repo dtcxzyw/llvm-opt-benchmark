@@ -621,17 +621,11 @@ for.body99.i:                                     ; preds = %for.end89.i, %for.b
   %idxprom104.i = sext i32 %mul103.i to i64
   %arrayidx105.i = getelementptr i32, ptr %call93.i, i64 %idxprom104.i
   store i32 %16, ptr %arrayidx105.i, align 4
-  %add108.i = or disjoint i32 %mul103.i, 1
-  %idxprom109.i = sext i32 %add108.i to i64
-  %arrayidx110.i = getelementptr i32, ptr %call93.i, i64 %idxprom109.i
+  %arrayidx110.i = getelementptr i8, ptr %arrayidx105.i, i64 4
   store i32 50331648, ptr %arrayidx110.i, align 4
-  %add113.i = or disjoint i32 %mul103.i, 2
-  %idxprom114.i = sext i32 %add113.i to i64
-  %arrayidx115.i = getelementptr i32, ptr %call93.i, i64 %idxprom114.i
+  %arrayidx115.i = getelementptr i8, ptr %arrayidx105.i, i64 8
   store i32 %16, ptr %arrayidx115.i, align 4
-  %add118.i = or disjoint i32 %mul103.i, 3
-  %idxprom119.i = sext i32 %add118.i to i64
-  %arrayidx120.i = getelementptr i32, ptr %call93.i, i64 %idxprom119.i
+  %arrayidx120.i = getelementptr i8, ptr %arrayidx105.i, i64 12
   store i32 117440512, ptr %arrayidx120.i, align 4
   call void @g_free(ptr noundef %call100.i) #7
   %inc122.i = add nuw i32 %cpu.18.i, 1
@@ -748,9 +742,7 @@ if.else280.i:                                     ; preds = %for.body269.i
   %idxprom294.i = sext i32 %mul282.i to i64
   %arrayidx295.i = getelementptr i32, ptr %call263.i, i64 %idxprom294.i
   store i32 %27, ptr %arrayidx295.i, align 4
-  %add298.i = or disjoint i32 %mul282.i, 1
-  %idxprom299.i = sext i32 %add298.i to i64
-  %arrayidx300.i = getelementptr i32, ptr %call263.i, i64 %idxprom299.i
+  %arrayidx300.i = getelementptr i8, ptr %arrayidx295.i, i64 4
   store i32 150994944, ptr %arrayidx300.i, align 4
   br label %if.end301.i
 

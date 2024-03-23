@@ -259,34 +259,34 @@ for.cond110.preheader:                            ; preds = %for.cond110.prehead
   %indvars.iv143 = phi i64 [ 0, %for.cond110.preheader.preheader ], [ %indvars.iv.next144, %for.inc159 ]
   %8 = add nuw nsw i64 %indvars.iv145, %7
   %arrayidx149 = getelementptr inbounds i8, ptr %s.1, i64 %8
+  %invariant.gep175 = getelementptr i8, ptr %buf, i64 %indvars.iv143
   br label %for.body113
 
 for.body113:                                      ; preds = %for.cond110.preheader, %if.end146
   %cmp111 = phi i1 [ true, %for.cond110.preheader ], [ false, %if.end146 ]
   %indvars.iv139 = phi i64 [ 0, %for.cond110.preheader ], [ 1, %if.end146 ]
-  %9 = or disjoint i64 %indvars.iv139, %indvars.iv143
-  %arrayidx116 = getelementptr inbounds i8, ptr %buf, i64 %9
-  %10 = load i8, ptr %arrayidx116, align 1
-  %11 = add i8 %10, -48
-  %or.cond = icmp ult i8 %11, 10
+  %gep176 = getelementptr i8, ptr %invariant.gep175, i64 %indvars.iv139
+  %9 = load i8, ptr %gep176, align 1
+  %10 = add i8 %9, -48
+  %or.cond = icmp ult i8 %10, 10
   br i1 %or.cond, label %if.end146, label %if.else125
 
 if.else125:                                       ; preds = %for.body113
-  %12 = add i8 %10, -97
-  %or.cond1 = icmp ult i8 %12, 6
+  %11 = add i8 %9, -97
+  %or.cond1 = icmp ult i8 %11, 6
   br i1 %or.cond1, label %if.then131, label %if.else134
 
 if.then131:                                       ; preds = %if.else125
-  %add133 = add nsw i8 %10, -87
+  %add133 = add nsw i8 %9, -87
   br label %if.end146
 
 if.else134:                                       ; preds = %if.else125
-  %13 = add i8 %10, -65
-  %or.cond2 = icmp ult i8 %13, 6
+  %12 = add i8 %9, -65
+  %or.cond2 = icmp ult i8 %12, 6
   br i1 %or.cond2, label %if.then140, label %if.else143
 
 if.then140:                                       ; preds = %if.else134
-  %add142 = add nsw i8 %10, -55
+  %add142 = add nsw i8 %9, -55
   br label %if.end146
 
 if.else143:                                       ; preds = %if.else134
@@ -294,9 +294,9 @@ if.else143:                                       ; preds = %if.else134
   br label %if.end171
 
 if.end146:                                        ; preds = %for.body113, %if.then131, %if.then140
-  %m.0 = phi i8 [ %add133, %if.then131 ], [ %add142, %if.then140 ], [ %11, %for.body113 ]
-  %14 = load i8, ptr %arrayidx149, align 1
-  %shl = shl i8 %14, 4
+  %m.0 = phi i8 [ %add133, %if.then131 ], [ %add142, %if.then140 ], [ %10, %for.body113 ]
+  %13 = load i8, ptr %arrayidx149, align 1
+  %shl = shl i8 %13, 4
   %or = or i8 %shl, %m.0
   store i8 %or, ptr %arrayidx149, align 1
   br i1 %cmp111, label %for.body113, label %for.inc159, !llvm.loop !10

@@ -460,9 +460,9 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 315:                                              ; preds = %.thread25
   %316 = shl i32 %40, 1
-  %317 = or disjoint i32 %316, 1
-  %318 = sext i32 %317 to i64
-  %319 = getelementptr inbounds double, ptr %43, i64 %318
+  %317 = sext i32 %316 to i64
+  %318 = getelementptr double, ptr %43, i64 %317
+  %319 = getelementptr i8, ptr %318, i64 8
   %320 = sext i32 %31 to i64
   %321 = getelementptr double, ptr %34, i64 %320
   %322 = getelementptr i8, ptr %321, i64 16

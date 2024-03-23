@@ -152,18 +152,17 @@ for.end81:                                        ; preds = %for.body75, %for.bo
 for.cond95.preheader:                             ; preds = %for.cond89.preheader, %for.cond95.preheader
   %s88.0130 = phi i64 [ 0, %for.cond89.preheader ], [ %add115, %for.cond95.preheader ]
   %position.0129 = phi i64 [ 0, %for.cond89.preheader ], [ %and113, %for.cond95.preheader ]
+  %8 = getelementptr i8, ptr %add.ptr62173, i64 %s88.0130
   %and = and i64 %position.0129, %conv102
-  %arrayidx104 = getelementptr inbounds i8, ptr %add.ptr62173, i64 %s88.0130
-  %8 = load i8, ptr %arrayidx104, align 1
+  %9 = load i8, ptr %8, align 1
   %arrayidx105 = getelementptr inbounds i8, ptr %add.ptr9, i64 %and
-  store i8 %8, ptr %arrayidx105, align 1
+  store i8 %9, ptr %arrayidx105, align 1
   %add101.c = add nuw nsw i64 %position.0129, %conv99
   %and.c = and i64 %add101.c, %conv102
-  %add103.c = or disjoint i64 %s88.0130, 1
-  %arrayidx104.c = getelementptr inbounds i8, ptr %add.ptr62173, i64 %add103.c
-  %9 = load i8, ptr %arrayidx104.c, align 1
+  %arrayidx104.c = getelementptr i8, ptr %8, i64 1
+  %10 = load i8, ptr %arrayidx104.c, align 1
   %arrayidx105.c = getelementptr inbounds i8, ptr %add.ptr9, i64 %and.c
-  store i8 %9, ptr %arrayidx105.c, align 1
+  store i8 %10, ptr %arrayidx105.c, align 1
   %add111 = add nuw nsw i64 %position.0129, %mul110
   %and113 = and i64 %add111, %conv102
   %add115 = add nuw nsw i64 %s88.0130, 2
@@ -174,9 +173,9 @@ for.body122:                                      ; preds = %for.cond119.prehead
   %indvars.iv138 = phi i64 [ %indvars.iv.next139, %for.inc142 ], [ 0, %for.cond119.preheader ]
   %position118.0120 = phi i32 [ %position118.1.lcssa, %for.inc142 ], [ 0, %for.cond119.preheader ]
   %arrayidx124 = getelementptr inbounds i16, ptr %normalizedCounter, i64 %indvars.iv138
-  %10 = load i16, ptr %arrayidx124, align 2
-  %conv125 = sext i16 %10 to i32
-  %cmp127115 = icmp sgt i16 %10, 0
+  %11 = load i16, ptr %arrayidx124, align 2
+  %conv125 = sext i16 %11 to i32
+  %cmp127115 = icmp sgt i16 %11, 0
   br i1 %cmp127115, label %for.body129.lr.ph, label %for.inc142
 
 for.body129.lr.ph:                                ; preds = %for.body122
@@ -225,16 +224,16 @@ for.cond165.preheader:                            ; preds = %for.body150
 for.body150:                                      ; preds = %if.end145, %for.body150
   %indvars.iv151 = phi i64 [ 0, %if.end145 ], [ %indvars.iv.next152, %for.body150 ]
   %arrayidx153 = getelementptr inbounds i8, ptr %add.ptr9, i64 %indvars.iv151
-  %11 = load i8, ptr %arrayidx153, align 1
-  %12 = trunc i64 %indvars.iv151 to i32
-  %add154 = add i32 %shl, %12
+  %12 = load i8, ptr %arrayidx153, align 1
+  %13 = trunc i64 %indvars.iv151 to i32
+  %add154 = add i32 %shl, %13
   %conv155 = trunc i32 %add154 to i16
-  %idxprom156 = zext i8 %11 to i64
+  %idxprom156 = zext i8 %12 to i64
   %arrayidx157 = getelementptr inbounds i16, ptr %workSpace, i64 %idxprom156
-  %13 = load i16, ptr %arrayidx157, align 2
-  %inc158 = add i16 %13, 1
+  %14 = load i16, ptr %arrayidx157, align 2
+  %inc158 = add i16 %14, 1
   store i16 %inc158, ptr %arrayidx157, align 2
-  %idxprom159 = zext i16 %13 to i64
+  %idxprom159 = zext i16 %14 to i64
   %arrayidx160 = getelementptr inbounds i16, ptr %add.ptr, i64 %idxprom159
   store i16 %conv155, ptr %arrayidx160, align 2
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
@@ -245,8 +244,8 @@ for.body168:                                      ; preds = %for.cond165.prehead
   %indvars.iv157 = phi i64 [ 0, %for.cond165.preheader ], [ %indvars.iv.next158, %for.inc214 ]
   %total.0132 = phi i32 [ 0, %for.cond165.preheader ], [ %total.1, %for.inc214 ]
   %arrayidx170 = getelementptr inbounds i16, ptr %normalizedCounter, i64 %indvars.iv157
-  %14 = load i16, ptr %arrayidx170, align 2
-  switch i16 %14, label %sw.default [
+  %15 = load i16, ptr %arrayidx170, align 2
+  switch i16 %15, label %sw.default [
     i16 0, label %sw.bb
     i16 -1, label %sw.bb178
     i16 1, label %sw.bb178
@@ -267,10 +266,10 @@ sw.bb178:                                         ; preds = %for.body168, %for.b
   br label %for.inc214
 
 sw.default:                                       ; preds = %for.body168
-  %conv171 = sext i16 %14 to i32
+  %conv171 = sext i16 %15 to i32
   %sub192 = add nsw i32 %conv171, -1
-  %15 = tail call i32 @llvm.ctlz.i32(i32 %sub192, i1 true), !range !13
-  %sub.i = xor i32 %15, 31
+  %16 = tail call i32 @llvm.ctlz.i32(i32 %sub192, i1 true), !range !13
+  %sub.i = xor i32 %16, 31
   %sub193 = sub i32 %tableLog, %sub.i
   %shl197 = shl i32 %conv171, %sub193
   %shl198 = shl i32 %sub193, 16
@@ -278,12 +277,12 @@ sw.default:                                       ; preds = %for.body168
   %arrayidx201 = getelementptr inbounds %struct.FSE_symbolCompressionTransform, ptr %add.ptr2, i64 %indvars.iv157
   %deltaNbBits202 = getelementptr inbounds i8, ptr %arrayidx201, i64 4
   store i32 %sub199, ptr %deltaNbBits202, align 4
-  %16 = load i16, ptr %arrayidx170, align 2
-  %conv205 = sext i16 %16 to i32
+  %17 = load i16, ptr %arrayidx170, align 2
+  %conv205 = sext i16 %17 to i32
   %sub206 = sub i32 %total.0132, %conv205
   store i32 %sub206, ptr %arrayidx201, align 4
-  %17 = load i16, ptr %arrayidx170, align 2
-  %conv212 = sext i16 %17 to i32
+  %18 = load i16, ptr %arrayidx170, align 2
+  %conv212 = sext i16 %18 to i32
   %add213 = add i32 %total.0132, %conv212
   br label %for.inc214
 

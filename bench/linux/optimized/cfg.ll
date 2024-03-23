@@ -9408,8 +9408,8 @@ define internal fastcc noundef i32 @ieee80211_assign_beacon(ptr nocapture nounde
   %164 = load i8, ptr %150, align 8
   %165 = zext i8 %164 to i64
   %166 = shl nuw nsw i64 %165, 4
-  %167 = or disjoint i64 %166, 8
-  %168 = getelementptr i8, ptr %162, i64 %167
+  %167 = getelementptr i8, ptr %162, i64 %166
+  %168 = getelementptr i8, ptr %167, i64 8
   %169 = icmp eq i8 %164, 0
   br i1 %169, label %.loopexit31, label %170
 
@@ -9456,8 +9456,8 @@ define internal fastcc noundef i32 @ieee80211_assign_beacon(ptr nocapture nounde
   %198 = load i8, ptr %148, align 8
   %199 = zext i8 %198 to i64
   %200 = shl nuw nsw i64 %199, 4
-  %201 = or disjoint i64 %200, 8
-  %202 = getelementptr i8, ptr %196, i64 %201
+  %201 = getelementptr i8, ptr %196, i64 %200
+  %202 = getelementptr i8, ptr %201, i64 8
   %203 = icmp eq i8 %198, 0
   br i1 %203, label %.loopexit, label %204
 

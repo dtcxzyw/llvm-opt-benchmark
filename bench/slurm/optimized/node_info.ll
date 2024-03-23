@@ -825,9 +825,9 @@ define void @slurm_populate_node_partitions(ptr noundef readonly %0, ptr noundef
   br label %.preheader45
 
 .preheader45:                                     ; preds = %.preheader45.preheader, %._crit_edge53
-  %21 = phi i32 [ %53, %._crit_edge53 ], [ %.pre, %.preheader45.preheader ]
-  %.03355 = phi ptr [ %55, %._crit_edge53 ], [ %20, %.preheader45.preheader ]
-  %.03554 = phi i32 [ %54, %._crit_edge53 ], [ 0, %.preheader45.preheader ]
+  %21 = phi i32 [ %54, %._crit_edge53 ], [ %.pre, %.preheader45.preheader ]
+  %.03355 = phi ptr [ %56, %._crit_edge53 ], [ %20, %.preheader45.preheader ]
+  %.03554 = phi i32 [ %55, %._crit_edge53 ], [ 0, %.preheader45.preheader ]
   %22 = getelementptr inbounds i8, ptr %.03355, i64 160
   %23 = load ptr, ptr %22, align 8
   %24 = load i32, ptr %23, align 4
@@ -839,11 +839,11 @@ define void @slurm_populate_node_partitions(ptr noundef readonly %0, ptr noundef
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge51
-  %27 = phi ptr [ %23, %.preheader.lr.ph ], [ %49, %._crit_edge51 ]
+  %27 = phi ptr [ %23, %.preheader.lr.ph ], [ %50, %._crit_edge51 ]
   %indvars.iv = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next, %._crit_edge51 ]
-  %28 = phi i32 [ %24, %.preheader.lr.ph ], [ %51, %._crit_edge51 ]
-  %29 = or disjoint i64 %indvars.iv, 1
-  %30 = getelementptr inbounds i32, ptr %27, i64 %29
+  %28 = phi i32 [ %24, %.preheader.lr.ph ], [ %52, %._crit_edge51 ]
+  %29 = getelementptr i32, ptr %27, i64 %indvars.iv
+  %30 = getelementptr i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
   %.not4248 = icmp sgt i32 %28, %31
   br i1 %.not4248, label %._crit_edge51, label %.lr.ph50
@@ -876,29 +876,30 @@ define void @slurm_populate_node_partitions(ptr noundef readonly %0, ptr noundef
   %44 = phi ptr [ %32, %.lr.ph50 ], [ %32, %35 ], [ %.pre59, %37 ]
   %45 = phi ptr [ %33, %.lr.ph50 ], [ %33, %35 ], [ %.pre59, %37 ]
   %46 = add nsw i32 %.03749, 1
-  %47 = getelementptr inbounds i32, ptr %45, i64 %29
-  %48 = load i32, ptr %47, align 4
-  %.not42.not = icmp slt i32 %.03749, %48
+  %47 = getelementptr i32, ptr %45, i64 %indvars.iv
+  %48 = getelementptr i8, ptr %47, i64 4
+  %49 = load i32, ptr %48, align 4
+  %.not42.not = icmp slt i32 %.03749, %49
   br i1 %.not42.not, label %.lr.ph50, label %._crit_edge51, !llvm.loop !10
 
 ._crit_edge51:                                    ; preds = %43, %.preheader
-  %49 = phi ptr [ %27, %.preheader ], [ %44, %43 ]
+  %50 = phi ptr [ %27, %.preheader ], [ %44, %43 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %50 = getelementptr inbounds i32, ptr %49, i64 %indvars.iv.next
-  %51 = load i32, ptr %50, align 4
-  %52 = icmp eq i32 %51, -1
-  br i1 %52, label %._crit_edge53.loopexit, label %.preheader
+  %51 = getelementptr inbounds i32, ptr %50, i64 %indvars.iv.next
+  %52 = load i32, ptr %51, align 4
+  %53 = icmp eq i32 %52, -1
+  br i1 %53, label %._crit_edge53.loopexit, label %.preheader
 
 ._crit_edge53.loopexit:                           ; preds = %._crit_edge51
   %.pre60 = load i32, ptr %9, align 8
   br label %._crit_edge53
 
 ._crit_edge53:                                    ; preds = %._crit_edge53.loopexit, %.preheader45
-  %53 = phi i32 [ %.pre60, %._crit_edge53.loopexit ], [ %21, %.preheader45 ]
-  %54 = add nuw nsw i32 %.03554, 1
-  %55 = getelementptr inbounds i8, ptr %.03355, i64 232
-  %56 = icmp ult i32 %54, %53
-  br i1 %56, label %.preheader45, label %.loopexit, !llvm.loop !11
+  %54 = phi i32 [ %.pre60, %._crit_edge53.loopexit ], [ %21, %.preheader45 ]
+  %55 = add nuw nsw i32 %.03554, 1
+  %56 = getelementptr inbounds i8, ptr %.03355, i64 232
+  %57 = icmp ult i32 %55, %54
+  br i1 %57, label %.preheader45, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %._crit_edge53, %._crit_edge, %2, %3, %8
   ret void

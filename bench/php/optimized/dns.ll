@@ -2754,7 +2754,7 @@ _php_dns_free_res.exit244:                        ; preds = %97
   %.in295 = phi i32 [ %108, %.lr.ph293 ], [ %110, %.backedge ]
   %.1291 = phi ptr [ %.0204.lcssa, %.lr.ph293 ], [ %.1.be, %.backedge ]
   %110 = add nsw i32 %.in295, -1
-  %111 = call i32 @dn_skipname(ptr noundef nonnull %.1291, ptr noundef nonnull %83) #12
+  %111 = call i32 @dn_skipname(ptr noundef %.1291, ptr noundef nonnull %83) #12
   %112 = icmp slt i32 %111, 0
   br i1 %112, label %113, label %121
 
@@ -2807,8 +2807,8 @@ _php_dns_free_res.exit249:                        ; preds = %119
   %137 = getelementptr inbounds i8, ptr %123, i64 9
   %138 = load i8, ptr %137, align 1
   %139 = zext i8 %138 to i64
-  %140 = or disjoint i64 %136, %139
-  %141 = getelementptr inbounds i8, ptr %131, i64 %140
+  %140 = getelementptr i8, ptr %131, i64 %136
+  %141 = getelementptr i8, ptr %140, i64 %139
   br label %.backedge
 
 .backedge:                                        ; preds = %164, %168, %132

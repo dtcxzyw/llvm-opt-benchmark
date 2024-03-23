@@ -34587,6 +34587,7 @@ for.body13.preheader:                             ; preds = %for.body13.lr.ph
 
 for.body13.preheader.new:                         ; preds = %for.body13.preheader
   %unroll_iter = and i64 %count, -2
+  %invariant.gep = getelementptr i8, ptr %22, i64 4
   br label %for.body13
 
 for.body13.us.preheader:                          ; preds = %for.body13.lr.ph
@@ -34640,9 +34641,8 @@ for.body13:                                       ; preds = %for.body13, %for.bo
   %arrayidx16 = getelementptr inbounds i16, ptr %ldata, i64 %conv.i55
   %34 = load i16, ptr %arrayidx16, align 2, !tbaa !116
   %arrayidx18 = getelementptr inbounds i16, ptr %result_data, i64 %i9.062
-  %inc20 = or disjoint i64 %i9.062, 1
-  %arrayidx.i54.1 = getelementptr inbounds i32, ptr %22, i64 %inc20
-  %35 = load i32, ptr %arrayidx.i54.1, align 4, !tbaa !64
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %i9.062
+  %35 = load i32, ptr %gep, align 4, !tbaa !64
   %conv.i55.1 = zext i32 %35 to i64
   %arrayidx16.1 = getelementptr inbounds i16, ptr %ldata, i64 %conv.i55.1
   %36 = load i16, ptr %arrayidx16.1, align 2, !tbaa !116
@@ -40610,6 +40610,7 @@ for.body13.preheader:                             ; preds = %for.body13.lr.ph
 
 for.body13.preheader.new:                         ; preds = %for.body13.preheader
   %unroll_iter = and i64 %count, -2
+  %invariant.gep = getelementptr i8, ptr %20, i64 4
   br label %for.body13
 
 for.body13.us.preheader:                          ; preds = %for.body13.lr.ph
@@ -40669,9 +40670,8 @@ for.body13:                                       ; preds = %for.body13, %for.bo
   %arrayidx16 = getelementptr inbounds float, ptr %ldata, i64 %conv.i55
   %35 = load float, ptr %arrayidx16, align 4, !tbaa !384
   %arrayidx18 = getelementptr inbounds float, ptr %result_data, i64 %i9.065
-  %inc20 = or disjoint i64 %i9.065, 1
-  %arrayidx.i54.1 = getelementptr inbounds i32, ptr %20, i64 %inc20
-  %36 = load i32, ptr %arrayidx.i54.1, align 4, !tbaa !64
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %i9.065
+  %36 = load i32, ptr %gep, align 4, !tbaa !64
   %conv.i55.1 = zext i32 %36 to i64
   %arrayidx16.1 = getelementptr inbounds float, ptr %ldata, i64 %conv.i55.1
   %37 = load float, ptr %arrayidx16.1, align 4, !tbaa !384
@@ -41433,6 +41433,7 @@ for.body13.preheader:                             ; preds = %for.body13.lr.ph
 
 for.body13.preheader.new:                         ; preds = %for.body13.preheader
   %unroll_iter = and i64 %count, -2
+  %invariant.gep = getelementptr i8, ptr %20, i64 4
   br label %for.body13
 
 for.body13.us.preheader:                          ; preds = %for.body13.lr.ph
@@ -41492,9 +41493,8 @@ for.body13:                                       ; preds = %for.body13, %for.bo
   %arrayidx16 = getelementptr inbounds double, ptr %ldata, i64 %conv.i55
   %35 = load double, ptr %arrayidx16, align 8, !tbaa !313
   %arrayidx18 = getelementptr inbounds double, ptr %result_data, i64 %i9.065
-  %inc20 = or disjoint i64 %i9.065, 1
-  %arrayidx.i54.1 = getelementptr inbounds i32, ptr %20, i64 %inc20
-  %36 = load i32, ptr %arrayidx.i54.1, align 4, !tbaa !64
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %i9.065
+  %36 = load i32, ptr %gep, align 4, !tbaa !64
   %conv.i55.1 = zext i32 %36 to i64
   %arrayidx16.1 = getelementptr inbounds double, ptr %ldata, i64 %conv.i55.1
   %37 = load double, ptr %arrayidx16.1, align 8, !tbaa !313
@@ -50769,6 +50769,7 @@ for.body13.preheader:                             ; preds = %for.body13.lr.ph
 
 for.body13.preheader.new:                         ; preds = %for.body13.preheader
   %unroll_iter = and i64 %count, -2
+  %invariant.gep = getelementptr i8, ptr %20, i64 4
   br label %for.body13
 
 for.body13.us.preheader:                          ; preds = %for.body13.lr.ph
@@ -50828,9 +50829,8 @@ for.body13:                                       ; preds = %for.body13, %for.bo
   %arrayidx16 = getelementptr inbounds float, ptr %ldata, i64 %conv.i55
   %35 = load float, ptr %arrayidx16, align 4, !tbaa !384
   %arrayidx18 = getelementptr inbounds float, ptr %result_data, i64 %i9.065
-  %inc20 = or disjoint i64 %i9.065, 1
-  %arrayidx.i54.1 = getelementptr inbounds i32, ptr %20, i64 %inc20
-  %36 = load i32, ptr %arrayidx.i54.1, align 4, !tbaa !64
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %i9.065
+  %36 = load i32, ptr %gep, align 4, !tbaa !64
   %conv.i55.1 = zext i32 %36 to i64
   %arrayidx16.1 = getelementptr inbounds float, ptr %ldata, i64 %conv.i55.1
   %37 = load float, ptr %arrayidx16.1, align 4, !tbaa !384
@@ -51592,6 +51592,7 @@ for.body13.preheader:                             ; preds = %for.body13.lr.ph
 
 for.body13.preheader.new:                         ; preds = %for.body13.preheader
   %unroll_iter = and i64 %count, -2
+  %invariant.gep = getelementptr i8, ptr %20, i64 4
   br label %for.body13
 
 for.body13.us.preheader:                          ; preds = %for.body13.lr.ph
@@ -51651,9 +51652,8 @@ for.body13:                                       ; preds = %for.body13, %for.bo
   %arrayidx16 = getelementptr inbounds double, ptr %ldata, i64 %conv.i55
   %35 = load double, ptr %arrayidx16, align 8, !tbaa !313
   %arrayidx18 = getelementptr inbounds double, ptr %result_data, i64 %i9.065
-  %inc20 = or disjoint i64 %i9.065, 1
-  %arrayidx.i54.1 = getelementptr inbounds i32, ptr %20, i64 %inc20
-  %36 = load i32, ptr %arrayidx.i54.1, align 4, !tbaa !64
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %i9.065
+  %36 = load i32, ptr %gep, align 4, !tbaa !64
   %conv.i55.1 = zext i32 %36 to i64
   %arrayidx16.1 = getelementptr inbounds double, ptr %ldata, i64 %conv.i55.1
   %37 = load double, ptr %arrayidx16.1, align 8, !tbaa !313
@@ -96618,6 +96618,8 @@ for.body13.preheader.new:                         ; preds = %for.body13.preheade
   %unroll_iter = and i64 %count, -4
   %24 = insertelement <2 x double> poison, double %div.i.i58, i64 0
   %25 = shufflevector <2 x double> %24, <2 x double> poison, <2 x i32> zeroinitializer
+  %invariant.gep = getelementptr i8, ptr %21, i64 4
+  %invariant.gep21 = getelementptr i8, ptr %21, i64 12
   br label %for.body13
 
 for.body13.us.preheader:                          ; preds = %for.body13.lr.ph
@@ -96673,9 +96675,8 @@ for.body13:                                       ; preds = %for.body13, %for.bo
   %arrayidx16 = getelementptr inbounds double, ptr %ldata, i64 %conv.i55
   %35 = load double, ptr %arrayidx16, align 8, !tbaa !313
   %arrayidx18 = getelementptr inbounds double, ptr %result_data, i64 %i9.064
-  %inc20 = or disjoint i64 %i9.064, 1
-  %arrayidx.i54.1 = getelementptr inbounds i32, ptr %21, i64 %inc20
-  %36 = load i32, ptr %arrayidx.i54.1, align 4, !tbaa !64
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %i9.064
+  %36 = load i32, ptr %gep, align 4, !tbaa !64
   %conv.i55.1 = zext i32 %36 to i64
   %arrayidx16.1 = getelementptr inbounds double, ptr %ldata, i64 %conv.i55.1
   %37 = load double, ptr %arrayidx16.1, align 8, !tbaa !313
@@ -96690,9 +96691,8 @@ for.body13:                                       ; preds = %for.body13, %for.bo
   %arrayidx16.2 = getelementptr inbounds double, ptr %ldata, i64 %conv.i55.2
   %42 = load double, ptr %arrayidx16.2, align 8, !tbaa !313
   %arrayidx18.2 = getelementptr inbounds double, ptr %result_data, i64 %inc20.1
-  %inc20.2 = or disjoint i64 %i9.064, 3
-  %arrayidx.i54.3 = getelementptr inbounds i32, ptr %21, i64 %inc20.2
-  %43 = load i32, ptr %arrayidx.i54.3, align 4, !tbaa !64
+  %gep22 = getelementptr i32, ptr %invariant.gep21, i64 %i9.064
+  %43 = load i32, ptr %gep22, align 4, !tbaa !64
   %conv.i55.3 = zext i32 %43 to i64
   %arrayidx16.3 = getelementptr inbounds double, ptr %ldata, i64 %conv.i55.3
   %44 = load double, ptr %arrayidx16.3, align 8, !tbaa !313
@@ -97486,6 +97486,8 @@ for.body13.preheader.new:                         ; preds = %for.body13.preheade
   %unroll_iter = and i64 %count, -4
   %24 = insertelement <2 x double> poison, double %div.i.i58, i64 0
   %25 = shufflevector <2 x double> %24, <2 x double> poison, <2 x i32> zeroinitializer
+  %invariant.gep = getelementptr i8, ptr %21, i64 4
+  %invariant.gep21 = getelementptr i8, ptr %21, i64 12
   br label %for.body13
 
 for.body13.us.preheader:                          ; preds = %for.body13.lr.ph
@@ -97541,9 +97543,8 @@ for.body13:                                       ; preds = %for.body13, %for.bo
   %arrayidx16 = getelementptr inbounds double, ptr %ldata, i64 %conv.i55
   %35 = load double, ptr %arrayidx16, align 8, !tbaa !313
   %arrayidx18 = getelementptr inbounds double, ptr %result_data, i64 %i9.064
-  %inc20 = or disjoint i64 %i9.064, 1
-  %arrayidx.i54.1 = getelementptr inbounds i32, ptr %21, i64 %inc20
-  %36 = load i32, ptr %arrayidx.i54.1, align 4, !tbaa !64
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %i9.064
+  %36 = load i32, ptr %gep, align 4, !tbaa !64
   %conv.i55.1 = zext i32 %36 to i64
   %arrayidx16.1 = getelementptr inbounds double, ptr %ldata, i64 %conv.i55.1
   %37 = load double, ptr %arrayidx16.1, align 8, !tbaa !313
@@ -97558,9 +97559,8 @@ for.body13:                                       ; preds = %for.body13, %for.bo
   %arrayidx16.2 = getelementptr inbounds double, ptr %ldata, i64 %conv.i55.2
   %42 = load double, ptr %arrayidx16.2, align 8, !tbaa !313
   %arrayidx18.2 = getelementptr inbounds double, ptr %result_data, i64 %inc20.1
-  %inc20.2 = or disjoint i64 %i9.064, 3
-  %arrayidx.i54.3 = getelementptr inbounds i32, ptr %21, i64 %inc20.2
-  %43 = load i32, ptr %arrayidx.i54.3, align 4, !tbaa !64
+  %gep22 = getelementptr i32, ptr %invariant.gep21, i64 %i9.064
+  %43 = load i32, ptr %gep22, align 4, !tbaa !64
   %conv.i55.3 = zext i32 %43 to i64
   %arrayidx16.3 = getelementptr inbounds double, ptr %ldata, i64 %conv.i55.3
   %44 = load double, ptr %arrayidx16.3, align 8, !tbaa !313

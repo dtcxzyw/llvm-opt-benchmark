@@ -2248,14 +2248,14 @@ _ZN7QStringD2Ev.exit185:                          ; preds = %270, %_ZN9QtPrivate
   %301 = sitofp i32 %297 to float
   %302 = sitofp i32 %299 to float
   %303 = fdiv float %301, %302
-  %304 = or disjoint i64 %289, 1
-  %305 = load ptr, ptr %29, align 8
-  %306 = getelementptr inbounds i8, ptr %305, i64 16
-  %307 = getelementptr inbounds i8, ptr %305, i64 8
-  %308 = load i32, ptr %307, align 8
-  %309 = sext i32 %308 to i64
-  %310 = getelementptr inbounds ptr, ptr %306, i64 %309
-  %311 = getelementptr inbounds ptr, ptr %310, i64 %304
+  %304 = load ptr, ptr %29, align 8
+  %305 = getelementptr inbounds i8, ptr %304, i64 16
+  %306 = getelementptr inbounds i8, ptr %304, i64 8
+  %307 = load i32, ptr %306, align 8
+  %308 = sext i32 %307 to i64
+  %309 = getelementptr inbounds ptr, ptr %305, i64 %308
+  %310 = getelementptr ptr, ptr %309, i64 %289
+  %311 = getelementptr i8, ptr %310, i64 8
   %312 = invoke noundef i32 @_ZNK7QString5toIntEPbi(ptr noundef nonnull align 8 dereferenceable(8) %311, ptr noundef null, i32 noundef 10)
           to label %313 unwind label %.loopexit254
 

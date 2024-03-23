@@ -5203,7 +5203,7 @@ for.body.lr.ph:                                   ; preds = %if.end42
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %45 = phi i32 [ %44, %for.body.lr.ph ], [ %58, %for.inc ]
+  %45 = phi i32 [ %44, %for.body.lr.ph ], [ %61, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %46 = load ptr, ptr %chunk_object_offsets.i, align 8
   %mul.i = shl nuw nsw i64 %indvars.iv, 3
@@ -5215,35 +5215,35 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %48 = load i8, ptr %arrayidx1.i.i, align 1
   %conv2.i.i = zext i8 %48 to i64
   %shl3.i.i = shl nuw nsw i64 %conv2.i.i, 16
-  %or.i.i = or disjoint i64 %shl3.i.i, %shl.i.i
   %arrayidx4.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 2
   %49 = load i8, ptr %arrayidx4.i.i, align 1
   %conv5.i.i = zext i8 %49 to i64
   %shl6.i.i = shl nuw nsw i64 %conv5.i.i, 8
-  %or7.i.i = or disjoint i64 %or.i.i, %shl6.i.i
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 3
   %50 = load i8, ptr %arrayidx8.i.i, align 1
   %conv9.i.i = zext i8 %50 to i64
-  %or11.i.i = or disjoint i64 %or7.i.i, %conv9.i.i
-  %arrayidx = getelementptr inbounds i8, ptr %call1, i64 %or11.i.i
-  %51 = load i8, ptr %arrayidx, align 1
-  %tobool47.not = icmp eq i8 %51, 0
+  %51 = getelementptr i8, ptr %call1, i64 %shl3.i.i
+  %52 = getelementptr i8, ptr %51, i64 %shl.i.i
+  %53 = getelementptr i8, ptr %52, i64 %shl6.i.i
+  %arrayidx = getelementptr i8, ptr %53, i64 %conv9.i.i
+  %54 = load i8, ptr %arrayidx, align 1
+  %tobool47.not = icmp eq i8 %54, 0
   br i1 %tobool47.not, label %for.inc, label %nth_midxed_object_oid.exit
 
 nth_midxed_object_oid.exit:                       ; preds = %for.body
-  %52 = load ptr, ptr %chunk_oid_lookup.i, align 8
-  %53 = load i8, ptr %hash_len.i, align 1
-  %conv.i48 = zext i8 %53 to i64
+  %55 = load ptr, ptr %chunk_oid_lookup.i, align 8
+  %56 = load i8, ptr %hash_len.i, align 1
+  %conv.i48 = zext i8 %56 to i64
   %mul.i.i49 = mul nuw nsw i64 %indvars.iv, %conv.i48
-  %add.ptr.i50 = getelementptr inbounds i8, ptr %52, i64 %mul.i.i49
-  %54 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i = getelementptr inbounds i8, ptr %54, i64 256
-  %55 = load ptr, ptr %hash_algo.i.i, align 8
-  %rawsz.i.i = getelementptr inbounds i8, ptr %55, i64 16
-  %56 = load i64, ptr %rawsz.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %oid, ptr align 1 %add.ptr.i50, i64 %56, i1 false)
-  %57 = load ptr, ptr %hash_algo.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %57 to i64
+  %add.ptr.i50 = getelementptr inbounds i8, ptr %55, i64 %mul.i.i49
+  %57 = load ptr, ptr @the_repository, align 8
+  %hash_algo.i.i = getelementptr inbounds i8, ptr %57, i64 256
+  %58 = load ptr, ptr %hash_algo.i.i, align 8
+  %rawsz.i.i = getelementptr inbounds i8, ptr %58, i64 16
+  %59 = load i64, ptr %rawsz.i.i, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %oid, ptr align 1 %add.ptr.i50, i64 %59, i1 false)
+  %60 = load ptr, ptr %hash_algo.i.i, align 8
+  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %60 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, ptrtoint (ptr @hash_algos to i64)
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 104
   %conv.i.i.i51 = trunc i64 %sub.ptr.div.i.i.i to i32
@@ -5254,10 +5254,10 @@ nth_midxed_object_oid.exit:                       ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %nth_midxed_object_oid.exit
-  %58 = phi i32 [ %45, %for.body ], [ %.pre, %nth_midxed_object_oid.exit ]
+  %61 = phi i32 [ %45, %for.body ], [ %.pre, %nth_midxed_object_oid.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %59 = zext i32 %58 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %59
+  %62 = zext i32 %61 to i64
+  %cmp = icmp ult i64 %indvars.iv.next, %62
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !46
 
 for.end:                                          ; preds = %for.inc, %if.end42
@@ -5267,8 +5267,8 @@ for.end:                                          ; preds = %for.inc, %if.end42
   br i1 %tobool55.not, label %if.end60, label %if.then56
 
 if.then56:                                        ; preds = %for.end
-  %60 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i53 = icmp eq i32 %60, 0
+  %63 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i53 = icmp eq i32 %63, 0
   br i1 %tobool1.not.i53, label %_.exit57, label %if.end3.i54
 
 if.end3.i54:                                      ; preds = %if.then56

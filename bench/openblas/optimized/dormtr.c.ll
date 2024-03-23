@@ -339,9 +339,9 @@ define void @dormtr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %183 = add nsw i32 %36, -1
   store i32 %183, ptr %14, align 4, !tbaa !3
   %184 = shl i32 %20, 1
-  %185 = or disjoint i32 %184, 1
-  %186 = sext i32 %185 to i64
-  %187 = getelementptr inbounds double, ptr %23, i64 %186
+  %185 = sext i32 %184 to i64
+  %186 = getelementptr double, ptr %23, i64 %185
+  %187 = getelementptr i8, ptr %186, i64 8
   call void @dormql_(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %14, ptr noundef nonnull %187, ptr noundef nonnull %6, ptr noundef %7, ptr noundef %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %17) #6
   br label %199
 

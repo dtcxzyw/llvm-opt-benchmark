@@ -9792,18 +9792,18 @@ define internal fastcc void @ata_dev_config_devslp(ptr noundef %0) unnamed_addr 
   %20 = or i64 %19, 134217728
   store i64 %20, ptr %18, align 16
   %21 = getelementptr inbounds i8, ptr %0, i64 1408
+  %invariant.gep = getelementptr i8, ptr %3, i64 15984
   br label %22
 
 22:                                               ; preds = %22, %17
-  %23 = phi i64 [ 0, %17 ], [ %28, %22 ]
-  %24 = or disjoint i64 %23, 48
-  %25 = getelementptr i8, ptr %4, i64 %24
-  %26 = load i8, ptr %25, align 1
-  %27 = getelementptr [8 x i8], ptr %21, i64 0, i64 %23
-  store i8 %26, ptr %27, align 1
-  %28 = add nuw nsw i64 %23, 1
-  %29 = icmp eq i64 %28, 8
-  br i1 %29, label %.loopexit, label %22, !llvm.loop !83
+  %23 = phi i64 [ 0, %17 ], [ %26, %22 ]
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %23
+  %24 = load i8, ptr %gep, align 1
+  %25 = getelementptr [8 x i8], ptr %21, i64 0, i64 %23
+  store i8 %24, ptr %25, align 1
+  %26 = add nuw nsw i64 %23, 1
+  %27 = icmp eq i64 %26, 8
+  br i1 %27, label %.loopexit, label %22, !llvm.loop !83
 
 .loopexit:                                        ; preds = %22, %14, %12, %7, %1, %1
   ret void

@@ -5076,7 +5076,7 @@ define internal fastcc void @json_write_field_hex_value(ptr nocapture noundef re
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %63, label %5
+  br i1 %.not, label %61, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %1, i64 12
@@ -5091,7 +5091,7 @@ define internal fastcc void @json_write_field_hex_value(ptr nocapture noundef re
   %13 = getelementptr inbounds i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   tail call void @json_dumper_value_string(ptr noundef %14, ptr noundef nonnull @.str.82) #18
-  br label %63
+  br label %61
 
 15:                                               ; preds = %5
   %16 = load ptr, ptr %0, align 8
@@ -5149,42 +5149,39 @@ get_field_data.exit:                              ; preds = %21
   %43 = zext nneg i32 %42 to i64
   %44 = getelementptr [17 x i8], ptr @json_write_field_hex_value.hex, i64 0, i64 %43
   %45 = load i8, ptr %44, align 1
-  %sext = shl i64 %indvars.iv, 33
-  %46 = ashr exact i64 %sext, 32
-  %47 = getelementptr i8, ptr %36, i64 %46
-  store i8 %45, ptr %47, align 1
-  %48 = and i32 %41, 15
-  %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr [17 x i8], ptr @json_write_field_hex_value.hex, i64 0, i64 %49
-  %51 = load i8, ptr %50, align 1
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
-  %52 = shl i32 %indvars.iv.tr, 1
-  %53 = or disjoint i32 %52, 1
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr i8, ptr %36, i64 %54
-  store i8 %51, ptr %55, align 1
+  %46 = shl i32 %indvars.iv.tr, 1
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr i8, ptr %36, i64 %47
+  store i8 %45, ptr %48, align 1
+  %49 = and i32 %41, 15
+  %50 = zext nneg i32 %49 to i64
+  %51 = getelementptr [17 x i8], ptr @json_write_field_hex_value.hex, i64 0, i64 %50
+  %52 = load i8, ptr %51, align 1
+  %53 = getelementptr i8, ptr %48, i64 1
+  store i8 %52, ptr %53, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %.lr.ph, %31
-  %56 = shl i32 %37, 1
-  %57 = sext i32 %56 to i64
-  %58 = getelementptr i8, ptr %36, i64 %57
-  store i8 0, ptr %58, align 1
-  %59 = getelementptr inbounds i8, ptr %0, i64 32
-  %60 = load ptr, ptr %59, align 8
-  tail call void @json_dumper_value_string(ptr noundef %60, ptr noundef %36) #18
+  %54 = shl i32 %37, 1
+  %55 = sext i32 %54 to i64
+  %56 = getelementptr i8, ptr %36, i64 %55
+  store i8 0, ptr %56, align 1
+  %57 = getelementptr inbounds i8, ptr %0, i64 32
+  %58 = load ptr, ptr %57, align 8
+  tail call void @json_dumper_value_string(ptr noundef %58, ptr noundef %36) #18
   tail call void @g_free(ptr noundef %36) #18
-  br label %63
+  br label %61
 
 get_field_data.exit.thread:                       ; preds = %25, %15, %21, %get_field_data.exit
-  %61 = getelementptr inbounds i8, ptr %0, i64 32
-  %62 = load ptr, ptr %61, align 8
-  tail call void @json_dumper_value_string(ptr noundef %62, ptr noundef nonnull @.str.60) #18
-  br label %63
+  %59 = getelementptr inbounds i8, ptr %0, i64 32
+  %60 = load ptr, ptr %59, align 8
+  tail call void @json_dumper_value_string(ptr noundef %60, ptr noundef nonnull @.str.60) #18
+  br label %61
 
-63:                                               ; preds = %2, %get_field_data.exit.thread, %._crit_edge, %12
+61:                                               ; preds = %2, %get_field_data.exit.thread, %._crit_edge, %12
   ret void
 }
 

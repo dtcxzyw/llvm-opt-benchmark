@@ -687,8 +687,8 @@ for.end319:                                       ; preds = %for.inc317, %if.end
 
 for.end329:                                       ; preds = %for.end319
   %conv320 = zext nneg i32 %res.0.lcssa to i64
-  %77 = or disjoint i64 %conv320, 768
-  %scevgep574 = getelementptr i8, ptr %vctx, i64 %77
+  %77 = getelementptr i8, ptr %vctx, i64 %conv320
+  %scevgep574 = getelementptr i8, ptr %77, i64 768
   %78 = sub nuw nsw i64 64, %conv320
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep574, i8 0, i64 %78, i1 false)
   %79 = add i64 %len.addr.0, 64

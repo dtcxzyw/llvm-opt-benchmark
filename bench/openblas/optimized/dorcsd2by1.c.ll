@@ -693,9 +693,9 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   store i32 %438, ptr %22, align 4, !tbaa !3
   store i32 %438, ptr %23, align 4, !tbaa !3
   %439 = shl i32 %37, 1
-  %440 = or disjoint i32 %439, 1
-  %441 = sext i32 %440 to i64
-  %442 = getelementptr inbounds double, ptr %40, i64 %441
+  %440 = sext i32 %439 to i64
+  %441 = getelementptr double, ptr %40, i64 %440
+  %442 = getelementptr i8, ptr %441, i64 8
   %443 = shl i32 %49, 1
   %444 = sext i32 %443 to i64
   %445 = getelementptr double, ptr %52, i64 %444

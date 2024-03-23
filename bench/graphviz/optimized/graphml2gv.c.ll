@@ -632,8 +632,8 @@ get_xml_attr.exit:                                ; preds = %.lr.ph.i
   %25 = and i64 %indvars.iv.i, 2147483648
   %26 = icmp eq i64 %25, 0
   %27 = and i64 %indvars.iv.i, 4294967294
-  %28 = or disjoint i64 %27, 1
-  %29 = getelementptr inbounds ptr, ptr %2, i64 %28
+  %28 = getelementptr ptr, ptr %2, i64 %27
+  %29 = getelementptr i8, ptr %28, i64 8
   %spec.select = select i1 %26, ptr %29, ptr %0
   br label %get_xml_attr.exit.thread
 
@@ -663,8 +663,8 @@ get_xml_attr.exit73:                              ; preds = %.lr.ph.i68
 
 39:                                               ; preds = %get_xml_attr.exit73
   %40 = and i64 %indvars.iv.i69, 2147483646
-  %41 = or disjoint i64 %40, 1
-  %42 = getelementptr inbounds ptr, ptr %2, i64 %41
+  %41 = getelementptr ptr, ptr %2, i64 %40
+  %42 = getelementptr i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8
   br label %get_xml_attr.exit73.thread
 
@@ -803,8 +803,8 @@ get_xml_attr.exit83:                              ; preds = %.lr.ph.i78
 
 95:                                               ; preds = %get_xml_attr.exit83
   %96 = and i64 %indvars.iv.i79, 2147483646
-  %97 = or disjoint i64 %96, 1
-  %98 = getelementptr inbounds ptr, ptr %2, i64 %97
+  %97 = getelementptr ptr, ptr %2, i64 %96
+  %98 = getelementptr i8, ptr %97, i64 8
   %99 = load ptr, ptr %98, align 8
   %100 = load ptr, ptr @G, align 8
   %101 = icmp eq ptr %100, null
@@ -869,8 +869,8 @@ get_xml_attr.exit91:                              ; preds = %.lr.ph.i86
 
 129:                                              ; preds = %get_xml_attr.exit91
   %130 = and i64 %indvars.iv.i87, 2147483646
-  %131 = or disjoint i64 %130, 1
-  %132 = getelementptr inbounds ptr, ptr %2, i64 %131
+  %131 = getelementptr ptr, ptr %2, i64 %130
+  %132 = getelementptr i8, ptr %131, i64 8
   %133 = load ptr, ptr %132, align 8
   br label %.lr.ph.i93.preheader
 
@@ -899,8 +899,8 @@ get_xml_attr.exit98:                              ; preds = %.lr.ph.i93
 
 142:                                              ; preds = %get_xml_attr.exit98
   %143 = and i64 %indvars.iv.i94, 2147483646
-  %144 = or disjoint i64 %143, 1
-  %145 = getelementptr inbounds ptr, ptr %2, i64 %144
+  %144 = getelementptr ptr, ptr %2, i64 %143
+  %145 = getelementptr i8, ptr %144, i64 8
   %146 = load ptr, ptr %145, align 8
   br label %get_xml_attr.exit98.thread
 
@@ -973,8 +973,8 @@ get_xml_attr.exit105:                             ; preds = %.lr.ph.i100
 181:                                              ; preds = %get_xml_attr.exit105
   %182 = load ptr, ptr @E, align 8
   %183 = and i64 %indvars.iv.i101, 2147483646
-  %184 = or disjoint i64 %183, 1
-  %185 = getelementptr inbounds ptr, ptr %2, i64 %184
+  %184 = getelementptr ptr, ptr %2, i64 %183
+  %185 = getelementptr i8, ptr %184, i64 8
   %186 = load ptr, ptr %185, align 8
   %187 = load ptr, ptr @root, align 8
   %188 = tail call ptr @agattr(ptr noundef %187, i32 noundef 2, ptr noundef nonnull @.str.30, ptr noundef null) #20

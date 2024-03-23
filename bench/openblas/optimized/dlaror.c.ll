@@ -126,9 +126,9 @@ define void @dlaror_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 65:                                               ; preds = %60
   %66 = or i1 %25, %.ph
   %67 = shl nuw i32 %54, 1
-  %68 = or disjoint i32 %67, 1
-  %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds double, ptr %17, i64 %69
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr double, ptr %17, i64 %68
+  %70 = getelementptr i8, ptr %69, i64 8
   %71 = or i1 %.ph, %.ph3
   br label %72
 

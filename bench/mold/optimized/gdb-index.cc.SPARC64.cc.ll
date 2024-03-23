@@ -6018,29 +6018,24 @@ for.cond:                                         ; preds = %for.inc, %entry
   %arrayidx = getelementptr inbounds %"class.mold::BigEndian.238", ptr %range, i64 %i.0
   %x.0.copyload.i = load i64, ptr %arrayidx, align 1
   %1 = tail call noundef i64 @llvm.bswap.i64(i64 %x.0.copyload.i)
-  %.pre = or disjoint i64 %i.0, 1
+  %arrayidx15.phi.trans.insert = getelementptr i8, ptr %arrayidx, i64 8
+  %x.0.copyload.i17.pre = load i64, ptr %arrayidx15.phi.trans.insert, align 1
   switch i64 %1, label %if.else [
     i64 0, label %lor.rhs
     i64 -1, label %if.then
   ]
 
 lor.rhs:                                          ; preds = %for.cond
-  %arrayidx1 = getelementptr inbounds %"class.mold::BigEndian.238", ptr %range, i64 %.pre
-  %x.0.copyload.i13 = load i64, ptr %arrayidx1, align 1
-  %tobool3.not = icmp eq i64 %x.0.copyload.i13, 0
+  %tobool3.not = icmp eq i64 %x.0.copyload.i17.pre, 0
   br i1 %tobool3.not, label %nrvo.skipdtor, label %if.else
 
 if.then:                                          ; preds = %for.cond
-  %arrayidx8 = getelementptr inbounds %"class.mold::BigEndian.238", ptr %range, i64 %.pre
-  %x.0.copyload.i15 = load i64, ptr %arrayidx8, align 1
-  %2 = tail call noundef i64 @llvm.bswap.i64(i64 %x.0.copyload.i15)
+  %2 = tail call noundef i64 @llvm.bswap.i64(i64 %x.0.copyload.i17.pre)
   br label %for.inc
 
 if.else:                                          ; preds = %for.cond, %lor.rhs
   %add12 = add i64 %1, %base.addr.0
-  %arrayidx15 = getelementptr inbounds %"class.mold::BigEndian.238", ptr %range, i64 %.pre
-  %x.0.copyload.i17 = load i64, ptr %arrayidx15, align 1
-  %3 = tail call noundef i64 @llvm.bswap.i64(i64 %x.0.copyload.i17)
+  %3 = tail call noundef i64 @llvm.bswap.i64(i64 %x.0.copyload.i17.pre)
   %add17 = add i64 %3, %base.addr.0
   %4 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %4

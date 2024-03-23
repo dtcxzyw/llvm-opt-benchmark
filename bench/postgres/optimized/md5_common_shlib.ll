@@ -17,7 +17,7 @@ define noundef zeroext i1 @pg_md5_hash(ptr noundef %0, i64 noundef %1, ptr nocap
 8:                                                ; preds = %4
   %9 = tail call ptr @pg_cryptohash_error(ptr noundef null) #6
   store ptr %9, ptr %3, align 8
-  br label %35
+  br label %34
 
 10:                                               ; preds = %4
   %11 = tail call i32 @pg_cryptohash_init(ptr noundef nonnull %6) #6
@@ -38,7 +38,7 @@ define noundef zeroext i1 @pg_md5_hash(ptr noundef %0, i64 noundef %1, ptr nocap
   %20 = call ptr @pg_cryptohash_error(ptr noundef nonnull %6) #6
   store ptr %20, ptr %3, align 8
   call void @pg_cryptohash_free(ptr noundef nonnull %6) #6
-  br label %35
+  br label %34
 
 .preheader:                                       ; preds = %16, %.preheader
   %indvars.iv14.i = phi i64 [ %indvars.iv.next15.i, %.preheader ], [ 0, %16 ]
@@ -49,27 +49,26 @@ define noundef zeroext i1 @pg_md5_hash(ptr noundef %0, i64 noundef %1, ptr nocap
   %24 = zext nneg i8 %23 to i64
   %25 = getelementptr i8, ptr @.str.2, i64 %24
   %26 = load i8, ptr %25, align 1
-  %27 = or disjoint i64 %indvars.iv.i, 1
-  %28 = getelementptr i8, ptr %2, i64 %indvars.iv.i
-  store i8 %26, ptr %28, align 1
-  %29 = and i8 %22, 15
-  %30 = zext nneg i8 %29 to i64
-  %31 = getelementptr i8, ptr @.str.2, i64 %30
-  %32 = load i8, ptr %31, align 1
+  %27 = getelementptr i8, ptr %2, i64 %indvars.iv.i
+  store i8 %26, ptr %27, align 1
+  %28 = and i8 %22, 15
+  %29 = zext nneg i8 %28 to i64
+  %30 = getelementptr i8, ptr @.str.2, i64 %29
+  %31 = load i8, ptr %30, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %33 = getelementptr i8, ptr %2, i64 %27
-  store i8 %32, ptr %33, align 1
+  %32 = getelementptr i8, ptr %27, i64 1
+  store i8 %31, ptr %32, align 1
   %indvars.iv.next15.i = add nuw nsw i64 %indvars.iv14.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next15.i, 16
   br i1 %exitcond.not.i, label %bytesToHex.exit, label %.preheader, !llvm.loop !4
 
 bytesToHex.exit:                                  ; preds = %.preheader
-  %34 = getelementptr i8, ptr %2, i64 32
-  store i8 0, ptr %34, align 1
+  %33 = getelementptr i8, ptr %2, i64 32
+  store i8 0, ptr %33, align 1
   call void @pg_cryptohash_free(ptr noundef nonnull %6) #6
-  br label %35
+  br label %34
 
-35:                                               ; preds = %bytesToHex.exit, %19, %8
+34:                                               ; preds = %bytesToHex.exit, %19, %8
   %.0 = phi i1 [ false, %8 ], [ false, %19 ], [ true, %bytesToHex.exit ]
   ret i1 %.0
 }

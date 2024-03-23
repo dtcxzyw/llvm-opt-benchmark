@@ -538,8 +538,8 @@ _ZSt4findIPKccET_S2_S2_RKT0_.exit45:              ; preds = %62, %_ZSt4findIPKcc
 
 .lr.ph.i.i.i.i.preheader.i:                       ; preds = %106
   %112 = and i64 %109, -4
-  %113 = or disjoint i64 %112, 2
-  %scevgep149.i = getelementptr i8, ptr %52, i64 %113
+  %113 = getelementptr i8, ptr %52, i64 %112
+  %scevgep149.i = getelementptr i8, ptr %113, i64 2
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5vcpkg10ParserBase12is_hex_digitEDi.exit60.thread.i, %.lr.ph.i.i.i.i.preheader.i
@@ -776,8 +776,8 @@ _ZSt6all_ofIPKcPFbDiEEbT_S4_T0_.exit.i:           ; preds = %switch.early.test.i
 
 .lr.ph.i.i.i.i28.preheader.i:                     ; preds = %159
   %165 = and i64 %162, -4
-  %166 = or disjoint i64 %165, 1
-  %scevgep148.i = getelementptr i8, ptr %52, i64 %166
+  %166 = getelementptr i8, ptr %52, i64 %165
+  %scevgep148.i = getelementptr i8, ptr %166, i64 1
   br label %.lr.ph.i.i.i.i28.i
 
 .lr.ph.i.i.i.i28.i:                               ; preds = %189, %.lr.ph.i.i.i.i28.preheader.i

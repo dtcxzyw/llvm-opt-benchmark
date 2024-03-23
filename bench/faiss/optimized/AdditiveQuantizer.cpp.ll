@@ -1008,34 +1008,34 @@ _ZNSt10unique_ptrIN5faiss17AdditiveQuantizerESt14default_deleteIS1_EE5resetEPS1_
 
 84:                                               ; preds = %81
   %85 = load ptr, ptr %82, align 8
+  %invariant.gep = getelementptr i8, ptr %85, i64 64
   br label %.preheader
 
 .preheader:                                       ; preds = %84, %97
   %.03187 = phi i64 [ 0, %84 ], [ %98, %97 ]
-  %86 = or disjoint i64 %.03187, 16
-  %87 = getelementptr inbounds float, ptr %85, i64 %86
-  %88 = shl nuw nsw i64 %.03187, 4
-  %invariant.gep = getelementptr float, ptr %53, i64 %88
-  br label %89
+  %gep = getelementptr float, ptr %invariant.gep, i64 %.03187
+  %86 = shl nuw nsw i64 %.03187, 4
+  %87 = getelementptr float, ptr %53, i64 %86
+  br label %88
 
-89:                                               ; preds = %.preheader, %89
-  %.03086 = phi i64 [ 0, %.preheader ], [ %94, %89 ]
-  %90 = getelementptr inbounds float, ptr %85, i64 %.03086
-  %91 = load float, ptr %90, align 4
-  %92 = load float, ptr %87, align 4
-  %93 = fadd float %91, %92
-  %gep = getelementptr float, ptr %invariant.gep, i64 %.03086
-  store float %93, ptr %gep, align 4
+88:                                               ; preds = %.preheader, %88
+  %.03086 = phi i64 [ 0, %.preheader ], [ %94, %88 ]
+  %89 = getelementptr inbounds float, ptr %85, i64 %.03086
+  %90 = load float, ptr %89, align 4
+  %91 = load float, ptr %gep, align 4
+  %92 = fadd float %90, %91
+  %93 = getelementptr float, ptr %87, i64 %.03086
+  store float %92, ptr %93, align 4
   %94 = add nuw nsw i64 %.03086, 1
   %exitcond88.not = icmp eq i64 %94, 16
-  br i1 %exitcond88.not, label %97, label %89, !llvm.loop !9
+  br i1 %exitcond88.not, label %97, label %88, !llvm.loop !9
 
 95:                                               ; preds = %101, %99, %81
   %96 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit53
 
-97:                                               ; preds = %89
+97:                                               ; preds = %88
   %98 = add nuw nsw i64 %.03187, 1
   %exitcond89.not = icmp eq i64 %98, 16
   br i1 %exitcond89.not, label %99, label %.preheader, !llvm.loop !10

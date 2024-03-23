@@ -466,17 +466,11 @@ for.body54.i:                                     ; preds = %for.body54.i, %for.
   %idxprom93.i = sext i32 %mul91.i to i64
   %arrayidx94.i = getelementptr i32, ptr %call45.i, i64 %idxprom93.i
   store i32 %20, ptr %arrayidx94.i, align 4
-  %add97.i = or disjoint i32 %mul91.i, 1
-  %idxprom98.i = sext i32 %add97.i to i64
-  %arrayidx99.i = getelementptr i32, ptr %call45.i, i64 %idxprom98.i
+  %arrayidx99.i = getelementptr i8, ptr %arrayidx94.i, i64 4
   store i32 50331648, ptr %arrayidx99.i, align 4
-  %add102.i = or disjoint i32 %mul91.i, 2
-  %idxprom103.i = sext i32 %add102.i to i64
-  %arrayidx104.i = getelementptr i32, ptr %call45.i, i64 %idxprom103.i
+  %arrayidx104.i = getelementptr i8, ptr %arrayidx94.i, i64 8
   store i32 %20, ptr %arrayidx104.i, align 4
-  %add107.i = or disjoint i32 %mul91.i, 3
-  %idxprom108.i = sext i32 %add107.i to i64
-  %arrayidx109.i = getelementptr i32, ptr %call45.i, i64 %idxprom108.i
+  %arrayidx109.i = getelementptr i8, ptr %arrayidx94.i, i64 12
   store i32 117440512, ptr %arrayidx109.i, align 4
   %call110.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.58, ptr noundef %call40.i, i32 noundef %17) #7
   %call111.i = call i32 @qemu_fdt_add_subnode(ptr noundef %call2.i, ptr noundef %call110.i) #7

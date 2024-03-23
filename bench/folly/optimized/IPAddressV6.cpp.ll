@@ -7902,9 +7902,9 @@ for.body:                                         ; preds = %entry, %for.body
   %idxprom6 = zext nneg i32 %and to i64
   %arrayidx7 = getelementptr inbounds i8, ptr @.str.49, i64 %idxprom6
   %4 = load i8, ptr %arrayidx7, align 1, !tbaa !31
-  %add9 = or disjoint i64 %mul2, 1
   %5 = load ptr, ptr %agg.result, align 8, !tbaa !11
-  %arrayidx.i19 = getelementptr inbounds i8, ptr %5, i64 %add9
+  %6 = getelementptr i8, ptr %5, i64 %mul2
+  %arrayidx.i19 = getelementptr i8, ptr %6, i64 1
   store i8 %4, ptr %arrayidx.i19, align 1, !tbaa !31
   %inc = add nuw i64 %i.021, 1
   %exitcond.not = icmp eq i64 %inc, %len

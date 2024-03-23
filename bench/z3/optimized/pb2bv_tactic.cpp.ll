@@ -13741,14 +13741,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %21 = shl nuw i64 %indvars.iv, 1
   %22 = load ptr, ptr %p, align 8
   %arrayidx.i29 = getelementptr inbounds %"struct.pb2bv_tactic::imp::monomial", ptr %22, i64 %21
-  %23 = or disjoint i64 %21, 1
-  %arrayidx.i31 = getelementptr inbounds %"struct.pb2bv_tactic::imp::monomial", ptr %22, i64 %23
+  %23 = getelementptr %"struct.pb2bv_tactic::imp::monomial", ptr %22, i64 %21
+  %arrayidx.i31 = getelementptr i8, ptr %23, i64 40
   %m_lit = getelementptr inbounds i8, ptr %arrayidx.i29, i64 32
   %24 = load ptr, ptr %m_lit, align 8
   %25 = ptrtoint ptr %24 to i64
   %and.i = and i64 %25, 7
   %cmp.i32 = icmp eq i64 %and.i, 1
-  %m_lit17 = getelementptr inbounds i8, ptr %arrayidx.i31, i64 32
+  %m_lit17 = getelementptr i8, ptr %23, i64 72
   %26 = load ptr, ptr %m_lit17, align 8
   %27 = ptrtoint ptr %26 to i64
   %and.i33 = and i64 %27, 7
@@ -13765,7 +13765,7 @@ if.end22:                                         ; preds = %for.body
   br i1 %cmp.i.i.i.i.i.i38, label %land.lhs.true.i.i.i.i.i58, label %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i39
 
 land.lhs.true.i.i.i.i.i58:                        ; preds = %if.end22
-  %m_kind.i5.i.i.i.i.i59 = getelementptr inbounds i8, ptr %arrayidx.i31, i64 4
+  %m_kind.i5.i.i.i.i.i59 = getelementptr i8, ptr %23, i64 44
   %bf.load.i6.i.i.i.i.i60 = load i8, ptr %m_kind.i5.i.i.i.i.i59, align 4
   %bf.clear.i7.i.i.i.i.i61 = and i8 %bf.load.i6.i.i.i.i.i60, 1
   %cmp.i8.i.i.i.i.i62 = icmp eq i8 %bf.clear.i7.i.i.i.i.i61, 0
@@ -13784,7 +13784,7 @@ _ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i39: ; preds = %land.lhs.true.i.i.i
 
 land.rhs.i.i.i42:                                 ; preds = %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i39, %if.then.i.i.i.i.i63
   %m_den.i.i.i43 = getelementptr inbounds i8, ptr %arrayidx.i29, i64 16
-  %m_den3.i.i.i44 = getelementptr inbounds i8, ptr %arrayidx.i31, i64 16
+  %m_den3.i.i.i44 = getelementptr i8, ptr %23, i64 56
   %m_kind.i.i.i3.i.i.i45 = getelementptr inbounds i8, ptr %arrayidx.i29, i64 20
   %bf.load.i.i.i4.i.i.i46 = load i8, ptr %m_kind.i.i.i3.i.i.i45, align 4
   %bf.clear.i.i.i5.i.i.i47 = and i8 %bf.load.i.i.i4.i.i.i46, 1
@@ -13792,7 +13792,7 @@ land.rhs.i.i.i42:                                 ; preds = %_ZN11mpq_managerILb
   br i1 %cmp.i.i.i6.i.i.i48, label %land.lhs.true.i.i11.i.i.i51, label %_ZneRK8rationalS1_.exit65
 
 land.lhs.true.i.i11.i.i.i51:                      ; preds = %land.rhs.i.i.i42
-  %m_kind.i5.i.i12.i.i.i52 = getelementptr inbounds i8, ptr %arrayidx.i31, i64 20
+  %m_kind.i5.i.i12.i.i.i52 = getelementptr i8, ptr %23, i64 60
   %bf.load.i6.i.i13.i.i.i53 = load i8, ptr %m_kind.i5.i.i12.i.i.i52, align 4
   %bf.clear.i7.i.i14.i.i.i54 = and i8 %bf.load.i6.i.i13.i.i.i53, 1
   %cmp.i8.i.i15.i.i.i55 = icmp eq i8 %bf.clear.i7.i.i14.i.i.i54, 0
@@ -14826,7 +14826,7 @@ if.end:                                           ; preds = %entry
 
 while.body.i.i:                                   ; preds = %if.end, %if.end4.i.i
   %storemerge27.i.i = phi i64 [ %div5.i.i, %if.end4.i.i ], [ %div, %if.end ]
-  %mul.i.i = mul i64 %storemerge27.i.i, 40
+  %mul.i.i = mul nuw nsw i64 %storemerge27.i.i, 40
   %call.i.i = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %mul.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #22
   %cmp2.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp2.not.i.i, label %if.end4.i.i, label %if.else

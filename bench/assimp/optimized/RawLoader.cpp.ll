@@ -1925,7 +1925,8 @@ arrayctor.loop383:                                ; preds = %arrayctor.loop383, 
 arrayctor.cont387:                                ; preds = %arrayctor.loop383
   %mFaces = getelementptr inbounds i8, ptr %call329, i64 208
   store ptr %.ptr, ptr %mFaces, align 8
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %call379, i64 %165
+  %166 = getelementptr i8, ptr %call379, i64 %164
+  %add.ptr.ptr = getelementptr i8, ptr %166, i64 8
   br i1 %isempty380, label %while.end405, label %while.body391
 
 while.cond389.loopexit:                           ; preds = %for.body397
@@ -1949,8 +1950,8 @@ for.body397:                                      ; preds = %invoke.cont393, %fo
   %indvars.iv739 = phi i64 [ 0, %invoke.cont393 ], [ %indvars.iv.next740, %for.body397 ]
   %n.1696 = phi i32 [ %n.0700, %invoke.cont393 ], [ %inc398, %for.body397 ]
   %inc398 = add i32 %n.1696, 1
-  %166 = load ptr, ptr %mIndices, align 8
-  %arrayidx401 = getelementptr inbounds i32, ptr %166, i64 %indvars.iv739
+  %167 = load ptr, ptr %mIndices, align 8
+  %arrayidx401 = getelementptr inbounds i32, ptr %167, i64 %indvars.iv739
   store i32 %n.1696, ptr %arrayidx401, align 4
   %indvars.iv.next740 = add nuw nsw i64 %indvars.iv739, 1
   %exitcond742.not = icmp eq i64 %indvars.iv.next740, 3
@@ -1976,7 +1977,7 @@ if.then416:                                       ; preds = %invoke.cont409
   br label %if.end429
 
 lpad408:                                          ; preds = %invoke.cont406
-  %167 = landingpad { ptr, i32 }
+  %168 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call407) #20
   br label %ehcleanup441
@@ -1998,8 +1999,8 @@ if.end.i546:                                      ; preds = %if.then422
   %conv.i548 = trunc i64 %call2.i547 to i32
   store i32 %conv.i548, ptr %s, align 4
   %call3.i550 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %it2.sroa.0.0702) #17
-  %168 = load i32, ptr %s, align 4
-  %conv5.i551 = zext i32 %168 to i64
+  %169 = load i32, ptr %s, align 4
+  %conv5.i551 = zext i32 %169 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i543, ptr align 1 %call3.i550, i64 %conv5.i551, i1 false)
   %arrayidx.i552 = getelementptr inbounds [1024 x i8], ptr %data.i543, i64 0, i64 %conv5.i551
   store i8 0, ptr %arrayidx.i552, align 1
@@ -2029,24 +2030,24 @@ for.inc436:                                       ; preds = %invoke.cont430, %in
 
 for.end438:                                       ; preds = %for.inc436, %invoke.cont275
   call void @_ZNSt6vectorIN6Assimp11RAWImporter16GroupInformationESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %outGroups) #17
-  %169 = load ptr, ptr %mBuffer2, align 8
-  %tobool.not.i.i.i558 = icmp eq ptr %169, null
+  %170 = load ptr, ptr %mBuffer2, align 8
+  %tobool.not.i.i.i558 = icmp eq ptr %170, null
   br i1 %tobool.not.i.i.i558, label %_ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit, label %if.then.i.i.i559
 
 if.then.i.i.i559:                                 ; preds = %for.end438
-  call void @_ZdlPv(ptr noundef nonnull %169) #20
+  call void @_ZdlPv(ptr noundef nonnull %170) #20
   br label %_ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit: ; preds = %for.end438, %if.then.i.i.i559
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %mBuffer2) #17
   %vtable.i.i = load ptr, ptr %call3.i101, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
-  %170 = load ptr, ptr %vfn.i.i, align 8
-  call void %170(ptr noundef nonnull align 8 dereferenceable(8) %call3.i101) #17
+  %171 = load ptr, ptr %vfn.i.i, align 8
+  call void %171(ptr noundef nonnull align 8 dereferenceable(8) %call3.i101) #17
   ret void
 
 ehcleanup441:                                     ; preds = %lpad29.loopexit, %lpad29.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad29.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad29.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp, %lpad29.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit, %lpad29.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad29.loopexit.split-lp.loopexit, %ehcleanup72, %ehcleanup160, %lpad217, %lpad246, %lpad299, %lpad408
-  %.pn94 = phi { ptr, i32 } [ %.pn92, %ehcleanup160 ], [ %.pn90, %ehcleanup72 ], [ %167, %lpad408 ], [ %143, %lpad299 ], [ %130, %lpad246 ], [ %128, %lpad217 ], [ %lpad.loopexit, %lpad29.loopexit ], [ %lpad.loopexit642, %lpad29.loopexit.split-lp.loopexit ], [ %lpad.loopexit645, %lpad29.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit648, %lpad29.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad29.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit653, %lpad29.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp654, %lpad29.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp ]
+  %.pn94 = phi { ptr, i32 } [ %.pn92, %ehcleanup160 ], [ %.pn90, %ehcleanup72 ], [ %168, %lpad408 ], [ %143, %lpad299 ], [ %130, %lpad246 ], [ %128, %lpad217 ], [ %lpad.loopexit, %lpad29.loopexit ], [ %lpad.loopexit642, %lpad29.loopexit.split-lp.loopexit ], [ %lpad.loopexit645, %lpad29.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit648, %lpad29.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad29.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit653, %lpad29.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp654, %lpad29.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp ]
   call void @_ZNSt6vectorIN6Assimp11RAWImporter16GroupInformationESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %outGroups) #17
   br label %_ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i563
 
@@ -2055,8 +2056,8 @@ _ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i563: ; preds = %ehcleanu
   call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mBuffer2) #17
   %vtable.i.i564 = load ptr, ptr %call3.i101, align 8
   %vfn.i.i565 = getelementptr inbounds i8, ptr %vtable.i.i564, i64 8
-  %171 = load ptr, ptr %vfn.i.i565, align 8
-  call void %171(ptr noundef nonnull align 8 dereferenceable(8) %call3.i101) #17
+  %172 = load ptr, ptr %vfn.i.i565, align 8
+  call void %172(ptr noundef nonnull align 8 dereferenceable(8) %call3.i101) #17
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad6, %_ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i563, %ehcleanup

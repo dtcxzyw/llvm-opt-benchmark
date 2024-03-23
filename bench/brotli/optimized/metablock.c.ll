@@ -756,8 +756,8 @@ for.body120:                                      ; preds = %for.body116, %for.b
   %43 = load ptr, ptr %literal_context_map341, align 8
   %arrayidx122 = getelementptr inbounds i32, ptr %43, i64 %dec117
   %44 = load i32, ptr %arrayidx122, align 4
-  %45 = getelementptr i32, ptr %43, i64 %j.0383
-  %arrayidx125 = getelementptr i32, ptr %45, i64 %shl124
+  %45 = getelementptr i32, ptr %43, i64 %shl124
+  %arrayidx125 = getelementptr i32, ptr %45, i64 %j.0383
   store i32 %44, ptr %arrayidx125, align 4
   %inc127 = add nuw nsw i64 %j.0383, 1
   %exitcond397.not = icmp eq i64 %inc127, 64
@@ -1475,8 +1475,8 @@ for.body10.i248:                                  ; preds = %for.body10.i248, %f
   %69 = load i32, ptr %arrayidx.i249, align 4
   %add.i250 = add i32 %69, %conv.i247
   %70 = load ptr, ptr %literal_context_map.i, align 8
-  %71 = getelementptr i32, ptr %70, i64 %j.013.i
-  %arrayidx14.i = getelementptr i32, ptr %71, i64 %shl12.i
+  %71 = getelementptr i32, ptr %70, i64 %shl12.i
+  %arrayidx14.i = getelementptr i32, ptr %71, i64 %j.013.i
   store i32 %add.i250, ptr %arrayidx14.i, align 4
   %inc.i251 = add nuw nsw i64 %j.013.i, 1
   %exitcond.not.i252 = icmp eq i64 %inc.i251, 64

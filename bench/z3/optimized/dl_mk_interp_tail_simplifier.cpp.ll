@@ -10191,6 +10191,7 @@ entry:
   store ptr %__comp.coerce, ptr %__comp, align 8
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
+  %invariant.gep = getelementptr i8, ptr %__first, i64 8
   %cmp23 = icmp sgt i64 %div, %__holeIndex
   br i1 %cmp23, label %while.body, label %while.end
 
@@ -10199,13 +10200,13 @@ while.body:                                       ; preds = %entry, %while.body
   %add = shl i64 %__secondChild.024, 1
   %mul = add i64 %add, 2
   %add.ptr = getelementptr inbounds ptr, ptr %__first, i64 %mul
-  %sub2 = or disjoint i64 %add, 1
-  %add.ptr3 = getelementptr inbounds ptr, ptr %__first, i64 %sub2
+  %gep = getelementptr ptr, ptr %invariant.gep, i64 %add
   %0 = load ptr, ptr %add.ptr, align 8
-  %1 = load ptr, ptr %add.ptr3, align 8
+  %1 = load ptr, ptr %gep, align 8
   %call.i.i = call noundef i32 @_ZN7datalog25mk_interp_tail_simplifier14normalizer_cfg8expr_cmp8cmp_exprEP4exprS4_i(ptr noundef nonnull align 8 dereferenceable(8) %__comp, ptr noundef %0, ptr noundef %1, i32 noundef 4)
   %cmp.i.i = icmp eq i32 %call.i.i, -1
-  %spec.select = select i1 %cmp.i.i, i64 %sub2, i64 %mul
+  %dec = or disjoint i64 %add, 1
+  %spec.select = select i1 %cmp.i.i, i64 %dec, i64 %mul
   %add.ptr4 = getelementptr inbounds ptr, ptr %__first, i64 %spec.select
   %2 = load ptr, ptr %add.ptr4, align 8
   %add.ptr5 = getelementptr inbounds ptr, ptr %__first, i64 %__secondChild.024

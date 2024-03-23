@@ -282,20 +282,20 @@ define void @vector_ordering(i32 noundef %0, ptr nocapture noundef readonly %1, 
   %14 = trunc i64 %indvars.iv to i32
   %15 = sitofp i32 %14 to double
   %16 = shl nuw nsw i64 %indvars.iv, 1
-  %17 = or disjoint i64 %16, 1
-  %18 = getelementptr inbounds double, ptr %11, i64 %17
+  %17 = getelementptr double, ptr %11, i64 %16
+  %18 = getelementptr i8, ptr %17, i64 8
   store double %15, ptr %18, align 8
   %19 = getelementptr inbounds double, ptr %1, i64 %indvars.iv
   %20 = load double, ptr %19, align 8
-  %21 = getelementptr inbounds double, ptr %11, i64 %16
-  store double %20, ptr %21, align 8
+  store double %20, ptr %17, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %22 = zext nneg i32 %0 to i64
-  tail call void @qsort(ptr noundef nonnull %11, i64 noundef %22, i64 noundef 16, ptr noundef nonnull @comp_ascend) #18
+  %21 = zext nneg i32 %0 to i64
+  tail call void @qsort(ptr noundef nonnull %11, i64 noundef %21, i64 noundef 16, ptr noundef nonnull @comp_ascend) #18
+  %invariant.gep = getelementptr i8, ptr %11, i64 8
   br i1 %12, label %.lr.ph27.preheader, label %._crit_edge28
 
 .lr.ph27.preheader:                               ; preds = %._crit_edge
@@ -304,14 +304,13 @@ define void @vector_ordering(i32 noundef %0, ptr nocapture noundef readonly %1, 
 
 .lr.ph27:                                         ; preds = %.lr.ph27.preheader, %.lr.ph27
   %indvars.iv30 = phi i64 [ 0, %.lr.ph27.preheader ], [ %indvars.iv.next31, %.lr.ph27 ]
-  %23 = shl nuw nsw i64 %indvars.iv30, 1
-  %24 = or disjoint i64 %23, 1
-  %25 = getelementptr inbounds double, ptr %11, i64 %24
-  %26 = load double, ptr %25, align 8
-  %27 = fptosi double %26 to i32
-  %28 = load ptr, ptr %2, align 8
-  %29 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv30
-  store i32 %27, ptr %29, align 4
+  %22 = shl nuw nsw i64 %indvars.iv30, 1
+  %gep = getelementptr double, ptr %invariant.gep, i64 %22
+  %23 = load double, ptr %gep, align 8
+  %24 = fptosi double %23 to i32
+  %25 = load ptr, ptr %2, align 8
+  %26 = getelementptr inbounds i32, ptr %25, i64 %indvars.iv30
+  store i32 %24, ptr %26, align 4
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %exitcond34.not = icmp eq i64 %indvars.iv.next31, %wide.trip.count33
   br i1 %exitcond34.not, label %._crit_edge28, label %.lr.ph27

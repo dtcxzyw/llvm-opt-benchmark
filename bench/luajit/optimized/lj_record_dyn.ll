@@ -8219,10 +8219,10 @@ sw.bb52.i:                                        ; preds = %if.else116
 
 if.then65.i:                                      ; preds = %sw.bb52.i
   %shr60.i = lshr i32 %47, 16
-  %49 = or disjoint i32 %shr60.i, -32768
-  %sub62.i = sext i32 %49 to i64
+  %conv61.i = zext nneg i32 %shr60.i to i64
   %add.ptr66.i = getelementptr i8, ptr %46, i64 -131068
-  %add.ptr70.i = getelementptr inbounds i32, ptr %add.ptr66.i, i64 %sub62.i
+  %49 = getelementptr i32, ptr %add.ptr66.i, i64 %conv61.i
+  %add.ptr70.i = getelementptr i8, ptr %49, i64 -131072
   store ptr %add.ptr70.i, ptr %bc_min, align 8
   %50 = shl nuw nsw i32 %shr60.i, 2
   %51 = sub nuw nsw i32 131072, %50

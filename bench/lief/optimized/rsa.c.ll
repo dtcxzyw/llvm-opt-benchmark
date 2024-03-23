@@ -1888,11 +1888,11 @@ define hidden i32 @mbedtls_rsa_rsaes_oaep_decrypt(ptr noundef %0, ptr noundef %1
 
 .lr.ph.preheader:                                 ; preds = %49
   %52 = shl nuw nsw i64 %38, 1
-  %53 = or disjoint i64 %52, 1
   br label %.lr.ph
 
 .preheader.loopexit:                              ; preds = %.lr.ph
-  %scevgep = getelementptr i8, ptr %10, i64 %53
+  %53 = getelementptr i8, ptr %10, i64 %52
+  %scevgep = getelementptr i8, ptr %53, i64 1
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %49

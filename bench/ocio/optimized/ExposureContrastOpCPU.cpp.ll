@@ -1471,14 +1471,14 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %1 = shl nuw nsw i32 %type, 4
-  %2 = or disjoint i32 %1, 8
-  %switch.offset = zext nneg i32 %2 to i64
-  %m_gamma = getelementptr inbounds i8, ptr %this, i64 %switch.offset
-  %3 = load ptr, ptr %m_gamma, align 8
-  %m_isDynamic.i3 = getelementptr inbounds i8, ptr %3, i64 12
-  %4 = load i8, ptr %m_isDynamic.i3, align 4
-  %5 = and i8 %4, 1
-  %tobool.i4 = icmp ne i8 %5, 0
+  %2 = zext nneg i32 %1 to i64
+  %3 = getelementptr i8, ptr %this, i64 %2
+  %m_gamma = getelementptr i8, ptr %3, i64 8
+  %4 = load ptr, ptr %m_gamma, align 8
+  %m_isDynamic.i3 = getelementptr inbounds i8, ptr %4, i64 12
+  %5 = load i8, ptr %m_isDynamic.i3, align 4
+  %6 = and i8 %5, 1
+  %tobool.i4 = icmp ne i8 %6, 0
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %switch.lookup

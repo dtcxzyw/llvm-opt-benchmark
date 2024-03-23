@@ -70502,6 +70502,7 @@ define linkonce_odr dso_local void @_ZSt13__adjust_heapIPZN11flexbuffers7Builder
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
+  %invariant.gep = getelementptr i8, ptr %__first, i64 32
   %cmp25 = icmp sgt i64 %div, %__holeIndex
   br i1 %cmp25, label %while.body.lr.ph, label %while.end
 
@@ -70514,16 +70515,17 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %add = shl i64 %__secondChild.026, 1
   %mul = add i64 %add, 2
   %add.ptr = getelementptr inbounds %struct.TwoValue, ptr %__first, i64 %mul
-  %sub2 = or disjoint i64 %add, 1
-  %add.ptr3 = getelementptr inbounds %struct.TwoValue, ptr %__first, i64 %sub2
+  %gep = getelementptr %struct.TwoValue, ptr %invariant.gep, i64 %add
   %0 = load ptr, ptr %__comp.coerce, align 8
   %1 = load i64, ptr %add.ptr, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 %1
-  %2 = load i64, ptr %add.ptr3, align 8
+  %2 = load i64, ptr %gep, align 8
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %0, i64 %2
   %call6.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr.i.i, ptr noundef nonnull dereferenceable(1) %add.ptr5.i.i) #32
-  %tobool.not.i.i.not = icmp eq i32 %call6.i.i, 0
-  br i1 %tobool.not.i.i.not, label %if.then.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11flexbuffers7Builder6EndMapEmEUlRKZNS3_6EndMapEmE8TwoValueS6_E_EclIPS4_SA_EEbT_T0_.exit
+  %tobool.not.i.i = icmp ne i32 %call6.i.i, 0
+  %cmp.not.i.i = icmp eq ptr %add.ptr, %gep
+  %or.cond.i.i = or i1 %cmp.not.i.i, %tobool.not.i.i
+  br i1 %or.cond.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11flexbuffers7Builder6EndMapEmEUlRKZNS3_6EndMapEmE8TwoValueS6_E_EclIPS4_SA_EEbT_T0_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %while.body
   store i8 1, ptr %has_duplicate_keys_.i.i, align 1
@@ -70531,7 +70533,8 @@ if.then.i.i:                                      ; preds = %while.body
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11flexbuffers7Builder6EndMapEmEUlRKZNS3_6EndMapEmE8TwoValueS6_E_EclIPS4_SA_EEbT_T0_.exit: ; preds = %while.body, %if.then.i.i
   %cmp7.i.i = icmp slt i32 %call6.i.i, 0
-  %spec.select = select i1 %cmp7.i.i, i64 %sub2, i64 %mul
+  %dec = or disjoint i64 %add, 1
+  %spec.select = select i1 %cmp7.i.i, i64 %dec, i64 %mul
   %add.ptr4 = getelementptr inbounds %struct.TwoValue, ptr %__first, i64 %spec.select
   %add.ptr5 = getelementptr inbounds %struct.TwoValue, ptr %__first, i64 %__secondChild.026
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr5, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr4, i64 32, i1 false)

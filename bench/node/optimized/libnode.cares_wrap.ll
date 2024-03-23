@@ -6626,8 +6626,8 @@ if.end374:                                        ; preds = %if.end28
   %81 = getelementptr i8, ptr %add.ptr22, i64 9
   %add.ptr31.val77 = load i8, ptr %81, align 1
   %conv2.i84 = zext i8 %add.ptr31.val77 to i64
-  %or.i85 = or disjoint i64 %shl.i83, %conv2.i84
-  %add.ptr376 = getelementptr inbounds i8, ptr %add.ptr23, i64 %or.i85
+  %82 = getelementptr i8, ptr %add.ptr23, i64 %shl.i83
+  %add.ptr376 = getelementptr i8, ptr %82, i64 %conv2.i84
   br label %cleanup377
 
 cleanup377:                                       ; preds = %if.then.i192, %cleanup373, %if.end21, %if.end374, %if.then39

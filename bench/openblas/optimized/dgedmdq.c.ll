@@ -429,9 +429,9 @@ define noundef i32 @dgedmdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %293 = add nsw i32 %292, -1
   store i32 %293, ptr %35, align 4, !tbaa !3
   %294 = shl i32 %42, 1
-  %295 = or disjoint i32 %294, 1
-  %296 = sext i32 %295 to i64
-  %297 = getelementptr inbounds double, ptr %45, i64 %296
+  %295 = sext i32 %294 to i64
+  %296 = getelementptr double, ptr %45, i64 %295
+  %297 = getelementptr i8, ptr %296, i64 8
   %298 = call i32 @dlacpy_(ptr noundef nonnull @.str.12, ptr noundef nonnull %40, ptr noundef nonnull %35, ptr noundef nonnull %297, ptr noundef nonnull %10, ptr noundef %13, ptr noundef nonnull %14) #4
   %299 = load i32, ptr %7, align 4, !tbaa !3
   %300 = icmp sgt i32 %299, 2

@@ -231,8 +231,7 @@ for.body.i:                                       ; preds = %cond.end.thread, %f
   %mul.i = shl nuw i64 %i.07.i, 1
   %arrayidx1.i = getelementptr inbounds i8, ptr %call1, i64 %mul.i
   store i8 %2, ptr %arrayidx1.i, align 1
-  %add.i = or disjoint i64 %mul.i, 1
-  %arrayidx3.i = getelementptr inbounds i8, ptr %call1, i64 %add.i
+  %arrayidx3.i = getelementptr i8, ptr %arrayidx1.i, i64 1
   store i8 0, ptr %arrayidx3.i, align 1
   %inc.i = add nuw nsw i64 %i.07.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %call
@@ -291,8 +290,7 @@ for.body.i:                                       ; preds = %if.end4, %for.body.
   %mul.i = shl nuw nsw i64 %i.07.i, 1
   %arrayidx1.i = getelementptr inbounds i8, ptr %call, i64 %mul.i
   store i8 %call.i, ptr %arrayidx1.i, align 1
-  %add.i = or disjoint i64 %mul.i, 1
-  %arrayidx3.i = getelementptr inbounds i8, ptr %call, i64 %add.i
+  %arrayidx3.i = getelementptr i8, ptr %arrayidx1.i, i64 1
   store i8 0, ptr %arrayidx3.i, align 1
   %inc.i = add nuw nsw i64 %i.07.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %userlen
@@ -305,18 +303,17 @@ ascii_uppercase_to_unicode_le.exit:               ; preds = %for.body.i, %if.end
   br i1 %cmp6.not.i11, label %ascii_to_unicode_le.exit, label %for.body.i12
 
 for.body.i12:                                     ; preds = %ascii_uppercase_to_unicode_le.exit, %for.body.i12
-  %i.07.i13 = phi i64 [ %inc.i19, %for.body.i12 ], [ 0, %ascii_uppercase_to_unicode_le.exit ]
+  %i.07.i13 = phi i64 [ %inc.i18, %for.body.i12 ], [ 0, %ascii_uppercase_to_unicode_le.exit ]
   %arrayidx.i14 = getelementptr inbounds i8, ptr %domain, i64 %i.07.i13
   %2 = load i8, ptr %arrayidx.i14, align 1
   %mul.i15 = shl nuw i64 %i.07.i13, 1
   %arrayidx1.i16 = getelementptr inbounds i8, ptr %add.ptr, i64 %mul.i15
   store i8 %2, ptr %arrayidx1.i16, align 1
-  %add.i17 = or disjoint i64 %mul.i15, 1
-  %arrayidx3.i18 = getelementptr inbounds i8, ptr %add.ptr, i64 %add.i17
-  store i8 0, ptr %arrayidx3.i18, align 1
-  %inc.i19 = add nuw nsw i64 %i.07.i13, 1
-  %exitcond.not.i20 = icmp eq i64 %inc.i19, %domlen
-  br i1 %exitcond.not.i20, label %ascii_to_unicode_le.exit, label %for.body.i12, !llvm.loop !4
+  %arrayidx3.i17 = getelementptr i8, ptr %arrayidx1.i16, i64 1
+  store i8 0, ptr %arrayidx3.i17, align 1
+  %inc.i18 = add nuw nsw i64 %i.07.i13, 1
+  %exitcond.not.i19 = icmp eq i64 %inc.i18, %domlen
+  br i1 %exitcond.not.i19, label %ascii_to_unicode_le.exit, label %for.body.i12, !llvm.loop !4
 
 ascii_to_unicode_le.exit:                         ; preds = %for.body.i12, %ascii_uppercase_to_unicode_le.exit
   %call5 = tail call i32 @Curl_hmacit(ptr noundef nonnull @Curl_HMAC_MD5, ptr noundef %ntlmhash, i64 noundef 16, ptr noundef nonnull %call, i64 noundef %mul, ptr noundef %ntlmv2hash) #8

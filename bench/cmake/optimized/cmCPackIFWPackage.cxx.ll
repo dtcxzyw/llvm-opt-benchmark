@@ -7079,9 +7079,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit432: ;
 
 664:                                              ; preds = %.noexc437
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
-  %665 = or disjoint i64 %.0763, 1
-  %666 = load ptr, ptr %111, align 8
-  %667 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %666, i64 %665
+  %665 = load ptr, ptr %111, align 8
+  %666 = getelementptr %"class.std::__cxx11::basic_string", ptr %665, i64 %.0763
+  %667 = getelementptr i8, ptr %666, i64 32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
   invoke void @_ZN11cmXMLWriter12PreAttributeEv(ptr noundef nonnull align 8 dereferenceable(83) %52)
           to label %.noexc440 unwind label %.loopexit632

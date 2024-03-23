@@ -79,9 +79,9 @@ define noundef i32 @mpi_p_slurmstepd_task(ptr nocapture noundef readonly %0, ptr
   %4 = getelementptr inbounds i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = shl nsw i32 %5, 1
-  %7 = or disjoint i32 %6, 1
-  %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds i32, ptr %3, i64 %8
+  %7 = sext i32 %6 to i64
+  %8 = getelementptr i32, ptr %3, i64 %7
+  %9 = getelementptr i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = tail call i32 (ptr, ptr, ptr, ...) @slurm_env_array_overwrite_fmt(ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef %10) #3
   %12 = load ptr, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 11), align 8

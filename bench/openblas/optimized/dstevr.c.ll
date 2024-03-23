@@ -325,9 +325,9 @@ define void @dstevr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %193 = sext i32 %184 to i64
   %194 = getelementptr double, ptr %35, i64 %193
   %195 = getelementptr i8, ptr %194, i64 8
-  %196 = or disjoint i32 %191, 1
-  %197 = sext i32 %196 to i64
-  %198 = getelementptr inbounds double, ptr %35, i64 %197
+  %196 = sext i32 %191 to i64
+  %197 = getelementptr double, ptr %35, i64 %196
+  %198 = getelementptr i8, ptr %197, i64 8
   call void @dstemr_(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull %2, ptr noundef %195, ptr noundef nonnull %15, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef nonnull %10, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %2, ptr noundef %14, ptr noundef nonnull %26, ptr noundef nonnull %198, ptr noundef nonnull %21, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19) #5
   br label %199
 

@@ -284,19 +284,19 @@ BlockSplitIteratorNext.exit86:                    ; preds = %if.then37, %if.then
   %49 = tail call i32 @llvm.umin.i32(i32 %and.i64, i32 3)
   %50 = zext nneg i32 %49 to i64
   %conv42 = select i1 %or.cond2, i64 %50, i64 3
-  %add43 = or disjoint i64 %shl40, %conv42
-  %arrayidx44 = getelementptr inbounds %struct.HistogramDistance, ptr %copy_dist_histograms, i64 %add43
+  %51 = getelementptr %struct.HistogramDistance, ptr %copy_dist_histograms, i64 %shl40
+  %arrayidx44 = getelementptr %struct.HistogramDistance, ptr %51, i64 %conv42
   %dist_prefix_ = getelementptr inbounds i8, ptr %arrayidx, i64 14
-  %51 = load i16, ptr %dist_prefix_, align 2
-  %52 = and i16 %51, 1023
-  %conv47 = zext nneg i16 %52 to i64
+  %52 = load i16, ptr %dist_prefix_, align 2
+  %53 = and i16 %52, 1023
+  %conv47 = zext nneg i16 %53 to i64
   %arrayidx.i67 = getelementptr inbounds [544 x i32], ptr %arrayidx44, i64 0, i64 %conv47
-  %53 = load i32, ptr %arrayidx.i67, align 4
-  %inc.i68 = add i32 %53, 1
+  %54 = load i32, ptr %arrayidx.i67, align 4
+  %inc.i68 = add i32 %54, 1
   store i32 %inc.i68, ptr %arrayidx.i67, align 4
   %total_count_.i69 = getelementptr inbounds i8, ptr %arrayidx44, i64 2176
-  %54 = load i64, ptr %total_count_.i69, align 8
-  %inc1.i70 = add i64 %54, 1
+  %55 = load i64, ptr %total_count_.i69, align 8
+  %inc1.i70 = add i64 %55, 1
   store i64 %inc1.i70, ptr %total_count_.i69, align 8
   br label %for.inc50
 

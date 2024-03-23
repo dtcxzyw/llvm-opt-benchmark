@@ -324,9 +324,9 @@ thread-pre-split14:                               ; preds = %124
   %183 = add nsw i32 %175, 1
   %184 = add nsw i32 %170, -1
   %185 = mul nsw i32 %175, %184
-  %186 = or disjoint i32 %185, 1
-  %187 = sext i32 %186 to i64
-  %188 = getelementptr inbounds double, ptr %36, i64 %187
+  %186 = sext i32 %185 to i64
+  %187 = getelementptr double, ptr %36, i64 %186
+  %188 = getelementptr i8, ptr %187, i64 8
   call void @dlaset_(ptr noundef nonnull @.str.7, ptr noundef nonnull %2, ptr noundef nonnull %2, ptr noundef nonnull @c_b29, ptr noundef nonnull @c_b15, ptr noundef nonnull %188, ptr noundef nonnull %2) #4
   %189 = load i32, ptr %2, align 4, !tbaa !3
   %190 = mul nsw i32 %189, %184
@@ -339,9 +339,9 @@ thread-pre-split14:                               ; preds = %124
   %196 = add nsw i32 %195, %183
   %197 = sext i32 %196 to i64
   %198 = getelementptr inbounds double, ptr %36, i64 %197
-  %199 = or disjoint i32 %195, 1
-  %200 = sext i32 %199 to i64
-  %201 = getelementptr inbounds double, ptr %36, i64 %200
+  %199 = sext i32 %195 to i64
+  %200 = getelementptr double, ptr %36, i64 %199
+  %201 = getelementptr i8, ptr %200, i64 8
   %202 = sext i32 %171 to i64
   %203 = getelementptr inbounds double, ptr %38, i64 %202
   call void @dlasdq_(ptr noundef nonnull @.str, ptr noundef nonnull @c__0, ptr noundef nonnull %2, ptr noundef nonnull %2, ptr noundef nonnull %2, ptr noundef nonnull @c__0, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %198, ptr noundef nonnull %2, ptr noundef nonnull %201, ptr noundef nonnull %2, ptr noundef nonnull %201, ptr noundef nonnull %2, ptr noundef nonnull %203, ptr noundef nonnull %13) #4

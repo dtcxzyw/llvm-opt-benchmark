@@ -87,8 +87,8 @@ define ptr @Abc_GetBinaryName(ptr nocapture noundef readonly %0, i32 noundef %1,
 
 15:                                               ; preds = %10
   %16 = and i64 %indvars.iv, 4294967294
-  %17 = or disjoint i64 %16, 1
-  %18 = getelementptr inbounds ptr, ptr %.val11, i64 %17
+  %17 = getelementptr ptr, ptr %.val11, i64 %16
+  %18 = getelementptr i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   br label %.critedge
 
@@ -1063,8 +1063,8 @@ define noundef i32 @Cmd_CommandAbcPlugIn(ptr noundef %0, i32 noundef %1, ptr noc
 
 34:                                               ; preds = %29
   %35 = and i64 %indvars.iv.i, 4294967294
-  %36 = or disjoint i64 %35, 1
-  %37 = getelementptr inbounds ptr, ptr %.val11.i, i64 %36
+  %36 = getelementptr ptr, ptr %.val11.i, i64 %35
+  %37 = getelementptr i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8
   br label %Abc_GetBinaryName.exit
 
@@ -1240,8 +1240,8 @@ Vec_StrFree.exit:                                 ; preds = %Vec_StrPush.exit, %
 
 114:                                              ; preds = %109
   %115 = and i64 %indvars.iv.i130, 4294967294
-  %116 = or disjoint i64 %115, 1
-  %117 = getelementptr inbounds ptr, ptr %.val11.i129, i64 %116
+  %116 = getelementptr ptr, ptr %.val11.i129, i64 %115
+  %117 = getelementptr i8, ptr %116, i64 8
   %118 = load ptr, ptr %117, align 8
   br label %Abc_GetBinaryName.exit132
 

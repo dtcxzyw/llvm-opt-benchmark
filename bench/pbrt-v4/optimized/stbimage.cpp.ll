@@ -19453,18 +19453,18 @@ for.body:                                         ; preds = %for.body.preheader,
   %add31 = add nuw nsw i32 %add15, %conv30
   %shr32 = lshr i32 %add31, 2
   %conv33 = trunc i32 %shr32 to i8
-  %6 = or disjoint i64 %4, 1
-  %arrayidx37 = getelementptr inbounds i8, ptr %out, i64 %6
+  %arrayidx37 = getelementptr i8, ptr %arrayidx26, i64 1
   store i8 %conv33, ptr %arrayidx37, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !161
 
 for.end.loopexit:                                 ; preds = %for.body
-  %7 = shl nuw nsw i32 %sub, 1
+  %6 = shl nuw nsw i32 %sub, 1
+  %7 = zext nneg i32 %6 to i64
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end
-  %i.0.lcssa = phi i32 [ 2, %if.end ], [ %7, %for.end.loopexit ]
+  %i.0.lcssa = phi i64 [ 2, %if.end ], [ %7, %for.end.loopexit ]
   %8 = sext i32 %w to i64
   %9 = getelementptr i8, ptr %in_near, i64 %8
   %arrayidx40 = getelementptr i8, ptr %9, i64 -2
@@ -19479,13 +19479,10 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %add48 = add nuw nsw i16 %add47, %mul42
   %shr49 = lshr i16 %add48, 2
   %conv50 = trunc i16 %shr49 to i8
-  %idxprom53 = zext nneg i32 %i.0.lcssa to i64
-  %arrayidx54 = getelementptr inbounds i8, ptr %out, i64 %idxprom53
+  %arrayidx54 = getelementptr inbounds i8, ptr %out, i64 %i.0.lcssa
   store i8 %conv50, ptr %arrayidx54, align 1
   %12 = load i8, ptr %arrayidx45, align 1
-  %add59 = or disjoint i32 %i.0.lcssa, 1
-  %idxprom60 = zext nneg i32 %add59 to i64
-  %arrayidx61 = getelementptr inbounds i8, ptr %out, i64 %idxprom60
+  %arrayidx61 = getelementptr i8, ptr %arrayidx54, i64 1
   store i8 %12, ptr %arrayidx61, align 1
   br label %return
 

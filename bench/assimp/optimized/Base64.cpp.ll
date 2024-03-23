@@ -354,8 +354,7 @@ _ZN6Assimp6Base6410DecodeCharEc.exit:             ; preds = %for.body
   %arrayidx.i = getelementptr inbounds [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %conv4.i
   %7 = load i8, ptr %arrayidx.i, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
-  %add28 = or disjoint i64 %i.0153, 1
-  %arrayidx29 = getelementptr inbounds i8, ptr %in, i64 %add28
+  %arrayidx29 = getelementptr i8, ptr %arrayidx26, i64 1
   %8 = load i8, ptr %arrayidx29, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i45)
   %conv.i46 = sext i8 %8 to i32
@@ -384,8 +383,7 @@ _ZN6Assimp6Base6410DecodeCharEc.exit56:           ; preds = %_ZN6Assimp6Base6410
   %arrayidx.i55 = getelementptr inbounds [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %conv4.i54
   %10 = load i8, ptr %arrayidx.i55, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i45)
-  %add31 = or disjoint i64 %i.0153, 2
-  %arrayidx32 = getelementptr inbounds i8, ptr %in, i64 %add31
+  %arrayidx32 = getelementptr i8, ptr %arrayidx26, i64 2
   %11 = load i8, ptr %arrayidx32, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i57)
   %conv.i58 = sext i8 %11 to i32
@@ -414,8 +412,7 @@ _ZN6Assimp6Base6410DecodeCharEc.exit68:           ; preds = %_ZN6Assimp6Base6410
   %arrayidx.i67 = getelementptr inbounds [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %conv4.i66
   %13 = load i8, ptr %arrayidx.i67, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i57)
-  %add34 = or disjoint i64 %i.0153, 3
-  %arrayidx35 = getelementptr inbounds i8, ptr %in, i64 %add34
+  %arrayidx35 = getelementptr i8, ptr %arrayidx26, i64 3
   %14 = load i8, ptr %arrayidx35, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i69)
   %conv.i70 = sext i8 %14 to i32
@@ -500,8 +497,7 @@ _ZN6Assimp6Base6410DecodeCharEc.exit92:           ; preds = %for.end
   %arrayidx.i91 = getelementptr inbounds [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %conv4.i90
   %24 = load i8, ptr %arrayidx.i91, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i81)
-  %add61 = or disjoint i64 %i.0.lcssa, 1
-  %arrayidx62 = getelementptr inbounds i8, ptr %in, i64 %add61
+  %arrayidx62 = getelementptr i8, ptr %arrayidx58, i64 1
   %25 = load i8, ptr %arrayidx62, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i93)
   %conv.i94 = sext i8 %25 to i32
@@ -530,8 +526,7 @@ _ZN6Assimp6Base6410DecodeCharEc.exit104:          ; preds = %_ZN6Assimp6Base6410
   %arrayidx.i103 = getelementptr inbounds [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %conv4.i102
   %27 = load i8, ptr %arrayidx.i103, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i93)
-  %add65 = or disjoint i64 %i.0.lcssa, 2
-  %arrayidx66 = getelementptr inbounds i8, ptr %in, i64 %add65
+  %arrayidx66 = getelementptr i8, ptr %arrayidx58, i64 2
   %28 = load i8, ptr %arrayidx66, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i105)
   %conv.i106 = sext i8 %28 to i32
@@ -560,8 +555,7 @@ _ZN6Assimp6Base6410DecodeCharEc.exit116:          ; preds = %_ZN6Assimp6Base6410
   %arrayidx.i115 = getelementptr inbounds [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %conv4.i114
   %30 = load i8, ptr %arrayidx.i115, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i105)
-  %add69 = or disjoint i64 %i.0.lcssa, 3
-  %arrayidx70 = getelementptr inbounds i8, ptr %in, i64 %add69
+  %arrayidx70 = getelementptr i8, ptr %arrayidx58, i64 3
   %31 = load i8, ptr %arrayidx70, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i117)
   %conv.i118 = sext i8 %31 to i32

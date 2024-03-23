@@ -98,10 +98,9 @@ for.body:                                         ; preds = %entry, %for.inc
   %2 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %2 to i16
   %shl = shl nuw i16 %conv, 8
-  %3 = or disjoint i64 %indvars.iv, 1
-  %arrayidx4 = getelementptr inbounds i8, ptr %0, i64 %3
-  %4 = load i8, ptr %arrayidx4, align 1
-  %conv5 = zext i8 %4 to i16
+  %arrayidx4 = getelementptr i8, ptr %arrayidx, i64 1
+  %3 = load i8, ptr %arrayidx4, align 1
+  %conv5 = zext i8 %3 to i16
   %or = or disjoint i16 %shl, %conv5
   %cmp7 = icmp eq i64 %indvars.iv, 0
   %cmp9 = icmp eq i16 %or, -257
@@ -117,8 +116,8 @@ if.then.i:                                        ; preds = %if.end
   br label %_ZN6icu_75L16adjustConfidenceEDsi.exit
 
 if.else.i:                                        ; preds = %if.end
-  %5 = add i16 %or, -32
-  %or.cond.i = icmp ult i16 %5, 224
+  %4 = add i16 %or, -32
+  %or.cond.i = icmp ult i16 %4, 224
   %cmp6.i = icmp eq i16 %or, 10
   %or.cond1.i = or i1 %cmp6.i, %or.cond.i
   %add.i = add nuw nsw i32 %confidence.020, 10
@@ -135,9 +134,9 @@ _ZN6icu_75L16adjustConfidenceEDsi.exit:           ; preds = %if.then.i, %if.else
   ]
 
 for.inc:                                          ; preds = %_ZN6icu_75L16adjustConfidenceEDsi.exit
-  %indvars.iv.next = add nuw i64 %indvars.iv, 2
-  %6 = trunc i64 %indvars.iv.next to i32
-  %cmp2 = icmp sgt i32 %sub, %6
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
+  %5 = trunc i64 %indvars.iv.next to i32
+  %cmp2 = icmp sgt i32 %sub, %5
   br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc, %for.body, %_ZN6icu_75L16adjustConfidenceEDsi.exit, %_ZN6icu_75L16adjustConfidenceEDsi.exit, %entry
@@ -193,10 +192,9 @@ for.body:                                         ; preds = %entry, %for.inc
   %arrayidx = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
   %2 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %2 to i16
-  %3 = or disjoint i64 %indvars.iv, 1
-  %arrayidx4 = getelementptr inbounds i8, ptr %0, i64 %3
-  %4 = load i8, ptr %arrayidx4, align 1
-  %conv5 = zext i8 %4 to i16
+  %arrayidx4 = getelementptr i8, ptr %arrayidx, i64 1
+  %3 = load i8, ptr %arrayidx4, align 1
+  %conv5 = zext i8 %3 to i16
   %shl = shl nuw i16 %conv5, 8
   %or = or disjoint i16 %shl, %conv
   %cmp7 = icmp eq i64 %indvars.iv, 0
@@ -210,14 +208,14 @@ if.then:                                          ; preds = %for.body
 
 land.lhs.true11:                                  ; preds = %if.then
   %arrayidx12 = getelementptr inbounds i8, ptr %0, i64 2
-  %5 = load i8, ptr %arrayidx12, align 1
-  %cmp14 = icmp eq i8 %5, 0
+  %4 = load i8, ptr %arrayidx12, align 1
+  %cmp14 = icmp eq i8 %4, 0
   br i1 %cmp14, label %land.lhs.true15, label %for.end
 
 land.lhs.true15:                                  ; preds = %land.lhs.true11
   %arrayidx16 = getelementptr inbounds i8, ptr %0, i64 3
-  %6 = load i8, ptr %arrayidx16, align 1
-  %cmp18 = icmp eq i8 %6, 0
+  %5 = load i8, ptr %arrayidx16, align 1
+  %cmp18 = icmp eq i8 %5, 0
   %spec.select = select i1 %cmp18, i32 0, i32 100
   br label %for.end
 
@@ -230,8 +228,8 @@ if.then.i:                                        ; preds = %if.end20
   br label %_ZN6icu_75L16adjustConfidenceEDsi.exit
 
 if.else.i:                                        ; preds = %if.end20
-  %7 = add i16 %or, -32
-  %or.cond.i = icmp ult i16 %7, 224
+  %6 = add i16 %or, -32
+  %or.cond.i = icmp ult i16 %6, 224
   %cmp6.i = icmp eq i16 %or, 10
   %or.cond1.i = or i1 %cmp6.i, %or.cond.i
   %add.i = add nuw nsw i32 %confidence.023, 10
@@ -248,9 +246,9 @@ _ZN6icu_75L16adjustConfidenceEDsi.exit:           ; preds = %if.then.i, %if.else
   ]
 
 for.inc:                                          ; preds = %_ZN6icu_75L16adjustConfidenceEDsi.exit
-  %indvars.iv.next = add nuw i64 %indvars.iv, 2
-  %8 = trunc i64 %indvars.iv.next to i32
-  %cmp2 = icmp sgt i32 %sub, %8
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
+  %7 = trunc i64 %indvars.iv.next to i32
+  %cmp2 = icmp sgt i32 %sub, %7
   br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !6
 
 for.end:                                          ; preds = %for.inc, %_ZN6icu_75L16adjustConfidenceEDsi.exit, %_ZN6icu_75L16adjustConfidenceEDsi.exit, %entry, %land.lhs.true15, %if.then, %land.lhs.true11

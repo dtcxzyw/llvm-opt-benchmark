@@ -1451,21 +1451,21 @@ define dso_local void @_ZN16VoxelManipulator9clearFlagEh(ptr nocapture noundef n
   %74 = load i8, ptr %73, align 1, !tbaa !32
   %75 = and i8 %74, %29
   store i8 %75, ptr %73, align 1, !tbaa !32
-  %76 = or disjoint i64 %71, 1
-  %77 = load ptr, ptr %30, align 8, !tbaa !15
-  %78 = getelementptr inbounds i8, ptr %77, i64 %76
+  %76 = load ptr, ptr %30, align 8, !tbaa !15
+  %77 = getelementptr i8, ptr %76, i64 %71
+  %78 = getelementptr i8, ptr %77, i64 1
   %79 = load i8, ptr %78, align 1, !tbaa !32
   %80 = and i8 %79, %29
   store i8 %80, ptr %78, align 1, !tbaa !32
-  %81 = or disjoint i64 %71, 2
-  %82 = load ptr, ptr %30, align 8, !tbaa !15
-  %83 = getelementptr inbounds i8, ptr %82, i64 %81
+  %81 = load ptr, ptr %30, align 8, !tbaa !15
+  %82 = getelementptr i8, ptr %81, i64 %71
+  %83 = getelementptr i8, ptr %82, i64 2
   %84 = load i8, ptr %83, align 1, !tbaa !32
   %85 = and i8 %84, %29
   store i8 %85, ptr %83, align 1, !tbaa !32
-  %86 = or disjoint i64 %71, 3
-  %87 = load ptr, ptr %30, align 8, !tbaa !15
-  %88 = getelementptr inbounds i8, ptr %87, i64 %86
+  %86 = load ptr, ptr %30, align 8, !tbaa !15
+  %87 = getelementptr i8, ptr %86, i64 %71
+  %88 = getelementptr i8, ptr %87, i64 3
   %89 = load i8, ptr %88, align 1, !tbaa !32
   %90 = and i8 %89, %29
   store i8 %90, ptr %88, align 1, !tbaa !32

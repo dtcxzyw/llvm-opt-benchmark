@@ -1997,22 +1997,22 @@ define void @sat_solver2_setnvars(ptr nocapture noundef %0, i32 noundef %1) loca
 
 171:                                              ; preds = %168, %161
   %172 = phi ptr [ %.pre140, %168 ], [ %162, %161 ]
-  %173 = or disjoint i64 %163, 1
-  %174 = getelementptr inbounds %struct.veci_t, ptr %172, i64 %173
-  %175 = getelementptr inbounds i8, ptr %174, i64 8
-  %176 = load ptr, ptr %175, align 8
-  %177 = icmp eq ptr %176, null
-  br i1 %177, label %178, label %181
+  %173 = getelementptr %struct.veci_t, ptr %172, i64 %163
+  %174 = getelementptr i8, ptr %173, i64 24
+  %175 = load ptr, ptr %174, align 8
+  %176 = icmp eq ptr %175, null
+  br i1 %176, label %177, label %181
 
-178:                                              ; preds = %171
-  store i32 4, ptr %174, align 8
-  %179 = getelementptr inbounds i8, ptr %174, i64 4
+177:                                              ; preds = %171
+  %178 = getelementptr i8, ptr %173, i64 16
+  store i32 4, ptr %178, align 8
+  %179 = getelementptr i8, ptr %173, i64 20
   store i32 0, ptr %179, align 4
   %180 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
-  store ptr %180, ptr %175, align 8
+  store ptr %180, ptr %174, align 8
   br label %181
 
-181:                                              ; preds = %178, %171
+181:                                              ; preds = %177, %171
   %182 = load ptr, ptr %148, align 8
   %183 = getelementptr inbounds i32, ptr %182, i64 %indvars.iv
   store i32 0, ptr %183, align 4

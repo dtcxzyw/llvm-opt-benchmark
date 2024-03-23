@@ -19056,7 +19056,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %call2 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %hexed, ptr noundef nonnull dereferenceable(1) @.str.345, i32 noundef %conv) #23
   %2 = load i8, ptr %hexed, align 1
   %conv4 = sext i8 %2 to i32
-  %arrayidx5 = getelementptr inbounds i8, ptr %hex_encoded, i64 %j.012
+  %arrayidx5 = getelementptr i8, ptr %hex_encoded, i64 %j.012
   %3 = load i8, ptr %arrayidx5, align 1
   %conv6 = sext i8 %3 to i32
   %call7 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 193, ptr noundef nonnull @.str.346, ptr noundef nonnull @.str.347, i32 noundef %conv4, i32 noundef %conv6) #23
@@ -19064,10 +19064,9 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %tobool8.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
-  %add13 = or disjoint i64 %j.012, 1
   %4 = load i8, ptr %arrayidx9, align 1
   %conv10 = sext i8 %4 to i32
-  %arrayidx12 = getelementptr inbounds i8, ptr %hex_encoded, i64 %add13
+  %arrayidx12 = getelementptr i8, ptr %arrayidx5, i64 1
   %5 = load i8, ptr %arrayidx12, align 1
   %conv13 = sext i8 %5 to i32
   %call14 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 194, ptr noundef nonnull @.str.348, ptr noundef nonnull @.str.349, i32 noundef %conv10, i32 noundef %conv13) #23

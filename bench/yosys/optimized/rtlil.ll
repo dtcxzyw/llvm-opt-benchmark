@@ -11562,7 +11562,7 @@ define void @_ZNK5Yosys5RTLIL5Const13decode_stringB5cxx11Ev(ptr dead_on_unwind n
   %30 = icmp ult i64 %indvars.iv.next, %22
   br i1 %30, label %23, label %._crit_edge, !llvm.loop !28
 
-.loopexit:                                        ; preds = %47
+.loopexit:                                        ; preds = %45
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %31
@@ -11594,42 +11594,42 @@ define void @_ZNK5Yosys5RTLIL5Const13decode_stringB5cxx11Ev(ptr dead_on_unwind n
   %35 = zext nneg i32 %16 to i64
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %49
-  %indvars.iv49 = phi i64 [ %35, %.preheader.preheader ], [ %indvars.iv.next50, %49 ]
+.preheader:                                       ; preds = %.preheader.preheader, %47
+  %indvars.iv49 = phi i64 [ %35, %.preheader.preheader ], [ %indvars.iv.next50, %47 ]
   %indvars.iv.next50 = add nsw i64 %indvars.iv49, -8
   %36 = load ptr, ptr %5, align 8
+  %invariant.gep54 = getelementptr i8, ptr %36, i64 %indvars.iv.next50
   br label %37
 
 37:                                               ; preds = %.preheader, %37
   %indvars.iv47 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next48, %37 ]
   %.03242 = phi i8 [ 0, %.preheader ], [ %.1, %37 ]
-  %38 = or disjoint i64 %indvars.iv47, %indvars.iv.next50
-  %39 = getelementptr inbounds i8, ptr %36, i64 %38
-  %40 = load i8, ptr %39, align 1
-  %41 = icmp eq i8 %40, 1
-  %42 = trunc i64 %indvars.iv47 to i32
-  %43 = shl nuw nsw i32 1, %42
-  %44 = trunc i32 %43 to i8
-  %45 = select i1 %41, i8 %44, i8 0
-  %.1 = or i8 %45, %.03242
+  %gep55 = getelementptr i8, ptr %invariant.gep54, i64 %indvars.iv47
+  %38 = load i8, ptr %gep55, align 1
+  %39 = icmp eq i8 %38, 1
+  %40 = trunc i64 %indvars.iv47 to i32
+  %41 = shl nuw nsw i32 1, %40
+  %42 = trunc i32 %41 to i8
+  %43 = select i1 %39, i8 %42, i8 0
+  %.1 = or i8 %43, %.03242
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next48, 8
-  br i1 %exitcond.not, label %46, label %37, !llvm.loop !29
+  br i1 %exitcond.not, label %44, label %37, !llvm.loop !29
 
-46:                                               ; preds = %37
+44:                                               ; preds = %37
   %.not38 = icmp eq i8 %.1, 0
-  br i1 %.not38, label %49, label %47
+  br i1 %.not38, label %47, label %45
 
-47:                                               ; preds = %46
+45:                                               ; preds = %44
   store i8 %.1, ptr %4, align 1
-  %48 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendESt16initializer_listIcE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull %4, i64 1)
-          to label %49 unwind label %.loopexit
+  %46 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendESt16initializer_listIcE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull %4, i64 1)
+          to label %47 unwind label %.loopexit
 
-49:                                               ; preds = %46, %47
-  %50 = icmp sgt i64 %indvars.iv49, 15
-  br i1 %50, label %.preheader, label %._crit_edge46, !llvm.loop !30
+47:                                               ; preds = %44, %45
+  %48 = icmp sgt i64 %indvars.iv49, 15
+  br i1 %48, label %.preheader, label %._crit_edge46, !llvm.loop !30
 
-._crit_edge46:                                    ; preds = %49, %._crit_edge.thread
+._crit_edge46:                                    ; preds = %47, %._crit_edge.thread
   ret void
 }
 

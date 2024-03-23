@@ -167,9 +167,8 @@ define i32 @strgrpmatch(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2
   %66 = sub i64 %65, %51
   %67 = trunc i64 %66 to i32
   %68 = select i1 %.not48, i32 0, i32 %67
-  %69 = or disjoint i64 %63, 1
-  %70 = getelementptr inbounds i32, ptr %2, i64 %69
-  store i32 %68, ptr %70, align 4
+  %69 = getelementptr i8, ptr %64, i64 4
+  store i32 %68, ptr %69, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %52

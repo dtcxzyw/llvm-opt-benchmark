@@ -15557,7 +15557,7 @@ if.end:                                           ; preds = %_ZNKRSt8optionalIbE
   br i1 %tobool.i.i88.not, label %if.end9, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit151
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit151: ; preds = %if.end
-  %arrayidx3.i144 = getelementptr inbounds i8, ptr %data, i64 %pos.0
+  %arrayidx3.i144 = getelementptr i8, ptr %data, i64 %pos.0
   store i8 16, ptr %arrayidx3.i144, align 1
   %8 = load i8, ptr %_M_engaged.i.i87, align 1
   %9 = and i8 %8, 1
@@ -15569,11 +15569,10 @@ if.end.i91:                                       ; preds = %_ZN9struct_pb8inter
   unreachable
 
 _ZNKRSt8optionalIbE5valueEv.exit92:               ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit151
-  %inc2.i143 = or disjoint i64 %pos.0, 1
   %10 = load i8, ptr %no_standard_descriptor_accessor, align 2
   %11 = and i8 %10, 1
   %inc2.i127 = add nuw nsw i64 %pos.0, 2
-  %arrayidx3.i128 = getelementptr inbounds i8, ptr %data, i64 %inc2.i143
+  %arrayidx3.i128 = getelementptr i8, ptr %arrayidx3.i144, i64 1
   store i8 %11, ptr %arrayidx3.i128, align 1
   br label %if.end9
 
@@ -25691,7 +25690,7 @@ if.end:                                           ; preds = %_ZNKRSt8optionalIbE
   br i1 %tobool.i.i56.not, label %if.end9, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit73
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit73: ; preds = %if.end
-  %arrayidx3.i66 = getelementptr inbounds i8, ptr %data, i64 %pos.0
+  %arrayidx3.i66 = getelementptr i8, ptr %data, i64 %pos.0
   store i8 24, ptr %arrayidx3.i66, align 1
   %8 = load i8, ptr %_M_engaged.i.i55, align 1
   %9 = and i8 %8, 1
@@ -25703,11 +25702,10 @@ if.end.i59:                                       ; preds = %_ZN9struct_pb8inter
   unreachable
 
 _ZNKRSt8optionalIbE5valueEv.exit60:               ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit73
-  %inc2.i65 = or disjoint i64 %pos.0, 1
   %10 = load i8, ptr %deprecated, align 2
   %11 = and i8 %10, 1
   %inc2.i49 = add nuw nsw i64 %pos.0, 2
-  %arrayidx3.i50 = getelementptr inbounds i8, ptr %data, i64 %inc2.i65
+  %arrayidx3.i50 = getelementptr i8, ptr %arrayidx3.i66, i64 1
   store i8 %11, ptr %arrayidx3.i50, align 1
   br label %if.end9
 

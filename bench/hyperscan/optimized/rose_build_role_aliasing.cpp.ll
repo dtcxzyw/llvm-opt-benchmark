@@ -21149,14 +21149,11 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %__cur.04.i.i.i.i.idx.i = phi i64 [ 0, %for.body.i ], [ %__cur.04.i.i.i.i.add.i.3, %for.body.i.i.i.i.i ]
   %__cur.04.i.i.i.i.ptr.i = getelementptr inbounds i8, ptr %2, i64 %__cur.04.i.i.i.i.idx.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.04.i.i.i.i.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %__value, i64 16, i1 false)
-  %__cur.04.i.i.i.i.add.i = or disjoint i64 %__cur.04.i.i.i.i.idx.i, 16
-  %__cur.04.i.i.i.i.ptr.i.1 = getelementptr inbounds i8, ptr %2, i64 %__cur.04.i.i.i.i.add.i
+  %__cur.04.i.i.i.i.ptr.i.1 = getelementptr i8, ptr %__cur.04.i.i.i.i.ptr.i, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.04.i.i.i.i.ptr.i.1, ptr noundef nonnull align 8 dereferenceable(16) %__value, i64 16, i1 false)
-  %__cur.04.i.i.i.i.add.i.1 = or disjoint i64 %__cur.04.i.i.i.i.idx.i, 32
-  %__cur.04.i.i.i.i.ptr.i.2 = getelementptr inbounds i8, ptr %2, i64 %__cur.04.i.i.i.i.add.i.1
+  %__cur.04.i.i.i.i.ptr.i.2 = getelementptr i8, ptr %__cur.04.i.i.i.i.ptr.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.04.i.i.i.i.ptr.i.2, ptr noundef nonnull align 8 dereferenceable(16) %__value, i64 16, i1 false)
-  %__cur.04.i.i.i.i.add.i.2 = or disjoint i64 %__cur.04.i.i.i.i.idx.i, 48
-  %__cur.04.i.i.i.i.ptr.i.3 = getelementptr inbounds i8, ptr %2, i64 %__cur.04.i.i.i.i.add.i.2
+  %__cur.04.i.i.i.i.ptr.i.3 = getelementptr i8, ptr %__cur.04.i.i.i.i.ptr.i, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.04.i.i.i.i.ptr.i.3, ptr noundef nonnull align 8 dereferenceable(16) %__value, i64 16, i1 false)
   %__cur.04.i.i.i.i.add.i.3 = add nuw nsw i64 %__cur.04.i.i.i.i.idx.i, 64
   %cmp.not.i.i.i.i.i.3 = icmp eq i64 %__cur.04.i.i.i.i.add.i.3, 512

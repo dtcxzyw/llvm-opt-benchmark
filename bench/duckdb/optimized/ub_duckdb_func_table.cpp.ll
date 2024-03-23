@@ -12976,7 +12976,6 @@ for.body:                                         ; preds = %for.body, %for.body
   %spec.select = select i1 %cmp19, i64 0, i64 %inc
   %inc21 = zext i1 %cmp19 to i32
   %spec.select872 = add nuw nsw i32 %src_pos.01320, %inc21
-  %inc23 = or disjoint i64 %row.01318, 1
   %idxprom.1 = zext nneg i32 %spec.select872 to i64
   %arrayidx.1 = getelementptr inbounds i8, ptr %add.ptr, i64 %idxprom.1
   %12 = load i8, ptr %arrayidx.1, align 1, !tbaa !16
@@ -12986,7 +12985,7 @@ for.body:                                         ; preds = %for.body, %for.body
   %and.1 = and i32 %shl.1, %conv.1
   %cmp14.1 = icmp ne i32 %and.1, 0
   %spec.select1393.1 = zext i1 %cmp14.1 to i8
-  %13 = getelementptr inbounds i8, ptr %8, i64 %inc23
+  %13 = getelementptr i8, ptr %11, i64 1
   store i8 %spec.select1393.1, ptr %13, align 1
   %inc.1 = add nsw i64 %spec.select, 1
   %cmp19.1 = icmp eq i64 %inc.1, 8

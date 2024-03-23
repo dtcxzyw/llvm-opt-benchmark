@@ -77470,8 +77470,8 @@ _ZN7openvdb5v11_04tree10LeafBufferIbLj3EEaSERKS3_.exit.loopexit: ; preds = %for.
 
 _ZN7openvdb5v11_04tree10LeafBufferIbLj3EEaSERKS3_.exit: ; preds = %_ZN7openvdb5v11_04tree10LeafBufferIbLj3EEaSERKS3_.exit.loopexit, %for.body
   %6 = phi ptr [ %.pre, %_ZN7openvdb5v11_04tree10LeafBufferIbLj3EEaSERKS3_.exit.loopexit ], [ %4, %for.body ]
-  %add = or disjoint i64 %mul, 1
-  %arrayidx8 = getelementptr inbounds %"class.openvdb::v11_0::tree::LeafBuffer", ptr %6, i64 %add
+  %7 = getelementptr %"class.openvdb::v11_0::tree::LeafBuffer", ptr %6, i64 %mul
+  %arrayidx8 = getelementptr i8, ptr %7, i64 64
   %cmp.not.i7 = icmp eq ptr %3, %arrayidx8
   br i1 %cmp.not.i7, label %_ZN7openvdb5v11_04tree10LeafBufferIbLj3EEaSERKS3_.exit16, label %for.body.i.i8
 
@@ -77480,8 +77480,8 @@ for.body.i.i8:                                    ; preds = %_ZN7openvdb5v11_04t
   %w2.04.i.i10 = phi ptr [ %incdec.ptr4.i.i14, %for.body.i.i8 ], [ %3, %_ZN7openvdb5v11_04tree10LeafBufferIbLj3EEaSERKS3_.exit ]
   %n.03.i.i11 = phi i32 [ %dec.i.i12, %for.body.i.i8 ], [ 8, %_ZN7openvdb5v11_04tree10LeafBufferIbLj3EEaSERKS3_.exit ]
   %dec.i.i12 = add nsw i32 %n.03.i.i11, -1
-  %7 = load i64, ptr %w2.04.i.i10, align 8
-  store i64 %7, ptr %w1.05.i.i9, align 8
+  %8 = load i64, ptr %w2.04.i.i10, align 8
+  store i64 %8, ptr %w1.05.i.i9, align 8
   %incdec.ptr.i.i13 = getelementptr inbounds i8, ptr %w1.05.i.i9, i64 8
   %incdec.ptr4.i.i14 = getelementptr inbounds i8, ptr %w2.04.i.i10, i64 8
   %tobool.not.i.i15 = icmp eq i32 %dec.i.i12, 0

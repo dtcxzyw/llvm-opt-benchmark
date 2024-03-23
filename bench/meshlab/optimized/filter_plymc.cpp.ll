@@ -46334,9 +46334,9 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   %508 = load ptr, ptr %354, align 8
   %509 = getelementptr inbounds %"class.vcg::SFace", ptr %508, i64 %498, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
   store ptr %507, ptr %509, align 8
-  %510 = or disjoint i64 %indvars.iv638, 2
-  %511 = load ptr, ptr %10, align 8
-  %512 = getelementptr inbounds i32, ptr %511, i64 %510
+  %510 = load ptr, ptr %10, align 8
+  %511 = getelementptr i32, ptr %510, i64 %indvars.iv638
+  %512 = getelementptr i8, ptr %511, i64 8
   %513 = load i32, ptr %512, align 4
   %514 = sext i32 %513 to i64
   %515 = load ptr, ptr %352, align 8

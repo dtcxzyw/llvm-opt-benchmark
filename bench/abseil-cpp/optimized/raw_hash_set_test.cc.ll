@@ -26583,6 +26583,7 @@ invoke.cont13:                                    ; preds = %entry
   store i8 1, ptr %ref.tmp2.sroa.6.0.call5.i.i.i.i2.i.sroa_idx, align 1
   %ref.tmp2.sroa.7.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 6
   store i8 -2, ptr %ref.tmp2.sroa.7.0.call5.i.i.i.i2.i.sroa_idx, align 1
+  %invariant.gep = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i16, i64 64
   br label %for.body
 
 for.body:                                         ; preds = %invoke.cont13, %for.inc
@@ -26596,9 +26597,8 @@ for.body:                                         ; preds = %invoke.cont13, %for
   br i1 %cmp17, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %add21 = or disjoint i64 %i.0122, 64
-  %add.ptr.i24 = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i16, i64 %add21
-  store i8 %1, ptr %add.ptr.i24, align 1
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %i.0122
+  store i8 %1, ptr %gep, align 1
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then

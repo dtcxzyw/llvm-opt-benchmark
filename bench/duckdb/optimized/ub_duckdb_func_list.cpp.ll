@@ -21604,7 +21604,6 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i.preheader.
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i: ; preds = %cleanup.us.i.i.1, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i.preheader.new
   %valid.050.us.i.i = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i.preheader.new ], [ %valid.3.us.i.i.1, %cleanup.us.i.i.1 ]
   %entry_idx.049.us.i.i = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i.preheader.new ], [ %inc.us.i.i.1, %cleanup.us.i.i.1 ]
-  %inc.us.i.i = or disjoint i64 %entry_idx.049.us.i.i, 1
   %arrayidx.i.i.us.i.i = getelementptr inbounds i64, ptr %2, i64 %entry_idx.049.us.i.i
   %4 = load i64, ptr %arrayidx.i.i.us.i.i, align 8, !tbaa !41
   switch i64 %4, label %while.body.us.i.i [
@@ -21628,7 +21627,7 @@ if.then17.us.i.i:                                 ; preds = %_ZNK6duckdb21Templa
 cleanup.us.i.i:                                   ; preds = %while.body.us.i.i, %if.then17.us.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i
   %valid.3.us.i.i = phi i64 [ %add18.us.i.i, %if.then17.us.i.i ], [ %valid.050.us.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i ], [ %inc20.us.i.i, %while.body.us.i.i ]
   %inc.us.i.i.1 = add nuw nsw i64 %entry_idx.049.us.i.i, 2
-  %arrayidx.i.i.us.i.i.1 = getelementptr inbounds i64, ptr %2, i64 %inc.us.i.i
+  %arrayidx.i.i.us.i.i.1 = getelementptr i8, ptr %arrayidx.i.i.us.i.i, i64 8
   %5 = load i64, ptr %arrayidx.i.i.us.i.i.1, align 8, !tbaa !41
   switch i64 %5, label %while.body.us.i.i.1 [
     i64 -1, label %if.then17.us.i.i.1
@@ -21846,7 +21845,6 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i104.prehead
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i104: ; preds = %cleanup.us.i.i109.1, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i104.preheader.new
   %valid.050.us.i.i105 = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i104.preheader.new ], [ %valid.3.us.i.i110.1, %cleanup.us.i.i109.1 ]
   %entry_idx.049.us.i.i106 = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i104.preheader.new ], [ %inc.us.i.i107.1, %cleanup.us.i.i109.1 ]
-  %inc.us.i.i107 = or disjoint i64 %entry_idx.049.us.i.i106, 1
   %arrayidx.i.i.us.i.i108 = getelementptr inbounds i64, ptr %20, i64 %entry_idx.049.us.i.i106
   %22 = load i64, ptr %arrayidx.i.i.us.i.i108, align 8, !tbaa !41
   switch i64 %22, label %while.body.us.i.i114 [
@@ -21870,7 +21868,7 @@ if.then17.us.i.i112:                              ; preds = %_ZNK6duckdb21Templa
 cleanup.us.i.i109:                                ; preds = %while.body.us.i.i114, %if.then17.us.i.i112, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i104
   %valid.3.us.i.i110 = phi i64 [ %add18.us.i.i113, %if.then17.us.i.i112 ], [ %valid.050.us.i.i105, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i104 ], [ %inc20.us.i.i119, %while.body.us.i.i114 ]
   %inc.us.i.i107.1 = add nuw nsw i64 %entry_idx.049.us.i.i106, 2
-  %arrayidx.i.i.us.i.i108.1 = getelementptr inbounds i64, ptr %20, i64 %inc.us.i.i107
+  %arrayidx.i.i.us.i.i108.1 = getelementptr i8, ptr %arrayidx.i.i.us.i.i108, i64 8
   %23 = load i64, ptr %arrayidx.i.i.us.i.i108.1, align 8, !tbaa !41
   switch i64 %23, label %while.body.us.i.i114.1 [
     i64 -1, label %if.then17.us.i.i112.1
@@ -24500,7 +24498,6 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i.preheader.
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i: ; preds = %cleanup.us.i.i.1, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i.preheader.new
   %valid.050.us.i.i = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i.preheader.new ], [ %valid.3.us.i.i.1, %cleanup.us.i.i.1 ]
   %entry_idx.049.us.i.i = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i.preheader.new ], [ %inc.us.i.i.1, %cleanup.us.i.i.1 ]
-  %inc.us.i.i = or disjoint i64 %entry_idx.049.us.i.i, 1
   %arrayidx.i.i.us.i.i = getelementptr inbounds i64, ptr %2, i64 %entry_idx.049.us.i.i
   %4 = load i64, ptr %arrayidx.i.i.us.i.i, align 8, !tbaa !41
   switch i64 %4, label %while.body.us.i.i [
@@ -24524,7 +24521,7 @@ if.then17.us.i.i:                                 ; preds = %_ZNK6duckdb21Templa
 cleanup.us.i.i:                                   ; preds = %while.body.us.i.i, %if.then17.us.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i
   %valid.3.us.i.i = phi i64 [ %add18.us.i.i, %if.then17.us.i.i ], [ %valid.050.us.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i ], [ %inc20.us.i.i, %while.body.us.i.i ]
   %inc.us.i.i.1 = add nuw nsw i64 %entry_idx.049.us.i.i, 2
-  %arrayidx.i.i.us.i.i.1 = getelementptr inbounds i64, ptr %2, i64 %inc.us.i.i
+  %arrayidx.i.i.us.i.i.1 = getelementptr i8, ptr %arrayidx.i.i.us.i.i, i64 8
   %5 = load i64, ptr %arrayidx.i.i.us.i.i.1, align 8, !tbaa !41
   switch i64 %5, label %while.body.us.i.i.1 [
     i64 -1, label %if.then17.us.i.i.1
@@ -24742,7 +24739,6 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i104.prehead
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i104: ; preds = %cleanup.us.i.i109.1, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i104.preheader.new
   %valid.050.us.i.i105 = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i104.preheader.new ], [ %valid.3.us.i.i110.1, %cleanup.us.i.i109.1 ]
   %entry_idx.049.us.i.i106 = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i104.preheader.new ], [ %inc.us.i.i107.1, %cleanup.us.i.i109.1 ]
-  %inc.us.i.i107 = or disjoint i64 %entry_idx.049.us.i.i106, 1
   %arrayidx.i.i.us.i.i108 = getelementptr inbounds i64, ptr %20, i64 %entry_idx.049.us.i.i106
   %22 = load i64, ptr %arrayidx.i.i.us.i.i108, align 8, !tbaa !41
   switch i64 %22, label %while.body.us.i.i114 [
@@ -24766,7 +24762,7 @@ if.then17.us.i.i112:                              ; preds = %_ZNK6duckdb21Templa
 cleanup.us.i.i109:                                ; preds = %while.body.us.i.i114, %if.then17.us.i.i112, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i104
   %valid.3.us.i.i110 = phi i64 [ %add18.us.i.i113, %if.then17.us.i.i112 ], [ %valid.050.us.i.i105, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i104 ], [ %inc20.us.i.i119, %while.body.us.i.i114 ]
   %inc.us.i.i107.1 = add nuw nsw i64 %entry_idx.049.us.i.i106, 2
-  %arrayidx.i.i.us.i.i108.1 = getelementptr inbounds i64, ptr %20, i64 %inc.us.i.i107
+  %arrayidx.i.i.us.i.i108.1 = getelementptr i8, ptr %arrayidx.i.i.us.i.i108, i64 8
   %23 = load i64, ptr %arrayidx.i.i.us.i.i108.1, align 8, !tbaa !41
   switch i64 %23, label %while.body.us.i.i114.1 [
     i64 -1, label %if.then17.us.i.i112.1
@@ -28140,7 +28136,6 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i.preheader.
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i: ; preds = %cleanup.us.i.i.1, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i.preheader.new
   %valid.050.us.i.i = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i.preheader.new ], [ %valid.3.us.i.i.1, %cleanup.us.i.i.1 ]
   %entry_idx.049.us.i.i = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i.preheader.new ], [ %inc.us.i.i.1, %cleanup.us.i.i.1 ]
-  %inc.us.i.i = or disjoint i64 %entry_idx.049.us.i.i, 1
   %arrayidx.i.i.us.i.i = getelementptr inbounds i64, ptr %2, i64 %entry_idx.049.us.i.i
   %4 = load i64, ptr %arrayidx.i.i.us.i.i, align 8, !tbaa !41
   switch i64 %4, label %while.body.us.i.i [
@@ -28164,7 +28159,7 @@ if.then17.us.i.i:                                 ; preds = %_ZNK6duckdb21Templa
 cleanup.us.i.i:                                   ; preds = %while.body.us.i.i, %if.then17.us.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i
   %valid.3.us.i.i = phi i64 [ %add18.us.i.i, %if.then17.us.i.i ], [ %valid.050.us.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i ], [ %inc20.us.i.i, %while.body.us.i.i ]
   %inc.us.i.i.1 = add nuw nsw i64 %entry_idx.049.us.i.i, 2
-  %arrayidx.i.i.us.i.i.1 = getelementptr inbounds i64, ptr %2, i64 %inc.us.i.i
+  %arrayidx.i.i.us.i.i.1 = getelementptr i8, ptr %arrayidx.i.i.us.i.i, i64 8
   %5 = load i64, ptr %arrayidx.i.i.us.i.i.1, align 8, !tbaa !41
   switch i64 %5, label %while.body.us.i.i.1 [
     i64 -1, label %if.then17.us.i.i.1
@@ -28382,7 +28377,6 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i104.prehead
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i104: ; preds = %cleanup.us.i.i109.1, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i104.preheader.new
   %valid.050.us.i.i105 = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i104.preheader.new ], [ %valid.3.us.i.i110.1, %cleanup.us.i.i109.1 ]
   %entry_idx.049.us.i.i106 = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i104.preheader.new ], [ %inc.us.i.i107.1, %cleanup.us.i.i109.1 ]
-  %inc.us.i.i107 = or disjoint i64 %entry_idx.049.us.i.i106, 1
   %arrayidx.i.i.us.i.i108 = getelementptr inbounds i64, ptr %20, i64 %entry_idx.049.us.i.i106
   %22 = load i64, ptr %arrayidx.i.i.us.i.i108, align 8, !tbaa !41
   switch i64 %22, label %while.body.us.i.i114 [
@@ -28406,7 +28400,7 @@ if.then17.us.i.i112:                              ; preds = %_ZNK6duckdb21Templa
 cleanup.us.i.i109:                                ; preds = %while.body.us.i.i114, %if.then17.us.i.i112, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i104
   %valid.3.us.i.i110 = phi i64 [ %add18.us.i.i113, %if.then17.us.i.i112 ], [ %valid.050.us.i.i105, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i104 ], [ %inc20.us.i.i119, %while.body.us.i.i114 ]
   %inc.us.i.i107.1 = add nuw nsw i64 %entry_idx.049.us.i.i106, 2
-  %arrayidx.i.i.us.i.i108.1 = getelementptr inbounds i64, ptr %20, i64 %inc.us.i.i107
+  %arrayidx.i.i.us.i.i108.1 = getelementptr i8, ptr %arrayidx.i.i.us.i.i108, i64 8
   %23 = load i64, ptr %arrayidx.i.i.us.i.i108.1, align 8, !tbaa !41
   switch i64 %23, label %while.body.us.i.i114.1 [
     i64 -1, label %if.then17.us.i.i112.1
@@ -31024,7 +31018,6 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i.preheader.
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i: ; preds = %cleanup.us.i.i.1, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i.preheader.new
   %valid.050.us.i.i = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i.preheader.new ], [ %valid.3.us.i.i.1, %cleanup.us.i.i.1 ]
   %entry_idx.049.us.i.i = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i.preheader.new ], [ %inc.us.i.i.1, %cleanup.us.i.i.1 ]
-  %inc.us.i.i = or disjoint i64 %entry_idx.049.us.i.i, 1
   %arrayidx.i.i.us.i.i = getelementptr inbounds i64, ptr %2, i64 %entry_idx.049.us.i.i
   %4 = load i64, ptr %arrayidx.i.i.us.i.i, align 8, !tbaa !41
   switch i64 %4, label %while.body.us.i.i [
@@ -31048,7 +31041,7 @@ if.then17.us.i.i:                                 ; preds = %_ZNK6duckdb21Templa
 cleanup.us.i.i:                                   ; preds = %while.body.us.i.i, %if.then17.us.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i
   %valid.3.us.i.i = phi i64 [ %add18.us.i.i, %if.then17.us.i.i ], [ %valid.050.us.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i ], [ %inc20.us.i.i, %while.body.us.i.i ]
   %inc.us.i.i.1 = add nuw nsw i64 %entry_idx.049.us.i.i, 2
-  %arrayidx.i.i.us.i.i.1 = getelementptr inbounds i64, ptr %2, i64 %inc.us.i.i
+  %arrayidx.i.i.us.i.i.1 = getelementptr i8, ptr %arrayidx.i.i.us.i.i, i64 8
   %5 = load i64, ptr %arrayidx.i.i.us.i.i.1, align 8, !tbaa !41
   switch i64 %5, label %while.body.us.i.i.1 [
     i64 -1, label %if.then17.us.i.i.1
@@ -31266,7 +31259,6 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i104.prehead
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i104: ; preds = %cleanup.us.i.i109.1, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i104.preheader.new
   %valid.050.us.i.i105 = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i104.preheader.new ], [ %valid.3.us.i.i110.1, %cleanup.us.i.i109.1 ]
   %entry_idx.049.us.i.i106 = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i104.preheader.new ], [ %inc.us.i.i107.1, %cleanup.us.i.i109.1 ]
-  %inc.us.i.i107 = or disjoint i64 %entry_idx.049.us.i.i106, 1
   %arrayidx.i.i.us.i.i108 = getelementptr inbounds i64, ptr %20, i64 %entry_idx.049.us.i.i106
   %22 = load i64, ptr %arrayidx.i.i.us.i.i108, align 8, !tbaa !41
   switch i64 %22, label %while.body.us.i.i114 [
@@ -31290,7 +31282,7 @@ if.then17.us.i.i112:                              ; preds = %_ZNK6duckdb21Templa
 cleanup.us.i.i109:                                ; preds = %while.body.us.i.i114, %if.then17.us.i.i112, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i104
   %valid.3.us.i.i110 = phi i64 [ %add18.us.i.i113, %if.then17.us.i.i112 ], [ %valid.050.us.i.i105, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i104 ], [ %inc20.us.i.i119, %while.body.us.i.i114 ]
   %inc.us.i.i107.1 = add nuw nsw i64 %entry_idx.049.us.i.i106, 2
-  %arrayidx.i.i.us.i.i108.1 = getelementptr inbounds i64, ptr %20, i64 %inc.us.i.i107
+  %arrayidx.i.i.us.i.i108.1 = getelementptr i8, ptr %arrayidx.i.i.us.i.i108, i64 8
   %23 = load i64, ptr %arrayidx.i.i.us.i.i108.1, align 8, !tbaa !41
   switch i64 %23, label %while.body.us.i.i114.1 [
     i64 -1, label %if.then17.us.i.i112.1
@@ -34670,7 +34662,6 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i.preheader.
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i: ; preds = %cleanup.us.i.i.1, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i.preheader.new
   %valid.050.us.i.i = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i.preheader.new ], [ %valid.3.us.i.i.1, %cleanup.us.i.i.1 ]
   %entry_idx.049.us.i.i = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i.preheader.new ], [ %inc.us.i.i.1, %cleanup.us.i.i.1 ]
-  %inc.us.i.i = or disjoint i64 %entry_idx.049.us.i.i, 1
   %arrayidx.i.i.us.i.i = getelementptr inbounds i64, ptr %2, i64 %entry_idx.049.us.i.i
   %4 = load i64, ptr %arrayidx.i.i.us.i.i, align 8, !tbaa !41
   switch i64 %4, label %while.body.us.i.i [
@@ -34694,7 +34685,7 @@ if.then17.us.i.i:                                 ; preds = %_ZNK6duckdb21Templa
 cleanup.us.i.i:                                   ; preds = %while.body.us.i.i, %if.then17.us.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i
   %valid.3.us.i.i = phi i64 [ %add18.us.i.i, %if.then17.us.i.i ], [ %valid.050.us.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i ], [ %inc20.us.i.i, %while.body.us.i.i ]
   %inc.us.i.i.1 = add nuw nsw i64 %entry_idx.049.us.i.i, 2
-  %arrayidx.i.i.us.i.i.1 = getelementptr inbounds i64, ptr %2, i64 %inc.us.i.i
+  %arrayidx.i.i.us.i.i.1 = getelementptr i8, ptr %arrayidx.i.i.us.i.i, i64 8
   %5 = load i64, ptr %arrayidx.i.i.us.i.i.1, align 8, !tbaa !41
   switch i64 %5, label %while.body.us.i.i.1 [
     i64 -1, label %if.then17.us.i.i.1
@@ -34912,7 +34903,6 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i104.prehead
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i104: ; preds = %cleanup.us.i.i109.1, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i104.preheader.new
   %valid.050.us.i.i105 = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i104.preheader.new ], [ %valid.3.us.i.i110.1, %cleanup.us.i.i109.1 ]
   %entry_idx.049.us.i.i106 = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i104.preheader.new ], [ %inc.us.i.i107.1, %cleanup.us.i.i109.1 ]
-  %inc.us.i.i107 = or disjoint i64 %entry_idx.049.us.i.i106, 1
   %arrayidx.i.i.us.i.i108 = getelementptr inbounds i64, ptr %20, i64 %entry_idx.049.us.i.i106
   %22 = load i64, ptr %arrayidx.i.i.us.i.i108, align 8, !tbaa !41
   switch i64 %22, label %while.body.us.i.i114 [
@@ -34936,7 +34926,7 @@ if.then17.us.i.i112:                              ; preds = %_ZNK6duckdb21Templa
 cleanup.us.i.i109:                                ; preds = %while.body.us.i.i114, %if.then17.us.i.i112, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i104
   %valid.3.us.i.i110 = phi i64 [ %add18.us.i.i113, %if.then17.us.i.i112 ], [ %valid.050.us.i.i105, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i104 ], [ %inc20.us.i.i119, %while.body.us.i.i114 ]
   %inc.us.i.i107.1 = add nuw nsw i64 %entry_idx.049.us.i.i106, 2
-  %arrayidx.i.i.us.i.i108.1 = getelementptr inbounds i64, ptr %20, i64 %inc.us.i.i107
+  %arrayidx.i.i.us.i.i108.1 = getelementptr i8, ptr %arrayidx.i.i.us.i.i108, i64 8
   %23 = load i64, ptr %arrayidx.i.i.us.i.i108.1, align 8, !tbaa !41
   switch i64 %23, label %while.body.us.i.i114.1 [
     i64 -1, label %if.then17.us.i.i112.1
@@ -37497,7 +37487,6 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i.preheader.
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i: ; preds = %cleanup.us.i.i.1, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i.preheader.new
   %valid.050.us.i.i = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i.preheader.new ], [ %valid.3.us.i.i.1, %cleanup.us.i.i.1 ]
   %entry_idx.049.us.i.i = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i.preheader.new ], [ %inc.us.i.i.1, %cleanup.us.i.i.1 ]
-  %inc.us.i.i = or disjoint i64 %entry_idx.049.us.i.i, 1
   %arrayidx.i.i.us.i.i = getelementptr inbounds i64, ptr %2, i64 %entry_idx.049.us.i.i
   %4 = load i64, ptr %arrayidx.i.i.us.i.i, align 8, !tbaa !41
   switch i64 %4, label %while.body.us.i.i [
@@ -37521,7 +37510,7 @@ if.then17.us.i.i:                                 ; preds = %_ZNK6duckdb21Templa
 cleanup.us.i.i:                                   ; preds = %while.body.us.i.i, %if.then17.us.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i
   %valid.3.us.i.i = phi i64 [ %add18.us.i.i, %if.then17.us.i.i ], [ %valid.050.us.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i ], [ %inc20.us.i.i, %while.body.us.i.i ]
   %inc.us.i.i.1 = add nuw nsw i64 %entry_idx.049.us.i.i, 2
-  %arrayidx.i.i.us.i.i.1 = getelementptr inbounds i64, ptr %2, i64 %inc.us.i.i
+  %arrayidx.i.i.us.i.i.1 = getelementptr i8, ptr %arrayidx.i.i.us.i.i, i64 8
   %5 = load i64, ptr %arrayidx.i.i.us.i.i.1, align 8, !tbaa !41
   switch i64 %5, label %while.body.us.i.i.1 [
     i64 -1, label %if.then17.us.i.i.1
@@ -37739,7 +37728,6 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i104.prehead
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i104: ; preds = %cleanup.us.i.i109.1, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i104.preheader.new
   %valid.050.us.i.i105 = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i104.preheader.new ], [ %valid.3.us.i.i110.1, %cleanup.us.i.i109.1 ]
   %entry_idx.049.us.i.i106 = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i104.preheader.new ], [ %inc.us.i.i107.1, %cleanup.us.i.i109.1 ]
-  %inc.us.i.i107 = or disjoint i64 %entry_idx.049.us.i.i106, 1
   %arrayidx.i.i.us.i.i108 = getelementptr inbounds i64, ptr %20, i64 %entry_idx.049.us.i.i106
   %22 = load i64, ptr %arrayidx.i.i.us.i.i108, align 8, !tbaa !41
   switch i64 %22, label %while.body.us.i.i114 [
@@ -37763,7 +37751,7 @@ if.then17.us.i.i112:                              ; preds = %_ZNK6duckdb21Templa
 cleanup.us.i.i109:                                ; preds = %while.body.us.i.i114, %if.then17.us.i.i112, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i104
   %valid.3.us.i.i110 = phi i64 [ %add18.us.i.i113, %if.then17.us.i.i112 ], [ %valid.050.us.i.i105, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.i104 ], [ %inc20.us.i.i119, %while.body.us.i.i114 ]
   %inc.us.i.i107.1 = add nuw nsw i64 %entry_idx.049.us.i.i106, 2
-  %arrayidx.i.i.us.i.i108.1 = getelementptr inbounds i64, ptr %20, i64 %inc.us.i.i107
+  %arrayidx.i.i.us.i.i108.1 = getelementptr i8, ptr %arrayidx.i.i.us.i.i108, i64 8
   %23 = load i64, ptr %arrayidx.i.i.us.i.i108.1, align 8, !tbaa !41
   switch i64 %23, label %while.body.us.i.i114.1 [
     i64 -1, label %if.then17.us.i.i112.1

@@ -2307,9 +2307,9 @@ fill_engine_enable_masks.exit:                    ; preds = %.thread27, %51, %80
   %288 = load i8, ptr %275, align 1
   %289 = zext i8 %288 to i64
   %290 = shl nuw nsw i64 %289, 3
-  %291 = add nuw nsw i64 %290, %274
-  %292 = or disjoint i64 %291, 4
-  %293 = getelementptr i8, ptr %287, i64 %292
+  %291 = getelementptr i8, ptr %287, i64 %290
+  %292 = getelementptr i8, ptr %291, i64 %274
+  %293 = getelementptr i8, ptr %292, i64 4
   br i1 %286, label %295, label %294
 
 294:                                              ; preds = %284
@@ -2339,9 +2339,9 @@ fill_engine_enable_masks.exit:                    ; preds = %.thread27, %51, %80
   %304 = load i8, ptr %275, align 1
   %305 = zext i8 %304 to i64
   %306 = shl nuw nsw i64 %305, 3
-  %307 = add nuw nsw i64 %306, %274
-  %308 = or disjoint i64 %307, 4
-  %309 = getelementptr i8, ptr %303, i64 %308
+  %307 = getelementptr i8, ptr %303, i64 %306
+  %308 = getelementptr i8, ptr %307, i64 %274
+  %309 = getelementptr i8, ptr %308, i64 4
   br i1 %302, label %311, label %310
 
 310:                                              ; preds = %299

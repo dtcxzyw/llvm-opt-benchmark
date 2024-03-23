@@ -283,9 +283,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %call21 = tail call i64 @memory_region_size(ptr noundef %11) #10
   %conv22 = trunc i64 %call21 to i32
   %12 = tail call noundef i32 @llvm.bswap.i32(i32 %conv22)
-  %add25 = or disjoint i32 %mul18, 1
-  %idxprom26 = sext i32 %add25 to i64
-  %arrayidx27 = getelementptr i32, ptr %call12, i64 %idxprom26
+  %arrayidx27 = getelementptr i8, ptr %arrayidx, i64 4
   store i32 %12, ptr %arrayidx27, align 4
   %inc = add nuw i32 %i.049, 1
   %13 = load i32, ptr %num_regions, align 4
@@ -502,9 +500,7 @@ for.body55:                                       ; preds = %for.body55.lr.ph, %
   %call64 = call i64 @memory_region_size(ptr noundef %28) #10
   %conv65 = trunc i64 %call64 to i32
   %29 = call noundef i32 @llvm.bswap.i32(i32 %conv65)
-  %add = or disjoint i32 %mul59, 1
-  %idxprom68 = sext i32 %add to i64
-  %arrayidx69 = getelementptr i32, ptr %call50, i64 %idxprom68
+  %arrayidx69 = getelementptr i8, ptr %arrayidx61, i64 4
   store i32 %29, ptr %arrayidx69, align 4
   %inc71 = add nuw i32 %i.088, 1
   %30 = load i32, ptr %num_regions, align 4

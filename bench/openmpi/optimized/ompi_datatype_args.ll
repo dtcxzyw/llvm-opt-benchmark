@@ -1633,16 +1633,16 @@ ompi_datatype_set_args.exit54.i:                  ; preds = %opal_thread_add_fet
   %233 = getelementptr i32, ptr %34, i64 %232
   %234 = getelementptr i8, ptr %233, i64 4
   %235 = shl nsw i32 %230, 1
-  %236 = or disjoint i32 %235, 1
-  %237 = sext i32 %236 to i64
-  %238 = getelementptr inbounds i32, ptr %34, i64 %237
+  %236 = sext i32 %235 to i64
+  %237 = getelementptr i32, ptr %34, i64 %236
+  %238 = getelementptr i8, ptr %237, i64 4
   %239 = mul nsw i32 %230, 3
   %240 = sext i32 %239 to i64
   %241 = getelementptr i32, ptr %34, i64 %240
   %242 = getelementptr i8, ptr %241, i64 4
   %243 = load i32, ptr %242, align 4
   %244 = load ptr, ptr %28, align 8
-  %245 = call i32 @ompi_datatype_create_subarray(i32 noundef %230, ptr noundef nonnull %231, ptr noundef %234, ptr noundef nonnull %238, i32 noundef %243, ptr noundef %244, ptr noundef nonnull %3) #14
+  %245 = call i32 @ompi_datatype_create_subarray(i32 noundef %230, ptr noundef nonnull %231, ptr noundef %234, ptr noundef %238, i32 noundef %243, ptr noundef %244, ptr noundef nonnull %3) #14
   store ptr %34, ptr %8, align 16
   %246 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %231, ptr %246, align 8
@@ -1654,9 +1654,9 @@ ompi_datatype_set_args.exit54.i:                  ; preds = %opal_thread_add_fet
   store ptr %251, ptr %247, align 16
   %252 = getelementptr inbounds i8, ptr %8, i64 24
   %253 = shl nsw i32 %248, 1
-  %254 = or disjoint i32 %253, 1
-  %255 = sext i32 %254 to i64
-  %256 = getelementptr inbounds i32, ptr %34, i64 %255
+  %254 = sext i32 %253 to i64
+  %255 = getelementptr i32, ptr %34, i64 %254
+  %256 = getelementptr i8, ptr %255, i64 4
   store ptr %256, ptr %252, align 8
   %257 = getelementptr inbounds i8, ptr %8, i64 32
   %258 = mul nsw i32 %248, 3
@@ -1688,9 +1688,9 @@ ompi_datatype_set_args.exit54.i:                  ; preds = %opal_thread_add_fet
   %281 = getelementptr i32, ptr %34, i64 %280
   %282 = getelementptr i8, ptr %281, i64 12
   %283 = shl nsw i32 %270, 2
-  %284 = or disjoint i32 %283, 3
-  %285 = sext i32 %284 to i64
-  %286 = getelementptr inbounds i32, ptr %34, i64 %285
+  %284 = sext i32 %283 to i64
+  %285 = getelementptr i32, ptr %34, i64 %284
+  %286 = getelementptr i8, ptr %285, i64 12
   %287 = load i32, ptr %286, align 4
   %288 = load ptr, ptr %28, align 8
   %289 = call i32 @ompi_datatype_create_darray(i32 noundef %266, i32 noundef %268, i32 noundef %270, ptr noundef nonnull %271, ptr noundef %274, ptr noundef %278, ptr noundef %282, i32 noundef %287, ptr noundef %288, ptr noundef nonnull %3) #14
@@ -1721,9 +1721,9 @@ ompi_datatype_set_args.exit54.i:                  ; preds = %opal_thread_add_fet
   store ptr %307, ptr %303, align 16
   %308 = getelementptr inbounds i8, ptr %9, i64 56
   %309 = shl nsw i32 %294, 2
-  %310 = or disjoint i32 %309, 3
-  %311 = sext i32 %310 to i64
-  %312 = getelementptr inbounds i32, ptr %34, i64 %311
+  %310 = sext i32 %309 to i64
+  %311 = getelementptr i32, ptr %34, i64 %310
+  %312 = getelementptr i8, ptr %311, i64 12
   store ptr %312, ptr %308, align 8
   %313 = load ptr, ptr %3, align 8
   %314 = add nsw i32 %309, 4

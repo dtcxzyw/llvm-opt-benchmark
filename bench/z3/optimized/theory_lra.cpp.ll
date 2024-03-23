@@ -40105,6 +40105,7 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPPN6lp_api5boundIN3sat7lite
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
+  %invariant.gep = getelementptr i8, ptr %__first, i64 8
   %cmp28 = icmp sgt i64 %div, %__holeIndex
   br i1 %cmp28, label %while.body, label %while.end
 
@@ -40113,10 +40114,9 @@ while.body:                                       ; preds = %entry, %_ZN9__gnu_c
   %add = shl i64 %__secondChild.029, 1
   %mul = add i64 %add, 2
   %add.ptr = getelementptr inbounds ptr, ptr %__first, i64 %mul
-  %sub1 = or disjoint i64 %add, 1
-  %add.ptr2 = getelementptr inbounds ptr, ptr %__first, i64 %sub1
+  %gep = getelementptr ptr, ptr %invariant.gep, i64 %add
   %0 = load ptr, ptr %add.ptr, align 8
-  %1 = load ptr, ptr %add.ptr2, align 8
+  %1 = load ptr, ptr %gep, align 8
   %m_value.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %m_value.i1.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
@@ -40172,7 +40172,8 @@ if.else.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt10theory_lra3imp14compare_boundsEEclIPPN6lp_api5boundIN3sat7literalEEESE_EEbT_T0_.exit: ; preds = %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i, %if.else.i.i.i.i
   %retval.0.i.i.i.i = phi i1 [ %call5.i.i.i.i, %if.else.i.i.i.i ], [ %cmp.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %cmp5.i.i.i.i.i.i, %if.else.i.i.i.i.i.i ]
-  %spec.select = select i1 %retval.0.i.i.i.i, i64 %sub1, i64 %mul
+  %dec = or disjoint i64 %add, 1
+  %spec.select = select i1 %retval.0.i.i.i.i, i64 %dec, i64 %mul
   %add.ptr3 = getelementptr inbounds ptr, ptr %__first, i64 %spec.select
   %9 = load ptr, ptr %add.ptr3, align 8
   %add.ptr4 = getelementptr inbounds ptr, ptr %__first, i64 %__secondChild.029

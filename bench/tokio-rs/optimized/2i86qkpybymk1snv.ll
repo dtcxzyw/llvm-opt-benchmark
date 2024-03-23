@@ -3434,8 +3434,8 @@ define void @_ZN5tokio2io4util3mem6duplex17h28185adb47ccb413E(ptr noalias nocapt
   %12 = sub nuw nsw i64 64, %11
   %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %12, i64 7)
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i.i.i, 2
-  %14 = or disjoint i64 %13, 1
-  %15 = getelementptr i8, ptr null, i64 %14
+  %14 = getelementptr i8, ptr null, i64 %13
+  %15 = getelementptr i8, ptr %14, i64 1
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4), !noalias !767
   store i64 1, ptr %4, align 8, !noalias !767
   %16 = getelementptr inbounds i8, ptr %4, i64 8
@@ -3519,8 +3519,8 @@ common.resume:                                    ; preds = %29, %.body, %22
   %38 = sub nuw nsw i64 64, %37
   %.0.sroa.speculated.i.i.i17 = tail call noundef i64 @llvm.umin.i64(i64 %38, i64 7)
   %39 = shl nuw nsw i64 %.0.sroa.speculated.i.i.i17, 2
-  %40 = or disjoint i64 %39, 1
-  %41 = getelementptr i8, ptr null, i64 %40
+  %40 = getelementptr i8, ptr null, i64 %39
+  %41 = getelementptr i8, ptr %40, i64 1
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3), !noalias !778
   store i64 1, ptr %3, align 8, !noalias !778
   %42 = getelementptr inbounds i8, ptr %3, i64 8

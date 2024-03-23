@@ -301,9 +301,9 @@ define void @dlahr2_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %210 = getelementptr inbounds double, ptr %19, i64 %209
   store double %204, ptr %210, align 8, !tbaa !7
   %211 = shl i32 %16, 1
-  %212 = or disjoint i32 %211, 1
-  %213 = sext i32 %212 to i64
-  %214 = getelementptr inbounds double, ptr %19, i64 %213
+  %212 = sext i32 %211 to i64
+  %213 = getelementptr double, ptr %19, i64 %212
+  %214 = getelementptr i8, ptr %213, i64 8
   call void @dlacpy_(ptr noundef nonnull @.str.7, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %214, ptr noundef nonnull %4, ptr noundef %8, ptr noundef nonnull %9) #3
   %215 = load i32, ptr %1, align 4, !tbaa !3
   %216 = add i32 %215, %.pre-phi

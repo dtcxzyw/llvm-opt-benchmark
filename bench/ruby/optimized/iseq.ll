@@ -854,13 +854,13 @@ define hidden void @rb_iseq_mark_and_move(ptr noundef %0, i1 noundef zeroext %1)
 
 .lr.ph.split.us.i66.us.preheader.i:               ; preds = %.lr.ph16.split.us.i
   %77 = shl i64 %indvars.iv26.i, 6
+  %78 = getelementptr i64, ptr %21, i64 %77
   br label %.lr.ph.split.us.i66.us.i
 
 .lr.ph.split.us.i66.us.i:                         ; preds = %.lr.ph.split.us.i66.us.i, %.lr.ph.split.us.i66.us.preheader.i
   %.025.us.i67.us.i = phi i64 [ %82, %.lr.ph.split.us.i66.us.i ], [ %76, %.lr.ph.split.us.i66.us.preheader.i ]
-  %78 = call i64 @llvm.cttz.i64(i64 %.025.us.i67.us.i, i1 true), !range !14
-  %79 = or disjoint i64 %78, %77
-  %80 = getelementptr i64, ptr %21, i64 %79
+  %79 = call i64 @llvm.cttz.i64(i64 %.025.us.i67.us.i, i1 true), !range !14
+  %80 = getelementptr i64, ptr %78, i64 %79
   call void @rb_gc_mark_and_move(ptr noundef nonnull %80) #20
   %81 = add i64 %.025.us.i67.us.i, -1
   %82 = and i64 %81, %.025.us.i67.us.i

@@ -570,13 +570,10 @@ for.cond52.preheader:                             ; preds = %for.inc48, %for.con
 for.body35:                                       ; preds = %for.cond32.preheader, %for.inc48
   %14 = phi ptr [ %18, %for.inc48 ], [ %6, %for.cond32.preheader ]
   %i31.089 = phi i64 [ %add49, %for.inc48 ], [ 0, %for.cond32.preheader ]
-  %add.ptr.i21 = getelementptr inbounds i32, ptr %14, i64 %i31.089
-  %add39 = or disjoint i64 %i31.089, 1
-  %add.ptr.i22 = getelementptr inbounds i32, ptr %14, i64 %add39
-  %add42 = or disjoint i64 %i31.089, 2
-  %add.ptr.i23 = getelementptr inbounds i32, ptr %14, i64 %add42
-  %add45 = or disjoint i64 %i31.089, 3
-  %add.ptr.i24 = getelementptr inbounds i32, ptr %14, i64 %add45
+  %add.ptr.i21 = getelementptr i32, ptr %14, i64 %i31.089
+  %add.ptr.i22 = getelementptr i8, ptr %add.ptr.i21, i64 4
+  %add.ptr.i23 = getelementptr i8, ptr %add.ptr.i21, i64 8
+  %add.ptr.i24 = getelementptr i8, ptr %add.ptr.i21, i64 12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i25)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s.i25) #28
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRiJS2_S2_S2_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %s.i25, ptr noundef nonnull @.str.13, ptr noundef nonnull align 4 dereferenceable(4) %add.ptr.i21, ptr noundef nonnull align 4 dereferenceable(4) %add.ptr.i22, ptr noundef nonnull align 4 dereferenceable(4) %add.ptr.i23, ptr noundef nonnull align 4 dereferenceable(4) %add.ptr.i24)
@@ -6281,7 +6278,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %19 = load ptr, ptr %ptr.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %19, i64 %indvars.iv.i.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i) #28
-  %indvars.iv.next.i.i = add nuw i64 %indvars.iv.i.i, 1
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %20 = load i64, ptr %nStored.i.i, align 8
   %cmp.i.i = icmp ugt i64 %20, %indvars.iv.next.i.i
   br i1 %cmp.i.i, label %for.body.i.i, label %invoke.cont.i, !llvm.loop !49

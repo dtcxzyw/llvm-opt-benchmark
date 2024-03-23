@@ -115,26 +115,26 @@ if.then8:                                         ; preds = %if.end4
   %bf.load = load i32, ptr %state, align 8
   %4 = and i32 %bf.load, 28
   %cmp9.not = icmp eq i32 %4, 4
-  br i1 %cmp9.not, label %if.end11, label %if.then10
+  br i1 %cmp9.not, label %if.then.i, label %if.then10
 
 if.then10:                                        ; preds = %if.then8
   %5 = load ptr, ptr @PyExc_ValueError, align 8
   tail call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.1) #4
   br label %return
 
-if.end11:                                         ; preds = %if.then8
+if.then.i:                                        ; preds = %if.then8
   %6 = and i32 %bf.load, 32
   %tobool.not.i18.i = icmp eq i32 %6, 0
   br i1 %tobool.not.i18.i, label %if.end.i.i, label %if.then.i.i
 
-if.then.i.i:                                      ; preds = %if.end11
+if.then.i.i:                                      ; preds = %if.then.i
   %7 = and i32 %bf.load, 64
   %tobool.not.i.i.i = icmp eq i32 %7, 0
   %retval.0.v.i.i.i = select i1 %tobool.not.i.i.i, i64 56, i64 40
   %retval.0.i.i.i = getelementptr i8, ptr %sep, i64 %retval.0.v.i.i.i
   br label %if.end20
 
-if.end.i.i:                                       ; preds = %if.end11
+if.end.i.i:                                       ; preds = %if.then.i
   %8 = getelementptr i8, ptr %sep, i64 56
   %op.val3.i.i = load ptr, ptr %8, align 8
   br label %if.end20
@@ -479,11 +479,15 @@ if.end44.i:                                       ; preds = %entry
 if.end56.i:                                       ; preds = %if.end44.i
   %ob_sval.i93.i = getelementptr inbounds i8, ptr %call53.i, i64 32
   %cmp68141.i = icmp sgt i64 %arglen, 0
-  br i1 %cmp68141.i, label %for.body.i, label %_Py_strhex_impl.exit
+  br i1 %cmp68141.i, label %for.body.i.preheader, label %_Py_strhex_impl.exit
 
-for.body.i:                                       ; preds = %if.end56.i, %for.body.i
-  %j.0143.i = phi i64 [ %inc77.i, %for.body.i ], [ 0, %if.end56.i ]
-  %i.0142.i = phi i64 [ %inc79.i, %for.body.i ], [ 0, %if.end56.i ]
+for.body.i.preheader:                             ; preds = %if.end56.i
+  %invariant.gep = getelementptr i8, ptr %call53.i, i64 33
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
+  %j.0143.i = phi i64 [ %inc77.i, %for.body.i ], [ 0, %for.body.i.preheader ]
+  %i.0142.i = phi i64 [ %inc79.i, %for.body.i ], [ 0, %for.body.i.preheader ]
   %arrayidx70.i = getelementptr i8, ptr %argbuf, i64 %i.0142.i
   %0 = load i8, ptr %arrayidx70.i, align 1
   %1 = load ptr, ptr @Py_hexdigits, align 8
@@ -492,7 +496,6 @@ for.body.i:                                       ; preds = %if.end56.i, %for.bo
   %idxprom.i = zext nneg i32 %shr.i to i64
   %arrayidx72.i = getelementptr i8, ptr %1, i64 %idxprom.i
   %2 = load i8, ptr %arrayidx72.i, align 1
-  %inc.i = or disjoint i64 %j.0143.i, 1
   %arrayidx73.i = getelementptr i8, ptr %ob_sval.i93.i, i64 %j.0143.i
   store i8 %2, ptr %arrayidx73.i, align 1
   %3 = load ptr, ptr @Py_hexdigits, align 8
@@ -501,8 +504,8 @@ for.body.i:                                       ; preds = %if.end56.i, %for.bo
   %arrayidx76.i = getelementptr i8, ptr %3, i64 %idxprom75.i
   %4 = load i8, ptr %arrayidx76.i, align 1
   %inc77.i = add nuw nsw i64 %j.0143.i, 2
-  %arrayidx78.i = getelementptr i8, ptr %ob_sval.i93.i, i64 %inc.i
-  store i8 %4, ptr %arrayidx78.i, align 1
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %j.0143.i
+  store i8 %4, ptr %gep, align 1
   %inc79.i = add nuw nsw i64 %i.0142.i, 1
   %exitcond153.not.i = icmp eq i64 %inc79.i, %arglen
   br i1 %exitcond153.not.i, label %_Py_strhex_impl.exit, label %for.body.i, !llvm.loop !5

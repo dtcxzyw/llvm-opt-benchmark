@@ -7129,9 +7129,9 @@ define internal fastcc noundef i32 @_parse_box_range(ptr nocapture noundef reado
 
 12:                                               ; preds = %5
   %13 = shl nuw nsw i32 %4, 1
-  %14 = or disjoint i32 %13, 1
-  %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds i8, ptr %0, i64 %15
+  %14 = zext nneg i32 %13 to i64
+  %15 = getelementptr i8, ptr %0, i64 %14
+  %16 = getelementptr i8, ptr %15, i64 1
   %17 = load i8, ptr %16, align 1
   %.not64 = icmp eq i8 %17, 0
   br i1 %.not64, label %.preheader70, label %.loopexit

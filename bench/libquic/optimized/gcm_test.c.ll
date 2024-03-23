@@ -424,8 +424,7 @@ if.then26.i:                                      ; preds = %if.end18.i
 
 lor.lhs.false:                                    ; preds = %if.then26.i, %if.then14.i, %for.body
   %v.1.ph = phi i8 [ %3, %for.body ], [ %add.i, %if.then14.i ], [ %add29.i, %if.then26.i ]
-  %add = or disjoint i64 %i.046, 1
-  %arrayidx12 = getelementptr inbounds i8, ptr %in, i64 %add
+  %arrayidx12 = getelementptr i8, ptr %arrayidx, i64 1
   %6 = load i8, ptr %arrayidx12, align 1
   %7 = add i8 %6, -48
   %or.cond.i23 = icmp ult i8 %7, 10

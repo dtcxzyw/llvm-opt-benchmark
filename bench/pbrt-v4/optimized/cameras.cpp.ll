@@ -7122,14 +7122,12 @@ for.body.lr.ph:                                   ; preds = %invoke.cont40
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %31 = phi ptr [ %30, %for.body.lr.ph ], [ %55, %for.inc ]
   %i.083 = phi i64 [ 0, %for.body.lr.ph ], [ %add66, %for.inc ]
-  %add.ptr.i = getelementptr inbounds float, ptr %31, i64 %i.083
+  %add.ptr.i = getelementptr float, ptr %31, i64 %i.083
   %32 = load <2 x float>, ptr %add.ptr.i, align 4
   %33 = fdiv <2 x float> %32, <float 1.000000e+03, float 1.000000e+03>
-  %add48 = or disjoint i64 %i.083, 2
-  %add.ptr.i25 = getelementptr inbounds float, ptr %31, i64 %add48
+  %add.ptr.i25 = getelementptr i8, ptr %add.ptr.i, i64 8
   %34 = load float, ptr %add.ptr.i25, align 4
-  %add50 = or disjoint i64 %i.083, 3
-  %add.ptr.i26 = getelementptr inbounds float, ptr %31, i64 %add50
+  %add.ptr.i26 = getelementptr i8, ptr %add.ptr.i, i64 12
   %35 = load float, ptr %add.ptr.i26, align 4
   %div52 = fdiv float %35, 1.000000e+03
   store float %div52, ptr %apertureDiameter, align 4

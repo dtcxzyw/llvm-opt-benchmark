@@ -19529,8 +19529,7 @@ if.then.us38.i:                                   ; preds = %for.body.us25.i
 
 if.end.us41.i:                                    ; preds = %if.then.us38.i, %for.body.us25.i
   %result_count.1.us42.i = phi i64 [ %inc.us39.i, %if.then.us38.i ], [ %result_count.04.us26.i, %for.body.us25.i ]
-  %inc4.us43.i = or disjoint i64 %i.03.us27.i, 1
-  %arrayidx.i.us28.i.1 = getelementptr inbounds i32, ptr %.val, i64 %inc4.us43.i
+  %arrayidx.i.us28.i.1 = getelementptr i8, ptr %arrayidx.i.us28.i, i64 4
   %19 = load i32, ptr %arrayidx.i.us28.i.1, align 4, !tbaa !70
   %conv.i.us29.i.1 = zext i32 %19 to i64
   %div2.i.i.i.us32.i.1 = lshr i64 %conv.i.us29.i.1, 6
@@ -22713,8 +22712,7 @@ for.body:                                         ; preds = %for.body, %for.body
   store i8 1, ptr %arrayidx.i131, align 1, !tbaa !618
   %arrayidx.i133 = getelementptr inbounds i32, ptr %32, i64 %result_count.1198
   store i32 %49, ptr %arrayidx.i133, align 4, !tbaa !70
-  %inc14 = or disjoint i64 %i.0197, 1
-  %arrayidx.i130.1 = getelementptr inbounds i32, ptr %30, i64 %inc14
+  %arrayidx.i130.1 = getelementptr i8, ptr %arrayidx.i130, i64 4
   %50 = load i32, ptr %arrayidx.i130.1, align 4, !tbaa !70
   %conv.i.1 = zext i32 %50 to i64
   %arrayidx.i131.1 = getelementptr inbounds i8, ptr %31, i64 %conv.i.1
@@ -23374,20 +23372,17 @@ for.body:                                         ; preds = %for.body, %for.body
   %conv.i = zext i32 %26 to i64
   %arrayidx.i17 = getelementptr inbounds i8, ptr %23, i64 %conv.i
   store i8 1, ptr %arrayidx.i17, align 1, !tbaa !618
-  %inc = or disjoint i64 %i.034, 1
-  %arrayidx.i.1 = getelementptr inbounds i32, ptr %24, i64 %inc
+  %arrayidx.i.1 = getelementptr i8, ptr %arrayidx.i, i64 4
   %27 = load i32, ptr %arrayidx.i.1, align 4, !tbaa !70
   %conv.i.1 = zext i32 %27 to i64
   %arrayidx.i17.1 = getelementptr inbounds i8, ptr %23, i64 %conv.i.1
   store i8 1, ptr %arrayidx.i17.1, align 1, !tbaa !618
-  %inc.1 = or disjoint i64 %i.034, 2
-  %arrayidx.i.2 = getelementptr inbounds i32, ptr %24, i64 %inc.1
+  %arrayidx.i.2 = getelementptr i8, ptr %arrayidx.i, i64 8
   %28 = load i32, ptr %arrayidx.i.2, align 4, !tbaa !70
   %conv.i.2 = zext i32 %28 to i64
   %arrayidx.i17.2 = getelementptr inbounds i8, ptr %23, i64 %conv.i.2
   store i8 1, ptr %arrayidx.i17.2, align 1, !tbaa !618
-  %inc.2 = or disjoint i64 %i.034, 3
-  %arrayidx.i.3 = getelementptr inbounds i32, ptr %24, i64 %inc.2
+  %arrayidx.i.3 = getelementptr i8, ptr %arrayidx.i, i64 12
   %29 = load i32, ptr %arrayidx.i.3, align 4, !tbaa !70
   %conv.i.3 = zext i32 %29 to i64
   %arrayidx.i17.3 = getelementptr inbounds i8, ptr %23, i64 %conv.i.3
@@ -23918,20 +23913,17 @@ for.body:                                         ; preds = %for.body, %for.body
   %conv.i = zext i32 %39 to i64
   %arrayidx.i40 = getelementptr inbounds i8, ptr %28, i64 %conv.i
   store i8 1, ptr %arrayidx.i40, align 1, !tbaa !618
-  %inc = or disjoint i64 %i.064, 1
-  %arrayidx.i39.1 = getelementptr inbounds i32, ptr %27, i64 %inc
+  %arrayidx.i39.1 = getelementptr i8, ptr %arrayidx.i39, i64 4
   %40 = load i32, ptr %arrayidx.i39.1, align 4, !tbaa !70
   %conv.i.1 = zext i32 %40 to i64
   %arrayidx.i40.1 = getelementptr inbounds i8, ptr %28, i64 %conv.i.1
   store i8 1, ptr %arrayidx.i40.1, align 1, !tbaa !618
-  %inc.1 = or disjoint i64 %i.064, 2
-  %arrayidx.i39.2 = getelementptr inbounds i32, ptr %27, i64 %inc.1
+  %arrayidx.i39.2 = getelementptr i8, ptr %arrayidx.i39, i64 8
   %41 = load i32, ptr %arrayidx.i39.2, align 4, !tbaa !70
   %conv.i.2 = zext i32 %41 to i64
   %arrayidx.i40.2 = getelementptr inbounds i8, ptr %28, i64 %conv.i.2
   store i8 1, ptr %arrayidx.i40.2, align 1, !tbaa !618
-  %inc.2 = or disjoint i64 %i.064, 3
-  %arrayidx.i39.3 = getelementptr inbounds i32, ptr %27, i64 %inc.2
+  %arrayidx.i39.3 = getelementptr i8, ptr %arrayidx.i39, i64 12
   %42 = load i32, ptr %arrayidx.i39.3, align 4, !tbaa !70
   %conv.i.3 = zext i32 %42 to i64
   %arrayidx.i40.3 = getelementptr inbounds i8, ptr %28, i64 %conv.i.3
@@ -64063,7 +64055,6 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.preheader.ne
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i: ; preds = %cleanup.us.i.1, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.preheader.new
   %valid.050.us.i = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.preheader.new ], [ %valid.3.us.i.1, %cleanup.us.i.1 ]
   %entry_idx.049.us.i = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.preheader.new ], [ %inc.us.i.1, %cleanup.us.i.1 ]
-  %inc.us.i = or disjoint i64 %entry_idx.049.us.i, 1
   %arrayidx.i.i.us.i = getelementptr inbounds i64, ptr %add.ptr, i64 %entry_idx.049.us.i
   %34 = load i64, ptr %arrayidx.i.i.us.i, align 8, !tbaa !26
   switch i64 %34, label %while.body.us.i [
@@ -64087,7 +64078,7 @@ if.then17.us.i:                                   ; preds = %_ZNK6duckdb21Templa
 cleanup.us.i:                                     ; preds = %while.body.us.i, %if.then17.us.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i
   %valid.3.us.i = phi i64 [ %add18.us.i, %if.then17.us.i ], [ %valid.050.us.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i ], [ %inc20.us.i, %while.body.us.i ]
   %inc.us.i.1 = add nuw i64 %entry_idx.049.us.i, 2
-  %arrayidx.i.i.us.i.1 = getelementptr inbounds i64, ptr %add.ptr, i64 %inc.us.i
+  %arrayidx.i.i.us.i.1 = getelementptr i8, ptr %arrayidx.i.i.us.i, i64 8
   %35 = load i64, ptr %arrayidx.i.i.us.i.1, align 8, !tbaa !26
   switch i64 %35, label %while.body.us.i.1 [
     i64 -1, label %if.then17.us.i.1
@@ -67265,9 +67256,8 @@ for.body:                                         ; preds = %for.body, %for.body
   %38 = load i64, ptr %arrayidx.i.i, align 8, !tbaa !26
   %or.i.i = or i64 %shl.i.i, %38
   store i64 %or.i.i, ptr %arrayidx.i.i, align 8, !tbaa !26
-  %inc = or disjoint i64 %f.054, 1
   %39 = load i64, ptr %filter_pos, align 8, !tbaa !1682
-  %arrayidx.i.1 = getelementptr inbounds i32, ptr %24, i64 %inc
+  %arrayidx.i.1 = getelementptr i8, ptr %arrayidx.i, i64 4
   %40 = load i32, ptr %arrayidx.i.1, align 4, !tbaa !70
   %conv.i.1 = zext i32 %40 to i64
   %add.1 = add i64 %39, %conv.i.1
@@ -71113,32 +71103,25 @@ for.body:                                         ; preds = %for.body, %invoke.c
   %arrayidx = getelementptr inbounds ptr, ptr %17, i64 %i.082
   store ptr %state_ptr.081, ptr %arrayidx, align 8, !tbaa !24
   %add.ptr = getelementptr inbounds i8, ptr %state_ptr.081, i64 %18
-  %inc = or disjoint i64 %i.082, 1
-  %arrayidx.1 = getelementptr inbounds ptr, ptr %17, i64 %inc
+  %arrayidx.1 = getelementptr i8, ptr %arrayidx, i64 8
   store ptr %add.ptr, ptr %arrayidx.1, align 8, !tbaa !24
   %add.ptr.1 = getelementptr inbounds i8, ptr %add.ptr, i64 %18
-  %inc.1 = or disjoint i64 %i.082, 2
-  %arrayidx.2 = getelementptr inbounds ptr, ptr %17, i64 %inc.1
+  %arrayidx.2 = getelementptr i8, ptr %arrayidx, i64 16
   store ptr %add.ptr.1, ptr %arrayidx.2, align 8, !tbaa !24
   %add.ptr.2 = getelementptr inbounds i8, ptr %add.ptr.1, i64 %18
-  %inc.2 = or disjoint i64 %i.082, 3
-  %arrayidx.3 = getelementptr inbounds ptr, ptr %17, i64 %inc.2
+  %arrayidx.3 = getelementptr i8, ptr %arrayidx, i64 24
   store ptr %add.ptr.2, ptr %arrayidx.3, align 8, !tbaa !24
   %add.ptr.3 = getelementptr inbounds i8, ptr %add.ptr.2, i64 %18
-  %inc.3 = or disjoint i64 %i.082, 4
-  %arrayidx.4 = getelementptr inbounds ptr, ptr %17, i64 %inc.3
+  %arrayidx.4 = getelementptr i8, ptr %arrayidx, i64 32
   store ptr %add.ptr.3, ptr %arrayidx.4, align 8, !tbaa !24
   %add.ptr.4 = getelementptr inbounds i8, ptr %add.ptr.3, i64 %18
-  %inc.4 = or disjoint i64 %i.082, 5
-  %arrayidx.5 = getelementptr inbounds ptr, ptr %17, i64 %inc.4
+  %arrayidx.5 = getelementptr i8, ptr %arrayidx, i64 40
   store ptr %add.ptr.4, ptr %arrayidx.5, align 8, !tbaa !24
   %add.ptr.5 = getelementptr inbounds i8, ptr %add.ptr.4, i64 %18
-  %inc.5 = or disjoint i64 %i.082, 6
-  %arrayidx.6 = getelementptr inbounds ptr, ptr %17, i64 %inc.5
+  %arrayidx.6 = getelementptr i8, ptr %arrayidx, i64 48
   store ptr %add.ptr.5, ptr %arrayidx.6, align 8, !tbaa !24
   %add.ptr.6 = getelementptr inbounds i8, ptr %add.ptr.5, i64 %18
-  %inc.6 = or disjoint i64 %i.082, 7
-  %arrayidx.7 = getelementptr inbounds ptr, ptr %17, i64 %inc.6
+  %arrayidx.7 = getelementptr i8, ptr %arrayidx, i64 56
   store ptr %add.ptr.6, ptr %arrayidx.7, align 8, !tbaa !24
   %add.ptr.7 = getelementptr inbounds i8, ptr %add.ptr.6, i64 %18
   %inc.7 = add nuw nsw i64 %i.082, 8

@@ -1442,37 +1442,36 @@ define void @Ssc_GiaClassesCheckPairs(ptr nocapture noundef readonly %0, ptr noc
   %6 = getelementptr i8, ptr %0, i64 192
   br label %7
 
-7:                                                ; preds = %.lr.ph, %20
-  %.val19 = phi i32 [ %.val16, %.lr.ph ], [ %.val, %20 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
-  %8 = or disjoint i64 %indvars.iv, 1
+7:                                                ; preds = %.lr.ph, %19
+  %.val19 = phi i32 [ %.val16, %.lr.ph ], [ %.val, %19 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
   %.val14 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds i32, ptr %.val14, i64 %indvars.iv
-  %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i32, ptr %.val14, i64 %8
-  %12 = load i32, ptr %11, align 4
+  %8 = getelementptr i32, ptr %.val14, i64 %indvars.iv
+  %9 = load i32, ptr %8, align 4
+  %10 = getelementptr i8, ptr %8, i64 4
+  %11 = load i32, ptr %10, align 4
   %.val15 = load ptr, ptr %6, align 8
-  %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %.val15, i64 %13
-  %15 = load i32, ptr %14, align 4
-  %16 = and i32 %15, 268435455
-  %17 = icmp eq i32 %10, %16
-  br i1 %17, label %18, label %20
+  %12 = sext i32 %11 to i64
+  %13 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %.val15, i64 %12
+  %14 = load i32, ptr %13, align 4
+  %15 = and i32 %14, 268435455
+  %16 = icmp eq i32 %9, %15
+  br i1 %16, label %17, label %19
 
-18:                                               ; preds = %7
-  %19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %10, i32 noundef %12)
+17:                                               ; preds = %7
+  %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %9, i32 noundef %11)
   %.val.pre = load i32, ptr %3, align 4
-  br label %20
+  br label %19
 
-20:                                               ; preds = %7, %18
-  %.val = phi i32 [ %.val19, %7 ], [ %.val.pre, %18 ]
+19:                                               ; preds = %7, %17
+  %.val = phi i32 [ %.val19, %7 ], [ %.val.pre, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %21 = trunc i64 %indvars.iv.next to i32
-  %22 = or disjoint i32 %21, 1
-  %23 = icmp slt i32 %22, %.val
-  br i1 %23, label %7, label %.critedge, !llvm.loop !20
+  %20 = trunc i64 %indvars.iv.next to i32
+  %21 = or disjoint i32 %20, 1
+  %22 = icmp slt i32 %21, %.val
+  br i1 %22, label %7, label %.critedge, !llvm.loop !20
 
-.critedge:                                        ; preds = %20, %2
+.critedge:                                        ; preds = %19, %2
   ret void
 }
 

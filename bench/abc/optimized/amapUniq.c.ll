@@ -105,44 +105,44 @@ define i32 @Amap_LibFindMux(ptr nocapture noundef readonly %0, i32 noundef %1, i
 .lr.ph:                                           ; preds = %4
   %9 = getelementptr i8, ptr %6, i64 8
   %.val15 = load ptr, ptr %9, align 8
+  %invariant.gep = getelementptr i8, ptr %.val15, i64 4
+  %invariant.gep21 = getelementptr i8, ptr %.val15, i64 8
   br label %10
 
-10:                                               ; preds = %.lr.ph, %29
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
+10:                                               ; preds = %.lr.ph, %25
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
   %11 = getelementptr inbounds i32, ptr %.val15, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, %1
-  br i1 %13, label %14, label %29
+  br i1 %13, label %14, label %25
 
 14:                                               ; preds = %10
-  %15 = or disjoint i64 %indvars.iv, 1
-  %16 = getelementptr inbounds i32, ptr %.val15, i64 %15
-  %17 = load i32, ptr %16, align 4
-  %18 = icmp eq i32 %17, %2
-  br i1 %18, label %19, label %29
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %15 = load i32, ptr %gep, align 4
+  %16 = icmp eq i32 %15, %2
+  br i1 %16, label %17, label %25
 
-19:                                               ; preds = %14
-  %20 = or disjoint i64 %indvars.iv, 2
-  %21 = getelementptr inbounds i32, ptr %.val15, i64 %20
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp eq i32 %22, %3
-  br i1 %23, label %24, label %29
+17:                                               ; preds = %14
+  %gep22 = getelementptr i32, ptr %invariant.gep21, i64 %indvars.iv
+  %18 = load i32, ptr %gep22, align 4
+  %19 = icmp eq i32 %18, %3
+  br i1 %19, label %20, label %25
 
-24:                                               ; preds = %19
-  %25 = and i64 %indvars.iv, 4294967292
-  %26 = or disjoint i64 %25, 3
-  %27 = getelementptr inbounds i32, ptr %.val15, i64 %26
-  %28 = load i32, ptr %27, align 4
+20:                                               ; preds = %17
+  %21 = and i64 %indvars.iv, 4294967292
+  %22 = getelementptr i32, ptr %.val15, i64 %21
+  %23 = getelementptr i8, ptr %22, i64 12
+  %24 = load i32, ptr %23, align 4
   br label %.loopexit
 
-29:                                               ; preds = %10, %14, %19
+25:                                               ; preds = %10, %14, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %30 = trunc i64 %indvars.iv.next to i32
-  %31 = icmp sgt i32 %.val, %30
-  br i1 %31, label %10, label %.loopexit, !llvm.loop !6
+  %26 = trunc i64 %indvars.iv.next to i32
+  %27 = icmp sgt i32 %.val, %26
+  br i1 %27, label %10, label %.loopexit, !llvm.loop !6
 
-.loopexit:                                        ; preds = %29, %4, %24
-  %.014 = phi i32 [ %28, %24 ], [ -1, %4 ], [ -1, %29 ]
+.loopexit:                                        ; preds = %25, %4, %20
+  %.014 = phi i32 [ %24, %20 ], [ -1, %4 ], [ -1, %25 ]
   ret i32 %.014
 }
 

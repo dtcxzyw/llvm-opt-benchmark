@@ -1741,28 +1741,28 @@ define linkonce_odr dso_local void @_ZN25cmCPackeIFWUpdatesPatcher13StartFragmen
 
 .lr.ph:                                           ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %invariant.gep = getelementptr i8, ptr %1, i64 8
   br label %6
 
 6:                                                ; preds = %.lr.ph, %6
-  %7 = phi ptr [ %4, %.lr.ph ], [ %19, %6 ]
-  %.010 = phi i64 [ 0, %.lr.ph ], [ %17, %6 ]
-  %8 = or disjoint i64 %.010, 1
-  %9 = getelementptr inbounds ptr, ptr %1, i64 %8
-  %10 = load ptr, ptr %9, align 8
-  %11 = load ptr, ptr %5, align 8
+  %7 = phi ptr [ %4, %.lr.ph ], [ %17, %6 ]
+  %.010 = phi i64 [ 0, %.lr.ph ], [ %15, %6 ]
+  %gep = getelementptr ptr, ptr %invariant.gep, i64 %.010
+  %8 = load ptr, ptr %gep, align 8
+  %9 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call void @_ZN11cmXMLWriter12PreAttributeEv(ptr noundef nonnull align 8 dereferenceable(83) %11)
-  %12 = load ptr, ptr %11, align 8
-  %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull %7)
-  %14 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.34)
-  call void @_ZN9cmXMLSafeC1EPKc(ptr noundef nonnull align 8 dereferenceable(17) %3, ptr noundef %10)
-  %15 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK9cmXMLSafe(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(17) %3)
-  %16 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %15, i8 noundef signext 34)
+  call void @_ZN11cmXMLWriter12PreAttributeEv(ptr noundef nonnull align 8 dereferenceable(83) %9)
+  %10 = load ptr, ptr %9, align 8
+  %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull %7)
+  %12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull @.str.34)
+  call void @_ZN9cmXMLSafeC1EPKc(ptr noundef nonnull align 8 dereferenceable(17) %3, ptr noundef %8)
+  %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK9cmXMLSafe(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(17) %3)
+  %14 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %13, i8 noundef signext 34)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %17 = add i64 %.010, 2
-  %18 = getelementptr inbounds ptr, ptr %1, i64 %17
-  %19 = load ptr, ptr %18, align 8
-  %.not = icmp eq ptr %19, null
+  %15 = add i64 %.010, 2
+  %16 = getelementptr inbounds ptr, ptr %1, i64 %15
+  %17 = load ptr, ptr %16, align 8
+  %.not = icmp eq ptr %17, null
   br i1 %.not, label %._crit_edge, label %6, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %6, %2

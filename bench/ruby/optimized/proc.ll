@@ -1740,9 +1740,9 @@ sym_proc_new.exit:                                ; preds = %26, %41
 RARRAY_ASET.exit:                                 ; preds = %sym_proc_new.exit, %49
   tail call void @rb_ary_ptr_use_end(i64 noundef %42) #20
   %50 = load i64, ptr @rb_sym_to_proc.sym_proc_cache, align 8
-  %51 = or disjoint i64 %9, 1
-  %52 = tail call ptr @rb_ary_ptr_use_start(i64 noundef %50) #20
-  %53 = getelementptr i64, ptr %52, i64 %51
+  %51 = tail call ptr @rb_ary_ptr_use_start(i64 noundef %50) #20
+  %52 = getelementptr i64, ptr %51, i64 %9
+  %53 = getelementptr i8, ptr %52, i64 8
   store i64 %29, ptr %53, align 8
   %54 = and i64 %29, 7
   %55 = icmp ne i64 %54, 0

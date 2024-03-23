@@ -886,9 +886,9 @@ for.body72:                                       ; preds = %for.body72.lr.ph, %
 
 if.end94.sink.split:                              ; preds = %for.cond83.preheader, %if.else, %for.cond45.preheader, %if.then16
   %i.0.lcssa71.sink76 = phi i8 [ %storemerge, %for.cond45.preheader ], [ 0, %if.then16 ], [ %storemerge, %for.cond83.preheader ], [ 0, %if.else ]
-  %16 = or disjoint i8 %i.0.lcssa71.sink76, 8
-  %17 = zext nneg i8 %16 to i64
-  %scevgep = getelementptr i8, ptr %frame, i64 %17
+  %16 = zext nneg i8 %i.0.lcssa71.sink76 to i64
+  %17 = getelementptr i8, ptr %frame, i64 %16
+  %scevgep = getelementptr i8, ptr %17, i64 8
   %narrow = sub nuw nsw i8 8, %i.0.lcssa71.sink76
   %18 = zext nneg i8 %narrow to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %18, i1 false)
@@ -939,9 +939,9 @@ for.cond28.preheader:                             ; preds = %for.body
 
 for.body32.lr.ph:                                 ; preds = %entry, %for.cond28.preheader
   %i.0.lcssa29 = phi i8 [ %storemerge, %for.cond28.preheader ], [ 0, %entry ]
-  %7 = or disjoint i8 %i.0.lcssa29, 8
-  %8 = zext nneg i8 %7 to i64
-  %scevgep = getelementptr i8, ptr %frame, i64 %8
+  %7 = zext nneg i8 %i.0.lcssa29 to i64
+  %8 = getelementptr i8, ptr %frame, i64 %7
+  %scevgep = getelementptr i8, ptr %8, i64 8
   %narrow = sub nuw nsw i8 8, %i.0.lcssa29
   %9 = zext nneg i8 %narrow to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %9, i1 false)

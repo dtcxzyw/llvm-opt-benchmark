@@ -1314,9 +1314,9 @@ define void @Amap_ManMergeNodeCutsMux(ptr nocapture noundef %0, ptr nocapture no
   br i1 %.not, label %41, label %.critedge
 
 41:                                               ; preds = %36
-  %42 = or disjoint i64 %indvars.iv161, 1
   %.val122 = load ptr, ptr %29, align 8
-  %43 = getelementptr inbounds i32, ptr %.val122, i64 %42
+  %42 = getelementptr i32, ptr %.val122, i64 %indvars.iv161
+  %43 = getelementptr i8, ptr %42, i64 4
   %44 = load i32, ptr %43, align 4
   %45 = load ptr, ptr %31, align 8
   %46 = tail call i32 @Amap_ManFindCut(ptr poison, ptr noundef %18, i32 noundef %25, i32 noundef %44, ptr noundef %45), !range !25
@@ -1324,9 +1324,9 @@ define void @Amap_ManMergeNodeCutsMux(ptr nocapture noundef %0, ptr nocapture no
   br i1 %.not100, label %47, label %.critedge
 
 47:                                               ; preds = %41
-  %48 = or disjoint i64 %indvars.iv161, 2
   %.val121 = load ptr, ptr %29, align 8
-  %49 = getelementptr inbounds i32, ptr %.val121, i64 %48
+  %48 = getelementptr i32, ptr %.val121, i64 %indvars.iv161
+  %49 = getelementptr i8, ptr %48, i64 8
   %50 = load i32, ptr %49, align 4
   %51 = load ptr, ptr %32, align 8
   %52 = tail call i32 @Amap_ManFindCut(ptr poison, ptr noundef %23, i32 noundef %26, i32 noundef %50, ptr noundef %51), !range !25

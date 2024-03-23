@@ -39,26 +39,19 @@ arrayctor.loop.i.i.i:                             ; preds = %arrayctor.loop.i.i.
   %arrayctor.cur.idx.i.i.i = phi i64 [ 0, %init ], [ %arrayctor.cur.add.i.i.i.7, %arrayctor.loop.i.i.i ]
   %arrayctor.cur.ptr.i.i.i = getelementptr inbounds i8, ptr @_ZZN5folly18parking_lot_detail6Bucket9bucketForEmE8gBuckets, i64 %arrayctor.cur.idx.i.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayctor.cur.ptr.i.i.i, i8 0, i64 40, i1 false)
-  %arrayctor.cur.add.i.i.i = or disjoint i64 %arrayctor.cur.idx.i.i.i, 64
-  %arrayctor.cur.ptr.i.i.i.1 = getelementptr inbounds i8, ptr @_ZZN5folly18parking_lot_detail6Bucket9bucketForEmE8gBuckets, i64 %arrayctor.cur.add.i.i.i
+  %arrayctor.cur.ptr.i.i.i.1 = getelementptr i8, ptr %arrayctor.cur.ptr.i.i.i, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayctor.cur.ptr.i.i.i.1, i8 0, i64 40, i1 false)
-  %arrayctor.cur.add.i.i.i.1 = or disjoint i64 %arrayctor.cur.idx.i.i.i, 128
-  %arrayctor.cur.ptr.i.i.i.2 = getelementptr inbounds i8, ptr @_ZZN5folly18parking_lot_detail6Bucket9bucketForEmE8gBuckets, i64 %arrayctor.cur.add.i.i.i.1
+  %arrayctor.cur.ptr.i.i.i.2 = getelementptr i8, ptr %arrayctor.cur.ptr.i.i.i, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayctor.cur.ptr.i.i.i.2, i8 0, i64 40, i1 false)
-  %arrayctor.cur.add.i.i.i.2 = or disjoint i64 %arrayctor.cur.idx.i.i.i, 192
-  %arrayctor.cur.ptr.i.i.i.3 = getelementptr inbounds i8, ptr @_ZZN5folly18parking_lot_detail6Bucket9bucketForEmE8gBuckets, i64 %arrayctor.cur.add.i.i.i.2
+  %arrayctor.cur.ptr.i.i.i.3 = getelementptr i8, ptr %arrayctor.cur.ptr.i.i.i, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayctor.cur.ptr.i.i.i.3, i8 0, i64 40, i1 false)
-  %arrayctor.cur.add.i.i.i.3 = or disjoint i64 %arrayctor.cur.idx.i.i.i, 256
-  %arrayctor.cur.ptr.i.i.i.4 = getelementptr inbounds i8, ptr @_ZZN5folly18parking_lot_detail6Bucket9bucketForEmE8gBuckets, i64 %arrayctor.cur.add.i.i.i.3
+  %arrayctor.cur.ptr.i.i.i.4 = getelementptr i8, ptr %arrayctor.cur.ptr.i.i.i, i64 256
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayctor.cur.ptr.i.i.i.4, i8 0, i64 40, i1 false)
-  %arrayctor.cur.add.i.i.i.4 = or disjoint i64 %arrayctor.cur.idx.i.i.i, 320
-  %arrayctor.cur.ptr.i.i.i.5 = getelementptr inbounds i8, ptr @_ZZN5folly18parking_lot_detail6Bucket9bucketForEmE8gBuckets, i64 %arrayctor.cur.add.i.i.i.4
+  %arrayctor.cur.ptr.i.i.i.5 = getelementptr i8, ptr %arrayctor.cur.ptr.i.i.i, i64 320
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayctor.cur.ptr.i.i.i.5, i8 0, i64 40, i1 false)
-  %arrayctor.cur.add.i.i.i.5 = or disjoint i64 %arrayctor.cur.idx.i.i.i, 384
-  %arrayctor.cur.ptr.i.i.i.6 = getelementptr inbounds i8, ptr @_ZZN5folly18parking_lot_detail6Bucket9bucketForEmE8gBuckets, i64 %arrayctor.cur.add.i.i.i.5
+  %arrayctor.cur.ptr.i.i.i.6 = getelementptr i8, ptr %arrayctor.cur.ptr.i.i.i, i64 384
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayctor.cur.ptr.i.i.i.6, i8 0, i64 40, i1 false)
-  %arrayctor.cur.add.i.i.i.6 = or disjoint i64 %arrayctor.cur.idx.i.i.i, 448
-  %arrayctor.cur.ptr.i.i.i.7 = getelementptr inbounds i8, ptr @_ZZN5folly18parking_lot_detail6Bucket9bucketForEmE8gBuckets, i64 %arrayctor.cur.add.i.i.i.6
+  %arrayctor.cur.ptr.i.i.i.7 = getelementptr i8, ptr %arrayctor.cur.ptr.i.i.i, i64 448
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayctor.cur.ptr.i.i.i.7, i8 0, i64 40, i1 false)
   %arrayctor.cur.add.i.i.i.7 = add nuw nsw i64 %arrayctor.cur.idx.i.i.i, 512
   %arrayctor.done.i.i.i.7 = icmp eq i64 %arrayctor.cur.add.i.i.i.7, 262144

@@ -1643,8 +1643,7 @@ if.end16.i:                                       ; preds = %lor.lhs.false.i
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end16.i
-  %inc = or disjoint i64 %i.033, 1
-  %arrayidx10 = getelementptr inbounds i8, ptr %1, i64 %inc
+  %arrayidx10 = getelementptr i8, ptr %arrayidx, i64 1
   %5 = load i8, ptr %arrayidx10, align 1
   %6 = add i8 %5, -97
   %or.cond.i11 = icmp ult i8 %6, 6

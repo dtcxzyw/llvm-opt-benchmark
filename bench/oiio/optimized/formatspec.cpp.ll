@@ -7315,15 +7315,14 @@ if.end63:                                         ; preds = %if.then60, %for.bod
   %tobool.not.i.i72 = icmp eq i8 %24, 0
   %25 = load ptr, ptr %m_data.i.i, align 8
   %cond.i.i = select i1 %tobool.not.i.i72, ptr %m_data.i.i, ptr %25
-  %26 = or disjoint i64 %22, 1
-  %arrayidx.i78 = getelementptr inbounds i32, ptr %cond.i.i, i64 %26
+  %26 = getelementptr i32, ptr %cond.i.i, i64 %22
+  %arrayidx.i78 = getelementptr i8, ptr %26, i64 4
   %27 = load i32, ptr %arrayidx.i78, align 4
   %tobool68.not = icmp eq i32 %27, 0
   br i1 %tobool68.not, label %if.else, label %if.then69
 
 if.then69:                                        ; preds = %if.end63
-  %arrayidx.i = getelementptr inbounds i32, ptr %cond.i.i, i64 %22
-  %28 = load i32, ptr %arrayidx.i, align 4
+  %28 = load i32, ptr %26, align 4
   %conv72 = sitofp i32 %28 to float
   %conv73 = sitofp i32 %27 to float
   %div = fdiv float %conv72, %conv73

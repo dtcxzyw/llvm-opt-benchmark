@@ -56056,8 +56056,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   %11 = load i64, ptr %arrayidx.i.i.i.i.i.i.i, align 8, !tbaa !68, !alias.scope !1379
   %or.i.i.i.i.i.i = or i64 %shl.i9.i.i.i.i.i.i, %11
   store i64 %or.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i, align 8, !tbaa !68, !alias.scope !1379
-  %inc.i.i.i.i = or disjoint i64 %pos.07.i.i.i.i, 1
-  %arrayidx.i.i.i.i.1 = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 %inc.i.i.i.i
+  %arrayidx.i.i.i.i.1 = getelementptr i8, ptr %arrayidx.i.i.i.i, i64 1
   %12 = load i8, ptr %arrayidx.i.i.i.i.1, align 1, !tbaa !35, !noalias !1379
   %conv.i22.i.i.i.1 = zext i8 %12 to i64
   %rem.i.i8.i.i.i.i.i.i.1 = and i64 %conv.i22.i.i.i.1, 63
@@ -56118,8 +56117,7 @@ for.body.i29.i.i.i:                               ; preds = %for.body.i29.i.i.i,
   %19 = load i64, ptr %arrayidx.i.i.i.i36.i.i.i, align 8, !tbaa !68, !alias.scope !1383
   %or.i.i.i37.i.i.i = or i64 %shl.i9.i.i.i34.i.i.i, %19
   store i64 %or.i.i.i37.i.i.i, ptr %arrayidx.i.i.i.i36.i.i.i, align 8, !tbaa !68, !alias.scope !1383
-  %inc.i38.i.i.i = or disjoint i64 %pos.07.i30.i.i.i, 1
-  %arrayidx.i31.i.i.i.1 = getelementptr inbounds i8, ptr %cond.i.i27.i.i.i, i64 %inc.i38.i.i.i
+  %arrayidx.i31.i.i.i.1 = getelementptr i8, ptr %arrayidx.i31.i.i.i, i64 1
   %20 = load i8, ptr %arrayidx.i31.i.i.i.1, align 1, !tbaa !35, !noalias !1383
   %conv.i32.i.i.i.1 = zext i8 %20 to i64
   %rem.i.i8.i.i.i33.i.i.i.1 = and i64 %conv.i32.i.i.i.1, 63
@@ -74289,8 +74287,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   %28 = load i8, ptr %arrayidx10.i.i.i, align 1, !tbaa !35
   store i8 %28, ptr %incdec.ptr.i.i.i, align 1, !tbaa !35
   %incdec.ptr11.i.i.i = getelementptr inbounds i8, ptr %output.027.i.i.i, i64 2
-  %inc.i.i.i = or disjoint i64 %i.028.i.i.i, 1
-  %arrayidx.i.i.i.1 = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 %inc.i.i.i
+  %arrayidx.i.i.i.1 = getelementptr i8, ptr %arrayidx.i.i.i, i64 1
   %29 = load i8, ptr %arrayidx.i.i.i.1, align 1, !tbaa !35
   %30 = lshr i8 %29, 4
   %idxprom.i.i.i.1 = zext nneg i8 %30 to i64
@@ -74743,8 +74740,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   %41 = load i8, ptr %arrayidx10.i.i.i, align 1, !tbaa !35
   store i8 %41, ptr %incdec.ptr.i.i.i, align 1, !tbaa !35
   %incdec.ptr11.i.i.i = getelementptr inbounds i8, ptr %output.027.i.i.i, i64 2
-  %inc.i.i.i = or disjoint i64 %i.028.i.i.i, 1
-  %arrayidx.i.i.i.1 = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 %inc.i.i.i
+  %arrayidx.i.i.i.1 = getelementptr i8, ptr %arrayidx.i.i.i, i64 1
   %42 = load i8, ptr %arrayidx.i.i.i.1, align 1, !tbaa !35
   %43 = lshr i8 %42, 4
   %idxprom.i.i.i.1 = zext nneg i8 %43 to i64
@@ -74885,8 +74881,7 @@ for.body.i.i.i122:                                ; preds = %for.body.i.i.i122, 
   %68 = load i8, ptr %arrayidx10.i.i.i130, align 1, !tbaa !35
   store i8 %68, ptr %incdec.ptr.i.i.i128, align 1, !tbaa !35
   %incdec.ptr11.i.i.i131 = getelementptr inbounds i8, ptr %output.027.i.i.i124, i64 2
-  %inc.i.i.i132 = or disjoint i64 %i.028.i.i.i123, 1
-  %arrayidx.i.i.i125.1 = getelementptr inbounds i8, ptr %cond.i.i.i.i113, i64 %inc.i.i.i132
+  %arrayidx.i.i.i125.1 = getelementptr i8, ptr %arrayidx.i.i.i125, i64 1
   %69 = load i8, ptr %arrayidx.i.i.i125.1, align 1, !tbaa !35
   %70 = lshr i8 %69, 4
   %idxprom.i.i.i126.1 = zext nneg i8 %70 to i64
@@ -75052,8 +75047,7 @@ for.body.i.i.i164:                                ; preds = %for.body.i.i.i164, 
   %99 = load i8, ptr %arrayidx10.i.i.i172, align 1, !tbaa !35
   store i8 %99, ptr %incdec.ptr.i.i.i170, align 1, !tbaa !35
   %incdec.ptr11.i.i.i173 = getelementptr inbounds i8, ptr %output.027.i.i.i166, i64 2
-  %inc.i.i.i174 = or disjoint i64 %i.028.i.i.i165, 1
-  %arrayidx.i.i.i167.1 = getelementptr inbounds i8, ptr %cond.i.i.i.i155, i64 %inc.i.i.i174
+  %arrayidx.i.i.i167.1 = getelementptr i8, ptr %arrayidx.i.i.i167, i64 1
   %100 = load i8, ptr %arrayidx.i.i.i167.1, align 1, !tbaa !35
   %101 = lshr i8 %100, 4
   %idxprom.i.i.i168.1 = zext nneg i8 %101 to i64
@@ -75256,8 +75250,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   %29 = load i8, ptr %arrayidx10.i.i.i, align 1, !tbaa !35
   store i8 %29, ptr %incdec.ptr.i.i.i, align 1, !tbaa !35
   %incdec.ptr11.i.i.i = getelementptr inbounds i8, ptr %output.027.i.i.i, i64 2
-  %inc.i.i.i = or disjoint i64 %i.028.i.i.i, 1
-  %arrayidx.i.i.i50.1 = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 %inc.i.i.i
+  %arrayidx.i.i.i50.1 = getelementptr i8, ptr %arrayidx.i.i.i50, i64 1
   %30 = load i8, ptr %arrayidx.i.i.i50.1, align 1, !tbaa !35
   %31 = lshr i8 %30, 4
   %idxprom.i.i.i.1 = zext nneg i8 %31 to i64
@@ -75450,8 +75443,7 @@ for.body.i.i.i77:                                 ; preds = %for.body.i.i.i77, %
   %65 = load i8, ptr %arrayidx10.i.i.i85, align 1, !tbaa !35
   store i8 %65, ptr %incdec.ptr.i.i.i83, align 1, !tbaa !35
   %incdec.ptr11.i.i.i86 = getelementptr inbounds i8, ptr %output.027.i.i.i79, i64 2
-  %inc.i.i.i87 = or disjoint i64 %i.028.i.i.i78, 1
-  %arrayidx.i.i.i80.1 = getelementptr inbounds i8, ptr %cond.i.i.i.i68, i64 %inc.i.i.i87
+  %arrayidx.i.i.i80.1 = getelementptr i8, ptr %arrayidx.i.i.i80, i64 1
   %66 = load i8, ptr %arrayidx.i.i.i80.1, align 1, !tbaa !35
   %67 = lshr i8 %66, 4
   %idxprom.i.i.i81.1 = zext nneg i8 %67 to i64

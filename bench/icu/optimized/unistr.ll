@@ -301,7 +301,7 @@ if.then5:                                         ; preds = %if.else
 
 if.then5.if.then10_crit_edge:                     ; preds = %if.then5
   %fArray.i54.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 24
-  %.pre140 = load ptr, ptr %fArray.i54.phi.trans.insert, align 8
+  %.pre139 = load ptr, ptr %fArray.i54.phi.trans.insert, align 8
   br label %for.body.preheader
 
 if.end.i28:                                       ; preds = %if.then5
@@ -341,7 +341,7 @@ invoke.cont8:                                     ; preds = %if.end.i28, %call.i
   br label %if.end50
 
 for.body.preheader:                               ; preds = %if.then6.i40, %if.then5.if.then10_crit_edge
-  %3 = phi ptr [ %incdec.ptr.i41, %if.then6.i40 ], [ %.pre140, %if.then5.if.then10_crit_edge ]
+  %3 = phi ptr [ %incdec.ptr.i41, %if.then6.i40 ], [ %.pre139, %if.then5.if.then10_crit_edge ]
   %storemerge129 = phi i16 [ 4, %if.then6.i40 ], [ 2, %if.then5.if.then10_crit_edge ]
   store i16 %storemerge129, ptr %fUnion2, align 8
   %4 = and i16 %storemerge129, 2
@@ -353,20 +353,20 @@ for.body.preheader:                               ; preds = %if.then6.i40, %if.t
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv136 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next137, %for.body ]
-  %arrayidx = getelementptr inbounds i16, ptr %cond.i, i64 %indvars.iv136
+  %indvars.iv135 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next136, %for.body ]
+  %arrayidx = getelementptr inbounds i16, ptr %cond.i, i64 %indvars.iv135
   store i16 %conv, ptr %arrayidx, align 2
-  %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count
+  %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next136, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body
-  %.pre141 = load i16, ptr %fUnion2, align 8
+  %.pre140 = load i16, ptr %fUnion2, align 8
   %cmp.i55 = icmp slt i32 %count, 1024
   br i1 %cmp.i55, label %if.then.i57, label %if.else.i
 
 if.then.i57:                                      ; preds = %for.end
-  %5 = and i16 %.pre141, 31
+  %5 = and i16 %.pre140, 31
   %len.tr.i.i = trunc i32 %count to i16
   %6 = shl i16 %len.tr.i.i, 5
   %conv2.i.i = or disjoint i16 %5, %6
@@ -374,7 +374,7 @@ if.then.i57:                                      ; preds = %for.end
   br label %if.end50
 
 if.else.i:                                        ; preds = %for.end
-  %or.i = or i16 %.pre141, -32
+  %or.i = or i16 %.pre140, -32
   store i16 %or.i, ptr %fUnion2, align 8
   %fLength.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %count, ptr %fLength.i, align 4
@@ -497,28 +497,27 @@ for.body38:                                       ; preds = %for.body38.preheade
   %indvars.iv = phi i64 [ 0, %for.body38.preheader ], [ %indvars.iv.next, %for.body38 ]
   %arrayidx40 = getelementptr inbounds i16, ptr %cond.i114, i64 %indvars.iv
   store i16 %conv33, ptr %arrayidx40, align 2
-  %15 = or disjoint i64 %indvars.iv, 1
-  %arrayidx43 = getelementptr inbounds i16, ptr %cond.i114, i64 %15
+  %arrayidx43 = getelementptr i8, ptr %arrayidx40, i64 2
   store i16 %conv34, ptr %arrayidx43, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %cmp37 = icmp ult i64 %indvars.iv.next, %14
   br i1 %cmp37, label %for.body38, label %for.end46, !llvm.loop !6
 
 for.end46:                                        ; preds = %for.body38
-  %.pre139 = load i16, ptr %fUnion2, align 8
+  %.pre138 = load i16, ptr %fUnion2, align 8
   %cmp.i115 = icmp ult i32 %count, 512
   br i1 %cmp.i115, label %if.then.i121, label %if.else.i117
 
 if.then.i121:                                     ; preds = %for.end46
-  %16 = and i16 %.pre139, 31
+  %15 = and i16 %.pre138, 31
   %len.tr.i.i122 = trunc i32 %mul to i16
-  %17 = shl nuw nsw i16 %len.tr.i.i122, 5
-  %conv2.i.i123 = or disjoint i16 %16, %17
+  %16 = shl nuw nsw i16 %len.tr.i.i122, 5
+  %conv2.i.i123 = or disjoint i16 %15, %16
   store i16 %conv2.i.i123, ptr %fUnion2, align 8
   br label %if.end50
 
 if.else.i117:                                     ; preds = %for.end46
-  %or.i118 = or i16 %.pre139, -32
+  %or.i118 = or i16 %.pre138, -32
   store i16 %or.i118, ptr %fUnion2, align 8
   %fLength.i119 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %mul, ptr %fLength.i119, align 4

@@ -1109,8 +1109,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %1 = shl nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr i8, ptr %call4, i64 %1
   store i8 87, ptr %arrayidx, align 1
-  %2 = or disjoint i64 %1, 1
-  %arrayidx7 = getelementptr i8, ptr %call4, i64 %2
+  %arrayidx7 = getelementptr i8, ptr %arrayidx, i64 1
   store i8 0, ptr %arrayidx7, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -1128,20 +1127,13 @@ for.end:                                          ; preds = %for.body
   br label %for.body14
 
 for.body14:                                       ; preds = %for.end, %for.body14
-  %indvars.iv30 = phi i64 [ 0, %for.end ], [ %indvars.iv.next31, %for.body14 ]
+  %indvars.iv29 = phi i64 [ 0, %for.end ], [ %indvars.iv.next30, %for.body14 ]
   %chksum.025 = phi i16 [ 0, %for.end ], [ %add24, %for.body14 ]
-  %arrayidx16 = getelementptr i8, ptr %call4, i64 %indvars.iv30
-  %3 = load i8, ptr %arrayidx16, align 1
-  %conv = zext i8 %3 to i16
-  %4 = or disjoint i64 %indvars.iv30, 1
-  %arrayidx19 = getelementptr i8, ptr %call4, i64 %4
-  %5 = load i8, ptr %arrayidx19, align 1
-  %conv21 = zext i8 %5 to i16
-  %shl = shl nuw i16 %conv21, 8
-  %add22 = or disjoint i16 %shl, %conv
-  %add24 = add i16 %add22, %chksum.025
-  %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 2
-  %cmp13 = icmp ult i64 %indvars.iv30, 124
+  %arrayidx16 = getelementptr i8, ptr %call4, i64 %indvars.iv29
+  %2 = load i16, ptr %arrayidx16, align 1
+  %add24 = add i16 %2, %chksum.025
+  %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 2
+  %cmp13 = icmp ult i64 %indvars.iv29, 124
   br i1 %cmp13, label %for.body14, label %for.end28, !llvm.loop !8
 
 for.end28:                                        ; preds = %for.body14
@@ -1149,8 +1141,8 @@ for.end28:                                        ; preds = %for.body14
   %conv32 = trunc i16 %sub to i8
   %arrayidx33 = getelementptr i8, ptr %call4, i64 126
   store i8 %conv32, ptr %arrayidx33, align 1
-  %6 = lshr i16 %sub, 8
-  %conv35 = trunc i16 %6 to i8
+  %3 = lshr i16 %sub, 8
+  %conv35 = trunc i16 %3 to i8
   %arrayidx36 = getelementptr i8, ptr %call4, i64 127
   store i8 %conv35, ptr %arrayidx36, align 1
   br label %return

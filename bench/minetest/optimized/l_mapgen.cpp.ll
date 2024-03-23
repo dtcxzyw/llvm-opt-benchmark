@@ -2283,17 +2283,17 @@ define dso_local noundef zeroext i1 @_Z18read_schematic_defP9lua_StateiP9Schemat
   %277 = load ptr, ptr %268, align 8, !tbaa !91
   %278 = getelementptr inbounds i8, ptr %277, i64 %276
   store i8 127, ptr %278, align 1, !tbaa !13
-  %279 = or disjoint i64 %276, 1
-  %280 = load ptr, ptr %268, align 8, !tbaa !91
-  %281 = getelementptr inbounds i8, ptr %280, i64 %279
+  %279 = load ptr, ptr %268, align 8, !tbaa !91
+  %280 = getelementptr i8, ptr %279, i64 %276
+  %281 = getelementptr i8, ptr %280, i64 1
   store i8 127, ptr %281, align 1, !tbaa !13
-  %282 = or disjoint i64 %276, 2
-  %283 = load ptr, ptr %268, align 8, !tbaa !91
-  %284 = getelementptr inbounds i8, ptr %283, i64 %282
+  %282 = load ptr, ptr %268, align 8, !tbaa !91
+  %283 = getelementptr i8, ptr %282, i64 %276
+  %284 = getelementptr i8, ptr %283, i64 2
   store i8 127, ptr %284, align 1, !tbaa !13
-  %285 = or disjoint i64 %276, 3
-  %286 = load ptr, ptr %268, align 8, !tbaa !91
-  %287 = getelementptr inbounds i8, ptr %286, i64 %285
+  %285 = load ptr, ptr %268, align 8, !tbaa !91
+  %286 = getelementptr i8, ptr %285, i64 %276
+  %287 = getelementptr i8, ptr %286, i64 3
   store i8 127, ptr %287, align 1, !tbaa !13
   %288 = add nuw nsw i64 %276, 4
   %indvars = trunc i64 %288 to i32

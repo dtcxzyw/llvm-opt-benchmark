@@ -4351,9 +4351,9 @@ RARRAY_ASET.exit:                                 ; preds = %70, %81
   %83 = load i8, ptr %71, align 8
   %84 = zext i8 %83 to i64
   %85 = shl nuw nsw i64 %84, 1
-  %86 = or disjoint i64 %85, 1
-  %87 = tail call ptr @rb_ary_ptr_use_start(i64 noundef %82) #14
-  %88 = getelementptr i64, ptr %87, i64 %86
+  %86 = tail call ptr @rb_ary_ptr_use_start(i64 noundef %82) #14
+  %87 = getelementptr i64, ptr %86, i64 %85
+  %88 = getelementptr i8, ptr %87, i64 8
   store i64 %.0.i34, ptr %88, align 8
   %89 = and i64 %.0.i34, 7
   %90 = icmp ne i64 %89, 0

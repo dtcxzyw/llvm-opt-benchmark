@@ -52,9 +52,9 @@ define void @dlapll_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %33 = getelementptr double, ptr %19, i64 %32
   %34 = getelementptr i8, ptr %33, i64 8
   %35 = shl i32 %31, 1
-  %36 = or disjoint i32 %35, 1
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds double, ptr %19, i64 %37
+  %36 = sext i32 %35 to i64
+  %37 = getelementptr double, ptr %19, i64 %36
+  %38 = getelementptr i8, ptr %37, i64 8
   call void @dlarfg_(ptr noundef nonnull %7, ptr noundef %34, ptr noundef nonnull %38, ptr noundef nonnull %4, ptr noundef nonnull %13) #3
   %39 = load double, ptr %3, align 8, !tbaa !7
   store double %39, ptr %11, align 8, !tbaa !7

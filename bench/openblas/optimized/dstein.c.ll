@@ -166,12 +166,12 @@ define void @dstein_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %104 = getelementptr double, ptr %9, i64 %103
   %105 = sext i32 %91 to i64
   %106 = getelementptr double, ptr %102, i64 %105
-  %107 = or disjoint i32 %101, 1
-  %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds double, ptr %32, i64 %108
-  %110 = or disjoint i32 %100, 1
-  %111 = sext i32 %110 to i64
-  %112 = getelementptr inbounds double, ptr %32, i64 %111
+  %107 = sext i32 %101 to i64
+  %108 = getelementptr double, ptr %32, i64 %107
+  %109 = getelementptr i8, ptr %108, i64 8
+  %110 = sext i32 %100 to i64
+  %111 = getelementptr double, ptr %32, i64 %110
+  %112 = getelementptr i8, ptr %111, i64 8
   %113 = sext i32 %28 to i64
   %114 = shl nsw i64 %30, 3
   %115 = getelementptr i8, ptr %7, i64 %114
@@ -284,7 +284,7 @@ define void @dstein_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %202 = sext i32 %131 to i64
   %203 = getelementptr inbounds double, ptr %23, i64 %202
   %204 = getelementptr inbounds double, ptr %24, i64 %202
-  %205 = add i32 %131, -1
+  %205 = add nsw i32 %131, -1
   %206 = sext i32 %123 to i64
   %reass.sub = sub i32 %199, %123
   %207 = add i32 %reass.sub, 1

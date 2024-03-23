@@ -277,8 +277,7 @@ while.body.i:                                     ; preds = %for.end160, %FastLo
   %sum.i198.0129 = phi i64 [ 0, %for.end160 ], [ %add5.i, %FastLog2.exit22.i ]
   %retval1.i199.0128 = phi double [ 0.000000e+00, %for.end160 ], [ %31, %FastLog2.exit22.i ]
   %population.addr.i196.0.ptr = getelementptr inbounds i8, ptr %depth_histo, i64 %population.addr.i196.0.idx130
-  %population.addr.i196.0.add = or disjoint i64 %population.addr.i196.0.idx130, 4
-  %incdec.ptr.i.ptr = getelementptr inbounds i8, ptr %depth_histo, i64 %population.addr.i196.0.add
+  %incdec.ptr.i.ptr = getelementptr i8, ptr %population.addr.i196.0.ptr, i64 4
   %26 = load i32, ptr %population.addr.i196.0.ptr, align 8
   %conv.i202 = zext i32 %26 to i64
   %add.i = add i64 %sum.i198.0129, %conv.i202
@@ -590,7 +589,7 @@ for.body135:                                      ; preds = %land.rhs
 
 for.end139:                                       ; preds = %land.rhs, %for.body135
   %reps.0.lcssa = phi i32 [ %reps.0113, %land.rhs ], [ %20, %for.body135 ]
-  %conv140 = zext i32 %reps.0.lcssa to i64
+  %conv140 = zext nneg i32 %reps.0.lcssa to i64
   %add141 = add nuw nsw i64 %i.3121, %conv140
   %cmp142 = icmp eq i64 %add141, 704
   br i1 %cmp142, label %for.end160, label %if.end145
@@ -613,7 +612,7 @@ if.then148:                                       ; preds = %for.end139.thread, 
   br label %if.end159
 
 while.body.preheader:                             ; preds = %if.end145
-  %sub152 = add i32 %reps.0.lcssa, -2
+  %sub152 = add nsw i32 %reps.0.lcssa, -2
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -649,8 +648,7 @@ while.body.i:                                     ; preds = %for.end160, %FastLo
   %sum.i198.0129 = phi i64 [ 0, %for.end160 ], [ %add5.i, %FastLog2.exit22.i ]
   %retval1.i199.0128 = phi double [ 0.000000e+00, %for.end160 ], [ %33, %FastLog2.exit22.i ]
   %population.addr.i196.0.ptr = getelementptr inbounds i8, ptr %depth_histo, i64 %population.addr.i196.0.idx130
-  %population.addr.i196.0.add = or disjoint i64 %population.addr.i196.0.idx130, 4
-  %incdec.ptr.i.ptr = getelementptr inbounds i8, ptr %depth_histo, i64 %population.addr.i196.0.add
+  %incdec.ptr.i.ptr = getelementptr i8, ptr %population.addr.i196.0.ptr, i64 4
   %28 = load i32, ptr %population.addr.i196.0.ptr, align 8
   %conv.i202 = zext i32 %28 to i64
   %add.i = add i64 %sum.i198.0129, %conv.i202
@@ -956,7 +954,7 @@ for.body135:                                      ; preds = %land.rhs
 
 for.end139:                                       ; preds = %land.rhs, %for.body135
   %reps.0.lcssa = phi i32 [ %reps.0113, %land.rhs ], [ %20, %for.body135 ]
-  %conv140 = zext i32 %reps.0.lcssa to i64
+  %conv140 = zext nneg i32 %reps.0.lcssa to i64
   %add141 = add nuw nsw i64 %i.3121, %conv140
   %cmp142 = icmp eq i64 %add141, 544
   br i1 %cmp142, label %for.end160, label %if.end145
@@ -979,7 +977,7 @@ if.then148:                                       ; preds = %for.end139.thread, 
   br label %if.end159
 
 while.body.preheader:                             ; preds = %if.end145
-  %sub152 = add i32 %reps.0.lcssa, -2
+  %sub152 = add nsw i32 %reps.0.lcssa, -2
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -1015,8 +1013,7 @@ while.body.i:                                     ; preds = %for.end160, %FastLo
   %sum.i198.0129 = phi i64 [ 0, %for.end160 ], [ %add5.i, %FastLog2.exit22.i ]
   %retval1.i199.0128 = phi double [ 0.000000e+00, %for.end160 ], [ %33, %FastLog2.exit22.i ]
   %population.addr.i196.0.ptr = getelementptr inbounds i8, ptr %depth_histo, i64 %population.addr.i196.0.idx130
-  %population.addr.i196.0.add = or disjoint i64 %population.addr.i196.0.idx130, 4
-  %incdec.ptr.i.ptr = getelementptr inbounds i8, ptr %depth_histo, i64 %population.addr.i196.0.add
+  %incdec.ptr.i.ptr = getelementptr i8, ptr %population.addr.i196.0.ptr, i64 4
   %28 = load i32, ptr %population.addr.i196.0.ptr, align 8
   %conv.i202 = zext i32 %28 to i64
   %add.i = add i64 %sum.i198.0129, %conv.i202

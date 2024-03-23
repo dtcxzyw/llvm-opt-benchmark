@@ -759,17 +759,17 @@ for.body:                                         ; preds = %for.body.preheader,
   %op.rdx = or i64 %33, %shl136
   %shift = shufflevector <2 x i64> %32, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %34 = or <2 x i64> %32, %shift
-  %op.rdx146 = extractelement <2 x i64> %34, i64 0
-  %op.rdx147 = or disjoint i64 %and218, %shl205
-  %op.rdx148 = or disjoint i64 %shl199, %shl212
-  %op.rdx149 = or i64 %op.rdx, %op.rdx146
-  %op.rdx150 = or disjoint i64 %op.rdx147, %op.rdx148
-  %op.rdx151 = or i64 %op.rdx149, %op.rdx150
+  %op.rdx145 = extractelement <2 x i64> %34, i64 0
+  %op.rdx146 = or disjoint i64 %and218, %shl205
+  %op.rdx147 = or disjoint i64 %shl199, %shl212
+  %op.rdx148 = or i64 %op.rdx, %op.rdx145
+  %op.rdx149 = or disjoint i64 %op.rdx146, %op.rdx147
+  %op.rdx150 = or i64 %op.rdx148, %op.rdx149
   %35 = load ptr, ptr %call, align 8
   %36 = shl nuw nsw i64 %indvars.iv.next, 1
-  %37 = or disjoint i64 %36, 1
-  %arrayidx224 = getelementptr inbounds i64, ptr %35, i64 %37
-  store i64 %op.rdx151, ptr %arrayidx224, align 8
+  %37 = getelementptr i64, ptr %35, i64 %36
+  %arrayidx224 = getelementptr i8, ptr %37, i64 8
+  store i64 %op.rdx150, ptr %arrayidx224, align 8
   %38 = load ptr, ptr %a, align 8
   %arrayidx227 = getelementptr inbounds i64, ptr %38, i64 %indvars.iv.next
   %39 = load i64, ptr %arrayidx227, align 8
@@ -821,18 +821,18 @@ for.body:                                         ; preds = %for.body.preheader,
   %shl435 = and i64 %and434, 4
   %and440 = and i64 %39, 1
   %68 = tail call i64 @llvm.vector.reduce.or.v4i64(<4 x i64> %53)
-  %op.rdx152 = or i64 %68, %shl362
-  %shift159 = shufflevector <2 x i64> %67, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
-  %69 = or <2 x i64> %67, %shift159
-  %op.rdx153 = extractelement <2 x i64> %69, i64 0
-  %op.rdx154 = or disjoint i64 %and440, %shl429
-  %op.rdx155 = or disjoint i64 %shl424, %shl435
-  %op.rdx156 = or i64 %op.rdx152, %op.rdx153
-  %op.rdx157 = or disjoint i64 %op.rdx154, %op.rdx155
-  %op.rdx158 = or i64 %op.rdx156, %op.rdx157
+  %op.rdx151 = or i64 %68, %shl362
+  %shift158 = shufflevector <2 x i64> %67, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
+  %69 = or <2 x i64> %67, %shift158
+  %op.rdx152 = extractelement <2 x i64> %69, i64 0
+  %op.rdx153 = or disjoint i64 %and440, %shl429
+  %op.rdx154 = or disjoint i64 %shl424, %shl435
+  %op.rdx155 = or i64 %op.rdx151, %op.rdx152
+  %op.rdx156 = or disjoint i64 %op.rdx153, %op.rdx154
+  %op.rdx157 = or i64 %op.rdx155, %op.rdx156
   %70 = load ptr, ptr %call, align 8
   %arrayidx446 = getelementptr inbounds i64, ptr %70, i64 %36
-  store i64 %op.rdx158, ptr %arrayidx446, align 8
+  store i64 %op.rdx157, ptr %arrayidx446, align 8
   %cmp5 = icmp ugt i64 %indvars.iv, 1
   br i1 %cmp5, label %for.body, label %for.end.loopexit, !llvm.loop !18
 

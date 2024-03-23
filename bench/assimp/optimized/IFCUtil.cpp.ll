@@ -1238,6 +1238,8 @@ for.body30.lr.ph:                                 ; preds = %_ZSt10accumulateIN9
   %add.ptr31.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i19, i64 80
   %add.ptr29.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i19, i64 72
   %add.ptr27.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i19, i64 64
+  %invariant.gep = getelementptr i8, ptr %call5.i.i.i.i2.i.i19, i64 8
+  %invariant.gep144 = getelementptr i8, ptr %call5.i.i.i.i2.i.i19, i64 16
   br label %for.body30
 
 for.body30:                                       ; preds = %for.body30.lr.ph, %for.inc57
@@ -1337,18 +1339,16 @@ for.body37:                                       ; preds = %for.body37.lr.ph, %
   %vofs.0132 = phi i64 [ 0, %for.body37.lr.ph ], [ %inc47, %for.body37 ]
   %add.ptr.i43 = getelementptr %class.aiVector3t, ptr %14, i64 %vofs.0132
   %20 = load double, ptr %add.ptr.i43, align 8
-  %inc = or disjoint i64 %cnt.0133, 1
   %add.ptr.i44 = getelementptr inbounds double, ptr %call5.i.i.i.i2.i.i19, i64 %cnt.0133
   store double %20, ptr %add.ptr.i44, align 8
   %y = getelementptr inbounds i8, ptr %add.ptr.i43, i64 8
   %21 = load double, ptr %y, align 8
-  %inc41 = or disjoint i64 %cnt.0133, 2
-  %add.ptr.i45 = getelementptr inbounds double, ptr %call5.i.i.i.i2.i.i19, i64 %inc
-  store double %21, ptr %add.ptr.i45, align 8
+  %gep = getelementptr double, ptr %invariant.gep, i64 %cnt.0133
+  store double %21, ptr %gep, align 8
   %z = getelementptr inbounds i8, ptr %add.ptr.i43, i64 16
   %22 = load double, ptr %z, align 8
-  %add.ptr.i46 = getelementptr inbounds double, ptr %call5.i.i.i.i2.i.i19, i64 %inc41
-  store double %22, ptr %add.ptr.i46, align 8
+  %gep145 = getelementptr double, ptr %invariant.gep144, i64 %cnt.0133
+  store double %22, ptr %gep145, align 8
   %inc45 = add nuw nsw i64 %cnt.0133, 4
   %inc47 = add nuw nsw i64 %vofs.0132, 1
   %cmp = icmp ult i64 %inc47, %conv36

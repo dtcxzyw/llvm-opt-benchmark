@@ -252,9 +252,8 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %63
   br i1 %65, label %96, label %66
 
 66:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i
-  %.02992.i.i.i.i.i.i.add111 = or disjoint i64 %.02992.i.i.i.i.i.i.idx, 16
-  %.ptr114 = getelementptr inbounds i8, ptr @_ZZ33cmSetSourceFilesPropertiesCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EER17cmExecutionStatusE10prop_names, i64 %.02992.i.i.i.i.i.i.add111
-  %.val32.i.i.i.i.i.i = load i64, ptr %.ptr114, align 16
+  %gep = getelementptr i8, ptr getelementptr (i8, ptr @_ZZ33cmSetSourceFilesPropertiesCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EER17cmExecutionStatusE10prop_names, i64 16), i64 %.02992.i.i.i.i.i.i.idx
+  %.val32.i.i.i.i.i.i = load i64, ptr %gep, align 16
   %67 = getelementptr i8, ptr %.02992.i.i.i.i.i.i.ptr, i64 24
   %.val33.i.i.i.i.i.i = load ptr, ptr %67, align 8
   %68 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0101.0135) #15
@@ -273,9 +272,8 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i47.i.i.i.i.i.i: ; preds = %72
   br i1 %74, label %._crit_edge, label %75
 
 75:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i47.i.i.i.i.i.i, %66
-  %.02992.i.i.i.i.i.i.add110 = or disjoint i64 %.02992.i.i.i.i.i.i.idx, 32
-  %.ptr113 = getelementptr inbounds i8, ptr @_ZZ33cmSetSourceFilesPropertiesCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EER17cmExecutionStatusE10prop_names, i64 %.02992.i.i.i.i.i.i.add110
-  %.val35.i.i.i.i.i.i = load i64, ptr %.ptr113, align 16
+  %gep230 = getelementptr i8, ptr getelementptr (i8, ptr @_ZZ33cmSetSourceFilesPropertiesCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EER17cmExecutionStatusE10prop_names, i64 32), i64 %.02992.i.i.i.i.i.i.idx
+  %.val35.i.i.i.i.i.i = load i64, ptr %gep230, align 16
   %76 = getelementptr i8, ptr %.02992.i.i.i.i.i.i.ptr, i64 40
   %.val36.i.i.i.i.i.i = load ptr, ptr %76, align 8
   %77 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0101.0135) #15
@@ -294,9 +292,8 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i51.i.i.i.i.i.i: ; preds = %81
   br i1 %83, label %._crit_edge, label %84
 
 84:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i51.i.i.i.i.i.i, %75
-  %.02992.i.i.i.i.i.i.add = or disjoint i64 %.02992.i.i.i.i.i.i.idx, 48
-  %.ptr = getelementptr inbounds i8, ptr @_ZZ33cmSetSourceFilesPropertiesCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EER17cmExecutionStatusE10prop_names, i64 %.02992.i.i.i.i.i.i.add
-  %.val38.i.i.i.i.i.i = load i64, ptr %.ptr, align 16
+  %gep231 = getelementptr i8, ptr getelementptr (i8, ptr @_ZZ33cmSetSourceFilesPropertiesCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EER17cmExecutionStatusE10prop_names, i64 48), i64 %.02992.i.i.i.i.i.i.idx
+  %.val38.i.i.i.i.i.i = load i64, ptr %gep231, align 16
   %85 = getelementptr i8, ptr %.02992.i.i.i.i.i.i.ptr, i64 56
   %.val39.i.i.i.i.i.i = load ptr, ptr %85, align 8
   %86 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0101.0135) #15

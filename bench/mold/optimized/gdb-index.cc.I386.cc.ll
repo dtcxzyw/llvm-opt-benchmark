@@ -5962,30 +5962,25 @@ for.cond:                                         ; preds = %for.inc, %entry
   %i.0 = phi i64 [ 0, %entry ], [ %add21, %for.inc ]
   %arrayidx = getelementptr inbounds %"class.mold::LittleEndian", ptr %range, i64 %i.0
   %x.0.copyload.i = load i32, ptr %arrayidx, align 1
-  %.pre = or disjoint i64 %i.0, 1
+  %arrayidx16.phi.trans.insert = getelementptr i8, ptr %arrayidx, i64 4
+  %x.0.copyload.i17.pre = load i32, ptr %arrayidx16.phi.trans.insert, align 1
   switch i32 %x.0.copyload.i, label %if.else [
     i32 0, label %lor.rhs
     i32 -1, label %if.then
   ]
 
 lor.rhs:                                          ; preds = %for.cond
-  %arrayidx1 = getelementptr inbounds %"class.mold::LittleEndian", ptr %range, i64 %.pre
-  %x.0.copyload.i13 = load i32, ptr %arrayidx1, align 1
-  %tobool3.not = icmp eq i32 %x.0.copyload.i13, 0
+  %tobool3.not = icmp eq i32 %x.0.copyload.i17.pre, 0
   br i1 %tobool3.not, label %nrvo.skipdtor, label %if.else
 
 if.then:                                          ; preds = %for.cond
-  %arrayidx8 = getelementptr inbounds %"class.mold::LittleEndian", ptr %range, i64 %.pre
-  %x.0.copyload.i15 = load i32, ptr %arrayidx8, align 1
-  %conv = zext i32 %x.0.copyload.i15 to i64
+  %conv = zext i32 %x.0.copyload.i17.pre to i64
   br label %for.inc
 
 if.else:                                          ; preds = %for.cond, %lor.rhs
   %conv12 = zext i32 %x.0.copyload.i to i64
   %add13 = add i64 %base.addr.0, %conv12
-  %arrayidx16 = getelementptr inbounds %"class.mold::LittleEndian", ptr %range, i64 %.pre
-  %x.0.copyload.i17 = load i32, ptr %arrayidx16, align 1
-  %conv18 = zext i32 %x.0.copyload.i17 to i64
+  %conv18 = zext i32 %x.0.copyload.i17.pre to i64
   %add19 = add i64 %base.addr.0, %conv18
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1

@@ -283,8 +283,7 @@ if.end8:                                          ; preds = %if.then, %for.body
 cleanup:                                          ; preds = %if.end8, %if.then
   %hash.1 = phi i32 [ %add9, %if.end8 ], [ %hash.035, %if.then ]
   %ignoreSeparator.2 = phi i8 [ %ignoreSeparator.1, %if.end8 ], [ %ignoreSeparator.036, %if.then ]
-  %inc = or disjoint i64 %idx.037, 1
-  %arrayidx.i23.1 = getelementptr inbounds i8, ptr %name.coerce0, i64 %inc
+  %arrayidx.i23.1 = getelementptr i8, ptr %arrayidx.i23, i64 1
   %10 = load i8, ptr %arrayidx.i23.1, align 1, !tbaa !15
   switch i8 %10, label %if.end8.1 [
     i8 92, label %if.then.1

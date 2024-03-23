@@ -847,6 +847,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZN8facebook5velox6crypto10MD5Context14DigestToBase16EPKhPc(ptr nocapture noundef readonly %digest, ptr nocapture noundef writeonly %zbuf) local_unnamed_addr #5 align 2 {
 entry:
+  %invariant.gep = getelementptr i8, ptr %zbuf, i64 1
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
@@ -859,16 +860,15 @@ for.body:                                         ; preds = %entry, %for.body
   %idxprom2 = zext nneg i32 %shr to i64
   %arrayidx3 = getelementptr inbounds [17 x i8], ptr @_ZZN8facebook5velox6crypto10MD5Context14DigestToBase16EPKhPcE9HEX_CODES, i64 0, i64 %idxprom2
   %1 = load i8, ptr %arrayidx3, align 1
-  %2 = or disjoint i64 %indvars.iv8, 1
   %arrayidx5 = getelementptr inbounds i8, ptr %zbuf, i64 %indvars.iv8
   store i8 %1, ptr %arrayidx5, align 1
   %and6 = and i32 %conv1, 15
   %idxprom7 = zext nneg i32 %and6 to i64
   %arrayidx8 = getelementptr inbounds [17 x i8], ptr @_ZZN8facebook5velox6crypto10MD5Context14DigestToBase16EPKhPcE9HEX_CODES, i64 0, i64 %idxprom7
-  %3 = load i8, ptr %arrayidx8, align 1
+  %2 = load i8, ptr %arrayidx8, align 1
   %indvars.iv.next9 = add nuw nsw i64 %indvars.iv8, 2
-  %arrayidx11 = getelementptr inbounds i8, ptr %zbuf, i64 %2
-  store i8 %3, ptr %arrayidx11, align 1
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv8
+  store i8 %2, ptr %gep, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
@@ -963,6 +963,7 @@ _ZN8facebook5velox6crypto10MD5Context6FinishEPh.exit: ; preds = %if.then.i, %if.
   store <2 x i32> %1, ptr %arrayidx17.i, align 4
   tail call fastcc void @_ZN8facebook5velox6cryptoL12MD5TransformEPjPKj(ptr noundef nonnull %this, ptr noundef nonnull %in.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %digest, ptr noundef nonnull align 4 dereferenceable(16) %this, i64 16, i1 false)
+  %invariant.gep.i = getelementptr i8, ptr %out_digest, i64 1
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %_ZN8facebook5velox6crypto10MD5Context6FinishEPh.exit
@@ -975,16 +976,15 @@ for.body.i:                                       ; preds = %for.body.i, %_ZN8fa
   %idxprom2.i = zext nneg i32 %shr.i1 to i64
   %arrayidx3.i = getelementptr inbounds [17 x i8], ptr @_ZZN8facebook5velox6crypto10MD5Context14DigestToBase16EPKhPcE9HEX_CODES, i64 0, i64 %idxprom2.i
   %3 = load i8, ptr %arrayidx3.i, align 1
-  %4 = or disjoint i64 %indvars.iv8.i, 1
   %arrayidx5.i = getelementptr inbounds i8, ptr %out_digest, i64 %indvars.iv8.i
   store i8 %3, ptr %arrayidx5.i, align 1
   %and6.i = and i32 %conv1.i, 15
   %idxprom7.i = zext nneg i32 %and6.i to i64
   %arrayidx8.i = getelementptr inbounds [17 x i8], ptr @_ZZN8facebook5velox6crypto10MD5Context14DigestToBase16EPKhPcE9HEX_CODES, i64 0, i64 %idxprom7.i
-  %5 = load i8, ptr %arrayidx8.i, align 1
+  %4 = load i8, ptr %arrayidx8.i, align 1
   %indvars.iv.next9.i = add nuw nsw i64 %indvars.iv8.i, 2
-  %arrayidx11.i = getelementptr inbounds i8, ptr %out_digest, i64 %4
-  store i8 %5, ptr %arrayidx11.i, align 1
+  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv8.i
+  store i8 %4, ptr %gep.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
   br i1 %exitcond.not.i, label %_ZN8facebook5velox6crypto10MD5Context14DigestToBase16EPKhPc.exit, label %for.body.i, !llvm.loop !6
@@ -1219,6 +1219,7 @@ _ZN8facebook5velox6crypto10MD5Context6FinishEPh.exit.i: ; preds = %if.else.i.i, 
   store <2 x i32> %1, ptr %arrayidx17.i.i, align 4
   tail call fastcc void @_ZN8facebook5velox6cryptoL12MD5TransformEPjPKj(ptr noundef nonnull %this, ptr noundef nonnull %in.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %digest.i, ptr noundef nonnull align 4 dereferenceable(16) %this, i64 16, i1 false)
+  %invariant.gep.i.i = getelementptr inbounds i8, ptr %digest, i64 1
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %_ZN8facebook5velox6crypto10MD5Context6FinishEPh.exit.i
@@ -1231,16 +1232,15 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %_ZN8
   %idxprom2.i.i = zext nneg i32 %shr.i1.i to i64
   %arrayidx3.i.i = getelementptr inbounds [17 x i8], ptr @_ZZN8facebook5velox6crypto10MD5Context14DigestToBase16EPKhPcE9HEX_CODES, i64 0, i64 %idxprom2.i.i
   %3 = load i8, ptr %arrayidx3.i.i, align 1
-  %4 = or disjoint i64 %indvars.iv8.i.i, 1
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %digest, i64 %indvars.iv8.i.i
   store i8 %3, ptr %arrayidx5.i.i, align 2
   %and6.i.i = and i32 %conv1.i.i, 15
   %idxprom7.i.i = zext nneg i32 %and6.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [17 x i8], ptr @_ZZN8facebook5velox6crypto10MD5Context14DigestToBase16EPKhPcE9HEX_CODES, i64 0, i64 %idxprom7.i.i
-  %5 = load i8, ptr %arrayidx8.i.i, align 1
+  %4 = load i8, ptr %arrayidx8.i.i, align 1
   %indvars.iv.next9.i.i = add nuw nsw i64 %indvars.iv8.i.i, 2
-  %arrayidx11.i.i = getelementptr inbounds i8, ptr %digest, i64 %4
-  store i8 %5, ptr %arrayidx11.i.i, align 1
+  %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %indvars.iv8.i.i
+  store i8 %4, ptr %gep.i.i, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
   br i1 %exitcond.not.i.i, label %_ZN8facebook5velox6crypto10MD5Context9FinishHexEPc.exit, label %for.body.i.i, !llvm.loop !6
@@ -1256,10 +1256,10 @@ invoke.cont:                                      ; preds = %_ZN8facebook5velox6
   ret void
 
 lpad:                                             ; preds = %_ZN8facebook5velox6crypto10MD5Context9FinishHexEPc.exit
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #19
-  resume { ptr, i32 } %6
+  resume { ptr, i32 } %5
 }
 
 ; Function Attrs: nounwind

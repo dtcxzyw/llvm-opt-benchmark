@@ -5579,6 +5579,7 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPPKvlS1_N9__gnu_cxx5__ops15
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
+  %invariant.gep = getelementptr i8, ptr %__first, i64 8
   %cmp24 = icmp sgt i64 %div, %__holeIndex
   br i1 %cmp24, label %while.body, label %while.end
 
@@ -5587,10 +5588,9 @@ while.body:                                       ; preds = %entry, %_ZN9__gnu_c
   %add = shl i64 %__secondChild.025, 1
   %mul = add i64 %add, 2
   %add.ptr = getelementptr inbounds ptr, ptr %__first, i64 %mul
-  %sub1 = or disjoint i64 %add, 1
-  %add.ptr2 = getelementptr inbounds ptr, ptr %__first, i64 %sub1
+  %gep = getelementptr ptr, ptr %invariant.gep, i64 %add
   %0 = load ptr, ptr %add.ptr, align 8
-  %1 = load ptr, ptr %add.ptr2, align 8
+  %1 = load ptr, ptr %gep, align 8
   %call.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf8internal20MapSorterPtrLessThanINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclIPPKvSH_EEbT_T0_.exit unwind label %terminate.lpad.i.i.i
 
@@ -5603,7 +5603,8 @@ terminate.lpad.i.i.i:                             ; preds = %while.body
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf8internal20MapSorterPtrLessThanINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclIPPKvSH_EEbT_T0_.exit: ; preds = %while.body
   %cmp.i.i.i = icmp slt i32 %call.i.i.i, 0
-  %spec.select = select i1 %cmp.i.i.i, i64 %sub1, i64 %mul
+  %dec = or disjoint i64 %add, 1
+  %spec.select = select i1 %cmp.i.i.i, i64 %dec, i64 %mul
   %add.ptr3 = getelementptr inbounds ptr, ptr %__first, i64 %spec.select
   %4 = load ptr, ptr %add.ptr3, align 8
   %add.ptr4 = getelementptr inbounds ptr, ptr %__first, i64 %__secondChild.025

@@ -575,11 +575,17 @@ _ZNKSt8_Rb_treeIN5vcpkg13StringLiteralES1_St9_IdentityIS1_ESt4lessIvESaIS1_EE14_
   %130 = getelementptr inbounds i8, ptr %9, i64 8
   %131 = load i64, ptr %130, align 8, !noalias !5
   %132 = icmp eq i64 %131, 128
-  br i1 %132, label %.lr.ph.i.i.i.i.i.i.i, label %_ZN5vcpkgL9is_sha512ENS_10StringViewE.exit.thread.i
+  br i1 %132, label %.lr.ph.i.i.i.i.preheader.i.i.i, label %_ZN5vcpkgL9is_sha512ENS_10StringViewE.exit.thread.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %128, %_ZN5vcpkg10ParserBase12is_hex_digitEDi.exit9.thread.i.i.i
-  %.047.i.i.i.i.i.i.i = phi i64 [ %149, %_ZN5vcpkg10ParserBase12is_hex_digitEDi.exit9.thread.i.i.i ], [ 32, %128 ]
-  %.02946.i.i.i.i.i.idx.i.i = phi i64 [ %.02946.i.i.i.i.i.add17.i.i, %_ZN5vcpkg10ParserBase12is_hex_digitEDi.exit9.thread.i.i.i ], [ 0, %128 ]
+.lr.ph.i.i.i.i.preheader.i.i.i:                   ; preds = %128
+  %invariant.gep.i.i = getelementptr i8, ptr %129, i64 1
+  %invariant.gep23.i.i = getelementptr i8, ptr %129, i64 2
+  %invariant.gep25.i.i = getelementptr i8, ptr %129, i64 3
+  br label %.lr.ph.i.i.i.i.i.i.i
+
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN5vcpkg10ParserBase12is_hex_digitEDi.exit9.thread.i.i.i, %.lr.ph.i.i.i.i.preheader.i.i.i
+  %.047.i.i.i.i.i.i.i = phi i64 [ %149, %_ZN5vcpkg10ParserBase12is_hex_digitEDi.exit9.thread.i.i.i ], [ 32, %.lr.ph.i.i.i.i.preheader.i.i.i ]
+  %.02946.i.i.i.i.i.idx.i.i = phi i64 [ %.02946.i.i.i.i.i.add17.i.i, %_ZN5vcpkg10ParserBase12is_hex_digitEDi.exit9.thread.i.i.i ], [ 0, %.lr.ph.i.i.i.i.preheader.i.i.i ]
   %.02946.i.i.i.i.i.ptr.i.i = getelementptr inbounds i8, ptr %129, i64 %.02946.i.i.i.i.i.idx.i.i
   %133 = load i8, ptr %.02946.i.i.i.i.i.ptr.i.i, align 1
   %.fr.i.i.i = freeze i8 %133
@@ -605,9 +611,8 @@ switch.early.test.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i.i.
   ]
 
 _ZN5vcpkg10ParserBase12is_hex_digitEDi.exit18.thread.i.i.i: ; preds = %switch.early.test.i.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %.lr.ph.i.i.i.i.i.i.i
-  %.02946.i.i.i.i.i.add.i.i = or disjoint i64 %.02946.i.i.i.i.i.idx.i.i, 1
-  %.ptr.i.i = getelementptr inbounds i8, ptr %129, i64 %.02946.i.i.i.i.i.add.i.i
-  %137 = load i8, ptr %.ptr.i.i, align 1
+  %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %.02946.i.i.i.i.i.idx.i.i
+  %137 = load i8, ptr %gep.i.i, align 1
   %.fr42.i.i.i = freeze i8 %137
   %138 = sext i8 %.fr42.i.i.i to i32
   %139 = add nsw i32 %138, -48
@@ -631,9 +636,8 @@ switch.early.test33.i.i.i:                        ; preds = %_ZN5vcpkg10ParserBa
   ]
 
 _ZN5vcpkg10ParserBase12is_hex_digitEDi.exit15.thread.i.i.i: ; preds = %switch.early.test33.i.i.i, %switch.early.test33.i.i.i, %switch.early.test33.i.i.i, %switch.early.test33.i.i.i, %switch.early.test33.i.i.i, %switch.early.test33.i.i.i, %switch.early.test33.i.i.i, %switch.early.test33.i.i.i, %switch.early.test33.i.i.i, %switch.early.test33.i.i.i, %switch.early.test33.i.i.i, %switch.early.test33.i.i.i, %_ZN5vcpkg10ParserBase12is_hex_digitEDi.exit18.thread.i.i.i
-  %.02946.i.i.i.i.i.add15.i.i = or disjoint i64 %.02946.i.i.i.i.i.idx.i.i, 2
-  %.ptr18.i.i = getelementptr inbounds i8, ptr %129, i64 %.02946.i.i.i.i.i.add15.i.i
-  %141 = load i8, ptr %.ptr18.i.i, align 1
+  %gep24.i.i = getelementptr i8, ptr %invariant.gep23.i.i, i64 %.02946.i.i.i.i.i.idx.i.i
+  %141 = load i8, ptr %gep24.i.i, align 1
   %.fr45.i.i.i = freeze i8 %141
   %142 = sext i8 %.fr45.i.i.i to i32
   %143 = add nsw i32 %142, -48
@@ -657,9 +661,8 @@ switch.early.test34.i.i.i:                        ; preds = %_ZN5vcpkg10ParserBa
   ]
 
 _ZN5vcpkg10ParserBase12is_hex_digitEDi.exit12.thread.i.i.i: ; preds = %switch.early.test34.i.i.i, %switch.early.test34.i.i.i, %switch.early.test34.i.i.i, %switch.early.test34.i.i.i, %switch.early.test34.i.i.i, %switch.early.test34.i.i.i, %switch.early.test34.i.i.i, %switch.early.test34.i.i.i, %switch.early.test34.i.i.i, %switch.early.test34.i.i.i, %switch.early.test34.i.i.i, %switch.early.test34.i.i.i, %_ZN5vcpkg10ParserBase12is_hex_digitEDi.exit15.thread.i.i.i
-  %.02946.i.i.i.i.i.add16.i.i = or disjoint i64 %.02946.i.i.i.i.i.idx.i.i, 3
-  %.ptr19.i.i = getelementptr inbounds i8, ptr %129, i64 %.02946.i.i.i.i.i.add16.i.i
-  %145 = load i8, ptr %.ptr19.i.i, align 1
+  %gep26.i.i = getelementptr i8, ptr %invariant.gep25.i.i, i64 %.02946.i.i.i.i.i.idx.i.i
+  %145 = load i8, ptr %gep26.i.i, align 1
   %.fr48.i.i.i = freeze i8 %145
   %146 = sext i8 %.fr48.i.i.i to i32
   %147 = add nsw i32 %146, -48

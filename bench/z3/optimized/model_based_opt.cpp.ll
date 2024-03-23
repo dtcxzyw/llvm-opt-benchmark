@@ -14166,7 +14166,7 @@ invoke.cont12:                                    ; preds = %_ZNK6vectorIN3opt15
   %9 = load i32, ptr %arrayidx.i.i, align 4
   %10 = zext i32 %9 to i64
   %add.ptr.i.idx = mul nuw nsw i64 %10, 40
-  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %8, i64 %add.ptr.i.idx
+  %add.ptr.i = getelementptr inbounds i8, ptr %8, i64 %add.ptr.i.idx
   %cmp.not.i.i = icmp eq i32 %9, 0
   br i1 %cmp.not.i.i, label %invoke.cont14, label %if.then.i.i
 
@@ -14174,7 +14174,7 @@ if.then.i.i:                                      ; preds = %invoke.cont12
   %11 = call i64 @llvm.ctlz.i64(i64 %10, i1 true), !range !74
   %sub.i.i.i = shl nuw nsw i64 %11, 1
   %mul.i.i = xor i64 %sub.i.i.i, 126
-  invoke void @_ZSt16__introsort_loopIPN3opt15model_based_opt3varElN9__gnu_cxx5__ops15_Iter_comp_iterINS2_7compareEEEEvT_S9_T0_T1_(ptr noundef nonnull %8, ptr noundef nonnull %add.ptr.i.ptr, i64 noundef %mul.i.i)
+  invoke void @_ZSt16__introsort_loopIPN3opt15model_based_opt3varElN9__gnu_cxx5__ops15_Iter_comp_iterINS2_7compareEEEEvT_S9_T0_T1_(ptr noundef nonnull %8, ptr noundef nonnull %add.ptr.i, i64 noundef %mul.i.i)
           to label %.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc:                                           ; preds = %if.then.i.i
@@ -14193,11 +14193,11 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i, %.no
 
 .noexc30:                                         ; preds = %for.body.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__i.04.i.i.i.i, i64 40
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.ptr
+  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i
   br i1 %cmp.not.i.i.i.i, label %invoke.cont14, label %for.body.i.i.i.i, !llvm.loop !75
 
 if.else.i.i.i:                                    ; preds = %.noexc
-  invoke void @_ZSt16__insertion_sortIPN3opt15model_based_opt3varEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_7compareEEEEvT_S9_T0_(ptr noundef nonnull %8, ptr noundef nonnull %add.ptr.i.ptr)
+  invoke void @_ZSt16__insertion_sortIPN3opt15model_based_opt3varEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_7compareEEEEvT_S9_T0_(ptr noundef nonnull %8, ptr noundef nonnull %add.ptr.i)
           to label %invoke.cont14 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont14:                                    ; preds = %.noexc30, %_ZNK6vectorIN3opt15model_based_opt3varELb1EjE5emptyEv.exit, %invoke.cont12, %if.else.i.i.i
@@ -25259,7 +25259,7 @@ invoke.cont62:                                    ; preds = %_ZN8rationalD2Ev.ex
   %67 = load i32, ptr %arrayidx.i.i138, align 4
   %68 = zext i32 %67 to i64
   %add.ptr.i139.idx = mul nuw nsw i64 %68, 40
-  %add.ptr.i139.ptr = getelementptr inbounds i8, ptr %66, i64 %add.ptr.i139.idx
+  %add.ptr.i139 = getelementptr inbounds i8, ptr %66, i64 %add.ptr.i139.idx
   %cmp.not.i.i = icmp eq i32 %67, 0
   br i1 %cmp.not.i.i, label %invoke.cont64, label %if.then.i.i
 
@@ -25267,7 +25267,7 @@ if.then.i.i:                                      ; preds = %invoke.cont62
   %69 = call i64 @llvm.ctlz.i64(i64 %68, i1 true), !range !74
   %sub.i.i.i = shl nuw nsw i64 %69, 1
   %mul.i.i = xor i64 %sub.i.i.i, 126
-  invoke void @_ZSt16__introsort_loopIPN3opt15model_based_opt3varElN9__gnu_cxx5__ops15_Iter_comp_iterINS2_7compareEEEEvT_S9_T0_T1_(ptr noundef nonnull %66, ptr noundef nonnull %add.ptr.i139.ptr, i64 noundef %mul.i.i)
+  invoke void @_ZSt16__introsort_loopIPN3opt15model_based_opt3varElN9__gnu_cxx5__ops15_Iter_comp_iterINS2_7compareEEEEvT_S9_T0_T1_(ptr noundef nonnull %66, ptr noundef nonnull %add.ptr.i139, i64 noundef %mul.i.i)
           to label %.noexc140 unwind label %lpad.loopexit.split-lp
 
 .noexc140:                                        ; preds = %if.then.i.i
@@ -25286,11 +25286,11 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i, %.no
 
 .noexc142:                                        ; preds = %for.body.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__i.04.i.i.i.i, i64 40
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i139.ptr
+  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i139
   br i1 %cmp.not.i.i.i.i, label %invoke.cont64, label %for.body.i.i.i.i, !llvm.loop !75
 
 if.else.i.i.i:                                    ; preds = %.noexc140
-  invoke void @_ZSt16__insertion_sortIPN3opt15model_based_opt3varEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_7compareEEEEvT_S9_T0_(ptr noundef nonnull %66, ptr noundef nonnull %add.ptr.i139.ptr)
+  invoke void @_ZSt16__insertion_sortIPN3opt15model_based_opt3varEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_7compareEEEEvT_S9_T0_(ptr noundef nonnull %66, ptr noundef nonnull %add.ptr.i139)
           to label %invoke.cont64 unwind label %lpad.loopexit.split-lp
 
 invoke.cont64:                                    ; preds = %.noexc142, %_ZN8rationalD2Ev.exit137, %invoke.cont62, %if.else.i.i.i
@@ -26289,11 +26289,11 @@ invoke.cont29:                                    ; preds = %_ZNK6vectorIN3opt15
 if.then.i.i:                                      ; preds = %invoke.cont29
   %38 = zext i32 %34 to i64
   %add.ptr.i40.idx = mul nuw nsw i64 %38, 40
-  %add.ptr.i40.ptr = getelementptr inbounds i8, ptr %33, i64 %add.ptr.i40.idx
+  %add.ptr.i40 = getelementptr inbounds i8, ptr %33, i64 %add.ptr.i40.idx
   %39 = call i64 @llvm.ctlz.i64(i64 %38, i1 true), !range !74
   %sub.i.i.i = shl nuw nsw i64 %39, 1
   %mul.i.i = xor i64 %sub.i.i.i, 126
-  invoke void @_ZSt16__introsort_loopIPN3opt15model_based_opt3varElN9__gnu_cxx5__ops15_Iter_comp_iterINS2_7compareEEEEvT_S9_T0_T1_(ptr noundef nonnull %33, ptr noundef nonnull %add.ptr.i40.ptr, i64 noundef %mul.i.i)
+  invoke void @_ZSt16__introsort_loopIPN3opt15model_based_opt3varElN9__gnu_cxx5__ops15_Iter_comp_iterINS2_7compareEEEEvT_S9_T0_T1_(ptr noundef nonnull %33, ptr noundef nonnull %add.ptr.i40, i64 noundef %mul.i.i)
           to label %.noexc41 unwind label %lpad.loopexit.split-lp
 
 .noexc41:                                         ; preds = %if.then.i.i
@@ -26312,11 +26312,11 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i, %.no
 
 .noexc43:                                         ; preds = %for.body.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__i.04.i.i.i.i, i64 40
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i40.ptr
+  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i40
   br i1 %cmp.not.i.i.i.i, label %if.end39, label %for.body.i.i.i.i, !llvm.loop !75
 
 if.else.i.i.i:                                    ; preds = %.noexc41
-  invoke void @_ZSt16__insertion_sortIPN3opt15model_based_opt3varEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_7compareEEEEvT_S9_T0_(ptr noundef nonnull %33, ptr noundef nonnull %add.ptr.i40.ptr)
+  invoke void @_ZSt16__insertion_sortIPN3opt15model_based_opt3varEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_7compareEEEEvT_S9_T0_(ptr noundef nonnull %33, ptr noundef nonnull %add.ptr.i40)
           to label %if.end39 unwind label %lpad.loopexit.split-lp
 
 lpad8:                                            ; preds = %if.else.i.i7.i.i.i, %if.else.i.i.i.i.i
@@ -29113,6 +29113,7 @@ entry:
   %agg.tmp = alloca %"struct.opt::model_based_opt::var", align 8
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
+  %invariant.gep = getelementptr i8, ptr %__first, i64 40
   %cmp75 = icmp sgt i64 %div, %__holeIndex
   br i1 %cmp75, label %while.body, label %while.end
 
@@ -29121,10 +29122,10 @@ while.body:                                       ; preds = %entry, %while.body
   %add = shl i64 %__holeIndex.addr.076, 1
   %mul = add i64 %add, 2
   %add.ptr = getelementptr inbounds %"struct.opt::model_based_opt::var", ptr %__first, i64 %mul
-  %sub1 = or disjoint i64 %add, 1
-  %add.ptr2 = getelementptr inbounds %"struct.opt::model_based_opt::var", ptr %__first, i64 %sub1
-  %call = call noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt15model_based_opt3var7compareEEclIPS4_S8_EEbT_T0_(ptr noundef nonnull align 1 dereferenceable(1) %__comp, ptr noundef %add.ptr, ptr noundef nonnull %add.ptr2)
-  %spec.select = select i1 %call, i64 %sub1, i64 %mul
+  %gep = getelementptr %"struct.opt::model_based_opt::var", ptr %invariant.gep, i64 %add
+  %call = call noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt15model_based_opt3var7compareEEclIPS4_S8_EEbT_T0_(ptr noundef nonnull align 1 dereferenceable(1) %__comp, ptr noundef %add.ptr, ptr noundef %gep)
+  %dec = or disjoint i64 %add, 1
+  %spec.select = select i1 %call, i64 %dec, i64 %mul
   %add.ptr3 = getelementptr inbounds %"struct.opt::model_based_opt::var", ptr %__first, i64 %spec.select
   %add.ptr4 = getelementptr inbounds %"struct.opt::model_based_opt::var", ptr %__first, i64 %__holeIndex.addr.076
   %0 = load i32, ptr %add.ptr3, align 8

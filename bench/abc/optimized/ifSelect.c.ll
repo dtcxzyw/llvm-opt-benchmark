@@ -2104,9 +2104,9 @@ define i32 @If_ManCheckShape(ptr nocapture noundef readonly %0, ptr nocapture no
 
 12:                                               ; preds = %.lr.ph63, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph63 ], [ %indvars.iv.next, %12 ]
-  %13 = or disjoint i64 %indvars.iv, 1
   %.val54 = load ptr, ptr %7, align 8
-  %14 = getelementptr inbounds i32, ptr %.val54, i64 %13
+  %13 = getelementptr i32, ptr %.val54, i64 %indvars.iv
+  %14 = getelementptr i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
   %.val50 = load ptr, ptr %8, align 8
   %16 = getelementptr i8, ptr %.val50, i64 8
@@ -2185,9 +2185,9 @@ define i32 @If_ManCheckShape(ptr nocapture noundef readonly %0, ptr nocapture no
 
 52:                                               ; preds = %.lr.ph70, %52
   %indvars.iv78 = phi i64 [ 0, %.lr.ph70 ], [ %indvars.iv.next79, %52 ]
-  %53 = or disjoint i64 %indvars.iv78, 1
   %.val56 = load ptr, ptr %50, align 8
-  %54 = getelementptr inbounds i32, ptr %.val56, i64 %53
+  %53 = getelementptr i32, ptr %.val56, i64 %indvars.iv78
+  %54 = getelementptr i8, ptr %53, i64 4
   %55 = load i32, ptr %54, align 4
   %.val = load ptr, ptr %51, align 8
   %56 = getelementptr i8, ptr %.val, i64 8

@@ -1139,33 +1139,30 @@ for.body.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.body.preheader, %if.end22
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %if.end22 ]
   %cellnum.018 = phi i32 [ 0, %for.body.preheader ], [ %inc25, %if.end22 ]
-  %sext = shl i64 %indvars.iv, 33
-  %idxprom = ashr exact i64 %sext, 32
+  %indvars.iv.tr = trunc i64 %indvars.iv to i32
+  %0 = shl i32 %indvars.iv.tr, 1
+  %idxprom = sext i32 %0 to i64
   %arrayidx = getelementptr i64, ptr %values, i64 %idxprom
-  %0 = load i64, ptr %arrayidx, align 8
-  %conv3 = trunc i64 %0 to i32
-  %1 = add i32 %conv3, -3
-  %or.cond = icmp ult i32 %1, -2
+  %1 = load i64, ptr %arrayidx, align 8
+  %conv3 = trunc i64 %1 to i32
+  %2 = add i32 %conv3, -3
+  %or.cond = icmp ult i32 %2, -2
   br i1 %or.cond, label %out, label %if.end
 
 if.end:                                           ; preds = %for.body
-  %indvars.iv.tr = trunc i64 %indvars.iv to i32
-  %2 = shl i32 %indvars.iv.tr, 1
-  %3 = or disjoint i32 %2, 1
-  %idxprom9 = sext i32 %3 to i64
-  %arrayidx10 = getelementptr i64, ptr %values, i64 %idxprom9
-  %4 = load i64, ptr %arrayidx10, align 8
-  %shr = lshr i64 %4, 32
+  %arrayidx10 = getelementptr i8, ptr %arrayidx, i64 8
+  %3 = load i64, ptr %arrayidx10, align 8
+  %shr = lshr i64 %3, 32
   %conv11 = trunc i64 %shr to i32
   %cmp13 = icmp ugt i32 %conv3, 1
   br i1 %cmp13, label %if.then15, label %if.else
 
 if.then15:                                        ; preds = %if.end
-  %5 = tail call noundef i32 @llvm.bswap.i32(i32 %conv11)
+  %4 = tail call noundef i32 @llvm.bswap.i32(i32 %conv11)
   %inc = add i32 %cellnum.018, 1
   %idxprom16 = sext i32 %cellnum.018 to i64
   %arrayidx17 = getelementptr i32, ptr %call, i64 %idxprom16
-  store i32 %5, ptr %arrayidx17, align 4
+  store i32 %4, ptr %arrayidx17, align 4
   br label %if.end22
 
 if.else:                                          ; preds = %if.end
@@ -1174,22 +1171,22 @@ if.else:                                          ; preds = %if.end
 
 if.end22:                                         ; preds = %if.else, %if.then15
   %cellnum.1 = phi i32 [ %inc, %if.then15 ], [ %cellnum.018, %if.else ]
-  %conv23 = trunc i64 %4 to i32
-  %6 = tail call noundef i32 @llvm.bswap.i32(i32 %conv23)
+  %conv23 = trunc i64 %3 to i32
+  %5 = tail call noundef i32 @llvm.bswap.i32(i32 %conv23)
   %inc25 = add i32 %cellnum.1, 1
   %idxprom26 = sext i32 %cellnum.1 to i64
   %arrayidx27 = getelementptr i32, ptr %call, i64 %idxprom26
-  store i32 %6, ptr %arrayidx27, align 4
+  store i32 %5, ptr %arrayidx27, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !21
 
 for.end.loopexit:                                 ; preds = %if.end22
-  %7 = shl i32 %inc25, 2
+  %6 = shl i32 %inc25, 2
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %entry
-  %cellnum.0.lcssa = phi i32 [ 0, %entry ], [ %7, %for.end.loopexit ]
+  %cellnum.0.lcssa = phi i32 [ 0, %entry ], [ %6, %for.end.loopexit ]
   %call32 = tail call i32 @qemu_fdt_setprop(ptr noundef %fdt, ptr noundef %node_path, ptr noundef %property, ptr noundef %call, i32 noundef %cellnum.0.lcssa), !range !7
   br label %out
 

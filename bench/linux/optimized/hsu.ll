@@ -281,21 +281,21 @@ define internal fastcc void @hsu_dma_start_channel(ptr nocapture noundef readonl
   %40 = phi i64 [ 0, %34 ], [ %61, %39 ]
   %41 = phi i32 [ 8421376, %34 ], [ %58, %39 ]
   %42 = shl nuw nsw i64 %40, 3
-  %43 = or disjoint i64 %42, 32
-  %44 = load ptr, ptr %36, align 8
-  %45 = getelementptr %struct.hsu_dma_sg, ptr %44, i64 %40
-  %46 = load i64, ptr %45, align 8
-  %47 = trunc i64 %46 to i32
-  %48 = load ptr, ptr %19, align 8
-  %49 = getelementptr i8, ptr %48, i64 %43
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %47, ptr elementtype(i32) %49) #11, !srcloc !11
-  %50 = or disjoint i64 %42, 36
-  %51 = load ptr, ptr %36, align 8
-  %52 = getelementptr %struct.hsu_dma_sg, ptr %51, i64 %40, i32 1
-  %53 = load i32, ptr %52, align 8
-  %54 = load ptr, ptr %19, align 8
-  %55 = getelementptr i8, ptr %54, i64 %50
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %53, ptr elementtype(i32) %55) #11, !srcloc !11
+  %43 = load ptr, ptr %36, align 8
+  %44 = getelementptr %struct.hsu_dma_sg, ptr %43, i64 %40
+  %45 = load i64, ptr %44, align 8
+  %46 = trunc i64 %45 to i32
+  %47 = load ptr, ptr %19, align 8
+  %48 = getelementptr i8, ptr %47, i64 %42
+  %49 = getelementptr i8, ptr %48, i64 32
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %46, ptr elementtype(i32) %49) #11, !srcloc !11
+  %50 = load ptr, ptr %36, align 8
+  %51 = getelementptr %struct.hsu_dma_sg, ptr %50, i64 %40, i32 1
+  %52 = load i32, ptr %51, align 8
+  %53 = load ptr, ptr %19, align 8
+  %54 = getelementptr i8, ptr %53, i64 %42
+  %55 = getelementptr i8, ptr %54, i64 36
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %52, ptr elementtype(i32) %55) #11, !srcloc !11
   %56 = shl i64 16777217, %40
   %57 = trunc i64 %56 to i32
   %58 = or i32 %41, %57

@@ -9952,19 +9952,19 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
 
 .lr.ph:                                           ; preds = %3186, %.lr.ph
   %.sroa.02244.02363 = phi ptr [ %.sroa.02244.0, %.lr.ph ], [ %.sroa.02244.02360, %3186 ]
-  %.016292362 = phi i64 [ %3198, %.lr.ph ], [ 0, %3186 ]
+  %.016292362 = phi i64 [ %3197, %.lr.ph ], [ 0, %3186 ]
   %3191 = getelementptr inbounds i8, ptr %.sroa.02244.02363, i64 8
   %3192 = load i64, ptr %3191, align 8
-  %3193 = or disjoint i64 %.016292362, 1
-  %3194 = load ptr, ptr %129, align 8
-  %3195 = getelementptr inbounds i64, ptr %3194, i64 %.016292362
-  store i64 %3192, ptr %3195, align 8
-  %3196 = getelementptr inbounds i8, ptr %.sroa.02244.02363, i64 16
-  %3197 = load i64, ptr %3196, align 8
-  %3198 = add nuw nsw i64 %.016292362, 2
-  %3199 = load ptr, ptr %129, align 8
-  %3200 = getelementptr inbounds i64, ptr %3199, i64 %3193
-  store i64 %3197, ptr %3200, align 8
+  %3193 = load ptr, ptr %129, align 8
+  %3194 = getelementptr inbounds i64, ptr %3193, i64 %.016292362
+  store i64 %3192, ptr %3194, align 8
+  %3195 = getelementptr inbounds i8, ptr %.sroa.02244.02363, i64 16
+  %3196 = load i64, ptr %3195, align 8
+  %3197 = add nuw nsw i64 %.016292362, 2
+  %3198 = load ptr, ptr %129, align 8
+  %3199 = getelementptr i64, ptr %3198, i64 %.016292362
+  %3200 = getelementptr i8, ptr %3199, i64 8
+  store i64 %3196, ptr %3200, align 8
   %.sroa.02244.0 = load ptr, ptr %.sroa.02244.02363, align 8
   %.not2359 = icmp eq ptr %.sroa.02244.0, null
   br i1 %.not2359, label %._crit_edge, label %.lr.ph, !llvm.loop !10

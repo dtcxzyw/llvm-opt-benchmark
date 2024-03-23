@@ -28020,7 +28020,7 @@ if.then229:                                       ; preds = %if.then227
   %215 = load i32, ptr %m_pos.i.i325, align 8
   %idx.ext.i739 = zext i32 %215 to i64
   %add.ptr.i740.idx = shl nuw nsw i64 %idx.ext.i739, 3
-  %add.ptr.i740.ptr = getelementptr inbounds i8, ptr %214, i64 %add.ptr.i740.idx
+  %add.ptr.i740 = getelementptr inbounds i8, ptr %214, i64 %add.ptr.i740.idx
   %cmp.not.i.i741 = icmp eq i32 %215, 1
   br i1 %cmp.not.i.i741, label %if.then250, label %if.then.i.i742
 
@@ -28030,11 +28030,11 @@ if.then.i.i742:                                   ; preds = %if.then229
   %216 = call i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i.i, i1 true), !range !104
   %sub.i.i.i743 = shl nuw nsw i64 %216, 1
   %mul.i.i744 = xor i64 %sub.i.i.i743, 126
-  invoke void @_ZSt16__introsort_loopIPP4exprlN9__gnu_cxx5__ops15_Iter_comp_iterIN13poly_rewriterI19arith_rewriter_coreE6mon_ltEEEEvT_SB_T0_T1_(ptr noundef nonnull %add.ptr, ptr noundef %add.ptr.i740.ptr, i64 noundef %mul.i.i744, ptr nonnull %this)
+  invoke void @_ZSt16__introsort_loopIPP4exprlN9__gnu_cxx5__ops15_Iter_comp_iterIN13poly_rewriterI19arith_rewriter_coreE6mon_ltEEEEvT_SB_T0_T1_(ptr noundef nonnull %add.ptr, ptr noundef %add.ptr.i740, i64 noundef %mul.i.i744, ptr nonnull %this)
           to label %.noexc745 unwind label %lpad181.loopexit.split-lp
 
 .noexc745:                                        ; preds = %if.then.i.i742
-  invoke void @_ZSt22__final_insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIN13poly_rewriterI19arith_rewriter_coreE6mon_ltEEEEvT_SB_T0_(ptr noundef nonnull %add.ptr, ptr noundef %add.ptr.i740.ptr, ptr nonnull %this)
+  invoke void @_ZSt22__final_insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIN13poly_rewriterI19arith_rewriter_coreE6mon_ltEEEEvT_SB_T0_(ptr noundef nonnull %add.ptr, ptr noundef %add.ptr.i740, ptr nonnull %this)
           to label %if.then250 unwind label %lpad181.loopexit.split-lp
 
 if.else236:                                       ; preds = %for.end225
@@ -43569,7 +43569,7 @@ invoke.cont143:                                   ; preds = %invoke.cont126
   %139 = load i32, ptr %m_pos.i.i.i.i, align 8
   %idx.ext145 = zext i32 %139 to i64
   %add.ptr146.idx = shl nuw nsw i64 %idx.ext145, 3
-  %add.ptr146.ptr = getelementptr inbounds i8, ptr %136, i64 %add.ptr146.idx
+  %add.ptr146 = getelementptr inbounds i8, ptr %136, i64 %add.ptr146.idx
   %cmp.not.i.i415 = icmp eq i32 %139, 1
   br i1 %cmp.not.i.i415, label %invoke.cont155, label %if.then.i.i416
 
@@ -43579,11 +43579,11 @@ if.then.i.i416:                                   ; preds = %invoke.cont143
   %140 = call i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i.i420, i1 true), !range !104
   %sub.i.i.i421 = shl nuw nsw i64 %140, 1
   %mul.i.i422 = xor i64 %sub.i.i.i421, 126
-  invoke void @_ZSt16__introsort_loopIPP4exprlN9__gnu_cxx5__ops15_Iter_comp_iterIN13poly_rewriterI19arith_rewriter_coreE6mon_ltEEEEvT_SB_T0_T1_(ptr noundef nonnull %add.ptr140, ptr noundef %add.ptr146.ptr, i64 noundef %mul.i.i422, ptr nonnull %this)
+  invoke void @_ZSt16__introsort_loopIPP4exprlN9__gnu_cxx5__ops15_Iter_comp_iterIN13poly_rewriterI19arith_rewriter_coreE6mon_ltEEEEvT_SB_T0_T1_(ptr noundef nonnull %add.ptr140, ptr noundef %add.ptr146, i64 noundef %mul.i.i422, ptr nonnull %this)
           to label %.noexc423 unwind label %lpad70.loopexit.split-lp
 
 .noexc423:                                        ; preds = %if.then.i.i416
-  invoke void @_ZSt22__final_insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIN13poly_rewriterI19arith_rewriter_coreE6mon_ltEEEEvT_SB_T0_(ptr noundef nonnull %add.ptr140, ptr noundef %add.ptr146.ptr, ptr nonnull %this)
+  invoke void @_ZSt22__final_insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIN13poly_rewriterI19arith_rewriter_coreE6mon_ltEEEEvT_SB_T0_(ptr noundef nonnull %add.ptr140, ptr noundef %add.ptr146, ptr nonnull %this)
           to label %invoke.cont155 unwind label %lpad70.loopexit.split-lp
 
 invoke.cont155:                                   ; preds = %invoke.cont143, %.noexc423, %invoke.cont133, %.noexc410, %for.end122
@@ -44094,7 +44094,7 @@ invoke.cont239:                                   ; preds = %invoke.cont219
   %add.ptr236 = getelementptr inbounds i8, ptr %209, i64 8
   %idx.ext241 = zext i32 %207 to i64
   %add.ptr242.idx = shl nuw nsw i64 %idx.ext241, 3
-  %add.ptr242.ptr = getelementptr inbounds i8, ptr %209, i64 %add.ptr242.idx
+  %add.ptr242 = getelementptr inbounds i8, ptr %209, i64 %add.ptr242.idx
   %agg.tmp243.sroa.0.0.copyload = load ptr, ptr %lt, align 8
   %cmp.not.i.i594 = icmp eq i32 %207, 1
   br i1 %cmp.not.i.i594, label %invoke.cont250, label %if.then.i.i595
@@ -44105,11 +44105,11 @@ if.then.i.i595:                                   ; preds = %invoke.cont239
   %211 = call i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i.i599, i1 true), !range !104
   %sub.i.i.i600 = shl nuw nsw i64 %211, 1
   %mul.i.i601 = xor i64 %sub.i.i.i600, 126
-  invoke void @_ZSt16__introsort_loopIPP4exprlN9__gnu_cxx5__ops15_Iter_comp_iterIN13poly_rewriterI19arith_rewriter_coreE6mon_ltEEEEvT_SB_T0_T1_(ptr noundef nonnull %add.ptr236, ptr noundef %add.ptr242.ptr, i64 noundef %mul.i.i601, ptr %agg.tmp243.sroa.0.0.copyload)
+  invoke void @_ZSt16__introsort_loopIPP4exprlN9__gnu_cxx5__ops15_Iter_comp_iterIN13poly_rewriterI19arith_rewriter_coreE6mon_ltEEEEvT_SB_T0_T1_(ptr noundef nonnull %add.ptr236, ptr noundef %add.ptr242, i64 noundef %mul.i.i601, ptr %agg.tmp243.sroa.0.0.copyload)
           to label %.noexc602 unwind label %lpad194.loopexit.split-lp
 
 .noexc602:                                        ; preds = %if.then.i.i595
-  invoke void @_ZSt22__final_insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIN13poly_rewriterI19arith_rewriter_coreE6mon_ltEEEEvT_SB_T0_(ptr noundef nonnull %add.ptr236, ptr noundef %add.ptr242.ptr, ptr %agg.tmp243.sroa.0.0.copyload)
+  invoke void @_ZSt22__final_insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIN13poly_rewriterI19arith_rewriter_coreE6mon_ltEEEEvT_SB_T0_(ptr noundef nonnull %add.ptr236, ptr noundef %add.ptr242, ptr %agg.tmp243.sroa.0.0.copyload)
           to label %invoke.cont250 unwind label %lpad194.loopexit.split-lp
 
 invoke.cont250:                                   ; preds = %invoke.cont239, %.noexc602, %invoke.cont226, %.noexc588, %for.end216
@@ -51661,6 +51661,7 @@ entry:
   store ptr %__comp.coerce, ptr %__comp, align 8
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
+  %invariant.gep = getelementptr i8, ptr %__first, i64 8
   %cmp23 = icmp sgt i64 %div, %__holeIndex
   br i1 %cmp23, label %while.body, label %while.end
 
@@ -51669,10 +51670,9 @@ while.body:                                       ; preds = %entry, %_ZN9__gnu_c
   %add = shl i64 %__secondChild.024, 1
   %mul = add i64 %add, 2
   %add.ptr = getelementptr inbounds ptr, ptr %__first, i64 %mul
-  %sub2 = or disjoint i64 %add, 1
-  %add.ptr3 = getelementptr inbounds ptr, ptr %__first, i64 %sub2
+  %gep = getelementptr ptr, ptr %invariant.gep, i64 %add
   %0 = load ptr, ptr %add.ptr, align 8
-  %1 = load ptr, ptr %add.ptr3, align 8
+  %1 = load ptr, ptr %gep, align 8
   %2 = load ptr, ptr %__comp, align 8
   %m_ast_order.i.i = getelementptr inbounds i8, ptr %2, i64 82
   %3 = load i8, ptr %m_ast_order.i.i, align 2
@@ -51692,7 +51692,8 @@ if.end.i.i:                                       ; preds = %while.body
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN13poly_rewriterI19arith_rewriter_coreE6mon_ltEEclIPP4exprSA_EEbT_T0_.exit: ; preds = %if.then.i.i, %if.end.i.i
   %retval.0.i.i = phi i1 [ %call.i.i, %if.then.i.i ], [ %cmp.i.i, %if.end.i.i ]
-  %spec.select = select i1 %retval.0.i.i, i64 %sub2, i64 %mul
+  %dec = or disjoint i64 %add, 1
+  %spec.select = select i1 %retval.0.i.i, i64 %dec, i64 %mul
   %add.ptr4 = getelementptr inbounds ptr, ptr %__first, i64 %spec.select
   %5 = load ptr, ptr %add.ptr4, align 8
   %add.ptr5 = getelementptr inbounds ptr, ptr %__first, i64 %__secondChild.024

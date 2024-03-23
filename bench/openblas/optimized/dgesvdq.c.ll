@@ -1317,9 +1317,9 @@ define void @dgesvdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   store i32 %790, ptr %23, align 4, !tbaa !3
   store i32 %790, ptr %24, align 4, !tbaa !3
   %791 = shl i32 %37, 1
-  %792 = or disjoint i32 %791, 1
-  %793 = sext i32 %792 to i64
-  %794 = getelementptr inbounds double, ptr %40, i64 %793
+  %792 = sext i32 %791 to i64
+  %793 = getelementptr double, ptr %40, i64 %792
+  %794 = getelementptr i8, ptr %793, i64 8
   call void @dlaset_(ptr noundef nonnull @.str.1, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull @c_b72, ptr noundef nonnull @c_b72, ptr noundef nonnull %794, ptr noundef nonnull %11) #7
   br label %795
 
@@ -1549,9 +1549,9 @@ define void @dgesvdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   store i32 %928, ptr %23, align 4, !tbaa !3
   store i32 %928, ptr %24, align 4, !tbaa !3
   %929 = shl i32 %41, 1
-  %930 = or disjoint i32 %929, 1
-  %931 = sext i32 %930 to i64
-  %932 = getelementptr inbounds double, ptr %44, i64 %931
+  %930 = sext i32 %929 to i64
+  %931 = getelementptr double, ptr %44, i64 %930
+  %932 = getelementptr i8, ptr %931, i64 8
   call void @dlaset_(ptr noundef nonnull @.str.1, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull @c_b72, ptr noundef nonnull @c_b72, ptr noundef nonnull %932, ptr noundef nonnull %13) #7
   br label %933
 
@@ -1867,9 +1867,9 @@ thread-pre-split155:                              ; preds = %1070, %1071
   store i32 %1103, ptr %23, align 4, !tbaa !3
   store i32 %1103, ptr %24, align 4, !tbaa !3
   %1104 = shl i32 %41, 1
-  %1105 = or disjoint i32 %1104, 1
-  %1106 = sext i32 %1105 to i64
-  %1107 = getelementptr inbounds double, ptr %44, i64 %1106
+  %1105 = sext i32 %1104 to i64
+  %1106 = getelementptr double, ptr %44, i64 %1105
+  %1107 = getelementptr i8, ptr %1106, i64 8
   call void @dlaset_(ptr noundef nonnull @.str.1, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull @c_b72, ptr noundef nonnull @c_b72, ptr noundef nonnull %1107, ptr noundef nonnull %13) #7
   br label %1108
 
@@ -2128,9 +2128,9 @@ thread-pre-split155:                              ; preds = %1070, %1071
   store i32 %1254, ptr %23, align 4, !tbaa !3
   store i32 %1254, ptr %24, align 4, !tbaa !3
   %1255 = shl i32 %41, 1
-  %1256 = or disjoint i32 %1255, 1
-  %1257 = sext i32 %1256 to i64
-  %1258 = getelementptr inbounds double, ptr %44, i64 %1257
+  %1256 = sext i32 %1255 to i64
+  %1257 = getelementptr double, ptr %44, i64 %1256
+  %1258 = getelementptr i8, ptr %1257, i64 8
   call void @dlaset_(ptr noundef nonnull @.str.1, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull @c_b72, ptr noundef nonnull @c_b72, ptr noundef nonnull %1258, ptr noundef nonnull %13) #7
   %.pre263 = load i32, ptr %6, align 4, !tbaa !3
   %.pre264 = load i32, ptr %30, align 4, !tbaa !3
@@ -2428,9 +2428,9 @@ thread-pre-split155:                              ; preds = %1070, %1071
   store i32 %1439, ptr %23, align 4, !tbaa !3
   store i32 %1439, ptr %24, align 4, !tbaa !3
   %1440 = shl i32 %41, 1
-  %1441 = or disjoint i32 %1440, 1
-  %1442 = sext i32 %1441 to i64
-  %1443 = getelementptr inbounds double, ptr %44, i64 %1442
+  %1441 = sext i32 %1440 to i64
+  %1442 = getelementptr double, ptr %44, i64 %1441
+  %1443 = getelementptr i8, ptr %1442, i64 8
   call void @dlaset_(ptr noundef nonnull @.str.1, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull @c_b72, ptr noundef nonnull @c_b72, ptr noundef nonnull %1443, ptr noundef nonnull %13) #7
   %1444 = load i32, ptr %18, align 4, !tbaa !3
   %1445 = load i32, ptr %6, align 4, !tbaa !3
@@ -2730,9 +2730,9 @@ thread-pre-split155:                              ; preds = %1070, %1071
   store i32 %1645, ptr %23, align 4, !tbaa !3
   store i32 %1645, ptr %24, align 4, !tbaa !3
   %1646 = shl i32 %41, 1
-  %1647 = or disjoint i32 %1646, 1
-  %1648 = sext i32 %1647 to i64
-  %1649 = getelementptr inbounds double, ptr %44, i64 %1648
+  %1647 = sext i32 %1646 to i64
+  %1648 = getelementptr double, ptr %44, i64 %1647
+  %1649 = getelementptr i8, ptr %1648, i64 8
   call void @dlaset_(ptr noundef nonnull @.str.1, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull @c_b72, ptr noundef nonnull @c_b72, ptr noundef nonnull %1649, ptr noundef nonnull %13) #7
   %.pre266 = load i32, ptr %30, align 4, !tbaa !3
   br label %1650

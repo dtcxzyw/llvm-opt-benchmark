@@ -1613,17 +1613,17 @@ define dso_local void @_ZN19TestVoxelAlgorithms12testLightingEP8IGameDef(ptr noc
   %80 = load ptr, ptr %50, align 8, !tbaa !66
   %81 = getelementptr inbounds %struct.MapNode, ptr %80, i64 %79
   store i32 126, ptr %81, align 4, !tbaa.struct !68
-  %82 = or disjoint i64 %79, 1
-  %83 = load ptr, ptr %50, align 8, !tbaa !66
-  %84 = getelementptr inbounds %struct.MapNode, ptr %83, i64 %82
+  %82 = load ptr, ptr %50, align 8, !tbaa !66
+  %83 = getelementptr %struct.MapNode, ptr %82, i64 %79
+  %84 = getelementptr i8, ptr %83, i64 4
   store i32 126, ptr %84, align 4, !tbaa.struct !68
-  %85 = or disjoint i64 %79, 2
-  %86 = load ptr, ptr %50, align 8, !tbaa !66
-  %87 = getelementptr inbounds %struct.MapNode, ptr %86, i64 %85
+  %85 = load ptr, ptr %50, align 8, !tbaa !66
+  %86 = getelementptr %struct.MapNode, ptr %85, i64 %79
+  %87 = getelementptr i8, ptr %86, i64 8
   store i32 126, ptr %87, align 4, !tbaa.struct !68
-  %88 = or disjoint i64 %79, 3
-  %89 = load ptr, ptr %50, align 8, !tbaa !66
-  %90 = getelementptr inbounds %struct.MapNode, ptr %89, i64 %88
+  %88 = load ptr, ptr %50, align 8, !tbaa !66
+  %89 = getelementptr %struct.MapNode, ptr %88, i64 %79
+  %90 = getelementptr i8, ptr %89, i64 12
   store i32 126, ptr %90, align 4, !tbaa.struct !68
   %91 = add nuw i64 %79, 4
   %92 = icmp eq i64 %91, %55

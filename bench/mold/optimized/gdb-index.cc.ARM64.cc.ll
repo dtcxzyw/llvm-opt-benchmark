@@ -5942,28 +5942,20 @@ for.cond:                                         ; preds = %for.inc, %entry
   %i.0 = phi i64 [ 0, %entry ], [ %add19, %for.inc ]
   %arrayidx = getelementptr inbounds %"class.mold::LittleEndian.238", ptr %range, i64 %i.0
   %x.0.copyload.i = load i64, ptr %arrayidx, align 1
-  %.pre = or disjoint i64 %i.0, 1
+  %arrayidx15.phi.trans.insert = getelementptr i8, ptr %arrayidx, i64 8
+  %x.0.copyload.i17.pre = load i64, ptr %arrayidx15.phi.trans.insert, align 1
   switch i64 %x.0.copyload.i, label %if.else [
     i64 0, label %lor.rhs
-    i64 -1, label %if.then
+    i64 -1, label %for.inc
   ]
 
 lor.rhs:                                          ; preds = %for.cond
-  %arrayidx1 = getelementptr inbounds %"class.mold::LittleEndian.238", ptr %range, i64 %.pre
-  %x.0.copyload.i13 = load i64, ptr %arrayidx1, align 1
-  %tobool3.not = icmp eq i64 %x.0.copyload.i13, 0
+  %tobool3.not = icmp eq i64 %x.0.copyload.i17.pre, 0
   br i1 %tobool3.not, label %nrvo.skipdtor, label %if.else
-
-if.then:                                          ; preds = %for.cond
-  %arrayidx8 = getelementptr inbounds %"class.mold::LittleEndian.238", ptr %range, i64 %.pre
-  %x.0.copyload.i15 = load i64, ptr %arrayidx8, align 1
-  br label %for.inc
 
 if.else:                                          ; preds = %for.cond, %lor.rhs
   %add12 = add i64 %x.0.copyload.i, %base.addr.0
-  %arrayidx15 = getelementptr inbounds %"class.mold::LittleEndian.238", ptr %range, i64 %.pre
-  %x.0.copyload.i17 = load i64, ptr %arrayidx15, align 1
-  %add17 = add i64 %x.0.copyload.i17, %base.addr.0
+  %add17 = add i64 %x.0.copyload.i17.pre, %base.addr.0
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -6038,9 +6030,9 @@ _ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJmmEEEvN9__gnu_cxx17__normal
   store ptr %add.ptr21.i.i, ptr %_M_end_of_storage.i, align 8
   br label %for.inc
 
-for.inc:                                          ; preds = %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJmmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %if.then.i, %if.then
-  %4 = phi ptr [ %0, %if.then ], [ %incdec.ptr.i, %if.then.i ], [ %incdec.ptr.i.i, %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJmmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
-  %base.addr.1 = phi i64 [ %x.0.copyload.i15, %if.then ], [ %base.addr.0, %if.then.i ], [ %base.addr.0, %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJmmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
+for.inc:                                          ; preds = %for.cond, %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJmmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %if.then.i
+  %4 = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %incdec.ptr.i.i, %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJmmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %0, %for.cond ]
+  %base.addr.1 = phi i64 [ %base.addr.0, %if.then.i ], [ %base.addr.0, %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJmmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %x.0.copyload.i17.pre, %for.cond ]
   %add19 = add nuw nsw i64 %i.0, 2
   br label %for.cond, !llvm.loop !79
 

@@ -1078,9 +1078,9 @@ Vec_PtrPush.exit233.i.i:                          ; preds = %543, %Vec_PtrGrow.e
   %548 = sext i32 %546 to i64
   %549 = getelementptr inbounds ptr, ptr %545, i64 %548
   store ptr %521, ptr %549, align 8
-  %550 = or disjoint i64 %519, 1
   %.val114.i.i = load ptr, ptr %133, align 8
-  %551 = getelementptr inbounds ptr, ptr %.val114.i.i, i64 %550
+  %550 = getelementptr ptr, ptr %.val114.i.i, i64 %519
+  %551 = getelementptr i8, ptr %550, i64 8
   %552 = load ptr, ptr %551, align 8
   %553 = load i32, ptr %504, align 4
   %554 = load i32, ptr %503, align 8

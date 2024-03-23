@@ -1424,7 +1424,7 @@ if.then13.i:                                      ; preds = %graph_output_commit
 
 for.body.lr.ph.i.i:                               ; preds = %if.then13.i
   %sub.i.i84 = add nsw i32 %sub.i.i.i, -1
-  %.pre120.i = load i16, ptr @column_colors_max, align 2
+  %.pre119.i = load i16, ptr @column_colors_max, align 2
   %len.i.i.i.i80.i = getelementptr inbounds i8, ptr %46, i64 8
   %buf.i.i.i85.i = getelementptr inbounds i8, ptr %46, i64 16
   %62 = zext nneg i32 %sub.i.i84 to i64
@@ -1432,7 +1432,7 @@ for.body.lr.ph.i.i:                               ; preds = %if.then13.i
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %graph_line_write_column.exit.i, %for.body.lr.ph.i.i
-  %64 = phi i16 [ %.pre120.i, %for.body.lr.ph.i.i ], [ %96, %graph_line_write_column.exit.i ]
+  %64 = phi i16 [ %.pre119.i, %for.body.lr.ph.i.i ], [ %96, %graph_line_write_column.exit.i ]
   %i.012.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i87, %graph_line_write_column.exit.i ]
   %65 = load ptr, ptr %mapping.i, align 8
   %66 = load i32, ptr %commit_index.i.i55, align 4
@@ -1498,13 +1498,13 @@ if.then10.i92.i:                                  ; preds = %graph_line_addch.ex
   %81 = load ptr, ptr %arrayidx.i.i8.i95.i, align 8
   %call.i.i9.i96.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %81) #16
   tail call void @strbuf_add(ptr noundef nonnull %46, ptr noundef %81, i64 noundef %call.i.i9.i96.i) #15
-  %.pre121.i = load i16, ptr %color.i75.i, align 8
-  %.pre122.i = load i16, ptr @column_colors_max, align 2
+  %.pre120.i = load i16, ptr %color.i75.i, align 8
+  %.pre121.i = load i16, ptr @column_colors_max, align 2
   br label %graph_line_write_column.exit106.i
 
 graph_line_write_column.exit106.i:                ; preds = %if.then10.i92.i, %graph_line_addch.exit.i83.i
-  %82 = phi i16 [ %79, %graph_line_addch.exit.i83.i ], [ %.pre122.i, %if.then10.i92.i ]
-  %83 = phi i16 [ %78, %graph_line_addch.exit.i83.i ], [ %.pre121.i, %if.then10.i92.i ]
+  %82 = phi i16 [ %79, %graph_line_addch.exit.i83.i ], [ %.pre121.i, %if.then10.i92.i ]
+  %83 = phi i16 [ %78, %graph_line_addch.exit.i83.i ], [ %.pre120.i, %if.then10.i92.i ]
   %cmp4.i.i = icmp eq i32 %i.012.i.i, %sub.i.i84
   %conv.i.i = select i1 %cmp4.i.i, i8 46, i8 45
   %cmp.i.i86 = icmp ult i16 %83, %82
@@ -1608,8 +1608,8 @@ if.else33.i:                                      ; preds = %land.lhs.true21.i, 
 land.lhs.true36.i:                                ; preds = %if.else33.i
   %103 = load ptr, ptr %old_mapping.i, align 8
   %104 = shl nuw nsw i64 %indvars.iv.i57, 1
-  %105 = or disjoint i64 %104, 1
-  %arrayidx38.i = getelementptr inbounds i32, ptr %103, i64 %105
+  %105 = getelementptr i32, ptr %103, i64 %104
+  %arrayidx38.i = getelementptr i8, ptr %105, i64 4
   %106 = load i32, ptr %arrayidx38.i, align 4
   %107 = zext i32 %106 to i64
   %cmp39.i = icmp eq i64 %indvars.iv.i57, %107

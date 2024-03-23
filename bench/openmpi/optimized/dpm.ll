@@ -12200,9 +12200,9 @@ opal_pointer_array_get_item.exit:                 ; preds = %.thread.i, %19, %25
 58:                                               ; preds = %49
   %59 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 11), align 8
   %60 = load ptr, ptr %44, align 8
-  %61 = or disjoint i64 %52, 1
-  %62 = getelementptr inbounds ptr, ptr %60, i64 %61
-  %63 = tail call i32 %59(ptr noundef nonnull %47, i64 noundef 0, ptr noundef nonnull @ompi_mpi_int, i32 noundef %54, i32 noundef -8, i32 noundef 0, ptr noundef nonnull %.0.i, ptr noundef nonnull %62) #22
+  %61 = getelementptr ptr, ptr %60, i64 %52
+  %62 = getelementptr i8, ptr %61, i64 8
+  %63 = tail call i32 %59(ptr noundef nonnull %47, i64 noundef 0, ptr noundef nonnull @ompi_mpi_int, i32 noundef %54, i32 noundef -8, i32 noundef 0, ptr noundef nonnull %.0.i, ptr noundef %62) #22
   %.not41.i = icmp eq i32 %63, 0
   br i1 %.not41.i, label %66, label %64
 

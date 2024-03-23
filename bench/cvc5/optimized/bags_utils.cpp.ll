@@ -16623,12 +16623,11 @@ for.body:                                         ; preds = %for.body.preheader,
   %index.060 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
   %i.059 = phi i64 [ %add16, %for.body ], [ 0, %for.body.preheader ]
   %13 = load ptr, ptr %call4, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %13, i64 %i.059
+  %add.ptr.i = getelementptr i32, ptr %13, i64 %i.059
   %14 = load i32, ptr %add.ptr.i, align 4
   %add.ptr.i40 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i19, i64 %index.060
   store i32 %14, ptr %add.ptr.i40, align 4
-  %add = or disjoint i64 %i.059, 1
-  %add.ptr.i41 = getelementptr inbounds i32, ptr %13, i64 %add
+  %add.ptr.i41 = getelementptr i8, ptr %add.ptr.i, i64 4
   %15 = load i32, ptr %add.ptr.i41, align 4
   %add.ptr.i42 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i38, i64 %index.060
   store i32 %15, ptr %add.ptr.i42, align 4

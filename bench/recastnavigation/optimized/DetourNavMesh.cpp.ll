@@ -978,7 +978,7 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %_ZL17calcSlabEndP
   br label %63
 
 63:                                               ; preds = %.lr.ph110, %.loopexit
-  %64 = phi ptr [ %48, %.lr.ph110 ], [ %164, %.loopexit ]
+  %64 = phi ptr [ %48, %.lr.ph110 ], [ %162, %.loopexit ]
   %indvars.iv114 = phi i64 [ 0, %.lr.ph110 ], [ %indvars.iv.next115, %.loopexit ]
   %.048109 = phi i32 [ 0, %.lr.ph110 ], [ %.1, %.loopexit ]
   %.sroa.0.0106 = phi float [ undef, %.lr.ph110 ], [ %.sroa.0.4, %.loopexit ]
@@ -1146,16 +1146,14 @@ _Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread:       ; preds = %127, %_Z12overlapSl
   store float %150, ptr %153, align 4
   %154 = fcmp olt float %.sroa.081.0, %.sroa.0.2
   %155 = select i1 %154, float %.sroa.081.0, float %.sroa.0.2
-  %156 = or disjoint i32 %151, 1
-  %157 = sext i32 %156 to i64
-  %158 = getelementptr inbounds float, ptr %6, i64 %157
-  store float %155, ptr %158, align 4
-  %159 = trunc i64 %indvars.iv114 to i32
-  %160 = or i32 %46, %159
-  %161 = sext i32 %.048109 to i64
-  %162 = getelementptr inbounds i32, ptr %5, i64 %161
-  store i32 %160, ptr %162, align 4
-  %163 = add nsw i32 %.048109, 1
+  %156 = getelementptr i8, ptr %153, i64 4
+  store float %155, ptr %156, align 4
+  %157 = trunc i64 %indvars.iv114 to i32
+  %158 = or i32 %46, %157
+  %159 = sext i32 %.048109 to i64
+  %160 = getelementptr inbounds i32, ptr %5, i64 %159
+  store i32 %158, ptr %160, align 4
+  %161 = add nsw i32 %.048109, 1
   %.pre = load ptr, ptr %47, align 8
   br label %.loopexit
 
@@ -1169,18 +1167,18 @@ _Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread88:     ; preds = %._Z12overlapSlabsPK
   br i1 %exitcond.not, label %.loopexit, label %73, !llvm.loop !16
 
 .loopexit:                                        ; preds = %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread88, %63, %148, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread
-  %164 = phi ptr [ %.pre, %148 ], [ %64, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread ], [ %64, %63 ], [ %64, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread88 ]
+  %162 = phi ptr [ %.pre, %148 ], [ %64, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread ], [ %64, %63 ], [ %64, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread88 ]
   %.sroa.380.4 = phi float [ %.sroa.380.2, %148 ], [ %.sroa.380.2, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread ], [ %.sroa.380.0103, %63 ], [ %.sroa.380.3, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread88 ]
   %.sroa.078.4 = phi float [ %.sroa.078.2, %148 ], [ %.sroa.078.2, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread ], [ %.sroa.078.0104, %63 ], [ %.sroa.078.3, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread88 ]
   %.sroa.3.4 = phi float [ %.sroa.3.2, %148 ], [ %.sroa.3.2, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread ], [ %.sroa.3.0105, %63 ], [ %.sroa.3.3, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread88 ]
   %.sroa.0.4 = phi float [ %.sroa.0.2, %148 ], [ %.sroa.0.2, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread ], [ %.sroa.0.0106, %63 ], [ %.sroa.0.3, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread88 ]
-  %.1 = phi i32 [ %163, %148 ], [ %.048109, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread ], [ %.048109, %63 ], [ %.048109, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread88 ]
+  %.1 = phi i32 [ %161, %148 ], [ %.048109, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread ], [ %.048109, %63 ], [ %.048109, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread88 ]
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
-  %165 = getelementptr inbounds i8, ptr %164, i64 24
-  %166 = load i32, ptr %165, align 4
-  %167 = sext i32 %166 to i64
-  %168 = icmp slt i64 %indvars.iv.next115, %167
-  br i1 %168, label %63, label %.loopexit90, !llvm.loop !17
+  %163 = getelementptr inbounds i8, ptr %162, i64 24
+  %164 = load i32, ptr %163, align 4
+  %165 = sext i32 %164 to i64
+  %166 = icmp slt i64 %indvars.iv.next115, %165
+  br i1 %166, label %63, label %.loopexit90, !llvm.loop !17
 
 .loopexit90:                                      ; preds = %.loopexit, %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit, %8
   %.0 = phi i32 [ 0, %8 ], [ 0, %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit ], [ %.1, %.loopexit ]

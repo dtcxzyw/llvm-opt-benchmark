@@ -3202,8 +3202,8 @@ while.body:                                       ; preds = %entry, %"_ZN9__gnu_
   %add = shl i64 %__secondChild.032, 1
   %mul = add i64 %add, 2
   %add.ptr = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %mul
-  %sub1 = or disjoint i64 %add, 1
-  %add.ptr2 = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %sub1
+  %0 = getelementptr %"struct.std::pair", ptr %__first, i64 %add
+  %add.ptr2 = getelementptr i8, ptr %0, i64 32
   %add.ptr.val = load i64, ptr %add.ptr, align 8
   %add.ptr2.val = load i64, ptr %add.ptr2, align 8
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.ptr.val, i64 %add.ptr2.val)
@@ -3211,10 +3211,10 @@ while.body:                                       ; preds = %entry, %"_ZN9__gnu_
   br i1 %cmp.i2.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %while.body
-  %0 = getelementptr i8, ptr %add.ptr2, i64 8
-  %add.ptr2.val24 = load ptr, ptr %0, align 8
-  %1 = getelementptr i8, ptr %add.ptr, i64 8
-  %add.ptr.val23 = load ptr, ptr %1, align 8
+  %1 = getelementptr i8, ptr %0, i64 40
+  %add.ptr2.val24 = load ptr, ptr %1, align 8
+  %2 = getelementptr i8, ptr %add.ptr, i64 8
+  %add.ptr.val23 = load ptr, ptr %2, align 8
   %call.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %add.ptr.val23, ptr noundef %add.ptr2.val24, i64 noundef %.sroa.speculated.i.i.i.i) #19
   %cmp.i.i.i.i = icmp eq i32 %call.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4node19CreateProcessObjectEPNS2_5RealmEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESC_ESE_EEbT_T0_.exit"
@@ -3229,7 +3229,8 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt11char_traitsI
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4node19CreateProcessObjectEPNS2_5RealmEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESC_ESE_EEbT_T0_.exit": ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %if.then.i.i.i.i
   %__ret.0.i.i.i.i = phi i32 [ %retval.0.i3.i.i.i.i, %if.then.i.i.i.i ], [ %call.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
   %cmp.i.i.i = icmp slt i32 %__ret.0.i.i.i.i, 0
-  %spec.select = select i1 %cmp.i.i.i, i64 %sub1, i64 %mul
+  %dec = or disjoint i64 %add, 1
+  %spec.select = select i1 %cmp.i.i.i, i64 %dec, i64 %mul
   %add.ptr3 = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %spec.select
   %add.ptr4 = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %__secondChild.032
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr4, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr3, i64 16, i1 false)
@@ -3281,8 +3282,8 @@ land.rhs.i:                                       ; preds = %if.end18, %while.bo
   br i1 %cmp.i2.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i: ; preds = %land.rhs.i
-  %2 = getelementptr i8, ptr %add.ptr.i, i64 8
-  %add.ptr.val10.i = load ptr, ptr %2, align 8
+  %3 = getelementptr i8, ptr %add.ptr.i, i64 8
+  %add.ptr.val10.i = load ptr, ptr %3, align 8
   %call.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %add.ptr.val10.i, ptr noundef %agg.tmp.sroa.2.0.copyload, i64 noundef %.sroa.speculated.i.i.i.i.i) #19
   %cmp.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4node19CreateProcessObjectEPNS2_5RealmEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESC_ESD_EEbT_RT0_.exit.i"
