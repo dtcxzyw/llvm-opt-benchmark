@@ -2355,8 +2355,9 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %0 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %x)
-  %cmp1 = fcmp oeq double %0, -1.000000e+00
+  %0 = bitcast double %x to i64
+  %.lobit28 = lshr i64 %0, 63
+  %conv2 = trunc i64 %.lobit28 to i8
   br label %if.end71
 
 if.else:                                          ; preds = %entry
@@ -2366,6 +2367,7 @@ if.else:                                          ; preds = %entry
 
 if.then3:                                         ; preds = %if.else
   %cmp4 = fcmp olt double %x, 0.000000e+00
+  %conv6 = zext i1 %cmp4 to i8
   br label %if.end71
 
 if.else7:                                         ; preds = %if.else
@@ -2373,12 +2375,14 @@ if.else7:                                         ; preds = %if.else
   br i1 %2, label %if.then8, label %if.else12
 
 if.then8:                                         ; preds = %if.else7
-  %3 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %x)
-  %cmp9 = fcmp oeq double %3, -1.000000e+00
+  %3 = bitcast double %x to i64
+  %.lobit = lshr i64 %3, 63
+  %conv11 = trunc i64 %.lobit to i8
   br label %if.end71
 
 if.else12:                                        ; preds = %if.else7
   %cmp13 = fcmp olt double %x, 0.000000e+00
+  %conv15 = zext i1 %cmp13 to i8
   %fneg = fneg double %x
   %x.addr.0 = select i1 %cmp13, double %fneg, double %x
   %call = call double @frexp(double noundef %x.addr.0, ptr noundef nonnull %e) #17
@@ -2431,8 +2435,8 @@ lor.lhs.false48:                                  ; preds = %if.end40
   %cmp52 = fcmp une double %sub45, 5.000000e-01
   %7 = and i16 %conv42, 1
   %cmp55.not = icmp eq i16 %7, 0
-  %or.cond28 = or i1 %cmp55.not, %cmp52
-  br i1 %or.cond28, label %if.end71, label %if.then57
+  %or.cond29 = or i1 %cmp55.not, %cmp52
+  br i1 %or.cond29, label %if.end71, label %if.then57
 
 if.then57:                                        ; preds = %lor.lhs.false48, %if.end40
   %inc = add i16 %conv42, 1
@@ -2446,21 +2450,22 @@ if.then61:                                        ; preds = %if.then57
 
 if.end71:                                         ; preds = %if.then3, %lor.lhs.false48, %if.then61, %if.then57, %if.then8, %if.then
   %8 = phi i32 [ 0, %if.then ], [ 31, %if.then3 ], [ 31, %if.then8 ], [ %inc62, %if.then61 ], [ %6, %if.then57 ], [ %6, %lor.lhs.false48 ]
-  %sign.0.in = phi i1 [ %cmp1, %if.then ], [ %cmp4, %if.then3 ], [ %cmp9, %if.then8 ], [ %cmp13, %if.then61 ], [ %cmp13, %if.then57 ], [ %cmp13, %lor.lhs.false48 ]
+  %sign.0 = phi i8 [ %conv2, %if.then ], [ %conv6, %if.then3 ], [ %conv11, %if.then8 ], [ %conv15, %if.then61 ], [ %conv15, %if.then57 ], [ %conv15, %lor.lhs.false48 ]
   %bits.0 = phi i16 [ 0, %if.then ], [ 0, %if.then3 ], [ 512, %if.then8 ], [ 0, %if.then61 ], [ %inc, %if.then57 ], [ %conv42, %lor.lhs.false48 ]
   %shl = shl nuw nsw i32 %8, 10
-  %shl73 = select i1 %sign.0.in, i32 32768, i32 0
+  %conv72 = zext nneg i8 %sign.0 to i32
+  %shl73 = shl nuw nsw i32 %conv72, 15
   %or = or i32 %shl, %shl73
   %9 = trunc i32 %or to i16
   %conv76 = or i16 %bits.0, %9
   %tobool77.not = icmp ne i32 %le, 0
   %spec.select.idx = zext i1 %tobool77.not to i64
   %spec.select = getelementptr i8, ptr %data, i64 %spec.select.idx
-  %spec.select29 = select i1 %tobool77.not, i64 -1, i64 1
+  %spec.select30 = select i1 %tobool77.not, i64 -1, i64 1
   %shr = lshr i16 %conv76, 8
   %conv81 = trunc i16 %shr to i8
   store i8 %conv81, ptr %spec.select, align 1
-  %add.ptr82 = getelementptr i8, ptr %spec.select, i64 %spec.select29
+  %add.ptr82 = getelementptr i8, ptr %spec.select, i64 %spec.select30
   %conv85 = trunc i16 %bits.0 to i8
   store i8 %conv85, ptr %add.ptr82, align 1
   br label %return
@@ -6165,9 +6170,9 @@ if.end8.i:                                        ; preds = %if.end4.i
   br i1 %cmp9.i, label %if.then10.i, label %if.end16.i
 
 if.then10.i:                                      ; preds = %if.end8.i
-  %7 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %x.2.i)
-  %cmp11.i = fcmp oeq double %7, -1.000000e+00
-  br i1 %cmp11.i, label %if.then12.i, label %if.else14.i
+  %7 = bitcast double %x.2.i to i64
+  %8 = icmp slt i64 %7, 0
+  br i1 %8, label %if.then12.i, label %if.else14.i
 
 if.then12.i:                                      ; preds = %if.then10.i
   %call13.i = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.41) #17
@@ -6179,19 +6184,19 @@ if.else14.i:                                      ; preds = %if.then10.i
 
 if.end16.i:                                       ; preds = %if.end8.i, %land.lhs.true.i.i
   %x.24346.i = phi double [ %x.2.i, %if.end8.i ], [ -1.000000e+00, %land.lhs.true.i.i ]
-  %8 = phi double [ %5, %if.end8.i ], [ 1.000000e+00, %land.lhs.true.i.i ]
-  %call17.i = call double @frexp(double noundef %8, ptr noundef nonnull %e.i) #17
-  %9 = load i32, ptr %e.i, align 4
-  %sub.i = sub i32 -1021, %9
+  %9 = phi double [ %5, %if.end8.i ], [ 1.000000e+00, %land.lhs.true.i.i ]
+  %call17.i = call double @frexp(double noundef %9, ptr noundef nonnull %e.i) #17
+  %10 = load i32, ptr %e.i, align 4
+  %sub.i = sub i32 -1021, %10
   %cond.i = tail call i32 @llvm.smax.i32(i32 %sub.i, i32 0)
   %sub20.i = sub nsw i32 1, %cond.i
   %call21.i = tail call double @ldexp(double noundef %call17.i, i32 noundef %sub20.i) #17
   %conv.i = fptosi double %call21.i to i32
-  %10 = load ptr, ptr @Py_hexdigits, align 8
+  %11 = load ptr, ptr @Py_hexdigits, align 8
   %idxprom.i.i = sext i32 %conv.i to i64
-  %arrayidx.i.i = getelementptr i8, ptr %10, i64 %idxprom.i.i
-  %11 = load i8, ptr %arrayidx.i.i, align 1
-  store i8 %11, ptr %s.i, align 16
+  %arrayidx.i.i = getelementptr i8, ptr %11, i64 %idxprom.i.i
+  %12 = load i8, ptr %arrayidx.i.i, align 1
+  store i8 %12, ptr %s.i, align 16
   %conv25.i = sitofp i32 %conv.i to double
   %sub26.i = fsub double %call21.i, %conv25.i
   %arrayidx28.i = getelementptr inbounds i8, ptr %s.i, i64 1
@@ -6204,10 +6209,10 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %mul.i = fmul double %m.037.i, 1.600000e+01
   %conv32.i = fptosi double %mul.i to i32
   %idxprom.i24.i = sext i32 %conv32.i to i64
-  %arrayidx.i25.i = getelementptr i8, ptr %10, i64 %idxprom.i24.i
-  %12 = load i8, ptr %arrayidx.i25.i, align 1
+  %arrayidx.i25.i = getelementptr i8, ptr %11, i64 %idxprom.i24.i
+  %13 = load i8, ptr %arrayidx.i25.i, align 1
   %arrayidx35.i = getelementptr [16 x i8], ptr %s.i, i64 0, i64 %indvars.iv.i
-  store i8 %12, ptr %arrayidx35.i, align 1
+  store i8 %13, ptr %arrayidx35.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %conv38.i = sitofp i32 %conv32.i to double
   %sub39.i = fsub double %mul.i, %conv38.i
@@ -6215,7 +6220,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !25
 
 for.end.i:                                        ; preds = %for.body.i
-  %sub22.i = sub i32 %9, %sub20.i
+  %sub22.i = sub i32 %10, %sub20.i
   %arrayidx42.i = getelementptr inbounds i8, ptr %s.i, i64 15
   store i8 0, ptr %arrayidx42.i, align 1
   %cmp43.i = icmp slt i32 %sub22.i, 0

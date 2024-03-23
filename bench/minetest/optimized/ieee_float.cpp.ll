@@ -77,73 +77,72 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef i32 @_Z12f32Tou32Slowf(float noundef %0) local_unnamed_addr #3 {
   %2 = alloca i32, align 4
-  %3 = tail call nsz noundef float @llvm.copysign.f32(float 1.000000e+00, float %0)
-  %4 = fcmp nsz oeq float %3, 1.000000e+00
-  %5 = select i1 %4, i32 0, i32 -2147483648
-  %6 = fcmp nsz oeq float %0, 0.000000e+00
-  br i1 %6, label %42, label %7
+  %3 = bitcast float %0 to i32
+  %4 = and i32 %3, -2147483648
+  %5 = fcmp nsz oeq float %0, 0.000000e+00
+  br i1 %5, label %41, label %6
 
-7:                                                ; preds = %1
-  %8 = fcmp uno float %0, 0.000000e+00
-  br i1 %8, label %9, label %11
+6:                                                ; preds = %1
+  %7 = fcmp uno float %0, 0.000000e+00
+  br i1 %7, label %8, label %10
 
-9:                                                ; preds = %7
-  %10 = or disjoint i32 %5, 2143289344
-  br label %42
+8:                                                ; preds = %6
+  %9 = or disjoint i32 %4, 2143289344
+  br label %41
 
-11:                                               ; preds = %7
-  %12 = tail call float @llvm.fabs.f32(float %0)
-  %13 = fcmp oeq float %12, 0x7FF0000000000000
-  br i1 %13, label %14, label %16
+10:                                               ; preds = %6
+  %11 = tail call float @llvm.fabs.f32(float %0)
+  %12 = fcmp oeq float %11, 0x7FF0000000000000
+  br i1 %12, label %13, label %15
 
-14:                                               ; preds = %11
-  %15 = or disjoint i32 %5, 2139095040
-  br label %42
+13:                                               ; preds = %10
+  %14 = or disjoint i32 %4, 2139095040
+  br label %41
 
-16:                                               ; preds = %11
+15:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #11
   store i32 0, ptr %2, align 4, !tbaa !4
-  %17 = call nsz float @frexpf(float noundef %0, ptr noundef nonnull %2) #11
-  %18 = select nsz i1 %4, float 0x4170000000000000, float 0xC170000000000000
-  %19 = fmul nsz float %18, %17
-  %20 = tail call nsz noundef float @llvm.floor.f32(float %19)
-  %21 = fptoui float %20 to i32
-  %22 = load i32, ptr %2, align 4, !tbaa !4
-  %23 = icmp slt i32 %22, -125
-  br i1 %23, label %24, label %30
+  %16 = call nsz float @frexpf(float noundef %0, ptr noundef nonnull %2) #11
+  %17 = tail call float @llvm.copysign.f32(float 0x4170000000000000, float %0)
+  %18 = fmul nsz float %17, %16
+  %19 = tail call nsz noundef float @llvm.floor.f32(float %18)
+  %20 = fptoui float %19 to i32
+  %21 = load i32, ptr %2, align 4, !tbaa !4
+  %22 = icmp slt i32 %21, -125
+  br i1 %22, label %23, label %29
 
-24:                                               ; preds = %16
-  %25 = icmp ult i32 %22, -156
-  %26 = sub nuw nsw i32 -125, %22
-  %27 = lshr i32 %21, %26
-  %28 = select i1 %25, i32 0, i32 %27
-  %29 = or i32 %28, %5
-  br label %40
+23:                                               ; preds = %15
+  %24 = icmp ult i32 %21, -156
+  %25 = sub nuw nsw i32 -125, %21
+  %26 = lshr i32 %20, %25
+  %27 = select i1 %24, i32 0, i32 %26
+  %28 = or i32 %27, %4
+  br label %39
 
-30:                                               ; preds = %16
-  %31 = icmp sgt i32 %22, 128
-  br i1 %31, label %32, label %34
+29:                                               ; preds = %15
+  %30 = icmp sgt i32 %21, 128
+  br i1 %30, label %31, label %33
 
-32:                                               ; preds = %30
-  %33 = or disjoint i32 %5, 2139095040
-  br label %40
+31:                                               ; preds = %29
+  %32 = or disjoint i32 %4, 2139095040
+  br label %39
 
-34:                                               ; preds = %30
-  %35 = shl nsw i32 %22, 23
-  %36 = add i32 %35, 1056964608
-  %37 = and i32 %21, 8388607
-  %38 = or disjoint i32 %37, %36
-  %39 = add nuw nsw i32 %38, %5
-  br label %40
+33:                                               ; preds = %29
+  %34 = shl nsw i32 %21, 23
+  %35 = add i32 %34, 1056964608
+  %36 = and i32 %20, 8388607
+  %37 = or disjoint i32 %36, %35
+  %38 = add nuw nsw i32 %37, %4
+  br label %39
 
-40:                                               ; preds = %34, %32, %24
-  %41 = phi i32 [ %29, %24 ], [ %33, %32 ], [ %39, %34 ]
+39:                                               ; preds = %33, %31, %23
+  %40 = phi i32 [ %28, %23 ], [ %32, %31 ], [ %38, %33 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #11
-  br label %42
+  br label %41
 
-42:                                               ; preds = %40, %14, %9, %1
-  %43 = phi i32 [ %10, %9 ], [ %15, %14 ], [ %41, %40 ], [ %5, %1 ]
-  ret i32 %43
+41:                                               ; preds = %39, %13, %8, %1
+  %42 = phi i32 [ %9, %8 ], [ %14, %13 ], [ %40, %39 ], [ %4, %1 ]
+  ret i32 %42
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)

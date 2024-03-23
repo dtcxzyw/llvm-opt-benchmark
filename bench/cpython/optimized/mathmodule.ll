@@ -7840,20 +7840,20 @@ if.then1:                                         ; preds = %if.end
   br i1 %isinf2, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %if.then1
-  %2 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %x)
-  %cmp = fcmp oeq double %2, 1.000000e+00
-  br i1 %cmp, label %if.then5, label %if.else
+  %2 = bitcast double %x to i64
+  %3 = icmp sgt i64 %2, -1
+  br i1 %3, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %if.then4
-  %3 = tail call double @llvm.copysign.f64(double 0x3FE921FB54442D18, double %y)
+  %4 = tail call double @llvm.copysign.f64(double 0x3FE921FB54442D18, double %y)
   br label %return
 
 if.else:                                          ; preds = %if.then4
-  %4 = tail call double @llvm.copysign.f64(double 0x4002D97C7F3321D2, double %y)
+  %5 = tail call double @llvm.copysign.f64(double 0x4002D97C7F3321D2, double %y)
   br label %return
 
 if.end6:                                          ; preds = %if.then1
-  %5 = tail call double @llvm.copysign.f64(double 0x3FF921FB54442D18, double %y)
+  %6 = tail call double @llvm.copysign.f64(double 0x3FF921FB54442D18, double %y)
   br label %return
 
 if.end7:                                          ; preds = %if.end
@@ -7862,16 +7862,16 @@ if.end7:                                          ; preds = %if.end
   br i1 %or.cond, label %if.then12, label %if.end16
 
 if.then12:                                        ; preds = %if.end7
-  %6 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %x)
-  %cmp13 = fcmp oeq double %6, 1.000000e+00
-  br i1 %cmp13, label %if.then14, label %if.else15
+  %7 = bitcast double %x to i64
+  %8 = icmp sgt i64 %7, -1
+  br i1 %8, label %if.then14, label %if.else15
 
 if.then14:                                        ; preds = %if.then12
-  %7 = tail call double @llvm.copysign.f64(double 0.000000e+00, double %y)
+  %9 = tail call double @llvm.copysign.f64(double 0.000000e+00, double %y)
   br label %return
 
 if.else15:                                        ; preds = %if.then12
-  %8 = tail call double @llvm.copysign.f64(double 0x400921FB54442D18, double %y)
+  %10 = tail call double @llvm.copysign.f64(double 0x400921FB54442D18, double %y)
   br label %return
 
 if.end16:                                         ; preds = %if.end7
@@ -7879,7 +7879,7 @@ if.end16:                                         ; preds = %if.end7
   br label %return
 
 return:                                           ; preds = %entry, %if.end16, %if.else15, %if.then14, %if.end6, %if.else, %if.then5
-  %retval.0 = phi double [ %3, %if.then5 ], [ %4, %if.else ], [ %5, %if.end6 ], [ %7, %if.then14 ], [ %8, %if.else15 ], [ %call, %if.end16 ], [ 0x7FF8000000000000, %entry ]
+  %retval.0 = phi double [ %4, %if.then5 ], [ %5, %if.else ], [ %6, %if.end6 ], [ %9, %if.then14 ], [ %10, %if.else15 ], [ %call, %if.end16 ], [ 0x7FF8000000000000, %entry ]
   ret double %retval.0
 }
 

@@ -1505,15 +1505,15 @@ entry:
   %cval = getelementptr inbounds i8, ptr %v, i64 16
   %0 = load double, ptr %cval, align 8
   %cmp = fcmp oeq double %0, 0.000000e+00
-  %1 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
-  %cmp3 = fcmp oeq double %1, 1.000000e+00
-  %or.cond = and i1 %cmp, %cmp3
+  %1 = bitcast double %0 to i64
+  %2 = icmp sgt i64 %1, -1
+  %or.cond = and i1 %cmp, %2
   br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %imag = getelementptr inbounds i8, ptr %v, i64 24
-  %2 = load double, ptr %imag, align 8
-  %call = tail call ptr @PyOS_double_to_string(double noundef %2, i8 noundef signext 114, i32 noundef 0, i32 noundef 0, ptr noundef null) #14
+  %3 = load double, ptr %imag, align 8
+  %call = tail call ptr @PyOS_double_to_string(double noundef %3, i8 noundef signext 114, i32 noundef 0, i32 noundef 0, ptr noundef null) #14
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.then5, label %if.end21
 
@@ -1532,8 +1532,8 @@ if.then11:                                        ; preds = %if.else
 
 if.end13:                                         ; preds = %if.else
   %imag15 = getelementptr inbounds i8, ptr %v, i64 24
-  %3 = load double, ptr %imag15, align 8
-  %call16 = tail call ptr @PyOS_double_to_string(double noundef %3, i8 noundef signext 114, i32 noundef 0, i32 noundef 1, ptr noundef null) #14
+  %4 = load double, ptr %imag15, align 8
+  %call16 = tail call ptr @PyOS_double_to_string(double noundef %4, i8 noundef signext 114, i32 noundef 0, i32 noundef 1, ptr noundef null) #14
   %tobool17.not = icmp eq ptr %call16, null
   br i1 %tobool17.not, label %if.then18, label %if.end21
 
@@ -2211,9 +2211,6 @@ declare ptr @_PyObject_MakeTpCall(ptr noundef, ptr noundef, ptr noundef, i64 nou
 declare ptr @_Py_CheckFunctionResult(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.copysign.f64(double, double) #1
 
 declare ptr @PyOS_double_to_string(double noundef, i8 noundef signext, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 

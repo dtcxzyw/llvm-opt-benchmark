@@ -7504,8 +7504,8 @@ land.lhs.true:                                    ; preds = %if.end7
   br i1 %tobool10.not, label %if.end12, label %return
 
 if.end12:                                         ; preds = %land.lhs.true, %if.end7
-  %5 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %call8)
-  %cmp13 = fcmp une double %5, 1.000000e+00
+  %5 = bitcast double %call8 to i64
+  %.lobit = lshr i64 %5, 63
   %6 = fcmp uno double %call8, 0.000000e+00
   %7 = tail call double @llvm.fabs.f64(double %call8) #17
   %isinf = fcmp oeq double %7, 0x7FF0000000000000
@@ -7555,7 +7555,7 @@ if.then20:                                        ; preds = %if.end19
   br label %return
 
 if.else:                                          ; preds = %if.end19
-  %conv = zext i1 %cmp13 to i8
+  %conv = trunc i64 %.lobit to i8
   tail call void @mpd_setspecial(ptr noundef nonnull %dec7.i, i8 noundef zeroext %conv, i8 noundef zeroext 2) #15
   br label %return
 
@@ -7786,7 +7786,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end77:                                         ; preds = %if.end71
-  %conv79 = zext i1 %cmp13 to i8
+  %conv79 = trunc i64 %.lobit to i8
   call void @mpd_set_sign(ptr noundef nonnull %dec72, i8 noundef zeroext %conv79) #15
   %sub = sub i64 1, %call42
   %exp = getelementptr inbounds i8, ptr %call51, i64 32
@@ -8105,9 +8105,6 @@ declare hidden void @mpd_set_flags(ptr noundef, i8 noundef zeroext) local_unname
 declare hidden void @mpd_setdigits(ptr noundef) local_unnamed_addr #1
 
 declare double @PyFloat_AsDouble(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.copysign.f64(double, double) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #5
