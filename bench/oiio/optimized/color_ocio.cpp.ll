@@ -56681,7 +56681,7 @@ invoke.cont127:                                   ; preds = %for.cond121.prehead
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont127
-  %shr.i.i.i = lshr i32 %97, 16
+  %shr.i.i.i = lshr exact i32 %97, 16
   %conv.i.i.i = trunc i32 %shr.i.i.i to i16
   br label %for.inc131
 
@@ -56898,12 +56898,7 @@ invoke.cont166:                                   ; preds = %invoke.cont166.preh
   %conv164 = fadd float %mul161, 5.000000e-01
   %153 = bitcast float %conv164 to i32
   %cmp.i.i.i153 = fcmp oeq float %conv164, 0.000000e+00
-  br i1 %cmp.i.i.i153, label %if.then.i.i.i169, label %if.else.i.i.i154
-
-if.then.i.i.i169:                                 ; preds = %invoke.cont166
-  %shr.i.i.i170 = lshr i32 %153, 16
-  %conv.i.i.i171 = trunc i32 %shr.i.i.i170 to i16
-  br label %for.inc171
+  br i1 %cmp.i.i.i153, label %for.inc171, label %if.else.i.i.i154
 
 if.else.i.i.i154:                                 ; preds = %invoke.cont166
   %shr2.i.i.i155 = lshr i32 %153, 23
@@ -56928,8 +56923,8 @@ if.else13.i.i.i168:                               ; preds = %if.else.i.i.i154
   %call.i.i.i173 = invoke noundef signext i16 @_ZN4half7convertEi(i32 noundef %153)
           to label %for.inc171 unwind label %lpad33.loopexit
 
-for.inc171:                                       ; preds = %if.then4.i.i.i159, %if.then.i.i.i169, %if.else13.i.i.i168
-  %conv11.sink.i.i.i167 = phi i16 [ %conv11.i.i.i166, %if.then4.i.i.i159 ], [ %conv.i.i.i171, %if.then.i.i.i169 ], [ %call.i.i.i173, %if.else13.i.i.i168 ]
+for.inc171:                                       ; preds = %invoke.cont166, %if.then4.i.i.i159, %if.else13.i.i.i168
+  %conv11.sink.i.i.i167 = phi i16 [ %conv11.i.i.i166, %if.then4.i.i.i159 ], [ %call.i.i.i173, %if.else13.i.i.i168 ], [ 0, %invoke.cont166 ]
   store i16 %conv11.sink.i.i.i167, ptr %arrayidx.i.i152, align 2
   %indvars.iv.next463 = add nsw i64 %indvars.iv462, 1
   %156 = load i32, ptr %chend, align 4
@@ -69418,7 +69413,7 @@ invoke.cont127:                                   ; preds = %for.cond121.prehead
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont127
-  %shr.i.i.i = lshr i32 %95, 16
+  %shr.i.i.i = lshr exact i32 %95, 16
   %conv.i.i.i = trunc i32 %shr.i.i.i to i16
   br label %for.inc131
 
@@ -69632,12 +69627,7 @@ invoke.cont166:                                   ; preds = %invoke.cont166.preh
   %conv164 = fadd float %mul161, 5.000000e-01
   %150 = bitcast float %conv164 to i32
   %cmp.i.i.i151 = fcmp oeq float %conv164, 0.000000e+00
-  br i1 %cmp.i.i.i151, label %if.then.i.i.i167, label %if.else.i.i.i152
-
-if.then.i.i.i167:                                 ; preds = %invoke.cont166
-  %shr.i.i.i168 = lshr i32 %150, 16
-  %conv.i.i.i169 = trunc i32 %shr.i.i.i168 to i16
-  br label %for.inc171
+  br i1 %cmp.i.i.i151, label %for.inc171, label %if.else.i.i.i152
 
 if.else.i.i.i152:                                 ; preds = %invoke.cont166
   %shr2.i.i.i153 = lshr i32 %150, 23
@@ -69662,8 +69652,8 @@ if.else13.i.i.i166:                               ; preds = %if.else.i.i.i152
   %call.i.i.i171 = invoke noundef signext i16 @_ZN4half7convertEi(i32 noundef %150)
           to label %for.inc171 unwind label %lpad33.loopexit
 
-for.inc171:                                       ; preds = %if.then4.i.i.i157, %if.then.i.i.i167, %if.else13.i.i.i166
-  %conv11.sink.i.i.i165 = phi i16 [ %conv11.i.i.i164, %if.then4.i.i.i157 ], [ %conv.i.i.i169, %if.then.i.i.i167 ], [ %call.i.i.i171, %if.else13.i.i.i166 ]
+for.inc171:                                       ; preds = %invoke.cont166, %if.then4.i.i.i157, %if.else13.i.i.i166
+  %conv11.sink.i.i.i165 = phi i16 [ %conv11.i.i.i164, %if.then4.i.i.i157 ], [ %call.i.i.i171, %if.else13.i.i.i166 ], [ 0, %invoke.cont166 ]
   store i16 %conv11.sink.i.i.i165, ptr %arrayidx.i.i150, align 2
   %indvars.iv.next457 = add nsw i64 %indvars.iv456, 1
   %153 = load i32, ptr %chend, align 4
@@ -70535,7 +70525,7 @@ invoke.cont127:                                   ; preds = %for.cond121.prehead
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont127
-  %shr.i.i.i = lshr i32 %96, 16
+  %shr.i.i.i = lshr exact i32 %96, 16
   %conv.i.i.i = trunc i32 %shr.i.i.i to i16
   br label %for.inc131
 
@@ -70751,12 +70741,7 @@ invoke.cont166:                                   ; preds = %invoke.cont166.preh
   %conv164 = fadd float %mul161, 5.000000e-01
   %151 = bitcast float %conv164 to i32
   %cmp.i.i.i153 = fcmp oeq float %conv164, 0.000000e+00
-  br i1 %cmp.i.i.i153, label %if.then.i.i.i169, label %if.else.i.i.i154
-
-if.then.i.i.i169:                                 ; preds = %invoke.cont166
-  %shr.i.i.i170 = lshr i32 %151, 16
-  %conv.i.i.i171 = trunc i32 %shr.i.i.i170 to i16
-  br label %for.inc171
+  br i1 %cmp.i.i.i153, label %for.inc171, label %if.else.i.i.i154
 
 if.else.i.i.i154:                                 ; preds = %invoke.cont166
   %shr2.i.i.i155 = lshr i32 %151, 23
@@ -70781,8 +70766,8 @@ if.else13.i.i.i168:                               ; preds = %if.else.i.i.i154
   %call.i.i.i173 = invoke noundef signext i16 @_ZN4half7convertEi(i32 noundef %151)
           to label %for.inc171 unwind label %lpad33.loopexit
 
-for.inc171:                                       ; preds = %if.then4.i.i.i159, %if.then.i.i.i169, %if.else13.i.i.i168
-  %conv11.sink.i.i.i167 = phi i16 [ %conv11.i.i.i166, %if.then4.i.i.i159 ], [ %conv.i.i.i171, %if.then.i.i.i169 ], [ %call.i.i.i173, %if.else13.i.i.i168 ]
+for.inc171:                                       ; preds = %invoke.cont166, %if.then4.i.i.i159, %if.else13.i.i.i168
+  %conv11.sink.i.i.i167 = phi i16 [ %conv11.i.i.i166, %if.then4.i.i.i159 ], [ %call.i.i.i173, %if.else13.i.i.i168 ], [ 0, %invoke.cont166 ]
   store i16 %conv11.sink.i.i.i167, ptr %arrayidx.i.i152, align 2
   %indvars.iv.next463 = add nsw i64 %indvars.iv462, 1
   %154 = load i32, ptr %chend, align 4
@@ -71654,7 +71639,7 @@ invoke.cont127:                                   ; preds = %for.cond121.prehead
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont127
-  %shr.i.i.i = lshr i32 %96, 16
+  %shr.i.i.i = lshr exact i32 %96, 16
   %conv.i.i.i = trunc i32 %shr.i.i.i to i16
   br label %for.inc131
 
@@ -71870,12 +71855,7 @@ invoke.cont166:                                   ; preds = %invoke.cont166.preh
   %conv164 = fadd float %mul161, 5.000000e-01
   %151 = bitcast float %conv164 to i32
   %cmp.i.i.i153 = fcmp oeq float %conv164, 0.000000e+00
-  br i1 %cmp.i.i.i153, label %if.then.i.i.i169, label %if.else.i.i.i154
-
-if.then.i.i.i169:                                 ; preds = %invoke.cont166
-  %shr.i.i.i170 = lshr i32 %151, 16
-  %conv.i.i.i171 = trunc i32 %shr.i.i.i170 to i16
-  br label %for.inc171
+  br i1 %cmp.i.i.i153, label %for.inc171, label %if.else.i.i.i154
 
 if.else.i.i.i154:                                 ; preds = %invoke.cont166
   %shr2.i.i.i155 = lshr i32 %151, 23
@@ -71900,8 +71880,8 @@ if.else13.i.i.i168:                               ; preds = %if.else.i.i.i154
   %call.i.i.i173 = invoke noundef signext i16 @_ZN4half7convertEi(i32 noundef %151)
           to label %for.inc171 unwind label %lpad33.loopexit
 
-for.inc171:                                       ; preds = %if.then4.i.i.i159, %if.then.i.i.i169, %if.else13.i.i.i168
-  %conv11.sink.i.i.i167 = phi i16 [ %conv11.i.i.i166, %if.then4.i.i.i159 ], [ %conv.i.i.i171, %if.then.i.i.i169 ], [ %call.i.i.i173, %if.else13.i.i.i168 ]
+for.inc171:                                       ; preds = %invoke.cont166, %if.then4.i.i.i159, %if.else13.i.i.i168
+  %conv11.sink.i.i.i167 = phi i16 [ %conv11.i.i.i166, %if.then4.i.i.i159 ], [ %call.i.i.i173, %if.else13.i.i.i168 ], [ 0, %invoke.cont166 ]
   store i16 %conv11.sink.i.i.i167, ptr %arrayidx.i.i152, align 2
   %indvars.iv.next463 = add nsw i64 %indvars.iv462, 1
   %154 = load i32, ptr %chend, align 4

@@ -2899,39 +2899,37 @@ rb_float_value_inline.exit:                       ; preds = %4, %5, %11
   %15 = tail call double @llvm.fabs.f64(double %.0.i)
   %16 = bitcast double %15 to i64
   %cond.i = icmp eq i64 %16, 3458764513820540928
-  br i1 %cond.i, label %28, label %17
+  br i1 %cond.i, label %26, label %17
 
 17:                                               ; preds = %rb_float_value_inline.exit
   %18 = lshr i64 %16, 60
   %19 = trunc i64 %18 to i32
-  %20 = and i32 %19, 7
-  %21 = add nsw i32 %20, -3
-  %.not7.i = icmp ult i32 %21, 2
-  br i1 %.not7.i, label %22, label %26
+  %20 = add nsw i32 %19, -3
+  %.not7.i = icmp ult i32 %20, 2
+  br i1 %.not7.i, label %21, label %24
 
-22:                                               ; preds = %17
-  %23 = tail call noundef i64 @llvm.fshl.i64(i64 %16, i64 %16, i64 3)
-  %24 = and i64 %23, -4
-  %25 = or disjoint i64 %24, 2
+21:                                               ; preds = %17
+  %22 = shl i64 %16, 3
+  %23 = or disjoint i64 %22, 2
   br label %rb_float_new_inline.exit
 
-26:                                               ; preds = %17
-  %27 = icmp eq i64 %16, 0
-  br i1 %27, label %rb_float_new_inline.exit, label %28
+24:                                               ; preds = %17
+  %25 = icmp eq i64 %16, 0
+  br i1 %25, label %rb_float_new_inline.exit, label %26
 
-28:                                               ; preds = %26, %rb_float_value_inline.exit
-  %29 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
-  %30 = load ptr, ptr %29, align 8
-  %31 = load i64, ptr @rb_cFloat, align 8
-  %32 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %30, i64 noundef %31, i64 noundef 4, i64 noundef 24) #23
-  %33 = inttoptr i64 %32 to ptr
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
-  store double %15, ptr %34, align 8
-  tail call void @rb_obj_freeze_inline(i64 noundef %32) #23
+26:                                               ; preds = %24, %rb_float_value_inline.exit
+  %27 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
+  %28 = load ptr, ptr %27, align 8
+  %29 = load i64, ptr @rb_cFloat, align 8
+  %30 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %28, i64 noundef %29, i64 noundef 4, i64 noundef 24) #23
+  %31 = inttoptr i64 %30 to ptr
+  %32 = getelementptr inbounds i8, ptr %31, i64 16
+  store double %15, ptr %32, align 8
+  tail call void @rb_obj_freeze_inline(i64 noundef %30) #23
   br label %rb_float_new_inline.exit
 
-rb_float_new_inline.exit:                         ; preds = %22, %26, %28
-  %.0.i1 = phi i64 [ %32, %28 ], [ %25, %22 ], [ -9223372036854775806, %26 ]
+rb_float_new_inline.exit:                         ; preds = %21, %24, %26
+  %.0.i1 = phi i64 [ %30, %26 ], [ %23, %21 ], [ -9223372036854775806, %24 ]
   ret i64 %.0.i1
 }
 
@@ -14143,39 +14141,37 @@ rb_float_value_inline.exit.i:                     ; preds = %12, %6, %5
   %16 = tail call double @llvm.fabs.f64(double %.0.i.i)
   %17 = bitcast double %16 to i64
   %cond.i.i = icmp eq i64 %17, 3458764513820540928
-  br i1 %cond.i.i, label %29, label %18
+  br i1 %cond.i.i, label %27, label %18
 
 18:                                               ; preds = %rb_float_value_inline.exit.i
   %19 = lshr i64 %17, 60
   %20 = trunc i64 %19 to i32
-  %21 = and i32 %20, 7
-  %22 = add nsw i32 %21, -3
-  %.not7.i.i = icmp ult i32 %22, 2
-  br i1 %.not7.i.i, label %23, label %27
+  %21 = add nsw i32 %20, -3
+  %.not7.i.i = icmp ult i32 %21, 2
+  br i1 %.not7.i.i, label %22, label %25
 
-23:                                               ; preds = %18
-  %24 = tail call noundef i64 @llvm.fshl.i64(i64 %17, i64 %17, i64 3)
-  %25 = and i64 %24, -4
-  %26 = or disjoint i64 %25, 2
+22:                                               ; preds = %18
+  %23 = shl i64 %17, 3
+  %24 = or disjoint i64 %23, 2
   br label %rb_float_abs.exit
 
-27:                                               ; preds = %18
-  %28 = icmp eq i64 %17, 0
-  br i1 %28, label %rb_float_abs.exit, label %29
+25:                                               ; preds = %18
+  %26 = icmp eq i64 %17, 0
+  br i1 %26, label %rb_float_abs.exit, label %27
 
-29:                                               ; preds = %27, %rb_float_value_inline.exit.i
-  %30 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
-  %31 = load ptr, ptr %30, align 8
-  %32 = load i64, ptr @rb_cFloat, align 8
-  %33 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %31, i64 noundef %32, i64 noundef 4, i64 noundef 24) #23
-  %34 = inttoptr i64 %33 to ptr
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
-  store double %16, ptr %35, align 8
-  tail call void @rb_obj_freeze_inline(i64 noundef %33) #23
+27:                                               ; preds = %25, %rb_float_value_inline.exit.i
+  %28 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
+  %29 = load ptr, ptr %28, align 8
+  %30 = load i64, ptr @rb_cFloat, align 8
+  %31 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %29, i64 noundef %30, i64 noundef 4, i64 noundef 24) #23
+  %32 = inttoptr i64 %31 to ptr
+  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  store double %16, ptr %33, align 8
+  tail call void @rb_obj_freeze_inline(i64 noundef %31) #23
   br label %rb_float_abs.exit
 
-rb_float_abs.exit:                                ; preds = %23, %27, %29
-  %.0.i1.i = phi i64 [ %33, %29 ], [ %26, %23 ], [ -9223372036854775806, %27 ]
+rb_float_abs.exit:                                ; preds = %22, %25, %27
+  %.0.i1.i = phi i64 [ %31, %27 ], [ %24, %22 ], [ -9223372036854775806, %25 ]
   ret i64 %.0.i1.i
 }
 
@@ -14209,39 +14205,37 @@ rb_float_value_inline.exit.i:                     ; preds = %12, %6, %5
   %16 = tail call double @llvm.fabs.f64(double %.0.i.i)
   %17 = bitcast double %16 to i64
   %cond.i.i = icmp eq i64 %17, 3458764513820540928
-  br i1 %cond.i.i, label %29, label %18
+  br i1 %cond.i.i, label %27, label %18
 
 18:                                               ; preds = %rb_float_value_inline.exit.i
   %19 = lshr i64 %17, 60
   %20 = trunc i64 %19 to i32
-  %21 = and i32 %20, 7
-  %22 = add nsw i32 %21, -3
-  %.not7.i.i = icmp ult i32 %22, 2
-  br i1 %.not7.i.i, label %23, label %27
+  %21 = add nsw i32 %20, -3
+  %.not7.i.i = icmp ult i32 %21, 2
+  br i1 %.not7.i.i, label %22, label %25
 
-23:                                               ; preds = %18
-  %24 = tail call noundef i64 @llvm.fshl.i64(i64 %17, i64 %17, i64 3)
-  %25 = and i64 %24, -4
-  %26 = or disjoint i64 %25, 2
+22:                                               ; preds = %18
+  %23 = shl i64 %17, 3
+  %24 = or disjoint i64 %23, 2
   br label %rb_float_abs.exit
 
-27:                                               ; preds = %18
-  %28 = icmp eq i64 %17, 0
-  br i1 %28, label %rb_float_abs.exit, label %29
+25:                                               ; preds = %18
+  %26 = icmp eq i64 %17, 0
+  br i1 %26, label %rb_float_abs.exit, label %27
 
-29:                                               ; preds = %27, %rb_float_value_inline.exit.i
-  %30 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
-  %31 = load ptr, ptr %30, align 8
-  %32 = load i64, ptr @rb_cFloat, align 8
-  %33 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %31, i64 noundef %32, i64 noundef 4, i64 noundef 24) #23
-  %34 = inttoptr i64 %33 to ptr
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
-  store double %16, ptr %35, align 8
-  tail call void @rb_obj_freeze_inline(i64 noundef %33) #23
+27:                                               ; preds = %25, %rb_float_value_inline.exit.i
+  %28 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
+  %29 = load ptr, ptr %28, align 8
+  %30 = load i64, ptr @rb_cFloat, align 8
+  %31 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %29, i64 noundef %30, i64 noundef 4, i64 noundef 24) #23
+  %32 = inttoptr i64 %31 to ptr
+  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  store double %16, ptr %33, align 8
+  tail call void @rb_obj_freeze_inline(i64 noundef %31) #23
   br label %rb_float_abs.exit
 
-rb_float_abs.exit:                                ; preds = %23, %27, %29
-  %.0.i1.i = phi i64 [ %33, %29 ], [ %26, %23 ], [ -9223372036854775806, %27 ]
+rb_float_abs.exit:                                ; preds = %22, %25, %27
+  %.0.i1.i = phi i64 [ %31, %27 ], [ %24, %22 ], [ -9223372036854775806, %25 ]
   ret i64 %.0.i1.i
 }
 

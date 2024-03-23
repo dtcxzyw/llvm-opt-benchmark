@@ -2011,8 +2011,8 @@ for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %i
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %16 = bitcast float %15 to i32
-  %div.i.i.i.i.i = sdiv i32 %16, 3
-  %add.i.i.i.i.i = add nsw i32 %div.i.i.i.i.i, 709965728
+  %div.i.i.i.i.i = udiv i32 %16, 3
+  %add.i.i.i.i.i = add nuw nsw i32 %div.i.i.i.i.i, 709965728
   %17 = bitcast i32 %add.i.i.i.i.i to float
   %mul2.i.i.i.i.i = fmul float %17, %17
   %div3.i.i.i.i.i = fdiv float %15, %mul2.i.i.i.i.i

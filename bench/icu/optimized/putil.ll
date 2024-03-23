@@ -722,7 +722,7 @@ define noundef signext i8 @uprv_isNaN_75(double noundef %number) local_unnamed_a
 entry:
   %0 = tail call double @llvm.fabs.f64(double %number)
   %and = bitcast double %0 to i64
-  %cmp = icmp sgt i64 %and, 9218868437227405312
+  %cmp = icmp ugt i64 %and, 9218868437227405312
   %conv = zext i1 %cmp to i8
   ret i8 %conv
 }
@@ -845,13 +845,13 @@ define noundef double @uprv_fmax_75(double noundef %x, double noundef %y) local_
 entry:
   %0 = tail call double @llvm.fabs.f64(double %x)
   %and.i = bitcast double %0 to i64
-  %cmp.i = icmp slt i64 %and.i, 9218868437227405313
+  %cmp.i = icmp ult i64 %and.i, 9218868437227405313
   br i1 %cmp.i, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
   %1 = tail call double @llvm.fabs.f64(double %y)
   %and.i9 = bitcast double %1 to i64
-  %cmp.i10 = icmp slt i64 %and.i9, 9218868437227405313
+  %cmp.i10 = icmp ult i64 %and.i9, 9218868437227405313
   br i1 %cmp.i10, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -878,13 +878,13 @@ define noundef double @uprv_fmin_75(double noundef %x, double noundef %y) local_
 entry:
   %0 = tail call double @llvm.fabs.f64(double %x)
   %and.i = bitcast double %0 to i64
-  %cmp.i = icmp slt i64 %and.i, 9218868437227405313
+  %cmp.i = icmp ult i64 %and.i, 9218868437227405313
   br i1 %cmp.i, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
   %1 = tail call double @llvm.fabs.f64(double %y)
   %and.i9 = bitcast double %1 to i64
-  %cmp.i10 = icmp slt i64 %and.i9, 9218868437227405313
+  %cmp.i10 = icmp ult i64 %and.i9, 9218868437227405313
   br i1 %cmp.i10, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -936,7 +936,7 @@ define noundef double @uprv_trunc_75(double noundef %d) local_unnamed_addr #8 {
 entry:
   %0 = tail call double @llvm.fabs.f64(double %d)
   %and.i = bitcast double %0 to i64
-  %cmp.i = icmp slt i64 %and.i, 9218868437227405313
+  %cmp.i = icmp ult i64 %and.i, 9218868437227405313
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
