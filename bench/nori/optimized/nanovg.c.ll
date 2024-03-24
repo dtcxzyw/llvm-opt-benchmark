@@ -33725,7 +33725,7 @@ stbi__mad3sizes_valid.exit:                       ; preds = %stbi__mul2sizes_val
   br label %508
 
 413:                                              ; preds = %404
-  %414 = shl nuw nsw i32 %140, 1
+  %414 = shl nuw nsw i32 %139, 1
   %415 = mul i32 %414, %144
   tail call fastcc void @stbi__skip(ptr noundef nonnull %0, i32 noundef %415)
   %416 = icmp sgt i32 %.fr363, 0

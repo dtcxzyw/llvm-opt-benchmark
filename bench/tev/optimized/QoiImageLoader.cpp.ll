@@ -1332,7 +1332,7 @@ define dso_local noalias noundef ptr @qoi_encode(ptr noundef readonly %0, ptr no
   %127 = shl i8 %117, 2
   %128 = add i8 %127, 8
   %129 = or i8 %126, %128
-  %130 = or i8 %129, %121
+  %130 = or disjoint i8 %129, %121
   %131 = or i8 %130, 64
   %132 = add nsw i32 %.1218, 1
   %133 = sext i32 %.1218 to i64
@@ -1358,8 +1358,8 @@ define dso_local noalias noundef ptr @qoi_encode(ptr noundef readonly %0, ptr no
   %147 = getelementptr inbounds i8, ptr %31, i64 %146
   store i8 %145, ptr %147, align 1
   %148 = shl i8 %137, 4
-  %149 = xor i8 %148, -128
-  %150 = or i8 %149, %141
+  %149 = or disjoint i8 %148, %141
+  %150 = xor i8 %149, -128
   %151 = add nsw i32 %.1218, 2
   %gep237 = getelementptr i8, ptr %33, i64 %146
   store i8 %150, ptr %gep237, align 1

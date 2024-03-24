@@ -10126,7 +10126,7 @@ _ZL21stbi__mad3sizes_validiiii.exit:              ; preds = %_ZL21stbi__mul2size
   br label %508
 
 413:                                              ; preds = %404
-  %414 = shl nuw nsw i32 %140, 1
+  %414 = shl nuw nsw i32 %139, 1
   %415 = mul i32 %414, %144
   tail call fastcc void @_ZL10stbi__skipP13stbi__contexti(ptr noundef nonnull %0, i32 noundef %415)
   %416 = icmp sgt i32 %405, 0

@@ -2388,7 +2388,7 @@ define dso_local noundef i32 @intel_pmu_setup_lbr_filter(ptr nocapture noundef %
   br i1 %37, label %38, label %.thread
 
 38:                                               ; preds = %36
-  %39 = or disjoint i32 %26, 67596
+  %39 = or disjoint i32 %20, 67596
   br label %40
 
 40:                                               ; preds = %38, %4

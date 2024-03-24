@@ -31594,7 +31594,7 @@ if.else243.i:                                     ; preds = %if.else207.i
 
 if.end260.i:                                      ; preds = %if.else243.i
   %shl.i = shl nuw nsw i32 %conv254.i, 10
-  %add263.i = add nuw nsw i32 %shl.i, %conv255.i
+  %add263.i = or disjoint i32 %shl.i, %conv255.i
   %add264.i = add nuw nsw i32 %add263.i, 65536
   %shr265.i = lshr i32 %add264.i, 18
   %86 = trunc i32 %shr265.i to i8
@@ -31922,7 +31922,7 @@ if.else248.i:                                     ; preds = %if.else212.i
 
 if.end266.i:                                      ; preds = %if.else248.i
   %shl.i = shl nuw nsw i32 %conv260.i, 10
-  %add269.i = add nuw nsw i32 %shl.i, %conv261.i
+  %add269.i = or disjoint i32 %shl.i, %conv261.i
   %add270.i = add nuw nsw i32 %add269.i, 65536
   %shr271.i = lshr i32 %add270.i, 18
   %87 = trunc i32 %shr271.i to i8
@@ -32245,7 +32245,7 @@ if.else243.i:                                     ; preds = %if.else207.i
 
 if.end265.i:                                      ; preds = %if.else243.i
   %shl.i = shl nuw nsw i32 %conv254.i, 10
-  %add268.i = add nuw nsw i32 %shl.i, %conv255.i
+  %add268.i = or disjoint i32 %shl.i, %conv255.i
   %add269.i = add nuw nsw i32 %add268.i, 65536
   %shr270.i = lshr i32 %add269.i, 18
   %86 = trunc i32 %shr270.i to i8
@@ -32589,7 +32589,7 @@ if.else248.i:                                     ; preds = %if.else212.i
 
 if.end271.i:                                      ; preds = %if.else248.i
   %shl.i = shl nuw nsw i32 %conv260.i, 10
-  %add274.i = add nuw nsw i32 %shl.i, %conv261.i
+  %add274.i = or disjoint i32 %shl.i, %conv261.i
   %add275.i = add nuw nsw i32 %add274.i, 65536
   %shr276.i = lshr i32 %add275.i, 18
   %87 = trunc i32 %shr276.i to i8
@@ -33765,7 +33765,7 @@ if.else33.i:                                      ; preds = %for.body.i
 if.end49.i:                                       ; preds = %if.else33.i
   %shl.i = shl nuw nsw i32 %conv44.i, 10
   %add52.i = add nuw nsw i32 %shl.i, 65536
-  %add53.i = add nuw nsw i32 %add52.i, %conv45.i
+  %add53.i = or disjoint i32 %add52.i, %conv45.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end49.i, %for.body.i
@@ -33949,7 +33949,7 @@ if.else38.i:                                      ; preds = %for.body.i
 if.end55.i:                                       ; preds = %if.else38.i
   %shl.i = shl nuw nsw i32 %conv50.i, 10
   %add58.i = add nuw nsw i32 %shl.i, 65536
-  %add59.i = add nuw nsw i32 %add58.i, %conv51.i
+  %add59.i = or disjoint i32 %add58.i, %conv51.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end55.i, %for.body.i
@@ -34132,7 +34132,7 @@ if.else33.i:                                      ; preds = %for.body.i
 if.end54.i:                                       ; preds = %if.else33.i
   %shl.i = shl nuw nsw i32 %conv44.i, 10
   %add57.i = add nuw nsw i32 %shl.i, 65536
-  %add58.i = add nuw nsw i32 %add57.i, %conv45.i
+  %add58.i = or disjoint i32 %add57.i, %conv45.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end54.i, %for.body.i
@@ -34330,7 +34330,7 @@ if.else38.i:                                      ; preds = %for.body.i
 if.end60.i:                                       ; preds = %if.else38.i
   %shl.i = shl nuw nsw i32 %conv50.i, 10
   %add63.i = add nuw nsw i32 %shl.i, 65536
-  %add64.i = add nuw nsw i32 %add63.i, %conv51.i
+  %add64.i = or disjoint i32 %add63.i, %conv51.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end60.i, %for.body.i
@@ -35819,7 +35819,7 @@ if.else33.i.i:                                    ; preds = %for.body.i.i
 if.end49.i.i:                                     ; preds = %if.else33.i.i
   %shl.i.i = shl nuw nsw i32 %conv44.i.i, 10
   %add52.i.i = add nuw nsw i32 %shl.i.i, 65536
-  %add53.i.i = add nuw nsw i32 %add52.i.i, %conv45.i.i
+  %add53.i.i = or disjoint i32 %add52.i.i, %conv45.i.i
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.end49.i.i, %for.body.i.i
@@ -36003,7 +36003,7 @@ if.else38.i.i:                                    ; preds = %for.body.i.i
 if.end55.i.i:                                     ; preds = %if.else38.i.i
   %shl.i.i = shl nuw nsw i32 %conv50.i.i, 10
   %add58.i.i = add nuw nsw i32 %shl.i.i, 65536
-  %add59.i.i = add nuw nsw i32 %add58.i.i, %conv51.i.i
+  %add59.i.i = or disjoint i32 %add58.i.i, %conv51.i.i
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.end55.i.i, %for.body.i.i
@@ -45719,7 +45719,7 @@ if.else148.i:                                     ; preds = %if.else112.i
 
 if.end165.i:                                      ; preds = %if.else148.i
   %shl.i = shl nuw nsw i32 %conv159.i, 10
-  %add168.i = add nuw nsw i32 %shl.i, %conv160.i
+  %add168.i = or disjoint i32 %shl.i, %conv160.i
   %add169.i = add nuw nsw i32 %add168.i, 65536
   %shr170.i = lshr i32 %add169.i, 18
   %71 = trunc i32 %shr170.i to i8
@@ -46033,7 +46033,7 @@ if.else154.i:                                     ; preds = %if.else118.i
 
 if.end172.i:                                      ; preds = %if.else154.i
   %shl.i = shl nuw nsw i32 %conv166.i, 10
-  %add175.i = add nuw nsw i32 %shl.i, %conv167.i
+  %add175.i = or disjoint i32 %shl.i, %conv167.i
   %add176.i = add nuw nsw i32 %add175.i, 65536
   %shr177.i = lshr i32 %add176.i, 18
   %75 = trunc i32 %shr177.i to i8
@@ -46341,7 +46341,7 @@ if.else148.i:                                     ; preds = %if.else112.i
 
 if.end170.i:                                      ; preds = %if.else148.i
   %shl.i = shl nuw nsw i32 %conv159.i, 10
-  %add173.i = add nuw nsw i32 %shl.i, %conv160.i
+  %add173.i = or disjoint i32 %shl.i, %conv160.i
   %add174.i = add nuw nsw i32 %add173.i, 65536
   %shr175.i = lshr i32 %add174.i, 18
   %71 = trunc i32 %shr175.i to i8
@@ -46673,7 +46673,7 @@ if.else154.i:                                     ; preds = %if.else118.i
 
 if.end177.i:                                      ; preds = %if.else154.i
   %shl.i = shl nuw nsw i32 %conv166.i, 10
-  %add180.i = add nuw nsw i32 %shl.i, %conv167.i
+  %add180.i = or disjoint i32 %shl.i, %conv167.i
   %add181.i = add nuw nsw i32 %add180.i, 65536
   %shr182.i = lshr i32 %add181.i, 18
   %75 = trunc i32 %shr182.i to i8
@@ -47978,7 +47978,7 @@ if.else28.i:                                      ; preds = %for.body.i
 if.end44.i:                                       ; preds = %if.else28.i
   %shl.i = shl nuw nsw i32 %conv39.i, 10
   %add47.i = add nuw nsw i32 %shl.i, 65536
-  %add48.i = add nuw nsw i32 %add47.i, %conv40.i
+  %add48.i = or disjoint i32 %add47.i, %conv40.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end44.i, %for.body.i
@@ -48161,7 +48161,7 @@ if.else31.i:                                      ; preds = %for.body.i
 if.end48.i:                                       ; preds = %if.else31.i
   %shl.i = shl nuw nsw i32 %conv43.i, 10
   %add51.i = add nuw nsw i32 %shl.i, 65536
-  %add52.i = add nuw nsw i32 %add51.i, %conv44.i
+  %add52.i = or disjoint i32 %add51.i, %conv44.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end48.i, %for.body.i
@@ -48343,7 +48343,7 @@ if.else28.i:                                      ; preds = %for.body.i
 if.end49.i:                                       ; preds = %if.else28.i
   %shl.i = shl nuw nsw i32 %conv39.i, 10
   %add52.i = add nuw nsw i32 %shl.i, 65536
-  %add53.i = add nuw nsw i32 %add52.i, %conv40.i
+  %add53.i = or disjoint i32 %add52.i, %conv40.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end49.i, %for.body.i
@@ -48540,7 +48540,7 @@ if.else31.i:                                      ; preds = %for.body.i
 if.end53.i:                                       ; preds = %if.else31.i
   %shl.i = shl nuw nsw i32 %conv43.i, 10
   %add56.i = add nuw nsw i32 %shl.i, 65536
-  %add57.i = add nuw nsw i32 %add56.i, %conv44.i
+  %add57.i = or disjoint i32 %add56.i, %conv44.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end53.i, %for.body.i
@@ -50046,7 +50046,7 @@ if.else28.i.i:                                    ; preds = %for.body.i.i
 if.end44.i.i:                                     ; preds = %if.else28.i.i
   %shl.i.i = shl nuw nsw i32 %conv39.i.i, 10
   %add47.i.i = add nuw nsw i32 %shl.i.i, 65536
-  %add48.i.i = add nuw nsw i32 %add47.i.i, %conv40.i.i
+  %add48.i.i = or disjoint i32 %add47.i.i, %conv40.i.i
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.end44.i.i, %for.body.i.i

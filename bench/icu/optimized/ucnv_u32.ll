@@ -812,7 +812,7 @@ if.end8:                                          ; preds = %if.end
   %add.ptr20 = getelementptr inbounds i8, ptr %0, i64 4
   store ptr %add.ptr20, ptr %source, align 8
   %cmp22 = icmp ugt i32 %or19, 1114111
-  %and = and i32 %or16, -2048
+  %and = and i32 %or16, 2095104
   %cmp23 = icmp eq i32 %and, 55296
   %or.cond = or i1 %cmp22, %cmp23
   br i1 %or.cond, label %do.body26, label %return
@@ -906,9 +906,9 @@ while.body19:                                     ; preds = %while.body19.prehea
 if.then21:                                        ; preds = %while.body19
   %10 = load i8, ptr %mySource.257, align 1
   %conv22 = zext i8 %10 to i32
-  %11 = trunc i64 %indvars.iv to i32
-  %mul = shl nuw nsw i32 %11, 3
-  %shl = shl nuw i32 %conv22, %mul
+  %indvars.iv.tr = trunc i64 %indvars.iv to i32
+  %11 = shl i32 %indvars.iv.tr, 3
+  %shl = shl nuw i32 %conv22, %11
   %or = or i32 %shl, %ch.158
   %incdec.ptr = getelementptr inbounds i8, ptr %mySource.257, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1073,9 +1073,9 @@ while.body19:                                     ; preds = %while.body19.prehea
 if.then21:                                        ; preds = %while.body19
   %11 = load i8, ptr %mySource.266, align 1
   %conv22 = zext i8 %11 to i32
-  %12 = trunc i64 %indvars.iv to i32
-  %mul = shl nuw nsw i32 %12, 3
-  %shl = shl nuw i32 %conv22, %mul
+  %indvars.iv.tr = trunc i64 %indvars.iv to i32
+  %12 = shl i32 %indvars.iv.tr, 3
+  %shl = shl nuw i32 %conv22, %12
   %or = or i32 %shl, %ch.167
   %incdec.ptr = getelementptr inbounds i8, ptr %mySource.266, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1633,7 +1633,7 @@ if.end8:                                          ; preds = %if.end
   %add.ptr20 = getelementptr inbounds i8, ptr %0, i64 4
   store ptr %add.ptr20, ptr %source, align 8
   %cmp22 = icmp ugt i32 %or19, 1114111
-  %and = and i32 %or16, -2048
+  %and = and i32 %or16, 2095104
   %cmp23 = icmp eq i32 %and, 55296
   %or.cond = or i1 %cmp22, %cmp23
   br i1 %or.cond, label %do.body26, label %return
@@ -1987,7 +1987,7 @@ if.end8.i:                                        ; preds = %if.end.i
   %add.ptr20.i = getelementptr inbounds i8, ptr %2, i64 4
   store ptr %add.ptr20.i, ptr %source.i, align 8
   %cmp22.i = icmp ugt i32 %or19.i, 1114111
-  %and.i = and i32 %or16.i, -2048
+  %and.i = and i32 %or16.i, 2095104
   %cmp23.i = icmp eq i32 %and.i, 55296
   %or.cond.i = or i1 %cmp22.i, %cmp23.i
   br i1 %or.cond.i, label %do.body26.i, label %return
@@ -2046,7 +2046,7 @@ if.end8.i16:                                      ; preds = %if.end.i10
   %add.ptr20.i23 = getelementptr inbounds i8, ptr %11, i64 4
   store ptr %add.ptr20.i23, ptr %source.i4, align 8
   %cmp22.i24 = icmp ugt i32 %or19.i22, 1114111
-  %and.i25 = and i32 %or16.i20, -2048
+  %and.i25 = and i32 %or16.i20, 2095104
   %cmp23.i26 = icmp eq i32 %and.i25, 55296
   %or.cond.i27 = or i1 %cmp22.i24, %cmp23.i26
   br i1 %or.cond.i27, label %do.body26.i28, label %return

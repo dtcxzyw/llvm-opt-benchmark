@@ -13925,7 +13925,7 @@ Cba_NtkCleanObjNames.exit:                        ; preds = %65, %Vec_IntGrow.ex
   br i1 %or.cond.i.i145, label %147, label %149
 
 147:                                              ; preds = %129
-  %148 = xor i32 %137, -1
+  %148 = xor i32 %135, -1
   br label %Cba_NtkInsertGiaLit.exit.i
 
 149:                                              ; preds = %129
@@ -13992,7 +13992,7 @@ Cba_NtkInsertGiaLit.exit.i:                       ; preds = %179, %149, %147
   br i1 %or.cond.i63.i, label %184, label %186
 
 184:                                              ; preds = %Cba_NtkInsertGiaLit.exit.i
-  %185 = xor i32 %146, -1
+  %185 = xor i32 %144, -1
   br label %Cba_NtkInsertGiaLit.exit79.i
 
 186:                                              ; preds = %Cba_NtkInsertGiaLit.exit.i
@@ -14364,7 +14364,7 @@ Cba_NtkInsertGiaLit.exit:                         ; preds = %.lr.ph225, %323, %3
   br i1 %or.cond.i152, label %384, label %386
 
 384:                                              ; preds = %374
-  %385 = xor i32 %383, -1
+  %385 = xor i32 %381, -1
   br label %Cba_NtkInsertGiaLit.exit168
 
 386:                                              ; preds = %374
