@@ -4142,14 +4142,10 @@ _ZNK6vectorI5lboolLb0EjE4sizeEv.exit.thread:      ; preds = %for.end, %for.inc21
   %arrayidx.i = getelementptr inbounds i8, ptr %6, i64 -4
   %7 = load i32, ptr %arrayidx.i, align 4
   %cmp11118 = icmp ult i32 %i.0134, %7
-  br i1 %cmp11118, label %_ZNK6vectorI5lboolLb0EjE3getEjRKS0_.exit.i, label %for.end22
+  br i1 %cmp11118, label %_ZNK6vectorI5lboolLb0EjE3getEjRKS0_.exit.cont.i, label %for.end22
 
-_ZNK6vectorI5lboolLb0EjE3getEjRKS0_.exit.i:       ; preds = %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.thread
+_ZNK6vectorI5lboolLb0EjE3getEjRKS0_.exit.cont.i:  ; preds = %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.thread
   %shr.i.i51 = and i32 %i.0134, 2147483647
-  %cmp.not.i.i = icmp ugt i32 %7, %shr.i.i51
-  br i1 %cmp.not.i.i, label %_ZNK6vectorI5lboolLb0EjE3getEjRKS0_.exit.cont.i, label %for.inc21
-
-_ZNK6vectorI5lboolLb0EjE3getEjRKS0_.exit.cont.i:  ; preds = %_ZNK6vectorI5lboolLb0EjE3getEjRKS0_.exit.i
   %idxprom.i.i = zext nneg i32 %shr.i.i51 to i64
   %arrayidx.i.i53 = getelementptr inbounds i32, ptr %6, i64 %idxprom.i.i
   %.then.val.i = load i32, ptr %arrayidx.i.i53, align 4
@@ -4164,8 +4160,8 @@ if.then:                                          ; preds = %_ZNK6vectorI5lboolL
   %.pre = load ptr, ptr %m_assignment, align 8
   br label %for.inc21
 
-for.inc21:                                        ; preds = %_ZNK6vectorI5lboolLb0EjE3getEjRKS0_.exit.i, %_ZNK6vectorI5lboolLb0EjE3getEjRKS0_.exit.cont.i, %if.then
-  %8 = phi ptr [ %6, %_ZNK6vectorI5lboolLb0EjE3getEjRKS0_.exit.i ], [ %6, %_ZNK6vectorI5lboolLb0EjE3getEjRKS0_.exit.cont.i ], [ %.pre, %if.then ]
+for.inc21:                                        ; preds = %_ZNK6vectorI5lboolLb0EjE3getEjRKS0_.exit.cont.i, %if.then
+  %8 = phi ptr [ %6, %_ZNK6vectorI5lboolLb0EjE3getEjRKS0_.exit.cont.i ], [ %.pre, %if.then ]
   %inc = add nuw i32 %i.0134, 1
   %cmp.i = icmp eq ptr %8, null
   br i1 %cmp.i, label %for.end22, label %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.thread, !llvm.loop !32

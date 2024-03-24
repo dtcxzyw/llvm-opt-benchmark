@@ -6088,17 +6088,13 @@ define void @Cec5_ManPackAddPatterns(ptr nocapture noundef readonly %0, i32 noun
   %8 = add nsw i32 %7, -1
   %9 = tail call noundef i32 @llvm.smin.i32(i32 %.val30, i32 %8)
   %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %.lr.ph37, label %._crit_edge
+  br i1 %10, label %.lr.ph37.split.preheader, label %._crit_edge
 
-.lr.ph37:                                         ; preds = %3
+.lr.ph37.split.preheader:                         ; preds = %3
   %11 = add i32 %1, 1
   %12 = getelementptr i8, ptr %2, i64 8
   %13 = getelementptr inbounds i8, ptr %0, i64 848
   %14 = getelementptr inbounds i8, ptr %0, i64 832
-  %15 = icmp sgt i32 %.val30, 0
-  br i1 %15, label %.lr.ph37.split.preheader, label %._crit_edge
-
-.lr.ph37.split.preheader:                         ; preds = %.lr.ph37
   %wide.trip.count = zext nneg i32 %9 to i64
   br label %.lr.ph37.split
 
@@ -6106,77 +6102,77 @@ define void @Cec5_ManPackAddPatterns(ptr nocapture noundef readonly %0, i32 noun
   %.val45 = phi i32 [ %.val30, %.lr.ph37.split.preheader ], [ %.val46, %.critedge ]
   %.val34 = phi i32 [ %.val30, %.lr.ph37.split.preheader ], [ %.val3444, %.critedge ]
   %indvars.iv40 = phi i64 [ 0, %.lr.ph37.split.preheader ], [ %indvars.iv.next41, %.critedge ]
-  %16 = icmp sgt i32 %.val34, 0
-  br i1 %16, label %.lr.ph, label %.critedge
+  %15 = icmp sgt i32 %.val34, 0
+  br i1 %15, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.lr.ph37.split
-  %17 = trunc i64 %indvars.iv40 to i32
-  %18 = add i32 %11, %17
-  %19 = srem i32 %18, %9
-  %20 = add nsw i32 %19, 1
-  %21 = ashr i32 %20, 5
-  %22 = sext i32 %21 to i64
-  %23 = and i32 %20, 31
-  %24 = shl nuw i32 1, %23
-  br label %25
+  %16 = trunc i64 %indvars.iv40 to i32
+  %17 = add i32 %11, %16
+  %18 = srem i32 %17, %9
+  %19 = add nsw i32 %18, 1
+  %20 = ashr i32 %19, 5
+  %21 = sext i32 %20 to i64
+  %22 = and i32 %19, 31
+  %23 = shl nuw i32 1, %22
+  br label %24
 
-25:                                               ; preds = %.lr.ph, %50
-  %.val47 = phi i32 [ %.val45, %.lr.ph ], [ %.val, %50 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %50 ]
+24:                                               ; preds = %.lr.ph, %49
+  %.val47 = phi i32 [ %.val45, %.lr.ph ], [ %.val, %49 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
   %.val31 = load ptr, ptr %12, align 8
-  %26 = getelementptr inbounds i32, ptr %.val31, i64 %indvars.iv
-  %27 = load i32, ptr %26, align 4
-  %28 = load i32, ptr %5, align 8
-  %29 = ashr i32 %27, 1
-  %30 = mul nsw i32 %28, %29
-  %31 = sext i32 %30 to i64
-  %32 = load ptr, ptr %13, align 8
-  %33 = getelementptr i8, ptr %32, i64 8
-  %.val32 = load ptr, ptr %33, align 8
-  %34 = getelementptr inbounds i64, ptr %.val32, i64 %31
-  %35 = getelementptr inbounds i32, ptr %34, i64 %22
-  %36 = load i32, ptr %35, align 4
-  %37 = and i32 %36, %24
-  %.not = icmp eq i32 %37, 0
-  br i1 %.not, label %38, label %50
+  %25 = getelementptr inbounds i32, ptr %.val31, i64 %indvars.iv
+  %26 = load i32, ptr %25, align 4
+  %27 = load i32, ptr %5, align 8
+  %28 = ashr i32 %26, 1
+  %29 = mul nsw i32 %27, %28
+  %30 = sext i32 %29 to i64
+  %31 = load ptr, ptr %13, align 8
+  %32 = getelementptr i8, ptr %31, i64 8
+  %.val32 = load ptr, ptr %32, align 8
+  %33 = getelementptr inbounds i64, ptr %.val32, i64 %30
+  %34 = getelementptr inbounds i32, ptr %33, i64 %21
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, %23
+  %.not = icmp eq i32 %36, 0
+  br i1 %.not, label %37, label %49
 
-38:                                               ; preds = %25
-  %39 = load ptr, ptr %14, align 8
-  %40 = getelementptr i8, ptr %39, i64 8
-  %.val33 = load ptr, ptr %40, align 8
-  %41 = getelementptr inbounds i64, ptr %.val33, i64 %31
-  %42 = getelementptr inbounds i32, ptr %41, i64 %22
-  %43 = load i32, ptr %42, align 4
-  %44 = icmp eq i64 %indvars.iv, %indvars.iv40
-  %45 = and i32 %27, 1
-  %.tr = icmp ne i32 %45, 0
-  %.narrow = xor i1 %44, %.tr
-  %46 = and i32 %43, %24
-  %47 = icmp eq i32 %46, 0
-  %.not29 = xor i1 %.narrow, %47
-  br i1 %.not29, label %50, label %48
+37:                                               ; preds = %24
+  %38 = load ptr, ptr %14, align 8
+  %39 = getelementptr i8, ptr %38, i64 8
+  %.val33 = load ptr, ptr %39, align 8
+  %40 = getelementptr inbounds i64, ptr %.val33, i64 %30
+  %41 = getelementptr inbounds i32, ptr %40, i64 %21
+  %42 = load i32, ptr %41, align 4
+  %43 = icmp eq i64 %indvars.iv, %indvars.iv40
+  %44 = and i32 %26, 1
+  %.tr = icmp ne i32 %44, 0
+  %.narrow = xor i1 %43, %.tr
+  %45 = and i32 %42, %23
+  %46 = icmp eq i32 %45, 0
+  %.not29 = xor i1 %.narrow, %46
+  br i1 %.not29, label %49, label %47
 
-48:                                               ; preds = %38
-  %49 = xor i32 %43, %24
-  store i32 %49, ptr %42, align 4
+47:                                               ; preds = %37
+  %48 = xor i32 %42, %23
+  store i32 %48, ptr %41, align 4
   %.val.pre = load i32, ptr %4, align 4
-  br label %50
+  br label %49
 
-50:                                               ; preds = %38, %48, %25
-  %.val = phi i32 [ %.val47, %38 ], [ %.val.pre, %48 ], [ %.val47, %25 ]
+49:                                               ; preds = %37, %47, %24
+  %.val = phi i32 [ %.val47, %37 ], [ %.val.pre, %47 ], [ %.val47, %24 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %51 = sext i32 %.val to i64
-  %52 = icmp slt i64 %indvars.iv.next, %51
-  br i1 %52, label %25, label %.critedge, !llvm.loop !56
+  %50 = sext i32 %.val to i64
+  %51 = icmp slt i64 %indvars.iv.next, %50
+  br i1 %51, label %24, label %.critedge, !llvm.loop !56
 
-.critedge:                                        ; preds = %50, %.lr.ph37.split
-  %.val46 = phi i32 [ %.val45, %.lr.ph37.split ], [ %.val, %50 ]
-  %.val3444 = phi i32 [ %.val34, %.lr.ph37.split ], [ %.val, %50 ]
+.critedge:                                        ; preds = %49, %.lr.ph37.split
+  %.val46 = phi i32 [ %.val45, %.lr.ph37.split ], [ %.val, %49 ]
+  %.val3444 = phi i32 [ %.val34, %.lr.ph37.split ], [ %.val, %49 ]
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next41, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph37.split, !llvm.loop !57
 
-._crit_edge:                                      ; preds = %.critedge, %.lr.ph37, %3
+._crit_edge:                                      ; preds = %.critedge, %3
   ret void
 }
 
@@ -6310,7 +6306,7 @@ define i32 @Cec5_ManPackAddPattern(ptr nocapture noundef %0, ptr nocapture nound
 
 9:                                                ; preds = %.lr.ph, %66
   %10 = phi i32 [ %7, %.lr.ph ], [ %68, %66 ]
-  %.062 = phi i32 [ 1, %.lr.ph ], [ %67, %66 ]
+  %.061 = phi i32 [ 1, %.lr.ph ], [ %67, %66 ]
   %11 = load i32, ptr %8, align 4
   %12 = add nsw i32 %11, 1
   %13 = add i32 %10, -2
@@ -6333,9 +6329,9 @@ define i32 @Cec5_ManPackAddPattern(ptr nocapture noundef %0, ptr nocapture nound
   %21 = add nsw i32 %20, -1
   %22 = tail call noundef i32 @llvm.smin.i32(i32 %.val30.i, i32 %21)
   %23 = icmp sgt i32 %22, 0
-  br i1 %23, label %.lr.ph37.i, label %Cec5_ManPackAddPatterns.exit
+  br i1 %23, label %.lr.ph37.split.preheader.i, label %Cec5_ManPackAddPatterns.exit
 
-.lr.ph37.i:                                       ; preds = %18
+.lr.ph37.split.preheader.i:                       ; preds = %18
   %24 = load i32, ptr %8, align 4
   %25 = add i32 %24, 1
   %26 = getelementptr i8, ptr %1, i64 8
@@ -6344,10 +6340,10 @@ define i32 @Cec5_ManPackAddPattern(ptr nocapture noundef %0, ptr nocapture nound
   %wide.trip.count.i = zext nneg i32 %22 to i64
   br label %.lr.ph37.split.i
 
-.lr.ph37.split.i:                                 ; preds = %.critedge.i, %.lr.ph37.i
-  %.val45.i = phi i32 [ %.val30.i, %.lr.ph37.i ], [ %.val46.i, %.critedge.i ]
-  %.val34.i = phi i32 [ %.val30.i, %.lr.ph37.i ], [ %.val3444.i, %.critedge.i ]
-  %indvars.iv40.i = phi i64 [ 0, %.lr.ph37.i ], [ %indvars.iv.next41.i, %.critedge.i ]
+.lr.ph37.split.i:                                 ; preds = %.critedge.i, %.lr.ph37.split.preheader.i
+  %.val45.i = phi i32 [ %.val30.i, %.lr.ph37.split.preheader.i ], [ %.val46.i, %.critedge.i ]
+  %.val34.i = phi i32 [ %.val30.i, %.lr.ph37.split.preheader.i ], [ %.val3444.i, %.critedge.i ]
+  %indvars.iv40.i = phi i64 [ 0, %.lr.ph37.split.preheader.i ], [ %indvars.iv.next41.i, %.critedge.i ]
   %29 = icmp sgt i32 %.val34.i, 0
   br i1 %29, label %.lr.ph.i, label %.critedge.i
 
@@ -6419,7 +6415,7 @@ define i32 @Cec5_ManPackAddPattern(ptr nocapture noundef %0, ptr nocapture nound
   br i1 %exitcond.not.i, label %Cec5_ManPackAddPatterns.exit.loopexit, label %.lr.ph37.split.i, !llvm.loop !57
 
 66:                                               ; preds = %9
-  %67 = add nuw nsw i32 %.062, 1
+  %67 = add nuw nsw i32 %.061, 1
   %68 = shl nsw i32 %16, 6
   %69 = add nsw i32 %68, -1
   %70 = icmp slt i32 %67, %69
@@ -6431,26 +6427,26 @@ Cec5_ManPackAddPatterns.exit.loopexit:            ; preds = %.critedge.i
 
 Cec5_ManPackAddPatterns.exit:                     ; preds = %66, %Cec5_ManPackAddPatterns.exit.loopexit, %18, %17
   %71 = phi i32 [ %16, %18 ], [ %16, %17 ], [ %.pre, %Cec5_ManPackAddPatterns.exit.loopexit ], [ %16, %66 ]
-  %.060 = phi i32 [ %.062, %18 ], [ %.062, %17 ], [ %.062, %Cec5_ManPackAddPatterns.exit.loopexit ], [ %67, %66 ]
+  %.059 = phi i32 [ %.061, %18 ], [ %.061, %17 ], [ %.061, %Cec5_ManPackAddPatterns.exit.loopexit ], [ %67, %66 ]
   %72 = shl nsw i32 %71, 6
   %73 = add nsw i32 %72, -1
-  %74 = icmp eq i32 %.060, %73
+  %74 = icmp eq i32 %.059, %73
   br i1 %74, label %75, label %Cec5_ManPackAddPatterns.exit.thread
 
 75:                                               ; preds = %Cec5_ManPackAddPatterns.exit
   %76 = getelementptr inbounds i8, ptr %0, i64 812
-  store i32 %.060, ptr %76, align 4
-  %77 = tail call i32 @Cec5_ManPackAddPatternTry(ptr noundef nonnull %0, i32 noundef %.060, ptr noundef %1), !range !55
+  store i32 %.059, ptr %76, align 4
+  %77 = tail call i32 @Cec5_ManPackAddPatternTry(ptr noundef nonnull %0, i32 noundef %.059, ptr noundef %1), !range !55
   %.not28 = icmp eq i32 %77, 0
   br i1 %.not28, label %78, label %79
 
 78:                                               ; preds = %75
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  br label %Cec5_ManPackAddPatterns.exit56
+  br label %Cec5_ManPackAddPatterns.exit55
 
 79:                                               ; preds = %75
   %.not29 = icmp eq i32 %2, 0
-  br i1 %.not29, label %Cec5_ManPackAddPatterns.exit56, label %80
+  br i1 %.not29, label %Cec5_ManPackAddPatterns.exit55, label %80
 
 80:                                               ; preds = %79
   %81 = getelementptr i8, ptr %1, i64 4
@@ -6460,26 +6456,26 @@ Cec5_ManPackAddPatterns.exit:                     ; preds = %66, %Cec5_ManPackAd
   %84 = add nsw i32 %83, -1
   %85 = tail call noundef i32 @llvm.smin.i32(i32 %.val30.i30, i32 %84)
   %86 = icmp sgt i32 %85, 0
-  br i1 %86, label %.lr.ph37.i31, label %Cec5_ManPackAddPatterns.exit56
+  br i1 %86, label %.lr.ph37.split.preheader.i31, label %Cec5_ManPackAddPatterns.exit55
 
-.lr.ph37.i31:                                     ; preds = %80
+.lr.ph37.split.preheader.i31:                     ; preds = %80
   %87 = load i32, ptr %76, align 4
   %88 = add i32 %87, 1
   %89 = getelementptr i8, ptr %1, i64 8
   %90 = getelementptr inbounds i8, ptr %0, i64 848
   %91 = getelementptr inbounds i8, ptr %0, i64 832
-  %wide.trip.count.i33 = zext nneg i32 %85 to i64
-  br label %.lr.ph37.split.i34
+  %wide.trip.count.i32 = zext nneg i32 %85 to i64
+  br label %.lr.ph37.split.i33
 
-.lr.ph37.split.i34:                               ; preds = %.critedge.i38, %.lr.ph37.i31
-  %.val45.i35 = phi i32 [ %.val30.i30, %.lr.ph37.i31 ], [ %.val46.i39, %.critedge.i38 ]
-  %.val34.i36 = phi i32 [ %.val30.i30, %.lr.ph37.i31 ], [ %.val3444.i40, %.critedge.i38 ]
-  %indvars.iv40.i37 = phi i64 [ 0, %.lr.ph37.i31 ], [ %indvars.iv.next41.i41, %.critedge.i38 ]
-  %92 = icmp sgt i32 %.val34.i36, 0
-  br i1 %92, label %.lr.ph.i43, label %.critedge.i38
+.lr.ph37.split.i33:                               ; preds = %.critedge.i37, %.lr.ph37.split.preheader.i31
+  %.val45.i34 = phi i32 [ %.val30.i30, %.lr.ph37.split.preheader.i31 ], [ %.val46.i38, %.critedge.i37 ]
+  %.val34.i35 = phi i32 [ %.val30.i30, %.lr.ph37.split.preheader.i31 ], [ %.val3444.i39, %.critedge.i37 ]
+  %indvars.iv40.i36 = phi i64 [ 0, %.lr.ph37.split.preheader.i31 ], [ %indvars.iv.next41.i40, %.critedge.i37 ]
+  %92 = icmp sgt i32 %.val34.i35, 0
+  br i1 %92, label %.lr.ph.i42, label %.critedge.i37
 
-.lr.ph.i43:                                       ; preds = %.lr.ph37.split.i34
-  %93 = trunc i64 %indvars.iv40.i37 to i32
+.lr.ph.i42:                                       ; preds = %.lr.ph37.split.i33
+  %93 = trunc i64 %indvars.iv40.i36 to i32
   %94 = add i32 %88, %93
   %95 = srem i32 %94, %85
   %96 = add nsw i32 %95, 1
@@ -6489,11 +6485,11 @@ Cec5_ManPackAddPatterns.exit:                     ; preds = %66, %Cec5_ManPackAd
   %100 = shl nuw i32 1, %99
   br label %101
 
-101:                                              ; preds = %126, %.lr.ph.i43
-  %.val47.i44 = phi i32 [ %.val45.i35, %.lr.ph.i43 ], [ %.val.i49, %126 ]
-  %indvars.iv.i45 = phi i64 [ 0, %.lr.ph.i43 ], [ %indvars.iv.next.i50, %126 ]
-  %.val31.i46 = load ptr, ptr %89, align 8
-  %102 = getelementptr inbounds i32, ptr %.val31.i46, i64 %indvars.iv.i45
+101:                                              ; preds = %126, %.lr.ph.i42
+  %.val47.i43 = phi i32 [ %.val45.i34, %.lr.ph.i42 ], [ %.val.i48, %126 ]
+  %indvars.iv.i44 = phi i64 [ 0, %.lr.ph.i42 ], [ %indvars.iv.next.i49, %126 ]
+  %.val31.i45 = load ptr, ptr %89, align 8
+  %102 = getelementptr inbounds i32, ptr %.val31.i45, i64 %indvars.iv.i44
   %103 = load i32, ptr %102, align 4
   %104 = load i32, ptr %4, align 8
   %105 = ashr i32 %103, 1
@@ -6501,57 +6497,57 @@ Cec5_ManPackAddPatterns.exit:                     ; preds = %66, %Cec5_ManPackAd
   %107 = sext i32 %106 to i64
   %108 = load ptr, ptr %90, align 8
   %109 = getelementptr i8, ptr %108, i64 8
-  %.val32.i47 = load ptr, ptr %109, align 8
-  %110 = getelementptr inbounds i64, ptr %.val32.i47, i64 %107
+  %.val32.i46 = load ptr, ptr %109, align 8
+  %110 = getelementptr inbounds i64, ptr %.val32.i46, i64 %107
   %111 = getelementptr inbounds i32, ptr %110, i64 %98
   %112 = load i32, ptr %111, align 4
   %113 = and i32 %112, %100
-  %.not.i48 = icmp eq i32 %113, 0
-  br i1 %.not.i48, label %114, label %126
+  %.not.i47 = icmp eq i32 %113, 0
+  br i1 %.not.i47, label %114, label %126
 
 114:                                              ; preds = %101
   %115 = load ptr, ptr %91, align 8
   %116 = getelementptr i8, ptr %115, i64 8
-  %.val33.i51 = load ptr, ptr %116, align 8
-  %117 = getelementptr inbounds i64, ptr %.val33.i51, i64 %107
+  %.val33.i50 = load ptr, ptr %116, align 8
+  %117 = getelementptr inbounds i64, ptr %.val33.i50, i64 %107
   %118 = getelementptr inbounds i32, ptr %117, i64 %98
   %119 = load i32, ptr %118, align 4
-  %120 = icmp eq i64 %indvars.iv.i45, %indvars.iv40.i37
+  %120 = icmp eq i64 %indvars.iv.i44, %indvars.iv40.i36
   %121 = and i32 %103, 1
-  %.tr.i52 = icmp ne i32 %121, 0
-  %.narrow.i53 = xor i1 %120, %.tr.i52
+  %.tr.i51 = icmp ne i32 %121, 0
+  %.narrow.i52 = xor i1 %120, %.tr.i51
   %122 = and i32 %119, %100
   %123 = icmp eq i32 %122, 0
-  %.not29.i54 = xor i1 %.narrow.i53, %123
-  br i1 %.not29.i54, label %126, label %124
+  %.not29.i53 = xor i1 %.narrow.i52, %123
+  br i1 %.not29.i53, label %126, label %124
 
 124:                                              ; preds = %114
   %125 = xor i32 %119, %100
   store i32 %125, ptr %118, align 4
-  %.val.pre.i55 = load i32, ptr %81, align 4
+  %.val.pre.i54 = load i32, ptr %81, align 4
   br label %126
 
 126:                                              ; preds = %124, %114, %101
-  %.val.i49 = phi i32 [ %.val47.i44, %114 ], [ %.val.pre.i55, %124 ], [ %.val47.i44, %101 ]
-  %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i45, 1
-  %127 = sext i32 %.val.i49 to i64
-  %128 = icmp slt i64 %indvars.iv.next.i50, %127
-  br i1 %128, label %101, label %.critedge.i38, !llvm.loop !56
+  %.val.i48 = phi i32 [ %.val47.i43, %114 ], [ %.val.pre.i54, %124 ], [ %.val47.i43, %101 ]
+  %indvars.iv.next.i49 = add nuw nsw i64 %indvars.iv.i44, 1
+  %127 = sext i32 %.val.i48 to i64
+  %128 = icmp slt i64 %indvars.iv.next.i49, %127
+  br i1 %128, label %101, label %.critedge.i37, !llvm.loop !56
 
-.critedge.i38:                                    ; preds = %126, %.lr.ph37.split.i34
-  %.val46.i39 = phi i32 [ %.val45.i35, %.lr.ph37.split.i34 ], [ %.val.i49, %126 ]
-  %.val3444.i40 = phi i32 [ %.val34.i36, %.lr.ph37.split.i34 ], [ %.val.i49, %126 ]
-  %indvars.iv.next41.i41 = add nuw nsw i64 %indvars.iv40.i37, 1
-  %exitcond.not.i42 = icmp eq i64 %indvars.iv.next41.i41, %wide.trip.count.i33
-  br i1 %exitcond.not.i42, label %Cec5_ManPackAddPatterns.exit56, label %.lr.ph37.split.i34, !llvm.loop !57
+.critedge.i37:                                    ; preds = %126, %.lr.ph37.split.i33
+  %.val46.i38 = phi i32 [ %.val45.i34, %.lr.ph37.split.i33 ], [ %.val.i48, %126 ]
+  %.val3444.i39 = phi i32 [ %.val34.i35, %.lr.ph37.split.i33 ], [ %.val.i48, %126 ]
+  %indvars.iv.next41.i40 = add nuw nsw i64 %indvars.iv40.i36, 1
+  %exitcond.not.i41 = icmp eq i64 %indvars.iv.next41.i40, %wide.trip.count.i32
+  br i1 %exitcond.not.i41, label %Cec5_ManPackAddPatterns.exit55, label %.lr.ph37.split.i33, !llvm.loop !57
 
-Cec5_ManPackAddPatterns.exit56:                   ; preds = %.critedge.i38, %80, %79, %78
+Cec5_ManPackAddPatterns.exit55:                   ; preds = %.critedge.i37, %80, %79, %78
   %129 = load i32, ptr %4, align 8
   %130 = shl nsw i32 %129, 6
   br label %Cec5_ManPackAddPatterns.exit.thread
 
-Cec5_ManPackAddPatterns.exit.thread:              ; preds = %3, %Cec5_ManPackAddPatterns.exit, %Cec5_ManPackAddPatterns.exit56
-  %.026 = phi i32 [ %130, %Cec5_ManPackAddPatterns.exit56 ], [ %.060, %Cec5_ManPackAddPatterns.exit ], [ 1, %3 ]
+Cec5_ManPackAddPatterns.exit.thread:              ; preds = %3, %Cec5_ManPackAddPatterns.exit, %Cec5_ManPackAddPatterns.exit55
+  %.026 = phi i32 [ %130, %Cec5_ManPackAddPatterns.exit55 ], [ %.059, %Cec5_ManPackAddPatterns.exit ], [ 1, %3 ]
   ret i32 %.026
 }
 

@@ -4079,7 +4079,7 @@ define internal fastcc void @unmap_single_vma(ptr noundef %0, ptr noundef %1, i6
 
 12:                                               ; preds = %6
   %13 = tail call i64 @llvm.umin.i64(i64 %10, i64 %3)
-  %14 = icmp ugt i64 %13, %7
+  %14 = icmp ult i64 %7, %3
   br i1 %14, label %15, label %43
 
 15:                                               ; preds = %12
