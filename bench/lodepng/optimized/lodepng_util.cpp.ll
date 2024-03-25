@@ -4215,11 +4215,14 @@ for.body25:                                       ; preds = %for.cond23.preheade
   %gep = getelementptr float, ptr %invariant.gep, i64 %c.080
   %8 = load float, ptr %gep, align 4
   %cmp30 = fcmp olt float %8, 0.000000e+00
-  %cond = select i1 %cmp30, float 0.000000e+00, float %8
-  %cmp34.inv = fcmp olt float %cond, 1.000000e+00
-  %cond49 = select i1 %cmp34.inv, float %cond, float 1.000000e+00
-  %9 = call float @llvm.fmuladd.f32(float %cond49, float 6.553500e+04, float 5.000000e-01)
-  %conv51 = fptosi float %9 to i32
+  %9 = fcmp olt float %8, 1.000000e+00
+  %cmp34 = or i1 %cmp30, %9
+  %10 = xor i1 %9, true
+  %brmerge = or i1 %cmp30, %10
+  %.mux = select i1 %cmp34, float 0.000000e+00, float 1.000000e+00
+  %cond49 = select i1 %brmerge, float %.mux, float %8
+  %11 = call float @llvm.fmuladd.f32(float %cond49, float 6.553500e+04, float 5.000000e-01)
+  %conv51 = fptosi float %11 to i32
   %shr = lshr i32 %conv51, 8
   %conv52 = trunc i32 %shr to i8
   %arrayidx54 = getelementptr inbounds i8, ptr %call.i71, i64 %add
@@ -4250,13 +4253,16 @@ for.body70:                                       ; preds = %for.cond68.preheade
   %c.177 = phi i64 [ 0, %for.cond68.preheader ], [ %inc104, %for.body70 ]
   %add72 = add nuw nsw i64 %c.177, %mul71
   %arrayidx73 = getelementptr inbounds float, ptr %call.i, i64 %add72
-  %10 = load float, ptr %arrayidx73, align 4
-  %cmp74 = fcmp olt float %10, 0.000000e+00
-  %cond81 = select i1 %cmp74, float 0.000000e+00, float %10
-  %cmp82.inv = fcmp olt float %cond81, 1.000000e+00
-  %cond97 = select i1 %cmp82.inv, float %cond81, float 1.000000e+00
-  %11 = call float @llvm.fmuladd.f32(float %cond97, float 2.550000e+02, float 5.000000e-01)
-  %conv99 = fptoui float %11 to i8
+  %12 = load float, ptr %arrayidx73, align 4
+  %cmp74 = fcmp olt float %12, 0.000000e+00
+  %13 = fcmp olt float %12, 1.000000e+00
+  %cmp82 = or i1 %cmp74, %13
+  %14 = xor i1 %13, true
+  %brmerge75 = or i1 %cmp74, %14
+  %.mux76 = select i1 %cmp82, float 0.000000e+00, float 1.000000e+00
+  %cond97 = select i1 %brmerge75, float %.mux76, float %12
+  %15 = call float @llvm.fmuladd.f32(float %cond97, float 2.550000e+02, float 5.000000e-01)
+  %conv99 = fptoui float %15 to i8
   %arrayidx102 = getelementptr inbounds i8, ptr %call.i71, i64 %add72
   store i8 %conv99, ptr %arrayidx102, align 1
   %inc104 = add nuw nsw i64 %c.177, 1
@@ -4277,12 +4283,12 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   %im.0 = phi ptr [ null, %if.then ], [ %call.i, %if.end6 ], [ %call.i, %cleanup.sink.split ]
   %data.0 = phi ptr [ null, %if.then ], [ null, %if.end6 ], [ %call.i71, %cleanup.sink.split ]
   %error.0 = phi i32 [ 1, %if.then ], [ 1, %if.end6 ], [ %call109, %cleanup.sink.split ]
-  %12 = load ptr, ptr %lut.i.i, align 8
-  call void @free(ptr noundef %12) #26
-  %13 = load ptr, ptr %lut.i3.i, align 8
-  call void @free(ptr noundef %13) #26
-  %14 = load ptr, ptr %lut.i4.i, align 8
-  call void @free(ptr noundef %14) #26
+  %16 = load ptr, ptr %lut.i.i, align 8
+  call void @free(ptr noundef %16) #26
+  %17 = load ptr, ptr %lut.i3.i, align 8
+  call void @free(ptr noundef %17) #26
+  %18 = load ptr, ptr %lut.i4.i, align 8
+  call void @free(ptr noundef %18) #26
   call void @free(ptr noundef %im.0) #26
   call void @free(ptr noundef %data.0) #26
   ret i32 %error.0

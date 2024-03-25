@@ -6642,9 +6642,12 @@ IDAQuadSensWrmsNormUpdate.exit.i.i:               ; preds = %.lr.ph.i.i222.i, %.
 
 1811:                                             ; preds = %1809
   %1812 = fcmp ogt double %1798, 9.000000e-01
-  %1813 = select i1 %1812, double 9.000000e-01, double %1798
-  %1814 = fcmp olt double %1813, 5.000000e-01
-  %1815 = select i1 %1814, double 5.000000e-01, double %1813
+  %1813 = fcmp olt double %1798, 5.000000e-01
+  %not..i.i = xor i1 %1812, true
+  %1814 = and i1 %1813, %not..i.i
+  %brmerge.i.i = or i1 %1813, %1812
+  %.mux.i.i = select i1 %1814, double 5.000000e-01, double 9.000000e-01
+  %1815 = select i1 %brmerge.i.i, double %.mux.i.i, double %1798
   store double %1815, ptr %362, align 8
   %1816 = load double, ptr %317, align 8
   %1817 = fmul double %1815, %1816
