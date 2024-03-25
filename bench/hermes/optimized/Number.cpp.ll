@@ -1190,7 +1190,7 @@ if.end61:                                         ; preds = %if.end51, %_ZNK6her
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
   %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %n, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i.i, align 4
-  %cmp66 = fcmp oeq double %x.1, 0.000000e+00
+  %cmp66 = fcmp oeq double %x.0, 0.000000e+00
   br i1 %cmp66, label %for.cond.preheader, label %if.else70
 
 for.cond.preheader:                               ; preds = %if.end61
@@ -1551,8 +1551,6 @@ if.then81:                                        ; preds = %if.end78
 if.end84:                                         ; preds = %if.end78
   %conv = fptosi double %18 to i32
   %cmp85 = fcmp olt double %x.0, 0.000000e+00
-  %fneg87 = fneg double %x.0
-  %x.1 = select i1 %cmp85, double %fneg87, double %x.0
   %24 = getelementptr inbounds i8, ptr %n, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %24, i8 0, i64 32, i1 false)
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %n, i64 16
@@ -1561,7 +1559,7 @@ if.end84:                                         ; preds = %if.end78
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
   %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %n, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i.i, align 4
-  %cmp89 = fcmp oeq double %x.1, 0.000000e+00
+  %cmp89 = fcmp oeq double %x.0, 0.000000e+00
   br i1 %cmp89, label %for.cond.preheader, label %if.else93
 
 for.cond.preheader:                               ; preds = %if.end84
@@ -1594,6 +1592,8 @@ _ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit: ; preds = %for.body
   br i1 %exitcond157.not, label %if.end132.thread, label %for.body, !llvm.loop !25
 
 if.else93:                                        ; preds = %if.end84
+  %fneg87 = fneg double %x.0
+  %x.1 = select i1 %cmp85, double %fneg87, double %x.0
   %call.i = call ptr @dtoa_alloc_init(ptr noundef nonnull %dalloc, i32 noundef 1200) #12
   %dalloc_.i = getelementptr inbounds i8, ptr %dalloc, i64 1200
   store ptr %call.i, ptr %dalloc_.i, align 8

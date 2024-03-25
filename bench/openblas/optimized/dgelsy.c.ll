@@ -264,7 +264,7 @@ define void @dgelsy_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %156 = select i1 %154, double %153, double %155
   store double %156, ptr %19, align 8, !tbaa !7
   store double %156, ptr %18, align 8, !tbaa !7
-  %157 = fcmp oeq double %156, 0.000000e+00
+  %157 = fcmp oeq double %153, 0.000000e+00
   br i1 %157, label %164, label %158
 
 158:                                              ; preds = %142

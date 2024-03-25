@@ -130,20 +130,20 @@ define void @dptcon_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   %84 = sext i32 %83 to i64
   %85 = getelementptr inbounds double, ptr %9, i64 %84
   %86 = load double, ptr %85, align 8, !tbaa !7
-  %87 = fcmp oge double %86, 0.000000e+00
-  %88 = fneg double %86
-  %89 = select i1 %87, double %86, double %88
-  %90 = fcmp une double %89, 0.000000e+00
-  br i1 %90, label %91, label %.loopexit6
+  %87 = fcmp une double %86, 0.000000e+00
+  br i1 %87, label %88, label %.loopexit6
 
-91:                                               ; preds = %.loopexit
-  %92 = fdiv double 1.000000e+00, %89
+88:                                               ; preds = %.loopexit
+  %89 = fcmp oge double %86, 0.000000e+00
+  %90 = fneg double %86
+  %91 = select i1 %89, double %86, double %90
+  %92 = fdiv double 1.000000e+00, %91
   %93 = load double, ptr %3, align 8, !tbaa !7
   %94 = fdiv double %92, %93
   store double %94, ptr %4, align 8, !tbaa !7
   br label %.loopexit6
 
-.loopexit6:                                       ; preds = %33, %91, %.loopexit, %24, %23, %17
+.loopexit6:                                       ; preds = %33, %88, %.loopexit, %24, %23, %17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
   ret void
 }

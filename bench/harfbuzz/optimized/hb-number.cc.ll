@@ -323,7 +323,7 @@ if.end71.i:                                       ; preds = %_ZL6_pow10j.exit.i,
   br i1 %tobool76.not.i, label %if.end88.i, label %if.then77.i
 
 if.then77.i:                                      ; preds = %if.end71.i
-  %cmp78.i = fcmp oeq double %value.4.i, 0.000000e+00
+  %cmp78.i = fcmp oeq double %value.3.i, 0.000000e+00
   br i1 %cmp78.i, label %_ZL9strtod_rlPKcPS0_.exit, label %if.end80.i
 
 if.end80.i:                                       ; preds = %if.then77.i

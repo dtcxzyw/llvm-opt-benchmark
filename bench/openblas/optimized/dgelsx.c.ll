@@ -195,7 +195,7 @@ define void @dgelsx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %116 = select i1 %114, double %113, double %115
   store double %116, ptr %18, align 8, !tbaa !7
   store double %116, ptr %17, align 8, !tbaa !7
-  %117 = fcmp oeq double %116, 0.000000e+00
+  %117 = fcmp oeq double %113, 0.000000e+00
   br i1 %117, label %125, label %118
 
 118:                                              ; preds = %103

@@ -403,7 +403,7 @@ define void @dlasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %318 = fcmp olt double %310, 0.000000e+00
   %319 = fneg double %310
   %320 = select i1 %318, double %319, double %310
-  %321 = fcmp oeq double %320, 0.000000e+00
+  %321 = fcmp oeq double %310, 0.000000e+00
   br i1 %321, label %322, label %327
 
 322:                                              ; preds = %298

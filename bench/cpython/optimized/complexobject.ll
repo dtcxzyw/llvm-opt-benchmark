@@ -995,7 +995,7 @@ entry:
   br i1 %cmp11, label %if.else28, label %if.then
 
 if.then:                                          ; preds = %entry
-  %cmp12 = fcmp oeq double %5, 0.000000e+00
+  %cmp12 = fcmp oeq double %b.coerce0, 0.000000e+00
   br i1 %cmp12, label %if.then13, label %if.else
 
 if.then13:                                        ; preds = %if.then
@@ -2899,53 +2899,58 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %while
 if.else.i:                                        ; preds = %if.then24
   %sub.i = sub i64 0, %conv
   %cmp113.i6.i = icmp sgt i64 %sub.i, 0
-  br i1 %cmp113.i6.i, label %while.body.i11.i, label %c_powu.exit30.i
+  br i1 %cmp113.i6.i, label %while.body.i11.i.preheader, label %c_powu.exit30.i
 
-while.body.i11.i:                                 ; preds = %if.else.i, %if.end.i22.i
-  %mask.014.i16.i = phi i64 [ %shl.i25.i, %if.end.i22.i ], [ 1, %if.else.i ]
-  %33 = phi <2 x double> [ %49, %if.end.i22.i ], [ %7, %if.else.i ]
-  %34 = phi <2 x double> [ %42, %if.end.i22.i ], [ <double 1.000000e+00, double 0.000000e+00>, %if.else.i ]
+while.body.i11.i.preheader:                       ; preds = %if.else.i
+  %33 = shufflevector <2 x double> %7, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  br label %while.body.i11.i
+
+while.body.i11.i:                                 ; preds = %while.body.i11.i.preheader, %if.end.i22.i
+  %mask.014.i16.i = phi i64 [ %shl.i25.i, %if.end.i22.i ], [ 1, %while.body.i11.i.preheader ]
+  %34 = phi <2 x double> [ %50, %if.end.i22.i ], [ %33, %while.body.i11.i.preheader ]
+  %35 = phi <2 x double> [ %43, %if.end.i22.i ], [ <double 0.000000e+00, double 1.000000e+00>, %while.body.i11.i.preheader ]
   %and.i17.i = and i64 %mask.014.i16.i, %sub.i
   %tobool.not.i18.i = icmp eq i64 %and.i17.i, 0
   br i1 %tobool.not.i18.i, label %if.end.i22.i, label %if.then.i19.i
 
 if.then.i19.i:                                    ; preds = %while.body.i11.i
-  %35 = shufflevector <2 x double> %34, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %36 = fneg <2 x double> %34
-  %37 = shufflevector <2 x double> %35, <2 x double> %36, <2 x i32> <i32 0, i32 3>
-  %38 = fmul <2 x double> %33, %37
-  %39 = shufflevector <2 x double> %38, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %40 = shufflevector <2 x double> %34, <2 x double> poison, <2 x i32> zeroinitializer
-  %41 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %40, <2 x double> %33, <2 x double> %39)
+  %36 = shufflevector <2 x double> %35, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
+  %37 = fneg <2 x double> %35
+  %38 = shufflevector <2 x double> %37, <2 x double> %36, <2 x i32> <i32 0, i32 3>
+  %39 = fmul <2 x double> %34, %38
+  %40 = shufflevector <2 x double> %39, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %41 = shufflevector <2 x double> %35, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %42 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %41, <2 x double> %34, <2 x double> %40)
   br label %if.end.i22.i
 
 if.end.i22.i:                                     ; preds = %if.then.i19.i, %while.body.i11.i
-  %42 = phi <2 x double> [ %41, %if.then.i19.i ], [ %34, %while.body.i11.i ]
+  %43 = phi <2 x double> [ %42, %if.then.i19.i ], [ %35, %while.body.i11.i ]
   %shl.i25.i = shl nuw i64 %mask.014.i16.i, 1
-  %43 = extractelement <2 x double> %33, i64 1
-  %44 = fneg double %43
-  %45 = shufflevector <2 x double> %33, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %46 = shufflevector <2 x double> %33, <2 x double> poison, <2 x i32> zeroinitializer
-  %47 = insertelement <2 x double> %46, double %44, i64 0
-  %48 = fmul <2 x double> %45, %47
-  %49 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %46, <2 x double> %33, <2 x double> %48)
+  %44 = extractelement <2 x double> %34, i64 0
+  %45 = fneg double %44
+  %46 = shufflevector <2 x double> %34, <2 x double> poison, <2 x i32> zeroinitializer
+  %47 = shufflevector <2 x double> %34, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %48 = insertelement <2 x double> %47, double %45, i64 1
+  %49 = fmul <2 x double> %46, %48
+  %50 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %47, <2 x double> %34, <2 x double> %49)
   %cmp.i28.i = icmp sgt i64 %shl.i25.i, 0
   %cmp1.i29.i = icmp sle i64 %shl.i25.i, %sub.i
-  %50 = and i1 %cmp.i28.i, %cmp1.i29.i
-  br i1 %50, label %while.body.i11.i, label %c_powu.exit30.i, !llvm.loop !6
+  %51 = and i1 %cmp.i28.i, %cmp1.i29.i
+  br i1 %51, label %while.body.i11.i, label %c_powu.exit30.i, !llvm.loop !6
 
 c_powu.exit30.i:                                  ; preds = %if.end.i22.i, %if.else.i
-  %51 = phi <2 x double> [ <double 1.000000e+00, double 0.000000e+00>, %if.else.i ], [ %42, %if.end.i22.i ]
-  %52 = fcmp olt <2 x double> %51, zeroinitializer
-  %53 = fneg <2 x double> %51
-  %54 = select <2 x i1> %52, <2 x double> %53, <2 x double> %51
-  %55 = extractelement <2 x double> %54, i64 0
-  %56 = extractelement <2 x double> %54, i64 1
-  %cmp11.i.i = fcmp ult double %55, %56
+  %52 = phi <2 x double> [ <double 0.000000e+00, double 1.000000e+00>, %if.else.i ], [ %43, %if.end.i22.i ]
+  %53 = fcmp olt <2 x double> %52, zeroinitializer
+  %54 = fneg <2 x double> %52
+  %55 = select <2 x i1> %53, <2 x double> %54, <2 x double> %52
+  %56 = extractelement <2 x double> %55, i64 0
+  %57 = extractelement <2 x double> %55, i64 1
+  %cmp11.i.i = fcmp ult double %57, %56
   br i1 %cmp11.i.i, label %if.else28.i.i, label %if.then.i32.i
 
 if.then.i32.i:                                    ; preds = %c_powu.exit30.i
-  %cmp12.i.i = fcmp oeq double %55, 0.000000e+00
+  %58 = extractelement <2 x double> %52, i64 1
+  %cmp12.i.i = fcmp oeq double %58, 0.000000e+00
   br i1 %cmp12.i.i, label %if.then13.i.i, label %if.else.i.i
 
 if.then13.i.i:                                    ; preds = %if.then.i32.i
@@ -2953,59 +2958,58 @@ if.then13.i.i:                                    ; preds = %if.then.i32.i
   br label %c_powi.exit
 
 if.else.i.i:                                      ; preds = %if.then.i32.i
-  %57 = extractelement <2 x double> %51, i64 0
-  %58 = extractelement <2 x double> %51, i64 1
-  %div.i.i = fdiv double %58, %57
-  %59 = tail call double @llvm.fmuladd.f64(double %58, double %div.i.i, double %57)
-  %60 = insertelement <2 x double> poison, double %div.i.i, i64 0
-  %61 = shufflevector <2 x double> %60, <2 x double> poison, <2 x i32> zeroinitializer
-  %62 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %61, <2 x double> <double 0.000000e+00, double -1.000000e+00>, <2 x double> <double 1.000000e+00, double 0.000000e+00>)
-  %63 = insertelement <2 x double> poison, double %59, i64 0
-  %64 = shufflevector <2 x double> %63, <2 x double> poison, <2 x i32> zeroinitializer
-  %65 = fdiv <2 x double> %62, %64
+  %59 = extractelement <2 x double> %52, i64 0
+  %div.i.i = fdiv double %59, %58
+  %60 = tail call double @llvm.fmuladd.f64(double %59, double %div.i.i, double %58)
+  %61 = insertelement <2 x double> poison, double %div.i.i, i64 0
+  %62 = shufflevector <2 x double> %61, <2 x double> poison, <2 x i32> zeroinitializer
+  %63 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %62, <2 x double> <double 0.000000e+00, double -1.000000e+00>, <2 x double> <double 1.000000e+00, double 0.000000e+00>)
+  %64 = insertelement <2 x double> poison, double %60, i64 0
+  %65 = shufflevector <2 x double> %64, <2 x double> poison, <2 x i32> zeroinitializer
+  %66 = fdiv <2 x double> %63, %65
   br label %c_powi.exit
 
 if.else28.i.i:                                    ; preds = %c_powu.exit30.i
-  %cmp29.i.i = fcmp ult double %56, %55
+  %cmp29.i.i = fcmp ult double %56, %57
   br i1 %cmp29.i.i, label %c_powi.exit, label %if.then30.i.i
 
 if.then30.i.i:                                    ; preds = %if.else28.i.i
-  %66 = extractelement <2 x double> %51, i64 0
-  %67 = extractelement <2 x double> %51, i64 1
-  %div34.i.i = fdiv double %66, %67
-  %68 = tail call double @llvm.fmuladd.f64(double %66, double %div34.i.i, double %67)
-  %69 = fadd double %div34.i.i, 0.000000e+00
-  %70 = tail call double @llvm.fmuladd.f64(double %div34.i.i, double 0.000000e+00, double -1.000000e+00)
-  %71 = insertelement <2 x double> poison, double %69, i64 0
-  %72 = insertelement <2 x double> %71, double %70, i64 1
-  %73 = insertelement <2 x double> poison, double %68, i64 0
-  %74 = shufflevector <2 x double> %73, <2 x double> poison, <2 x i32> zeroinitializer
-  %75 = fdiv <2 x double> %72, %74
+  %67 = extractelement <2 x double> %52, i64 0
+  %68 = extractelement <2 x double> %52, i64 1
+  %div34.i.i = fdiv double %68, %67
+  %69 = tail call double @llvm.fmuladd.f64(double %68, double %div34.i.i, double %67)
+  %70 = fadd double %div34.i.i, 0.000000e+00
+  %71 = tail call double @llvm.fmuladd.f64(double %div34.i.i, double 0.000000e+00, double -1.000000e+00)
+  %72 = insertelement <2 x double> poison, double %70, i64 0
+  %73 = insertelement <2 x double> %72, double %71, i64 1
+  %74 = insertelement <2 x double> poison, double %69, i64 0
+  %75 = shufflevector <2 x double> %74, <2 x double> poison, <2 x i32> zeroinitializer
+  %76 = fdiv <2 x double> %73, %75
   br label %c_powi.exit
 
 c_powi.exit:                                      ; preds = %if.end.i.i, %if.then13.i.i, %if.else.i.i, %if.else28.i.i, %if.then30.i.i
-  %76 = phi i32 [ 33, %if.then13.i.i ], [ 0, %if.else.i.i ], [ 0, %if.then30.i.i ], [ 0, %if.else28.i.i ], [ 0, %if.end.i.i ]
-  %77 = phi <2 x double> [ zeroinitializer, %if.then13.i.i ], [ %65, %if.else.i.i ], [ %75, %if.then30.i.i ], [ <double 0x7FF8000000000000, double 0x7FF8000000000000>, %if.else28.i.i ], [ %24, %if.end.i.i ]
-  %78 = extractelement <2 x double> %77, i64 0
-  %.fca.0.insert.i.pn.i = insertvalue { double, double } undef, double %78, 0
-  %79 = extractelement <2 x double> %77, i64 1
-  %call.pn.i = insertvalue { double, double } %.fca.0.insert.i.pn.i, double %79, 1
+  %77 = phi i32 [ 33, %if.then13.i.i ], [ 0, %if.else.i.i ], [ 0, %if.then30.i.i ], [ 0, %if.else28.i.i ], [ 0, %if.end.i.i ]
+  %78 = phi <2 x double> [ zeroinitializer, %if.then13.i.i ], [ %66, %if.else.i.i ], [ %76, %if.then30.i.i ], [ <double 0x7FF8000000000000, double 0x7FF8000000000000>, %if.else28.i.i ], [ %24, %if.end.i.i ]
+  %79 = extractelement <2 x double> %78, i64 0
+  %.fca.0.insert.i.pn.i = insertvalue { double, double } undef, double %79, 0
+  %80 = extractelement <2 x double> %78, i64 1
+  %call.pn.i = insertvalue { double, double } %.fca.0.insert.i.pn.i, double %80, 1
   br label %if.end30
 
 if.else27:                                        ; preds = %land.lhs.true, %if.end16
-  %80 = extractelement <2 x double> %7, i64 0
-  %81 = extractelement <2 x double> %7, i64 1
-  %call29 = tail call { double, double } @_Py_c_pow(double %80, double %81, double %b.sroa.0.1, double %b.sroa.6.0)
+  %81 = extractelement <2 x double> %7, i64 0
+  %82 = extractelement <2 x double> %7, i64 1
+  %call29 = tail call { double, double } @_Py_c_pow(double %81, double %82, double %b.sroa.0.1, double %b.sroa.6.0)
   %.pre = load i32, ptr %call17, align 4
   br label %if.end30
 
 if.end30:                                         ; preds = %if.else27, %c_powi.exit
-  %82 = phi i32 [ %76, %c_powi.exit ], [ %.pre, %if.else27 ]
+  %83 = phi i32 [ %77, %c_powi.exit ], [ %.pre, %if.else27 ]
   %call26.pn = phi { double, double } [ %call.pn.i, %c_powi.exit ], [ %call29, %if.else27 ]
   %p.sroa.4.0 = extractvalue { double, double } %call26.pn, 1
   %p.sroa.0.0 = extractvalue { double, double } %call26.pn, 0
-  %83 = tail call double @llvm.fabs.f64(double %p.sroa.0.0)
-  %or.cond.i = fcmp oeq double %83, 0x7FF0000000000000
+  %84 = tail call double @llvm.fabs.f64(double %p.sroa.0.0)
+  %or.cond.i = fcmp oeq double %84, 0x7FF0000000000000
   %cmp3.i = fcmp oeq double %p.sroa.4.0, 0x7FF0000000000000
   %or.cond1.i = or i1 %cmp3.i, %or.cond.i
   %cmp5.i = fcmp oeq double %p.sroa.4.0, 0xFFF0000000000000
@@ -3013,11 +3017,11 @@ if.end30:                                         ; preds = %if.else27, %c_powi.
   br i1 %or.cond2.i, label %if.then.i39, label %if.else.i37
 
 if.then.i39:                                      ; preds = %if.end30
-  %cmp6.i = icmp eq i32 %82, 0
+  %cmp6.i = icmp eq i32 %83, 0
   br i1 %cmp6.i, label %if.end14.sink.split.i, label %_Py_ADJUST_ERANGE2.exit
 
 if.else.i37:                                      ; preds = %if.end30
-  %cmp10.i = icmp eq i32 %82, 34
+  %cmp10.i = icmp eq i32 %83, 34
   br i1 %cmp10.i, label %if.end14.sink.split.i, label %_Py_ADJUST_ERANGE2.exit
 
 if.end14.sink.split.i:                            ; preds = %if.else.i37, %if.then.i39
@@ -3026,20 +3030,20 @@ if.end14.sink.split.i:                            ; preds = %if.else.i37, %if.th
   br label %_Py_ADJUST_ERANGE2.exit
 
 _Py_ADJUST_ERANGE2.exit:                          ; preds = %if.then.i39, %if.else.i37, %if.end14.sink.split.i
-  %84 = phi i32 [ %82, %if.then.i39 ], [ %82, %if.else.i37 ], [ %.sink.i, %if.end14.sink.split.i ]
-  switch i32 %84, label %if.end43 [
+  %85 = phi i32 [ %83, %if.then.i39 ], [ %83, %if.else.i37 ], [ %.sink.i, %if.end14.sink.split.i ]
+  switch i32 %85, label %if.end43 [
     i32 33, label %if.then36
     i32 34, label %if.then41
   ]
 
 if.then36:                                        ; preds = %_Py_ADJUST_ERANGE2.exit
-  %85 = load ptr, ptr @PyExc_ZeroDivisionError, align 8
-  tail call void @PyErr_SetString(ptr noundef %85, ptr noundef nonnull @.str.8) #14
+  %86 = load ptr, ptr @PyExc_ZeroDivisionError, align 8
+  tail call void @PyErr_SetString(ptr noundef %86, ptr noundef nonnull @.str.8) #14
   br label %return
 
 if.then41:                                        ; preds = %_Py_ADJUST_ERANGE2.exit
-  %86 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %86, ptr noundef nonnull @.str.9) #14
+  %87 = load ptr, ptr @PyExc_OverflowError, align 8
+  tail call void @PyErr_SetString(ptr noundef %87, ptr noundef nonnull @.str.9) #14
   br label %return
 
 if.end43:                                         ; preds = %_Py_ADJUST_ERANGE2.exit
@@ -3054,14 +3058,14 @@ if.then.i48:                                      ; preds = %if.end43
 if.end.i:                                         ; preds = %if.end43
   %ob_type.i.i.i = getelementptr inbounds i8, ptr %call.i40, i64 8
   store ptr @PyComplex_Type, ptr %ob_type.i.i.i, align 8
-  %87 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyComplex_Type, i64 0, i32 19), align 8
-  %88 = and i64 %87, 512
-  %tobool.not.i.i42 = icmp eq i64 %88, 0
+  %88 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyComplex_Type, i64 0, i32 19), align 8
+  %89 = and i64 %88, 512
+  %tobool.not.i.i42 = icmp eq i64 %89, 0
   br i1 %tobool.not.i.i42, label %_PyObject_Init.exit.i, label %if.then.i.i43
 
 if.then.i.i43:                                    ; preds = %if.end.i
-  %89 = load i32, ptr @PyComplex_Type, align 8
-  %add.i.i.i44 = add i32 %89, 1
+  %90 = load i32, ptr @PyComplex_Type, align 8
+  %add.i.i.i44 = add i32 %90, 1
   %cmp.i.i.i45 = icmp eq i32 %add.i.i.i44, 0
   br i1 %cmp.i.i.i45, label %_PyObject_Init.exit.i, label %if.end.i.i.i46
 
@@ -3403,7 +3407,7 @@ if.end13:                                         ; preds = %if.then11.i24, %lan
   br i1 %cmp11.i, label %if.else28.i, label %if.then.i33
 
 if.then.i33:                                      ; preds = %if.end13
-  %cmp12.i = fcmp oeq double %cond.i, 0.000000e+00
+  %cmp12.i = fcmp oeq double %b.sroa.0.1, 0.000000e+00
   br i1 %cmp12.i, label %if.then18, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i33

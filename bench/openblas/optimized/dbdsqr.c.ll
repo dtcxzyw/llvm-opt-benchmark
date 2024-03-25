@@ -312,7 +312,7 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %190 = fcmp ult double %189, 0.000000e+00
   %191 = fneg double %189
   %192 = select i1 %190, double %191, double %189
-  %193 = fcmp oeq double %192, 0.000000e+00
+  %193 = fcmp oeq double %189, 0.000000e+00
   br i1 %193, label %.loopexit400, label %194
 
 194:                                              ; preds = %188

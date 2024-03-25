@@ -264,7 +264,7 @@ define void @dlagts_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %188, label %189, label %202
 
 189:                                              ; preds = %187
-  %190 = fcmp oeq double %185, 0.000000e+00
+  %190 = fcmp oeq double %182, 0.000000e+00
   br i1 %190, label %197, label %191
 
 191:                                              ; preds = %189
@@ -496,7 +496,7 @@ define void @dlagts_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %347, label %348, label %361
 
 348:                                              ; preds = %346
-  %349 = fcmp oeq double %344, 0.000000e+00
+  %349 = fcmp oeq double %341, 0.000000e+00
   br i1 %349, label %356, label %350
 
 350:                                              ; preds = %348

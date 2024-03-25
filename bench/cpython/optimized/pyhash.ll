@@ -28,23 +28,26 @@ if.then1:                                         ; preds = %if.then
 
 if.else:                                          ; preds = %if.then
   %2 = ptrtoint ptr %inst to i64
-  %or.i.i = tail call i64 @llvm.fshl.i64(i64 %2, i64 %2, i64 60)
-  %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %or.i.i, i64 -2)
+  %or.i.i = tail call noundef i64 @llvm.fshl.i64(i64 %2, i64 %2, i64 60)
+  %spec.store.select.i = tail call noundef i64 @llvm.umin.i64(i64 %or.i.i, i64 -2)
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call2 = call double @frexp(double noundef %v, ptr noundef nonnull %e) #8
+  %call2 = call double @frexp(double noundef %v, ptr noundef nonnull %e) #7
   %cmp3 = fcmp olt double %call2, 0.000000e+00
+  %e.promoted = load i32, ptr %e, align 4
+  %tobool720 = fcmp une double %call2, 0.000000e+00
+  br i1 %tobool720, label %while.body.preheader, label %while.end
+
+while.body.preheader:                             ; preds = %if.end
   %fneg = fneg double %call2
   %m.0 = select i1 %cmp3, double %fneg, double %call2
-  %e.promoted = load i32, ptr %e, align 4
-  %tobool720 = fcmp une double %m.0, 0.000000e+00
-  br i1 %tobool720, label %while.body, label %while.end
+  br label %while.body
 
-while.body:                                       ; preds = %if.end, %while.body
-  %x.023 = phi i64 [ %spec.select, %while.body ], [ 0, %if.end ]
-  %m.122 = phi double [ %sub10, %while.body ], [ %m.0, %if.end ]
-  %sub1921 = phi i32 [ %sub, %while.body ], [ %e.promoted, %if.end ]
+while.body:                                       ; preds = %while.body.preheader, %while.body
+  %x.023 = phi i64 [ %spec.select, %while.body ], [ 0, %while.body.preheader ]
+  %m.122 = phi double [ %sub10, %while.body ], [ %m.0, %while.body.preheader ]
+  %sub1921 = phi i32 [ %sub, %while.body ], [ %e.promoted, %while.body.preheader ]
   %shl = shl i64 %x.023, 28
   %and = and i64 %shl, 2305843008945258496
   %shr = lshr i64 %x.023, 33
@@ -99,11 +102,11 @@ return:                                           ; preds = %cond.end, %if.else,
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #1
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define dso_local i64 @Py_HashPointer(ptr noundef %ptr) local_unnamed_addr #2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define dso_local noundef i64 @Py_HashPointer(ptr noundef %ptr) local_unnamed_addr #2 {
 entry:
   %0 = ptrtoint ptr %ptr to i64
-  %or.i = tail call i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 60)
+  %or.i = tail call noundef i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 60)
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %or.i, i64 -2)
   ret i64 %spec.store.select
 }
@@ -119,7 +122,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr @PyHash_Func, align 8
-  %call = tail call i64 %0(ptr noundef %src, i64 noundef %len) #8
+  %call = tail call i64 %0(ptr noundef %src, i64 noundef %len) #7
   %.call = tail call i64 @llvm.umin.i64(i64 %call, i64 -2)
   br label %return
 
@@ -129,26 +132,26 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_PyHash_Fini() local_unnamed_addr #5 {
+define hidden void @_PyHash_Fini() local_unnamed_addr #2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @PyHash_GetFuncDef() local_unnamed_addr #5 {
+define dso_local noundef nonnull ptr @PyHash_GetFuncDef() local_unnamed_addr #2 {
 entry:
   ret ptr @PyHash_Func
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @_Py_KeyedHash(i64 noundef %key, ptr nocapture noundef readonly %src, i64 noundef %src_sz) local_unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+define hidden i64 @_Py_KeyedHash(i64 noundef %key, ptr nocapture noundef readonly %src, i64 noundef %src_sz) local_unnamed_addr #5 {
 entry:
   %call = tail call fastcc i64 @siphash13(i64 noundef %key, i64 noundef 0, ptr noundef %src, i64 noundef %src_sz)
   ret i64 %call
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i64 @siphash13(i64 noundef %k0, i64 noundef %k1, ptr nocapture noundef readonly %src, i64 noundef %src_sz) unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+define internal fastcc i64 @siphash13(i64 noundef %k0, i64 noundef %k1, ptr nocapture noundef readonly %src, i64 noundef %src_sz) unnamed_addr #5 {
 entry:
   %xor = xor i64 %k0, 8317987319222330741
   %xor1 = xor i64 %k1, 7237128888997146477
@@ -342,8 +345,8 @@ sw.epilog:                                        ; preds = %sw.bb43, %sw.bb36, 
   ret i64 %xor156
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i64 @pysiphash(ptr nocapture noundef readonly %src, i64 noundef %src_sz) #6 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+define internal i64 @pysiphash(ptr nocapture noundef readonly %src, i64 noundef %src_sz) #5 {
 entry:
   %0 = load i64, ptr @_Py_HashSecret, align 8
   %1 = load i64, ptr getelementptr inbounds ({ [24 x i8] }, ptr @_Py_HashSecret, i64 0, i32 0, i64 8), align 8
@@ -352,20 +355,19 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #7
+declare i64 @llvm.umin.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #7
+declare i64 @llvm.fshl.i64(i64, i64, i64) #6
 
 attributes #0 = { nofree nosync nounwind memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
+attributes #5 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

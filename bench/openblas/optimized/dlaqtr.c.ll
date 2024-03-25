@@ -270,7 +270,7 @@ thread-pre-split:                                 ; preds = %69
 170:                                              ; preds = %169, %159
   %171 = phi double [ %167, %169 ], [ %163, %159 ]
   %172 = phi double [ %167, %169 ], [ %166, %159 ]
-  %173 = fcmp oeq double %162, 0.000000e+00
+  %173 = fcmp oeq double %154, 0.000000e+00
   br i1 %173, label %279, label %174
 
 174:                                              ; preds = %170

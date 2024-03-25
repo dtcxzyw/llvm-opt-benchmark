@@ -115,7 +115,7 @@ define void @dlaev2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br label %92
 
 84:                                               ; preds = %68
-  %85 = fcmp oeq double %19, 0.000000e+00
+  %85 = fcmp oeq double %16, 0.000000e+00
   br i1 %85, label %86, label %87
 
 86:                                               ; preds = %84
