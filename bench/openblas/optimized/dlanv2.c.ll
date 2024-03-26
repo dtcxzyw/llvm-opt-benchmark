@@ -114,7 +114,7 @@ define void @dlanv2_(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nou
   %78 = fcmp oge double %74, %77
   %79 = select i1 %78, double %74, double %77
   %80 = fcmp ole double %74, %77
-  %81 = select i1 %80, double %74, double %77
+  %81 = select i1 %80, double %74, double %47
   %82 = fneg double %81
   %83 = select i1 %72, double %82, double %81
   %84 = fneg double %83
