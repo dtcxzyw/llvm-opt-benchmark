@@ -6,13 +6,13 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.fmt::v8::format_arg_store.6" = type { %"struct.fmt::v8::detail::arg_data.7" }
-%"struct.fmt::v8::detail::arg_data.7" = type { [2 x %"class.fmt::v8::detail::value"] }
-%"class.fmt::v8::detail::value" = type { %union.anon.5 }
+%"class.fmt::v9::format_arg_store.6" = type { %"struct.fmt::v9::detail::arg_data.7" }
+%"struct.fmt::v9::detail::arg_data.7" = type { [2 x %"class.fmt::v9::detail::value"] }
+%"class.fmt::v9::detail::value" = type { %union.anon.5 }
 %union.anon.5 = type { i128 }
-%"class.fmt::v8::format_arg_store" = type { %"struct.fmt::v8::detail::arg_data" }
-%"struct.fmt::v8::detail::arg_data" = type { [1 x %"class.fmt::v8::detail::value"] }
-%"class.fmt::v8::format_arg_store.9" = type { %"struct.fmt::v8::detail::arg_data.7" }
+%"class.fmt::v9::format_arg_store" = type { %"struct.fmt::v9::detail::arg_data" }
+%"struct.fmt::v9::detail::arg_data" = type { [1 x %"class.fmt::v9::detail::value"] }
+%"class.fmt::v9::format_arg_store.9" = type { %"struct.fmt::v9::detail::arg_data.7" }
 
 @.str = private unnamed_addr constant [3 x i8] c"{}\00", align 1
 @.str.1 = private unnamed_addr constant [5 x i8] c", {}\00", align 1
@@ -22,11 +22,11 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.5 = private unnamed_addr constant [81 x i8] c"Unexpected number of results ({}) returned from dispatch function, expected ({})\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly6fibers6detail32createABDTokenNotDispatchedExMsgB5cxx11ERKSt6vectorImSaImEE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vecTokensNotDispatched) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly6fibers6detail32createABDTokenNotDispatchedExMsgB5cxx11ERKSt6vectorImSaImEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vecTokensNotDispatched) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i37 = alloca %"class.fmt::v8::format_arg_store.6", align 16
-  %ref.tmp.i33 = alloca %"class.fmt::v8::format_arg_store", align 16
-  %ref.tmp.i = alloca %"class.fmt::v8::format_arg_store", align 16
+  %ref.tmp.i37 = alloca %"class.fmt::v9::format_arg_store.6", align 16
+  %ref.tmp.i33 = alloca %"class.fmt::v9::format_arg_store", align 16
+  %ref.tmp.i = alloca %"class.fmt::v9::format_arg_store", align 16
   %strInputsNotFound = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %vecTokensNotDispatched, i64 8
@@ -36,21 +36,20 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
+  %cond = tail call i64 @llvm.umin.i64(i64 %sub.ptr.div.i, i64 10)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %strInputsNotFound) #8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i33) #8, !noalias !13
   %2 = load i64, ptr %1, align 8, !tbaa !16, !noalias !13
   store i64 %2, ptr %ref.tmp.i33, align 16, !noalias !13
-  call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %strInputsNotFound, ptr nonnull @.str, i64 2, i64 4, ptr nonnull %ref.tmp.i33)
+  call void @_ZN3fmt2v97vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %strInputsNotFound, ptr nonnull @.str, i64 2, i64 4, ptr nonnull %ref.tmp.i33)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i33) #8, !noalias !13
   %cmp292 = icmp ugt i64 %sub.ptr.div.i, 1
   br i1 %cmp292, label %.noexc.lr.ph, label %.noexc40
 
 .noexc.lr.ph:                                     ; preds = %entry
-  %cond = tail call i64 @llvm.umin.i64(i64 %sub.ptr.div.i, i64 10)
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %strInputsNotFound, i64 8
   %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %umax = call i64 @llvm.umax.i64(i64 %cond, i64 2)
   br label %.noexc
 
 for.cond.cleanup:                                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -65,7 +64,7 @@ for.cond.cleanup:                                 ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i) #8, !noalias !18
   %5 = load i64, ptr %add.ptr.i, align 8, !tbaa !16
   store i64 %5, ptr %ref.tmp.i, align 16, !noalias !18
-  invoke void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr nonnull @.str.1, i64 4, i64 4, ptr nonnull %ref.tmp.i)
+  invoke void @_ZN3fmt2v97vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr nonnull @.str.1, i64 4, i64 4, ptr nonnull %ref.tmp.i)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %.noexc
@@ -106,7 +105,7 @@ if.then.i.i:                                      ; preds = %invoke.cont7
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #8
   %inc = add nuw nsw i64 %i.093, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %cond
   br i1 %exitcond.not, label %for.cond.cleanup, label %.noexc, !llvm.loop !25
 
 lpad:                                             ; preds = %.noexc
@@ -178,8 +177,8 @@ lpad11:                                           ; preds = %.noexc40, %_ZNSt7__
   %arrayinit.element.i.i = getelementptr inbounds i8, ptr %ref.tmp.i37, i64 16
   store i64 %19, ptr %arrayinit.element.i.i, align 16, !tbaa.struct !33, !alias.scope !30
   %ref.tmp5.i.sroa.4.0.arrayinit.element.i.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i37, i64 24
-  store i64 %18, ptr %ref.tmp5.i.sroa.4.0.arrayinit.element.i.sroa_idx.i, align 8, !tbaa.struct !50, !alias.scope !30
-  invoke void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.3, i64 64, i64 212, ptr nonnull %ref.tmp.i37)
+  store i64 %18, ptr %ref.tmp5.i.sroa.4.0.arrayinit.element.i.sroa_idx.i, align 8, !tbaa !34, !alias.scope !30
+  invoke void @_ZN3fmt2v97vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.3, i64 64, i64 212, ptr nonnull %ref.tmp.i37)
           to label %invoke.cont16 unwind label %lpad11
 
 invoke.cont16:                                    ; preds = %.noexc40
@@ -234,7 +233,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
-declare void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr, i64, i64, ptr) local_unnamed_addr #2
+declare void @_ZN3fmt2v97vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr, i64, i64, ptr) local_unnamed_addr #2
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -245,15 +244,15 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #3
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly6fibers6detail39createUnexpectedNumResultsABDUsageExMsgB5cxx11Emm(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i64 noundef %numExpectedResults, i64 noundef %numActualResults) local_unnamed_addr #0 {
+define void @_ZN5folly6fibers6detail39createUnexpectedNumResultsABDUsageExMsgB5cxx11Emm(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i64 noundef %numExpectedResults, i64 noundef %numActualResults) local_unnamed_addr #0 {
 entry:
-  %ref.tmp.i = alloca %"class.fmt::v8::format_arg_store.9", align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #8, !noalias !51
-  store i64 %numActualResults, ptr %ref.tmp.i, align 16, !tbaa.struct !33, !alias.scope !54, !noalias !51
+  %ref.tmp.i = alloca %"class.fmt::v9::format_arg_store.9", align 16
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #8, !noalias !35
+  store i64 %numActualResults, ptr %ref.tmp.i, align 16, !tbaa.struct !33, !alias.scope !38, !noalias !35
   %arrayinit.element.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  store i64 %numExpectedResults, ptr %arrayinit.element.i.i.i, align 16, !tbaa.struct !33, !alias.scope !54, !noalias !51
-  call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.5, i64 80, i64 68, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #8, !noalias !51
+  store i64 %numExpectedResults, ptr %arrayinit.element.i.i.i, align 16, !tbaa.struct !33, !alias.scope !38, !noalias !35
+  call void @_ZN3fmt2v97vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.5, i64 80, i64 68, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #8, !noalias !35
   ret void
 }
 
@@ -265,9 +264,6 @@ declare i64 @llvm.umin.i64(i64, i64) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #6
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -297,13 +293,13 @@ attributes #10 = { builtin nounwind }
 !11 = !{!"Simple C++ TBAA"}
 !12 = !{!8, !9, i64 0}
 !13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZN3fmt2v86formatIJRKmEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOSC_: %agg.result"}
-!15 = distinct !{!15, !"_ZN3fmt2v86formatIJRKmEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOSC_"}
+!14 = distinct !{!14, !15, !"_ZN3fmt2v96formatIJRKmEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOSC_: %agg.result"}
+!15 = distinct !{!15, !"_ZN3fmt2v96formatIJRKmEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOSC_"}
 !16 = !{!17, !17, i64 0}
 !17 = !{!"long", !10, i64 0}
 !18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZN3fmt2v86formatIJRKmEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOSC_: %agg.result"}
-!20 = distinct !{!20, !"_ZN3fmt2v86formatIJRKmEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOSC_"}
+!19 = distinct !{!19, !20, !"_ZN3fmt2v96formatIJRKmEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOSC_: %agg.result"}
+!20 = distinct !{!20, !"_ZN3fmt2v96formatIJRKmEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOSC_"}
 !21 = !{!22, !17, i64 8}
 !22 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !23, i64 0, !17, i64 8, !10, i64 16}
 !23 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !9, i64 0}
@@ -311,32 +307,16 @@ attributes #10 = { builtin nounwind }
 !25 = distinct !{!25, !26}
 !26 = !{!"llvm.loop.mustprogress"}
 !27 = !{!28}
-!28 = distinct !{!28, !29, !"_ZN3fmt2v86formatIJRmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES8_NS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOSC_: %agg.result"}
-!29 = distinct !{!29, !"_ZN3fmt2v86formatIJRmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES8_NS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOSC_"}
+!28 = distinct !{!28, !29, !"_ZN3fmt2v96formatIJRmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES8_NS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOSC_: %agg.result"}
+!29 = distinct !{!29, !"_ZN3fmt2v96formatIJRmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES8_NS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOSC_"}
 !30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZN3fmt2v816make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJRmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpOSH_: %agg.result"}
-!32 = distinct !{!32, !"_ZN3fmt2v816make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJRmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpOSH_"}
-!33 = !{i64 0, i64 4, !34, i64 0, i64 4, !34, i64 0, i64 8, !36, i64 0, i64 8, !36, i64 0, i64 16, !38, i64 0, i64 16, !38, i64 0, i64 1, !40, i64 0, i64 1, !42, i64 0, i64 4, !43, i64 0, i64 8, !45, i64 0, i64 16, !47, i64 0, i64 8, !49, i64 0, i64 8, !49, i64 8, i64 8, !16, i64 0, i64 8, !49, i64 8, i64 8, !49, i64 0, i64 8, !49, i64 8, i64 8, !16}
-!34 = !{!35, !35, i64 0}
-!35 = !{!"int", !10, i64 0}
-!36 = !{!37, !37, i64 0}
-!37 = !{!"long long", !10, i64 0}
-!38 = !{!39, !39, i64 0}
-!39 = !{!"__int128", !10, i64 0}
-!40 = !{!41, !41, i64 0}
-!41 = !{!"bool", !10, i64 0}
-!42 = !{!10, !10, i64 0}
-!43 = !{!44, !44, i64 0}
-!44 = !{!"float", !10, i64 0}
-!45 = !{!46, !46, i64 0}
-!46 = !{!"double", !10, i64 0}
-!47 = !{!48, !48, i64 0}
-!48 = !{!"long double", !10, i64 0}
-!49 = !{!9, !9, i64 0}
-!50 = !{i64 0, i64 8, !38, i64 0, i64 8, !38, i64 0, i64 8, !47, i64 0, i64 8, !16, i64 0, i64 8, !49, i64 0, i64 8, !16}
-!51 = !{!52}
-!52 = distinct !{!52, !53, !"_ZN3fmt2v86formatIJRmS2_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOSB_: %agg.result"}
-!53 = distinct !{!53, !"_ZN3fmt2v86formatIJRmS2_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOSB_"}
-!54 = !{!55}
-!55 = distinct !{!55, !56, !"_ZN3fmt2v816make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJRmS5_EEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpOSA_: %agg.result"}
-!56 = distinct !{!56, !"_ZN3fmt2v816make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJRmS5_EEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpOSA_"}
+!31 = distinct !{!31, !32, !"_ZN3fmt2v916make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJRmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpOSH_: %agg.result"}
+!32 = distinct !{!32, !"_ZN3fmt2v916make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJRmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpOSH_"}
+!33 = !{i64 0, i64 16, !34}
+!34 = !{!10, !10, i64 0}
+!35 = !{!36}
+!36 = distinct !{!36, !37, !"_ZN3fmt2v96formatIJRmS2_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOSB_: %agg.result"}
+!37 = distinct !{!37, !"_ZN3fmt2v96formatIJRmS2_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOSB_"}
+!38 = !{!39}
+!39 = distinct !{!39, !40, !"_ZN3fmt2v916make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJRmS5_EEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpOSA_: %agg.result"}
+!40 = distinct !{!40, !"_ZN3fmt2v916make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJRmS5_EEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpOSA_"}

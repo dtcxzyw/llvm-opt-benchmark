@@ -3,7 +3,9 @@ source_filename = "bench/folly/original/EventHandler.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.google::LogMessage" = type { ptr, ptr }
+%"class.google::LogMessage" = type { ptr, ptr, %"struct.google::LogMessageTime" }
+%"struct.google::LogMessageTime" = type { %struct.tm, i64, i32, i64 }
+%struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.8 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.8 = type { i64, [8 x i8] }
@@ -36,11 +38,11 @@ entry:
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly12EventHandlerC2EPNS_9EventBaseENS_13NetworkSocketE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %eventBase, i32 %fd.coerce) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly12EventHandlerC2EPNS_9EventBaseENS_13NetworkSocketE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef %eventBase, i32 %fd.coerce) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly12EventHandlerE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5folly12EventHandlerE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
   %event_ = getelementptr inbounds i8, ptr %this, i64 8
-  %evb_.i = getelementptr inbounds i8, ptr %this, i64 136
+  %evb_.i = getelementptr inbounds i8, ptr %this, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %evb_.i, i8 0, i64 28, i1 false)
   invoke void @event_set(ptr noundef nonnull %event_, i32 noundef %fd.coerce, i16 noundef signext 0, ptr noundef nonnull @_ZN5folly12EventHandler16libeventCallbackEisPv, ptr noundef nonnull %this)
           to label %invoke.cont unwind label %lpad
@@ -50,112 +52,112 @@ invoke.cont:                                      ; preds = %entry
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %invoke.cont
-  %call.i8 = invoke noundef i32 @_ZN5folly14EventBaseEvent17eb_event_base_setEPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(168) %event_, ptr noundef nonnull %eventBase)
+  %call.i8 = invoke noundef i32 @_ZN5folly14EventBaseEvent17eb_event_base_setEPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(160) %event_, ptr noundef nonnull %eventBase)
           to label %if.end unwind label %lpad
 
 lpad:                                             ; preds = %if.else, %if.then, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5folly14EventBaseEventD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %event_) #16
+  tail call void @_ZN5folly14EventBaseEventD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %event_) #16
   resume { ptr, i32 } %0
 
 if.else:                                          ; preds = %invoke.cont
-  invoke void @_ZN5folly14EventBaseEvent10eb_ev_baseEPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(168) %event_, ptr noundef null)
+  invoke void @_ZN5folly14EventBaseEvent10eb_ev_baseEPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(160) %event_, ptr noundef null)
           to label %if.end unwind label %lpad
 
 if.end:                                           ; preds = %if.else, %if.then
-  %eventBase_.i = getelementptr inbounds i8, ptr %this, i64 176
+  %eventBase_.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr %eventBase, ptr %eventBase_.i, align 8, !tbaa !10
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly12EventHandler16libeventCallbackEisPv(i32 %fd, i16 noundef signext %events, ptr noundef %arg) #1 align 2 {
-entry:
-  %eventBase_ = getelementptr inbounds i8, ptr %arg, i64 176
+define void @_ZN5folly12EventHandler16libeventCallbackEisPv(i32 %fd, i16 noundef signext %events, ptr noundef %arg) #1 align 2 personality ptr @__gxx_personality_v0 {
+_ZNK5boost9intrusive9list_implINS0_8bhtraitsIN5folly17ExecutionObserverENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE5emptyEv.exit37:
+  %eventBase_ = getelementptr inbounds i8, ptr %arg, i64 168
   %0 = load ptr, ptr %eventBase_, align 8, !tbaa !10
   %executionObserverList_.i = getelementptr inbounds i8, ptr %0, i64 448
   %1 = load ptr, ptr %executionObserverList_.i, align 8, !tbaa !24
-  %tobool.not.i.i = icmp eq ptr %1, null
-  %cmp.i.i = icmp eq ptr %1, %executionObserverList_.i
-  %2 = or i1 %tobool.not.i.i, %cmp.i.i
-  br i1 %2, label %if.end, label %for.cond.preheader
+  %tobool.not.i = icmp eq ptr %1, null
+  %cmp.i104 = icmp eq ptr %1, %executionObserverList_.i
+  %2 = or i1 %tobool.not.i, %cmp.i104
+  br i1 %2, label %_ZNK5boost9intrusive9list_implINS0_8bhtraitsIN5folly17ExecutionObserverENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE5emptyEv.exit, label %for.cond.preheader
 
-for.cond.preheader:                               ; preds = %entry
+for.cond.preheader:                               ; preds = %_ZNK5boost9intrusive9list_implINS0_8bhtraitsIN5folly17ExecutionObserverENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE5emptyEv.exit37
   %3 = ptrtoint ptr %arg to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body, %for.cond.preheader
-  %__begin2.sroa.0.043 = phi ptr [ %1, %for.cond.preheader ], [ %5, %for.body ]
-  %sub.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.043, i64 -8
-  %vtable = load ptr, ptr %sub.ptr.i.i.i.i, align 8, !tbaa !7
+  %__begin2.sroa.0.0111 = phi ptr [ %1, %for.cond.preheader ], [ %5, %for.body ]
+  %sub.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0111, i64 -8
+  %vtable = load ptr, ptr %sub.ptr.i, align 8, !tbaa !7
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %4 = load ptr, ptr %vfn, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(24) %sub.ptr.i.i.i.i, i64 noundef %3) #16
-  %5 = load ptr, ptr %__begin2.sroa.0.043, align 8, !tbaa !24
-  %cmp.i.i34.not = icmp eq ptr %5, %executionObserverList_.i
-  br i1 %cmp.i.i34.not, label %if.end.loopexit, label %for.body
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(24) %sub.ptr.i, i64 noundef %3) #16
+  %5 = load ptr, ptr %__begin2.sroa.0.0111, align 8, !tbaa !24
+  %cmp.i.not = icmp eq ptr %5, %executionObserverList_.i
+  br i1 %cmp.i.not, label %_ZNK5boost9intrusive9list_implINS0_8bhtraitsIN5folly17ExecutionObserverENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE5emptyEv.exit.loopexit, label %for.body
 
-if.end.loopexit:                                  ; preds = %for.body
+_ZNK5boost9intrusive9list_implINS0_8bhtraitsIN5folly17ExecutionObserverENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE5emptyEv.exit.loopexit: ; preds = %for.body
   %.pre = load ptr, ptr %eventBase_, align 8, !tbaa !10
-  br label %if.end
+  br label %_ZNK5boost9intrusive9list_implINS0_8bhtraitsIN5folly17ExecutionObserverENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE5emptyEv.exit
 
-if.end:                                           ; preds = %if.end.loopexit, %entry
-  %6 = phi ptr [ %.pre, %if.end.loopexit ], [ %0, %entry ]
+_ZNK5boost9intrusive9list_implINS0_8bhtraitsIN5folly17ExecutionObserverENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE5emptyEv.exit: ; preds = %_ZNK5boost9intrusive9list_implINS0_8bhtraitsIN5folly17ExecutionObserverENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE5emptyEv.exit.loopexit, %_ZNK5boost9intrusive9list_implINS0_8bhtraitsIN5folly17ExecutionObserverENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE5emptyEv.exit37
+  %6 = phi ptr [ %.pre, %_ZNK5boost9intrusive9list_implINS0_8bhtraitsIN5folly17ExecutionObserverENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE5emptyEv.exit.loopexit ], [ %0, %_ZNK5boost9intrusive9list_implINS0_8bhtraitsIN5folly17ExecutionObserverENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE5emptyEv.exit37 ]
   tail call void @_ZN5folly9EventBase16bumpHandlingTimeEv(ptr noundef nonnull align 16 dereferenceable(584) %6)
   %vtable6 = load ptr, ptr %arg, align 8, !tbaa !7
   %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 16
   %7 = load ptr, ptr %vfn7, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(184) %arg, i16 noundef zeroext %events) #16
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(176) %arg, i16 noundef zeroext %events) #16
   %8 = load ptr, ptr %executionObserverList_.i, align 8, !tbaa !24
-  %tobool.not.i.i35 = icmp eq ptr %8, null
-  %cmp.i.i36 = icmp eq ptr %8, %executionObserverList_.i
-  %9 = or i1 %tobool.not.i.i35, %cmp.i.i36
+  %tobool.not.i105 = icmp eq ptr %8, null
+  %cmp.i106 = icmp eq ptr %8, %executionObserverList_.i
+  %9 = or i1 %tobool.not.i105, %cmp.i106
   br i1 %9, label %if.end24, label %for.cond13.preheader
 
-for.cond13.preheader:                             ; preds = %if.end
+for.cond13.preheader:                             ; preds = %_ZNK5boost9intrusive9list_implINS0_8bhtraitsIN5folly17ExecutionObserverENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE5emptyEv.exit
   %10 = ptrtoint ptr %arg to i64
   br label %for.body16
 
 for.body16:                                       ; preds = %for.body16, %for.cond13.preheader
-  %__begin211.sroa.0.044 = phi ptr [ %8, %for.cond13.preheader ], [ %12, %for.body16 ]
-  %sub.ptr.i.i.i.i38 = getelementptr inbounds i8, ptr %__begin211.sroa.0.044, i64 -8
-  %vtable19 = load ptr, ptr %sub.ptr.i.i.i.i38, align 8, !tbaa !7
+  %__begin211.sroa.0.0112 = phi ptr [ %8, %for.cond13.preheader ], [ %12, %for.body16 ]
+  %sub.ptr.i100 = getelementptr inbounds i8, ptr %__begin211.sroa.0.0112, i64 -8
+  %vtable19 = load ptr, ptr %sub.ptr.i100, align 8, !tbaa !7
   %vfn20 = getelementptr inbounds i8, ptr %vtable19, i64 24
   %11 = load ptr, ptr %vfn20, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(24) %sub.ptr.i.i.i.i38, i64 noundef %10) #16
-  %12 = load ptr, ptr %__begin211.sroa.0.044, align 8, !tbaa !24
-  %cmp.i.i37.not = icmp eq ptr %12, %executionObserverList_.i
-  br i1 %cmp.i.i37.not, label %if.end24, label %for.body16
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(24) %sub.ptr.i100, i64 noundef %10) #16
+  %12 = load ptr, ptr %__begin211.sroa.0.0112, align 8, !tbaa !24
+  %cmp.i96.not = icmp eq ptr %12, %executionObserverList_.i
+  br i1 %cmp.i96.not, label %if.end24, label %for.body16
 
-if.end24:                                         ; preds = %for.body16, %if.end
+if.end24:                                         ; preds = %for.body16, %_ZNK5boost9intrusive9list_implINS0_8bhtraitsIN5folly17ExecutionObserverENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE5emptyEv.exit
   ret void
 }
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly12EventHandler12setEventBaseEPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %eventBase) local_unnamed_addr #1 align 2 {
+define void @_ZN5folly12EventHandler12setEventBaseEPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef %eventBase) local_unnamed_addr #1 align 2 {
 entry:
   %event_ = getelementptr inbounds i8, ptr %this, i64 8
-  %call = tail call noundef i32 @_ZN5folly14EventBaseEvent17eb_event_base_setEPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(168) %event_, ptr noundef %eventBase)
-  %eventBase_ = getelementptr inbounds i8, ptr %this, i64 176
+  %call = tail call noundef i32 @_ZN5folly14EventBaseEvent17eb_event_base_setEPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(160) %event_, ptr noundef %eventBase)
+  %eventBase_ = getelementptr inbounds i8, ptr %this, i64 168
   store ptr %eventBase, ptr %eventBase_, align 8, !tbaa !10
   ret void
 }
 
-declare void @_ZN5folly14EventBaseEvent10eb_ev_baseEPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(168), ptr noundef) local_unnamed_addr #2
+declare void @_ZN5folly14EventBaseEvent10eb_ev_baseEPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(160), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5folly14EventBaseEventD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5folly14EventBaseEventD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %userData_ = getelementptr inbounds i8, ptr %this, i64 136
+  %userData_ = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load ptr, ptr %userData_, align 8, !tbaa !26
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %freeFn_ = getelementptr inbounds i8, ptr %this, i64 144
+  %freeFn_ = getelementptr inbounds i8, ptr %this, i64 136
   %1 = load ptr, ptr %freeFn_, align 8, !tbaa !27
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.end, label %if.then
@@ -189,9 +191,9 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly12EventHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly12EventHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly12EventHandlerE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5folly12EventHandlerE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
   %evcb_flags.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i16, ptr %evcb_flags.i.i.i.i.i, align 8, !tbaa !28
   %1 = and i16 %0, 15
@@ -200,17 +202,17 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %event_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %call2.i2 = invoke noundef i32 @_ZN5folly14EventBaseEvent12eb_event_delEv(ptr noundef nonnull align 8 dereferenceable(168) %event_.i)
+  %call2.i2 = invoke noundef i32 @_ZN5folly14EventBaseEvent12eb_event_delEv(ptr noundef nonnull align 8 dereferenceable(160) %event_.i)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then.i, %entry
-  %userData_.i = getelementptr inbounds i8, ptr %this, i64 144
+  %userData_.i = getelementptr inbounds i8, ptr %this, i64 136
   %2 = load ptr, ptr %userData_.i, align 8, !tbaa !26
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %_ZN5folly14EventBaseEventD2Ev.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %invoke.cont
-  %freeFn_.i = getelementptr inbounds i8, ptr %this, i64 152
+  %freeFn_.i = getelementptr inbounds i8, ptr %this, i64 144
   %3 = load ptr, ptr %freeFn_.i, align 8, !tbaa !27
   %tobool2.not.i = icmp eq ptr %3, null
   br i1 %tobool2.not.i, label %_ZN5folly14EventBaseEventD2Ev.exit, label %if.then.i3
@@ -238,7 +240,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly12EventHandler17unregisterHandlerEv(ptr noundef nonnull align 8 dereferenceable(184) %this) local_unnamed_addr #1 align 2 {
+define void @_ZN5folly12EventHandler17unregisterHandlerEv(ptr noundef nonnull align 8 dereferenceable(176) %this) local_unnamed_addr #1 align 2 {
 entry:
   %evcb_flags.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i16, ptr %evcb_flags.i.i.i.i, align 8, !tbaa !28
@@ -248,7 +250,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %event_ = getelementptr inbounds i8, ptr %this, i64 8
-  %call2 = tail call noundef i32 @_ZN5folly14EventBaseEvent12eb_event_delEv(ptr noundef nonnull align 8 dereferenceable(168) %event_)
+  %call2 = tail call noundef i32 @_ZN5folly14EventBaseEvent12eb_event_delEv(ptr noundef nonnull align 8 dereferenceable(160) %event_)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -259,7 +261,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @llvm.trap() #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5folly12EventHandler12registerImplEtb(ptr noundef nonnull align 8 dereferenceable(184) %this, i16 noundef zeroext %events, i1 noundef zeroext %internal) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN5folly12EventHandler12registerImplEtb(ptr noundef nonnull align 8 dereferenceable(176) %this, i16 noundef zeroext %events, i1 noundef zeroext %internal) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp38 = alloca %"class.google::LogMessage", align 8
   %ref.tmp49 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -272,8 +274,8 @@ entry:
 if.then:                                          ; preds = %entry
   %event_ = getelementptr inbounds i8, ptr %this, i64 8
   %conv = zext i16 %events to i32
-  %ev_events.i = getelementptr inbounds i8, ptr %this, i64 112
-  %2 = load i16, ptr %ev_events.i, align 8, !tbaa !29
+  %ev_events.i = getelementptr inbounds i8, ptr %this, i64 68
+  %2 = load i16, ptr %ev_events.i, align 4, !tbaa !29
   %conv6 = sext i16 %2 to i32
   %cmp = icmp eq i32 %conv, %conv6
   br i1 %cmp, label %land.lhs.true, label %cleanup.thread
@@ -285,17 +287,17 @@ land.lhs.true:                                    ; preds = %if.then
   br i1 %cmp12, label %return, label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %land.lhs.true, %if.then
-  %call15 = tail call noundef i32 @_ZN5folly14EventBaseEvent12eb_event_delEv(ptr noundef nonnull align 8 dereferenceable(168) %event_)
+  %call15 = tail call noundef i32 @_ZN5folly14EventBaseEvent12eb_event_delEv(ptr noundef nonnull align 8 dereferenceable(160) %event_)
   br label %if.end16
 
 if.end16:                                         ; preds = %cleanup.thread, %entry
   %event_17 = getelementptr inbounds i8, ptr %this, i64 8
-  %evb_.i = getelementptr inbounds i8, ptr %this, i64 136
+  %evb_.i = getelementptr inbounds i8, ptr %this, i64 128
   %5 = load ptr, ptr %evb_.i, align 8, !tbaa !30
   %ev_fd.i = getelementptr inbounds i8, ptr %this, i64 64
   %6 = load i32, ptr %ev_fd.i, align 8, !tbaa !31
   tail call void @event_set(ptr noundef nonnull %event_17, i32 noundef %6, i16 noundef signext %events, ptr noundef nonnull @_ZN5folly12EventHandler16libeventCallbackEisPv, ptr noundef nonnull %this)
-  %call23 = tail call noundef i32 @_ZN5folly14EventBaseEvent17eb_event_base_setEPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(168) %event_17, ptr noundef %5)
+  %call23 = tail call noundef i32 @_ZN5folly14EventBaseEvent17eb_event_base_setEPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(160) %event_17, ptr noundef %5)
   br i1 %internal, label %if.then25, label %if.end33
 
 if.then25:                                        ; preds = %if.end16
@@ -305,14 +307,14 @@ if.then25:                                        ; preds = %if.end16
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then25, %if.end16
-  %call35 = tail call noundef i32 @_ZN5folly14EventBaseEvent12eb_event_addEPK7timeval(ptr noundef nonnull align 8 dereferenceable(168) %event_17, ptr noundef null)
+  %call35 = tail call noundef i32 @_ZN5folly14EventBaseEvent12eb_event_addEPK7timeval(ptr noundef nonnull align 8 dereferenceable(160) %event_17, ptr noundef null)
   %cmp36 = icmp sgt i32 %call35, -1
   br i1 %cmp36, label %return, label %if.then37
 
 if.then37:                                        ; preds = %if.end33
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp38) #16
-  call void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp38, ptr noundef nonnull @.str, i32 noundef 90, i32 noundef 2)
-  %call39 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp38)
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp38) #16
+  call void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp38, ptr noundef nonnull @.str, i32 noundef 90, i32 noundef 2)
+  %call39 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp38)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then37
@@ -332,7 +334,7 @@ invoke.cont47:                                    ; preds = %invoke.cont45
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp49) #16
   %call50 = tail call ptr @__errno_location() #17
   %10 = load i32, ptr %call50, align 4, !tbaa !32
-  invoke void @_ZN5folly8errnoStrB5cxx11Ei(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp49, i32 noundef %10)
+  invoke void @_ZN5folly8errnoStrB5cxx11Ei(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp49, i32 noundef %10)
           to label %invoke.cont52 unwind label %lpad51
 
 invoke.cont52:                                    ; preds = %invoke.cont47
@@ -360,9 +362,9 @@ if.then.i.i:                                      ; preds = %invoke.cont54
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp49) #16
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp38) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp38) #16
-  %call59 = call noundef i32 @_ZN5folly14EventBaseEvent12eb_event_delEv(ptr noundef nonnull align 8 dereferenceable(168) %event_17)
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp38) #16
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp38) #16
+  %call59 = call noundef i32 @_ZN5folly14EventBaseEvent12eb_event_delEv(ptr noundef nonnull align 8 dereferenceable(160) %event_17)
   br label %return
 
 lpad:                                             ; preds = %invoke.cont45, %invoke.cont40, %invoke.cont, %if.then37
@@ -400,8 +402,8 @@ ehcleanup:                                        ; preds = %if.then.i.i76, %_ZN
 
 ehcleanup56:                                      ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %16, %lpad ]
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp38) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp38) #16
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp38) #16
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp38) #16
   resume { ptr, i32 } %.pn.pn
 
 return:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %if.end33, %land.lhs.true
@@ -412,31 +414,31 @@ return:                                           ; preds = %_ZNSt7__cxx1112basi
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
 
-declare noundef i32 @_ZN5folly14EventBaseEvent12eb_event_delEv(ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #2
+declare noundef i32 @_ZN5folly14EventBaseEvent12eb_event_delEv(ptr noundef nonnull align 8 dereferenceable(160)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
 
-declare noundef i32 @_ZN5folly14EventBaseEvent17eb_event_base_setEPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(168), ptr noundef) local_unnamed_addr #2
+declare noundef i32 @_ZN5folly14EventBaseEvent17eb_event_base_setEPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(160), ptr noundef) local_unnamed_addr #2
 
-declare noundef i32 @_ZN5folly14EventBaseEvent12eb_event_addEPK7timeval(ptr noundef nonnull align 8 dereferenceable(168), ptr noundef) local_unnamed_addr #2
+declare noundef i32 @_ZN5folly14EventBaseEvent12eb_event_addEPK7timeval(ptr noundef nonnull align 8 dereferenceable(160), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress uwtable
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #7
 
-declare void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef, i32 noundef) unnamed_addr #2
+declare void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, i32 noundef, i32 noundef) unnamed_addr #2
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #2
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #2
 
-declare void @_ZN5folly8errnoStrB5cxx11Ei(ptr sret(%"class.std::__cxx11::basic_string") align 8, i32 noundef) local_unnamed_addr #2
+declare void @_ZN5folly8errnoStrB5cxx11Ei(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #9
+declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #9
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -444,26 +446,26 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIc
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly12EventHandler15attachEventBaseEPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %eventBase) local_unnamed_addr #1 align 2 {
+define void @_ZN5folly12EventHandler15attachEventBaseEPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef %eventBase) local_unnamed_addr #1 align 2 {
 entry:
   %event_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %call.i = tail call noundef i32 @_ZN5folly14EventBaseEvent17eb_event_base_setEPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(168) %event_.i, ptr noundef %eventBase)
-  %eventBase_.i = getelementptr inbounds i8, ptr %this, i64 176
+  %call.i = tail call noundef i32 @_ZN5folly14EventBaseEvent17eb_event_base_setEPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(160) %event_.i, ptr noundef %eventBase)
+  %eventBase_.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr %eventBase, ptr %eventBase_.i, align 8, !tbaa !10
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly12EventHandler15detachEventBaseEv(ptr noundef nonnull align 8 dereferenceable(184) %this) local_unnamed_addr #1 align 2 {
+define void @_ZN5folly12EventHandler15detachEventBaseEv(ptr noundef nonnull align 8 dereferenceable(176) %this) local_unnamed_addr #1 align 2 {
 entry:
-  tail call void @_ZN5folly12EventHandler19ensureNotRegisteredEPKc(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull @__func__._ZN5folly12EventHandler15detachEventBaseEv)
+  tail call void @_ZN5folly12EventHandler19ensureNotRegisteredEPKc(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull @__func__._ZN5folly12EventHandler15detachEventBaseEv)
   %event_ = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @_ZN5folly14EventBaseEvent10eb_ev_baseEPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(168) %event_, ptr noundef null)
+  tail call void @_ZN5folly14EventBaseEvent10eb_ev_baseEPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(160) %event_, ptr noundef null)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly12EventHandler19ensureNotRegisteredEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this, ptr noundef %fn) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly12EventHandler19ensureNotRegisteredEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, ptr noundef %fn) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.google::LogMessage", align 8
   %evcb_flags.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -473,9 +475,9 @@ entry:
   br i1 %tobool.i.i.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #16
-  call void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull @.str, i32 noundef 141, i32 noundef 2)
-  %call2 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp) #16
+  call void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp, ptr noundef nonnull @.str, i32 noundef 141, i32 noundef 2)
+  %call2 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -487,16 +489,16 @@ invoke.cont3:                                     ; preds = %invoke.cont
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #16
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp) #16
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp) #16
   call void @abort() #15
   unreachable
 
 lpad:                                             ; preds = %invoke.cont3, %invoke.cont, %if.then
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #16
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp) #16
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp) #16
   resume { ptr, i32 } %2
 
 if.end:                                           ; preds = %entry
@@ -504,25 +506,25 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly12EventHandler15changeHandlerFDENS_13NetworkSocketE(ptr noundef nonnull align 8 dereferenceable(184) %this, i32 %fd.coerce) local_unnamed_addr #1 align 2 {
+define void @_ZN5folly12EventHandler15changeHandlerFDENS_13NetworkSocketE(ptr noundef nonnull align 8 dereferenceable(176) %this, i32 %fd.coerce) local_unnamed_addr #1 align 2 {
 entry:
-  tail call void @_ZN5folly12EventHandler19ensureNotRegisteredEPKc(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull @__func__._ZN5folly12EventHandler15changeHandlerFDENS_13NetworkSocketE)
+  tail call void @_ZN5folly12EventHandler19ensureNotRegisteredEPKc(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull @__func__._ZN5folly12EventHandler15changeHandlerFDENS_13NetworkSocketE)
   %event_ = getelementptr inbounds i8, ptr %this, i64 8
-  %evb_.i = getelementptr inbounds i8, ptr %this, i64 136
+  %evb_.i = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load ptr, ptr %evb_.i, align 8, !tbaa !30
   tail call void @event_set(ptr noundef nonnull %event_, i32 noundef %fd.coerce, i16 noundef signext 0, ptr noundef nonnull @_ZN5folly12EventHandler16libeventCallbackEisPv, ptr noundef nonnull %this)
-  tail call void @_ZN5folly14EventBaseEvent10eb_ev_baseEPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(168) %event_, ptr noundef %0)
+  tail call void @_ZN5folly14EventBaseEvent10eb_ev_baseEPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(160) %event_, ptr noundef %0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly12EventHandler11initHandlerEPNS_9EventBaseENS_13NetworkSocketE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %eventBase, i32 %fd.coerce) local_unnamed_addr #1 align 2 {
+define void @_ZN5folly12EventHandler11initHandlerEPNS_9EventBaseENS_13NetworkSocketE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef %eventBase, i32 %fd.coerce) local_unnamed_addr #1 align 2 {
 entry:
-  tail call void @_ZN5folly12EventHandler19ensureNotRegisteredEPKc(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull @__func__._ZN5folly12EventHandler11initHandlerEPNS_9EventBaseENS_13NetworkSocketE)
+  tail call void @_ZN5folly12EventHandler19ensureNotRegisteredEPKc(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull @__func__._ZN5folly12EventHandler11initHandlerEPNS_9EventBaseENS_13NetworkSocketE)
   %event_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @event_set(ptr noundef nonnull %event_, i32 noundef %fd.coerce, i16 noundef signext 0, ptr noundef nonnull @_ZN5folly12EventHandler16libeventCallbackEisPv, ptr noundef nonnull %this)
-  %call.i = tail call noundef i32 @_ZN5folly14EventBaseEvent17eb_event_base_setEPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(168) %event_, ptr noundef %eventBase)
-  %eventBase_.i = getelementptr inbounds i8, ptr %this, i64 176
+  %call.i = tail call noundef i32 @_ZN5folly14EventBaseEvent17eb_event_base_setEPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(160) %event_, ptr noundef %eventBase)
+  %eventBase_.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr %eventBase, ptr %eventBase_.i, align 8, !tbaa !10
   ret void
 }
@@ -533,7 +535,7 @@ declare void @abort() local_unnamed_addr #11
 declare void @_ZN5folly9EventBase16bumpHandlingTimeEv(ptr noundef nonnull align 16 dereferenceable(584)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK5folly12EventHandler9isPendingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this) local_unnamed_addr #12 align 2 {
+define noundef zeroext i1 @_ZNK5folly12EventHandler9isPendingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this) local_unnamed_addr #12 align 2 {
 entry:
   %evcb_flags.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i16, ptr %evcb_flags.i, align 8, !tbaa !28
@@ -542,7 +544,7 @@ entry:
   br i1 %tobool.not, label %if.end9, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ev_res.i = getelementptr inbounds i8, ptr %this, i64 114
+  %ev_res.i = getelementptr inbounds i8, ptr %this, i64 70
   %2 = load i16, ptr %ev_res.i, align 2, !tbaa !37
   %3 = and i16 %2, 2
   %tobool7.not = icmp eq i16 %3, 0
@@ -594,10 +596,10 @@ attributes #18 = { builtin nounwind }
 !7 = !{!8, !8, i64 0}
 !8 = !{!"vtable pointer", !9, i64 0}
 !9 = !{!"Simple C++ TBAA"}
-!10 = !{!11, !16, i64 176}
-!11 = !{!"_ZTSN5folly12EventHandlerE", !12, i64 8, !16, i64 176}
-!12 = !{!"_ZTSN5folly14EventBaseEventE", !13, i64 0, !16, i64 128, !16, i64 136, !16, i64 144, !22, i64 152}
-!13 = !{!"_ZTS5event", !14, i64 0, !17, i64 40, !19, i64 56, !16, i64 64, !17, i64 72, !18, i64 104, !18, i64 106, !20, i64 112}
+!10 = !{!11, !16, i64 168}
+!11 = !{!"_ZTSN5folly12EventHandlerE", !12, i64 8, !16, i64 168}
+!12 = !{!"_ZTSN5folly14EventBaseEventE", !13, i64 0, !16, i64 120, !16, i64 128, !16, i64 136, !22, i64 144}
+!13 = !{!"_ZTS5event", !14, i64 0, !17, i64 40, !19, i64 56, !18, i64 60, !18, i64 62, !16, i64 64, !17, i64 72, !20, i64 104}
 !14 = !{!"_ZTS14event_callback", !15, i64 0, !18, i64 16, !17, i64 18, !17, i64 19, !17, i64 24, !16, i64 32}
 !15 = !{!"_ZTSN14event_callbackUt_E", !16, i64 0, !16, i64 8}
 !16 = !{!"any pointer", !17, i64 0}
@@ -610,15 +612,15 @@ attributes #18 = { builtin nounwind }
 !23 = !{!"_ZTSN5folly13EventCallback4TypeE", !17, i64 0}
 !24 = !{!25, !16, i64 0}
 !25 = !{!"_ZTSN5boost9intrusive9list_nodeIPvEE", !16, i64 0, !16, i64 8}
-!26 = !{!12, !16, i64 136}
-!27 = !{!12, !16, i64 144}
+!26 = !{!12, !16, i64 128}
+!27 = !{!12, !16, i64 136}
 !28 = !{!18, !18, i64 0}
-!29 = !{!12, !18, i64 104}
-!30 = !{!12, !16, i64 128}
+!29 = !{!12, !18, i64 60}
+!30 = !{!12, !16, i64 120}
 !31 = !{!12, !19, i64 56}
 !32 = !{!19, !19, i64 0}
 !33 = !{!34, !16, i64 0}
 !34 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !35, i64 0, !21, i64 8, !17, i64 16}
 !35 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !16, i64 0}
 !36 = !{!34, !21, i64 8}
-!37 = !{!12, !18, i64 106}
+!37 = !{!12, !18, i64 62}

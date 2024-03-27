@@ -196,7 +196,7 @@ if.end.i:                                         ; preds = %_ZN5folly9EventBase
   %4 = getelementptr inbounds i8, ptr %threadName.i, i64 8
   store ptr %threadName.coerce1, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i) #13
-  invoke void @_ZSt11make_uniqueIN5folly21ScopedEventBaseThreadEJRNS0_9EventBase7OptionsERPNS0_16EventBaseManagerERNS0_5RangeIPKcEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(49) %ebOpts_, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(16) %threadName.i)
+  invoke void @_ZSt11make_uniqueIN5folly21ScopedEventBaseThreadEJRNS0_9EventBase7OptionsERPNS0_16EventBaseManagerERNS0_5RangeIPKcEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(49) %ebOpts_, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(16) %threadName.i)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.end.i
@@ -299,7 +299,7 @@ entry:
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #13
   %ebOpts_ = getelementptr inbounds i8, ptr %this, i64 8
-  call void @_ZSt11make_uniqueIN5folly21ScopedEventBaseThreadEJRNS0_9EventBase7OptionsERPNS0_16EventBaseManagerERNS0_5RangeIPKcEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(49) %ebOpts_, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(16) %threadName)
+  call void @_ZSt11make_uniqueIN5folly21ScopedEventBaseThreadEJRNS0_9EventBase7OptionsERPNS0_16EventBaseManagerERNS0_5RangeIPKcEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(49) %ebOpts_, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(16) %threadName)
   %2 = load ptr, ptr %ref.tmp, align 8, !tbaa !36
   store ptr null, ptr %ref.tmp, align 8, !tbaa !36
   %3 = load ptr, ptr %th_, align 8, !tbaa !36
@@ -594,7 +594,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr void @_ZSt11make_uniqueIN5folly21ScopedEventBaseThreadEJRNS0_9EventBase7OptionsERPNS0_16EventBaseManagerERNS0_5RangeIPKcEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(49) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1, ptr noundef nonnull align 8 dereferenceable(16) %__args3) local_unnamed_addr #8 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZSt11make_uniqueIN5folly21ScopedEventBaseThreadEJRNS0_9EventBase7OptionsERPNS0_16EventBaseManagerERNS0_5RangeIPKcEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(49) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1, ptr noundef nonnull align 8 dereferenceable(16) %__args3) local_unnamed_addr #8 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"struct.folly::EventBase::Options", align 8
   %call = tail call noalias noundef nonnull dereferenceable(640) ptr @_Znwm(i64 noundef 640) #14
@@ -641,9 +641,9 @@ invoke.cont:                                      ; preds = %invoke.cont.i.i, %e
   %timerTickInterval4.i = getelementptr inbounds i8, ptr %__args, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %timerTickInterval.i, ptr noundef nonnull align 8 dereferenceable(9) %timerTickInterval4.i, i64 9, i1 false)
   %7 = load ptr, ptr %__args1, align 8, !tbaa !36
-  %agg.tmp5.sroa.0.0.copyload = load ptr, ptr %__args3, align 8, !tbaa.struct !40
+  %agg.tmp5.sroa.0.0.copyload = load ptr, ptr %__args3, align 8, !tbaa !36
   %agg.tmp5.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %__args3, i64 8
-  %agg.tmp5.sroa.2.0.copyload = load ptr, ptr %agg.tmp5.sroa.2.0..sroa_idx, align 8, !tbaa.struct !41
+  %agg.tmp5.sroa.2.0.copyload = load ptr, ptr %agg.tmp5.sroa.2.0..sroa_idx, align 8, !tbaa !36
   invoke void @_ZN5folly21ScopedEventBaseThreadC1ENS_9EventBase7OptionsEPNS_16EventBaseManagerENS_5RangeIPKcEE(ptr noundef nonnull align 16 dereferenceable(636) %call, ptr noundef nonnull %agg.tmp, ptr noundef %7, ptr %agg.tmp5.sroa.0.0.copyload, ptr %agg.tmp5.sroa.2.0.copyload)
           to label %invoke.cont7 unwind label %lpad6
 
@@ -771,12 +771,10 @@ attributes #15 = { builtin nounwind }
 !30 = !{i8 0, i8 2}
 !31 = !{}
 !32 = !{!12, !14, i64 24}
-!33 = !{i64 0, i64 8, !34, i64 0, i64 8, !34, i64 0, i64 8, !34, i64 0, i64 16, !34, i64 0, i64 16, !34}
+!33 = !{i64 0, i64 16, !34}
 !34 = !{!10, !10, i64 0}
 !35 = !{!29, !14, i64 0}
 !36 = !{!14, !14, i64 0}
 !37 = !{!38, !38, i64 0}
 !38 = !{!"vtable pointer", !11, i64 0}
 !39 = !{!16, !16, i64 0}
-!40 = !{i64 0, i64 8, !36, i64 8, i64 8, !36}
-!41 = !{i64 0, i64 8, !36}

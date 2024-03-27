@@ -9,7 +9,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"union.std::aligned_storage<160, 8>::type" = type { [160 x i8] }
 %"struct.std::atomic" = type { %"struct.std::__atomic_base" }
 %"struct.std::__atomic_base" = type { ptr }
-%"class.google::LogMessage" = type { ptr, ptr }
+%"class.google::LogMessage" = type { ptr, ptr, %"struct.google::LogMessageTime" }
+%"struct.google::LogMessageTime" = type { %struct.tm, i64, i32, i64 }
+%struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %"class.folly::Function" = type { %"union.folly::detail::function::Data", ptr, ptr }
 %"union.folly::detail::function::Data" = type { ptr, [40 x i8] }
 %"class.std::bad_function_call" = type { %"class.std::exception" }
@@ -69,9 +71,9 @@ define internal void @_ZN5folly6detail12_GLOBAL__N_115FailingExecutor3addENS_8Fu
 entry:
   %ref.tmp = alloca %"class.google::LogMessage", align 8
   %agg.tmp = alloca %"class.folly::Function", align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #13
-  call void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull @.str, i32 noundef 28, i32 noundef 2)
-  %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp) #13
+  call void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp, ptr noundef nonnull @.str, i32 noundef 28, i32 noundef 2)
+  %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -79,8 +81,8 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #13
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp) #13
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp) #13
   %0 = load atomic i64, ptr @_ZN5folly14InlineExecutor5cacheE acquire, align 8
   %atomic-temp.0.i.i = inttoptr i64 %0 to ptr
   %tobool.not.i = icmp eq i64 %0, 0
@@ -93,12 +95,12 @@ cond.false.i:                                     ; preds = %invoke.cont2
 _ZN5folly14InlineExecutor8instanceEv.exit:        ; preds = %cond.false.i, %invoke.cont2
   %cond-lvalue.i = phi ptr [ %call1.i, %cond.false.i ], [ %atomic-temp.0.i.i, %invoke.cont2 ]
   store ptr null, ptr %agg.tmp, align 16, !tbaa !7
-  %call_.i = getelementptr inbounds %"class.folly::Function", ptr %agg.tmp, i64 0, i32 1
-  %call_2.i = getelementptr inbounds %"class.folly::Function", ptr %func, i64 0, i32 1
+  %call_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 48
+  %call_2.i = getelementptr inbounds i8, ptr %func, i64 48
   %1 = load ptr, ptr %call_2.i, align 16, !tbaa !10
   store ptr %1, ptr %call_.i, align 16, !tbaa !10
-  %exec_.i = getelementptr inbounds %"class.folly::Function", ptr %agg.tmp, i64 0, i32 2
-  %exec_3.i = getelementptr inbounds %"class.folly::Function", ptr %func, i64 0, i32 2
+  %exec_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 56
+  %exec_3.i = getelementptr inbounds i8, ptr %func, i64 56
   %2 = load ptr, ptr %exec_3.i, align 8, !tbaa !13
   store ptr %2, ptr %exec_.i, align 8, !tbaa !13
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE10uninitCallERNS1_4DataE, ptr %call_2.i, align 16, !tbaa !10
@@ -112,7 +114,7 @@ if.end.i.i:                                       ; preds = %_ZN5folly14InlineEx
 
 _ZN5folly8FunctionIFvvEEC2EOS2_.exit:             ; preds = %if.end.i.i, %_ZN5folly14InlineExecutor8instanceEv.exit
   %vtable = load ptr, ptr %cond-lvalue.i, align 8, !tbaa !14
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %3 = load ptr, ptr %vfn, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %cond-lvalue.i, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont6 unwind label %lpad5
@@ -132,8 +134,8 @@ _ZN5folly8FunctionIFvvEED2Ev.exit:                ; preds = %if.end.i.i13, %invo
 lpad:                                             ; preds = %invoke.cont, %entry
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #13
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp) #13
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp) #13
   br label %eh.resume
 
 lpad5:                                            ; preds = %_ZN5folly8FunctionIFvvEEC2EOS2_.exit
@@ -169,14 +171,14 @@ declare void @_ZN5folly8Executor16keepAliveReleaseEv(ptr noundef nonnull align 8
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
-declare void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef, i32 noundef) unnamed_addr #6
+declare void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, i32 noundef, i32 noundef) unnamed_addr #6
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #6
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #6
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nounwind
-declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #7
+declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #7
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #6
 
@@ -195,7 +197,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt17bad_function_ca
 entry:
   %ref.tmp = alloca %"class.std::bad_function_call", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !14
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !14
   invoke void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #15
           to label %invoke.cont unwind label %lpad
 
@@ -214,7 +216,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #10 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, i32 0, i64 2), ptr %exception, align 8, !tbaa !14
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, i32 0, i64 2), ptr %exception, align 8, !tbaa !14
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt17bad_function_call, ptr nonnull @_ZNSt17bad_function_callD1Ev) #16
   unreachable
 }
@@ -231,7 +233,7 @@ define internal void @_GLOBAL__sub_I_AtomicReadMostlyMainPtr.cpp() #11 section "
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5folly6detail18atomicReadMostlyMuE, i8 0, i64 40, i1 false)
   %call.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #17
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5folly6detail12_GLOBAL__N_115FailingExecutorE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !tbaa !14
+  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN5folly6detail12_GLOBAL__N_115FailingExecutorE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !tbaa !14
   store i64 0, ptr @_ZN5folly6detail22atomicReadMostlyDomainE, align 8, !tbaa !16
   store i32 0, ptr getelementptr inbounds (%"class.folly::Indestructible.0", ptr @_ZN5folly6detail22atomicReadMostlyDomainE, i64 0, i32 0, i32 0, i32 0, i64 8), align 8, !tbaa !19
   store i32 -1, ptr getelementptr inbounds (%"class.folly::Indestructible.0", ptr @_ZN5folly6detail22atomicReadMostlyDomainE, i64 0, i32 0, i32 0, i32 0, i64 12), align 4, !tbaa !19

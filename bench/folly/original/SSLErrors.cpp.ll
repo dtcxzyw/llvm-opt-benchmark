@@ -5,12 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.0 = type { i64, [8 x i8] }
 %"struct.std::array" = type { [256 x i8] }
-%"class.folly::AsyncSocketException" = type { %"class.std::runtime_error", i32, i32 }
-%"class.std::runtime_error" = type { %"class.std::exception", %"struct.std::__cow_string" }
-%"class.std::exception" = type { ptr }
-%"struct.std::__cow_string" = type { %union.anon }
-%union.anon = type { ptr }
-%"class.folly::SSLException" = type <{ %"class.folly::AsyncSocketException", i32, [4 x i8] }>
 
 $_ZN5folly12SSLExceptionD0Ev = comdat any
 
@@ -72,22 +66,22 @@ _ZN12_GLOBAL__N_120exTypefromSSLErrInfoEimi.exit: ; preds = %entry
   br i1 %cmp3.i, label %if.then.i, label %if.else13.i
 
 if.then.i:                                        ; preds = %_ZN12_GLOBAL__N_120exTypefromSSLErrInfoEimi.exit
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr %0, ptr %ref.tmp, align 8, !tbaa !10, !alias.scope !7
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   br i1 %cmp4.i, label %if.then3.i, label %if.else.i
 
 if.then3.i:                                       ; preds = %if.then.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %0, ptr noundef nonnull align 1 dereferenceable(14) @.str, i64 14, i1 false)
   store i64 14, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !15, !alias.scope !7
-  %arrayidx.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 2, i32 1, i64 6
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 30
   store i8 0, ptr %arrayidx.i.i.i.i, align 2, !tbaa !18, !alias.scope !7
   br label %_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit.thread
 
 if.else.i:                                        ; preds = %if.then.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %0, ptr noundef nonnull align 1 dereferenceable(13) @.str.1, i64 13, i1 false)
   store i64 13, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !15, !alias.scope !7
-  %arrayidx.i.i.i29.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 2, i32 1, i64 5
+  %arrayidx.i.i.i29.i = getelementptr inbounds i8, ptr %ref.tmp, i64 29
   store i8 0, ptr %arrayidx.i.i.i29.i, align 1, !tbaa !18, !alias.scope !7
   br label %_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit.thread
 
@@ -97,7 +91,7 @@ if.else7.i17:                                     ; preds = %entry
 
 _ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit.thread51: ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #11
-  %1 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 2
+  %1 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr %1, ptr %ref.tmp, align 8, !tbaa !10, !alias.scope !7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i36.i) #11, !noalias !7
   store i64 30, ptr %__dnew.i.i36.i, align 8, !tbaa !19, !noalias !7
@@ -106,7 +100,7 @@ _ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit.thread51: ; preds = %entry
   %2 = load i64, ptr %__dnew.i.i36.i, align 8, !tbaa !19, !noalias !7
   store i64 %2, ptr %1, align 8, !tbaa !18, !alias.scope !7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(30) %call2.i11.i46.i, ptr noundef nonnull align 1 dereferenceable(30) @.str.2, i64 30, i1 false)
-  %_M_string_length.i.i.i.i40.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 1
+  %_M_string_length.i.i.i.i40.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 %2, ptr %_M_string_length.i.i.i.i40.i, align 8, !tbaa !15, !alias.scope !7
   %3 = load ptr, ptr %ref.tmp, align 8, !tbaa !20, !alias.scope !7
   %arrayidx.i.i.i41.i = getelementptr inbounds i8, ptr %3, i64 %2
@@ -119,7 +113,7 @@ if.else13.i:                                      ; preds = %if.else7.i17, %_ZN1
   %cmp.i3337 = phi i1 [ false, %if.else7.i17 ], [ true, %_ZN12_GLOBAL__N_120exTypefromSSLErrInfoEimi.exit ]
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %buf.i) #11, !noalias !7
   call void @ERR_error_string_n(i64 noundef %errError, ptr noundef nonnull %buf.i, i64 noundef 256), !noalias !7
-  %4 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 2
+  %4 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr %4, ptr %ref.tmp, align 8, !tbaa !10, !alias.scope !7
   %call.i.i49.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf.i) #11, !noalias !7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i48.i) #11, !noalias !7
@@ -152,7 +146,7 @@ if.end.i.i.i.i.i55.i:                             ; preds = %if.end.i.i51.i
 
 _ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit: ; preds = %if.end.i.i.i.i.i55.i, %if.then.i.i.i.i54.i, %if.end.i.i51.i
   %8 = load i64, ptr %__dnew.i.i48.i, align 8, !tbaa !19, !noalias !7
-  %_M_string_length.i.i.i.i52.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 1
+  %_M_string_length.i.i.i.i52.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 %8, ptr %_M_string_length.i.i.i.i52.i, align 8, !tbaa !15, !alias.scope !7
   %9 = load ptr, ptr %ref.tmp, align 8, !tbaa !20, !alias.scope !7
   %arrayidx.i.i.i53.i = getelementptr inbounds i8, ptr %9, i64 %8
@@ -168,7 +162,7 @@ _ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit.thread: ; preds = %_ZN12_G
   %cmp.i3247 = phi i32 [ 3, %_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit.thread51 ], [ 4, %if.then3.i ], [ 4, %if.else.i ], [ %10, %_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit ]
   %11 = phi i32 [ 0, %_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit.thread51 ], [ %errno_copy, %if.then3.i ], [ %errno_copy, %if.else.i ], [ %spec.select54, %_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #11
-  invoke void @_ZN5folly20AsyncSocketException10getMessageENS0_24AsyncSocketExceptionTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, i32 noundef %retval.0.i3049, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef %11)
+  invoke void @_ZN5folly20AsyncSocketException10getMessageENS0_24AsyncSocketExceptionTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, i32 noundef %retval.0.i3049, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef %11)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit.thread
@@ -177,12 +171,12 @@ _ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit.thread: ; preds = %_ZN12_G
 
 invoke.cont.i:                                    ; preds = %.noexc
   %12 = load ptr, ptr %ref.tmp.i, align 8, !tbaa !20
-  %13 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i, i64 0, i32 2
+  %13 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %cmp.i.i.i.i = icmp eq ptr %12, %13
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %invoke.cont.i
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i, i64 0, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %14 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !15
   %cmp3.i.i.i.i = icmp ult i64 %14, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i)
@@ -196,12 +190,12 @@ lpad.i:                                           ; preds = %.noexc
   %15 = landingpad { ptr, i32 }
           cleanup
   %16 = load ptr, ptr %ref.tmp.i, align 8, !tbaa !20
-  %17 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i, i64 0, i32 2
+  %17 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %cmp.i.i.i5.i = icmp eq ptr %16, %17
   br i1 %cmp.i.i.i5.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7.i, label %if.then.i.i6.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7.i: ; preds = %lpad.i
-  %_M_string_length.i.i.i8.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i, i64 0, i32 1
+  %_M_string_length.i.i.i8.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %18 = load i64, ptr %_M_string_length.i.i.i8.i, align 8, !tbaa !15
   %cmp3.i.i.i9.i = icmp ult i64 %18, 16
   call void @llvm.assume(i1 %cmp3.i.i.i9.i)
@@ -217,18 +211,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.i: ; preds = %i
 
 invoke.cont:                                      ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #11
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !21
-  %type_.i = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %this, i64 0, i32 1
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !21
+  %type_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %retval.0.i3049, ptr %type_.i, align 8, !tbaa !23
-  %errno_.i = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %this, i64 0, i32 2
+  %errno_.i = getelementptr inbounds i8, ptr %this, i64 20
   store i32 %11, ptr %errno_.i, align 4, !tbaa !30
   %19 = load ptr, ptr %ref.tmp, align 8, !tbaa !20
-  %20 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 2
+  %20 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %19, %20
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %invoke.cont
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %21 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !15
   %cmp3.i.i.i = icmp ult i64 %21, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -240,9 +234,9 @@ if.then.i.i:                                      ; preds = %invoke.cont
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #11
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly12SSLExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !21
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5folly12SSLExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !21
   %cmp2 = icmp eq i32 %sslErr, 6
-  %sslError = getelementptr inbounds %"class.folly::SSLException", ptr %this, i64 0, i32 1
+  %sslError = getelementptr inbounds i8, ptr %this, i64 24
   %.sink = select i1 %cmp2, i32 5, i32 %cmp.i3247
   store i32 %.sink, ptr %sslError, align 8, !tbaa !31
   ret void
@@ -255,12 +249,12 @@ lpad:                                             ; preds = %_ZN12_GLOBAL__N_118
 lpad.body:                                        ; preds = %lpad, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.i
   %eh.lpad-body = phi { ptr, i32 } [ %22, %lpad ], [ %15, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.i ]
   %23 = load ptr, ptr %ref.tmp, align 8, !tbaa !20
-  %24 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 2
+  %24 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i19 = icmp eq ptr %23, %24
   br i1 %cmp.i.i.i19, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i22, label %if.then.i.i20
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i22: ; preds = %lpad.body
-  %_M_string_length.i.i.i23 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 1
+  %_M_string_length.i.i.i23 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %25 = load i64, ptr %_M_string_length.i.i.i23, align 8, !tbaa !15
   %cmp3.i.i.i24 = icmp ult i64 %25, 16
   call void @llvm.assume(i1 %cmp3.i.i.i24)
@@ -310,7 +304,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
-declare void @_ZN5folly20AsyncSocketException10getMessageENS0_24AsyncSocketExceptionTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr sret(%"class.std::__cxx11::basic_string") align 8, i32 noundef, ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) local_unnamed_addr #4
+declare void @_ZN5folly20AsyncSocketException10getMessageENS0_24AsyncSocketExceptionTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, i32 noundef, ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) local_unnamed_addr #4
 
 declare void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
@@ -353,7 +347,7 @@ if.end.i.i.i:                                     ; preds = %switch.lookup, %ent
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %retval.sroa.0.0.i to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %retval.sroa.8.0.i, %sub.ptr.rhs.cast.i.i.i.i.i
-  %4 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 2
+  %4 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr %4, ptr %ref.tmp, align 8, !tbaa !10, !alias.scope !40
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i.i) #11, !noalias !40
   store i64 %sub.ptr.sub.i.i.i.i.i, ptr %__dnew.i.i.i.i, align 8, !tbaa !19, !noalias !40
@@ -385,14 +379,14 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i
 
 _ZNK5folly5RangeIPKcE3strB5cxx11Ev.exit:          ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %if.end.i.i.i.i
   %8 = load i64, ptr %__dnew.i.i.i.i, align 8, !tbaa !19, !noalias !40
-  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 %8, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !15, !alias.scope !40
   %9 = load ptr, ptr %ref.tmp, align 8, !tbaa !20, !alias.scope !40
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 %8
   store i8 0, ptr %arrayidx.i.i.i.i.i, align 1, !tbaa !18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i.i) #11, !noalias !40
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #11
-  invoke void @_ZN5folly20AsyncSocketException10getMessageENS0_24AsyncSocketExceptionTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, i32 noundef %switch.select4.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 0)
+  invoke void @_ZN5folly20AsyncSocketException10getMessageENS0_24AsyncSocketExceptionTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, i32 noundef %switch.select4.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 0)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %_ZNK5folly5RangeIPKcE3strB5cxx11Ev.exit
@@ -401,12 +395,12 @@ _ZNK5folly5RangeIPKcE3strB5cxx11Ev.exit:          ; preds = %if.end.i.i.i.i.i.i.
 
 invoke.cont.i:                                    ; preds = %.noexc
   %10 = load ptr, ptr %ref.tmp.i, align 8, !tbaa !20
-  %11 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i, i64 0, i32 2
+  %11 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %cmp.i.i.i.i7 = icmp eq ptr %10, %11
   br i1 %cmp.i.i.i.i7, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i8
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %invoke.cont.i
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i, i64 0, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %12 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !15
   %cmp3.i.i.i.i = icmp ult i64 %12, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i)
@@ -420,12 +414,12 @@ lpad.i:                                           ; preds = %.noexc
   %13 = landingpad { ptr, i32 }
           cleanup
   %14 = load ptr, ptr %ref.tmp.i, align 8, !tbaa !20
-  %15 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i, i64 0, i32 2
+  %15 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %cmp.i.i.i5.i = icmp eq ptr %14, %15
   br i1 %cmp.i.i.i5.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7.i, label %if.then.i.i6.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7.i: ; preds = %lpad.i
-  %_M_string_length.i.i.i8.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i, i64 0, i32 1
+  %_M_string_length.i.i.i8.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %16 = load i64, ptr %_M_string_length.i.i.i8.i, align 8, !tbaa !15
   %cmp3.i.i.i9.i = icmp ult i64 %16, 16
   call void @llvm.assume(i1 %cmp3.i.i.i9.i)
@@ -441,10 +435,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.i: ; preds = %i
 
 invoke.cont:                                      ; preds = %if.then.i.i.i8, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #11
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !21
-  %type_.i = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %this, i64 0, i32 1
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !21
+  %type_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %switch.select4.i, ptr %type_.i, align 8, !tbaa !23
-  %errno_.i = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %this, i64 0, i32 2
+  %errno_.i = getelementptr inbounds i8, ptr %this, i64 20
   store i32 0, ptr %errno_.i, align 4, !tbaa !30
   %17 = load ptr, ptr %ref.tmp, align 8, !tbaa !20
   %cmp.i.i.i9 = icmp eq ptr %17, %4
@@ -462,8 +456,8 @@ if.then.i.i:                                      ; preds = %invoke.cont
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #11
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly12SSLExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !21
-  %sslError = getelementptr inbounds %"class.folly::SSLException", ptr %this, i64 0, i32 1
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5folly12SSLExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !21
+  %sslError = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %error, ptr %sslError, align 8, !tbaa !31
   ret void
 

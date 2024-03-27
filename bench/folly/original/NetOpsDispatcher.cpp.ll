@@ -11,7 +11,7 @@ $_ZN5folly6netops10DispatcherD0Ev = comdat any
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
 @_ZTSN5folly6netops10DispatcherE = constant [28 x i8] c"N5folly6netops10DispatcherE\00", align 1
 @_ZTIN5folly6netops10DispatcherE = constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN5folly6netops10DispatcherE }, align 8
-@_ZZN5folly6netops10Dispatcher18getDefaultInstanceEvE7wrapper = internal global %"class.folly::netops::Dispatcher" { ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN5folly6netops10DispatcherE, i32 0, i32 0, i32 2) }, align 8
+@_ZZN5folly6netops10Dispatcher18getDefaultInstanceEvE7wrapper = internal global %"class.folly::netops::Dispatcher" { ptr getelementptr inbounds inrange(-16, 208) ({ [28 x ptr] }, ptr @_ZTVN5folly6netops10DispatcherE, i32 0, i32 0, i32 2) }, align 8
 @_ZGVZN5folly6netops10Dispatcher18getDefaultInstanceEvE7wrapper = internal global i64 0, align 8
 
 ; Function Attrs: mustprogress uwtable

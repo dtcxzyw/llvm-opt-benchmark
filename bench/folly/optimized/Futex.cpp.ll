@@ -233,14 +233,14 @@ if.else.i:                                        ; preds = %entry
 if.end9.sink.split.i:                             ; preds = %if.else.i, %entry
   %absSteadyTime.sink = phi ptr [ %absSystemTime, %entry ], [ %absSteadyTime, %if.else.i ]
   %op.0.ph.i = phi i32 [ 393, %entry ], [ 137, %if.else.i ]
-  %agg.tmp5.sroa.0.0.copyload.i = load i64, ptr %absSteadyTime.sink, align 8
+  %agg.tmp5.sroa.0.0.copyload.i = load i64, ptr %absSteadyTime.sink, align 8, !tbaa !31
   %spec.select.i23.i = tail call i64 @llvm.smax.i64(i64 %agg.tmp5.sroa.0.0.copyload.i, i64 0)
   %div.i.i18.i24.i.sink = udiv i64 %spec.select.i23.i, 1000000000
   %mul.i.i.i.neg.i.i25.i = mul nsw i64 %div.i.i18.i24.i.sink, -1000000000
   %sub.i.i26.i = add nsw i64 %mul.i.i.i.neg.i.i25.i, %spec.select.i23.i
-  store i64 %div.i.i18.i24.i.sink, ptr %ts.i, align 8
+  store i64 %div.i.i18.i24.i.sink, ptr %ts.i, align 8, !tbaa !31
   %ref.tmp4.sroa.4.0.ts.sroa_idx.i = getelementptr inbounds i8, ptr %ts.i, i64 8
-  store i64 %sub.i.i26.i, ptr %ref.tmp4.sroa.4.0.ts.sroa_idx.i, align 8
+  store i64 %sub.i.i26.i, ptr %ref.tmp4.sroa.4.0.ts.sroa_idx.i, align 8, !tbaa !31
   br label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.end9.sink.split.i, %if.else.i
@@ -288,7 +288,7 @@ entry:
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %absSystemTime, align 8, !tbaa.struct !31
+  %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %absSystemTime, align 8, !tbaa !31
   %0 = ptrtoint ptr %futex to i64
   %not.i.i.i = xor i64 %0, -1
   %shl.i.i.i = shl i64 %0, 21
@@ -304,7 +304,7 @@ if.then.i:                                        ; preds = %entry
   %add14.i.i.i = mul i64 %xor12.i.i.i, 2147483649
   %call3.i.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN5folly18parking_lot_detail6Bucket9bucketForEm(i64 noundef %add14.i.i.i)
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %node.i.i) #10
-  %1 = load i64, ptr @_ZN5folly6detail12_GLOBAL__N_110parkingLotE.0, align 8, !tbaa !33
+  %1 = load i64, ptr @_ZN5folly6detail12_GLOBAL__N_110parkingLotE.0, align 8, !tbaa !32
   store i64 %add14.i.i.i, ptr %node.i.i, align 8, !tbaa !22
   %lotid_.i.i.i.i = getelementptr inbounds i8, ptr %node.i.i, i64 8
   store i64 %1, ptr %lotid_.i.i.i.i, align 8, !tbaa !23
@@ -315,7 +315,7 @@ if.then.i:                                        ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %next_.i.i.i.i, i8 0, i64 17, i1 false)
   call void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cond_.i.i.i.i) #10
   %data_.i.i.i = getelementptr inbounds i8, ptr %node.i.i, i64 128
-  store i32 %waitMask, ptr %data_.i.i.i, align 8, !tbaa !35
+  store i32 %waitMask, ptr %data_.i.i.i, align 8, !tbaa !34
   %count_.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 56
   %2 = atomicrmw add ptr %count_.i.i, i64 1 seq_cst, align 8
   %call1.i.i.i.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %call3.i.i) #10
@@ -357,7 +357,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit73.i.i:      ; preds = %invoke.cont.i.i
 
 cleanup.cont.i.i:                                 ; preds = %if.else.i66.i.i, %do.end.i.i.i
   %head_.sink.i.i.i = phi ptr [ %head_.i.i.i, %if.else.i66.i.i ], [ %next_.i.i.i, %do.end.i.i.i ]
-  store ptr %node.i.i, ptr %head_.sink.i.i.i, align 8, !tbaa !37
+  store ptr %node.i.i, ptr %head_.sink.i.i.i, align 8, !tbaa !36
   store ptr %node.i.i, ptr %tail_.i.i.i, align 8
   %call1.i.i.i.i72.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %call3.i.i) #10
   %call19.i.i = invoke noundef i32 @_ZN5folly18parking_lot_detail12WaitNodeBase4waitINSt6chrono3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1000000000EEEEEESt9cv_statusNS3_10time_pointIT_T0_EE(ptr noundef nonnull align 8 dereferenceable(128) %node.i.i, i64 %agg.tmp.sroa.0.0.copyload.i)
@@ -381,7 +381,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then20.i.i
 
 invoke.cont24.i.i:                                ; preds = %if.then20.i.i
   %signaled_.i.i.i = getelementptr inbounds i8, ptr %node.i.i, i64 32
-  %6 = load i8, ptr %signaled_.i.i.i, align 8, !tbaa !28, !range !38, !noundef !39
+  %6 = load i8, ptr %signaled_.i.i.i, align 8, !tbaa !28, !range !37, !noundef !38
   %tobool.i.not.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.not.i.i, label %if.then28.i.i, label %cleanup30.thread.i.i
 
@@ -471,7 +471,7 @@ if.else.i:                                        ; preds = %entry
   br i1 %tobool3.not.i, label %if.else11.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.else.i
-  %agg.tmp7.sroa.0.0.copyload.i = load i64, ptr %absSteadyTime, align 8, !tbaa.struct !31
+  %agg.tmp7.sroa.0.0.copyload.i = load i64, ptr %absSteadyTime, align 8, !tbaa !31
   %16 = ptrtoint ptr %futex to i64
   %not.i.i21.i = xor i64 %16, -1
   %shl.i.i22.i = shl i64 %16, 21
@@ -487,7 +487,7 @@ if.then4.i:                                       ; preds = %if.else.i
   %add14.i.i32.i = mul i64 %xor12.i.i31.i, 2147483649
   %call3.i33.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN5folly18parking_lot_detail6Bucket9bucketForEm(i64 noundef %add14.i.i32.i)
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %node.i20.i) #10
-  %17 = load i64, ptr @_ZN5folly6detail12_GLOBAL__N_110parkingLotE.0, align 8, !tbaa !33
+  %17 = load i64, ptr @_ZN5folly6detail12_GLOBAL__N_110parkingLotE.0, align 8, !tbaa !32
   store i64 %add14.i.i32.i, ptr %node.i20.i, align 8, !tbaa !22
   %lotid_.i.i.i34.i = getelementptr inbounds i8, ptr %node.i20.i, i64 8
   store i64 %17, ptr %lotid_.i.i.i34.i, align 8, !tbaa !23
@@ -498,7 +498,7 @@ if.then4.i:                                       ; preds = %if.else.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %next_.i.i.i35.i, i8 0, i64 17, i1 false)
   call void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cond_.i.i.i37.i) #10
   %data_.i.i38.i = getelementptr inbounds i8, ptr %node.i20.i, i64 128
-  store i32 %waitMask, ptr %data_.i.i38.i, align 8, !tbaa !35
+  store i32 %waitMask, ptr %data_.i.i38.i, align 8, !tbaa !34
   %count_.i39.i = getelementptr inbounds i8, ptr %call3.i33.i, i64 56
   %18 = atomicrmw add ptr %count_.i39.i, i64 1 seq_cst, align 8
   %call1.i.i.i.i.i40.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %call3.i33.i) #10
@@ -540,7 +540,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit69.i.i:      ; preds = %invoke.cont.i45.i
 
 cleanup.cont.i54.i:                               ; preds = %if.else.i62.i.i, %do.end.i.i51.i
   %head_.sink.i.i55.i = phi ptr [ %head_.i.i72.i, %if.else.i62.i.i ], [ %next_.i.i53.i, %do.end.i.i51.i ]
-  store ptr %node.i20.i, ptr %head_.sink.i.i55.i, align 8, !tbaa !37
+  store ptr %node.i20.i, ptr %head_.sink.i.i55.i, align 8, !tbaa !36
   store ptr %node.i20.i, ptr %tail_.i.i50.i, align 8
   %call1.i.i.i.i68.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %call3.i33.i) #10
   %call18.i.i = invoke noundef i32 @_ZN5folly18parking_lot_detail12WaitNodeBase4waitINSt6chrono3_V212steady_clockENS3_8durationIlSt5ratioILl1ELl1000000000EEEEEESt9cv_statusNS3_10time_pointIT_T0_EE(ptr noundef nonnull align 8 dereferenceable(128) %node.i20.i, i64 %agg.tmp7.sroa.0.0.copyload.i)
@@ -564,7 +564,7 @@ if.then.i.i.i58.i:                                ; preds = %if.then19.i.i
 
 invoke.cont23.i.i:                                ; preds = %if.then19.i.i
   %signaled_.i.i59.i = getelementptr inbounds i8, ptr %node.i20.i, i64 32
-  %22 = load i8, ptr %signaled_.i.i59.i, align 8, !tbaa !28, !range !38, !noundef !39
+  %22 = load i8, ptr %signaled_.i.i59.i, align 8, !tbaa !28, !range !37, !noundef !38
   %tobool.i.not.i60.i = icmp eq i8 %22, 0
   br i1 %tobool.i.not.i60.i, label %if.then25.i.i, label %cleanup27.thread.i.i
 
@@ -661,7 +661,7 @@ if.else11.i:                                      ; preds = %if.else.i
   %add14.i.i.i.i = mul i64 %xor12.i.i.i.i, 2147483649
   %call3.i.i.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN5folly18parking_lot_detail6Bucket9bucketForEm(i64 noundef %add14.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %node.i.i.i) #10
-  %33 = load i64, ptr @_ZN5folly6detail12_GLOBAL__N_110parkingLotE.0, align 8, !tbaa !33
+  %33 = load i64, ptr @_ZN5folly6detail12_GLOBAL__N_110parkingLotE.0, align 8, !tbaa !32
   store i64 %add14.i.i.i.i, ptr %node.i.i.i, align 8, !tbaa !22
   %lotid_.i.i.i.i.i = getelementptr inbounds i8, ptr %node.i.i.i, i64 8
   store i64 %33, ptr %lotid_.i.i.i.i.i, align 8, !tbaa !23
@@ -672,7 +672,7 @@ if.else11.i:                                      ; preds = %if.else.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %next_.i.i.i.i.i, i8 0, i64 17, i1 false)
   call void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cond_.i.i.i.i.i) #10
   %data_.i.i.i.i = getelementptr inbounds i8, ptr %node.i.i.i, i64 128
-  store i32 %waitMask, ptr %data_.i.i.i.i, align 8, !tbaa !35
+  store i32 %waitMask, ptr %data_.i.i.i.i, align 8, !tbaa !34
   %count_.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i, i64 56
   %34 = atomicrmw add ptr %count_.i.i.i, i64 1 seq_cst, align 8
   %call1.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %call3.i.i.i) #10
@@ -714,7 +714,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit69.i.i.i:    ; preds = %invoke.cont.i.i.i
 
 cleanup.cont.i.i.i:                               ; preds = %if.else.i62.i.i.i, %do.end.i.i.i.i
   %head_.sink.i.i.i.i = phi ptr [ %head_.i.i.i.i, %if.else.i62.i.i.i ], [ %next_.i.i.i74.i, %do.end.i.i.i.i ]
-  store ptr %node.i.i.i, ptr %head_.sink.i.i.i.i, align 8, !tbaa !37
+  store ptr %node.i.i.i, ptr %head_.sink.i.i.i.i, align 8, !tbaa !36
   store ptr %node.i.i.i, ptr %tail_.i.i.i.i, align 8
   %call1.i.i.i.i68.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %call3.i.i.i) #10
   %call18.i.i.i = invoke noundef i32 @_ZN5folly18parking_lot_detail12WaitNodeBase4waitINSt6chrono3_V212steady_clockENS3_8durationIlSt5ratioILl1ELl1000000000EEEEEESt9cv_statusNS3_10time_pointIT_T0_EE(ptr noundef nonnull align 8 dereferenceable(128) %node.i.i.i, i64 9223372036854775807)
@@ -738,7 +738,7 @@ if.then.i.i.i.i77.i:                              ; preds = %if.then19.i.i.i
 
 invoke.cont23.i.i.i:                              ; preds = %if.then19.i.i.i
   %signaled_.i.i.i.i = getelementptr inbounds i8, ptr %node.i.i.i, i64 32
-  %38 = load i8, ptr %signaled_.i.i.i.i, align 8, !tbaa !28, !range !38, !noundef !39
+  %38 = load i8, ptr %signaled_.i.i.i.i, align 8, !tbaa !28, !range !37, !noundef !38
   %tobool.i.not.i.i.i = icmp eq i8 %38, 0
   br i1 %tobool.i.not.i.i.i, label %if.then25.i.i.i, label %cleanup27.thread.i.i.i
 
@@ -833,7 +833,7 @@ entry:
   %nodeLock = alloca %"class.std::unique_lock", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %nodeLock) #10
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 40
-  store ptr %mutex_, ptr %nodeLock, align 8, !tbaa !40
+  store ptr %mutex_, ptr %nodeLock, align 8, !tbaa !39
   %_M_owns.i = getelementptr inbounds i8, ptr %nodeLock, i64 8
   %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_) #10
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
@@ -844,9 +844,9 @@ if.then.i.i.i:                                    ; preds = %entry
   unreachable
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %entry
-  store i8 1, ptr %_M_owns.i, align 8, !tbaa !42
+  store i8 1, ptr %_M_owns.i, align 8, !tbaa !41
   %signaled_ = getelementptr inbounds i8, ptr %this, i64 32
-  %0 = load i8, ptr %signaled_, align 8, !tbaa !28, !range !38, !noundef !39
+  %0 = load i8, ptr %signaled_, align 8, !tbaa !28, !range !37, !noundef !38
   %tobool.not29 = icmp eq i8 %0, 0
   br i1 %tobool.not29, label %invoke.cont.lr.ph, label %if.then3.i.i
 
@@ -864,14 +864,14 @@ invoke.cont.us:                                   ; preds = %invoke.cont.lr.ph, 
           to label %if.end.us unwind label %lpad6
 
 if.end.us:                                        ; preds = %invoke.cont.us
-  %1 = load i8, ptr %signaled_, align 8, !tbaa !28, !range !38, !noundef !39
+  %1 = load i8, ptr %signaled_, align 8, !tbaa !28, !range !37, !noundef !38
   %tobool.not.us = icmp eq i8 %1, 0
-  br i1 %tobool.not.us, label %invoke.cont.us, label %while.end, !llvm.loop !43
+  br i1 %tobool.not.us, label %invoke.cont.us, label %while.end, !llvm.loop !42
 
 invoke.cont:                                      ; preds = %invoke.cont.lr.ph, %_ZNSt18condition_variable10wait_untilINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEESt9cv_statusRSt11unique_lockISt5mutexERKNS1_10time_pointINS1_3_V212system_clockET_EE.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__ts.i.i) #10
-  store i64 %div.i.i.i.i.i, ptr %__ts.i.i, align 8, !tbaa !44
-  store i64 %sub.i.i.i.i, ptr %tv_nsec.i.i, align 8, !tbaa !46
+  store i64 %div.i.i.i.i.i, ptr %__ts.i.i, align 8, !tbaa !43
+  store i64 %sub.i.i.i.i, ptr %tv_nsec.i.i, align 8, !tbaa !45
   %call.i.i.i.i16 = invoke noundef i32 @pthread_cond_timedwait(ptr noundef nonnull %cond_, ptr noundef nonnull %mutex_, ptr noundef nonnull %__ts.i.i)
           to label %_ZNSt18condition_variable10wait_untilINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEESt9cv_statusRSt11unique_lockISt5mutexERKNS1_10time_pointINS1_3_V212system_clockET_EE.exit unwind label %if.else.i.i21.thread
 
@@ -879,10 +879,10 @@ _ZNSt18condition_variable10wait_untilINSt6chrono8durationIlSt5ratioILl1ELl100000
   %call14.i.i = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #10
   %cmp.i.i.i.i = icmp sge i64 %call14.i.i, %deadline.coerce
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__ts.i.i) #10
-  %2 = load i8, ptr %signaled_, align 8, !tbaa !28, !range !38, !noundef !39
+  %2 = load i8, ptr %signaled_, align 8, !tbaa !28, !range !37, !noundef !38
   %tobool.not = icmp ne i8 %2, 0
   %.not = select i1 %tobool.not, i1 true, i1 %cmp.i.i.i.i
-  br i1 %.not, label %while.end.loopexit32, label %invoke.cont, !llvm.loop !43
+  br i1 %.not, label %while.end.loopexit32, label %invoke.cont, !llvm.loop !42
 
 if.else.i.i21.thread:                             ; preds = %invoke.cont
   %3 = landingpad { ptr, i32 }
@@ -892,7 +892,7 @@ if.else.i.i21.thread:                             ; preds = %invoke.cont
 lpad6:                                            ; preds = %invoke.cont.us
   %4 = landingpad { ptr, i32 }
           cleanup
-  %.pre = load i8, ptr %_M_owns.i, align 8, !tbaa !42, !range !38
+  %.pre = load i8, ptr %_M_owns.i, align 8, !tbaa !41, !range !37
   %5 = icmp eq i8 %.pre, 0
   %.pre2 = load ptr, ptr %nodeLock, align 8
   %tobool2.not.i.i22 = icmp eq ptr %.pre2, null
@@ -904,7 +904,7 @@ while.end.loopexit32:                             ; preds = %_ZNSt18condition_va
   br label %if.then3.i.i
 
 while.end:                                        ; preds = %if.end.us
-  %.pre33 = load i8, ptr %_M_owns.i, align 8, !tbaa !42, !range !38
+  %.pre33 = load i8, ptr %_M_owns.i, align 8, !tbaa !41, !range !37
   %6 = icmp eq i8 %.pre33, 0
   %.pre3 = load ptr, ptr %nodeLock, align 8
   %tobool2.not.i.i = icmp eq ptr %.pre3, null
@@ -957,7 +957,7 @@ entry:
   %nodeLock = alloca %"class.std::unique_lock", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %nodeLock) #10
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 40
-  store ptr %mutex_, ptr %nodeLock, align 8, !tbaa !40
+  store ptr %mutex_, ptr %nodeLock, align 8, !tbaa !39
   %_M_owns.i = getelementptr inbounds i8, ptr %nodeLock, i64 8
   %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_) #10
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
@@ -968,9 +968,9 @@ if.then.i.i.i:                                    ; preds = %entry
   unreachable
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %entry
-  store i8 1, ptr %_M_owns.i, align 8, !tbaa !42
+  store i8 1, ptr %_M_owns.i, align 8, !tbaa !41
   %signaled_ = getelementptr inbounds i8, ptr %this, i64 32
-  %0 = load i8, ptr %signaled_, align 8, !tbaa !28, !range !38, !noundef !39
+  %0 = load i8, ptr %signaled_, align 8, !tbaa !28, !range !37, !noundef !38
   %tobool.not29 = icmp eq i8 %0, 0
   br i1 %tobool.not29, label %invoke.cont.lr.ph, label %if.then3.i.i
 
@@ -988,14 +988,14 @@ invoke.cont.us:                                   ; preds = %invoke.cont.lr.ph, 
           to label %if.end.us unwind label %lpad6
 
 if.end.us:                                        ; preds = %invoke.cont.us
-  %1 = load i8, ptr %signaled_, align 8, !tbaa !28, !range !38, !noundef !39
+  %1 = load i8, ptr %signaled_, align 8, !tbaa !28, !range !37, !noundef !38
   %tobool.not.us = icmp eq i8 %1, 0
-  br i1 %tobool.not.us, label %invoke.cont.us, label %while.end, !llvm.loop !47
+  br i1 %tobool.not.us, label %invoke.cont.us, label %while.end, !llvm.loop !46
 
 invoke.cont:                                      ; preds = %invoke.cont.lr.ph, %_ZNSt18condition_variable10wait_untilINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEESt9cv_statusRSt11unique_lockISt5mutexERKNS1_10time_pointINS1_3_V212steady_clockET_EE.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__ts.i.i) #10
-  store i64 %div.i.i.i.i.i, ptr %__ts.i.i, align 8, !tbaa !44
-  store i64 %sub.i.i.i.i, ptr %tv_nsec.i.i, align 8, !tbaa !46
+  store i64 %div.i.i.i.i.i, ptr %__ts.i.i, align 8, !tbaa !43
+  store i64 %sub.i.i.i.i, ptr %tv_nsec.i.i, align 8, !tbaa !45
   %call2.i.i.i16 = invoke i32 @pthread_cond_clockwait(ptr noundef nonnull %cond_, ptr noundef nonnull %mutex_, i32 noundef 1, ptr noundef nonnull %__ts.i.i)
           to label %_ZNSt18condition_variable10wait_untilINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEESt9cv_statusRSt11unique_lockISt5mutexERKNS1_10time_pointINS1_3_V212steady_clockET_EE.exit unwind label %if.else.i.i21.thread
 
@@ -1003,10 +1003,10 @@ _ZNSt18condition_variable10wait_untilINSt6chrono8durationIlSt5ratioILl1ELl100000
   %call14.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #10
   %cmp.i.i.i.i = icmp sge i64 %call14.i.i, %deadline.coerce
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__ts.i.i) #10
-  %2 = load i8, ptr %signaled_, align 8, !tbaa !28, !range !38, !noundef !39
+  %2 = load i8, ptr %signaled_, align 8, !tbaa !28, !range !37, !noundef !38
   %tobool.not = icmp ne i8 %2, 0
   %.not = select i1 %tobool.not, i1 true, i1 %cmp.i.i.i.i
-  br i1 %.not, label %while.end.loopexit32, label %invoke.cont, !llvm.loop !47
+  br i1 %.not, label %while.end.loopexit32, label %invoke.cont, !llvm.loop !46
 
 if.else.i.i21.thread:                             ; preds = %invoke.cont
   %3 = landingpad { ptr, i32 }
@@ -1016,7 +1016,7 @@ if.else.i.i21.thread:                             ; preds = %invoke.cont
 lpad6:                                            ; preds = %invoke.cont.us
   %4 = landingpad { ptr, i32 }
           cleanup
-  %.pre = load i8, ptr %_M_owns.i, align 8, !tbaa !42, !range !38
+  %.pre = load i8, ptr %_M_owns.i, align 8, !tbaa !41, !range !37
   %5 = icmp eq i8 %.pre, 0
   %.pre2 = load ptr, ptr %nodeLock, align 8
   %tobool2.not.i.i22 = icmp eq ptr %.pre2, null
@@ -1028,7 +1028,7 @@ while.end.loopexit32:                             ; preds = %_ZNSt18condition_va
   br label %if.then3.i.i
 
 while.end:                                        ; preds = %if.end.us
-  %.pre33 = load i8, ptr %_M_owns.i, align 8, !tbaa !42, !range !38
+  %.pre33 = load i8, ptr %_M_owns.i, align 8, !tbaa !41, !range !37
   %6 = icmp eq i8 %.pre33, 0
   %.pre3 = load ptr, ptr %nodeLock, align 8
   %tobool2.not.i.i = icmp eq ptr %.pre3, null
@@ -1067,7 +1067,7 @@ declare i32 @pthread_cond_clockwait(ptr noundef, ptr noundef, i32 noundef, ptr n
 define internal void @_GLOBAL__sub_I_Futex.cpp() #8 section ".text.startup" {
 entry:
   %0 = atomicrmw add ptr @_ZN5folly18parking_lot_detail11idallocatorE, i64 1 seq_cst, align 8
-  store i64 %0, ptr @_ZN5folly6detail12_GLOBAL__N_110parkingLotE.0, align 8, !tbaa !33
+  store i64 %0, ptr @_ZN5folly6detail12_GLOBAL__N_110parkingLotE.0, align 8, !tbaa !32
   ret void
 }
 
@@ -1124,20 +1124,19 @@ attributes #12 = { nounwind willreturn memory(none) }
 !28 = !{!18, !19, i64 32}
 !29 = distinct !{!29, !30}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{i64 0, i64 8, !32}
-!32 = !{!16, !16, i64 0}
-!33 = !{!34, !16, i64 0}
-!34 = !{!"_ZTSN5folly10ParkingLotIjEE", !16, i64 0}
-!35 = !{!36, !25, i64 128}
-!36 = !{!"_ZTSN5folly10ParkingLotIjE8WaitNodeE", !18, i64 0, !25, i64 128}
-!37 = !{!13, !13, i64 0}
-!38 = !{i8 0, i8 2}
-!39 = !{}
-!40 = !{!41, !13, i64 0}
-!41 = !{!"_ZTSSt11unique_lockISt5mutexE", !13, i64 0, !19, i64 8}
-!42 = !{!41, !19, i64 8}
-!43 = distinct !{!43, !30}
-!44 = !{!45, !16, i64 0}
-!45 = !{!"_ZTS8timespec", !16, i64 0, !16, i64 8}
-!46 = !{!45, !16, i64 8}
-!47 = distinct !{!47, !30}
+!31 = !{!16, !16, i64 0}
+!32 = !{!33, !16, i64 0}
+!33 = !{!"_ZTSN5folly10ParkingLotIjEE", !16, i64 0}
+!34 = !{!35, !25, i64 128}
+!35 = !{!"_ZTSN5folly10ParkingLotIjE8WaitNodeE", !18, i64 0, !25, i64 128}
+!36 = !{!13, !13, i64 0}
+!37 = !{i8 0, i8 2}
+!38 = !{}
+!39 = !{!40, !13, i64 0}
+!40 = !{!"_ZTSSt11unique_lockISt5mutexE", !13, i64 0, !19, i64 8}
+!41 = !{!40, !19, i64 8}
+!42 = distinct !{!42, !30}
+!43 = !{!44, !16, i64 0}
+!44 = !{!"_ZTS8timespec", !16, i64 0, !16, i64 8}
+!45 = !{!44, !16, i64 8}
+!46 = distinct !{!46, !30}

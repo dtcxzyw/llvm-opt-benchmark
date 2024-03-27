@@ -7,7 +7,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.folly::ExecutorBlockingContext" = type { i8, i8, ptr, %"class.folly::Range" }
 %"class.folly::Range" = type { ptr, ptr }
 %"class.google::LogMessageFatal" = type { %"class.google::LogMessage" }
-%"class.google::LogMessage" = type { ptr, ptr }
+%"class.google::LogMessage" = type { ptr, ptr, %"struct.google::LogMessageTime" }
+%"struct.google::LogMessageTime" = type { %struct.tm, i64, i32, i64 }
+%struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %"class.std::__exception_ptr::exception_ptr" = type { ptr }
 %"class.folly::basic_fbstring" = type { %"class.folly::fbstring_core" }
 %"class.folly::fbstring_core" = type { %union.anon }
@@ -105,12 +107,12 @@ entry:
 define void @_ZN5folly8Executor16keepAliveReleaseEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.google::LogMessageFatal", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #21
-  invoke void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull @.str, i32 noundef 44)
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp) #21
+  invoke void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp, ptr noundef nonnull @.str, i32 noundef 44)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
+  %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp)
           to label %invoke.cont2 unwind label %terminate.lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
@@ -126,7 +128,7 @@ invoke.cont5:                                     ; preds = %invoke.cont3
           to label %invoke.cont7 unwind label %terminate.lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont5
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #20
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp) #20
   unreachable
 
 terminate.lpad:                                   ; preds = %invoke.cont5, %invoke.cont3, %invoke.cont2, %invoke.cont, %entry
@@ -144,13 +146,13 @@ entry:
   %ref.tmp = alloca %"class.google::LogMessage", align 8
   %ref.tmp6 = alloca %"class.folly::basic_fbstring", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ep) #21
-  call void @_ZSt17current_exceptionv(ptr nonnull sret(%"class.std::__exception_ptr::exception_ptr") align 8 %ep) #21
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #21
-  invoke void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull @.str, i32 noundef 31, i32 noundef 2)
+  call void @_ZSt17current_exceptionv(ptr dead_on_unwind nonnull writable sret(%"class.std::__exception_ptr::exception_ptr") align 8 %ep) #21
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp) #21
+  invoke void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp, ptr noundef nonnull @.str, i32 noundef 31, i32 noundef 2)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
+  %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp)
           to label %invoke.cont1 unwind label %terminate.lpad
 
 invoke.cont1:                                     ; preds = %invoke.cont
@@ -179,7 +181,7 @@ invoke.cont2:                                     ; preds = %if.else.i, %if.then
 
 invoke.cont4:                                     ; preds = %invoke.cont2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp6) #21
-  invoke void @_ZN5folly12exceptionStrERKNSt15__exception_ptr13exception_ptrE(ptr nonnull sret(%"class.folly::basic_fbstring") align 8 %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(8) %ep)
+  invoke void @_ZN5folly12exceptionStrERKNSt15__exception_ptr13exception_ptrE(ptr dead_on_unwind nonnull writable sret(%"class.folly::basic_fbstring") align 8 %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(8) %ep)
           to label %invoke.cont7 unwind label %terminate.lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont4
@@ -224,8 +226,8 @@ if.then.i.i:                                      ; preds = %if.else.i1
 
 _ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit: ; preds = %if.then.i.i, %if.else.i1, %if.then.i3, %invoke.cont8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp6) #21
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #21
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp) #21
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp) #21
   %8 = load ptr, ptr %ep, align 8, !tbaa !21
   %tobool.not.i17 = icmp eq ptr %8, null
   br i1 %tobool.not.i17, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, label %if.then.i18
@@ -250,12 +252,12 @@ terminate.lpad:                                   ; preds = %invoke.cont7, %invo
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
 
 ; Function Attrs: nounwind
-declare void @_ZSt17current_exceptionv(ptr sret(%"class.std::__exception_ptr::exception_ptr") align 8) local_unnamed_addr #5
+declare void @_ZSt17current_exceptionv(ptr dead_on_unwind writable sret(%"class.std::__exception_ptr::exception_ptr") align 8) local_unnamed_addr #5
 
 ; Function Attrs: inlinehint mustprogress uwtable
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #6
 
-declare void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef, i32 noundef) unnamed_addr #7
+declare void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, i32 noundef, i32 noundef) unnamed_addr #7
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -270,15 +272,15 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 declare void @_ZSt9terminatev() local_unnamed_addr
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #7
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #7
 
-declare void @_ZN5folly12exceptionStrERKNSt15__exception_ptr13exception_ptrE(ptr sret(%"class.folly::basic_fbstring") align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #7
+declare void @_ZN5folly12exceptionStrERKNSt15__exception_ptr13exception_ptrE(ptr dead_on_unwind writable sret(%"class.folly::basic_fbstring") align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 
 ; Function Attrs: nounwind
-declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #5
+declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #5
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #7
 
@@ -304,13 +306,13 @@ declare void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceab
 
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 
-declare void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef) unnamed_addr #7
+declare void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, i32 noundef) unnamed_addr #7
 
 ; Function Attrs: noreturn nounwind
-declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #11
+declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5folly26getExecutorBlockingContextEv(ptr noalias nocapture writeonly sret(%"class.folly::Optional") align 8 %agg.result) local_unnamed_addr #12 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly26getExecutorBlockingContextEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional") align 8 %agg.result) local_unnamed_addr #12 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN5folly22executor_blocking_listE)
   %1 = load ptr, ptr %0, align 8, !tbaa !23
@@ -374,9 +376,9 @@ invoke.cont:
 
 if.then:                                          ; preds = %invoke.cont
   %tag11 = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr %tag.coerce0, ptr %tag11, align 8, !tbaa.struct !38
+  store ptr %tag.coerce0, ptr %tag11, align 8, !tbaa !23
   %tag.sroa.3.0.tag11.sroa_idx = getelementptr inbounds i8, ptr %this, i64 32
-  store ptr %tag.coerce1, ptr %tag.sroa.3.0.tag11.sroa_idx, align 8, !tbaa.struct !39
+  store ptr %tag.coerce1, ptr %tag.sroa.3.0.tag11.sroa_idx, align 8, !tbaa !23
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %invoke.cont
@@ -398,15 +400,15 @@ invoke.cont:
   store i8 1, ptr %curr, align 8, !tbaa !36
   store ptr %ex, ptr %ex.i.i, align 8, !tbaa !37
   %allowTerminationOnBlocking = getelementptr inbounds i8, ptr %this, i64 9
-  store i8 1, ptr %allowTerminationOnBlocking, align 1, !tbaa !40
+  store i8 1, ptr %allowTerminationOnBlocking, align 1, !tbaa !38
   %cmp.i = icmp eq ptr %tag.coerce0, %tag.coerce1
   br i1 %cmp.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont
   %tag12 = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr %tag.coerce0, ptr %tag12, align 8, !tbaa.struct !38
+  store ptr %tag.coerce0, ptr %tag12, align 8, !tbaa !23
   %tag.sroa.3.0.tag12.sroa_idx = getelementptr inbounds i8, ptr %this, i64 32
-  store ptr %tag.coerce1, ptr %tag.sroa.3.0.tag12.sroa_idx, align 8, !tbaa.struct !39
+  store ptr %tag.coerce1, ptr %tag.sroa.3.0.tag12.sroa_idx, align 8, !tbaa !23
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %invoke.cont
@@ -550,6 +552,4 @@ attributes #24 = { cold noreturn }
 !35 = !{!"_ZTSN5folly21ExecutorBlockingGuardE", !25, i64 0}
 !36 = !{!35, !27, i64 8}
 !37 = !{!35, !16, i64 16}
-!38 = !{i64 0, i64 8, !23, i64 8, i64 8, !23}
-!39 = !{i64 0, i64 8, !23}
-!40 = !{!35, !27, i64 9}
+!38 = !{!35, !27, i64 9}

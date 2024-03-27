@@ -34,13 +34,13 @@ $_ZN5folly17TcpInfoDispatcherD0Ev = comdat any
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
 @_ZTSN5folly17TcpInfoDispatcherE = constant [28 x i8] c"N5folly17TcpInfoDispatcherE\00", align 1
 @_ZTIN5folly17TcpInfoDispatcherE = constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN5folly17TcpInfoDispatcherE }, align 8
-@_ZZN5folly17TcpInfoDispatcher11getInstanceEvE10dispatcher = internal global %"class.folly::TcpInfoDispatcher" { ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17TcpInfoDispatcherE, i32 0, i32 0, i32 2) }, align 8
+@_ZZN5folly17TcpInfoDispatcher11getInstanceEvE10dispatcher = internal global %"class.folly::TcpInfoDispatcher" { ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5folly17TcpInfoDispatcherE, i32 0, i32 0, i32 2) }, align 8
 @_ZGVZN5folly17TcpInfoDispatcher11getInstanceEvE10dispatcher = internal global i64 0, align 8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly17TcpInfoDispatcher10initFromFdERKNS_13NetworkSocketERKNS_7TcpInfo13LookupOptionsERNS_6netops10DispatcherERNS4_15IoctlDispatcherE(ptr noalias sret(%"class.folly::Expected") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 4 dereferenceable(4) %fd, ptr noundef nonnull align 1 dereferenceable(2) %options, ptr noundef nonnull align 8 dereferenceable(8) %netopsDispatcher, ptr noundef nonnull align 8 dereferenceable(8) %ioctlDispatcher) unnamed_addr #0 align 2 {
+define void @_ZN5folly17TcpInfoDispatcher10initFromFdERKNS_13NetworkSocketERKNS_7TcpInfo13LookupOptionsERNS_6netops10DispatcherERNS4_15IoctlDispatcherE(ptr dead_on_unwind noalias writable sret(%"class.folly::Expected") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 4 dereferenceable(4) %fd, ptr noundef nonnull align 1 dereferenceable(2) %options, ptr noundef nonnull align 8 dereferenceable(8) %netopsDispatcher, ptr noundef nonnull align 8 dereferenceable(8) %ioctlDispatcher) unnamed_addr #0 align 2 {
 entry:
-  tail call void @_ZN5folly7TcpInfo10initFromFdERKNS_13NetworkSocketERKNS0_13LookupOptionsERNS_6netops10DispatcherERNS0_15IoctlDispatcherE(ptr sret(%"class.folly::Expected") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %fd, ptr noundef nonnull align 1 dereferenceable(2) %options, ptr noundef nonnull align 8 dereferenceable(8) %netopsDispatcher, ptr noundef nonnull align 8 dereferenceable(8) %ioctlDispatcher)
+  tail call void @_ZN5folly7TcpInfo10initFromFdERKNS_13NetworkSocketERKNS0_13LookupOptionsERNS_6netops10DispatcherERNS0_15IoctlDispatcherE(ptr dead_on_unwind writable sret(%"class.folly::Expected") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %fd, ptr noundef nonnull align 1 dereferenceable(2) %options, ptr noundef nonnull align 8 dereferenceable(8) %netopsDispatcher, ptr noundef nonnull align 8 dereferenceable(8) %ioctlDispatcher)
   ret void
 }
 
@@ -83,7 +83,7 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #3
 ; Function Attrs: nofree nounwind
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #3
 
-declare void @_ZN5folly7TcpInfo10initFromFdERKNS_13NetworkSocketERKNS0_13LookupOptionsERNS_6netops10DispatcherERNS0_15IoctlDispatcherE(ptr sret(%"class.folly::Expected") align 8, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 1 dereferenceable(2), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
+declare void @_ZN5folly7TcpInfo10initFromFdERKNS_13NetworkSocketERKNS0_13LookupOptionsERNS_6netops10DispatcherERNS0_15IoctlDispatcherE(ptr dead_on_unwind writable sret(%"class.folly::Expected") align 8, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 1 dereferenceable(2), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5

@@ -70,7 +70,7 @@ if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %2, align 8, !tbaa !23
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %3 = load ptr, ptr %vfn, align 8
-  call void %3(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %formattedMessage, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(176) %message, ptr noundef %handlerCategory)
+  call void %3(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %formattedMessage, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(176) %message, ptr noundef %handlerCategory)
   %4 = load i32, ptr %level_.i, align 8, !tbaa !7
   %syncLevel_ = getelementptr inbounds i8, ptr %this, i64 12
   %5 = load atomic i32, ptr %syncLevel_ monotonic, align 4
@@ -78,8 +78,8 @@ if.end:                                           ; preds = %entry
   %writer_12 = getelementptr inbounds i8, ptr %this, i64 32
   %6 = load ptr, ptr %writer_12, align 8, !tbaa !25
   %vtable14 = load ptr, ptr %6, align 8, !tbaa !23
-  %. = select i1 %cmp6.not, i64 3, i64 4
-  %vfn10 = getelementptr inbounds ptr, ptr %vtable14, i64 %.
+  %. = select i1 %cmp6.not, i64 24, i64 32
+  %vfn10 = getelementptr inbounds i8, ptr %vtable14, i64 %.
   %7 = load ptr, ptr %vfn10, align 8
   invoke void %7(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(32) %formattedMessage, i32 noundef 0)
           to label %if.end17 unwind label %lpad
@@ -145,7 +145,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly18StandardLogHandler9getConfigEv(ptr noalias nonnull sret(%"class.folly::LogHandlerConfig") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #1 align 2 {
+define void @_ZNK5folly18StandardLogHandler9getConfigEv(ptr dead_on_unwind noalias nonnull writable sret(%"class.folly::LogHandlerConfig") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #1 align 2 {
 entry:
   %config_ = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZN5folly16LogHandlerConfigC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %agg.result, ptr noundef nonnull align 8 dereferenceable(96) %config_)
@@ -155,7 +155,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
 define void @_ZN5folly18StandardLogHandlerC2ENS_16LogHandlerConfigESt10shared_ptrINS_12LogFormatterEES2_INS_9LogWriterEENS_8LogLevelE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %config, ptr nocapture noundef %formatter, ptr nocapture noundef %writer, i32 noundef %syncLevel) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5folly18StandardLogHandlerE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !23
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN5folly18StandardLogHandlerE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !23
   %level_ = getelementptr inbounds i8, ptr %this, i64 8
   store i32 1, ptr %level_, align 8, !tbaa !29
   %syncLevel_ = getelementptr inbounds i8, ptr %this, i64 12
@@ -308,7 +308,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly18StandardLogHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5folly18StandardLogHandlerE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !23
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN5folly18StandardLogHandlerE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !23
   %config_ = getelementptr inbounds i8, ptr %this, i64 48
   %options.i = getelementptr inbounds i8, ptr %this, i64 88
   %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104

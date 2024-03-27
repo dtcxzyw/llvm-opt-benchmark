@@ -8,73 +8,51 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.folly::LockedPtr" = type { %"class.std::unique_lock" }
 %"class.std::unique_lock" = type <{ ptr, i8, [7 x i8] }>
 %"class.google::LogMessageFatal" = type { %"class.google::LogMessage" }
-%"class.google::LogMessage" = type { ptr, ptr }
-%"class.folly::fibers::Semaphore" = type { i64, %"struct.std::atomic", %"struct.folly::Synchronized" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
-%"struct.folly::Synchronized" = type <{ %"class.boost::intrusive::list", %"class.folly::SharedMutexImpl", [4 x i8] }>
-%"class.boost::intrusive::list" = type { %"class.boost::intrusive::list_impl" }
-%"class.boost::intrusive::list_impl" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::mhtraits<folly::fibers::Semaphore::Waiter, boost::intrusive::list_member_hook<boost::intrusive::link_mode<boost::intrusive::safe_link>>, &folly::fibers::Semaphore::Waiter::hook_>, unsigned long, false, void>::data_t" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::mhtraits<folly::fibers::Semaphore::Waiter, boost::intrusive::list_member_hook<boost::intrusive::link_mode<boost::intrusive::safe_link>>, &folly::fibers::Semaphore::Waiter::hook_>, unsigned long, false, void>::data_t" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::mhtraits<folly::fibers::Semaphore::Waiter, boost::intrusive::list_member_hook<boost::intrusive::link_mode<boost::intrusive::safe_link>>, &folly::fibers::Semaphore::Waiter::hook_>, unsigned long, false, void>::root_plus_size" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::mhtraits<folly::fibers::Semaphore::Waiter, boost::intrusive::list_member_hook<boost::intrusive::link_mode<boost::intrusive::safe_link>>, &folly::fibers::Semaphore::Waiter::hook_>, unsigned long, false, void>::root_plus_size" = type { %"struct.boost::intrusive::detail::default_header_holder" }
-%"struct.boost::intrusive::detail::default_header_holder" = type { %"struct.boost::intrusive::list_node" }
-%"struct.boost::intrusive::list_node" = type { ptr, ptr }
-%"class.folly::SharedMutexImpl" = type { %"struct.std::atomic.1" }
-%"struct.std::atomic.1" = type { %"struct.std::__atomic_base.2" }
-%"struct.std::__atomic_base.2" = type { i32 }
+%"class.google::LogMessage" = type { ptr, ptr, %"struct.google::LogMessageTime" }
+%"struct.google::LogMessageTime" = type { %struct.tm, i64, i32, i64 }
+%struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %"struct.folly::fibers::Semaphore::Waiter" = type { %"class.folly::fibers::Baton", %"class.boost::intrusive::list_member_hook" }
 %"class.folly::fibers::Baton" = type { %union.anon }
 %union.anon = type { %"struct.std::atomic" }
+%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
+%"struct.std::__atomic_base" = type { i64 }
 %"class.boost::intrusive::list_member_hook" = type { %"class.boost::intrusive::generic_hook" }
 %"class.boost::intrusive::generic_hook" = type { %"struct.boost::intrusive::list_node" }
+%"struct.boost::intrusive::list_node" = type { ptr, ptr }
 %"class.folly::SemiFuture" = type { %"class.folly::futures::detail::FutureBase" }
 %"class.folly::futures::detail::FutureBase" = type { ptr }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.8" }
-%"struct.std::_Head_base.8" = type { ptr }
-%"class.folly::fibers::(anonymous namespace)::FutureWaiter" = type { %"class.folly::fibers::Baton::Waiter", %"struct.folly::fibers::Semaphore::Waiter", %"class.folly::Promise" }
-%"class.folly::fibers::Baton::Waiter" = type { ptr }
-%"class.folly::Promise" = type { i8, ptr }
-%"class.folly::futures::detail::CoreBase" = type { ptr, [8 x i8], %"class.folly::Function", %"struct.std::atomic.11", %"struct.std::atomic.12", %"struct.std::atomic.12", %"class.folly::futures::detail::KeepAliveOrDeferred", %"class.std::shared_ptr", %"struct.std::atomic.3", ptr, [8 x i8] }
-%"class.folly::Function" = type { %"union.folly::detail::function::Data", ptr, ptr }
-%"union.folly::detail::function::Data" = type { ptr, [40 x i8] }
-%"struct.std::atomic.11" = type { i8 }
-%"struct.std::atomic.12" = type { %"struct.std::__atomic_base.13" }
-%"struct.std::__atomic_base.13" = type { i8 }
-%"class.folly::futures::detail::KeepAliveOrDeferred" = type { i32, %union.anon.14 }
-%union.anon.14 = type { %"class.std::unique_ptr.15" }
-%"class.std::unique_ptr.15" = type { %"struct.std::__uniq_ptr_data.16" }
-%"struct.std::__uniq_ptr_data.16" = type { %"class.std::__uniq_ptr_impl.17" }
-%"class.std::__uniq_ptr_impl.17" = type { %"class.std::tuple.18" }
-%"class.std::tuple.18" = type { %"struct.std::_Tuple_impl.19" }
-%"struct.std::_Tuple_impl.19" = type { %"struct.std::_Head_base.22" }
-%"struct.std::_Head_base.22" = type { ptr }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
+%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.6" }
+%"struct.std::_Head_base.6" = type { ptr }
 %"class.folly::Try" = type { %"class.folly::detail::TryBase" }
-%"class.folly::detail::TryBase" = type { i32, %union.anon.10 }
-%union.anon.10 = type { %"class.folly::exception_wrapper" }
+%"class.folly::detail::TryBase" = type { i32, %union.anon.8 }
+%union.anon.8 = type { %"class.folly::exception_wrapper" }
 %"class.folly::exception_wrapper" = type { %"class.std::__exception_ptr::exception_ptr" }
 %"class.std::__exception_ptr::exception_ptr" = type { ptr }
 %"class.std::bad_function_call" = type { %"class.std::exception" }
 %"class.std::exception" = type { ptr }
 %"class.std::logic_error" = type { %"class.std::exception", %"struct.std::__cow_string" }
-%"struct.std::__cow_string" = type { %union.anon.23 }
-%union.anon.23 = type { ptr }
+%"struct.std::__cow_string" = type { %union.anon.21 }
+%union.anon.21 = type { ptr }
 %"class.folly::Executor::KeepAlive" = type { i64 }
 %"class.folly::BrokenPromise" = type { %"class.folly::PromiseException" }
 %"class.folly::PromiseException" = type { %"class.folly::static_what_exception" }
 %"class.folly::static_what_exception" = type { %"class.std::logic_error", ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.24 }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.22 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon.24 = type { i64, [8 x i8] }
+%union.anon.22 = type { i64, [8 x i8] }
 %"class.folly::PromiseInvalid" = type { %"class.folly::PromiseException" }
 %"class.folly::PromiseAlreadySatisfied" = type { %"class.folly::PromiseException" }
 %"class.folly::FutureAlreadyRetrieved" = type { %"class.folly::PromiseException" }
+%"class.std::unique_ptr.13" = type { %"struct.std::__uniq_ptr_data.14" }
+%"struct.std::__uniq_ptr_data.14" = type { %"class.std::__uniq_ptr_impl.15" }
+%"class.std::__uniq_ptr_impl.15" = type { %"class.std::tuple.16" }
+%"class.std::tuple.16" = type { %"struct.std::_Tuple_impl.17" }
+%"struct.std::_Tuple_impl.17" = type { %"struct.std::_Head_base.20" }
+%"struct.std::_Head_base.20" = type { ptr }
 
 $_ZN5folly9LockedPtrINS_12SynchronizedIN5boost9intrusive4listINS_6fibers9Semaphore6WaiterEJNS3_11member_hookIS7_NS3_16list_member_hookIJNS3_9link_modeILNS3_14link_mode_typeE1EEEEEEXadL_ZNS7_5hook_EEEEENS3_18constant_time_sizeILb0EEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSN_22SynchronizedMutexLevelE1ELNSN_23SynchronizedMutexMethodE0EEEED2Ev = comdat any
 
@@ -252,12 +230,12 @@ entry:
   %state.i.i.i.i.i.i = alloca i32, align 4
   %ctx.i.i.i.i.i = alloca %"struct.folly::SharedMutexImpl<false>::WaitForever", align 1
   %waitListLock = alloca %"class.folly::LockedPtr", align 8
-  %ref.tmp11 = alloca %"class.google::LogMessageFatal", align 8
+  %ref.tmp9 = alloca %"class.google::LogMessageFatal", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %waitListLock) #19
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
-  %mutex_.i.i = getelementptr inbounds %"class.folly::fibers::Semaphore", ptr %this, i64 0, i32 2, i32 1
+  %mutex_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %mutex_.i.i, ptr %waitListLock, align 8, !tbaa !10, !alias.scope !7
-  %_M_owns.i3.i.i = getelementptr inbounds %"class.std::unique_lock", ptr %waitListLock, i64 0, i32 1
+  %_M_owns.i3.i.i = getelementptr inbounds i8, ptr %waitListLock, i64 8
   store i8 0, ptr %_M_owns.i3.i.i, align 8, !tbaa !16, !alias.scope !7
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ctx.i.i.i.i.i) #19, !noalias !7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i.i.i.i.i) #19, !noalias !7
@@ -287,75 +265,75 @@ invoke.cont:                                      ; preds = %if.else.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ctx.i.i.i.i.i) #19, !noalias !7
   store i8 1, ptr %_M_owns.i3.i.i, align 8, !tbaa !16, !alias.scope !7
   %4 = load ptr, ptr %waitListLock, align 8, !tbaa !10
-  %tokens_ = getelementptr inbounds %"class.folly::fibers::Semaphore", ptr %this, i64 0, i32 1
+  %tokens_ = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load atomic i64, ptr %tokens_ acquire, align 8
   %cmp.not = icmp eq i64 %5, 0
-  br i1 %cmp.not, label %invoke.cont4, label %cleanup
+  br i1 %cmp.not, label %_ZNK5boost9intrusive9list_implINS0_8mhtraitsIN5folly6fibers9Semaphore6WaiterENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS6_5hook_EEEEEmLb0EvE5emptyEv.exit, label %cleanup
 
-invoke.cont4:                                     ; preds = %invoke.cont
+_ZNK5boost9intrusive9list_implINS0_8mhtraitsIN5folly6fibers9Semaphore6WaiterENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS6_5hook_EEEEEmLb0EvE5emptyEv.exit: ; preds = %invoke.cont
   %tobool.not.i.i = icmp eq ptr %4, null
   %cond.neg.i.i = select i1 %tobool.not.i.i, i64 0, i64 -16
   %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 %cond.neg.i.i
   %6 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !21
-  %tobool.not.i.i50 = icmp eq ptr %6, null
-  %cmp.i.i = icmp eq ptr %6, %add.ptr.i.i
-  %7 = or i1 %tobool.not.i.i50, %cmp.i.i
-  br i1 %7, label %monotonic_fail.i, label %invoke.cont32
+  %tobool.not.i = icmp eq ptr %6, null
+  %cmp.i = icmp eq ptr %6, %add.ptr.i.i
+  %7 = or i1 %tobool.not.i, %cmp.i
+  br i1 %7, label %monotonic_fail.i, label %_ZN5boost9intrusive9list_implINS0_8mhtraitsIN5folly6fibers9Semaphore6WaiterENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS6_5hook_EEEEEmLb0EvE5frontEv.exit
 
-monotonic_fail.i:                                 ; preds = %invoke.cont4
+monotonic_fail.i:                                 ; preds = %_ZNK5boost9intrusive9list_implINS0_8mhtraitsIN5folly6fibers9Semaphore6WaiterENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS6_5hook_EEEEEmLb0EvE5emptyEv.exit
   %8 = cmpxchg ptr %tokens_, i64 0, i64 1 monotonic monotonic, align 8
   %9 = extractvalue { i64, i1 } %8, 1
   br i1 %9, label %cleanup, label %cond.false, !prof !20
 
 cond.false:                                       ; preds = %monotonic_fail.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp11) #19
-  invoke void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11, ptr noundef nonnull @.str, i32 noundef 38)
-          to label %invoke.cont13 unwind label %lpad12
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp9) #19
+  invoke void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp9, ptr noundef nonnull @.str, i32 noundef 38)
+          to label %invoke.cont11 unwind label %lpad10
 
-invoke.cont13:                                    ; preds = %cond.false
-  %call17 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11)
-          to label %invoke.cont16 unwind label %lpad15
+invoke.cont11:                                    ; preds = %cond.false
+  %call15 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp9)
+          to label %invoke.cont14 unwind label %lpad13
 
-invoke.cont16:                                    ; preds = %invoke.cont13
-  %call1.i51 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call17, ptr noundef nonnull @.str.1, i64 noundef 96)
-          to label %cleanup.action unwind label %lpad15
+invoke.cont14:                                    ; preds = %invoke.cont11
+  %call1.i61 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call15, ptr noundef nonnull @.str.1, i64 noundef 96)
+          to label %cleanup.action unwind label %lpad13
 
-cleanup.action:                                   ; preds = %invoke.cont16
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11) #20
+cleanup.action:                                   ; preds = %invoke.cont14
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp9) #20
   unreachable
 
-lpad12:                                           ; preds = %cond.false
+lpad10:                                           ; preds = %cond.false
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp11) #19
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp9) #19
   call void @_ZN5folly9LockedPtrINS_12SynchronizedIN5boost9intrusive4listINS_6fibers9Semaphore6WaiterEJNS3_11member_hookIS7_NS3_16list_member_hookIJNS3_9link_modeILNS3_14link_mode_typeE1EEEEEEXadL_ZNS7_5hook_EEEEENS3_18constant_time_sizeILb0EEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSN_22SynchronizedMutexLevelE1ELNSN_23SynchronizedMutexMethodE0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %waitListLock) #19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %waitListLock) #19
   resume { ptr, i32 } %10
 
-lpad15:                                           ; preds = %invoke.cont16, %invoke.cont13
+lpad13:                                           ; preds = %invoke.cont14, %invoke.cont11
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11) #20
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp9) #20
   unreachable
 
-invoke.cont32:                                    ; preds = %invoke.cont4
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %6, i64 -8
+_ZN5boost9intrusive9list_implINS0_8mhtraitsIN5folly6fibers9Semaphore6WaiterENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS6_5hook_EEEEEmLb0EvE5frontEv.exit: ; preds = %_ZNK5boost9intrusive9list_implINS0_8mhtraitsIN5folly6fibers9Semaphore6WaiterENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS6_5hook_EEEEEmLb0EvE5emptyEv.exit
+  %add.ptr.i = getelementptr inbounds i8, ptr %6, i64 -8
   %12 = load ptr, ptr %6, align 8, !tbaa !21
-  %prev_.i.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %6, i64 0, i32 1
+  %prev_.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %13 = load ptr, ptr %prev_.i.i.i.i, align 8, !tbaa !23
   store ptr %12, ptr %13, align 8, !tbaa !21
-  %prev_.i5.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %12, i64 0, i32 1
-  store ptr %13, ptr %prev_.i5.i.i.i, align 8, !tbaa !23
+  %prev_.i8.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
+  store ptr %13, ptr %prev_.i8.i.i.i, align 8, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %invoke.cont32, %monotonic_fail.i, %invoke.cont
-  %waiter.0 = phi ptr [ null, %invoke.cont ], [ %add.ptr.i.i.i, %invoke.cont32 ], [ null, %monotonic_fail.i ]
-  %retval.0 = phi i1 [ false, %invoke.cont ], [ undef, %invoke.cont32 ], [ true, %monotonic_fail.i ]
-  %cond = phi i1 [ false, %invoke.cont ], [ true, %invoke.cont32 ], [ false, %monotonic_fail.i ]
+cleanup:                                          ; preds = %_ZN5boost9intrusive9list_implINS0_8mhtraitsIN5folly6fibers9Semaphore6WaiterENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS6_5hook_EEEEEmLb0EvE5frontEv.exit, %monotonic_fail.i, %invoke.cont
+  %waiter.0 = phi ptr [ %add.ptr.i, %_ZN5boost9intrusive9list_implINS0_8mhtraitsIN5folly6fibers9Semaphore6WaiterENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS6_5hook_EEEEEmLb0EvE5frontEv.exit ], [ null, %invoke.cont ], [ null, %monotonic_fail.i ]
+  %retval.0 = phi i1 [ undef, %_ZN5boost9intrusive9list_implINS0_8mhtraitsIN5folly6fibers9Semaphore6WaiterENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS6_5hook_EEEEEmLb0EvE5frontEv.exit ], [ false, %invoke.cont ], [ true, %monotonic_fail.i ]
+  %cond = phi i1 [ true, %_ZN5boost9intrusive9list_implINS0_8mhtraitsIN5folly6fibers9Semaphore6WaiterENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS6_5hook_EEEEEmLb0EvE5frontEv.exit ], [ false, %invoke.cont ], [ false, %monotonic_fail.i ]
   %14 = load i8, ptr %_M_owns.i3.i.i, align 8, !tbaa !16, !range !24, !noundef !25
-  %tobool.not.i.i52 = icmp eq i8 %14, 0
-  br i1 %tobool.not.i.i52, label %_ZN5folly9LockedPtrINS_12SynchronizedIN5boost9intrusive4listINS_6fibers9Semaphore6WaiterEJNS3_11member_hookIS7_NS3_16list_member_hookIJNS3_9link_modeILNS3_14link_mode_typeE1EEEEEEXadL_ZNS7_5hook_EEEEENS3_18constant_time_sizeILb0EEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSN_22SynchronizedMutexLevelE1ELNSN_23SynchronizedMutexMethodE0EEEED2Ev.exit, label %if.else.i.i.i
+  %tobool.not.i.i62 = icmp eq i8 %14, 0
+  br i1 %tobool.not.i.i62, label %_ZN5folly9LockedPtrINS_12SynchronizedIN5boost9intrusive4listINS_6fibers9Semaphore6WaiterEJNS3_11member_hookIS7_NS3_16list_member_hookIJNS3_9link_modeILNS3_14link_mode_typeE1EEEEEEXadL_ZNS7_5hook_EEEEENS3_18constant_time_sizeILb0EEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSN_22SynchronizedMutexLevelE1ELNSN_23SynchronizedMutexMethodE0EEEED2Ev.exit, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %cleanup
   %15 = load ptr, ptr %waitListLock, align 8, !tbaa !10
@@ -388,13 +366,13 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i.i
 
 _ZN5folly9LockedPtrINS_12SynchronizedIN5boost9intrusive4listINS_6fibers9Semaphore6WaiterEJNS3_11member_hookIS7_NS3_16list_member_hookIJNS3_9link_modeILNS3_14link_mode_typeE1EEEEEEXadL_ZNS7_5hook_EEEEENS3_18constant_time_sizeILb0EEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSN_22SynchronizedMutexLevelE1ELNSN_23SynchronizedMutexMethodE0EEEED2Ev.exit: ; preds = %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv.exit.i.i.i, %if.else.i.i.i, %cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %waitListLock) #19
-  br i1 %cond, label %cleanup.cont, label %cleanup42
+  br i1 %cond, label %cleanup.cont, label %cleanup38
 
 cleanup.cont:                                     ; preds = %_ZN5folly9LockedPtrINS_12SynchronizedIN5boost9intrusive4listINS_6fibers9Semaphore6WaiterEJNS3_11member_hookIS7_NS3_16list_member_hookIJNS3_9link_modeILNS3_14link_mode_typeE1EEEEEEXadL_ZNS7_5hook_EEEEENS3_18constant_time_sizeILb0EEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSN_22SynchronizedMutexLevelE1ELNSN_23SynchronizedMutexMethodE0EEEED2Ev.exit
   call void @_ZN5folly6fibers5Baton4postEv(ptr noundef nonnull align 8 dereferenceable(8) %waiter.0)
-  br label %cleanup42
+  br label %cleanup38
 
-cleanup42:                                        ; preds = %cleanup.cont, %_ZN5folly9LockedPtrINS_12SynchronizedIN5boost9intrusive4listINS_6fibers9Semaphore6WaiterEJNS3_11member_hookIS7_NS3_16list_member_hookIJNS3_9link_modeILNS3_14link_mode_typeE1EEEEEEXadL_ZNS7_5hook_EEEEENS3_18constant_time_sizeILb0EEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSN_22SynchronizedMutexLevelE1ELNSN_23SynchronizedMutexMethodE0EEEED2Ev.exit
+cleanup38:                                        ; preds = %cleanup.cont, %_ZN5folly9LockedPtrINS_12SynchronizedIN5boost9intrusive4listINS_6fibers9Semaphore6WaiterEJNS3_11member_hookIS7_NS3_16list_member_hookIJNS3_9link_modeILNS3_14link_mode_typeE1EEEEEEXadL_ZNS7_5hook_EEEEENS3_18constant_time_sizeILb0EEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSN_22SynchronizedMutexLevelE1ELNSN_23SynchronizedMutexMethodE0EEEED2Ev.exit
   %retval.1 = phi i1 [ true, %cleanup.cont ], [ %retval.0, %_ZN5folly9LockedPtrINS_12SynchronizedIN5boost9intrusive4listINS_6fibers9Semaphore6WaiterEJNS3_11member_hookIS7_NS3_16list_member_hookIJNS3_9link_modeILNS3_14link_mode_typeE1EEEEEEXadL_ZNS7_5hook_EEEEENS3_18constant_time_sizeILb0EEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSN_22SynchronizedMutexLevelE1ELNSN_23SynchronizedMutexMethodE0EEEED2Ev.exit ]
   ret i1 %retval.1
 }
@@ -404,12 +382,12 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 
 declare i32 @__gxx_personality_v0(...)
 
-declare void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef) unnamed_addr #2
+declare void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, i32 noundef) unnamed_addr #2
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #2
 
 ; Function Attrs: noreturn nounwind
-declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
+declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
@@ -418,7 +396,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 define linkonce_odr void @_ZN5folly9LockedPtrINS_12SynchronizedIN5boost9intrusive4listINS_6fibers9Semaphore6WaiterEJNS3_11member_hookIS7_NS3_16list_member_hookIJNS3_9link_modeILNS3_14link_mode_typeE1EEEEEEXadL_ZNS7_5hook_EEEEENS3_18constant_time_sizeILb0EEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSN_22SynchronizedMutexLevelE1ELNSN_23SynchronizedMutexMethodE0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state.i.i.i = alloca i32, align 4
-  %_M_owns.i = getelementptr inbounds %"class.std::unique_lock", ptr %this, i64 0, i32 1
+  %_M_owns.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %_M_owns.i, align 8, !tbaa !16, !range !24, !noundef !25
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %_ZNSt11unique_lockIN5folly15SharedMutexImplILb0EvSt6atomicNS0_24SharedMutexPolicyDefaultEEEED2Ev.exit, label %if.else.i.i
@@ -909,7 +887,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIc
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly6fibers9Semaphore6signalEv(ptr noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %tokens_ = getelementptr inbounds %"class.folly::fibers::Semaphore", ptr %this, i64 0, i32 1
+  %tokens_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load atomic i64, ptr %tokens_ acquire, align 8
   br label %do.body
 
@@ -948,7 +926,7 @@ entry:
   %state.i.i.i.i = alloca i32, align 4
   %state.i.i.i.i.i.i = alloca i32, align 4
   %ctx.i.i.i.i.i = alloca %"struct.folly::SharedMutexImpl<false>::WaitForever", align 1
-  %mutex_.i.i = getelementptr inbounds %"class.folly::fibers::Semaphore", ptr %this, i64 0, i32 2, i32 1
+  %mutex_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ctx.i.i.i.i.i) #19, !noalias !36
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i.i.i.i.i) #19, !noalias !36
   %0 = load atomic i32, ptr %mutex_.i.i acquire, align 8, !noalias !36
@@ -975,18 +953,18 @@ if.else.i.i.i.i.i.i:                              ; preds = %_ZNSt13__atomic_bas
 invoke.cont:                                      ; preds = %if.else.i.i.i.i.i.i, %seqcst_fail50.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %state.i.i.i.i.i.i) #19, !noalias !36
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ctx.i.i.i.i.i) #19, !noalias !36
-  %tokens_ = getelementptr inbounds %"class.folly::fibers::Semaphore", ptr %this, i64 0, i32 1
+  %tokens_ = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load atomic i64, ptr %tokens_ acquire, align 8
   %cmp.not.not = icmp eq i64 %4, 0
   br i1 %cmp.not.not, label %if.end, label %if.then3.i.i.i
 
 if.end:                                           ; preds = %invoke.cont
-  %add.ptr.i.i = getelementptr inbounds %"class.folly::fibers::Semaphore", ptr %this, i64 0, i32 2
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %memptr.offset.i.i = getelementptr inbounds i8, ptr %waiter, i64 8
-  %prev_.i.i.i = getelementptr inbounds %"class.folly::fibers::Semaphore", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %prev_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load ptr, ptr %prev_.i.i.i, align 8, !tbaa !23
-  %prev_.i5.i.i = getelementptr inbounds i8, ptr %waiter, i64 16
-  store ptr %5, ptr %prev_.i5.i.i, align 8, !tbaa !23
+  %prev_.i8.i.i = getelementptr inbounds i8, ptr %waiter, i64 16
+  store ptr %5, ptr %prev_.i8.i.i, align 8, !tbaa !23
   store ptr %add.ptr.i.i, ptr %memptr.offset.i.i, align 8, !tbaa !21
   store ptr %memptr.offset.i.i, ptr %prev_.i.i.i, align 8, !tbaa !23
   store ptr %memptr.offset.i.i, ptr %5, align 8, !tbaa !21
@@ -1024,13 +1002,13 @@ entry:
   %state.i.i.i.i.i.i.i = alloca i32, align 4
   %ctx.i.i.i.i.i.i = alloca %"struct.folly::SharedMutexImpl<false>::WaitForever", align 1
   %waiter = alloca %"struct.folly::fibers::Semaphore::Waiter", align 8
-  %tokens_ = getelementptr inbounds %"class.folly::fibers::Semaphore", ptr %this, i64 0, i32 1
+  %tokens_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load atomic i64, ptr %tokens_ acquire, align 8
-  %mutex_.i.i.i = getelementptr inbounds %"class.folly::fibers::Semaphore", ptr %this, i64 0, i32 2, i32 1
-  %add.ptr.i.i.i = getelementptr inbounds %"class.folly::fibers::Semaphore", ptr %this, i64 0, i32 2
+  %mutex_.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %memptr.offset.i.i.i = getelementptr inbounds i8, ptr %waiter, i64 8
-  %prev_.i.i.i.i = getelementptr inbounds %"class.folly::fibers::Semaphore", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %prev_.i5.i.i.i = getelementptr inbounds i8, ptr %waiter, i64 16
+  %prev_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %prev_.i8.i.i.i = getelementptr inbounds i8, ptr %waiter, i64 16
   br label %do.body
 
 do.body:                                          ; preds = %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit, %entry
@@ -1121,7 +1099,7 @@ invoke.cont.i:                                    ; preds = %land.lhs.true24.i, 
 
 if.end.i:                                         ; preds = %invoke.cont.i
   %13 = load ptr, ptr %prev_.i.i.i.i, align 8, !tbaa !23
-  store ptr %13, ptr %prev_.i5.i.i.i, align 8, !tbaa !23
+  store ptr %13, ptr %prev_.i8.i.i.i, align 8, !tbaa !23
   store ptr %add.ptr.i.i.i, ptr %memptr.offset.i.i.i, align 8, !tbaa !21
   store ptr %memptr.offset.i.i.i, ptr %prev_.i.i.i.i, align 8, !tbaa !23
   store ptr %memptr.offset.i.i.i, ptr %13, align 8, !tbaa !21
@@ -1185,13 +1163,13 @@ entry:
   %state.i.i.i.i.i = alloca i32, align 4
   %state.i.i.i.i.i.i.i = alloca i32, align 4
   %ctx.i.i.i.i.i.i = alloca %"struct.folly::SharedMutexImpl<false>::WaitForever", align 1
-  %tokens_ = getelementptr inbounds %"class.folly::fibers::Semaphore", ptr %this, i64 0, i32 1
+  %tokens_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load atomic i64, ptr %tokens_ acquire, align 8
-  %mutex_.i.i.i = getelementptr inbounds %"class.folly::fibers::Semaphore", ptr %this, i64 0, i32 2, i32 1
-  %add.ptr.i.i.i = getelementptr inbounds %"class.folly::fibers::Semaphore", ptr %this, i64 0, i32 2
+  %mutex_.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %memptr.offset.i.i.i = getelementptr inbounds i8, ptr %waiter, i64 8
-  %prev_.i.i.i.i = getelementptr inbounds %"class.folly::fibers::Semaphore", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %prev_.i5.i.i.i = getelementptr inbounds i8, ptr %waiter, i64 16
+  %prev_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %prev_.i8.i.i.i = getelementptr inbounds i8, ptr %waiter, i64 16
   br label %do.body
 
 do.body:                                          ; preds = %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit, %entry
@@ -1280,7 +1258,7 @@ invoke.cont.i:                                    ; preds = %land.lhs.true24.i, 
 
 if.end.i:                                         ; preds = %invoke.cont.i
   %13 = load ptr, ptr %prev_.i.i.i.i, align 8, !tbaa !23
-  store ptr %13, ptr %prev_.i5.i.i.i, align 8, !tbaa !23
+  store ptr %13, ptr %prev_.i8.i.i.i, align 8, !tbaa !23
   store ptr %add.ptr.i.i.i, ptr %memptr.offset.i.i.i, align 8, !tbaa !21
   store ptr %memptr.offset.i.i.i, ptr %prev_.i.i.i.i, align 8, !tbaa !23
   store ptr %memptr.offset.i.i.i, ptr %13, align 8, !tbaa !21
@@ -1334,7 +1312,7 @@ cleanup:                                          ; preds = %do.cond, %_ZN5folly
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite) uwtable
 define noundef zeroext i1 @_ZN5folly6fibers9Semaphore8try_waitEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %tokens_ = getelementptr inbounds %"class.folly::fibers::Semaphore", ptr %this, i64 0, i32 1
+  %tokens_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load atomic i64, ptr %tokens_ acquire, align 8
   %cmp6.not = icmp eq i64 %0, 0
   br i1 %cmp6.not, label %cleanup, label %do.cond
@@ -1355,17 +1333,17 @@ cleanup:                                          ; preds = %do.cond, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly6fibers9Semaphore11future_waitEv(ptr noalias sret(%"class.folly::SemiFuture") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly6fibers9Semaphore11future_waitEv(ptr dead_on_unwind noalias writable sret(%"class.folly::SemiFuture") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state.i.i.i.i.i = alloca i32, align 4
   %state.i.i.i.i.i.i.i = alloca i32, align 4
   %ctx.i.i.i.i.i.i = alloca %"struct.folly::SharedMutexImpl<false>::WaitForever", align 1
   %batonWaiterPtr = alloca %"class.std::unique_ptr", align 8
-  %tokens_ = getelementptr inbounds %"class.folly::fibers::Semaphore", ptr %this, i64 0, i32 1
+  %tokens_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load atomic i64, ptr %tokens_ acquire, align 8
-  %mutex_.i.i.i = getelementptr inbounds %"class.folly::fibers::Semaphore", ptr %this, i64 0, i32 2, i32 1
-  %add.ptr.i.i.i = getelementptr inbounds %"class.folly::fibers::Semaphore", ptr %this, i64 0, i32 2
-  %prev_.i.i.i.i = getelementptr inbounds %"class.folly::fibers::Semaphore", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %mutex_.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %prev_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   br label %do.body
 
 do.body:                                          ; preds = %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit, %entry
@@ -1377,31 +1355,31 @@ while.body:                                       ; preds = %_ZNSt10unique_ptrIN
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %batonWaiterPtr) #19
   call void @llvm.experimental.noalias.scope.decl(metadata !47)
   %call.i21 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #22, !noalias !47
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly6fibers12_GLOBAL__N_112FutureWaiterE, i64 0, i32 0, i64 2), ptr %call.i21, align 8, !tbaa !50, !noalias !47
-  %semaphoreWaiter.i.i = getelementptr inbounds %"class.folly::fibers::(anonymous namespace)::FutureWaiter", ptr %call.i21, i64 0, i32 1
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5folly6fibers12_GLOBAL__N_112FutureWaiterE, i64 0, i32 0, i64 2), ptr %call.i21, align 8, !tbaa !50, !noalias !47
+  %semaphoreWaiter.i.i = getelementptr inbounds i8, ptr %call.i21, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %semaphoreWaiter.i.i, i8 0, i64 25, i1 false), !noalias !47
   %call.i.i8.i2.i = invoke noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #22
           to label %call.i.i8.i.noexc.i unwind label %lpad.i, !noalias !47
 
 call.i.i8.i.noexc.i:                              ; preds = %while.body
-  %core_.i.i.i = getelementptr inbounds %"class.folly::fibers::(anonymous namespace)::FutureWaiter", ptr %call.i21, i64 0, i32 2, i32 1
-  %callback_.i.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i8.i2.i, i64 0, i32 2
+  %core_.i.i.i = getelementptr inbounds i8, ptr %call.i21, i64 40
+  %callback_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i8.i2.i, i64 16
   store ptr null, ptr %callback_.i.i.i.i.i.i, align 16, !tbaa !52, !noalias !47
-  %call_.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i8.i2.i, i64 0, i32 2, i32 1
+  %call_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i8.i2.i, i64 64
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvRNS_7futures6detail8CoreBaseEONS_8Executor9KeepAliveIS7_EEPNS_17exception_wrapperEEE10uninitCallES6_SA_SC_RNS1_4DataE, ptr %call_.i.i.i.i.i.i.i, align 16, !tbaa !53, !noalias !47
-  %exec_.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i8.i2.i, i64 0, i32 2, i32 2
+  %exec_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i8.i2.i, i64 72
   store ptr null, ptr %exec_.i.i.i.i.i.i.i, align 8, !tbaa !55, !noalias !47
-  %state_.i.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i8.i2.i, i64 0, i32 3
+  %state_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i8.i2.i, i64 80
   store i8 1, ptr %state_.i.i.i.i.i.i, align 1, !tbaa !56, !noalias !47
-  %attached_.i.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i8.i2.i, i64 0, i32 4
+  %attached_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i8.i2.i, i64 81
   store i8 2, ptr %attached_.i.i.i.i.i.i, align 1, !tbaa !59, !noalias !47
-  %callbackReferences_.i.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i8.i2.i, i64 0, i32 5
+  %callbackReferences_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i8.i2.i, i64 82
   store i8 0, ptr %callbackReferences_.i.i.i.i.i.i, align 1, !tbaa !59, !noalias !47
-  %executor_.i.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i8.i2.i, i64 0, i32 6
+  %executor_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i8.i2.i, i64 88
   store i32 0, ptr %executor_.i.i.i.i.i.i, align 8, !tbaa !61, !noalias !47
-  %1 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i8.i2.i, i64 0, i32 6, i32 1
+  %1 = getelementptr inbounds i8, ptr %call.i.i8.i2.i, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %1, i8 0, i64 32, i1 false), !noalias !47
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly7futures6detail4CoreINS_4UnitEEE, i64 0, i32 0, i64 2), ptr %call.i.i8.i2.i, align 16, !tbaa !50, !noalias !47
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN5folly7futures6detail4CoreINS_4UnitEEE, i64 0, i32 0, i64 2), ptr %call.i.i8.i2.i, align 16, !tbaa !50, !noalias !47
   store ptr %call.i.i8.i2.i, ptr %core_.i.i.i, align 8, !tbaa !64, !noalias !47
   invoke void @_ZN5folly6fibers5Baton9setWaiterERNS1_6WaiterE(ptr noundef nonnull align 8 dereferenceable(8) %semaphoreWaiter.i.i, ptr noundef nonnull align 8 dereferenceable(8) %call.i21)
           to label %_ZSt11make_uniqueIN5folly6fibers12_GLOBAL__N_112FutureWaiterEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %lpad3.i.i, !noalias !47
@@ -1409,7 +1387,7 @@ call.i.i8.i.noexc.i:                              ; preds = %while.body
 lpad3.i.i:                                        ; preds = %call.i.i8.i.noexc.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  %promise.i.i = getelementptr inbounds %"class.folly::fibers::(anonymous namespace)::FutureWaiter", ptr %call.i21, i64 0, i32 2
+  %promise.i.i = getelementptr inbounds i8, ptr %call.i21, i64 32
   call void @_ZN5folly7PromiseINS_4UnitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %promise.i.i) #19, !noalias !47
   br label %lpad.body.i
 
@@ -1429,7 +1407,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad3.i.i
 
 _ZSt11make_uniqueIN5folly6fibers12_GLOBAL__N_112FutureWaiterEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %call.i.i8.i.noexc.i
   store ptr %call.i21, ptr %batonWaiterPtr, align 8, !tbaa !66, !alias.scope !47
-  %promise = getelementptr inbounds %"class.folly::fibers::(anonymous namespace)::FutureWaiter", ptr %call.i21, i64 0, i32 2
+  %promise = getelementptr inbounds i8, ptr %call.i21, i64 32
   call void @llvm.experimental.noalias.scope.decl(metadata !67)
   %4 = load i8, ptr %promise, align 8, !tbaa !70, !range !24, !noalias !67, !noundef !25
   %tobool.not.i = icmp eq i8 %4, 0
@@ -1542,10 +1520,10 @@ invoke.cont.i:                                    ; preds = %land.lhs.true24.i, 
   br i1 %cmp.not.not.i, label %if.end.i23, label %if.then3.i.i.i.i
 
 if.end.i23:                                       ; preds = %invoke.cont.i
-  %memptr.offset.i.i.i = getelementptr inbounds %"class.folly::fibers::(anonymous namespace)::FutureWaiter", ptr %call.i21, i64 0, i32 1, i32 1
+  %memptr.offset.i.i.i = getelementptr inbounds i8, ptr %call.i21, i64 16
   %18 = load ptr, ptr %prev_.i.i.i.i, align 8, !tbaa !23
-  %prev_.i5.i.i.i = getelementptr inbounds %"class.folly::fibers::(anonymous namespace)::FutureWaiter", ptr %call.i21, i64 0, i32 1, i32 1, i32 0, i32 0, i32 1
-  store ptr %18, ptr %prev_.i5.i.i.i, align 8, !tbaa !23
+  %prev_.i8.i.i.i = getelementptr inbounds i8, ptr %call.i21, i64 24
+  store ptr %18, ptr %prev_.i8.i.i.i, align 8, !tbaa !23
   store ptr %add.ptr.i.i.i, ptr %memptr.offset.i.i.i, align 8, !tbaa !21
   store ptr %memptr.offset.i.i.i, ptr %prev_.i.i.i.i, align 8, !tbaa !23
   store ptr %memptr.offset.i.i.i, ptr %18, align 8, !tbaa !21
@@ -1623,13 +1601,13 @@ _ZN5folly10SemiFutureINS_4UnitEED2Ev.exit:        ; preds = %if.then.i.i.i27, %i
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly6fibers12_GLOBAL__N_112FutureWaiterESt14default_deleteIS3_EED2Ev.exit, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %_ZN5folly10SemiFutureINS_4UnitEED2Ev.exit
-  %core_.i.i.i.i.i = getelementptr inbounds %"class.folly::fibers::(anonymous namespace)::FutureWaiter", ptr %28, i64 0, i32 2, i32 1
+  %core_.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 40
   %29 = load ptr, ptr %core_.i.i.i.i.i, align 8, !tbaa !64
   %tobool.not.i.i.i.i.i = icmp eq ptr %29, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNKSt14default_deleteIN5folly6fibers12_GLOBAL__N_112FutureWaiterEEclEPS3_.exit.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %delete.notnull.i.i
-  %promise.i.i.i = getelementptr inbounds %"class.folly::fibers::(anonymous namespace)::FutureWaiter", ptr %28, i64 0, i32 2
+  %promise.i.i.i = getelementptr inbounds i8, ptr %28, i64 32
   %30 = load i8, ptr %promise.i.i.i, align 8, !tbaa !70, !range !24, !noundef !25
   %tobool2.not.i.i.i.i.i = icmp eq i8 %30, 0
   br i1 %tobool2.not.i.i.i.i.i, label %if.then3.i.i.i.i.i, label %if.end.i.i.i.i.i
@@ -1683,23 +1661,23 @@ do.end:                                           ; preds = %do.cond
   call void @llvm.experimental.noalias.scope.decl(metadata !83)
   %call.i.i2.i.i = call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #22, !noalias !86
   %37 = getelementptr inbounds i8, ptr %call.i.i2.i.i, i64 136
-  %callback_.i.i.i.i.i.i29 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i2.i.i, i64 0, i32 2
+  %callback_.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %call.i.i2.i.i, i64 16
   store ptr null, ptr %callback_.i.i.i.i.i.i29, align 16, !tbaa !52, !noalias !87
-  %call_.i.i.i.i.i.i.i30 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i2.i.i, i64 0, i32 2, i32 1
+  %call_.i.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %call.i.i2.i.i, i64 64
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvRNS_7futures6detail8CoreBaseEONS_8Executor9KeepAliveIS7_EEPNS_17exception_wrapperEEE10uninitCallES6_SA_SC_RNS1_4DataE, ptr %call_.i.i.i.i.i.i.i30, align 16, !tbaa !53, !noalias !87
-  %exec_.i.i.i.i.i.i.i31 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i2.i.i, i64 0, i32 2, i32 2
+  %exec_.i.i.i.i.i.i.i31 = getelementptr inbounds i8, ptr %call.i.i2.i.i, i64 72
   store ptr null, ptr %exec_.i.i.i.i.i.i.i31, align 8, !tbaa !55, !noalias !87
-  %state_.i.i.i.i.i.i32 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i2.i.i, i64 0, i32 3
+  %state_.i.i.i.i.i.i32 = getelementptr inbounds i8, ptr %call.i.i2.i.i, i64 80
   store i8 2, ptr %state_.i.i.i.i.i.i32, align 1, !tbaa !56, !noalias !87
-  %attached_.i.i.i.i.i.i33 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i2.i.i, i64 0, i32 4
+  %attached_.i.i.i.i.i.i33 = getelementptr inbounds i8, ptr %call.i.i2.i.i, i64 81
   store i8 1, ptr %attached_.i.i.i.i.i.i33, align 1, !tbaa !59, !noalias !87
-  %callbackReferences_.i.i.i.i.i.i34 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i2.i.i, i64 0, i32 5
+  %callbackReferences_.i.i.i.i.i.i34 = getelementptr inbounds i8, ptr %call.i.i2.i.i, i64 82
   store i8 0, ptr %callbackReferences_.i.i.i.i.i.i34, align 1, !tbaa !59, !noalias !87
-  %executor_.i.i.i.i.i.i35 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i2.i.i, i64 0, i32 6
+  %executor_.i.i.i.i.i.i35 = getelementptr inbounds i8, ptr %call.i.i2.i.i, i64 88
   store i32 0, ptr %executor_.i.i.i.i.i.i35, align 8, !tbaa !61, !noalias !87
-  %38 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i2.i.i, i64 0, i32 6, i32 1
+  %38 = getelementptr inbounds i8, ptr %call.i.i2.i.i, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %38, i8 0, i64 32, i1 false), !noalias !87
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly7futures6detail4CoreINS_4UnitEEE, i64 0, i32 0, i64 2), ptr %call.i.i2.i.i, align 16, !tbaa !50, !noalias !87
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN5folly7futures6detail4CoreINS_4UnitEEE, i64 0, i32 0, i64 2), ptr %call.i.i2.i.i, align 16, !tbaa !50, !noalias !87
   store i32 0, ptr %37, align 8, !tbaa !88, !noalias !87
   store ptr %call.i.i2.i.i, ptr %agg.result, align 8, !tbaa !71, !alias.scope !87
   br label %cleanup15
@@ -1748,13 +1726,13 @@ entry:
   br i1 %cmp.not, label %if.end, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %entry
-  %core_.i.i.i.i = getelementptr inbounds %"class.folly::fibers::(anonymous namespace)::FutureWaiter", ptr %0, i64 0, i32 2, i32 1
+  %core_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %core_.i.i.i.i, align 8, !tbaa !64
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i, label %_ZNKSt14default_deleteIN5folly6fibers12_GLOBAL__N_112FutureWaiterEEclEPS3_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %delete.notnull.i
-  %promise.i.i = getelementptr inbounds %"class.folly::fibers::(anonymous namespace)::FutureWaiter", ptr %0, i64 0, i32 2
+  %promise.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %2 = load i8, ptr %promise.i.i, align 8, !tbaa !70, !range !24, !noundef !25
   %tobool2.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool2.not.i.i.i.i, label %if.then3.i.i.i.i, label %if.end.i.i.i.i
@@ -1796,7 +1774,7 @@ declare void @_ZN5folly6fibers5Baton9setWaiterERNS1_6WaiterE(ptr noundef nonnull
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly7PromiseINS_4UnitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %core_.i = getelementptr inbounds %"class.folly::Promise", ptr %this, i64 0, i32 1
+  %core_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %core_.i, align 8, !tbaa !64
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
@@ -1838,7 +1816,7 @@ entry:
   %destroyOnReturn = alloca %"class.std::unique_ptr", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %destroyOnReturn) #19
   store ptr %this, ptr %destroyOnReturn, align 8, !tbaa !66
-  %promise = getelementptr inbounds %"class.folly::fibers::(anonymous namespace)::FutureWaiter", ptr %this, i64 0, i32 2
+  %promise = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i) #19
   store i32 0, ptr %ref.tmp.i, align 8, !tbaa !88
   invoke void @_ZN5folly7PromiseINS_4UnitEE6setTryEONS_3TryIS1_EE(ptr noundef nonnull align 8 dereferenceable(16) %promise, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
@@ -1850,7 +1828,7 @@ invoke.cont.i:                                    ; preds = %entry
   br i1 %cond.i.i, label %if.then7.i.i, label %delete.notnull.i.i, !prof !91
 
 if.then7.i.i:                                     ; preds = %invoke.cont.i
-  %1 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %ref.tmp.i, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %2 = load ptr, ptr %1, align 8, !tbaa !92
   %tobool.not.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i, label %delete.notnull.i.i, label %if.then.i.i.i.i
@@ -1867,7 +1845,7 @@ lpad.i:                                           ; preds = %entry
   br i1 %cond.i4.i, label %if.then7.i5.i, label %_ZN5folly6detail7TryBaseINS_4UnitEED2Ev.exit8.i, !prof !91
 
 if.then7.i5.i:                                    ; preds = %lpad.i
-  %5 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %ref.tmp.i, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !92
   %tobool.not.i.i.i6.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i6.i, label %_ZN5folly6detail7TryBaseINS_4UnitEED2Ev.exit8.i, label %if.then.i.i.i7.i
@@ -1884,7 +1862,7 @@ _ZN5folly6detail7TryBaseINS_4UnitEED2Ev.exit8.i:  ; preds = %if.then.i.i.i7.i, %
 
 delete.notnull.i.i:                               ; preds = %if.then.i.i.i.i, %if.then7.i.i, %invoke.cont.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i) #19
-  %core_.i.i.i.i.i = getelementptr inbounds %"class.folly::fibers::(anonymous namespace)::FutureWaiter", ptr %this, i64 0, i32 2, i32 1
+  %core_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %7 = load ptr, ptr %core_.i.i.i.i.i, align 8, !tbaa !64
   %tobool.not.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt10unique_ptrIN5folly6fibers12_GLOBAL__N_112FutureWaiterESt14default_deleteIS3_EED2Ev.exit, label %if.then.i.i.i.i.i
@@ -1920,13 +1898,13 @@ _ZNSt10unique_ptrIN5folly6fibers12_GLOBAL__N_112FutureWaiterESt14default_deleteI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5folly6fibers12_GLOBAL__N_112FutureWaiterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %core_.i.i = getelementptr inbounds %"class.folly::fibers::(anonymous namespace)::FutureWaiter", ptr %this, i64 0, i32 2, i32 1
+  %core_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %core_.i.i, align 8, !tbaa !64
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZN5folly7PromiseINS_4UnitEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %promise = getelementptr inbounds %"class.folly::fibers::(anonymous namespace)::FutureWaiter", ptr %this, i64 0, i32 2
+  %promise = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i8, ptr %promise, align 8, !tbaa !70, !range !24, !noundef !25
   %tobool2.not.i.i = icmp eq i8 %1, 0
   br i1 %tobool2.not.i.i, label %if.then3.i.i, label %if.end.i.i
@@ -1959,13 +1937,13 @@ _ZN5folly7PromiseINS_4UnitEED2Ev.exit:            ; preds = %.noexc.i, %entry
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5folly6fibers12_GLOBAL__N_112FutureWaiterD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %core_.i.i.i = getelementptr inbounds %"class.folly::fibers::(anonymous namespace)::FutureWaiter", ptr %this, i64 0, i32 2, i32 1
+  %core_.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %core_.i.i.i, align 8, !tbaa !64
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN5folly6fibers12_GLOBAL__N_112FutureWaiterD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %promise.i = getelementptr inbounds %"class.folly::fibers::(anonymous namespace)::FutureWaiter", ptr %this, i64 0, i32 2
+  %promise.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i8, ptr %promise.i, align 8, !tbaa !70, !range !24, !noundef !25
   %tobool2.not.i.i.i = icmp eq i8 %1, 0
   br i1 %tobool2.not.i.i.i, label %if.then3.i.i.i, label %if.end.i.i.i
@@ -1995,7 +1973,7 @@ _ZN5folly6fibers12_GLOBAL__N_112FutureWaiterD2Ev.exit: ; preds = %if.end.i.i.i, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly7futures6detail4CoreINS_4UnitEED2Ev(ptr noundef nonnull align 16 dereferenceable(160) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %state_ = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %this, i64 0, i32 3
+  %state_ = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load atomic i8, ptr %state_ monotonic, align 16
   switch i8 %0, label %sw.default [
     i8 2, label %sw.bb14
@@ -2021,7 +1999,7 @@ if.then.i.i.i:                                    ; preds = %if.then7.i
   br label %sw.epilog
 
 sw.bb15:                                          ; preds = %entry
-  %proxy_ = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %this, i64 0, i32 9
+  %proxy_ = getelementptr inbounds i8, ptr %this, i64 128
   %4 = load ptr, ptr %proxy_, align 16, !tbaa !94
   tail call void @_ZN5folly7futures6detail8CoreBase9detachOneEv(ptr noundef nonnull align 16 dereferenceable(136) %4) #19
   br label %sw.epilog
@@ -2038,7 +2016,7 @@ sw.epilog:                                        ; preds = %sw.bb15, %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly7futures6detail4CoreINS_4UnitEED0Ev(ptr noundef nonnull align 16 dereferenceable(160) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %state_.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %this, i64 0, i32 3
+  %state_.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load atomic i8, ptr %state_.i monotonic, align 16
   switch i8 %0, label %sw.default.i [
     i8 2, label %sw.bb14.i
@@ -2064,7 +2042,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then7.i.i
   br label %_ZN5folly7futures6detail4CoreINS_4UnitEED2Ev.exit
 
 sw.bb15.i:                                        ; preds = %entry
-  %proxy_.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %this, i64 0, i32 9
+  %proxy_.i = getelementptr inbounds i8, ptr %this, i64 128
   %4 = load ptr, ptr %proxy_.i, align 16, !tbaa !94
   tail call void @_ZN5folly7futures6detail8CoreBase9detachOneEv(ptr noundef nonnull align 16 dereferenceable(136) %4) #19
   br label %_ZN5folly7futures6detail4CoreINS_4UnitEED2Ev.exit
@@ -2094,7 +2072,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt17bad_function_ca
 entry:
   %ref.tmp = alloca %"class.std::bad_function_call", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #19
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !50
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !50
   invoke void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #24
           to label %invoke.cont unwind label %lpad
 
@@ -2113,7 +2091,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #13 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #19
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, i32 0, i64 2), ptr %exception, align 8, !tbaa !50
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, i32 0, i64 2), ptr %exception, align 8, !tbaa !50
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt17bad_function_call, ptr nonnull @_ZNSt17bad_function_callD1Ev) #26
   unreachable
 }
@@ -2190,9 +2168,9 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #19
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp1) #19
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i) #19
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i.i.i, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 16
   store ptr %0, ptr %ref.tmp.i.i.i, align 8, !tbaa !103
-  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i.i.i, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !105
   store i8 0, ptr %0, align 8, !tbaa !52
   invoke void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i)
@@ -2240,27 +2218,27 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9.i.i.i: ; preds =
 
 _ZN5folly3TryINS_4UnitEEC2EOS2_.exit.i.i:         ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i) #19
-  %msg_.i.i.i = getelementptr inbounds %"class.folly::static_what_exception", ptr %ref.tmp1, i64 0, i32 1
+  %msg_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 16
   store ptr @_ZZN5folly13BrokenPromise13error_messageINS_4UnitEEEPKcvE3str, ptr %msg_.i.i.i, align 8, !tbaa !108
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly13BrokenPromiseE, i64 0, i32 0, i64 2), ptr %ref.tmp1, align 8, !tbaa !50
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5folly13BrokenPromiseE, i64 0, i32 0, i64 2), ptr %ref.tmp1, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i)
   call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1) #19
-  %msg_.i.i.i.i.i = getelementptr inbounds %"class.folly::static_what_exception", ptr %agg.tmp.i.i, i64 0, i32 1
+  %msg_.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 16
   %6 = load ptr, ptr %msg_.i.i.i, align 8, !tbaa !108
   store ptr %6, ptr %msg_.i.i.i.i.i, align 8, !tbaa !108
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly13BrokenPromiseE, i64 0, i32 0, i64 2), ptr %agg.tmp.i.i, align 8, !tbaa !50
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5folly13BrokenPromiseE, i64 0, i32 0, i64 2), ptr %agg.tmp.i.i, align 8, !tbaa !50
   %call.i.i.i = call ptr @__cxa_allocate_exception(i64 noundef 24) #19, !noalias !113
   %call1.i.i.i = call ptr @__cxa_init_primary_exception(ptr noundef %call.i.i.i, ptr noundef nonnull @_ZTIN5folly13BrokenPromiseE, ptr noundef nonnull @_ZNSt15__exception_ptr12__dest_thunkIN5folly13BrokenPromiseEEEvPv) #19, !noalias !113
   call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i) #19, !noalias !113
-  %msg_.i.i.i.i.i.i = getelementptr inbounds %"class.folly::static_what_exception", ptr %call.i.i.i, i64 0, i32 1
+  %msg_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   %7 = load ptr, ptr %msg_.i.i.i.i.i, align 8, !tbaa !108, !noalias !113
   store ptr %7, ptr %msg_.i.i.i.i.i.i, align 8, !tbaa !108, !noalias !113
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly13BrokenPromiseE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 8, !tbaa !50, !noalias !113
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5folly13BrokenPromiseE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 8, !tbaa !50, !noalias !113
   call void @_ZNSt15__exception_ptr13exception_ptrC1EPv(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef nonnull %call.i.i.i) #19
   call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.i.i) #19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i)
   store i32 1, ptr %ref.tmp, align 8, !tbaa !88
-  %8 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %ref.tmp, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %9 = load i64, ptr %agg.tmp, align 8, !noalias !116
   store i64 0, ptr %agg.tmp, align 8, !noalias !116
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i) #19
@@ -2308,7 +2286,7 @@ _ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit11.i.thread: ; preds = %if.then.i.i5.i
 
 _ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit11.i:   ; preds = %if.then.i.i5.i
   %vtable.i.i9.i = load ptr, ptr %15, align 8, !tbaa !50
-  %vfn.i.i10.i = getelementptr inbounds ptr, ptr %vtable.i.i9.i, i64 6
+  %vfn.i.i10.i = getelementptr inbounds i8, ptr %vtable.i.i9.i, i64 48
   %16 = load ptr, ptr %vfn.i.i10.i, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(8) %15) #19
   %.pre = load i32, ptr %ref.tmp, align 8, !tbaa !88
@@ -2322,7 +2300,7 @@ invoke.cont4.thread:                              ; preds = %if.then.i.i.i, %inv
 
 invoke.cont4:                                     ; preds = %if.then.i.i.i
   %vtable.i.i.i = load ptr, ptr %12, align 8, !tbaa !50
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 6
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 48
   %18 = load ptr, ptr %vfn.i.i.i, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(8) %12) #19
   %.pre21 = load i32, ptr %ref.tmp, align 8, !tbaa !88
@@ -2399,7 +2377,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNK5folly21static_what_exceptionISt11logic_errorE4whatEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %msg_ = getelementptr inbounds %"class.folly::static_what_exception", ptr %this, i64 0, i32 1
+  %msg_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %msg_, align 8, !tbaa !108
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %cond.false, label %cond.end
@@ -2443,7 +2421,7 @@ declare void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceab
 define linkonce_odr void @_ZN5folly7PromiseINS_4UnitEE6setTryEONS_3TryIS1_EE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %t) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.folly::Executor::KeepAlive", align 8
-  %core_.i.i = getelementptr inbounds %"class.folly::Promise", ptr %this, i64 0, i32 1
+  %core_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %core_.i.i, align 8, !tbaa !64
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %_ZNK5folly7PromiseINS_4UnitEE7getCoreEv.exit.i
@@ -2472,7 +2450,7 @@ _ZNK5folly7PromiseINS_4UnitEE16throwIfFulfilledEv.exit: ; preds = %_ZNK5folly7Pr
 
 if.then6.i.i.i.i:                                 ; preds = %_ZNK5folly7PromiseINS_4UnitEE16throwIfFulfilledEv.exit
   %3 = getelementptr inbounds i8, ptr %1, i64 144
-  %4 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %t, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %t, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !128)
   %5 = load i64, ptr %4, align 8, !noalias !128
   store i64 %5, ptr %3, align 8, !alias.scope !128
@@ -2498,7 +2476,7 @@ if.then.i.i.i3:                                   ; preds = %invoke.cont.i
 
 if.then5.i.i.i:                                   ; preds = %if.then.i.i.i3
   %vtable.i.i.i = load ptr, ptr %7, align 8, !tbaa !50
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 6
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 48
   %8 = load ptr, ptr %vfn.i.i.i, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(8) %7) #19
   br label %_ZN5folly7futures6detail4CoreINS_4UnitEE9setResultEONS_3TryIS3_EE.exit
@@ -2520,7 +2498,7 @@ if.then.i.i5.i:                                   ; preds = %lpad.i
 
 if.then5.i.i8.i:                                  ; preds = %if.then.i.i5.i
   %vtable.i.i9.i = load ptr, ptr %11, align 8, !tbaa !50
-  %vfn.i.i10.i = getelementptr inbounds ptr, ptr %vtable.i.i9.i, i64 6
+  %vfn.i.i10.i = getelementptr inbounds i8, ptr %vtable.i.i9.i, i64 48
   %12 = load ptr, ptr %vfn.i.i10.i, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(8) %11) #19
   br label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit11.i
@@ -2568,9 +2546,9 @@ define linkonce_odr void @_ZN5folly14PromiseInvalidC2Ev(ptr noundef nonnull alig
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i) #19
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i.i, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
   store ptr %0, ptr %ref.tmp.i.i, align 8, !tbaa !103
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i.i, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !105
   store i8 0, ptr %0, align 8, !tbaa !52
   invoke void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i)
@@ -2614,9 +2592,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9.i.i: ; preds = %
 
 _ZN5folly16PromiseExceptionCI2NS_21static_what_exceptionISt11logic_errorEEENS1_IS2_E15static_lifetimeEPKc.exit: ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i) #19
-  %msg_.i.i = getelementptr inbounds %"class.folly::static_what_exception", ptr %this, i64 0, i32 1
+  %msg_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr @.str.6, ptr %msg_.i.i, align 8, !tbaa !108
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly14PromiseInvalidE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !50
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5folly14PromiseInvalidE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !50
   ret void
 }
 
@@ -2624,11 +2602,11 @@ _ZN5folly16PromiseExceptionCI2NS_21static_what_exceptionISt11logic_errorEEENS1_I
 define linkonce_odr void @_ZN5folly14PromiseInvalidC2EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #11 comdat align 2 {
 entry:
   tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #19
-  %msg_.i.i = getelementptr inbounds %"class.folly::static_what_exception", ptr %this, i64 0, i32 1
-  %msg_2.i.i = getelementptr inbounds %"class.folly::static_what_exception", ptr %0, i64 0, i32 1
+  %msg_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %msg_2.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %msg_2.i.i, align 8, !tbaa !108
   store ptr %1, ptr %msg_.i.i, align 8, !tbaa !108
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly14PromiseInvalidE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !50
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5folly14PromiseInvalidE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !50
   ret void
 }
 
@@ -2674,9 +2652,9 @@ define linkonce_odr void @_ZN5folly23PromiseAlreadySatisfiedC2Ev(ptr noundef non
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i) #19
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i.i, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
   store ptr %0, ptr %ref.tmp.i.i, align 8, !tbaa !103
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i.i, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !105
   store i8 0, ptr %0, align 8, !tbaa !52
   invoke void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i)
@@ -2720,9 +2698,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9.i.i: ; preds = %
 
 _ZN5folly16PromiseExceptionCI2NS_21static_what_exceptionISt11logic_errorEEENS1_IS2_E15static_lifetimeEPKc.exit: ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i) #19
-  %msg_.i.i = getelementptr inbounds %"class.folly::static_what_exception", ptr %this, i64 0, i32 1
+  %msg_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr @.str.7, ptr %msg_.i.i, align 8, !tbaa !108
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly23PromiseAlreadySatisfiedE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !50
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5folly23PromiseAlreadySatisfiedE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !50
   ret void
 }
 
@@ -2730,11 +2708,11 @@ _ZN5folly16PromiseExceptionCI2NS_21static_what_exceptionISt11logic_errorEEENS1_I
 define linkonce_odr void @_ZN5folly23PromiseAlreadySatisfiedC2EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #11 comdat align 2 {
 entry:
   tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #19
-  %msg_.i.i = getelementptr inbounds %"class.folly::static_what_exception", ptr %this, i64 0, i32 1
-  %msg_2.i.i = getelementptr inbounds %"class.folly::static_what_exception", ptr %0, i64 0, i32 1
+  %msg_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %msg_2.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %msg_2.i.i, align 8, !tbaa !108
   store ptr %1, ptr %msg_.i.i, align 8, !tbaa !108
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly23PromiseAlreadySatisfiedE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !50
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5folly23PromiseAlreadySatisfiedE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !50
   ret void
 }
 
@@ -2780,9 +2758,9 @@ define linkonce_odr void @_ZN5folly22FutureAlreadyRetrievedC2Ev(ptr noundef nonn
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i) #19
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i.i, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
   store ptr %0, ptr %ref.tmp.i.i, align 8, !tbaa !103
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i.i, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !105
   store i8 0, ptr %0, align 8, !tbaa !52
   invoke void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i)
@@ -2826,9 +2804,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9.i.i: ; preds = %
 
 _ZN5folly16PromiseExceptionCI2NS_21static_what_exceptionISt11logic_errorEEENS1_IS2_E15static_lifetimeEPKc.exit: ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i) #19
-  %msg_.i.i = getelementptr inbounds %"class.folly::static_what_exception", ptr %this, i64 0, i32 1
+  %msg_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr @.str.8, ptr %msg_.i.i, align 8, !tbaa !108
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly22FutureAlreadyRetrievedE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !50
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5folly22FutureAlreadyRetrievedE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !50
   ret void
 }
 
@@ -2839,11 +2817,11 @@ declare void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable
 define linkonce_odr void @_ZN5folly22FutureAlreadyRetrievedC2EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #11 comdat align 2 {
 entry:
   tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #19
-  %msg_.i.i = getelementptr inbounds %"class.folly::static_what_exception", ptr %this, i64 0, i32 1
-  %msg_2.i.i = getelementptr inbounds %"class.folly::static_what_exception", ptr %0, i64 0, i32 1
+  %msg_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %msg_2.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %msg_2.i.i, align 8, !tbaa !108
   store ptr %1, ptr %msg_.i.i, align 8, !tbaa !108
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly22FutureAlreadyRetrievedE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !50
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5folly22FutureAlreadyRetrievedE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !50
   ret void
 }
 
@@ -2858,12 +2836,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5folly10SemiFutureINS_4UnitEE23releaseDeferredExecutorEPNS_7futures6detail4CoreIS1_EE(ptr noundef %core) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %executor = alloca %"class.std::unique_ptr.15", align 8
+  %executor = alloca %"class.std::unique_ptr.13", align 8
   %tobool.not = icmp eq ptr %core, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %state_.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %core, i64 0, i32 3
+  %state_.i = getelementptr inbounds i8, ptr %core, i64 80
   %0 = load atomic i8, ptr %state_.i acquire, align 1
   %and3.i.i = and i8 %0, 108
   %cmp.i.not = icmp eq i8 %and3.i.i, 0
@@ -2871,7 +2849,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %executor) #19
-  call void @_ZN5folly7futures6detail8CoreBase21stealDeferredExecutorEv(ptr nonnull sret(%"class.std::unique_ptr.15") align 8 %executor, ptr noundef nonnull align 16 dereferenceable(136) %core)
+  call void @_ZN5folly7futures6detail8CoreBase21stealDeferredExecutorEv(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.13") align 8 %executor, ptr noundef nonnull align 16 dereferenceable(136) %core)
   %1 = load ptr, ptr %executor, align 8, !tbaa !66
   %tobool2.not = icmp ne ptr %1, null
   %cond = zext i1 %tobool2.not to i32
@@ -2915,7 +2893,7 @@ return:                                           ; preds = %_ZNSt10unique_ptrIN
   ret void
 }
 
-declare void @_ZN5folly7futures6detail8CoreBase21stealDeferredExecutorEv(ptr sret(%"class.std::unique_ptr.15") align 8, ptr noundef nonnull align 16 dereferenceable(136)) local_unnamed_addr #2
+declare void @_ZN5folly7futures6detail8CoreBase21stealDeferredExecutorEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.13") align 8, ptr noundef nonnull align 16 dereferenceable(136)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
 declare void @_ZN5folly13async_tracing20logSemiFutureDiscardENS0_18DiscardHasDeferredE(i32 noundef) local_unnamed_addr #6
@@ -2957,7 +2935,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i64 @_ZNK5folly6fibers9Semaphore18getAvailableTokensEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #16 align 2 {
 entry:
-  %tokens_ = getelementptr inbounds %"class.folly::fibers::Semaphore", ptr %this, i64 0, i32 1
+  %tokens_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load atomic i64, ptr %tokens_ monotonic, align 8
   ret i64 %0
 }
@@ -3024,7 +3002,7 @@ attributes #26 = { noreturn }
 !23 = !{!22, !12, i64 8}
 !24 = !{i8 0, i8 2}
 !25 = !{}
-!26 = !{i64 5099855}
+!26 = !{i64 5337449}
 !27 = distinct !{!27, !28}
 !28 = !{!"llvm.loop.mustprogress"}
 !29 = !{!"branch_weights", i32 1, i32 2000}

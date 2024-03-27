@@ -10,26 +10,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.folly::LogCategory" = type { %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic.0", ptr, %"class.std::__cxx11::basic_string", %"struct.folly::Synchronized", ptr, ptr, ptr, %"class.std::vector.5" }
-%"struct.std::atomic" = type { i32 }
-%"struct.std::atomic.0" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
-%"struct.folly::Synchronized" = type <{ %"class.std::vector", %"class.folly::SharedMutexImpl", [4 x i8] }>
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::shared_ptr<folly::LogHandler>, std::allocator<std::shared_ptr<folly::LogHandler>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::shared_ptr<folly::LogHandler>, std::allocator<std::shared_ptr<folly::LogHandler>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::shared_ptr<folly::LogHandler>, std::allocator<std::shared_ptr<folly::LogHandler>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::shared_ptr<folly::LogHandler>, std::allocator<std::shared_ptr<folly::LogHandler>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.folly::SharedMutexImpl" = type { %"struct.std::atomic.0" }
-%"class.std::vector.5" = type { %"struct.std::_Vector_base.6" }
-%"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<std::atomic<folly::LogLevel> *, std::allocator<std::atomic<folly::LogLevel> *>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::atomic<folly::LogLevel> *, std::allocator<std::atomic<folly::LogLevel> *>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::atomic<folly::LogLevel> *, std::allocator<std::atomic<folly::LogLevel> *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::atomic<folly::LogLevel> *, std::allocator<std::atomic<folly::LogLevel> *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $__clang_call_terminate = comdat any
 
 $_ZN5folly10LogMessageD2Ev = comdat any
 
-@_ZTVN5folly7logging23BridgeFromGoogleLoggingE = unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN5folly7logging23BridgeFromGoogleLoggingE, ptr @_ZN5folly7logging23BridgeFromGoogleLoggingD1Ev, ptr @_ZN5folly7logging23BridgeFromGoogleLoggingD0Ev, ptr @_ZN5folly7logging23BridgeFromGoogleLogging4sendEiPKcS3_iPK2tmS3_m, ptr @_ZN6google7LogSink12WaitTillSentEv] }, align 8
+@_ZTVN5folly7logging23BridgeFromGoogleLoggingE = unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTIN5folly7logging23BridgeFromGoogleLoggingE, ptr @_ZN5folly7logging23BridgeFromGoogleLoggingD1Ev, ptr @_ZN5folly7logging23BridgeFromGoogleLoggingD0Ev, ptr @_ZN6google7LogSink4sendEiPKcS2_iRKNS_14LogMessageTimeES2_m, ptr @_ZN5folly7logging23BridgeFromGoogleLogging4sendEiPKcS3_iPK2tmS3_m, ptr @_ZN6google7LogSink12WaitTillSentEv] }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN5folly7logging23BridgeFromGoogleLoggingE = constant [42 x i8] c"N5folly7logging23BridgeFromGoogleLoggingE\00", align 1
 @_ZTIN6google7LogSinkE = external constant ptr
@@ -48,8 +34,10 @@ entry:
   ret void
 }
 
+declare void @_ZN6google7LogSink4sendEiPKcS2_iRKNS_14LogMessageTimeES2_m(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(80), ptr noundef, i64 noundef) unnamed_addr #1
+
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly7logging23BridgeFromGoogleLogging4sendEiPKcS3_iPK2tmS3_m(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %this, i32 noundef %severity, ptr noundef %full_filename, ptr noundef %base_filename, i32 noundef %line, ptr nocapture noundef readonly %pTime, ptr noundef %message, i64 noundef %message_len) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly7logging23BridgeFromGoogleLogging4sendEiPKcS3_iPK2tmS3_m(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %this, i32 noundef %severity, ptr noundef %full_filename, ptr noundef %base_filename, i32 noundef %line, ptr nocapture noundef readonly %pTime, ptr noundef %message, i64 noundef %message_len) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %time = alloca %struct.tm, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %time) #14
@@ -65,12 +53,12 @@ entry:
   ret void
 }
 
-declare void @_ZN6google7LogSink12WaitTillSentEv(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
+declare void @_ZN6google7LogSink12WaitTillSentEv(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly7logging23BridgeFromGoogleLoggingC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly7logging23BridgeFromGoogleLoggingC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly7logging23BridgeFromGoogleLoggingE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !16
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN5folly7logging23BridgeFromGoogleLoggingE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !16
   invoke void @_ZN6google10AddLogSinkEPNS_7LogSinkE(ptr noundef nonnull %this)
           to label %invoke.cont unwind label %lpad
 
@@ -84,7 +72,7 @@ lpad:                                             ; preds = %entry
   resume { ptr, i32 } %0
 }
 
-declare void @_ZN6google10AddLogSinkEPNS_7LogSinkE(ptr noundef) local_unnamed_addr #2
+declare void @_ZN6google10AddLogSinkEPNS_7LogSinkE(ptr noundef) local_unnamed_addr #1
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -94,7 +82,7 @@ declare void @_ZN6google7LogSinkD2Ev(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly7logging23BridgeFromGoogleLoggingD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly7logging23BridgeFromGoogleLoggingE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !16
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN5folly7logging23BridgeFromGoogleLoggingE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !16
   invoke void @_ZN6google13RemoveLogSinkEPNS_7LogSinkE(ptr noundef nonnull %this)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -110,7 +98,7 @@ terminate.lpad:                                   ; preds = %entry
   unreachable
 }
 
-declare void @_ZN6google13RemoveLogSinkEPNS_7LogSinkE(ptr noundef) local_unnamed_addr #2
+declare void @_ZN6google13RemoveLogSinkEPNS_7LogSinkE(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
@@ -127,7 +115,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly7logging23BridgeFromGoogleLogging4sendEiPKcS3_iPK2tmS3_mi(ptr nocapture nonnull readnone align 8 %this, i32 noundef %severity, ptr noundef %full_filename, ptr noundef %base_filename, i32 noundef %line, ptr nocapture noundef readonly %pTime, ptr noundef readonly %message, i64 noundef %message_len, i32 noundef %usecs) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly7logging23BridgeFromGoogleLogging4sendEiPKcS3_iPK2tmS3_mi(ptr nocapture nonnull readnone align 8 %this, i32 noundef %severity, ptr noundef %full_filename, ptr noundef %base_filename, i32 noundef %line, ptr nocapture noundef readonly %pTime, ptr noundef readonly %message, i64 noundef %message_len, i32 noundef %usecs) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %time = alloca %struct.tm, align 8
@@ -153,7 +141,7 @@ switch.lookup:                                    ; preds = %entry
 _ZN5folly7logging12_GLOBAL__N_115asFollyLogLevelEi.exit: ; preds = %switch.lookup, %entry
   %retval.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 2997, %entry ]
   %2 = load ptr, ptr %logger, align 8, !tbaa !18
-  %effectiveLevel_.i = getelementptr inbounds %"class.folly::LogCategory", ptr %2, i64 0, i32 1
+  %effectiveLevel_.i = getelementptr inbounds i8, ptr %2, i64 4
   %3 = load atomic i32, ptr %effectiveLevel_.i monotonic, align 4
   %cmp.i.not = icmp ugt i32 %3, %retval.0.i
   br i1 %cmp.i.not, label %if.end, label %if.then
@@ -169,7 +157,7 @@ if.then:                                          ; preds = %_ZN5folly7logging12
   %add.ptr.i41 = getelementptr inbounds i8, ptr %base_filename, i64 %call.i.i.i40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp14, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp15) #14
-  %4 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp15, i64 0, i32 2
+  %4 = getelementptr inbounds i8, ptr %ref.tmp15, i64 16
   store ptr %4, ptr %ref.tmp15, align 8, !tbaa !20
   %cmp.i42 = icmp eq ptr %message, null
   %cmp2.i = icmp ne i64 %message_len, 0
@@ -217,7 +205,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i
 
 invoke.cont:                                      ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i, %if.end.i.i
   %8 = load i64, ptr %__dnew.i.i, align 8, !tbaa !12
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp15, i64 0, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 8
   store i64 %8, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !25
   %9 = load ptr, ptr %ref.tmp15, align 8, !tbaa !22
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %9, i64 %8
@@ -248,14 +236,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
           to label %invoke.cont28 unwind label %lpad25
 
 invoke.cont28:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %message_.i = getelementptr inbounds %"class.folly::LogMessage", ptr %logMessage, i64 0, i32 10
+  %message_.i = getelementptr inbounds i8, ptr %logMessage, i64 144
   %13 = load ptr, ptr %message_.i, align 8, !tbaa !22
-  %14 = getelementptr inbounds %"class.folly::LogMessage", ptr %logMessage, i64 0, i32 10, i32 2
+  %14 = getelementptr inbounds i8, ptr %logMessage, i64 160
   %cmp.i.i.i.i = icmp eq ptr %13, %14
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %invoke.cont28
-  %_M_string_length.i.i.i.i45 = getelementptr inbounds %"class.folly::LogMessage", ptr %logMessage, i64 0, i32 10, i32 1
+  %_M_string_length.i.i.i.i45 = getelementptr inbounds i8, ptr %logMessage, i64 152
   %15 = load i64, ptr %_M_string_length.i.i.i.i45, align 8, !tbaa !25
   %cmp3.i.i.i.i = icmp ult i64 %15, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i)
@@ -266,14 +254,14 @@ if.then.i.i.i:                                    ; preds = %invoke.cont28
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  %rawMessage_.i = getelementptr inbounds %"class.folly::LogMessage", ptr %logMessage, i64 0, i32 9
+  %rawMessage_.i = getelementptr inbounds i8, ptr %logMessage, i64 112
   %16 = load ptr, ptr %rawMessage_.i, align 8, !tbaa !22
-  %17 = getelementptr inbounds %"class.folly::LogMessage", ptr %logMessage, i64 0, i32 9, i32 2
+  %17 = getelementptr inbounds i8, ptr %logMessage, i64 128
   %cmp.i.i.i2.i = icmp eq ptr %16, %17
   br i1 %cmp.i.i.i2.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i4.i, label %if.then.i.i3.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i4.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %_M_string_length.i.i.i5.i = getelementptr inbounds %"class.folly::LogMessage", ptr %logMessage, i64 0, i32 9, i32 1
+  %_M_string_length.i.i.i5.i = getelementptr inbounds i8, ptr %logMessage, i64 120
   %18 = load i64, ptr %_M_string_length.i.i.i5.i, align 8, !tbaa !25
   %cmp3.i.i.i6.i = icmp ult i64 %18, 16
   call void @llvm.assume(i1 %cmp3.i.i.i6.i)
@@ -284,14 +272,14 @@ if.then.i.i3.i:                                   ; preds = %_ZNSt7__cxx1112basi
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i: ; preds = %if.then.i.i3.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i4.i
-  %contextString_.i = getelementptr inbounds %"class.folly::LogMessage", ptr %logMessage, i64 0, i32 8
+  %contextString_.i = getelementptr inbounds i8, ptr %logMessage, i64 80
   %19 = load ptr, ptr %contextString_.i, align 8, !tbaa !22
-  %20 = getelementptr inbounds %"class.folly::LogMessage", ptr %logMessage, i64 0, i32 8, i32 2
+  %20 = getelementptr inbounds i8, ptr %logMessage, i64 96
   %cmp.i.i.i8.i = icmp eq ptr %19, %20
   br i1 %cmp.i.i.i8.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10.i, label %if.then.i.i9.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i
-  %_M_string_length.i.i.i11.i = getelementptr inbounds %"class.folly::LogMessage", ptr %logMessage, i64 0, i32 8, i32 1
+  %_M_string_length.i.i.i11.i = getelementptr inbounds i8, ptr %logMessage, i64 88
   %21 = load i64, ptr %_M_string_length.i.i.i11.i, align 8, !tbaa !25
   %cmp3.i.i.i12.i = icmp ult i64 %21, 16
   call void @llvm.assume(i1 %cmp3.i.i.i12.i)
@@ -357,29 +345,29 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
-declare void @_ZN5folly6LoggerC1ENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(8), ptr, ptr) unnamed_addr #2
+declare void @_ZN5folly6LoggerC1ENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(8), ptr, ptr) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
 declare noundef i64 @mktime(ptr nocapture noundef) local_unnamed_addr #8
 
-declare void @_ZN5folly10LogMessageC1EPKNS_11LogCategoryENS_8LogLevelENSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEENS_5RangeIPKcEEjSH_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(176), ptr noundef, i32 noundef, i64, ptr, ptr, i32 noundef, ptr noundef byval(%"class.folly::Range") align 8, ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN5folly10LogMessageC1EPKNS_11LogCategoryENS_8LogLevelENSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEENS_5RangeIPKcEEjSH_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(176), ptr noundef, i32 noundef, i64, ptr, ptr, i32 noundef, ptr noundef byval(%"class.folly::Range") align 8, ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
 
-declare void @_ZNK5folly11LogCategory12admitMessageERKNS_10LogMessageE(ptr noundef nonnull align 8 dereferenceable(136), ptr noundef nonnull align 8 dereferenceable(176)) local_unnamed_addr #2
+declare void @_ZNK5folly11LogCategory12admitMessageERKNS_10LogMessageE(ptr noundef nonnull align 8 dereferenceable(136), ptr noundef nonnull align 8 dereferenceable(176)) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %message_ = getelementptr inbounds %"class.folly::LogMessage", ptr %this, i64 0, i32 10
+  %message_ = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %message_, align 8, !tbaa !22
-  %1 = getelementptr inbounds %"class.folly::LogMessage", ptr %this, i64 0, i32 10, i32 2
+  %1 = getelementptr inbounds i8, ptr %this, i64 160
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %entry
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.folly::LogMessage", ptr %this, i64 0, i32 10, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 152
   %2 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !25
   %cmp3.i.i.i = icmp ult i64 %2, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -390,14 +378,14 @@ if.then.i.i:                                      ; preds = %entry
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  %rawMessage_ = getelementptr inbounds %"class.folly::LogMessage", ptr %this, i64 0, i32 9
+  %rawMessage_ = getelementptr inbounds i8, ptr %this, i64 112
   %3 = load ptr, ptr %rawMessage_, align 8, !tbaa !22
-  %4 = getelementptr inbounds %"class.folly::LogMessage", ptr %this, i64 0, i32 9, i32 2
+  %4 = getelementptr inbounds i8, ptr %this, i64 128
   %cmp.i.i.i2 = icmp eq ptr %3, %4
   br i1 %cmp.i.i.i2, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i4, label %if.then.i.i3
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i4: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %_M_string_length.i.i.i5 = getelementptr inbounds %"class.folly::LogMessage", ptr %this, i64 0, i32 9, i32 1
+  %_M_string_length.i.i.i5 = getelementptr inbounds i8, ptr %this, i64 120
   %5 = load i64, ptr %_M_string_length.i.i.i5, align 8, !tbaa !25
   %cmp3.i.i.i6 = icmp ult i64 %5, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i6)
@@ -408,14 +396,14 @@ if.then.i.i3:                                     ; preds = %_ZNSt7__cxx1112basi
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %if.then.i.i3, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i4
-  %contextString_ = getelementptr inbounds %"class.folly::LogMessage", ptr %this, i64 0, i32 8
+  %contextString_ = getelementptr inbounds i8, ptr %this, i64 80
   %6 = load ptr, ptr %contextString_, align 8, !tbaa !22
-  %7 = getelementptr inbounds %"class.folly::LogMessage", ptr %this, i64 0, i32 8, i32 2
+  %7 = getelementptr inbounds i8, ptr %this, i64 96
   %cmp.i.i.i8 = icmp eq ptr %6, %7
   br i1 %cmp.i.i.i8, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10, label %if.then.i.i9
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7
-  %_M_string_length.i.i.i11 = getelementptr inbounds %"class.folly::LogMessage", ptr %this, i64 0, i32 8, i32 1
+  %_M_string_length.i.i.i11 = getelementptr inbounds i8, ptr %this, i64 88
   %8 = load i64, ptr %_M_string_length.i.i.i11, align 8, !tbaa !25
   %cmp3.i.i.i12 = icmp ult i64 %8, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i12)
@@ -435,7 +423,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
 ; Function Attrs: noreturn
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #11
 
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #2
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
 declare i64 @_ZNSt6chrono3_V212system_clock3nowEv() local_unnamed_addr #3
@@ -447,8 +435,8 @@ declare void @llvm.assume(i1 noundef) #12
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

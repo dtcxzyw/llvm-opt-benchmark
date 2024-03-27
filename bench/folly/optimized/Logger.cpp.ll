@@ -91,7 +91,7 @@ init.check.i:                                     ; preds = %invoke.cont.i
 init.i:                                           ; preds = %init.check.i
   store i8 0, ptr @_ZZZN5folly8LoggerDB3getEvEN9SingletonC1EvE5guard, align 8, !tbaa !14, !alias.scope !17
   %2 = ptrtoint ptr %call to i64
-  store i64 %2, ptr getelementptr inbounds (%"class.folly::detail::ScopeGuardImpl", ptr @_ZZZN5folly8LoggerDB3getEvEN9SingletonC1EvE5guard, i64 0, i32 1), align 8, !tbaa !20, !alias.scope !17
+  store i64 %2, ptr getelementptr inbounds (%"class.folly::detail::ScopeGuardImpl", ptr @_ZZZN5folly8LoggerDB3getEvEN9SingletonC1EvE5guard, i64 0, i32 1, i32 0), align 8, !tbaa !20, !alias.scope !17
   %3 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5folly6detail14ScopeGuardImplIZZNS_8LoggerDB3getEvEN9SingletonC1EvEUlvE_Lb1EED2Ev, ptr nonnull @_ZZZN5folly8LoggerDB3getEvEN9SingletonC1EvE5guard, ptr nonnull @__dso_handle) #10
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZZN5folly8LoggerDB3getEvEN9SingletonC1EvE5guard) #10
   br label %invoke.cont

@@ -54,7 +54,7 @@ $_ZTIN5folly9LogWriterE = comdat any
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly19ImmediateFileWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5folly19ImmediateFileWriterE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN5folly19ImmediateFileWriterE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
   %file_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN5folly4FileD1Ev(ptr noundef nonnull align 4 dereferenceable(5) %file_) #16
   ret void
@@ -63,7 +63,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly19ImmediateFileWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5folly19ImmediateFileWriterE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN5folly19ImmediateFileWriterE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
   %file_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN5folly4FileD1Ev(ptr noundef nonnull align 4 dereferenceable(5) %file_.i) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #17
@@ -91,7 +91,7 @@ if.then:                                          ; preds = %entry
   %3 = load i32, ptr %file_, align 8, !tbaa !10
   store i32 %3, ptr %ref.tmp, align 4, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp8) #16
-  call void @_ZN5folly8errnoStrB5cxx11Ei(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp8, i32 noundef %2)
+  call void @_ZN5folly8errnoStrB5cxx11Ei(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp8, i32 noundef %2)
   call void @_ZN5folly8LoggerDB15internalWarningIJRA27_KciRA3_S2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvNS_5RangeIPS2_EEiDpOT_(ptr nonnull @.str.1, ptr nonnull getelementptr inbounds ([127 x i8], ptr @.str.1, i64 0, i64 126), i32 noundef 43, ptr noundef nonnull align 1 dereferenceable(27) @.str.2, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(3) @.str.3, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #16
   %4 = load ptr, ptr %ref.tmp8, align 8, !tbaa !16
   %5 = getelementptr inbounds i8, ptr %ref.tmp8, i64 16
@@ -171,7 +171,7 @@ define void @_ZN5folly19ImmediateFileWriterC2ENS_5RangeIPKcEE(ptr noundef nonnul
 entry:
   %__dnew.i.i.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5folly19ImmediateFileWriterE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN5folly19ImmediateFileWriterE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
@@ -306,7 +306,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly19ImmediateFileWriterC2EONS_4FileE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(5) %file) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5folly19ImmediateFileWriterE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN5folly19ImmediateFileWriterE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
   %file_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN5folly4FileC1EOS0_(ptr noundef nonnull align 4 dereferenceable(5) %file_, ptr noundef nonnull align 4 dereferenceable(5) %file) #16
   ret void
@@ -400,7 +400,7 @@ terminate.lpad.body:                              ; preds = %if.then.i.i.i, %_ZN
   unreachable
 }
 
-declare void @_ZN5folly8errnoStrB5cxx11Ei(ptr sret(%"class.std::__cxx11::basic_string") align 8, i32 noundef) local_unnamed_addr #5
+declare void @_ZN5folly8errnoStrB5cxx11Ei(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare void @_ZN5folly8LoggerDB19internalWarningImplENS_5RangeIPKcEEiONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr, ptr, i32 noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #10

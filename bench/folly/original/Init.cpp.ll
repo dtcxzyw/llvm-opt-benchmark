@@ -5,7 +5,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.folly::Indestructible<std::mutex>::Storage" = type { %"union.std::aligned_storage<40, 8>::type" }
 %"union.std::aligned_storage<40, 8>::type" = type { [40 x i8] }
 %"class.google::LogMessageFatal" = type { %"class.google::LogMessage" }
-%"class.google::LogMessage" = type { ptr, ptr }
+%"class.google::LogMessage" = type { ptr, ptr, %"struct.google::LogMessageTime" }
+%"struct.google::LogMessageTime" = type { %struct.tm, i64, i32, i64 }
+%struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %"class.std::map" = type { %"class.std::_Rb_tree" }
 %"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<int, std::pair<const int, folly::ssl::LockType>, std::_Select1st<std::pair<const int, folly::ssl::LockType>>, std::less<int>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<int, std::pair<const int, folly::ssl::LockType>, std::_Select1st<std::pair<const int, folly::ssl::LockType>>, std::less<int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
@@ -277,12 +279,12 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %_ZN5folly3ssl12_GLO
   br i1 %.b33, label %cond.false, label %cleanup.done20, !prof !8
 
 cond.false:                                       ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3) #11
-  invoke void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull @.str.1, i32 noundef 92)
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp3) #11
+  invoke void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp3, ptr noundef nonnull @.str.1, i32 noundef 92)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %cond.false
-  %call9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3)
+  %call9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp3)
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %invoke.cont5
@@ -294,19 +296,19 @@ invoke.cont10:                                    ; preds = %invoke.cont8
           to label %cleanup.action unwind label %lpad7
 
 cleanup.action:                                   ; preds = %invoke.cont10
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3) #13
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp3) #13
   unreachable
 
 lpad4:                                            ; preds = %cond.false
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3) #11
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp3) #11
   br label %ehcleanup30
 
 lpad7:                                            ; preds = %invoke.cont10, %invoke.cont8, %invoke.cont5
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3) #13
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp3) #13
   unreachable
 
 cleanup.done20:                                   ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
@@ -325,7 +327,7 @@ if.then.i.i.i.i:                                  ; preds = %cleanup.done20
   %7 = load ptr, ptr %_M_left.i.i.i.i.i, align 8, !tbaa !18
   %_M_right.i.i.i.i.i = getelementptr inbounds i8, ptr %inLockTypes, i64 32
   %8 = load ptr, ptr %_M_right.i.i.i.i.i, align 8, !tbaa !19
-  %_M_parent16.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %5, i64 0, i32 1
+  %_M_parent16.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %4, ptr %_M_parent16.i.i.i.i.i, align 8, !tbaa !20
   %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %inLockTypes, i64 40
   %9 = load i64, ptr %_M_node_count.i.i.i.i.i, align 8, !tbaa !21
@@ -428,12 +430,12 @@ ehcleanup30:                                      ; preds = %lpad28, %lpad25, %l
   resume { ptr, i32 } %.pn
 }
 
-declare void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef) unnamed_addr #6
+declare void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, i32 noundef) unnamed_addr #6
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #6
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #6
 
 ; Function Attrs: noreturn nounwind
-declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #8
+declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #8
 
 declare void @_ZN5folly3ssl6detail12setLockTypesESt3mapIiNS0_8LockTypeESt4lessIiESaISt4pairIKiS3_EEE(ptr noundef) local_unnamed_addr #6
 
@@ -466,10 +468,10 @@ entry:
 
 while.body:                                       ; preds = %while.body, %entry
   %__x.addr.07 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.07, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8, !tbaa !22
   tail call void @_ZNSt8_Rb_treeIiSt4pairIKiN5folly3ssl8LockTypeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.07, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8, !tbaa !23
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.07) #14
   %cmp.not = icmp eq ptr %1, null
@@ -515,12 +517,12 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %_ZN5folly3ssl12_GLO
   br i1 %.b13, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #11
-  invoke void @_ZN6google10LogMessageC1EPKci(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull @.str.1, i32 noundef 102)
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp) #11
+  invoke void @_ZN6google10LogMessageC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp, ptr noundef nonnull @.str.1, i32 noundef 102)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  %call3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
+  %call3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp)
           to label %invoke.cont2 unwind label %lpad1
 
 invoke.cont2:                                     ; preds = %invoke.cont
@@ -528,8 +530,8 @@ invoke.cont2:                                     ; preds = %invoke.cont
           to label %invoke.cont4 unwind label %lpad1
 
 invoke.cont4:                                     ; preds = %invoke.cont2
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #11
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp) #11
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp) #11
   br label %cleanup
 
 lpad:                                             ; preds = %if.then
@@ -540,12 +542,12 @@ lpad:                                             ; preds = %if.then
 lpad1:                                            ; preds = %invoke.cont2, %invoke.cont
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #11
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp) #11
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad1, %lpad
   %.pn = phi { ptr, i32 } [ %3, %lpad1 ], [ %2, %lpad ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #11
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp) #11
   br label %ehcleanup9
 
 if.end:                                           ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
@@ -564,7 +566,7 @@ if.then.i.i.i.i:                                  ; preds = %if.end
   %7 = load ptr, ptr %_M_left.i.i.i.i.i, align 8, !tbaa !18
   %_M_right.i.i.i.i.i = getelementptr inbounds i8, ptr %inLockTypes, i64 32
   %8 = load ptr, ptr %_M_right.i.i.i.i.i, align 8, !tbaa !19
-  %_M_parent16.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %5, i64 0, i32 1
+  %_M_parent16.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %4, ptr %_M_parent16.i.i.i.i.i, align 8, !tbaa !20
   %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %inLockTypes, i64 40
   %9 = load i64, ptr %_M_node_count.i.i.i.i.i, align 8, !tbaa !21
@@ -624,10 +626,10 @@ ehcleanup9:                                       ; preds = %lpad6, %ehcleanup
   resume { ptr, i32 } %.pn.pn
 }
 
-declare void @_ZN6google10LogMessageC1EPKci(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef) unnamed_addr #6
+declare void @_ZN6google10LogMessageC1EPKci(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, i32 noundef) unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #5
+declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5folly3ssl14isLockDisabledEi(i32 noundef %lockId) local_unnamed_addr #0 {

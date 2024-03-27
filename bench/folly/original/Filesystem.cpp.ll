@@ -14,13 +14,13 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Head_base.1" = type { ptr }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly2fs19lexically_normal_fnclERKNSt10filesystem7__cxx114pathE(ptr noalias sret(%"class.std::filesystem::__cxx11::path") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(40) %p) local_unnamed_addr #0 align 2 {
+define void @_ZNK5folly2fs19lexically_normal_fnclERKNSt10filesystem7__cxx114pathE(ptr dead_on_unwind noalias writable sret(%"class.std::filesystem::__cxx11::path") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(40) %p) local_unnamed_addr #0 align 2 {
 entry:
-  tail call void @_ZNKSt10filesystem7__cxx114path16lexically_normalEv(ptr sret(%"class.std::filesystem::__cxx11::path") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %p)
+  tail call void @_ZNKSt10filesystem7__cxx114path16lexically_normalEv(ptr dead_on_unwind writable sret(%"class.std::filesystem::__cxx11::path") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %p)
   ret void
 }
 
-declare void @_ZNKSt10filesystem7__cxx114path16lexically_normalEv(ptr sret(%"class.std::filesystem::__cxx11::path") align 8, ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
+declare void @_ZNKSt10filesystem7__cxx114path16lexically_normalEv(ptr dead_on_unwind writable sret(%"class.std::filesystem::__cxx11::path") align 8, ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

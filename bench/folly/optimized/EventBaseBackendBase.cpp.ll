@@ -5,7 +5,9 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.epoll_event = type <{ i32, %union.epoll_data }>
 %union.epoll_data = type { ptr }
-%"class.google::LogMessage" = type { ptr, ptr }
+%"class.google::LogMessage" = type { ptr, ptr, %"struct.google::LogMessageTime" }
+%"struct.google::LogMessageTime" = type { %struct.tm, i64, i32, i64 }
+%struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %"class.std::out_of_range" = type { %"class.std::logic_error" }
 %"class.std::logic_error" = type { %"class.std::exception", %"struct.std::__cow_string" }
 %"class.std::exception" = type { ptr }
@@ -31,9 +33,9 @@ $_ZNSt12out_of_rangeC2EOS_ = comdat any
 @_ZTVSt12out_of_range = external unnamed_addr constant { [5 x ptr] }, align 8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14EventBaseEvent10eb_ev_baseEPNS_9EventBaseE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(168) %this, ptr noundef %evb) local_unnamed_addr #0 align 2 {
+define void @_ZN5folly14EventBaseEvent10eb_ev_baseEPNS_9EventBaseE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) %this, ptr noundef %evb) local_unnamed_addr #0 align 2 {
 entry:
-  %evb_ = getelementptr inbounds i8, ptr %this, i64 128
+  %evb_ = getelementptr inbounds i8, ptr %this, i64 120
   store ptr %evb, ptr %evb_, align 8, !tbaa !7
   %tobool.not = icmp eq ptr %evb, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -52,9 +54,9 @@ cond.end:                                         ; preds = %cond.true, %entry
 declare noundef ptr @_ZNK5folly9EventBase15getLibeventBaseEv(ptr noundef nonnull align 16 dereferenceable(584)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5folly14EventBaseEvent17eb_event_base_setEPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %evb) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN5folly14EventBaseEvent17eb_event_base_setEPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef %evb) local_unnamed_addr #0 align 2 {
 entry:
-  %evb_ = getelementptr inbounds i8, ptr %this, i64 128
+  %evb_ = getelementptr inbounds i8, ptr %this, i64 120
   store ptr %evb, ptr %evb_, align 8, !tbaa !7
   %tobool.not = icmp eq ptr %evb, null
   br i1 %tobool.not, label %cleanup, label %cond.end
@@ -82,9 +84,9 @@ declare i32 @event_base_set(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5folly14EventBaseEvent12eb_event_addEPK7timeval(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %timeout) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN5folly14EventBaseEvent12eb_event_addEPK7timeval(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef %timeout) local_unnamed_addr #0 align 2 {
 entry:
-  %evb_ = getelementptr inbounds i8, ptr %this, i64 128
+  %evb_ = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %evb_, align 8, !tbaa !7
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %cond.end
@@ -99,7 +101,7 @@ if.then:                                          ; preds = %cond.end
   %vtable = load ptr, ptr %1, align 8, !tbaa !23
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %2 = load ptr, ptr %vfn, align 8
-  %call4 = tail call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %timeout)
+  %call4 = tail call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef %timeout)
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then, %cond.end, %entry
@@ -108,9 +110,9 @@ cleanup:                                          ; preds = %if.then, %cond.end,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5folly14EventBaseEvent12eb_event_delEv(ptr noundef nonnull align 8 dereferenceable(168) %this) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN5folly14EventBaseEvent12eb_event_delEv(ptr noundef nonnull align 8 dereferenceable(160) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %evb_ = getelementptr inbounds i8, ptr %this, i64 128
+  %evb_ = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %evb_, align 8, !tbaa !7
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %cond.end
@@ -125,7 +127,7 @@ if.then:                                          ; preds = %cond.end
   %vtable = load ptr, ptr %1, align 8, !tbaa !23
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %2 = load ptr, ptr %vfn, align 8
-  %call4 = tail call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(168) %this)
+  %call4 = tail call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(160) %this)
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then, %cond.end, %entry
@@ -134,9 +136,9 @@ cleanup:                                          ; preds = %if.then, %cond.end,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5folly14EventBaseEvent15eb_event_activeEi(ptr noundef nonnull align 8 dereferenceable(168) %this, i32 noundef %res) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN5folly14EventBaseEvent15eb_event_activeEi(ptr noundef nonnull align 8 dereferenceable(160) %this, i32 noundef %res) local_unnamed_addr #0 align 2 {
 entry:
-  %evb_ = getelementptr inbounds i8, ptr %this, i64 128
+  %evb_ = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %evb_, align 8, !tbaa !7
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %cond.end
@@ -151,7 +153,7 @@ if.then:                                          ; preds = %cond.end
   %vtable = load ptr, ptr %1, align 8, !tbaa !23
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %2 = load ptr, ptr %vfn, align 8
-  %call4 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(168) %this, i32 noundef %res)
+  %call4 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(160) %this, i32 noundef %res)
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then, %cond.end, %entry
@@ -160,7 +162,7 @@ cleanup:                                          ; preds = %if.then, %cond.end,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5folly14EventBaseEvent16setEdgeTriggeredEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN5folly14EventBaseEvent16setEdgeTriggeredEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %epev = alloca %struct.epoll_event, align 4
   %ref.tmp = alloca %"class.google::LogMessage", align 8
@@ -198,7 +200,7 @@ lpad:                                             ; preds = %init
   br label %eh.resume
 
 if.end:                                           ; preds = %init.end
-  %evb_ = getelementptr inbounds i8, ptr %this, i64 128
+  %evb_ = getelementptr inbounds i8, ptr %this, i64 120
   %5 = load ptr, ptr %evb_, align 8, !tbaa !7
   %tobool5.not = icmp eq ptr %5, null
   br i1 %tobool5.not, label %return, label %cond.end
@@ -226,8 +228,8 @@ if.end13:                                         ; preds = %lor.lhs.false
   %9 = load i32, ptr %ev_fd.i, align 8, !tbaa !34
   %data = getelementptr inbounds i8, ptr %epev, i64 4
   store i32 %9, ptr %data, align 4, !tbaa !35
-  %ev_events.i = getelementptr inbounds i8, ptr %this, i64 104
-  %10 = load i16, ptr %ev_events.i, align 8, !tbaa !36
+  %ev_events.i = getelementptr inbounds i8, ptr %this, i64 60
+  %10 = load i16, ptr %ev_events.i, align 4, !tbaa !36
   %11 = and i16 %10, 2
   %tobool17.not = icmp eq i16 %11, 0
   %spec.store.select = select i1 %tobool17.not, i32 -2147483648, i32 -2147483647
@@ -240,9 +242,9 @@ if.end13:                                         ; preds = %lor.lhs.false
   br i1 %cmp, label %cleanup, label %if.then31
 
 if.then31:                                        ; preds = %if.end13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #10
-  call void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull @.str.2, i32 noundef 111, i32 noundef 2)
-  %call34 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp) #10
+  call void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp, ptr noundef nonnull @.str.2, i32 noundef 111, i32 noundef 2)
+  %call34 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp)
           to label %invoke.cont33 unwind label %lpad32
 
 invoke.cont33:                                    ; preds = %if.then31
@@ -256,15 +258,15 @@ invoke.cont35:                                    ; preds = %invoke.cont33
           to label %invoke.cont38 unwind label %lpad32
 
 invoke.cont38:                                    ; preds = %invoke.cont35
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #10
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp) #10
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp) #10
   br label %cleanup
 
 lpad32:                                           ; preds = %invoke.cont35, %invoke.cont33, %if.then31
   %15 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #10
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp) #10
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp) #10
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %epev) #10
   br label %eh.resume
 
@@ -305,9 +307,9 @@ declare ptr @event_base_get_method(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind
 declare i32 @epoll_ctl(i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
-declare void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef, i32 noundef) unnamed_addr #1
+declare void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, i32 noundef, i32 noundef) unnamed_addr #1
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #1
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #1
 
@@ -315,7 +317,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef no
 declare ptr @__errno_location() local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #5
+declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #5
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -366,13 +368,10 @@ if.end17:                                         ; preds = %if.else, %if.then7
   %.sroa.speculated.i81 = tail call i64 @llvm.umin.i64(i64 %sub.i80, i64 %conv.sink)
   %add.ptr.i.i82 = getelementptr inbounds i8, ptr %add.ptr.i79, i64 %.sroa.speculated.i81
   %name16 = getelementptr inbounds i8, ptr %out, i64 16
-  store ptr %add.ptr.i79, ptr %name16, align 8
+  store ptr %add.ptr.i79, ptr %name16, align 8, !tbaa !22
   %ref.tmp12.sroa.4.0.name16.sroa_idx = getelementptr inbounds i8, ptr %out, i64 24
-  store ptr %add.ptr.i.i82, ptr %ref.tmp12.sroa.4.0.name16.sroa_idx, align 8
-  %3 = load i32, ptr %msg_namelen, align 8, !tbaa !38
-  %conv20 = zext i32 %3 to i64
-  %add21 = add nuw nsw i64 %conv20, 16
-  %cmp.i91 = icmp ult i64 %sub.ptr.sub.i, %add21
+  store ptr %add.ptr.i.i82, ptr %ref.tmp12.sroa.4.0.name16.sroa_idx, align 8, !tbaa !22
+  %cmp.i91 = icmp ult i64 %sub.ptr.sub.i, %add
   br i1 %cmp.i91, label %if.then.i98, label %_ZNK5folly5RangeIPKhE8subpieceEmm.exit111, !prof !46
 
 if.then.i98:                                      ; preds = %if.end17
@@ -381,39 +380,39 @@ if.then.i98:                                      ; preds = %if.end17
 
 _ZNK5folly5RangeIPKhE8subpieceEmm.exit111:        ; preds = %if.end17
   %control = getelementptr inbounds i8, ptr %total.coerce0, i64 4
-  %4 = load i32, ptr %control, align 4, !tbaa !47
-  %conv22 = zext i32 %4 to i64
-  %add.ptr.i92 = getelementptr inbounds i8, ptr %total.coerce0, i64 %add21
-  %sub.i93 = sub i64 %sub.ptr.sub.i, %add21
+  %3 = load i32, ptr %control, align 4, !tbaa !47
+  %conv22 = zext i32 %3 to i64
+  %add.ptr.i92 = getelementptr inbounds i8, ptr %total.coerce0, i64 %add
+  %sub.i93 = sub i64 %sub.ptr.sub.i, %add
   %.sroa.speculated.i94 = tail call i64 @llvm.umin.i64(i64 %sub.i93, i64 %conv22)
   %add.ptr.i.i95 = getelementptr inbounds i8, ptr %add.ptr.i92, i64 %.sroa.speculated.i94
   %control24 = getelementptr inbounds i8, ptr %out, i64 32
-  store ptr %add.ptr.i92, ptr %control24, align 8, !tbaa.struct !48
+  store ptr %add.ptr.i92, ptr %control24, align 8, !tbaa !22
   %ref.tmp18.sroa.4.0.control24.sroa_idx = getelementptr inbounds i8, ptr %out, i64 40
-  store ptr %add.ptr.i.i95, ptr %ref.tmp18.sroa.4.0.control24.sroa_idx, align 8, !tbaa.struct !49
+  store ptr %add.ptr.i.i95, ptr %ref.tmp18.sroa.4.0.control24.sroa_idx, align 8, !tbaa !22
   %add.ptr.i105 = getelementptr inbounds i8, ptr %total.coerce0, i64 %add1
   %add.ptr.i.i107 = getelementptr inbounds i8, ptr %total.coerce0, i64 %sub.ptr.sub.i
-  store ptr %add.ptr.i105, ptr %out, align 8, !tbaa.struct !48
+  store ptr %add.ptr.i105, ptr %out, align 8, !tbaa !22
   %ref.tmp25.sroa.4.0.payload.sroa_idx = getelementptr inbounds i8, ptr %out, i64 8
-  store ptr %add.ptr.i.i107, ptr %ref.tmp25.sroa.4.0.payload.sroa_idx, align 8, !tbaa.struct !49
+  store ptr %add.ptr.i.i107, ptr %ref.tmp25.sroa.4.0.payload.sroa_idx, align 8, !tbaa !22
   %payload27 = getelementptr inbounds i8, ptr %total.coerce0, i64 8
-  %5 = load i32, ptr %payload27, align 4, !tbaa !50
-  %conv28 = zext i32 %5 to i64
+  %4 = load i32, ptr %payload27, align 4, !tbaa !48
+  %conv28 = zext i32 %4 to i64
   %realPayloadLength = getelementptr inbounds i8, ptr %out, i64 56
-  store i64 %conv28, ptr %realPayloadLength, align 8, !tbaa !51
+  store i64 %conv28, ptr %realPayloadLength, align 8, !tbaa !49
   %flags = getelementptr inbounds i8, ptr %total.coerce0, i64 12
-  %6 = load i32, ptr %flags, align 4, !tbaa !52
+  %5 = load i32, ptr %flags, align 4, !tbaa !50
   %flags29 = getelementptr inbounds i8, ptr %out, i64 48
-  store i32 %6, ptr %flags29, align 8, !tbaa !53
+  store i32 %5, ptr %flags29, align 8, !tbaa !51
   %sub.ptr.rhs.cast.i114 = ptrtoint ptr %add.ptr.i105 to i64
   %sub.ptr.sub.i115 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i114
   %cmp34.not = icmp eq i64 %sub.ptr.sub.i115, %conv28
   br i1 %cmp34.not, label %cleanup51, label %if.then35
 
 if.then35:                                        ; preds = %_ZNK5folly5RangeIPKhE8subpieceEmm.exit111
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp36) #10
-  call void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp36, ptr noundef nonnull @.str.2, i32 noundef 146, i32 noundef 2)
-  %call37 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp36)
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp36) #10
+  call void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp36, ptr noundef nonnull @.str.2, i32 noundef 146, i32 noundef 2)
+  %call37 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp36)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then35
@@ -421,10 +420,10 @@ invoke.cont:                                      ; preds = %if.then35
           to label %invoke.cont38 unwind label %lpad
 
 invoke.cont38:                                    ; preds = %invoke.cont
-  %7 = load ptr, ptr %ref.tmp25.sroa.4.0.payload.sroa_idx, align 8, !tbaa !54
-  %8 = load ptr, ptr %out, align 8, !tbaa !55
-  %sub.ptr.lhs.cast.i118 = ptrtoint ptr %7 to i64
-  %sub.ptr.rhs.cast.i119 = ptrtoint ptr %8 to i64
+  %6 = load ptr, ptr %ref.tmp25.sroa.4.0.payload.sroa_idx, align 8, !tbaa !52
+  %7 = load ptr, ptr %out, align 8, !tbaa !53
+  %sub.ptr.lhs.cast.i118 = ptrtoint ptr %6 to i64
+  %sub.ptr.rhs.cast.i119 = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i120 = sub i64 %sub.ptr.lhs.cast.i118, %sub.ptr.rhs.cast.i119
   %call.i121 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call37, i64 noundef %sub.ptr.sub.i120)
           to label %invoke.cont43 unwind label %lpad
@@ -434,22 +433,22 @@ invoke.cont43:                                    ; preds = %invoke.cont38
           to label %invoke.cont45 unwind label %lpad
 
 invoke.cont45:                                    ; preds = %invoke.cont43
-  %9 = load i32, ptr %payload27, align 4, !tbaa !50
-  %conv.i = zext i32 %9 to i64
+  %8 = load i32, ptr %payload27, align 4, !tbaa !48
+  %conv.i = zext i32 %8 to i64
   %call.i125 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i121, i64 noundef %conv.i)
           to label %invoke.cont48 unwind label %lpad
 
 invoke.cont48:                                    ; preds = %invoke.cont45
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp36) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp36) #10
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp36) #10
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp36) #10
   br label %cleanup51
 
 lpad:                                             ; preds = %invoke.cont45, %invoke.cont43, %invoke.cont38, %invoke.cont, %if.then35
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp36) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp36) #10
-  resume { ptr, i32 } %10
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp36) #10
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp36) #10
+  resume { ptr, i32 } %9
 
 cleanup51:                                        ; preds = %invoke.cont48, %_ZNK5folly5RangeIPKhE8subpieceEmm.exit111, %entry
   %retval.1 = phi i1 [ false, %entry ], [ true, %_ZNK5folly5RangeIPKhE8subpieceEmm.exit111 ], [ false, %invoke.cont48 ]
@@ -496,7 +495,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 define linkonce_odr void @_ZNSt12out_of_rangeC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #8 comdat align 2 {
 entry:
   tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12out_of_range, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !23
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt12out_of_range, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !23
   ret void
 }
 
@@ -535,9 +534,9 @@ attributes #14 = { noreturn }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!7 = !{!8, !12, i64 128}
-!8 = !{!"_ZTSN5folly14EventBaseEventE", !9, i64 0, !12, i64 128, !12, i64 136, !12, i64 144, !19, i64 152}
-!9 = !{!"_ZTS5event", !10, i64 0, !13, i64 40, !16, i64 56, !12, i64 64, !13, i64 72, !15, i64 104, !15, i64 106, !17, i64 112}
+!7 = !{!8, !12, i64 120}
+!8 = !{!"_ZTSN5folly14EventBaseEventE", !9, i64 0, !12, i64 120, !12, i64 128, !12, i64 136, !19, i64 144}
+!9 = !{!"_ZTS5event", !10, i64 0, !13, i64 40, !16, i64 56, !15, i64 60, !15, i64 62, !12, i64 64, !13, i64 72, !17, i64 104}
 !10 = !{!"_ZTS14event_callback", !11, i64 0, !15, i64 16, !13, i64 18, !13, i64 19, !13, i64 24, !12, i64 32}
 !11 = !{!"_ZTSN14event_callbackUt_E", !12, i64 0, !12, i64 8}
 !12 = !{!"any pointer", !13, i64 0}
@@ -564,7 +563,7 @@ attributes #14 = { noreturn }
 !33 = !{!"_ZTS7epollop", !12, i64 0, !16, i64 8, !12, i64 16, !16, i64 24, !16, i64 28}
 !34 = !{!8, !16, i64 56}
 !35 = !{!13, !13, i64 0}
-!36 = !{!8, !15, i64 104}
+!36 = !{!8, !15, i64 60}
 !37 = !{!16, !16, i64 0}
 !38 = !{!39, !16, i64 8}
 !39 = !{!"_ZTS6msghdr", !12, i64 0, !16, i64 8, !12, i64 16, !18, i64 24, !12, i64 32, !18, i64 40, !16, i64 48}
@@ -576,11 +575,9 @@ attributes #14 = { noreturn }
 !45 = !{!"_ZTSN5folly5RangeIPKhEE", !12, i64 0, !12, i64 8}
 !46 = !{!"branch_weights", i32 1, i32 2000}
 !47 = !{!42, !16, i64 4}
-!48 = !{i64 0, i64 8, !22, i64 8, i64 8, !22}
-!49 = !{i64 0, i64 8, !22}
-!50 = !{!42, !16, i64 8}
-!51 = !{!44, !18, i64 56}
-!52 = !{!42, !16, i64 12}
-!53 = !{!44, !16, i64 48}
-!54 = !{!45, !12, i64 8}
-!55 = !{!45, !12, i64 0}
+!48 = !{!42, !16, i64 8}
+!49 = !{!44, !18, i64 56}
+!50 = !{!42, !16, i64 12}
+!51 = !{!44, !16, i64 48}
+!52 = !{!45, !12, i64 8}
+!53 = !{!45, !12, i64 0}

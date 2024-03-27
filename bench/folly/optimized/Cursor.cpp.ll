@@ -36,9 +36,9 @@ define void @_ZN5folly2io8Appender6printfEPKcz(ptr nocapture noundef nonnull ali
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ap) #9
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   call void @_ZN5folly2io8Appender7vprintfEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %fmt, ptr noundef nonnull %ap)
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ap) #9
   ret void
 }
@@ -47,7 +47,7 @@ entry:
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #2
+declare void @llvm.va_start.p0(ptr) #2
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly2io8Appender7vprintfEPKcP13__va_list_tag(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %fmt, ptr noundef %ap) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -55,7 +55,7 @@ invoke.cont2:
   %ref.tmp.i = alloca %"class.std::unique_ptr", align 8
   %apCopy = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %apCopy) #9
-  call void @llvm.va_copy(ptr nonnull %apCopy, ptr %ap)
+  call void @llvm.va_copy.p0(ptr nonnull %apCopy, ptr %ap)
   %crtBuf_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %crtBuf_.i, align 8, !tbaa !7
   %data_.i.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -140,7 +140,7 @@ if.end4.i:                                        ; preds = %if.end13
   %.sroa.speculated.i = call i64 @llvm.umax.i64(i64 %13, i64 %add)
   %14 = load ptr, ptr %this, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i) #9
-  invoke void @_ZN5folly5IOBuf6createEm(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp.i, i64 noundef %.sroa.speculated.i)
+  invoke void @_ZN5folly5IOBuf6createEm(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %ref.tmp.i, i64 noundef %.sroa.speculated.i)
           to label %.noexc72 unwind label %lpad7
 
 .noexc72:                                         ; preds = %if.end4.i
@@ -240,13 +240,13 @@ if.end35:                                         ; preds = %invoke.cont28
   br label %"_ZN5folly6detail14ScopeGuardImplIZNS_2io8Appender7vprintfEPKcP13__va_list_tagE3$_0Lb1EED2Ev.exit"
 
 "_ZN5folly6detail14ScopeGuardImplIZNS_2io8Appender7vprintfEPKcP13__va_list_tagE3$_0Lb1EED2Ev.exit": ; preds = %if.end35, %if.then11
-  call void @llvm.va_end(ptr nonnull %apCopy)
+  call void @llvm.va_end.p0(ptr nonnull %apCopy)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %apCopy) #9
   ret void
 
 "_ZN5folly6detail14ScopeGuardImplIZNS_2io8Appender7vprintfEPKcP13__va_list_tagE3$_0Lb1EED2Ev.exit100": ; preds = %lpad33, %lpad24, %lpad.i, %lpad7, %lpad5, %lpad
   %.pn56 = phi { ptr, i32 } [ %5, %lpad ], [ %6, %lpad5 ], [ %23, %lpad24 ], [ %30, %lpad33 ], [ %12, %lpad7 ], [ %22, %lpad.i ]
-  call void @llvm.va_end(ptr nonnull %apCopy)
+  call void @llvm.va_end.p0(ptr nonnull %apCopy)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %apCopy) #9
   resume { ptr, i32 } %.pn56
 
@@ -255,13 +255,13 @@ unreachable:                                      ; preds = %invoke.cont6
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #2
+declare void @llvm.va_end.p0(ptr) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #2
+declare void @llvm.va_copy.p0(ptr, ptr) #2
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
@@ -279,7 +279,7 @@ declare void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceab
 
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 
-declare void @_ZN5folly5IOBuf6createEm(ptr sret(%"class.std::unique_ptr") align 8, i64 noundef) local_unnamed_addr #4
+declare void @_ZN5folly5IOBuf6createEm(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -336,7 +336,7 @@ declare void @_ZNSt12out_of_rangeD1Ev(ptr noundef nonnull align 8 dereferenceabl
 define linkonce_odr void @_ZNSt12out_of_rangeC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 {
 entry:
   tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12out_of_range, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !22
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt12out_of_range, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !22
   ret void
 }
 

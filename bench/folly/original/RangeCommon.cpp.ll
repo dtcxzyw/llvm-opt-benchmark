@@ -5,7 +5,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Base_bitset" = type { [4 x i64] }
 %"class.folly::SparseByteSet" = type { i16, [256 x i8], [256 x i8] }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i64 @_ZN5folly6detail26qfind_first_byte_of_bitsetENS0_15StringPieceLiteES1_(ptr %haystack.coerce0, ptr %haystack.coerce1, ptr readonly %needles.coerce0, ptr readnone %needles.coerce1) local_unnamed_addr #0 {
 entry:
   %s = alloca %"class.std::bitset", align 8
@@ -111,65 +111,72 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i64 @_ZN5folly6detail27qfind_first_byte_of_bytesetENS0_15StringPieceLiteES1_(ptr %haystack.coerce0, ptr %haystack.coerce1, ptr readonly %needles.coerce0, ptr readnone %needles.coerce1) local_unnamed_addr #0 {
 entry:
   %s = alloca %"class.folly::SparseByteSet", align 2
   call void @llvm.lifetime.start.p0(i64 514, ptr nonnull %s) #4
-  %cmp.not26 = icmp eq ptr %needles.coerce0, %needles.coerce1
-  br i1 %cmp.not26, label %for.cond3.preheader, label %for.body
+  %cmp.not27 = icmp eq ptr %needles.coerce0, %needles.coerce1
+  br i1 %cmp.not27, label %for.cond3.preheader, label %for.body.lr.ph
+
+for.body.lr.ph:                                   ; preds = %entry
+  %sparse_.i.i = getelementptr inbounds i8, ptr %s, i64 2
+  %dense_.i.i = getelementptr inbounds i8, ptr %s, i64 258
+  br label %for.body
 
 for.cond3.preheader:                              ; preds = %_ZN5folly13SparseByteSet3addEh.exit, %entry
-  %0 = phi i16 [ 0, %entry ], [ %inc.i24, %_ZN5folly13SparseByteSet3addEh.exit ]
-  %cmp5.not29.not = icmp eq ptr %haystack.coerce1, %haystack.coerce0
-  br i1 %cmp5.not29.not, label %cleanup, label %for.body7.lr.ph
+  %0 = phi i16 [ 0, %entry ], [ %inc.i25, %_ZN5folly13SparseByteSet3addEh.exit ]
+  %dense_.i23 = getelementptr inbounds i8, ptr %s, i64 258
+  %cmp5.not30.not = icmp eq ptr %haystack.coerce1, %haystack.coerce0
+  br i1 %cmp5.not30.not, label %cleanup, label %for.body7.lr.ph
 
 for.body7.lr.ph:                                  ; preds = %for.cond3.preheader
   %sub.ptr.lhs.cast.i = ptrtoint ptr %haystack.coerce1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %haystack.coerce0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  %sparse_.i = getelementptr inbounds i8, ptr %s, i64 2
   %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.sub.i, i64 1)
   br label %for.body7
 
-for.body:                                         ; preds = %_ZN5folly13SparseByteSet3addEh.exit, %entry
-  %__begin2.028 = phi ptr [ %incdec.ptr, %_ZN5folly13SparseByteSet3addEh.exit ], [ %needles.coerce0, %entry ]
-  %inc.i2527 = phi i16 [ %inc.i24, %_ZN5folly13SparseByteSet3addEh.exit ], [ 0, %entry ]
-  %1 = load i8, ptr %__begin2.028, align 1, !tbaa !7
+for.body:                                         ; preds = %_ZN5folly13SparseByteSet3addEh.exit, %for.body.lr.ph
+  %__begin2.029 = phi ptr [ %needles.coerce0, %for.body.lr.ph ], [ %incdec.ptr, %_ZN5folly13SparseByteSet3addEh.exit ]
+  %inc.i2628 = phi i16 [ 0, %for.body.lr.ph ], [ %inc.i25, %_ZN5folly13SparseByteSet3addEh.exit ]
+  %1 = load i8, ptr %__begin2.029, align 1, !tbaa !7
   %idxprom.i.i = zext i8 %1 to i64
-  %arrayidx.i.i = getelementptr inbounds %"class.folly::SparseByteSet", ptr %s, i64 0, i32 1, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds [256 x i8], ptr %sparse_.i.i, i64 0, i64 %idxprom.i.i
   %2 = load i8, ptr %arrayidx.i.i, align 1, !tbaa !7
   %3 = zext i8 %2 to i16
-  %cmp.i.i = icmp ugt i16 %inc.i2527, %3
+  %cmp.i.i = icmp ugt i16 %inc.i2628, %3
   br i1 %cmp.i.i, label %_ZNK5folly13SparseByteSet8containsEh.exit.i, label %if.then.i
 
 _ZNK5folly13SparseByteSet8containsEh.exit.i:      ; preds = %for.body
   %idxprom6.i.i = zext i8 %2 to i64
-  %arrayidx7.i.i = getelementptr inbounds %"class.folly::SparseByteSet", ptr %s, i64 0, i32 2, i64 %idxprom6.i.i
+  %arrayidx7.i.i = getelementptr inbounds [256 x i8], ptr %dense_.i.i, i64 0, i64 %idxprom6.i.i
   %4 = load i8, ptr %arrayidx7.i.i, align 1, !tbaa !7
   %cmp10.i.i = icmp eq i8 %4, %1
   br i1 %cmp10.i.i, label %_ZN5folly13SparseByteSet3addEh.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNK5folly13SparseByteSet8containsEh.exit.i, %for.body
-  %idxprom.i = zext i16 %inc.i2527 to i64
-  %arrayidx.i = getelementptr inbounds %"class.folly::SparseByteSet", ptr %s, i64 0, i32 2, i64 %idxprom.i
+  %idxprom.i = zext i16 %inc.i2628 to i64
+  %arrayidx.i = getelementptr inbounds [256 x i8], ptr %dense_.i.i, i64 0, i64 %idxprom.i
   store i8 %1, ptr %arrayidx.i, align 1, !tbaa !7
-  %conv.i = trunc i16 %inc.i2527 to i8
+  %conv.i = trunc i16 %inc.i2628 to i8
   store i8 %conv.i, ptr %arrayidx.i.i, align 1, !tbaa !7
-  %inc.i = add i16 %inc.i2527, 1
+  %inc.i = add i16 %inc.i2628, 1
   br label %_ZN5folly13SparseByteSet3addEh.exit
 
 _ZN5folly13SparseByteSet3addEh.exit:              ; preds = %if.then.i, %_ZNK5folly13SparseByteSet8containsEh.exit.i
-  %inc.i24 = phi i16 [ %inc.i2527, %_ZNK5folly13SparseByteSet8containsEh.exit.i ], [ %inc.i, %if.then.i ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.028, i64 1
+  %inc.i25 = phi i16 [ %inc.i2628, %_ZNK5folly13SparseByteSet8containsEh.exit.i ], [ %inc.i, %if.then.i ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.029, i64 1
   %cmp.not = icmp eq ptr %incdec.ptr, %needles.coerce1
   br i1 %cmp.not, label %for.cond3.preheader, label %for.body
 
 for.body7:                                        ; preds = %for.inc10, %for.body7.lr.ph
-  %index.030 = phi i64 [ 0, %for.body7.lr.ph ], [ %inc, %for.inc10 ]
-  %arrayidx.i20 = getelementptr inbounds i8, ptr %haystack.coerce0, i64 %index.030
+  %index.031 = phi i64 [ 0, %for.body7.lr.ph ], [ %inc, %for.inc10 ]
+  %arrayidx.i20 = getelementptr inbounds i8, ptr %haystack.coerce0, i64 %index.031
   %5 = load i8, ptr %arrayidx.i20, align 1, !tbaa !7
   %idxprom.i21 = zext i8 %5 to i64
-  %arrayidx.i22 = getelementptr inbounds %"class.folly::SparseByteSet", ptr %s, i64 0, i32 1, i64 %idxprom.i21
+  %arrayidx.i22 = getelementptr inbounds [256 x i8], ptr %sparse_.i, i64 0, i64 %idxprom.i21
   %6 = load i8, ptr %arrayidx.i22, align 1, !tbaa !7
   %7 = zext i8 %6 to i16
   %cmp.i = icmp ugt i16 %0, %7
@@ -177,18 +184,18 @@ for.body7:                                        ; preds = %for.inc10, %for.bod
 
 _ZNK5folly13SparseByteSet8containsEh.exit:        ; preds = %for.body7
   %idxprom6.i = zext i8 %6 to i64
-  %arrayidx7.i = getelementptr inbounds %"class.folly::SparseByteSet", ptr %s, i64 0, i32 2, i64 %idxprom6.i
+  %arrayidx7.i = getelementptr inbounds [256 x i8], ptr %dense_.i23, i64 0, i64 %idxprom6.i
   %8 = load i8, ptr %arrayidx7.i, align 1, !tbaa !7
   %cmp10.i = icmp eq i8 %8, %5
   br i1 %cmp10.i, label %cleanup, label %for.inc10
 
 for.inc10:                                        ; preds = %_ZNK5folly13SparseByteSet8containsEh.exit, %for.body7
-  %inc = add nuw i64 %index.030, 1
+  %inc = add nuw i64 %index.031, 1
   %exitcond.not = icmp eq i64 %inc, %umax
   br i1 %exitcond.not, label %cleanup, label %for.body7, !llvm.loop !14
 
 cleanup:                                          ; preds = %for.inc10, %_ZNK5folly13SparseByteSet8containsEh.exit, %for.cond3.preheader
-  %spec.select = phi i64 [ -1, %for.cond3.preheader ], [ %index.030, %_ZNK5folly13SparseByteSet8containsEh.exit ], [ -1, %for.inc10 ]
+  %spec.select = phi i64 [ -1, %for.cond3.preheader ], [ %index.031, %_ZNK5folly13SparseByteSet8containsEh.exit ], [ -1, %for.inc10 ]
   call void @llvm.lifetime.end.p0(i64 514, ptr nonnull %s) #4
   ret i64 %spec.select
 }
@@ -196,7 +203,7 @@ cleanup:                                          ; preds = %for.inc10, %_ZNK5fo
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #3
 
-attributes #0 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

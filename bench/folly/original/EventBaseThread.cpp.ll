@@ -14,7 +14,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%"class.folly::EventBaseThread" = type { ptr, %"struct.folly::EventBase::Options", %"class.std::unique_ptr" }
 
 $__clang_call_terminate = comdat any
 
@@ -35,19 +34,19 @@ entry:
   %agg.tmp.i = alloca %"struct.folly::EventBase::Options", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %agg.tmp.i)
   store i8 0, ptr %agg.tmp.i, align 8, !tbaa !7
-  %backendFactory.i.i = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %agg.tmp.i, i64 0, i32 2
+  %backendFactory.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %backendFactory.i.i, i8 0, i64 32, i1 false)
-  %timerTickInterval.i.i = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %agg.tmp.i, i64 0, i32 3
+  %timerTickInterval.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 40
   %0 = load i32, ptr @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE21DEFAULT_TICK_INTERVALE, align 4, !tbaa !17
   %conv.i.i.i = sext i32 %0 to i64
   store i64 %conv.i.i.i, ptr %timerTickInterval.i.i, align 8, !tbaa !19
-  %strictLoopThread.i.i = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %agg.tmp.i, i64 0, i32 4
+  %strictLoopThread.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 48
   store i8 0, ptr %strictLoopThread.i.i, align 8, !tbaa !20
   invoke void @_ZN5folly15EventBaseThreadC2EbNS_9EventBase7OptionsEPNS_16EventBaseManagerENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(72) %this, i1 noundef zeroext true, ptr noundef nonnull %agg.tmp.i, ptr noundef null, ptr null, ptr null)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %_M_manager.i.i.i = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %agg.tmp.i, i64 0, i32 2, i32 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
   %1 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !21
   %tobool.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i, label %_ZN5folly15EventBaseThreadC2EbPNS_16EventBaseManagerENS_5RangeIPKcEE.exit, label %if.then.i.i.i
@@ -66,7 +65,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
 lpad.i:                                           ; preds = %entry
   %4 = landingpad { ptr, i32 }
           cleanup
-  %_M_manager.i.i5.i = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %agg.tmp.i, i64 0, i32 2, i32 0, i32 1
+  %_M_manager.i.i5.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
   %5 = load ptr, ptr %_M_manager.i.i5.i, align 8, !tbaa !21
   %tobool.not.i.i6.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i6.i, label %_ZN5folly9EventBase7OptionsD2Ev.exit11.i, label %if.then.i.i7.i
@@ -95,19 +94,19 @@ define void @_ZN5folly15EventBaseThreadC2EbPNS_16EventBaseManagerENS_5RangeIPKcE
 entry:
   %agg.tmp = alloca %"struct.folly::EventBase::Options", align 8
   store i8 0, ptr %agg.tmp, align 8, !tbaa !7
-  %backendFactory.i = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %agg.tmp, i64 0, i32 2
+  %backendFactory.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %backendFactory.i, i8 0, i64 32, i1 false)
-  %timerTickInterval.i = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %agg.tmp, i64 0, i32 3
+  %timerTickInterval.i = getelementptr inbounds i8, ptr %agg.tmp, i64 40
   %0 = load i32, ptr @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE21DEFAULT_TICK_INTERVALE, align 4, !tbaa !17
   %conv.i.i = sext i32 %0 to i64
   store i64 %conv.i.i, ptr %timerTickInterval.i, align 8, !tbaa !19
-  %strictLoopThread.i = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %agg.tmp, i64 0, i32 4
+  %strictLoopThread.i = getelementptr inbounds i8, ptr %agg.tmp, i64 48
   store i8 0, ptr %strictLoopThread.i, align 8, !tbaa !20
   invoke void @_ZN5folly15EventBaseThreadC2EbNS_9EventBase7OptionsEPNS_16EventBaseManagerENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(72) %this, i1 noundef zeroext %autostart, ptr noundef nonnull %agg.tmp, ptr noundef %ebm, ptr %threadName.coerce0, ptr %threadName.coerce1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %_M_manager.i.i = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %agg.tmp, i64 0, i32 2, i32 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %1 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !21
   %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZN5folly9EventBase7OptionsD2Ev.exit, label %if.then.i.i
@@ -129,7 +128,7 @@ _ZN5folly9EventBase7OptionsD2Ev.exit:             ; preds = %if.then.i.i, %invok
 lpad:                                             ; preds = %entry
   %4 = landingpad { ptr, i32 }
           cleanup
-  %_M_manager.i.i5 = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %agg.tmp, i64 0, i32 2, i32 0, i32 1
+  %_M_manager.i.i5 = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %5 = load ptr, ptr %_M_manager.i.i5, align 8, !tbaa !21
   %tobool.not.i.i6 = icmp eq ptr %5, null
   br i1 %tobool.not.i.i6, label %_ZN5folly9EventBase7OptionsD2Ev.exit11, label %if.then.i.i7
@@ -158,23 +157,23 @@ entry:
   %threadName.i = alloca %"class.folly::Range", align 8
   %ref.tmp.i = alloca %"class.std::unique_ptr", align 8
   store ptr %ebm, ptr %this, align 8, !tbaa !22
-  %ebOpts_ = getelementptr inbounds %"class.folly::EventBaseThread", ptr %this, i64 0, i32 1
+  %ebOpts_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %eventBaseOptions, align 8, !tbaa !7, !range !30, !noundef !31
   store i8 %0, ptr %ebOpts_, align 8, !tbaa !7
-  %backendFactory.i = getelementptr inbounds %"class.folly::EventBaseThread", ptr %this, i64 0, i32 1, i32 2
-  %_M_invoker.i.i = getelementptr inbounds %"class.folly::EventBaseThread", ptr %this, i64 0, i32 1, i32 2, i32 1
-  %_M_invoker2.i.i = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %eventBaseOptions, i64 0, i32 2, i32 1
+  %backendFactory.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_invoker2.i.i = getelementptr inbounds i8, ptr %eventBaseOptions, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %backendFactory.i, i8 0, i64 24, i1 false)
   %1 = load ptr, ptr %_M_invoker2.i.i, align 8, !tbaa !32
   store ptr %1, ptr %_M_invoker.i.i, align 8, !tbaa !32
-  %_M_manager.i.i.i.i = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %eventBaseOptions, i64 0, i32 2, i32 0, i32 1
+  %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %eventBaseOptions, i64 24
   %2 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !tbaa !21
   %tobool.not.i.i.not.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.not.i.i, label %_ZN5folly9EventBase7OptionsC2EOS1_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %backendFactory3.i = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %eventBaseOptions, i64 0, i32 2
-  %_M_manager.i.i.i = getelementptr inbounds %"class.folly::EventBaseThread", ptr %this, i64 0, i32 1, i32 2, i32 0, i32 1
+  %backendFactory3.i = getelementptr inbounds i8, ptr %eventBaseOptions, i64 8
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, ptr noundef nonnull align 8 dereferenceable(16) %backendFactory3.i, i64 16, i1 false), !tbaa.struct !33
   %3 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !tbaa !21
   store ptr %3, ptr %_M_manager.i.i.i, align 8, !tbaa !21
@@ -182,20 +181,20 @@ if.then.i.i:                                      ; preds = %entry
   br label %_ZN5folly9EventBase7OptionsC2EOS1_.exit
 
 _ZN5folly9EventBase7OptionsC2EOS1_.exit:          ; preds = %if.then.i.i, %entry
-  %timerTickInterval.i = getelementptr inbounds %"class.folly::EventBaseThread", ptr %this, i64 0, i32 1, i32 3
-  %timerTickInterval4.i = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %eventBaseOptions, i64 0, i32 3
+  %timerTickInterval.i = getelementptr inbounds i8, ptr %this, i64 48
+  %timerTickInterval4.i = getelementptr inbounds i8, ptr %eventBaseOptions, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %timerTickInterval.i, ptr noundef nonnull align 8 dereferenceable(9) %timerTickInterval4.i, i64 9, i1 false)
-  %th_ = getelementptr inbounds %"class.folly::EventBaseThread", ptr %this, i64 0, i32 2
+  %th_ = getelementptr inbounds i8, ptr %this, i64 64
   store ptr null, ptr %th_, align 8, !tbaa !35
   br i1 %autostart, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %_ZN5folly9EventBase7OptionsC2EOS1_.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %threadName.i)
   store ptr %threadName.coerce0, ptr %threadName.i, align 8
-  %4 = getelementptr inbounds { ptr, ptr }, ptr %threadName.i, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %threadName.i, i64 8
   store ptr %threadName.coerce1, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i) #13
-  invoke void @_ZSt11make_uniqueIN5folly21ScopedEventBaseThreadEJRNS0_9EventBase7OptionsERPNS0_16EventBaseManagerERNS0_5RangeIPKcEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(49) %ebOpts_, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(16) %threadName.i)
+  invoke void @_ZSt11make_uniqueIN5folly21ScopedEventBaseThreadEJRNS0_9EventBase7OptionsERPNS0_16EventBaseManagerERNS0_5RangeIPKcEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(49) %ebOpts_, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(16) %threadName.i)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.end.i
@@ -208,7 +207,7 @@ if.end.i:                                         ; preds = %_ZN5folly9EventBase
 
 _ZNSt10unique_ptrIN5folly21ScopedEventBaseThreadESt14default_deleteIS1_EEaSEOS4_.exit.i: ; preds = %.noexc
   %vtable.i.i.i.i.i.i = load ptr, ptr %6, align 16, !tbaa !37
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 8
   %7 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %7(ptr noundef nonnull align 16 dereferenceable(636) %6) #13
   %.pr.i = load ptr, ptr %ref.tmp.i, align 8, !tbaa !36
@@ -217,7 +216,7 @@ _ZNSt10unique_ptrIN5folly21ScopedEventBaseThreadESt14default_deleteIS1_EEaSEOS4_
 
 _ZNKSt14default_deleteIN5folly21ScopedEventBaseThreadEEclEPS1_.exit.i.i: ; preds = %_ZNSt10unique_ptrIN5folly21ScopedEventBaseThreadESt14default_deleteIS1_EEaSEOS4_.exit.i
   %vtable.i.i.i = load ptr, ptr %.pr.i, align 16, !tbaa !37
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %8 = load ptr, ptr %vfn.i.i.i, align 8
   call void %8(ptr noundef nonnull align 16 dereferenceable(636) %.pr.i) #13
   br label %_ZN5folly15EventBaseThread5startENS_5RangeIPKcEE.exit
@@ -236,14 +235,14 @@ lpad:                                             ; preds = %if.end.i
 
 _ZNKSt14default_deleteIN5folly21ScopedEventBaseThreadEEclEPS1_.exit.i: ; preds = %lpad
   %vtable.i.i = load ptr, ptr %10, align 16, !tbaa !37
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %11 = load ptr, ptr %vfn.i.i, align 8
   call void %11(ptr noundef nonnull align 16 dereferenceable(636) %10) #13
   br label %_ZNSt10unique_ptrIN5folly21ScopedEventBaseThreadESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5folly21ScopedEventBaseThreadESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5folly21ScopedEventBaseThreadEEclEPS1_.exit.i, %lpad
   store ptr null, ptr %th_, align 8, !tbaa !36
-  %_M_manager.i.i = getelementptr inbounds %"class.folly::EventBaseThread", ptr %this, i64 0, i32 1, i32 2, i32 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !21
   %tobool.not.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i, label %_ZN5folly9EventBase7OptionsD2Ev.exit, label %if.then.i.i4
@@ -288,17 +287,17 @@ entry:
   %threadName = alloca %"class.folly::Range", align 8
   %ref.tmp = alloca %"class.std::unique_ptr", align 8
   store ptr %threadName.coerce0, ptr %threadName, align 8
-  %0 = getelementptr inbounds { ptr, ptr }, ptr %threadName, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %threadName, i64 8
   store ptr %threadName.coerce1, ptr %0, align 8
-  %th_ = getelementptr inbounds %"class.folly::EventBaseThread", ptr %this, i64 0, i32 2
+  %th_ = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load ptr, ptr %th_, align 8, !tbaa !36
   %cmp.i.not = icmp eq ptr %1, null
   br i1 %cmp.i.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #13
-  %ebOpts_ = getelementptr inbounds %"class.folly::EventBaseThread", ptr %this, i64 0, i32 1
-  call void @_ZSt11make_uniqueIN5folly21ScopedEventBaseThreadEJRNS0_9EventBase7OptionsERPNS0_16EventBaseManagerERNS0_5RangeIPKcEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(49) %ebOpts_, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(16) %threadName)
+  %ebOpts_ = getelementptr inbounds i8, ptr %this, i64 8
+  call void @_ZSt11make_uniqueIN5folly21ScopedEventBaseThreadEJRNS0_9EventBase7OptionsERPNS0_16EventBaseManagerERNS0_5RangeIPKcEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(49) %ebOpts_, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(16) %threadName)
   %2 = load ptr, ptr %ref.tmp, align 8, !tbaa !36
   store ptr null, ptr %ref.tmp, align 8, !tbaa !36
   %3 = load ptr, ptr %th_, align 8, !tbaa !36
@@ -308,7 +307,7 @@ if.end:                                           ; preds = %entry
 
 _ZNSt10unique_ptrIN5folly21ScopedEventBaseThreadESt14default_deleteIS1_EEaSEOS4_.exit: ; preds = %if.end
   %vtable.i.i.i.i.i = load ptr, ptr %3, align 16, !tbaa !37
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
   %4 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   call void %4(ptr noundef nonnull align 16 dereferenceable(636) %3) #13
   %.pr = load ptr, ptr %ref.tmp, align 8, !tbaa !36
@@ -317,7 +316,7 @@ _ZNSt10unique_ptrIN5folly21ScopedEventBaseThreadESt14default_deleteIS1_EEaSEOS4_
 
 _ZNKSt14default_deleteIN5folly21ScopedEventBaseThreadEEclEPS1_.exit.i: ; preds = %_ZNSt10unique_ptrIN5folly21ScopedEventBaseThreadESt14default_deleteIS1_EEaSEOS4_.exit
   %vtable.i.i = load ptr, ptr %.pr, align 16, !tbaa !37
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %5 = load ptr, ptr %vfn.i.i, align 8
   call void %5(ptr noundef nonnull align 16 dereferenceable(636) %.pr) #13
   br label %_ZNSt10unique_ptrIN5folly21ScopedEventBaseThreadESt14default_deleteIS1_EED2Ev.exit
@@ -342,19 +341,19 @@ entry:
   %agg.tmp.i = alloca %"struct.folly::EventBase::Options", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %agg.tmp.i)
   store i8 0, ptr %agg.tmp.i, align 8, !tbaa !7
-  %backendFactory.i.i = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %agg.tmp.i, i64 0, i32 2
+  %backendFactory.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %backendFactory.i.i, i8 0, i64 32, i1 false)
-  %timerTickInterval.i.i = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %agg.tmp.i, i64 0, i32 3
+  %timerTickInterval.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 40
   %0 = load i32, ptr @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE21DEFAULT_TICK_INTERVALE, align 4, !tbaa !17
   %conv.i.i.i = sext i32 %0 to i64
   store i64 %conv.i.i.i, ptr %timerTickInterval.i.i, align 8, !tbaa !19
-  %strictLoopThread.i.i = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %agg.tmp.i, i64 0, i32 4
+  %strictLoopThread.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 48
   store i8 0, ptr %strictLoopThread.i.i, align 8, !tbaa !20
   invoke void @_ZN5folly15EventBaseThreadC2EbNS_9EventBase7OptionsEPNS_16EventBaseManagerENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(72) %this, i1 noundef zeroext true, ptr noundef nonnull %agg.tmp.i, ptr noundef %ebm, ptr null, ptr null)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %_M_manager.i.i.i = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %agg.tmp.i, i64 0, i32 2, i32 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
   %1 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !21
   %tobool.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i, label %_ZN5folly15EventBaseThreadC2EbPNS_16EventBaseManagerENS_5RangeIPKcEE.exit, label %if.then.i.i.i
@@ -373,7 +372,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
 lpad.i:                                           ; preds = %entry
   %4 = landingpad { ptr, i32 }
           cleanup
-  %_M_manager.i.i5.i = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %agg.tmp.i, i64 0, i32 2, i32 0, i32 1
+  %_M_manager.i.i5.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
   %5 = load ptr, ptr %_M_manager.i.i5.i, align 8, !tbaa !21
   %tobool.not.i.i6.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i6.i, label %_ZN5folly9EventBase7OptionsD2Ev.exit11.i, label %if.then.i.i7.i
@@ -400,27 +399,27 @@ _ZN5folly15EventBaseThreadC2EbPNS_16EventBaseManagerENS_5RangeIPKcEE.exit: ; pre
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly15EventBaseThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %th_ = getelementptr inbounds %"class.folly::EventBaseThread", ptr %this, i64 0, i32 2
+  %th_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %th_, align 8, !tbaa !36
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly21ScopedEventBaseThreadESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly21ScopedEventBaseThreadEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN5folly21ScopedEventBaseThreadEEclEPS1_.exit.i: ; preds = %entry
   %vtable.i.i = load ptr, ptr %0, align 16, !tbaa !37
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i, align 8
   tail call void %1(ptr noundef nonnull align 16 dereferenceable(636) %0) #13
   br label %_ZNSt10unique_ptrIN5folly21ScopedEventBaseThreadESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5folly21ScopedEventBaseThreadESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5folly21ScopedEventBaseThreadEEclEPS1_.exit.i, %entry
   store ptr null, ptr %th_, align 8, !tbaa !36
-  %_M_manager.i.i = getelementptr inbounds %"class.folly::EventBaseThread", ptr %this, i64 0, i32 1, i32 2, i32 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !21
   %tobool.not.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i, label %_ZN5folly9EventBase7OptionsD2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNSt10unique_ptrIN5folly21ScopedEventBaseThreadESt14default_deleteIS1_EED2Ev.exit
-  %backendFactory.i = getelementptr inbounds %"class.folly::EventBaseThread", ptr %this, i64 0, i32 1, i32 2
+  %backendFactory.i = getelementptr inbounds i8, ptr %this, i64 16
   %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, i32 noundef 3)
           to label %_ZN5folly9EventBase7OptionsD2Ev.exit unwind label %terminate.lpad.i.i
 
@@ -435,29 +434,29 @@ _ZN5folly9EventBase7OptionsD2Ev.exit:             ; preds = %if.then.i.i, %_ZNSt
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN5folly15EventBaseThreadC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load ptr, ptr %0, align 8, !tbaa !22
   store ptr %1, ptr %this, align 8, !tbaa !22
-  %ebOpts_ = getelementptr inbounds %"class.folly::EventBaseThread", ptr %this, i64 0, i32 1
-  %ebOpts_3 = getelementptr inbounds %"class.folly::EventBaseThread", ptr %0, i64 0, i32 1
+  %ebOpts_ = getelementptr inbounds i8, ptr %this, i64 8
+  %ebOpts_3 = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr %ebOpts_3, align 8, !tbaa !7, !range !30, !noundef !31
   store i8 %2, ptr %ebOpts_, align 8, !tbaa !7
-  %backendFactory.i = getelementptr inbounds %"class.folly::EventBaseThread", ptr %this, i64 0, i32 1, i32 2
-  %_M_invoker.i.i = getelementptr inbounds %"class.folly::EventBaseThread", ptr %this, i64 0, i32 1, i32 2, i32 1
-  %_M_invoker2.i.i = getelementptr inbounds %"class.folly::EventBaseThread", ptr %0, i64 0, i32 1, i32 2, i32 1
+  %backendFactory.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_invoker2.i.i = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %backendFactory.i, i8 0, i64 24, i1 false)
   %3 = load ptr, ptr %_M_invoker2.i.i, align 8, !tbaa !32
   store ptr %3, ptr %_M_invoker.i.i, align 8, !tbaa !32
-  %_M_manager.i.i.i.i = getelementptr inbounds %"class.folly::EventBaseThread", ptr %0, i64 0, i32 1, i32 2, i32 0, i32 1
+  %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !tbaa !21
   %tobool.not.i.i.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.not.i.i, label %_ZN5folly9EventBase7OptionsC2EOS1_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %backendFactory3.i = getelementptr inbounds %"class.folly::EventBaseThread", ptr %0, i64 0, i32 1, i32 2
-  %_M_manager.i.i.i = getelementptr inbounds %"class.folly::EventBaseThread", ptr %this, i64 0, i32 1, i32 2, i32 0, i32 1
+  %backendFactory3.i = getelementptr inbounds i8, ptr %0, i64 16
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, ptr noundef nonnull align 8 dereferenceable(16) %backendFactory3.i, i64 16, i1 false), !tbaa.struct !33
   %5 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !tbaa !21
   store ptr %5, ptr %_M_manager.i.i.i, align 8, !tbaa !21
@@ -465,11 +464,11 @@ if.then.i.i:                                      ; preds = %entry
   br label %_ZN5folly9EventBase7OptionsC2EOS1_.exit
 
 _ZN5folly9EventBase7OptionsC2EOS1_.exit:          ; preds = %if.then.i.i, %entry
-  %timerTickInterval.i = getelementptr inbounds %"class.folly::EventBaseThread", ptr %this, i64 0, i32 1, i32 3
-  %timerTickInterval4.i = getelementptr inbounds %"class.folly::EventBaseThread", ptr %0, i64 0, i32 1, i32 3
+  %timerTickInterval.i = getelementptr inbounds i8, ptr %this, i64 48
+  %timerTickInterval4.i = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %timerTickInterval.i, ptr noundef nonnull align 8 dereferenceable(9) %timerTickInterval4.i, i64 9, i1 false)
-  %th_ = getelementptr inbounds %"class.folly::EventBaseThread", ptr %this, i64 0, i32 2
-  %th_4 = getelementptr inbounds %"class.folly::EventBaseThread", ptr %0, i64 0, i32 2
+  %th_ = getelementptr inbounds i8, ptr %this, i64 64
+  %th_4 = getelementptr inbounds i8, ptr %0, i64 64
   %6 = load i64, ptr %th_4, align 8, !tbaa !36
   store i64 %6, ptr %th_, align 8, !tbaa !36
   store ptr null, ptr %th_4, align 8, !tbaa !36
@@ -483,23 +482,23 @@ entry:
   %ref.tmp.i.i = alloca %"class.std::function", align 8
   %1 = load ptr, ptr %0, align 8, !tbaa !22
   store ptr %1, ptr %this, align 8, !tbaa !22
-  %ebOpts_ = getelementptr inbounds %"class.folly::EventBaseThread", ptr %this, i64 0, i32 1
-  %ebOpts_3 = getelementptr inbounds %"class.folly::EventBaseThread", ptr %0, i64 0, i32 1
+  %ebOpts_ = getelementptr inbounds i8, ptr %this, i64 8
+  %ebOpts_3 = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr %ebOpts_3, align 8, !tbaa !7, !range !30, !noundef !31
   store i8 %2, ptr %ebOpts_, align 8, !tbaa !7
-  %backendFactory.i = getelementptr inbounds %"class.folly::EventBaseThread", ptr %this, i64 0, i32 1, i32 2
+  %backendFactory.i = getelementptr inbounds i8, ptr %this, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i) #13
-  %_M_invoker.i.i.i = getelementptr inbounds %"class.std::function", ptr %ref.tmp.i.i, i64 0, i32 1
-  %_M_invoker2.i.i.i = getelementptr inbounds %"class.folly::EventBaseThread", ptr %0, i64 0, i32 1, i32 2, i32 1
+  %_M_invoker.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 24
+  %_M_invoker2.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i, i8 0, i64 24, i1 false)
   %3 = load ptr, ptr %_M_invoker2.i.i.i, align 8, !tbaa !32
-  %_M_manager.i.i.i.i.i = getelementptr inbounds %"class.folly::EventBaseThread", ptr %0, i64 0, i32 1, i32 2, i32 0, i32 1
+  %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8, !tbaa !21
   %tobool.not.i.i.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.not.i.i.i, label %_ZNSt8functionIFSt10unique_ptrIN5folly20EventBaseBackendBaseESt14default_deleteIS2_EEvEEC2EOS7_.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %backendFactory3.i = getelementptr inbounds %"class.folly::EventBaseThread", ptr %0, i64 0, i32 1, i32 2
+  %backendFactory3.i = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %backendFactory3.i, i64 16, i1 false), !tbaa.struct !33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFSt10unique_ptrIN5folly20EventBaseBackendBaseESt14default_deleteIS2_EEvEEC2EOS7_.exit.i.i
@@ -510,12 +509,12 @@ _ZNSt8functionIFSt10unique_ptrIN5folly20EventBaseBackendBaseESt14default_deleteI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, i64 16, i1 false), !tbaa.struct !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false), !tbaa.struct !33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp.i.i, i64 0, i32 1
-  %_M_manager3.i.i.i = getelementptr inbounds %"class.folly::EventBaseThread", ptr %this, i64 0, i32 1, i32 2, i32 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
+  %_M_manager3.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %_M_manager3.i.i.i, align 8, !tbaa !36
   store ptr %5, ptr %_M_manager.i.i.i, align 8, !tbaa !36
   store ptr %4, ptr %_M_manager3.i.i.i, align 8, !tbaa !36
-  %_M_invoker4.i.i.i = getelementptr inbounds %"class.folly::EventBaseThread", ptr %this, i64 0, i32 1, i32 2, i32 1
+  %_M_invoker4.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %6 = load ptr, ptr %_M_invoker4.i.i.i, align 8, !tbaa !36
   store ptr %6, ptr %_M_invoker.i.i.i, align 8, !tbaa !36
   store ptr %3, ptr %_M_invoker4.i.i.i, align 8, !tbaa !36
@@ -535,16 +534,16 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i4.i.i
 
 _ZN5folly9EventBase7OptionsaSEOS1_.exit:          ; preds = %if.then.i4.i.i, %_ZNSt8functionIFSt10unique_ptrIN5folly20EventBaseBackendBaseESt14default_deleteIS2_EEvEEC2EOS7_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i) #13
-  %timerTickInterval.i = getelementptr inbounds %"class.folly::EventBaseThread", ptr %this, i64 0, i32 1, i32 3
-  %timerTickInterval4.i = getelementptr inbounds %"class.folly::EventBaseThread", ptr %0, i64 0, i32 1, i32 3
+  %timerTickInterval.i = getelementptr inbounds i8, ptr %this, i64 48
+  %timerTickInterval4.i = getelementptr inbounds i8, ptr %0, i64 48
   %9 = load i64, ptr %timerTickInterval4.i, align 8, !tbaa !39
   store i64 %9, ptr %timerTickInterval.i, align 8, !tbaa !39
-  %strictLoopThread.i = getelementptr inbounds %"class.folly::EventBaseThread", ptr %0, i64 0, i32 1, i32 4
+  %strictLoopThread.i = getelementptr inbounds i8, ptr %0, i64 56
   %10 = load i8, ptr %strictLoopThread.i, align 8, !tbaa !20, !range !30, !noundef !31
-  %strictLoopThread6.i = getelementptr inbounds %"class.folly::EventBaseThread", ptr %this, i64 0, i32 1, i32 4
+  %strictLoopThread6.i = getelementptr inbounds i8, ptr %this, i64 56
   store i8 %10, ptr %strictLoopThread6.i, align 8, !tbaa !20
-  %th_ = getelementptr inbounds %"class.folly::EventBaseThread", ptr %this, i64 0, i32 2
-  %th_4 = getelementptr inbounds %"class.folly::EventBaseThread", ptr %0, i64 0, i32 2
+  %th_ = getelementptr inbounds i8, ptr %this, i64 64
+  %th_4 = getelementptr inbounds i8, ptr %0, i64 64
   %11 = load ptr, ptr %th_4, align 8, !tbaa !36
   store ptr null, ptr %th_4, align 8, !tbaa !36
   %12 = load ptr, ptr %th_, align 8, !tbaa !36
@@ -554,7 +553,7 @@ _ZN5folly9EventBase7OptionsaSEOS1_.exit:          ; preds = %if.then.i4.i.i, %_Z
 
 _ZNKSt14default_deleteIN5folly21ScopedEventBaseThreadEEclEPS1_.exit.i.i.i.i: ; preds = %_ZN5folly9EventBase7OptionsaSEOS1_.exit
   %vtable.i.i.i.i.i = load ptr, ptr %12, align 16, !tbaa !37
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
   %13 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   call void %13(ptr noundef nonnull align 16 dereferenceable(636) %12) #13
   br label %_ZNSt10unique_ptrIN5folly21ScopedEventBaseThreadESt14default_deleteIS1_EEaSEOS4_.exit
@@ -566,14 +565,14 @@ _ZNSt10unique_ptrIN5folly21ScopedEventBaseThreadESt14default_deleteIS1_EEaSEOS4_
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZNK5folly15EventBaseThread12getEventBaseEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %th_ = getelementptr inbounds %"class.folly::EventBaseThread", ptr %this, i64 0, i32 2
+  %th_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %th_, align 8, !tbaa !36
   %cmp.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %0, align 16, !tbaa !37
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %1 = load ptr, ptr %vfn, align 8
   %call4 = tail call noundef ptr %1(ptr noundef nonnull align 16 dereferenceable(636) %0)
   br label %cond.end
@@ -586,29 +585,29 @@ cond.end:                                         ; preds = %cond.true, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK5folly15EventBaseThread7runningEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %th_ = getelementptr inbounds %"class.folly::EventBaseThread", ptr %this, i64 0, i32 2
+  %th_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %th_, align 8, !tbaa !36
   %cmp.i = icmp ne ptr %0, null
   ret i1 %cmp.i
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr void @_ZSt11make_uniqueIN5folly21ScopedEventBaseThreadEJRNS0_9EventBase7OptionsERPNS0_16EventBaseManagerERNS0_5RangeIPKcEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(49) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1, ptr noundef nonnull align 8 dereferenceable(16) %__args3) local_unnamed_addr #8 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZSt11make_uniqueIN5folly21ScopedEventBaseThreadEJRNS0_9EventBase7OptionsERPNS0_16EventBaseManagerERNS0_5RangeIPKcEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(49) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1, ptr noundef nonnull align 8 dereferenceable(16) %__args3) local_unnamed_addr #8 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"struct.folly::EventBase::Options", align 8
   %call = tail call noalias noundef nonnull dereferenceable(640) ptr @_Znwm(i64 noundef 640) #14
   %0 = load i8, ptr %__args, align 8, !tbaa !7, !range !30, !noundef !31
   store i8 %0, ptr %agg.tmp, align 8, !tbaa !7
-  %backendFactory.i = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %agg.tmp, i64 0, i32 2
-  %_M_manager.i.i.i = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %agg.tmp, i64 0, i32 2, i32 0, i32 1
-  %_M_manager.i.i.i.i = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %__args, i64 0, i32 2, i32 0, i32 1
+  %backendFactory.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
+  %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %backendFactory.i, i8 0, i64 32, i1 false)
   %1 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !tbaa !21
   %tobool.not.i.i.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %backendFactory3.i = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %__args, i64 0, i32 2
+  %backendFactory3.i = getelementptr inbounds i8, ptr %__args, i64 8
   %call3.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, ptr noundef nonnull align 8 dereferenceable(16) %backendFactory3.i, i32 noundef 2)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
@@ -636,13 +635,13 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   unreachable
 
 invoke.cont:                                      ; preds = %invoke.cont.i.i, %entry
-  %timerTickInterval.i = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %agg.tmp, i64 0, i32 3
-  %timerTickInterval4.i = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %__args, i64 0, i32 3
+  %timerTickInterval.i = getelementptr inbounds i8, ptr %agg.tmp, i64 40
+  %timerTickInterval4.i = getelementptr inbounds i8, ptr %__args, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %timerTickInterval.i, ptr noundef nonnull align 8 dereferenceable(9) %timerTickInterval4.i, i64 9, i1 false)
   %7 = load ptr, ptr %__args1, align 8, !tbaa !36
-  %agg.tmp5.sroa.0.0.copyload = load ptr, ptr %__args3, align 8, !tbaa.struct !40
+  %agg.tmp5.sroa.0.0.copyload = load ptr, ptr %__args3, align 8, !tbaa !36
   %agg.tmp5.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %__args3, i64 8
-  %agg.tmp5.sroa.2.0.copyload = load ptr, ptr %agg.tmp5.sroa.2.0..sroa_idx, align 8, !tbaa.struct !41
+  %agg.tmp5.sroa.2.0.copyload = load ptr, ptr %agg.tmp5.sroa.2.0..sroa_idx, align 8, !tbaa !36
   invoke void @_ZN5folly21ScopedEventBaseThreadC1ENS_9EventBase7OptionsEPNS_16EventBaseManagerENS_5RangeIPKcEE(ptr noundef nonnull align 16 dereferenceable(636) %call, ptr noundef nonnull %agg.tmp, ptr noundef %7, ptr %agg.tmp5.sroa.0.0.copyload, ptr %agg.tmp5.sroa.2.0.copyload)
           to label %invoke.cont7 unwind label %lpad6
 
@@ -701,7 +700,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly15EventBaseThread4stopEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %th_ = getelementptr inbounds %"class.folly::EventBaseThread", ptr %this, i64 0, i32 2
+  %th_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %th_, align 8, !tbaa !36
   store ptr null, ptr %th_, align 8, !tbaa !36
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -709,7 +708,7 @@ entry:
 
 _ZNKSt14default_deleteIN5folly21ScopedEventBaseThreadEEclEPS1_.exit.i.i.i: ; preds = %entry
   %vtable.i.i.i.i = load ptr, ptr %0, align 16, !tbaa !37
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 1
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 16 dereferenceable(636) %0) #13
   br label %_ZNSt10unique_ptrIN5folly21ScopedEventBaseThreadESt14default_deleteIS1_EEaSEDn.exit
@@ -724,7 +723,7 @@ attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -770,12 +769,10 @@ attributes #15 = { builtin nounwind }
 !30 = !{i8 0, i8 2}
 !31 = !{}
 !32 = !{!12, !14, i64 24}
-!33 = !{i64 0, i64 8, !34, i64 0, i64 8, !34, i64 0, i64 8, !34, i64 0, i64 16, !34, i64 0, i64 16, !34}
+!33 = !{i64 0, i64 16, !34}
 !34 = !{!10, !10, i64 0}
 !35 = !{!29, !14, i64 0}
 !36 = !{!14, !14, i64 0}
 !37 = !{!38, !38, i64 0}
 !38 = !{!"vtable pointer", !11, i64 0}
 !39 = !{!16, !16, i64 0}
-!40 = !{i64 0, i64 8, !36, i64 8, i64 8, !36}
-!41 = !{i64 0, i64 8, !36}

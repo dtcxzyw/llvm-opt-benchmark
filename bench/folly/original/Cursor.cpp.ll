@@ -8,8 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.2" }
 %"struct.std::_Head_base.2" = type { ptr }
-%"class.folly::io::Appender" = type { ptr, ptr, i64 }
-%"class.folly::IOBuf" = type { i64, ptr, i64, ptr, ptr, ptr, i64 }
 %"class.std::out_of_range" = type { %"class.std::logic_error" }
 %"class.std::logic_error" = type { %"class.std::exception", %"struct.std::__cow_string" }
 %"class.std::exception" = type { ptr }
@@ -36,9 +34,9 @@ define void @_ZN5folly2io8Appender6printfEPKcz(ptr nocapture noundef nonnull ali
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ap) #9
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   call void @_ZN5folly2io8Appender7vprintfEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %fmt, ptr noundef nonnull %ap)
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ap) #9
   ret void
 }
@@ -46,8 +44,8 @@ entry:
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #2
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly2io8Appender7vprintfEPKcP13__va_list_tag(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %fmt, ptr noundef %ap) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -55,16 +53,16 @@ invoke.cont2:
   %ref.tmp.i = alloca %"class.std::unique_ptr", align 8
   %apCopy = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %apCopy) #9
-  call void @llvm.va_copy(ptr nonnull %apCopy, ptr %ap)
-  %crtBuf_.i = getelementptr inbounds %"class.folly::io::Appender", ptr %this, i64 0, i32 1
+  call void @llvm.va_copy.p0(ptr nonnull %apCopy, ptr %ap)
+  %crtBuf_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %crtBuf_.i, align 8, !tbaa !7
-  %data_.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %0, i64 0, i32 1
+  %data_.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %data_.i.i, align 8, !tbaa !13
   %2 = load i64, ptr %0, align 8, !tbaa !15
   %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 %2
-  %buf_.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %0, i64 0, i32 3
+  %buf_.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %buf_.i.i.i, align 8, !tbaa !16
-  %capacity_.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %0, i64 0, i32 2
+  %capacity_.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %capacity_.i.i.i, align 8, !tbaa !17
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 %4
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i.i to i64
@@ -97,12 +95,12 @@ lpad5:                                            ; preds = %if.then
 invoke.cont8:                                     ; preds = %invoke.cont2
   %conv = zext nneg i32 %call4 to i64
   %7 = load ptr, ptr %crtBuf_.i, align 8, !tbaa !7
-  %buf_.i.i.i63 = getelementptr inbounds %"class.folly::IOBuf", ptr %7, i64 0, i32 3
+  %buf_.i.i.i63 = getelementptr inbounds i8, ptr %7, i64 24
   %8 = load ptr, ptr %buf_.i.i.i63, align 8, !tbaa !16
-  %capacity_.i.i.i64 = getelementptr inbounds %"class.folly::IOBuf", ptr %7, i64 0, i32 2
+  %capacity_.i.i.i64 = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load i64, ptr %capacity_.i.i.i64, align 8, !tbaa !17
   %add.ptr.i.i.i65 = getelementptr inbounds i8, ptr %8, i64 %9
-  %data_.i.i.i66 = getelementptr inbounds %"class.folly::IOBuf", ptr %7, i64 0, i32 1
+  %data_.i.i.i66 = getelementptr inbounds i8, ptr %7, i64 8
   %10 = load ptr, ptr %data_.i.i.i66, align 8, !tbaa !13
   %11 = load i64, ptr %7, align 8, !tbaa !15
   %add.ptr.i3.i.i67 = getelementptr inbounds i8, ptr %10, i64 %11
@@ -123,7 +121,7 @@ lpad7:                                            ; preds = %invoke.cont34.invok
   br label %"_ZN5folly6detail14ScopeGuardImplIZNS_2io8Appender7vprintfEPKcP13__va_list_tagE3$_0Lb1EED2Ev.exit100"
 
 if.end13:                                         ; preds = %invoke.cont8
-  %growth_.i = getelementptr inbounds %"class.folly::io::Appender", ptr %this, i64 0, i32 2
+  %growth_.i = getelementptr inbounds i8, ptr %this, i64 16
   %13 = load i64, ptr %growth_.i, align 8, !tbaa !18
   %cmp2.i = icmp eq i64 %13, 0
   br i1 %cmp2.i, label %if.then3.i, label %if.end4.i
@@ -140,7 +138,7 @@ if.end4.i:                                        ; preds = %if.end13
   %.sroa.speculated.i = call i64 @llvm.umax.i64(i64 %13, i64 %add)
   %14 = load ptr, ptr %this, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i) #9
-  invoke void @_ZN5folly5IOBuf6createEm(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp.i, i64 noundef %.sroa.speculated.i)
+  invoke void @_ZN5folly5IOBuf6createEm(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %ref.tmp.i, i64 noundef %.sroa.speculated.i)
           to label %.noexc72 unwind label %lpad7
 
 .noexc72:                                         ; preds = %if.end4.i
@@ -151,16 +149,16 @@ invoke.cont.i:                                    ; preds = %.noexc72
   call void @_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i) #9
   %15 = load ptr, ptr %this, align 8, !tbaa !19
-  %prev_.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %15, i64 0, i32 5
+  %prev_.i.i = getelementptr inbounds i8, ptr %15, i64 40
   %16 = load ptr, ptr %prev_.i.i, align 8, !tbaa !20
   store ptr %16, ptr %crtBuf_.i, align 8, !tbaa !7
-  %data_.i.i74 = getelementptr inbounds %"class.folly::IOBuf", ptr %16, i64 0, i32 1
+  %data_.i.i74 = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load ptr, ptr %data_.i.i74, align 8, !tbaa !13
   %18 = load i64, ptr %16, align 8, !tbaa !15
   %add.ptr.i.i75 = getelementptr inbounds i8, ptr %17, i64 %18
-  %buf_.i.i.i77 = getelementptr inbounds %"class.folly::IOBuf", ptr %16, i64 0, i32 3
+  %buf_.i.i.i77 = getelementptr inbounds i8, ptr %16, i64 24
   %19 = load ptr, ptr %buf_.i.i.i77, align 8, !tbaa !16
-  %capacity_.i.i.i78 = getelementptr inbounds %"class.folly::IOBuf", ptr %16, i64 0, i32 2
+  %capacity_.i.i.i78 = getelementptr inbounds i8, ptr %16, i64 16
   %20 = load i64, ptr %capacity_.i.i.i78, align 8, !tbaa !17
   %add.ptr.i.i.i79 = getelementptr inbounds i8, ptr %19, i64 %20
   %sub.ptr.lhs.cast.i.i82 = ptrtoint ptr %add.ptr.i.i.i79 to i64
@@ -191,12 +189,12 @@ lpad24:                                           ; preds = %if.then22
 invoke.cont28:                                    ; preds = %invoke.cont.i
   %conv27 = zext nneg i32 %call20 to i64
   %23 = load ptr, ptr %crtBuf_.i, align 8, !tbaa !7
-  %buf_.i.i.i86 = getelementptr inbounds %"class.folly::IOBuf", ptr %23, i64 0, i32 3
+  %buf_.i.i.i86 = getelementptr inbounds i8, ptr %23, i64 24
   %24 = load ptr, ptr %buf_.i.i.i86, align 8, !tbaa !16
-  %capacity_.i.i.i87 = getelementptr inbounds %"class.folly::IOBuf", ptr %23, i64 0, i32 2
+  %capacity_.i.i.i87 = getelementptr inbounds i8, ptr %23, i64 16
   %25 = load i64, ptr %capacity_.i.i.i87, align 8, !tbaa !17
   %add.ptr.i.i.i88 = getelementptr inbounds i8, ptr %24, i64 %25
-  %data_.i.i.i89 = getelementptr inbounds %"class.folly::IOBuf", ptr %23, i64 0, i32 1
+  %data_.i.i.i89 = getelementptr inbounds i8, ptr %23, i64 8
   %26 = load ptr, ptr %data_.i.i.i89, align 8, !tbaa !13
   %27 = load i64, ptr %23, align 8, !tbaa !15
   %add.ptr.i3.i.i90 = getelementptr inbounds i8, ptr %26, i64 %27
@@ -231,13 +229,13 @@ if.end35:                                         ; preds = %invoke.cont28
   br label %"_ZN5folly6detail14ScopeGuardImplIZNS_2io8Appender7vprintfEPKcP13__va_list_tagE3$_0Lb1EED2Ev.exit"
 
 "_ZN5folly6detail14ScopeGuardImplIZNS_2io8Appender7vprintfEPKcP13__va_list_tagE3$_0Lb1EED2Ev.exit": ; preds = %if.end35, %if.then11
-  call void @llvm.va_end(ptr nonnull %apCopy)
+  call void @llvm.va_end.p0(ptr nonnull %apCopy)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %apCopy) #9
   ret void
 
 "_ZN5folly6detail14ScopeGuardImplIZNS_2io8Appender7vprintfEPKcP13__va_list_tagE3$_0Lb1EED2Ev.exit100": ; preds = %lpad33, %lpad24, %lpad.i, %lpad7, %lpad5, %lpad
   %.pn56 = phi { ptr, i32 } [ %5, %lpad ], [ %6, %lpad5 ], [ %22, %lpad24 ], [ %29, %lpad33 ], [ %12, %lpad7 ], [ %21, %lpad.i ]
-  call void @llvm.va_end(ptr nonnull %apCopy)
+  call void @llvm.va_end.p0(ptr nonnull %apCopy)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %apCopy) #9
   resume { ptr, i32 } %.pn56
 
@@ -245,14 +243,14 @@ unreachable:                                      ; preds = %invoke.cont6
   unreachable
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #2
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
@@ -270,7 +268,7 @@ declare void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceab
 
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 
-declare void @_ZN5folly5IOBuf6createEm(ptr sret(%"class.std::unique_ptr") align 8, i64 noundef) local_unnamed_addr #4
+declare void @_ZN5folly5IOBuf6createEm(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -327,7 +325,7 @@ declare void @_ZNSt12out_of_rangeD1Ev(ptr noundef nonnull align 8 dereferenceabl
 define linkonce_odr void @_ZNSt12out_of_rangeC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 {
 entry:
   tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12out_of_range, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !22
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt12out_of_range, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !22
   ret void
 }
 
@@ -347,7 +345,7 @@ declare i64 @llvm.umax.i64(i64, i64) #8
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nocallback nofree nosync nounwind willreturn }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -1,9 +1,6 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.folly::detail::TryBase" = type { i32, %union.anon }
-%union.anon = type { %"class.folly::exception_wrapper" }
-%"class.folly::exception_wrapper" = type { %"class.std::__exception_ptr::exception_ptr" }
 %"class.std::__exception_ptr::exception_ptr" = type { ptr }
 %"class.folly::UsingUninitializedTry" = type { %"class.folly::TryException" }
 %"class.folly::TryException" = type { %"class.std::logic_error" }
@@ -105,7 +102,7 @@ entry:
   ]
 
 sw.bb2.i:                                         ; preds = %entry
-  %1 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %this, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #10
   unreachable
 
@@ -114,7 +111,7 @@ sw.default.i:                                     ; preds = %entry
   unreachable
 
 _ZNK5folly3TryINS_4UnitEE16throwUnlessValueEv.exit: ; preds = %entry
-  %2 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %this, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %this, i64 8
   ret ptr %2
 }
 
@@ -131,7 +128,7 @@ sw.bb:                                            ; preds = %entry
   ret void
 
 sw.bb2:                                           ; preds = %entry
-  %1 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %this, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #10
   unreachable
 
@@ -196,7 +193,7 @@ entry:
   %ref.tmp = alloca %"class.folly::UsingUninitializedTry", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #12
   call void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull @.str)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly21UsingUninitializedTryE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !15
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5folly21UsingUninitializedTryE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !15
   invoke void @_ZN5folly15throw_exceptionINS_21UsingUninitializedTryEEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #11
           to label %invoke.cont unwind label %lpad
 
@@ -235,7 +232,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 define linkonce_odr void @_ZN5folly21UsingUninitializedTryC2EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 {
 entry:
   tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly21UsingUninitializedTryE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5folly21UsingUninitializedTryE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !15
   ret void
 }
 
@@ -278,7 +275,7 @@ entry:
   ]
 
 sw.bb2.i:                                         ; preds = %entry
-  %1 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %this, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #10
   unreachable
 
@@ -287,7 +284,7 @@ sw.default.i:                                     ; preds = %entry
   unreachable
 
 _ZNK5folly3TryINS_4UnitEE16throwUnlessValueEv.exit: ; preds = %entry
-  %2 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %this, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %this, i64 8
   ret ptr %2
 }
 
@@ -301,7 +298,7 @@ entry:
   ]
 
 sw.bb2.i:                                         ; preds = %entry
-  %1 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %this, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #10
   unreachable
 
@@ -310,7 +307,7 @@ sw.default.i:                                     ; preds = %entry
   unreachable
 
 _ZNK5folly3TryINS_4UnitEE16throwUnlessValueEv.exit: ; preds = %entry
-  %2 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %this, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %this, i64 8
   ret ptr %2
 }
 
@@ -324,7 +321,7 @@ entry:
   ]
 
 sw.bb2.i:                                         ; preds = %entry
-  %1 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %this, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #10
   unreachable
 
@@ -333,7 +330,7 @@ sw.default.i:                                     ; preds = %entry
   unreachable
 
 _ZNK5folly3TryINS_4UnitEE16throwUnlessValueEv.exit: ; preds = %entry
-  %2 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %this, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %this, i64 8
   ret ptr %2
 }
 
@@ -347,7 +344,7 @@ entry:
   ]
 
 sw.bb2.i:                                         ; preds = %entry
-  %1 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %this, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #10
   unreachable
 
@@ -369,7 +366,7 @@ entry:
   ]
 
 sw.bb2.i.i:                                       ; preds = %entry
-  %1 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %this, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #10
   unreachable
 
@@ -378,7 +375,7 @@ sw.default.i.i:                                   ; preds = %entry
   unreachable
 
 _ZNKR5folly3TryINS_4UnitEE5valueEv.exit:          ; preds = %entry
-  %2 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %this, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %this, i64 8
   ret ptr %2
 }
 
@@ -392,7 +389,7 @@ entry:
   ]
 
 sw.bb2.i.i:                                       ; preds = %entry
-  %1 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %this, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #10
   unreachable
 
@@ -401,7 +398,7 @@ sw.default.i.i:                                   ; preds = %entry
   unreachable
 
 _ZNR5folly3TryINS_4UnitEE5valueEv.exit:           ; preds = %entry
-  %2 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %this, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %this, i64 8
   ret ptr %2
 }
 
@@ -415,7 +412,7 @@ entry:
   ]
 
 sw.bb2.i.i:                                       ; preds = %entry
-  %1 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %this, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #10
   unreachable
 
@@ -424,7 +421,7 @@ sw.default.i.i:                                   ; preds = %entry
   unreachable
 
 _ZNR5folly3TryINS_4UnitEE5valueEv.exit:           ; preds = %entry
-  %2 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %this, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %this, i64 8
   ret ptr %2
 }
 
@@ -438,7 +435,7 @@ entry:
   ]
 
 sw.bb2.i.i:                                       ; preds = %entry
-  %1 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %this, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #10
   unreachable
 
@@ -447,7 +444,7 @@ sw.default.i.i:                                   ; preds = %entry
   unreachable
 
 _ZNKR5folly3TryINS_4UnitEE5valueEv.exit:          ; preds = %entry
-  %2 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %this, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %this, i64 8
   ret ptr %2
 }
 
@@ -461,7 +458,7 @@ entry:
   ]
 
 sw.bb2.i.i:                                       ; preds = %entry
-  %1 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %this, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #10
   unreachable
 
@@ -470,7 +467,7 @@ sw.default.i.i:                                   ; preds = %entry
   unreachable
 
 _ZNKR5folly3TryINS_4UnitEE5valueEv.exit:          ; preds = %entry
-  %2 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %this, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %this, i64 8
   ret ptr %2
 }
 
@@ -484,7 +481,7 @@ entry:
   ]
 
 sw.bb2.i.i:                                       ; preds = %entry
-  %1 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %this, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #10
   unreachable
 
@@ -493,7 +490,7 @@ sw.default.i.i:                                   ; preds = %entry
   unreachable
 
 _ZNR5folly3TryINS_4UnitEE5valueEv.exit:           ; preds = %entry
-  %2 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %this, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %this, i64 8
   ret ptr %2
 }
 
@@ -525,7 +522,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %1 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %this, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 8
   ret ptr %1
 }
 
@@ -535,7 +532,7 @@ entry:
   %ref.tmp = alloca %"class.folly::TryException", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #12
   call void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %args)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly12TryExceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !15
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5folly12TryExceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !15
   invoke void @_ZN5folly15throw_exceptionINS_12TryExceptionEEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #11
           to label %invoke.cont unwind label %lpad
 
@@ -563,7 +560,7 @@ entry:
 define linkonce_odr void @_ZN5folly12TryExceptionC2EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 {
 entry:
   tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly12TryExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5folly12TryExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !15
   ret void
 }
 
@@ -579,7 +576,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %1 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %this, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 8
   ret ptr %1
 }
 
@@ -595,7 +592,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %1 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %this, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 8
   ret ptr %1
 }
 
@@ -611,7 +608,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %1 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %this, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 8
   ret ptr %1
 }
 
@@ -623,7 +620,7 @@ entry:
   br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
-  %1 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %this, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 8
   %call1.i.i.i = tail call noundef ptr @_ZN5folly6detail25exception_ptr_get_object_ERKNSt15__exception_ptr13exception_ptrEPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @_ZTISt9exception) #12
   br label %cond.end
 
@@ -643,7 +640,7 @@ entry:
   br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
-  %1 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %this, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 8
   %call1.i.i.i = tail call noundef ptr @_ZN5folly6detail25exception_ptr_get_object_ERKNSt15__exception_ptr13exception_ptrEPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @_ZTISt9exception) #12
   br label %cond.end
 

@@ -7,9 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.folly::fbstring_core<char>::MediumLarge" = type { ptr, i64, i64 }
 %"class.std::allocator" = type { i8 }
 %struct.Initializer = type { i8 }
-%"struct.folly::fbstring_core<char>::RefCounted" = type <{ %"struct.std::atomic", [1 x i8], [7 x i8] }>
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
 %struct.Initializer.1 = type { i8 }
 %struct.Initializer.0 = type { i8 }
 %"class.std::bad_alloc" = type { %"class.std::exception" }
@@ -102,7 +99,7 @@ declare extern_weak noundef ptr @__cxa_demangle(ptr noundef, ptr noundef, ptr no
 declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly8demangleEPKc(ptr noalias sret(%"class.folly::basic_fbstring") align 8 %agg.result, ptr noundef %name) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly8demangleEPKc(ptr dead_on_unwind noalias writable sret(%"class.folly::basic_fbstring") align 8 %agg.result, ptr noundef %name) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %status = alloca i32, align 4
@@ -113,7 +110,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %arrayidx.i.i.i.i.i = getelementptr inbounds [24 x i8], ptr %agg.result, i64 0, i64 23
+  %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 23
   store i8 23, ptr %arrayidx.i.i.i.i.i, align 1, !tbaa !7
   store i8 0, ptr %agg.result, align 8, !tbaa !7
   br label %return
@@ -155,17 +152,17 @@ if.end10:                                         ; preds = %if.then3
 if.then.i.i:                                      ; preds = %if.end10
   %1 = load i64, ptr %len, align 8, !tbaa !10
   store ptr %call4, ptr %agg.result, align 8, !tbaa !7
-  %size_.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %agg.result, i64 0, i32 1
+  %size_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %call11, ptr %size_.i.i, align 8, !tbaa !7
   %sub.i.i = add i64 %1, 9223372036854775807
   %or.i.i.i = or i64 %sub.i.i, -9223372036854775808
-  %capacity_.i.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %agg.result, i64 0, i32 2
+  %capacity_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 %or.i.i.i, ptr %capacity_.i.i.i, align 8, !tbaa !14
   br label %cleanup12
 
 if.else.i.i:                                      ; preds = %if.end10
   call void @free(ptr noundef %call4) #18
-  %arrayidx.i.i.i.i = getelementptr inbounds [24 x i8], ptr %agg.result, i64 0, i64 23
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 23
   store i8 23, ptr %arrayidx.i.i.i.i, align 1, !tbaa !7
   store i8 0, ptr %agg.result, align 8, !tbaa !7
   br label %cleanup12
@@ -213,16 +210,16 @@ if.then.i.i:                                      ; preds = %if.then.i
   ]
 
 sw.bb.i.i:                                        ; preds = %if.then.i.i
-  %arrayidx.i.i = getelementptr inbounds i64, ptr %s, i64 2
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %s, i64 16
   %2 = load i64, ptr %arrayidx.i.i, align 8, !tbaa !10
-  %capacity_.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %this, i64 0, i32 2
+  %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %2, ptr %capacity_.i.i, align 8, !tbaa !7
   br label %sw.bb2.i.i
 
 sw.bb2.i.i:                                       ; preds = %sw.bb.i.i, %if.then.i.i
-  %arrayidx3.i.i = getelementptr inbounds i64, ptr %s, i64 1
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %s, i64 8
   %3 = load i64, ptr %arrayidx3.i.i, align 8, !tbaa !10
-  %size_.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %this, i64 0, i32 1
+  %size_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %3, ptr %size_.i.i, align 8, !tbaa !7
   br label %sw.bb4.i.i
 
@@ -242,7 +239,7 @@ if.then6.i.i:                                     ; preds = %if.else.i.i
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i: ; preds = %if.then6.i.i, %if.else.i.i, %sw.bb4.i.i, %if.then.i.i
   %5 = trunc i64 %n to i8
   %conv.i.i.i = sub nuw nsw i8 23, %5
-  %arrayidx.i.i.i = getelementptr inbounds [24 x i8], ptr %this, i64 0, i64 23
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %this, i64 23
   store i8 %conv.i.i.i, ptr %arrayidx.i.i.i, align 1, !tbaa !7
   %arrayidx2.i.i.i = getelementptr inbounds [24 x i8], ptr %this, i64 0, i64 %n
   store i8 0, ptr %arrayidx2.i.i.i, align 1, !tbaa !7
@@ -292,16 +289,16 @@ if.then.i.i:                                      ; preds = %if.then.i
   ]
 
 sw.bb.i.i:                                        ; preds = %if.then.i.i
-  %arrayidx.i.i = getelementptr inbounds i64, ptr %s, i64 2
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %s, i64 16
   %2 = load i64, ptr %arrayidx.i.i, align 8, !tbaa !10
-  %capacity_.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %this, i64 0, i32 2
+  %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %2, ptr %capacity_.i.i, align 8, !tbaa !7
   br label %sw.bb2.i.i
 
 sw.bb2.i.i:                                       ; preds = %sw.bb.i.i, %if.then.i.i
-  %arrayidx3.i.i = getelementptr inbounds i64, ptr %s, i64 1
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %s, i64 8
   %3 = load i64, ptr %arrayidx3.i.i, align 8, !tbaa !10
-  %size_.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %this, i64 0, i32 1
+  %size_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %3, ptr %size_.i.i, align 8, !tbaa !7
   br label %sw.bb4.i.i
 
@@ -321,7 +318,7 @@ if.then6.i.i:                                     ; preds = %if.else.i.i
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i: ; preds = %if.then6.i.i, %if.else.i.i, %sw.bb4.i.i, %if.then.i.i
   %5 = trunc i64 %call to i8
   %conv.i.i.i = sub nuw nsw i8 23, %5
-  %arrayidx.i.i.i = getelementptr inbounds [24 x i8], ptr %this, i64 0, i64 23
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %this, i64 23
   store i8 %conv.i.i.i, ptr %arrayidx.i.i.i, align 1, !tbaa !7
   %arrayidx2.i.i.i = getelementptr inbounds [24 x i8], ptr %this, i64 0, i64 %call
   store i8 0, ptr %arrayidx2.i.i.i, align 1, !tbaa !7
@@ -413,11 +410,11 @@ if.then:                                          ; preds = %_ZN5folly13checkedM
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZN5folly13checkedMallocEm.exit
-  %size_ = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %this, i64 0, i32 1
+  %size_ = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %size, ptr %size_, align 8, !tbaa !7
   %sub = add i64 %retval.0.i, 9223372036854775807
   %or.i = or i64 %sub, -9223372036854775808
-  %capacity_.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %this, i64 0, i32 2
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %or.i, ptr %capacity_.i, align 8, !tbaa !14
   %arrayidx = getelementptr inbounds i8, ptr %call.i, i64 %size
   store i8 0, ptr %arrayidx, align 1, !tbaa !7
@@ -435,18 +432,18 @@ entry:
   br i1 %cmp.not.i, label %_ZN5folly13fbstring_coreIcE10RefCounted6createEPKcPm.exit, label %if.then.i, !prof !23
 
 if.then.i:                                        ; preds = %entry
-  %data_.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::RefCounted", ptr %call.i, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %call.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data_.i, ptr align 1 %data, i64 %size, i1 false)
   br label %_ZN5folly13fbstring_coreIcE10RefCounted6createEPKcPm.exit
 
 _ZN5folly13fbstring_coreIcE10RefCounted6createEPKcPm.exit: ; preds = %if.then.i, %entry
-  %data_ = getelementptr inbounds %"struct.folly::fbstring_core<char>::RefCounted", ptr %call.i, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %data_, ptr %this, align 8, !tbaa !7
-  %size_ = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %this, i64 0, i32 1
+  %size_ = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %size, ptr %size_, align 8, !tbaa !7
   %0 = load i64, ptr %effectiveCapacity, align 8, !tbaa !10
   %or.i = or i64 %0, 4611686018427387904
-  %capacity_.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %this, i64 0, i32 2
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %or.i, ptr %capacity_.i, align 8, !tbaa !14
   %arrayidx = getelementptr inbounds i8, ptr %data_, i64 %size
   store i8 0, ptr %arrayidx, align 1, !tbaa !7
@@ -709,7 +706,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDp
 entry:
   %ref.tmp = alloca %"class.std::bad_alloc", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !24
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !24
   invoke void @_ZN5folly15throw_exceptionISt9bad_allocEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #21
           to label %invoke.cont unwind label %lpad
 
@@ -728,7 +725,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionISt9bad_allocEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #14 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %exception, align 8, !tbaa !24
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %exception, align 8, !tbaa !24
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #22
   unreachable
 }
@@ -867,7 +864,7 @@ declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #15
 define linkonce_odr void @_ZNSt12length_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #8 comdat align 2 {
 entry:
   tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12length_error, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !24
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt12length_error, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !24
   ret void
 }
 
@@ -956,7 +953,7 @@ return:                                           ; preds = %cleanup.cont, %if.t
 
 declare noundef i64 @_ZN5folly7strlcpyEPcPKcm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal void @_GLOBAL__sub_I_Demangle.cpp() #16 section ".text.startup" {
 entry:
   %frombool.i = zext i1 icmp ne (ptr @__cxa_demangle, ptr null) to i8
@@ -984,7 +981,7 @@ attributes #12 = { mustprogress nofree nounwind willreturn allockind("alloc,unin
 attributes #13 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { cold mustprogress noreturn optsize uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { mustprogress nofree nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { nounwind willreturn memory(read) }
 attributes #18 = { nounwind }
 attributes #19 = { noreturn nounwind }

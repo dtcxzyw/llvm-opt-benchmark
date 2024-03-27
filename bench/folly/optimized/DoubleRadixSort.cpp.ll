@@ -436,20 +436,20 @@ if.then:                                          ; preds = %entry
   %0 = load double, ptr %scevgep, align 8, !tbaa !15
   %1 = load double, ptr %__first, align 8
   %cmp.i.i = fcmp olt double %0, %1
-  br i1 %cmp.i.i, label %if.then.i.i.i.i.i.i, label %for.inc.i
+  br i1 %cmp.i.i, label %if.then2.i, label %for.inc.i
 
-if.then.i.i.i.i.i.i:                              ; preds = %if.then
+if.then2.i:                                       ; preds = %if.then
   store double %1, ptr %scevgep, align 8
   br label %for.inc.i
 
-for.inc.i:                                        ; preds = %if.then.i.i.i.i.i.i, %if.then
-  %__first.sink.i = phi ptr [ %__first, %if.then.i.i.i.i.i.i ], [ %scevgep, %if.then ]
+for.inc.i:                                        ; preds = %if.then2.i, %if.then
+  %__first.sink.i = phi ptr [ %__first, %if.then2.i ], [ %scevgep, %if.then ]
   store double %0, ptr %__first.sink.i, align 8, !tbaa !15
   %__i.021.i.ptr.1 = getelementptr inbounds i8, ptr %__first, i64 16
   %2 = load double, ptr %__i.021.i.ptr.1, align 8, !tbaa !15
   %3 = load double, ptr %__first, align 8, !tbaa !15
   %cmp.i.i.1 = fcmp olt double %2, %3
-  br i1 %cmp.i.i.1, label %if.then.i.i.i.i.i.i.1, label %if.else.i.1
+  br i1 %cmp.i.i.1, label %if.then2.i.1, label %if.else.i.1
 
 if.else.i.1:                                      ; preds = %for.inc.i
   %4 = load double, ptr %scevgep, align 8, !tbaa !15
@@ -466,18 +466,18 @@ while.body.i.i.1:                                 ; preds = %if.else.i.1, %while
   %cmp.i.i.i.1 = fcmp olt double %2, %6
   br i1 %cmp.i.i.i.1, label %while.body.i.i.1, label %for.inc.i.1, !llvm.loop !26
 
-if.then.i.i.i.i.i.i.1:                            ; preds = %for.inc.i
+if.then2.i.1:                                     ; preds = %for.inc.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %scevgep, ptr noundef nonnull align 8 dereferenceable(16) %__first, i64 16, i1 false)
   br label %for.inc.i.1
 
-for.inc.i.1:                                      ; preds = %while.body.i.i.1, %if.then.i.i.i.i.i.i.1, %if.else.i.1
-  %__first.sink.i.1 = phi ptr [ %__first, %if.then.i.i.i.i.i.i.1 ], [ %__i.021.i.ptr.1, %if.else.i.1 ], [ %__next.013.i.i.1, %while.body.i.i.1 ]
+for.inc.i.1:                                      ; preds = %while.body.i.i.1, %if.then2.i.1, %if.else.i.1
+  %__first.sink.i.1 = phi ptr [ %__first, %if.then2.i.1 ], [ %__i.021.i.ptr.1, %if.else.i.1 ], [ %__next.013.i.i.1, %while.body.i.i.1 ]
   store double %2, ptr %__first.sink.i.1, align 8, !tbaa !15
   %__i.021.i.ptr.2 = getelementptr inbounds i8, ptr %__first, i64 24
   %7 = load double, ptr %__i.021.i.ptr.2, align 8, !tbaa !15
   %8 = load double, ptr %__first, align 8, !tbaa !15
   %cmp.i.i.2 = fcmp olt double %7, %8
-  br i1 %cmp.i.i.2, label %if.then.i.i.i.i.i.i.2, label %if.else.i.2
+  br i1 %cmp.i.i.2, label %if.then2.i.2, label %if.else.i.2
 
 if.else.i.2:                                      ; preds = %for.inc.i.1
   %9 = load double, ptr %__i.021.i.ptr.1, align 8, !tbaa !15
@@ -494,18 +494,18 @@ while.body.i.i.2:                                 ; preds = %if.else.i.2, %while
   %cmp.i.i.i.2 = fcmp olt double %7, %11
   br i1 %cmp.i.i.i.2, label %while.body.i.i.2, label %for.inc.i.2, !llvm.loop !26
 
-if.then.i.i.i.i.i.i.2:                            ; preds = %for.inc.i.1
+if.then2.i.2:                                     ; preds = %for.inc.i.1
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scevgep, ptr noundef nonnull align 8 dereferenceable(24) %__first, i64 24, i1 false)
   br label %for.inc.i.2
 
-for.inc.i.2:                                      ; preds = %while.body.i.i.2, %if.then.i.i.i.i.i.i.2, %if.else.i.2
-  %__first.sink.i.2 = phi ptr [ %__first, %if.then.i.i.i.i.i.i.2 ], [ %__i.021.i.ptr.2, %if.else.i.2 ], [ %__next.013.i.i.2, %while.body.i.i.2 ]
+for.inc.i.2:                                      ; preds = %while.body.i.i.2, %if.then2.i.2, %if.else.i.2
+  %__first.sink.i.2 = phi ptr [ %__first, %if.then2.i.2 ], [ %__i.021.i.ptr.2, %if.else.i.2 ], [ %__next.013.i.i.2, %while.body.i.i.2 ]
   store double %7, ptr %__first.sink.i.2, align 8, !tbaa !15
   %__i.021.i.ptr.3 = getelementptr inbounds i8, ptr %__first, i64 32
   %12 = load double, ptr %__i.021.i.ptr.3, align 8, !tbaa !15
   %13 = load double, ptr %__first, align 8, !tbaa !15
   %cmp.i.i.3 = fcmp olt double %12, %13
-  br i1 %cmp.i.i.3, label %if.then.i.i.i.i.i.i.3, label %if.else.i.3
+  br i1 %cmp.i.i.3, label %if.then2.i.3, label %if.else.i.3
 
 if.else.i.3:                                      ; preds = %for.inc.i.2
   %14 = load double, ptr %__i.021.i.ptr.2, align 8, !tbaa !15
@@ -522,18 +522,18 @@ while.body.i.i.3:                                 ; preds = %if.else.i.3, %while
   %cmp.i.i.i.3 = fcmp olt double %12, %16
   br i1 %cmp.i.i.i.3, label %while.body.i.i.3, label %for.inc.i.3, !llvm.loop !26
 
-if.then.i.i.i.i.i.i.3:                            ; preds = %for.inc.i.2
+if.then2.i.3:                                     ; preds = %for.inc.i.2
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %scevgep, ptr noundef nonnull align 8 dereferenceable(32) %__first, i64 32, i1 false)
   br label %for.inc.i.3
 
-for.inc.i.3:                                      ; preds = %while.body.i.i.3, %if.then.i.i.i.i.i.i.3, %if.else.i.3
-  %__first.sink.i.3 = phi ptr [ %__first, %if.then.i.i.i.i.i.i.3 ], [ %__i.021.i.ptr.3, %if.else.i.3 ], [ %__next.013.i.i.3, %while.body.i.i.3 ]
+for.inc.i.3:                                      ; preds = %while.body.i.i.3, %if.then2.i.3, %if.else.i.3
+  %__first.sink.i.3 = phi ptr [ %__first, %if.then2.i.3 ], [ %__i.021.i.ptr.3, %if.else.i.3 ], [ %__next.013.i.i.3, %while.body.i.i.3 ]
   store double %12, ptr %__first.sink.i.3, align 8, !tbaa !15
   %__i.021.i.ptr.4 = getelementptr inbounds i8, ptr %__first, i64 40
   %17 = load double, ptr %__i.021.i.ptr.4, align 8, !tbaa !15
   %18 = load double, ptr %__first, align 8, !tbaa !15
   %cmp.i.i.4 = fcmp olt double %17, %18
-  br i1 %cmp.i.i.4, label %if.then.i.i.i.i.i.i.4, label %if.else.i.4
+  br i1 %cmp.i.i.4, label %if.then2.i.4, label %if.else.i.4
 
 if.else.i.4:                                      ; preds = %for.inc.i.3
   %19 = load double, ptr %__i.021.i.ptr.3, align 8, !tbaa !15
@@ -550,18 +550,18 @@ while.body.i.i.4:                                 ; preds = %if.else.i.4, %while
   %cmp.i.i.i.4 = fcmp olt double %17, %21
   br i1 %cmp.i.i.i.4, label %while.body.i.i.4, label %for.inc.i.4, !llvm.loop !26
 
-if.then.i.i.i.i.i.i.4:                            ; preds = %for.inc.i.3
+if.then2.i.4:                                     ; preds = %for.inc.i.3
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %scevgep, ptr noundef nonnull align 8 dereferenceable(40) %__first, i64 40, i1 false)
   br label %for.inc.i.4
 
-for.inc.i.4:                                      ; preds = %while.body.i.i.4, %if.then.i.i.i.i.i.i.4, %if.else.i.4
-  %__first.sink.i.4 = phi ptr [ %__first, %if.then.i.i.i.i.i.i.4 ], [ %__i.021.i.ptr.4, %if.else.i.4 ], [ %__next.013.i.i.4, %while.body.i.i.4 ]
+for.inc.i.4:                                      ; preds = %while.body.i.i.4, %if.then2.i.4, %if.else.i.4
+  %__first.sink.i.4 = phi ptr [ %__first, %if.then2.i.4 ], [ %__i.021.i.ptr.4, %if.else.i.4 ], [ %__next.013.i.i.4, %while.body.i.i.4 ]
   store double %17, ptr %__first.sink.i.4, align 8, !tbaa !15
   %__i.021.i.ptr.5 = getelementptr inbounds i8, ptr %__first, i64 48
   %22 = load double, ptr %__i.021.i.ptr.5, align 8, !tbaa !15
   %23 = load double, ptr %__first, align 8, !tbaa !15
   %cmp.i.i.5 = fcmp olt double %22, %23
-  br i1 %cmp.i.i.5, label %if.then.i.i.i.i.i.i.5, label %if.else.i.5
+  br i1 %cmp.i.i.5, label %if.then2.i.5, label %if.else.i.5
 
 if.else.i.5:                                      ; preds = %for.inc.i.4
   %24 = load double, ptr %__i.021.i.ptr.4, align 8, !tbaa !15
@@ -578,18 +578,18 @@ while.body.i.i.5:                                 ; preds = %if.else.i.5, %while
   %cmp.i.i.i.5 = fcmp olt double %22, %26
   br i1 %cmp.i.i.i.5, label %while.body.i.i.5, label %for.inc.i.5, !llvm.loop !26
 
-if.then.i.i.i.i.i.i.5:                            ; preds = %for.inc.i.4
+if.then2.i.5:                                     ; preds = %for.inc.i.4
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %scevgep, ptr noundef nonnull align 8 dereferenceable(48) %__first, i64 48, i1 false)
   br label %for.inc.i.5
 
-for.inc.i.5:                                      ; preds = %while.body.i.i.5, %if.then.i.i.i.i.i.i.5, %if.else.i.5
-  %__first.sink.i.5 = phi ptr [ %__first, %if.then.i.i.i.i.i.i.5 ], [ %__i.021.i.ptr.5, %if.else.i.5 ], [ %__next.013.i.i.5, %while.body.i.i.5 ]
+for.inc.i.5:                                      ; preds = %while.body.i.i.5, %if.then2.i.5, %if.else.i.5
+  %__first.sink.i.5 = phi ptr [ %__first, %if.then2.i.5 ], [ %__i.021.i.ptr.5, %if.else.i.5 ], [ %__next.013.i.i.5, %while.body.i.i.5 ]
   store double %22, ptr %__first.sink.i.5, align 8, !tbaa !15
   %__i.021.i.ptr.6 = getelementptr inbounds i8, ptr %__first, i64 56
   %27 = load double, ptr %__i.021.i.ptr.6, align 8, !tbaa !15
   %28 = load double, ptr %__first, align 8, !tbaa !15
   %cmp.i.i.6 = fcmp olt double %27, %28
-  br i1 %cmp.i.i.6, label %if.then.i.i.i.i.i.i.6, label %if.else.i.6
+  br i1 %cmp.i.i.6, label %if.then2.i.6, label %if.else.i.6
 
 if.else.i.6:                                      ; preds = %for.inc.i.5
   %29 = load double, ptr %__i.021.i.ptr.5, align 8, !tbaa !15
@@ -606,18 +606,18 @@ while.body.i.i.6:                                 ; preds = %if.else.i.6, %while
   %cmp.i.i.i.6 = fcmp olt double %27, %31
   br i1 %cmp.i.i.i.6, label %while.body.i.i.6, label %for.inc.i.6, !llvm.loop !26
 
-if.then.i.i.i.i.i.i.6:                            ; preds = %for.inc.i.5
+if.then2.i.6:                                     ; preds = %for.inc.i.5
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %scevgep, ptr noundef nonnull align 8 dereferenceable(56) %__first, i64 56, i1 false)
   br label %for.inc.i.6
 
-for.inc.i.6:                                      ; preds = %while.body.i.i.6, %if.then.i.i.i.i.i.i.6, %if.else.i.6
-  %__first.sink.i.6 = phi ptr [ %__first, %if.then.i.i.i.i.i.i.6 ], [ %__i.021.i.ptr.6, %if.else.i.6 ], [ %__next.013.i.i.6, %while.body.i.i.6 ]
+for.inc.i.6:                                      ; preds = %while.body.i.i.6, %if.then2.i.6, %if.else.i.6
+  %__first.sink.i.6 = phi ptr [ %__first, %if.then2.i.6 ], [ %__i.021.i.ptr.6, %if.else.i.6 ], [ %__next.013.i.i.6, %while.body.i.i.6 ]
   store double %27, ptr %__first.sink.i.6, align 8, !tbaa !15
   %__i.021.i.ptr.7 = getelementptr inbounds i8, ptr %__first, i64 64
   %32 = load double, ptr %__i.021.i.ptr.7, align 8, !tbaa !15
   %33 = load double, ptr %__first, align 8, !tbaa !15
   %cmp.i.i.7 = fcmp olt double %32, %33
-  br i1 %cmp.i.i.7, label %if.then.i.i.i.i.i.i.7, label %if.else.i.7
+  br i1 %cmp.i.i.7, label %if.then2.i.7, label %if.else.i.7
 
 if.else.i.7:                                      ; preds = %for.inc.i.6
   %34 = load double, ptr %__i.021.i.ptr.6, align 8, !tbaa !15
@@ -634,18 +634,18 @@ while.body.i.i.7:                                 ; preds = %if.else.i.7, %while
   %cmp.i.i.i.7 = fcmp olt double %32, %36
   br i1 %cmp.i.i.i.7, label %while.body.i.i.7, label %for.inc.i.7, !llvm.loop !26
 
-if.then.i.i.i.i.i.i.7:                            ; preds = %for.inc.i.6
+if.then2.i.7:                                     ; preds = %for.inc.i.6
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %scevgep, ptr noundef nonnull align 8 dereferenceable(64) %__first, i64 64, i1 false)
   br label %for.inc.i.7
 
-for.inc.i.7:                                      ; preds = %while.body.i.i.7, %if.then.i.i.i.i.i.i.7, %if.else.i.7
-  %__first.sink.i.7 = phi ptr [ %__first, %if.then.i.i.i.i.i.i.7 ], [ %__i.021.i.ptr.7, %if.else.i.7 ], [ %__next.013.i.i.7, %while.body.i.i.7 ]
+for.inc.i.7:                                      ; preds = %while.body.i.i.7, %if.then2.i.7, %if.else.i.7
+  %__first.sink.i.7 = phi ptr [ %__first, %if.then2.i.7 ], [ %__i.021.i.ptr.7, %if.else.i.7 ], [ %__next.013.i.i.7, %while.body.i.i.7 ]
   store double %32, ptr %__first.sink.i.7, align 8, !tbaa !15
   %__i.021.i.ptr.8 = getelementptr inbounds i8, ptr %__first, i64 72
   %37 = load double, ptr %__i.021.i.ptr.8, align 8, !tbaa !15
   %38 = load double, ptr %__first, align 8, !tbaa !15
   %cmp.i.i.8 = fcmp olt double %37, %38
-  br i1 %cmp.i.i.8, label %if.then.i.i.i.i.i.i.8, label %if.else.i.8
+  br i1 %cmp.i.i.8, label %if.then2.i.8, label %if.else.i.8
 
 if.else.i.8:                                      ; preds = %for.inc.i.7
   %39 = load double, ptr %__i.021.i.ptr.7, align 8, !tbaa !15
@@ -662,18 +662,18 @@ while.body.i.i.8:                                 ; preds = %if.else.i.8, %while
   %cmp.i.i.i.8 = fcmp olt double %37, %41
   br i1 %cmp.i.i.i.8, label %while.body.i.i.8, label %for.inc.i.8, !llvm.loop !26
 
-if.then.i.i.i.i.i.i.8:                            ; preds = %for.inc.i.7
+if.then2.i.8:                                     ; preds = %for.inc.i.7
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %scevgep, ptr noundef nonnull align 8 dereferenceable(72) %__first, i64 72, i1 false)
   br label %for.inc.i.8
 
-for.inc.i.8:                                      ; preds = %while.body.i.i.8, %if.then.i.i.i.i.i.i.8, %if.else.i.8
-  %__first.sink.i.8 = phi ptr [ %__first, %if.then.i.i.i.i.i.i.8 ], [ %__i.021.i.ptr.8, %if.else.i.8 ], [ %__next.013.i.i.8, %while.body.i.i.8 ]
+for.inc.i.8:                                      ; preds = %while.body.i.i.8, %if.then2.i.8, %if.else.i.8
+  %__first.sink.i.8 = phi ptr [ %__first, %if.then2.i.8 ], [ %__i.021.i.ptr.8, %if.else.i.8 ], [ %__next.013.i.i.8, %while.body.i.i.8 ]
   store double %37, ptr %__first.sink.i.8, align 8, !tbaa !15
   %__i.021.i.ptr.9 = getelementptr inbounds i8, ptr %__first, i64 80
   %42 = load double, ptr %__i.021.i.ptr.9, align 8, !tbaa !15
   %43 = load double, ptr %__first, align 8, !tbaa !15
   %cmp.i.i.9 = fcmp olt double %42, %43
-  br i1 %cmp.i.i.9, label %if.then.i.i.i.i.i.i.9, label %if.else.i.9
+  br i1 %cmp.i.i.9, label %if.then2.i.9, label %if.else.i.9
 
 if.else.i.9:                                      ; preds = %for.inc.i.8
   %44 = load double, ptr %__i.021.i.ptr.8, align 8, !tbaa !15
@@ -690,18 +690,18 @@ while.body.i.i.9:                                 ; preds = %if.else.i.9, %while
   %cmp.i.i.i.9 = fcmp olt double %42, %46
   br i1 %cmp.i.i.i.9, label %while.body.i.i.9, label %for.inc.i.9, !llvm.loop !26
 
-if.then.i.i.i.i.i.i.9:                            ; preds = %for.inc.i.8
+if.then2.i.9:                                     ; preds = %for.inc.i.8
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %scevgep, ptr noundef nonnull align 8 dereferenceable(80) %__first, i64 80, i1 false)
   br label %for.inc.i.9
 
-for.inc.i.9:                                      ; preds = %while.body.i.i.9, %if.then.i.i.i.i.i.i.9, %if.else.i.9
-  %__first.sink.i.9 = phi ptr [ %__first, %if.then.i.i.i.i.i.i.9 ], [ %__i.021.i.ptr.9, %if.else.i.9 ], [ %__next.013.i.i.9, %while.body.i.i.9 ]
+for.inc.i.9:                                      ; preds = %while.body.i.i.9, %if.then2.i.9, %if.else.i.9
+  %__first.sink.i.9 = phi ptr [ %__first, %if.then2.i.9 ], [ %__i.021.i.ptr.9, %if.else.i.9 ], [ %__next.013.i.i.9, %while.body.i.i.9 ]
   store double %42, ptr %__first.sink.i.9, align 8, !tbaa !15
   %__i.021.i.ptr.10 = getelementptr inbounds i8, ptr %__first, i64 88
   %47 = load double, ptr %__i.021.i.ptr.10, align 8, !tbaa !15
   %48 = load double, ptr %__first, align 8, !tbaa !15
   %cmp.i.i.10 = fcmp olt double %47, %48
-  br i1 %cmp.i.i.10, label %if.then.i.i.i.i.i.i.10, label %if.else.i.10
+  br i1 %cmp.i.i.10, label %if.then2.i.10, label %if.else.i.10
 
 if.else.i.10:                                     ; preds = %for.inc.i.9
   %49 = load double, ptr %__i.021.i.ptr.9, align 8, !tbaa !15
@@ -718,18 +718,18 @@ while.body.i.i.10:                                ; preds = %if.else.i.10, %whil
   %cmp.i.i.i.10 = fcmp olt double %47, %51
   br i1 %cmp.i.i.i.10, label %while.body.i.i.10, label %for.inc.i.10, !llvm.loop !26
 
-if.then.i.i.i.i.i.i.10:                           ; preds = %for.inc.i.9
+if.then2.i.10:                                    ; preds = %for.inc.i.9
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %scevgep, ptr noundef nonnull align 8 dereferenceable(88) %__first, i64 88, i1 false)
   br label %for.inc.i.10
 
-for.inc.i.10:                                     ; preds = %while.body.i.i.10, %if.then.i.i.i.i.i.i.10, %if.else.i.10
-  %__first.sink.i.10 = phi ptr [ %__first, %if.then.i.i.i.i.i.i.10 ], [ %__i.021.i.ptr.10, %if.else.i.10 ], [ %__next.013.i.i.10, %while.body.i.i.10 ]
+for.inc.i.10:                                     ; preds = %while.body.i.i.10, %if.then2.i.10, %if.else.i.10
+  %__first.sink.i.10 = phi ptr [ %__first, %if.then2.i.10 ], [ %__i.021.i.ptr.10, %if.else.i.10 ], [ %__next.013.i.i.10, %while.body.i.i.10 ]
   store double %47, ptr %__first.sink.i.10, align 8, !tbaa !15
   %__i.021.i.ptr.11 = getelementptr inbounds i8, ptr %__first, i64 96
   %52 = load double, ptr %__i.021.i.ptr.11, align 8, !tbaa !15
   %53 = load double, ptr %__first, align 8, !tbaa !15
   %cmp.i.i.11 = fcmp olt double %52, %53
-  br i1 %cmp.i.i.11, label %if.then.i.i.i.i.i.i.11, label %if.else.i.11
+  br i1 %cmp.i.i.11, label %if.then2.i.11, label %if.else.i.11
 
 if.else.i.11:                                     ; preds = %for.inc.i.10
   %54 = load double, ptr %__i.021.i.ptr.10, align 8, !tbaa !15
@@ -746,18 +746,18 @@ while.body.i.i.11:                                ; preds = %if.else.i.11, %whil
   %cmp.i.i.i.11 = fcmp olt double %52, %56
   br i1 %cmp.i.i.i.11, label %while.body.i.i.11, label %for.inc.i.11, !llvm.loop !26
 
-if.then.i.i.i.i.i.i.11:                           ; preds = %for.inc.i.10
+if.then2.i.11:                                    ; preds = %for.inc.i.10
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %scevgep, ptr noundef nonnull align 8 dereferenceable(96) %__first, i64 96, i1 false)
   br label %for.inc.i.11
 
-for.inc.i.11:                                     ; preds = %while.body.i.i.11, %if.then.i.i.i.i.i.i.11, %if.else.i.11
-  %__first.sink.i.11 = phi ptr [ %__first, %if.then.i.i.i.i.i.i.11 ], [ %__i.021.i.ptr.11, %if.else.i.11 ], [ %__next.013.i.i.11, %while.body.i.i.11 ]
+for.inc.i.11:                                     ; preds = %while.body.i.i.11, %if.then2.i.11, %if.else.i.11
+  %__first.sink.i.11 = phi ptr [ %__first, %if.then2.i.11 ], [ %__i.021.i.ptr.11, %if.else.i.11 ], [ %__next.013.i.i.11, %while.body.i.i.11 ]
   store double %52, ptr %__first.sink.i.11, align 8, !tbaa !15
   %__i.021.i.ptr.12 = getelementptr inbounds i8, ptr %__first, i64 104
   %57 = load double, ptr %__i.021.i.ptr.12, align 8, !tbaa !15
   %58 = load double, ptr %__first, align 8, !tbaa !15
   %cmp.i.i.12 = fcmp olt double %57, %58
-  br i1 %cmp.i.i.12, label %if.then.i.i.i.i.i.i.12, label %if.else.i.12
+  br i1 %cmp.i.i.12, label %if.then2.i.12, label %if.else.i.12
 
 if.else.i.12:                                     ; preds = %for.inc.i.11
   %59 = load double, ptr %__i.021.i.ptr.11, align 8, !tbaa !15
@@ -774,18 +774,18 @@ while.body.i.i.12:                                ; preds = %if.else.i.12, %whil
   %cmp.i.i.i.12 = fcmp olt double %57, %61
   br i1 %cmp.i.i.i.12, label %while.body.i.i.12, label %for.inc.i.12, !llvm.loop !26
 
-if.then.i.i.i.i.i.i.12:                           ; preds = %for.inc.i.11
+if.then2.i.12:                                    ; preds = %for.inc.i.11
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %scevgep, ptr noundef nonnull align 8 dereferenceable(104) %__first, i64 104, i1 false)
   br label %for.inc.i.12
 
-for.inc.i.12:                                     ; preds = %while.body.i.i.12, %if.then.i.i.i.i.i.i.12, %if.else.i.12
-  %__first.sink.i.12 = phi ptr [ %__first, %if.then.i.i.i.i.i.i.12 ], [ %__i.021.i.ptr.12, %if.else.i.12 ], [ %__next.013.i.i.12, %while.body.i.i.12 ]
+for.inc.i.12:                                     ; preds = %while.body.i.i.12, %if.then2.i.12, %if.else.i.12
+  %__first.sink.i.12 = phi ptr [ %__first, %if.then2.i.12 ], [ %__i.021.i.ptr.12, %if.else.i.12 ], [ %__next.013.i.i.12, %while.body.i.i.12 ]
   store double %57, ptr %__first.sink.i.12, align 8, !tbaa !15
   %__i.021.i.ptr.13 = getelementptr inbounds i8, ptr %__first, i64 112
   %62 = load double, ptr %__i.021.i.ptr.13, align 8, !tbaa !15
   %63 = load double, ptr %__first, align 8, !tbaa !15
   %cmp.i.i.13 = fcmp olt double %62, %63
-  br i1 %cmp.i.i.13, label %if.then.i.i.i.i.i.i.13, label %if.else.i.13
+  br i1 %cmp.i.i.13, label %if.then2.i.13, label %if.else.i.13
 
 if.else.i.13:                                     ; preds = %for.inc.i.12
   %64 = load double, ptr %__i.021.i.ptr.12, align 8, !tbaa !15
@@ -802,18 +802,18 @@ while.body.i.i.13:                                ; preds = %if.else.i.13, %whil
   %cmp.i.i.i.13 = fcmp olt double %62, %66
   br i1 %cmp.i.i.i.13, label %while.body.i.i.13, label %for.inc.i.13, !llvm.loop !26
 
-if.then.i.i.i.i.i.i.13:                           ; preds = %for.inc.i.12
+if.then2.i.13:                                    ; preds = %for.inc.i.12
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %scevgep, ptr noundef nonnull align 8 dereferenceable(112) %__first, i64 112, i1 false)
   br label %for.inc.i.13
 
-for.inc.i.13:                                     ; preds = %while.body.i.i.13, %if.then.i.i.i.i.i.i.13, %if.else.i.13
-  %__first.sink.i.13 = phi ptr [ %__first, %if.then.i.i.i.i.i.i.13 ], [ %__i.021.i.ptr.13, %if.else.i.13 ], [ %__next.013.i.i.13, %while.body.i.i.13 ]
+for.inc.i.13:                                     ; preds = %while.body.i.i.13, %if.then2.i.13, %if.else.i.13
+  %__first.sink.i.13 = phi ptr [ %__first, %if.then2.i.13 ], [ %__i.021.i.ptr.13, %if.else.i.13 ], [ %__next.013.i.i.13, %while.body.i.i.13 ]
   store double %62, ptr %__first.sink.i.13, align 8, !tbaa !15
   %__i.021.i.ptr.14 = getelementptr inbounds i8, ptr %__first, i64 120
   %67 = load double, ptr %__i.021.i.ptr.14, align 8, !tbaa !15
   %68 = load double, ptr %__first, align 8, !tbaa !15
   %cmp.i.i.14 = fcmp olt double %67, %68
-  br i1 %cmp.i.i.14, label %if.then.i.i.i.i.i.i.14, label %if.else.i.14
+  br i1 %cmp.i.i.14, label %if.then2.i.14, label %if.else.i.14
 
 if.else.i.14:                                     ; preds = %for.inc.i.13
   %69 = load double, ptr %__i.021.i.ptr.13, align 8, !tbaa !15
@@ -830,12 +830,12 @@ while.body.i.i.14:                                ; preds = %if.else.i.14, %whil
   %cmp.i.i.i.14 = fcmp olt double %67, %71
   br i1 %cmp.i.i.i.14, label %while.body.i.i.14, label %for.inc.i.14, !llvm.loop !26
 
-if.then.i.i.i.i.i.i.14:                           ; preds = %for.inc.i.13
+if.then2.i.14:                                    ; preds = %for.inc.i.13
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %scevgep, ptr noundef nonnull align 8 dereferenceable(120) %__first, i64 120, i1 false)
   br label %for.inc.i.14
 
-for.inc.i.14:                                     ; preds = %while.body.i.i.14, %if.then.i.i.i.i.i.i.14, %if.else.i.14
-  %__first.sink.i.14 = phi ptr [ %__first, %if.then.i.i.i.i.i.i.14 ], [ %__i.021.i.ptr.14, %if.else.i.14 ], [ %__next.013.i.i.14, %while.body.i.i.14 ]
+for.inc.i.14:                                     ; preds = %while.body.i.i.14, %if.then2.i.14, %if.else.i.14
+  %__first.sink.i.14 = phi ptr [ %__first, %if.then2.i.14 ], [ %__i.021.i.ptr.14, %if.else.i.14 ], [ %__next.013.i.i.14, %while.body.i.i.14 ]
   store double %67, ptr %__first.sink.i.14, align 8, !tbaa !15
   %add.ptr = getelementptr inbounds i8, ptr %__first, i64 128
   %cmp.not4.i = icmp eq ptr %add.ptr, %__last
@@ -879,16 +879,16 @@ for.body.i19:                                     ; preds = %if.else, %for.inc.i
   %76 = load double, ptr %__i.021.i20, align 8, !tbaa !15
   %77 = load double, ptr %__first, align 8, !tbaa !15
   %cmp.i.i22 = fcmp olt double %76, %77
-  br i1 %cmp.i.i22, label %if.then.i.i.i.i.i.i36, label %if.else.i23
+  br i1 %cmp.i.i22, label %if.then2.i34, label %if.else.i23
 
-if.then.i.i.i.i.i.i36:                            ; preds = %for.body.i19
-  %sub.ptr.lhs.cast.i.i.i.i.i.i37 = ptrtoint ptr %__i.021.i20 to i64
-  %sub.ptr.sub.i.i.i.i.i.i38 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i37, %sub.ptr.rhs.cast
-  %sub.ptr.div.i.i.i.i.i.i39 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i38, 3
-  %.pre.i.i.i.i.i.i40 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i39
-  %add.ptr3.i41 = getelementptr inbounds i8, ptr %__first.pn20.i21, i64 16
-  %add.ptr.i.i.i.i.i.i42 = getelementptr inbounds double, ptr %add.ptr3.i41, i64 %.pre.i.i.i.i.i.i40
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i42, ptr nonnull align 8 %__first, i64 %sub.ptr.sub.i.i.i.i.i.i38, i1 false)
+if.then2.i34:                                     ; preds = %for.body.i19
+  %add.ptr3.i35 = getelementptr inbounds i8, ptr %__first.pn20.i21, i64 16
+  %sub.ptr.lhs.cast.i.i.i.i.i.i36 = ptrtoint ptr %__i.021.i20 to i64
+  %sub.ptr.sub.i.i.i.i.i.i37 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i36, %sub.ptr.rhs.cast
+  %sub.ptr.div.i.i.i.i.i.i38 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i37, 3
+  %.pre.i.i.i.i.i.i39 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i38
+  %add.ptr.i.i.i.i.i.i40 = getelementptr inbounds double, ptr %add.ptr3.i35, i64 %.pre.i.i.i.i.i.i39
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i40, ptr noundef nonnull align 8 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i.i37, i1 false)
   br label %for.inc.i25
 
 if.else.i23:                                      ; preds = %for.body.i19
@@ -906,8 +906,8 @@ while.body.i.i29:                                 ; preds = %if.else.i23, %while
   %cmp.i.i.i33 = fcmp olt double %76, %80
   br i1 %cmp.i.i.i33, label %while.body.i.i29, label %for.inc.i25, !llvm.loop !29
 
-for.inc.i25:                                      ; preds = %while.body.i.i29, %if.else.i23, %if.then.i.i.i.i.i.i36
-  %__first.sink.i26 = phi ptr [ %__first, %if.then.i.i.i.i.i.i36 ], [ %__i.021.i20, %if.else.i23 ], [ %__next.013.i.i30, %while.body.i.i29 ]
+for.inc.i25:                                      ; preds = %while.body.i.i29, %if.else.i23, %if.then2.i34
+  %__first.sink.i26 = phi ptr [ %__first, %if.then2.i34 ], [ %__i.021.i20, %if.else.i23 ], [ %__next.013.i.i30, %while.body.i.i29 ]
   store double %76, ptr %__first.sink.i26, align 8, !tbaa !15
   %__i.0.i27 = getelementptr inbounds i8, ptr %__i.021.i20, i64 8
   %cmp1.not.i28 = icmp eq ptr %__i.0.i27, %__last

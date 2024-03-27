@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN5follyL12crc32_powersE = internal unnamed_addr constant %"struct.std::array" { [62 x i32] [i32 -306674912, i32 -1310281582, i32 -1603656425, i32 -312312402, i32 -1999551385, i32 -675545494, i32 -331055343, i32 -1904303760, i32 1680310286, i32 1296546528, i32 167662735, i32 -2088424177, i32 808857370, i32 2069535939, i32 838779241, i32 -1611922902, i32 1821240772, i32 366380877, i32 1608415822, i32 -1160180169, i32 776888047, i32 1319870996, i32 -1465617728, i32 1117427358, i32 344797226, i32 -1005869360, i32 -991810500, i32 1073741824, i32 536870912, i32 134217728, i32 8388608, i32 32768, i32 -306674912, i32 -1310281582, i32 -1603656425, i32 -312312402, i32 -1999551385, i32 -675545494, i32 -331055343, i32 -1904303760, i32 1680310286, i32 1296546528, i32 167662735, i32 -2088424177, i32 808857370, i32 2069535939, i32 838779241, i32 -1611922902, i32 1821240772, i32 366380877, i32 1608415822, i32 -1160180169, i32 776888047, i32 1319870996, i32 -1465617728, i32 1117427358, i32 344797226, i32 -1005869360, i32 -991810500, i32 1073741824, i32 536870912, i32 134217728] }, align 4
 @_ZN5follyL13crc32c_powersE = internal unnamed_addr constant %"struct.std::array" { [62 x i32] [i32 -2097792136, i32 1856165212, i32 414771736, i32 1359660442, i32 -1205081771, i32 -1191333401, i32 -1998229646, i32 1958961316, i32 -468243690, i32 224753194, i32 903297634, i32 675681636, i32 -1085975959, i32 -487968036, i32 -25739034, i32 -112828149, i32 1008750479, i32 1401259747, i32 1500670229, i32 1934447369, i32 -1139095709, i32 2097619660, i32 -762721602, i32 -380851780, i32 95899455, i32 -1524752574, i32 1073741824, i32 536870912, i32 134217728, i32 8388608, i32 32768, i32 -2097792136, i32 1856165212, i32 414771736, i32 1359660442, i32 -1205081771, i32 -1191333401, i32 -1998229646, i32 1958961316, i32 -468243690, i32 224753194, i32 903297634, i32 675681636, i32 -1085975959, i32 -487968036, i32 -25739034, i32 -112828149, i32 1008750479, i32 1401259747, i32 1500670229, i32 1934447369, i32 -1139095709, i32 2097619660, i32 -762721602, i32 -380851780, i32 95899455, i32 -1524752574, i32 1073741824, i32 536870912, i32 134217728, i32 8388608, i32 32768] }, align 4
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @_ZN5folly6detail16crc32_combine_swEjjm(i32 noundef %crc1, i32 noundef %crc2, i64 noundef %crc2len) local_unnamed_addr #0 {
 entry:
   %tobool.not1.i = icmp ult i64 %crc2len, 4
@@ -55,7 +55,7 @@ cond.false.i.i.i:                                 ; preds = %cond.false.i.i.i, %
 _ZN5follyL14gf_multiply_swEjjj.exit.i:            ; preds = %cond.false.i.i.i
   %shr2.i = lshr i64 %len.addr.02.i, %0
   %shr4.i = lshr i64 %shr2.i, 1
-  %incdec.ptr.i = getelementptr inbounds i32, ptr %add.ptr.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %tobool.not.i = icmp ult i64 %shr2.i, 2
   br i1 %tobool.not.i, label %_ZN5follyL19crc32_append_zeroesIPFjjjjEEEjT_jmjRKSt5arrayIjLm62EE.exit, label %while.body.i, !llvm.loop !12
 
@@ -69,7 +69,7 @@ _ZN5follyL19crc32_append_zeroesIPFjjjjEEEjT_jmjRKSt5arrayIjLm62EE.exit: ; preds 
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN5folly6detail16crc32_combine_hwEjjm(i32 noundef %crc1, i32 noundef %crc2, i64 noundef %crc2len) local_unnamed_addr #2 {
+define noundef i32 @_ZN5folly6detail16crc32_combine_hwEjjm(i32 noundef %crc1, i32 noundef %crc2, i64 noundef %crc2len) local_unnamed_addr #0 {
 entry:
   %tobool.not14.i = icmp ult i64 %crc2len, 4
   %spec.select = select i1 %tobool.not14.i, i32 %crc1, i32 0
@@ -77,7 +77,7 @@ entry:
   ret i32 %xor
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @_ZN5folly6detail17crc32c_combine_swEjjm(i32 noundef %crc1, i32 noundef %crc2, i64 noundef %crc2len) local_unnamed_addr #0 {
 entry:
   %tobool.not1.i = icmp ult i64 %crc2len, 4
@@ -126,7 +126,7 @@ cond.false.i.i.i:                                 ; preds = %cond.false.i.i.i, %
 _ZN5follyL14gf_multiply_swEjjj.exit.i:            ; preds = %cond.false.i.i.i
   %shr2.i = lshr i64 %len.addr.02.i, %0
   %shr4.i = lshr i64 %shr2.i, 1
-  %incdec.ptr.i = getelementptr inbounds i32, ptr %add.ptr.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %tobool.not.i = icmp ult i64 %shr2.i, 2
   br i1 %tobool.not.i, label %_ZN5follyL19crc32_append_zeroesIPFjjjjEEEjT_jmjRKSt5arrayIjLm62EE.exit, label %while.body.i, !llvm.loop !14
 
@@ -137,7 +137,7 @@ _ZN5follyL19crc32_append_zeroesIPFjjjjEEEjT_jmjRKSt5arrayIjLm62EE.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN5folly6detail17crc32c_combine_hwEjjm(i32 noundef %crc1, i32 noundef %crc2, i64 noundef %crc2len) local_unnamed_addr #2 {
+define noundef i32 @_ZN5folly6detail17crc32c_combine_hwEjjm(i32 noundef %crc1, i32 noundef %crc2, i64 noundef %crc2len) local_unnamed_addr #0 {
 entry:
   %tobool.not14.i = icmp ult i64 %crc2len, 4
   %spec.select = select i1 %tobool.not14.i, i32 %crc1, i32 0
@@ -145,9 +145,8 @@ entry:
   ret i32 %xor
 }
 
-attributes #0 = { mustprogress nofree nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+pclmul,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+pclmul,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+pclmul,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

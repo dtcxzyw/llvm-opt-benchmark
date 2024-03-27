@@ -69,7 +69,7 @@ if.then:                                          ; preds = %land.lhs.true
   store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %exec_.i14, align 8, !tbaa !21
   %call_.i15 = getelementptr inbounds i8, ptr %agg.tmp8, i64 48
   %exec_.i16 = getelementptr inbounds i8, ptr %agg.tmp8, i64 56
-  store ptr @_ZN5folly12_GLOBAL__N_16cache_E, ptr %agg.tmp8, align 16, !tbaa.struct !22
+  store ptr @_ZN5folly12_GLOBAL__N_16cache_E, ptr %agg.tmp8, align 16, !tbaa !22
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE9callSmallIZNS_12_GLOBAL__N_18PidCache4initEvEUlvE1_EEvRNS1_4DataE, ptr %call_.i15, align 16, !tbaa !19
   store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %exec_.i16, align 8, !tbaa !21
   invoke void @_ZN5folly6AtFork15registerHandlerEPKvNS_8FunctionIFbvEEENS3_IFvvEEES7_(ptr noundef nonnull @_ZN5folly12_GLOBAL__N_16cache_E, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp6, ptr noundef nonnull %agg.tmp8)
@@ -177,7 +177,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5folly6detail8function14FunctionTraitsIFvvEE9callSmallIZNS_12_GLOBAL__N_18PidCache4initEvEUlvE1_EEvRNS1_4DataE(ptr nocapture noundef nonnull readonly align 16 dereferenceable(48) %p) #5 align 2 {
 entry:
-  %p.val = load ptr, ptr %p, align 16, !tbaa !24
+  %p.val = load ptr, ptr %p, align 16, !tbaa !23
   %call.i = tail call i32 @getpid() #8
   %pid_.i = getelementptr inbounds i8, ptr %p.val, i64 4
   store i32 %call.i, ptr %pid_.i, align 4, !tbaa !7
@@ -218,7 +218,6 @@ attributes #8 = { nounwind }
 !19 = !{!20, !17, i64 48}
 !20 = !{!"_ZTSN5folly8FunctionIFvvEEE", !11, i64 0, !17, i64 48, !17, i64 56}
 !21 = !{!20, !17, i64 56}
-!22 = !{i64 0, i64 8, !23}
-!23 = !{!17, !17, i64 0}
-!24 = !{!25, !17, i64 0}
-!25 = !{!"_ZTSZN5folly12_GLOBAL__N_18PidCache4initEvEUlvE1_", !17, i64 0}
+!22 = !{!17, !17, i64 0}
+!23 = !{!24, !17, i64 0}
+!24 = !{!"_ZTSZN5folly12_GLOBAL__N_18PidCache4initEvEUlvE1_", !17, i64 0}

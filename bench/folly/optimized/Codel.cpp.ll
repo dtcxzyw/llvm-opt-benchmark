@@ -37,13 +37,13 @@ entry:
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #8
   store i64 %call.i, ptr %codelIntervalTimeNs_.i, align 8, !tbaa !11
   %targetDelay_.i6 = getelementptr inbounds i8, ptr %this, i64 16
-  store i64 %conv.i5, ptr %targetDelay_.i6, align 8, !tbaa.struct !14
+  store i64 %conv.i5, ptr %targetDelay_.i6, align 8, !tbaa !14
   %interval_.i = getelementptr inbounds i8, ptr %this, i64 24
-  store i64 %conv.i, ptr %interval_.i, align 8, !tbaa.struct !14
+  store i64 %conv.i, ptr %interval_.i, align 8, !tbaa !14
   %codelResetDelay_.i = getelementptr inbounds i8, ptr %this, i64 32
-  store i8 1, ptr %codelResetDelay_.i, align 8, !tbaa !16
+  store i8 1, ptr %codelResetDelay_.i, align 8, !tbaa !15
   %overloaded_.i = getelementptr inbounds i8, ptr %this, i64 33
-  store i8 0, ptr %overloaded_.i, align 1, !tbaa !16
+  store i8 0, ptr %overloaded_.i, align 1, !tbaa !15
   ret void
 }
 
@@ -56,15 +56,15 @@ entry:
   store i64 %call, ptr %codelIntervalTimeNs_, align 8, !tbaa !11
   %targetDelay_ = getelementptr inbounds i8, ptr %this, i64 16
   %targetDelay_.i = getelementptr inbounds i8, ptr %options, i64 8
-  %retval.sroa.0.0.copyload.i18 = load i64, ptr %targetDelay_.i, align 8, !tbaa.struct !14
-  store i64 %retval.sroa.0.0.copyload.i18, ptr %targetDelay_, align 8, !tbaa.struct !14
+  %retval.sroa.0.0.copyload.i18 = load i64, ptr %targetDelay_.i, align 8, !tbaa !14
+  store i64 %retval.sroa.0.0.copyload.i18, ptr %targetDelay_, align 8, !tbaa !14
   %interval_ = getelementptr inbounds i8, ptr %this, i64 24
-  %retval.sroa.0.0.copyload.i19 = load i64, ptr %options, align 8, !tbaa.struct !14
-  store i64 %retval.sroa.0.0.copyload.i19, ptr %interval_, align 8, !tbaa.struct !14
+  %retval.sroa.0.0.copyload.i19 = load i64, ptr %options, align 8, !tbaa !14
+  store i64 %retval.sroa.0.0.copyload.i19, ptr %interval_, align 8, !tbaa !14
   %codelResetDelay_ = getelementptr inbounds i8, ptr %this, i64 32
-  store i8 1, ptr %codelResetDelay_, align 8, !tbaa !16
+  store i8 1, ptr %codelResetDelay_, align 8, !tbaa !15
   %overloaded_ = getelementptr inbounds i8, ptr %this, i64 33
-  store i8 0, ptr %overloaded_, align 1, !tbaa !16
+  store i8 0, ptr %overloaded_, align 1, !tbaa !15
   ret void
 }
 
@@ -202,8 +202,8 @@ entry:
 define void @_ZN5folly5Codel10setOptionsERKNS0_7OptionsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(34) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %options) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %targetDelay_.i = getelementptr inbounds i8, ptr %options, i64 8
-  %retval.sroa.0.0.copyload.i = load i64, ptr %targetDelay_.i, align 8, !tbaa.struct !14
-  %retval.sroa.0.0.copyload.i17 = load i64, ptr %options, align 8, !tbaa.struct !14
+  %retval.sroa.0.0.copyload.i = load i64, ptr %targetDelay_.i, align 8, !tbaa !14
+  %retval.sroa.0.0.copyload.i17 = load i64, ptr %options, align 8, !tbaa !14
   %cmp.i.i = icmp sge i64 %retval.sroa.0.0.copyload.i, %retval.sroa.0.0.copyload.i17
   %cmp.i.i18 = icmp slt i64 %retval.sroa.0.0.copyload.i, 1
   %or.cond = or i1 %cmp.i.i18, %cmp.i.i
@@ -294,8 +294,7 @@ attributes #9 = { noreturn }
 !11 = !{!12, !13, i64 0}
 !12 = !{!"_ZTSSt13__atomic_baseImE", !13, i64 0}
 !13 = !{!"long", !9, i64 0}
-!14 = !{i64 0, i64 8, !15}
-!15 = !{!13, !13, i64 0}
-!16 = !{!17, !18, i64 0}
-!17 = !{!"_ZTSSt13__atomic_baseIbE", !18, i64 0}
-!18 = !{!"bool", !9, i64 0}
+!14 = !{!13, !13, i64 0}
+!15 = !{!16, !17, i64 0}
+!16 = !{!"_ZTSSt13__atomic_baseIbE", !17, i64 0}
+!17 = !{!"bool", !9, i64 0}

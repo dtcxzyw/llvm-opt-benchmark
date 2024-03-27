@@ -7,10 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.folly::fbstring_core" = type { %union.anon.0 }
 %union.anon.0 = type { %"struct.folly::fbstring_core<char>::MediumLarge" }
 %"struct.folly::fbstring_core<char>::MediumLarge" = type { ptr, i64, i64 }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.std::type_info" = type { ptr, ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -34,14 +30,14 @@ entry:
   %buffer.i = alloca [20 x i8], align 16
   %ref.tmp = alloca %"class.folly::basic_fbstring", align 8
   %tobool.not = icmp eq ptr %type, null
-  %_M_string_length.i.i.i37 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %result, i64 0, i32 1
+  %_M_string_length.i.i.i37 = getelementptr inbounds i8, ptr %result, i64 8
   %0 = load i64, ptr %_M_string_length.i.i.i37, align 8, !tbaa !7
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   %add.i = add i64 %0, 1
   %1 = load ptr, ptr %result, align 8, !tbaa !14
-  %2 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %result, i64 0, i32 2
+  %2 = getelementptr inbounds i8, ptr %result, i64 16
   %cmp.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
 
@@ -70,19 +66,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds 
   %arrayidx.i.i = getelementptr inbounds i8, ptr %5, i64 %add.i
   store i8 0, ptr %arrayidx.i.i, align 1, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp) #9
-  %__name.i.i = getelementptr inbounds %"class.std::type_info", ptr %type, i64 0, i32 1
+  %__name.i.i = getelementptr inbounds i8, ptr %type, i64 8
   %6 = load ptr, ptr %__name.i.i, align 8, !tbaa !16, !noalias !18
   %7 = load i8, ptr %6, align 1, !tbaa !15, !noalias !18
   %cmp.i.i = icmp eq i8 %7, 42
   %cond.idx.i.i = zext i1 %cmp.i.i to i64
   %cond.i.i26 = getelementptr inbounds i8, ptr %6, i64 %cond.idx.i.i
-  invoke void @_ZN5folly8demangleEPKc(ptr nonnull sret(%"class.folly::basic_fbstring") align 8 %ref.tmp, ptr noundef nonnull %cond.i.i26)
+  invoke void @_ZN5folly8demangleEPKc(ptr dead_on_unwind nonnull writable sret(%"class.folly::basic_fbstring") align 8 %ref.tmp, ptr noundef nonnull %cond.i.i26)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit
-  %arrayidx.i.i.i.i.i = getelementptr inbounds [24 x i8], ptr %ref.tmp, i64 0, i64 23
+  %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 23
   %8 = load i8, ptr %arrayidx.i.i.i.i.i, align 1, !tbaa !15
-  %size_.i.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %ref.tmp, i64 0, i32 1
+  %size_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %9 = load i64, ptr %size_.i.i.i, align 8, !tbaa !15
   %conv.i.i.i = zext i8 %8 to i64
   %sub.i.i.i = sub nsw i64 23, %conv.i.i.i
@@ -192,7 +188,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit42: ; preds
 if.end:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit42, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i) #9
   %call.i.i.i = call noundef i64 @_ZN5folly13to_ascii_withILm10ENS_17to_ascii_alphabetILb0EEELm20EEEmRAT1__cm(ptr noundef nonnull align 1 dereferenceable(20) %buffer.i, i64 noundef %length)
-  %_M_string_length.i.i.i.i43 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %result, i64 0, i32 1
+  %_M_string_length.i.i.i.i43 = getelementptr inbounds i8, ptr %result, i64 8
   %22 = load i64, ptr %_M_string_length.i.i.i.i43, align 8, !tbaa !7
   %sub3.i.i.i44 = sub i64 4611686018427387903, %22
   %cmp.i.i.i45 = icmp ult i64 %sub3.i.i.i44, %call.i.i.i
@@ -219,7 +215,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit55: ; preds
   br i1 %cmp39.not.i, label %_ZN12_GLOBAL__N_113appendHexdumpERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKhm.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit55
-  %24 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %result, i64 0, i32 2
+  %24 = getelementptr inbounds i8, ptr %result, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit38.i, %for.body.lr.ph.i
@@ -333,7 +329,7 @@ _ZN12_GLOBAL__N_113appendHexdumpERNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %46 = load i64, ptr %_M_string_length.i.i.i.i43, align 8, !tbaa !7
   %add.i65 = add i64 %46, 1
   %47 = load ptr, ptr %result, align 8, !tbaa !14
-  %48 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %result, i64 0, i32 2
+  %48 = getelementptr inbounds i8, ptr %result, i64 16
   %cmp.i.i.i66 = icmp eq ptr %47, %48
   br i1 %cmp.i.i.i66, label %if.then.i.i.i74, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i67
 
@@ -409,12 +405,12 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #5
 
-declare void @_ZN5folly8demangleEPKc(ptr sret(%"class.folly::basic_fbstring") align 8, ptr noundef) local_unnamed_addr #4
+declare void @_ZN5folly8demangleEPKc(ptr dead_on_unwind writable sret(%"class.folly::basic_fbstring") align 8, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly13fbstring_coreIcE18destroyMediumLargeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %arrayidx.i = getelementptr inbounds [24 x i8], ptr %this, i64 0, i64 23
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 23
   %0 = load i8, ptr %arrayidx.i, align 1, !tbaa !15
   %1 = and i8 %0, -64
   %cmp = icmp eq i8 %1, -128

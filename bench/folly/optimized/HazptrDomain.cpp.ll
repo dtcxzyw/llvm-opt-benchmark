@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.folly::Executor::KeepAlive" = type { i64 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly6detail27hazptr_get_default_executorEv(ptr noalias nocapture writeonly sret(%"class.folly::Executor::KeepAlive") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly6detail27hazptr_get_default_executorEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Executor::KeepAlive") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 _ZN5folly8Executor9KeepAliveIS0_EC2EPS0_.exit:
   %call = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5folly23QueuedImmediateExecutor8instanceEv()
   %vtable = load ptr, ptr %call, align 8, !tbaa !7

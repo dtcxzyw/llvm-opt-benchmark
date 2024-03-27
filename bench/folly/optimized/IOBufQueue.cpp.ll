@@ -923,13 +923,13 @@ invoke.cont68:                                    ; preds = %_ZNK5folly5IOBuf11g
   %cond = phi ptr [ %24, %_ZNK5folly5IOBuf11getUserDataEv.exit ], [ %5, %_ZNK5folly5IOBuf9getFreeFnEv.exit ], [ %5, %if.else28 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp63) #14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp71) #14
-  invoke void @_ZNK5folly5IOBuf8cloneOneEv(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp71, ptr noundef nonnull align 8 dereferenceable(56) %cond)
+  invoke void @_ZNK5folly5IOBuf8cloneOneEv(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %ref.tmp71, ptr noundef nonnull align 8 dereferenceable(56) %cond)
           to label %invoke.cont73 unwind label %lpad72
 
 invoke.cont73:                                    ; preds = %invoke.cont68
   %25 = load ptr, ptr %ref.tmp71, align 8, !tbaa !26
   store ptr null, ptr %ref.tmp71, align 8, !tbaa !26
-  invoke void @_ZN5folly5IOBuf13takeOwnershipEPvmmmPFvS1_S1_ES1_bNS0_19TakeOwnershipOptionE(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp63, ptr noundef nonnull %add.ptr.i3.i, i64 noundef %sub.ptr.sub.i, i64 noundef 0, i64 noundef 0, ptr noundef nonnull @"_ZZN5folly10IOBufQueue14maybeReuseTailEvEN3$_08__invokeEPvS2_", ptr noundef %25, i1 noundef zeroext true, i32 noundef 0)
+  invoke void @_ZN5folly5IOBuf13takeOwnershipEPvmmmPFvS1_S1_ES1_bNS0_19TakeOwnershipOptionE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %ref.tmp63, ptr noundef nonnull %add.ptr.i3.i, i64 noundef %sub.ptr.sub.i, i64 noundef 0, i64 noundef 0, ptr noundef nonnull @"_ZZN5folly10IOBufQueue14maybeReuseTailEvEN3$_08__invokeEPvS2_", ptr noundef %25, i1 noundef zeroext true, i32 noundef 0)
           to label %invoke.cont76 unwind label %lpad75
 
 invoke.cont76:                                    ; preds = %invoke.cont73
@@ -1138,7 +1138,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #14
-  call void @_ZNK5folly5IOBuf5cloneEv(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %buf)
+  call void @_ZNK5folly5IOBuf5cloneEv(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %buf)
   invoke void @_ZN5folly10IOBufQueue6appendEOSt10unique_ptrINS_5IOBufESt14default_deleteIS2_EEbb(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, i1 noundef zeroext %pack, i1 noundef zeroext false)
           to label %invoke.cont unwind label %lpad
 
@@ -1302,7 +1302,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %src.2 = phi ptr [ %30, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit57 ], [ %src.2.ph, %do.body.preheader ]
   %28 = load ptr, ptr %head_, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp20) #14
-  invoke void @_ZNK5folly5IOBuf8cloneOneEv(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp20, ptr noundef nonnull align 8 dereferenceable(56) %src.2)
+  invoke void @_ZNK5folly5IOBuf8cloneOneEv(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %ref.tmp20, ptr noundef nonnull align 8 dereferenceable(56) %src.2)
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %do.body
@@ -1446,9 +1446,9 @@ eh.resume:                                        ; preds = %ehcleanup35, %lpad
   resume { ptr, i32 } %.pn45.pn.pn
 }
 
-declare void @_ZNK5folly5IOBuf5cloneEv(ptr sret(%"class.std::unique_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #9
+declare void @_ZNK5folly5IOBuf5cloneEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #9
 
-declare void @_ZNK5folly5IOBuf8cloneOneEv(ptr sret(%"class.std::unique_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #9
+declare void @_ZNK5folly5IOBuf8cloneOneEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly10IOBufQueue6appendERS0_bb(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %other, i1 noundef zeroext %pack, i1 noundef zeroext %allowTailReuse) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
@@ -1829,7 +1829,7 @@ if.then:                                          ; preds = %invoke.cont, %_ZNK5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #14
   %20 = call i64 @llvm.umin.i64(i64 %len.addr.0, i64 8000)
   %21 = call i64 @llvm.umax.i64(i64 %20, i64 2000)
-  invoke void @_ZN5folly5IOBuf6createEm(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp, i64 noundef %21)
+  invoke void @_ZN5folly5IOBuf6createEm(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %ref.tmp, i64 noundef %21)
           to label %invoke.cont18 unwind label %lpad13
 
 invoke.cont18:                                    ; preds = %if.then
@@ -2008,7 +2008,7 @@ _ZN5folly6detail14ScopeGuardImplIZNS_10IOBufQueue11updateGuardEvEUlvE_Lb1EED2Ev.
   ret void
 }
 
-declare void @_ZN5folly5IOBuf6createEm(ptr sret(%"class.std::unique_ptr") align 8, i64 noundef) local_unnamed_addr #9
+declare void @_ZN5folly5IOBuf6createEm(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly10IOBufQueue10wrapBufferEPKvmm(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %buf, i64 noundef %len, i64 noundef %blockSize) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
@@ -2022,7 +2022,7 @@ while.body:                                       ; preds = %entry, %_ZNSt10uniq
   %storemerge11 = phi i64 [ %sub, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit ], [ %len, %entry ]
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %storemerge11, i64 %blockSize)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2) #14
-  call void @_ZN5folly5IOBuf10wrapBufferEPKvm(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp2, ptr noundef %src.012, i64 noundef %.sroa.speculated)
+  call void @_ZN5folly5IOBuf10wrapBufferEPKvm(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %ref.tmp2, ptr noundef %src.012, i64 noundef %.sroa.speculated)
   invoke void @_ZN5folly10IOBufQueue6appendEOSt10unique_ptrINS_5IOBufESt14default_deleteIS2_EEbb(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %invoke.cont unwind label %lpad
 
@@ -2054,7 +2054,7 @@ while.end:                                        ; preds = %_ZNSt10unique_ptrIN
   ret void
 }
 
-declare void @_ZN5folly5IOBuf10wrapBufferEPKvm(ptr sret(%"class.std::unique_ptr") align 8, ptr noundef, i64 noundef) local_unnamed_addr #9
+declare void @_ZN5folly5IOBuf10wrapBufferEPKvm(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8, ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define { ptr, i64 } @_ZN5folly10IOBufQueue15preallocateSlowEmmm(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %min, i64 noundef %newAllocationSize, i64 noundef %max) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
@@ -2090,7 +2090,7 @@ if.then.i:                                        ; preds = %entry
 invoke.cont:                                      ; preds = %if.then.i, %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %newBuf) #14
   %.sroa.speculated47 = tail call i64 @llvm.umax.i64(i64 %min, i64 %newAllocationSize)
-  call void @_ZN5folly5IOBuf6createEm(ptr nonnull sret(%"class.std::unique_ptr") align 8 %newBuf, i64 noundef %.sroa.speculated47)
+  call void @_ZN5folly5IOBuf6createEm(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %newBuf, i64 noundef %.sroa.speculated47)
   %7 = load ptr, ptr %newBuf, align 8, !tbaa !26
   %data_.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %data_.i, align 8, !tbaa !39
@@ -2186,10 +2186,10 @@ delete.notnull.i:                                 ; preds = %entry
   ret void
 }
 
-declare void @_ZN5folly5IOBuf13takeOwnershipEPvmmmPFvS1_S1_ES1_bNS0_19TakeOwnershipOptionE(ptr sret(%"class.std::unique_ptr") align 8, ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #9
+declare void @_ZN5folly5IOBuf13takeOwnershipEPvmmmPFvS1_S1_ES1_bNS0_19TakeOwnershipOptionE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8, ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10IOBufQueue5splitEmb(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %n, i1 noundef zeroext %throwOnUnderflow) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10IOBufQueue5splitEmb(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %n, i1 noundef zeroext %throwOnUnderflow) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %guard = alloca %"class.folly::detail::ScopeGuardImpl", align 8
   %result = alloca %"class.std::unique_ptr", align 8
@@ -2353,7 +2353,7 @@ lpad20:                                           ; preds = %if.then6.i
 
 if.else24:                                        ; preds = %if.else4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %clone) #14
-  invoke void @_ZNK5folly5IOBuf8cloneOneEv(ptr nonnull sret(%"class.std::unique_ptr") align 8 %clone, ptr noundef nonnull align 8 dereferenceable(56) %11)
+  invoke void @_ZNK5folly5IOBuf8cloneOneEv(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %clone, ptr noundef nonnull align 8 dereferenceable(56) %11)
           to label %invoke.cont34 unwind label %lpad27
 
 invoke.cont34:                                    ; preds = %if.else24
@@ -2429,7 +2429,7 @@ while.end:                                        ; preds = %_ZNSt10unique_ptrIN
   br i1 %cmp.i.not.i80, label %if.then44, label %cleanup.thread, !prof !59
 
 if.then44:                                        ; preds = %while.end, %_ZN5folly10IOBufQueue11updateGuardEv.exit
-  invoke void @_ZN5folly5IOBuf6createEm(ptr sret(%"class.std::unique_ptr") align 8 %agg.result, i64 noundef 0)
+  invoke void @_ZN5folly5IOBuf6createEm(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %agg.result, i64 noundef 0)
           to label %if.then.i84 unwind label %lpad3
 
 cleanup.thread:                                   ; preds = %while.end, %while.end.thread112
@@ -2918,7 +2918,7 @@ _ZN5folly6detail14ScopeGuardImplIZNS_10IOBufQueue11updateGuardEvEUlvE_Lb1EED2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly10IOBufQueue9pop_frontEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10IOBufQueue9pop_frontEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tailStart_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %tailStart_.i.i, align 8, !tbaa !27, !noalias !138
@@ -3314,9 +3314,9 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %out, i64 noundef %add14)
   %7 = load ptr, ptr %head_, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %__begin1) #14
-  call void @_ZNK5folly5IOBuf6cbeginEv(ptr nonnull sret(%"class.folly::IOBuf::Iterator") align 8 %__begin1, ptr noundef nonnull align 8 dereferenceable(56) %7)
+  call void @_ZNK5folly5IOBuf6cbeginEv(ptr dead_on_unwind nonnull writable sret(%"class.folly::IOBuf::Iterator") align 8 %__begin1, ptr noundef nonnull align 8 dereferenceable(56) %7)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %__end1) #14
-  call void @_ZNK5folly5IOBuf4cendEv(ptr nonnull sret(%"class.folly::IOBuf::Iterator") align 8 %__end1, ptr noundef nonnull align 8 dereferenceable(56) %7)
+  call void @_ZNK5folly5IOBuf4cendEv(ptr dead_on_unwind nonnull writable sret(%"class.folly::IOBuf::Iterator") align 8 %__end1, ptr noundef nonnull align 8 dereferenceable(56) %7)
   %end_.i.i.i.i = getelementptr inbounds i8, ptr %__begin1, i64 8
   %end_3.i.i.i.i = getelementptr inbounds i8, ptr %__end1, i64 8
   %8 = load <2 x ptr>, ptr %__begin1, align 16
@@ -3330,8 +3330,8 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 for.body.lr.ph:                                   ; preds = %cond.end
   %val_.i.i = getelementptr inbounds i8, ptr %__begin1, i64 16
   %range.sroa.5.0.val_.i.i.sroa_idx = getelementptr inbounds i8, ptr %__begin1, i64 24
-  %range.sroa.0.0.copyload.pre = load ptr, ptr %val_.i.i, align 16, !tbaa.struct !159
-  %range.sroa.5.0.copyload.pre = load ptr, ptr %range.sroa.5.0.val_.i.i.sroa_idx, align 8, !tbaa.struct !160
+  %range.sroa.0.0.copyload.pre = load ptr, ptr %val_.i.i, align 16, !tbaa !26
+  %range.sroa.5.0.copyload.pre = load ptr, ptr %range.sroa.5.0.val_.i.i.sroa_idx, align 8, !tbaa !26
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit, %cond.end
@@ -3360,10 +3360,10 @@ if.then.i.i:                                      ; preds = %for.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds = %for.body
   %call.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %out, ptr noundef %range.sroa.0.0.copyload, i64 noundef %sub.ptr.sub.i)
-  %17 = load ptr, ptr %__begin1, align 16, !tbaa !161
+  %17 = load ptr, ptr %__begin1, align 16, !tbaa !159
   %next_.i.i.i = getelementptr inbounds i8, ptr %17, i64 32
   %18 = load ptr, ptr %next_.i.i.i, align 8, !tbaa !61
-  store ptr %18, ptr %__begin1, align 16, !tbaa !161
+  store ptr %18, ptr %__begin1, align 16, !tbaa !159
   %19 = load ptr, ptr %end_.i.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %18, %19
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
@@ -3377,8 +3377,8 @@ if.else.i.i.i:                                    ; preds = %_ZNSt7__cxx1112basi
   %20 = load ptr, ptr %data_.i.i.i.i.i, align 8, !tbaa !39
   %21 = load i64, ptr %18, align 8, !tbaa !31
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %20, i64 %21
-  store ptr %20, ptr %val_.i.i, align 16, !tbaa.struct !159
-  store ptr %add.ptr.i.i.i.i.i, ptr %range.sroa.5.0.val_.i.i.sroa_idx, align 8, !tbaa.struct !160
+  store ptr %20, ptr %val_.i.i, align 16, !tbaa !26
+  store ptr %add.ptr.i.i.i.i.i, ptr %range.sroa.5.0.val_.i.i.sroa_idx, align 8, !tbaa !26
   br label %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit
 
 _ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit: ; preds = %if.else.i.i.i, %if.then.i.i.i
@@ -3386,7 +3386,7 @@ _ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_
   %23 = phi ptr [ null, %if.then.i.i.i ], [ %18, %if.else.i.i.i ]
   %range.sroa.5.0.copyload56 = phi ptr [ null, %if.then.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.else.i.i.i ]
   %range.sroa.0.0.copyload54 = phi ptr [ null, %if.then.i.i.i ], [ %20, %if.else.i.i.i ]
-  %24 = load ptr, ptr %__end1, align 16, !tbaa !161
+  %24 = load ptr, ptr %__end1, align 16, !tbaa !159
   %cmp.i.i.i.i = icmp ne ptr %23, %24
   %25 = load ptr, ptr %end_3.i.i.i.i, align 8
   %cmp4.i.i.i.i = icmp ne ptr %22, %25
@@ -3416,9 +3416,9 @@ return:                                           ; preds = %_ZNSt7__cxx1112basi
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #9
 
-declare void @_ZNK5folly5IOBuf6cbeginEv(ptr sret(%"class.folly::IOBuf::Iterator") align 8, ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #9
+declare void @_ZNK5folly5IOBuf6cbeginEv(ptr dead_on_unwind writable sret(%"class.folly::IOBuf::Iterator") align 8, ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #9
 
-declare void @_ZNK5folly5IOBuf4cendEv(ptr sret(%"class.folly::IOBuf::Iterator") align 8, ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #9
+declare void @_ZNK5folly5IOBuf4cendEv(ptr dead_on_unwind writable sret(%"class.folly::IOBuf::Iterator") align 8, ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #9
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #9
 
@@ -3430,12 +3430,12 @@ define void @_ZN5folly10IOBufQueue6gatherEm(ptr noundef nonnull align 8 derefere
 entry:
   %guard = alloca %"class.folly::detail::ScopeGuardImpl", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %guard) #14
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !164)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !162)
   %tailStart_.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %0 = load ptr, ptr %tailStart_.i.i, align 8, !tbaa !27, !noalias !164
+  %0 = load ptr, ptr %tailStart_.i.i, align 8, !tbaa !27, !noalias !162
   %cachePtr_.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %1 = load ptr, ptr %cachePtr_.i.i, align 8, !tbaa !11, !noalias !164
-  %2 = load ptr, ptr %1, align 8, !tbaa !43, !noalias !164
+  %1 = load ptr, ptr %cachePtr_.i.i, align 8, !tbaa !11, !noalias !162
+  %2 = load ptr, ptr %1, align 8, !tbaa !43, !noalias !162
   %cmp.not.i.i = icmp eq ptr %0, %2
   %head_.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 16
   %.pre = load ptr, ptr %head_.phi.trans.insert, align 8, !tbaa !26
@@ -3443,30 +3443,30 @@ entry:
 
 _ZN5folly10IOBufQueue11updateGuardEv.exit.thread: ; preds = %entry
   %prev_.i.i.i = getelementptr inbounds i8, ptr %.pre, i64 40
-  %3 = load ptr, ptr %prev_.i.i.i, align 8, !tbaa !29, !noalias !164
+  %3 = load ptr, ptr %prev_.i.i.i, align 8, !tbaa !29, !noalias !162
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %4 = load i64, ptr %3, align 8, !tbaa !31, !noalias !164
+  %4 = load i64, ptr %3, align 8, !tbaa !31, !noalias !162
   %add.i.i.i = add i64 %4, %sub.ptr.sub.i.i
-  store i64 %add.i.i.i, ptr %3, align 8, !tbaa !31, !noalias !164
+  store i64 %add.i.i.i, ptr %3, align 8, !tbaa !31, !noalias !162
   %chainLength_.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %5 = load i64, ptr %chainLength_.i.i, align 8, !tbaa !32, !noalias !164
+  %5 = load i64, ptr %chainLength_.i.i, align 8, !tbaa !32, !noalias !162
   %add.i.i = add i64 %5, %sub.ptr.sub.i.i
-  store i64 %add.i.i, ptr %chainLength_.i.i, align 8, !tbaa !32, !noalias !164
+  store i64 %add.i.i, ptr %chainLength_.i.i, align 8, !tbaa !32, !noalias !162
   %add.ptr22.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i.i
-  store ptr %add.ptr22.i.i, ptr %tailStart_.i.i, align 8, !tbaa !27, !noalias !164
-  store i8 0, ptr %guard, align 8, !tbaa !44, !alias.scope !167
+  store ptr %add.ptr22.i.i, ptr %tailStart_.i.i, align 8, !tbaa !27, !noalias !162
+  store i8 0, ptr %guard, align 8, !tbaa !44, !alias.scope !165
   %function_.i.i.i.i7 = getelementptr inbounds i8, ptr %guard, i64 8
   %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %function_.i.i.i.i7, align 8, !tbaa !26, !alias.scope !167
+  store i64 %6, ptr %function_.i.i.i.i7, align 8, !tbaa !26, !alias.scope !165
   br label %if.then
 
 _ZN5folly10IOBufQueue11updateGuardEv.exit:        ; preds = %entry
-  store i8 0, ptr %guard, align 8, !tbaa !44, !alias.scope !167
+  store i8 0, ptr %guard, align 8, !tbaa !44, !alias.scope !165
   %function_.i.i.i.i = getelementptr inbounds i8, ptr %guard, i64 8
   %7 = ptrtoint ptr %this to i64
-  store i64 %7, ptr %function_.i.i.i.i, align 8, !tbaa !26, !alias.scope !167
+  store i64 %7, ptr %function_.i.i.i.i, align 8, !tbaa !26, !alias.scope !165
   %cmp.i.i.not = icmp eq ptr %.pre, null
   br i1 %cmp.i.i.not, label %if.then.i.thread, label %if.then
 
@@ -3763,14 +3763,12 @@ attributes #15 = { noreturn }
 !156 = !{!157, !14, i64 8}
 !157 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !158, i64 0, !14, i64 8, !9, i64 16}
 !158 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !21, i64 0}
-!159 = !{i64 0, i64 8, !26, i64 8, i64 8, !26}
-!160 = !{i64 0, i64 8, !26}
-!161 = !{!162, !21, i64 0}
-!162 = !{!"_ZTSN5folly5IOBuf8IteratorE", !21, i64 0, !21, i64 8, !163, i64 16}
-!163 = !{!"_ZTSN5folly5RangeIPKhEE", !21, i64 0, !21, i64 8}
-!164 = !{!165}
-!165 = distinct !{!165, !166, !"_ZN5folly10IOBufQueue11updateGuardEv: %agg.result"}
-!166 = distinct !{!166, !"_ZN5folly10IOBufQueue11updateGuardEv"}
-!167 = !{!168, !165}
-!168 = distinct !{!168, !169, !"_ZN5folly9makeGuardIZNS_10IOBufQueue11updateGuardEvEUlvE_EENS_6detail14ScopeGuardImplINSt5decayIT_E4typeELb1EEEOS6_: %agg.result"}
-!169 = distinct !{!169, !"_ZN5folly9makeGuardIZNS_10IOBufQueue11updateGuardEvEUlvE_EENS_6detail14ScopeGuardImplINSt5decayIT_E4typeELb1EEEOS6_"}
+!159 = !{!160, !21, i64 0}
+!160 = !{!"_ZTSN5folly5IOBuf8IteratorE", !21, i64 0, !21, i64 8, !161, i64 16}
+!161 = !{!"_ZTSN5folly5RangeIPKhEE", !21, i64 0, !21, i64 8}
+!162 = !{!163}
+!163 = distinct !{!163, !164, !"_ZN5folly10IOBufQueue11updateGuardEv: %agg.result"}
+!164 = distinct !{!164, !"_ZN5folly10IOBufQueue11updateGuardEv"}
+!165 = !{!166, !163}
+!166 = distinct !{!166, !167, !"_ZN5folly9makeGuardIZNS_10IOBufQueue11updateGuardEvEUlvE_EENS_6detail14ScopeGuardImplINSt5decayIT_E4typeELb1EEEOS6_: %agg.result"}
+!167 = distinct !{!167, !"_ZN5folly9makeGuardIZNS_10IOBufQueue11updateGuardEvEUlvE_EENS_6detail14ScopeGuardImplINSt5decayIT_E4typeELb1EEEOS6_"}

@@ -24,13 +24,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13getThreadNameB5cxx11ENSt6thread2idE(ptr noalias sret(%"class.folly::Optional") align 8 %agg.result, i64 %id.coerce) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly13getThreadNameB5cxx11ENSt6thread2idE(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 %agg.result, i64 %id.coerce) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i.i.not = icmp eq i64 %id.coerce, 0
   br i1 %cmp.i.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call fastcc void @_ZN5follyL14getPThreadNameB5cxx11Em(ptr noalias align 8 %agg.result, i64 noundef %id.coerce)
+  tail call fastcc void @_ZN5follyL14getPThreadNameB5cxx11Em(ptr dead_on_unwind noalias writable align 8 %agg.result, i64 noundef %id.coerce)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -46,7 +46,7 @@ return:                                           ; preds = %if.end, %if.then
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5follyL14getPThreadNameB5cxx11Em(ptr noalias align 8 %agg.result, i64 noundef %pid) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5follyL14getPThreadNameB5cxx11Em(ptr dead_on_unwind noalias writable align 8 %agg.result, i64 noundef %pid) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %buf = alloca %"struct.std::array", align 1
@@ -154,10 +154,10 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly20getCurrentThreadNameB5cxx11Ev(ptr noalias sret(%"class.folly::Optional") align 8 %agg.result) local_unnamed_addr #1 {
+define void @_ZN5folly20getCurrentThreadNameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 %agg.result) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @pthread_self() #13
-  tail call fastcc void @_ZN5follyL14getPThreadNameB5cxx11Em(ptr noalias align 8 %agg.result, i64 noundef %call)
+  tail call fastcc void @_ZN5follyL14getPThreadNameB5cxx11Em(ptr dead_on_unwind noalias writable align 8 %agg.result, i64 noundef %call)
   ret void
 }
 

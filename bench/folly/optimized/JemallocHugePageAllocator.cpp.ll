@@ -17,7 +17,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %struct.Initializer = type { i8 }
-%"class.google::LogMessage" = type { ptr, ptr }
+%"class.google::LogMessage" = type { ptr, ptr, %"struct.google::LogMessageTime" }
+%"struct.google::LogMessageTime" = type { %struct.tm, i64, i32, i64 }
+%struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %"class.google::ErrnoLogMessage" = type { %"class.google::LogMessage" }
 
 $_ZZN5folly13usingJEMallocEvENK11InitializerclEv = comdat any
@@ -114,9 +116,9 @@ _ZN5folly13usingJEMallocEv.exit:                  ; preds = %init.i.i, %init.che
   br i1 %tobool1.i.i.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN5folly13usingJEMallocEv.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #20
-  call void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull @.str, i32 noundef 390, i32 noundef 2)
-  %call1 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp) #20
+  call void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp, ptr noundef nonnull @.str, i32 noundef 390, i32 noundef 2)
+  %call1 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -124,16 +126,16 @@ invoke.cont:                                      ; preds = %if.then
           to label %if.end.thread unwind label %lpad
 
 if.end.thread:                                    ; preds = %invoke.cont
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #20
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp) #20
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp) #20
   store i8 0, ptr @_ZN5folly25JemallocHugePageAllocator18hugePagesSupportedE, align 1, !tbaa !8
   br label %if.else8
 
 lpad:                                             ; preds = %invoke.cont, %if.then
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #20
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp) #20
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp) #20
   br label %common.resume
 
 if.end:                                           ; preds = %_ZN5folly13usingJEMallocEv.exit
@@ -761,7 +763,7 @@ cleanup195.i:                                     ; preds = %if.end193.i, %invok
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %muzzy_decay_key.i, i64 %vbase.offset.i.i.i
   store ptr %80, ptr %add.ptr.i.i.i, align 8, !tbaa !73
   %_M_stringbuf.i.i.i = getelementptr inbounds i8, ptr %muzzy_decay_key.i, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i.i, align 8, !tbaa !73
+  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i.i, align 8, !tbaa !73
   %_M_string.i.i.i.i = getelementptr inbounds i8, ptr %muzzy_decay_key.i, i64 80
   %81 = load ptr, ptr %_M_string.i.i.i.i, align 8, !tbaa !38
   %82 = getelementptr inbounds i8, ptr %muzzy_decay_key.i, i64 96
@@ -780,7 +782,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %cleanup195.i
   br label %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit.i
 
 _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i.i, align 8, !tbaa !73
+  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i.i, align 8, !tbaa !73
   %_M_buf_locale.i.i.i.i.i = getelementptr inbounds i8, ptr %muzzy_decay_key.i, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i.i) #20
   %84 = getelementptr inbounds i8, ptr %muzzy_decay_key.i, i64 112
@@ -808,7 +810,7 @@ cleanup199.i:                                     ; preds = %_ZNSt7__cxx1119basi
   %add.ptr.i.i424.i = getelementptr inbounds i8, ptr %dirty_decay_key.i, i64 %vbase.offset.i.i423.i
   store ptr %85, ptr %add.ptr.i.i424.i, align 8, !tbaa !73
   %_M_stringbuf.i.i425.i = getelementptr inbounds i8, ptr %dirty_decay_key.i, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i425.i, align 8, !tbaa !73
+  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i425.i, align 8, !tbaa !73
   %_M_string.i.i.i426.i = getelementptr inbounds i8, ptr %dirty_decay_key.i, i64 80
   %87 = load ptr, ptr %_M_string.i.i.i426.i, align 8, !tbaa !38
   %88 = getelementptr inbounds i8, ptr %dirty_decay_key.i, i64 96
@@ -827,7 +829,7 @@ if.then.i.i.i.i.i428.i:                           ; preds = %cleanup199.i
   br label %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit433.i
 
 _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit433.i: ; preds = %if.then.i.i.i.i.i428.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i430.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i425.i, align 8, !tbaa !73
+  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i425.i, align 8, !tbaa !73
   %_M_buf_locale.i.i.i.i429.i = getelementptr inbounds i8, ptr %dirty_decay_key.i, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i429.i) #20
   %90 = getelementptr inbounds i8, ptr %dirty_decay_key.i, i64 112
@@ -868,7 +870,7 @@ cleanup207.i:                                     ; preds = %cleanup205.i, %if.t
   %add.ptr.i.i436.i = getelementptr inbounds i8, ptr %hooks_key.i, i64 %vbase.offset.i.i435.i
   store ptr %92, ptr %add.ptr.i.i436.i, align 8, !tbaa !73
   %_M_stringbuf.i.i437.i = getelementptr inbounds i8, ptr %hooks_key.i, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i437.i, align 8, !tbaa !73
+  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i437.i, align 8, !tbaa !73
   %_M_string.i.i.i438.i = getelementptr inbounds i8, ptr %hooks_key.i, i64 80
   %93 = load ptr, ptr %_M_string.i.i.i438.i, align 8, !tbaa !38
   %94 = getelementptr inbounds i8, ptr %hooks_key.i, i64 96
@@ -887,7 +889,7 @@ if.then.i.i.i.i.i440.i:                           ; preds = %cleanup207.i
   br label %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit445.i
 
 _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit445.i: ; preds = %if.then.i.i.i.i.i440.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i442.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i437.i, align 8, !tbaa !73
+  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i437.i, align 8, !tbaa !73
   %_M_buf_locale.i.i.i.i441.i = getelementptr inbounds i8, ptr %hooks_key.i, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i441.i) #20
   %96 = getelementptr inbounds i8, ptr %hooks_key.i, i64 112
@@ -930,7 +932,7 @@ cleanup215.i:                                     ; preds = %cleanup213.i, %if.t
   %add.ptr.i.i448.i = getelementptr inbounds i8, ptr %rtl_key.i, i64 %vbase.offset.i.i447.i
   store ptr %98, ptr %add.ptr.i.i448.i, align 8, !tbaa !73
   %_M_stringbuf.i.i449.i = getelementptr inbounds i8, ptr %rtl_key.i, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i449.i, align 8, !tbaa !73
+  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i449.i, align 8, !tbaa !73
   %_M_string.i.i.i450.i = getelementptr inbounds i8, ptr %rtl_key.i, i64 80
   %99 = load ptr, ptr %_M_string.i.i.i450.i, align 8, !tbaa !38
   %100 = getelementptr inbounds i8, ptr %rtl_key.i, i64 96
@@ -949,7 +951,7 @@ if.then.i.i.i.i.i452.i:                           ; preds = %cleanup215.i
   br label %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit457.i
 
 _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit457.i: ; preds = %if.then.i.i.i.i.i452.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i454.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i449.i, align 8, !tbaa !73
+  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i449.i, align 8, !tbaa !73
   %_M_buf_locale.i.i.i.i453.i = getelementptr inbounds i8, ptr %rtl_key.i, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i453.i) #20
   %102 = getelementptr inbounds i8, ptr %rtl_key.i, i64 112
@@ -987,9 +989,9 @@ if.else:                                          ; preds = %if.then4
   br label %if.end15
 
 if.else8:                                         ; preds = %if.end, %if.end.thread
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp9) #20
-  call void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp9, ptr noundef nonnull @.str, i32 noundef 401, i32 noundef 1)
-  %call12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp9)
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp9) #20
+  call void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp9, ptr noundef nonnull @.str, i32 noundef 401, i32 noundef 1)
+  %call12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp9)
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %if.else8
@@ -997,15 +999,15 @@ invoke.cont11:                                    ; preds = %if.else8
           to label %invoke.cont13 unwind label %lpad10
 
 invoke.cont13:                                    ; preds = %invoke.cont11
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp9) #20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp9) #20
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp9) #20
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp9) #20
   br label %if.end15
 
 lpad10:                                           ; preds = %invoke.cont11, %if.else8
   %105 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp9) #20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp9) #20
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp9) #20
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp9) #20
   br label %common.resume
 
 if.end15:                                         ; preds = %invoke.cont13, %if.else, %_ZN5folly12_GLOBAL__N_113HugePageArena4initEii.exit
@@ -1017,14 +1019,14 @@ if.end15:                                         ; preds = %invoke.cont13, %if.
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 
-declare void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef, i32 noundef) unnamed_addr #2
+declare void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, i32 noundef, i32 noundef) unnamed_addr #2
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #2
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nounwind
-declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
+declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
@@ -1158,12 +1160,12 @@ entry:
   %call = tail call ptr @__errno_location() #23
   %0 = load i32, ptr %call, align 4, !tbaa !14
   store i32 %err, ptr %call, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #20
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp) #20
   store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp, align 8, !tbaa !33
   %.fca.1.gep = getelementptr inbounds i8, ptr %indirect-arg-temp, i64 8
   store i64 0, ptr %.fca.1.gep, align 8, !tbaa !33
-  call void @_ZN6google15ErrnoLogMessageC1EPKciiiMNS_10LogMessageEFvvE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull @.str, i32 noundef 66, i32 noundef 2, i32 noundef 0, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp)
-  %call2 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
+  call void @_ZN6google15ErrnoLogMessageC1EPKciilMNS_10LogMessageEFvvE(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp, ptr noundef nonnull @.str, i32 noundef 66, i32 noundef 2, i64 noundef 0, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp)
+  %call2 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -1187,16 +1189,16 @@ if.else.i:                                        ; preds = %invoke.cont
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %if.else.i, %if.then.i
-  call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #20
+  call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp) #20
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp) #20
   store i32 %0, ptr %call, align 4, !tbaa !14
   ret void
 
 lpad:                                             ; preds = %if.else.i, %if.then.i, %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #20
+  call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp) #20
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp) #20
   resume { ptr, i32 } %2
 }
 
@@ -1316,12 +1318,12 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #13
 
-declare void @_ZN6google10LogMessage9SendToLogEv(ptr noundef nonnull align 8 dereferenceable(16)) #2
+declare void @_ZN6google10LogMessage9SendToLogEv(ptr noundef nonnull align 8 dereferenceable(96)) #2
 
-declare void @_ZN6google15ErrnoLogMessageC1EPKciiiMNS_10LogMessageEFvvE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef byval({ i64, i64 }) align 8) unnamed_addr #2
+declare void @_ZN6google15ErrnoLogMessageC1EPKciilMNS_10LogMessageEFvvE(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef byval({ i64, i64 }) align 8) unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
+declare void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #3
 
 ; Function Attrs: nounwind
 declare void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #3

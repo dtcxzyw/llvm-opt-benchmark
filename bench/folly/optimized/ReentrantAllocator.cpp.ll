@@ -17,20 +17,20 @@ $_ZN5folly6detail21safe_assert_msg_typesINS0_22safe_assert_msg_type_sIJLNS0_20sa
 @.str.3 = private unnamed_addr constant [11 x i8] c"zero-sized\00", align 1
 @_ZZN5folly12_GLOBAL__N_118reentrant_allocateEmE30__folly_detail_safe_assert_arg_0 = internal constant %"struct.folly::detail::safe_assert_arg" { ptr @.str.4, ptr @.str.2, i32 37, ptr @.str, ptr @_ZN5folly6detail21safe_assert_msg_typesINS0_22safe_assert_msg_type_sIJLNS0_20safe_assert_msg_typeE1EEEEE5valueE }, align 8
 @.str.4 = private unnamed_addr constant [22 x i8] c"addr != ((void *) -1)\00", align 1
-@.str.5 = private unnamed_addr constant [12 x i8] c"mmap failed\00", align 1
+@.str.6 = private unnamed_addr constant [12 x i8] c"mmap failed\00", align 1
 @_ZN5folly12_GLOBAL__N_15dummyE = internal global %struct.max_align_t zeroinitializer, align 16
-@.str.6 = private unnamed_addr constant [21 x i8] c"reentrant_deallocate\00", align 1
-@_ZZN5folly12_GLOBAL__N_120reentrant_deallocateEPvmE30__folly_detail_safe_assert_arg = internal constant %"struct.folly::detail::safe_assert_arg" { ptr @.str.7, ptr @.str.2, i32 42, ptr @.str.6, ptr @_ZN5folly6detail21safe_assert_msg_typesINS0_22safe_assert_msg_type_sIJLNS0_20safe_assert_msg_typeE1EEEEE5valueE }, align 8
-@.str.7 = private unnamed_addr constant [2 x i8] c"p\00", align 1
-@.str.8 = private unnamed_addr constant [13 x i8] c"null-pointer\00", align 1
-@_ZZN5folly12_GLOBAL__N_120reentrant_deallocateEPvmE30__folly_detail_safe_assert_arg_0 = internal constant %"struct.folly::detail::safe_assert_arg" { ptr @.str.1, ptr @.str.2, i32 43, ptr @.str.6, ptr @_ZN5folly6detail21safe_assert_msg_typesINS0_22safe_assert_msg_type_sIJLNS0_20safe_assert_msg_typeE1EEEEE5valueE }, align 8
-@_ZZN5folly12_GLOBAL__N_120reentrant_deallocateEPvmE30__folly_detail_safe_assert_arg_1 = internal constant %"struct.folly::detail::safe_assert_arg" { ptr @.str.9, ptr @.str.2, i32 45, ptr @.str.6, ptr @_ZN5folly6detail21safe_assert_msg_typesINS0_22safe_assert_msg_type_sIJLNS0_20safe_assert_msg_typeE1EEEEE5valueE }, align 8
-@.str.9 = private unnamed_addr constant [5 x i8] c"!err\00", align 1
-@.str.10 = private unnamed_addr constant [14 x i8] c"munmap failed\00", align 1
-@.str.11 = private unnamed_addr constant [11 x i8] c"deallocate\00", align 1
-@_ZZN5folly6detail24reentrant_allocator_base10deallocateEPvmE30__folly_detail_safe_assert_arg = internal constant %"struct.folly::detail::safe_assert_arg" { ptr @.str.12, ptr @.str.2, i32 136, ptr @.str.11, ptr @_ZN5folly6detail21safe_assert_msg_typesINS0_22safe_assert_msg_type_sIJLNS0_20safe_assert_msg_typeE1EEEEE5valueE }, align 8
-@.str.12 = private unnamed_addr constant [7 x i8] c"n == 0\00", align 1
-@.str.13 = private unnamed_addr constant [25 x i8] c"unexpected non-zero size\00", align 1
+@.str.7 = private unnamed_addr constant [21 x i8] c"reentrant_deallocate\00", align 1
+@_ZZN5folly12_GLOBAL__N_120reentrant_deallocateEPvmE30__folly_detail_safe_assert_arg = internal constant %"struct.folly::detail::safe_assert_arg" { ptr @.str.8, ptr @.str.2, i32 42, ptr @.str.7, ptr @_ZN5folly6detail21safe_assert_msg_typesINS0_22safe_assert_msg_type_sIJLNS0_20safe_assert_msg_typeE1EEEEE5valueE }, align 8
+@.str.8 = private unnamed_addr constant [2 x i8] c"p\00", align 1
+@.str.9 = private unnamed_addr constant [13 x i8] c"null-pointer\00", align 1
+@_ZZN5folly12_GLOBAL__N_120reentrant_deallocateEPvmE30__folly_detail_safe_assert_arg_0 = internal constant %"struct.folly::detail::safe_assert_arg" { ptr @.str.1, ptr @.str.2, i32 43, ptr @.str.7, ptr @_ZN5folly6detail21safe_assert_msg_typesINS0_22safe_assert_msg_type_sIJLNS0_20safe_assert_msg_typeE1EEEEE5valueE }, align 8
+@_ZZN5folly12_GLOBAL__N_120reentrant_deallocateEPvmE30__folly_detail_safe_assert_arg_1 = internal constant %"struct.folly::detail::safe_assert_arg" { ptr @.str.11, ptr @.str.2, i32 45, ptr @.str.7, ptr @_ZN5folly6detail21safe_assert_msg_typesINS0_22safe_assert_msg_type_sIJLNS0_20safe_assert_msg_typeE1EEEEE5valueE }, align 8
+@.str.11 = private unnamed_addr constant [5 x i8] c"!err\00", align 1
+@.str.13 = private unnamed_addr constant [14 x i8] c"munmap failed\00", align 1
+@.str.14 = private unnamed_addr constant [11 x i8] c"deallocate\00", align 1
+@_ZZN5folly6detail24reentrant_allocator_base10deallocateEPvmE30__folly_detail_safe_assert_arg = internal constant %"struct.folly::detail::safe_assert_arg" { ptr @.str.15, ptr @.str.2, i32 136, ptr @.str.14, ptr @_ZN5folly6detail21safe_assert_msg_typesINS0_22safe_assert_msg_type_sIJLNS0_20safe_assert_msg_typeE1EEEEE5valueE }, align 8
+@.str.15 = private unnamed_addr constant [7 x i8] c"n == 0\00", align 1
+@.str.16 = private unnamed_addr constant [25 x i8] c"unexpected non-zero size\00", align 1
 
 @_ZN5folly6detail24reentrant_allocator_baseC1ERKNS_27reentrant_allocator_optionsE = unnamed_addr alias void (ptr, ptr), ptr @_ZN5folly6detail24reentrant_allocator_baseC2ERKNS_27reentrant_allocator_optionsE
 @_ZN5folly6detail24reentrant_allocator_baseC1ERKS1_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN5folly6detail24reentrant_allocator_baseC2ERKS1_
@@ -45,7 +45,7 @@ entry:
   br i1 %cmp.not.i, label %if.then2.i, label %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit
 
 if.then2.i:                                       ; preds = %entry
-  tail call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb1EEEvPKNS0_15safe_assert_argEz(ptr noundef nonnull @_ZZN5folly12_GLOBAL__N_118reentrant_allocateEmE30__folly_detail_safe_assert_arg_0, ptr noundef nonnull @.str.5) #5
+  tail call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb1EEEvPKNS0_15safe_assert_argEz(ptr noundef nonnull @_ZZN5folly12_GLOBAL__N_118reentrant_allocateEmE30__folly_detail_safe_assert_arg_0, ptr noundef nonnull @.str.6) #5
   unreachable
 
 _ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit: ; preds = %entry
@@ -146,7 +146,7 @@ do.end7.i:                                        ; preds = %do.body1.i
   br i1 %tobool9.not.i, label %while.cond, label %if.then10.i, !llvm.loop !26
 
 if.then10.i:                                      ; preds = %do.end7.i
-  tail call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb1EEEvPKNS0_15safe_assert_argEz(ptr noundef nonnull @_ZZN5folly12_GLOBAL__N_120reentrant_deallocateEPvmE30__folly_detail_safe_assert_arg_1, ptr noundef nonnull @.str.10) #5
+  tail call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb1EEEvPKNS0_15safe_assert_argEz(ptr noundef nonnull @_ZZN5folly12_GLOBAL__N_120reentrant_deallocateEPvmE30__folly_detail_safe_assert_arg_1, ptr noundef nonnull @.str.13) #5
   unreachable
 
 while.end:                                        ; preds = %while.cond
@@ -154,7 +154,7 @@ while.end:                                        ; preds = %while.cond
   br i1 %tobool.not.i7, label %if.then.i13, label %do.body1.i8
 
 if.then.i13:                                      ; preds = %while.end
-  tail call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef nonnull @_ZZN5folly12_GLOBAL__N_120reentrant_deallocateEPvmE30__folly_detail_safe_assert_arg, ptr noundef nonnull @.str.8) #5
+  tail call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef nonnull @_ZZN5folly12_GLOBAL__N_120reentrant_deallocateEPvmE30__folly_detail_safe_assert_arg, ptr noundef nonnull @.str.9) #5
   unreachable
 
 do.body1.i8:                                      ; preds = %while.end
@@ -163,7 +163,7 @@ do.body1.i8:                                      ; preds = %while.end
   br i1 %tobool9.not.i11, label %_ZN5folly12_GLOBAL__N_120reentrant_deallocateEPvm.exit14, label %if.then10.i12
 
 if.then10.i12:                                    ; preds = %do.body1.i8
-  tail call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb1EEEvPKNS0_15safe_assert_argEz(ptr noundef nonnull @_ZZN5folly12_GLOBAL__N_120reentrant_deallocateEPvmE30__folly_detail_safe_assert_arg_1, ptr noundef nonnull @.str.10) #5
+  tail call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb1EEEvPKNS0_15safe_assert_argEz(ptr noundef nonnull @_ZZN5folly12_GLOBAL__N_120reentrant_deallocateEPvmE30__folly_detail_safe_assert_arg_1, ptr noundef nonnull @.str.13) #5
   unreachable
 
 _ZN5folly12_GLOBAL__N_120reentrant_deallocateEPvm.exit14: ; preds = %do.body1.i8
@@ -207,7 +207,7 @@ do.end.i:                                         ; preds = %if.end
   br i1 %cmp.not.i, label %if.then2.i, label %return
 
 if.then2.i:                                       ; preds = %do.end.i
-  tail call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb1EEEvPKNS0_15safe_assert_argEz(ptr noundef nonnull @_ZZN5folly12_GLOBAL__N_118reentrant_allocateEmE30__folly_detail_safe_assert_arg_0, ptr noundef nonnull @.str.5) #5
+  tail call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb1EEEvPKNS0_15safe_assert_argEz(ptr noundef nonnull @_ZZN5folly12_GLOBAL__N_118reentrant_allocateEmE30__folly_detail_safe_assert_arg_0, ptr noundef nonnull @.str.6) #5
   unreachable
 
 if.end3:                                          ; preds = %if.end
@@ -260,7 +260,7 @@ if.then.i67:                                      ; preds = %while.cond.us, %if.
   unreachable
 
 if.then2.i66:                                     ; preds = %if.then16.split
-  tail call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb1EEEvPKNS0_15safe_assert_argEz(ptr noundef nonnull @_ZZN5folly12_GLOBAL__N_118reentrant_allocateEmE30__folly_detail_safe_assert_arg_0, ptr noundef nonnull @.str.5) #5
+  tail call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb1EEEvPKNS0_15safe_assert_argEz(ptr noundef nonnull @_ZZN5folly12_GLOBAL__N_118reentrant_allocateEmE30__folly_detail_safe_assert_arg_0, ptr noundef nonnull @.str.6) #5
   unreachable
 
 _ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit68: ; preds = %if.then16.split
@@ -281,7 +281,7 @@ do.end7.i:                                        ; preds = %_ZN5folly12_GLOBAL_
   br i1 %tobool9.not.i, label %_ZN5folly12_GLOBAL__N_120reentrant_deallocateEPvm.exit, label %if.then10.i
 
 if.then10.i:                                      ; preds = %do.end7.i
-  tail call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb1EEEvPKNS0_15safe_assert_argEz(ptr noundef nonnull @_ZZN5folly12_GLOBAL__N_120reentrant_deallocateEPvmE30__folly_detail_safe_assert_arg_1, ptr noundef nonnull @.str.10) #5
+  tail call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb1EEEvPKNS0_15safe_assert_argEz(ptr noundef nonnull @_ZZN5folly12_GLOBAL__N_120reentrant_deallocateEPvmE30__folly_detail_safe_assert_arg_1, ptr noundef nonnull @.str.13) #5
   unreachable
 
 _ZN5folly12_GLOBAL__N_120reentrant_deallocateEPvm.exit: ; preds = %do.end7.i
@@ -331,7 +331,7 @@ do.body:                                          ; preds = %entry
   br i1 %cmp2, label %if.end10, label %if.then3
 
 if.then3:                                         ; preds = %do.body
-  tail call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef nonnull @_ZZN5folly6detail24reentrant_allocator_base10deallocateEPvmE30__folly_detail_safe_assert_arg, ptr noundef nonnull @.str.13) #5
+  tail call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef nonnull @_ZZN5folly6detail24reentrant_allocator_base10deallocateEPvmE30__folly_detail_safe_assert_arg, ptr noundef nonnull @.str.16) #5
   unreachable
 
 if.end4:                                          ; preds = %entry
@@ -353,7 +353,7 @@ do.end7.i:                                        ; preds = %if.end7
   br i1 %tobool9.not.i, label %if.end10, label %if.then10.i
 
 if.then10.i:                                      ; preds = %do.end7.i
-  tail call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb1EEEvPKNS0_15safe_assert_argEz(ptr noundef nonnull @_ZZN5folly12_GLOBAL__N_120reentrant_deallocateEPvmE30__folly_detail_safe_assert_arg_1, ptr noundef nonnull @.str.10) #5
+  tail call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb1EEEvPKNS0_15safe_assert_argEz(ptr noundef nonnull @_ZZN5folly12_GLOBAL__N_120reentrant_deallocateEPvmE30__folly_detail_safe_assert_arg_1, ptr noundef nonnull @.str.13) #5
   unreachable
 
 if.end10:                                         ; preds = %do.end7.i, %if.end7, %if.end4, %do.body

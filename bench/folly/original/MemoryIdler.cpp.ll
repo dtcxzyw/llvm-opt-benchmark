@@ -10,7 +10,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::atomic.4" = type { %"struct.std::__atomic_base.5" }
 %"struct.std::__atomic_base.5" = type { i8 }
 %struct.Initializer = type { i8 }
-%"class.google::LogMessage" = type { ptr, ptr }
+%"class.google::LogMessage" = type { ptr, ptr, %"struct.google::LogMessageTime" }
+%"struct.google::LogMessageTime" = type { %struct.tm, i64, i32, i64 }
+%struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %"class.std::logic_error" = type { %"class.std::exception", %"struct.std::__cow_string" }
 %"class.std::exception" = type { ptr }
 %"struct.std::__cow_string" = type { %union.anon }
@@ -171,9 +173,9 @@ seqcst_fail50.i:                                  ; preds = %for.body
   br i1 %6, label %if.else, label %if.end117
 
 if.else:                                          ; preds = %seqcst_fail50.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp25) #21
-  call void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp25, ptr noundef nonnull @.str.2, i32 noundef 71, i32 noundef 2)
-  %call26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp25)
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp25) #21
+  call void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp25, ptr noundef nonnull @.str.2, i32 noundef 71, i32 noundef 2)
+  %call26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp25)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.else
@@ -181,15 +183,15 @@ invoke.cont:                                      ; preds = %if.else
           to label %invoke.cont27 unwind label %lpad
 
 invoke.cont27:                                    ; preds = %invoke.cont
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp25) #21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp25) #21
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp25) #21
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp25) #21
   br label %if.end117
 
 lpad:                                             ; preds = %invoke.cont, %if.else
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp25) #21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp25) #21
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp25) #21
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp25) #21
   br label %eh.resume
 
 if.end32:                                         ; preds = %if.end
@@ -231,7 +233,7 @@ land.lhs.true43:                                  ; preds = %invoke.cont40
 if.then46:                                        ; preds = %land.lhs.true43
   %11 = load i32, ptr %arenaForCurrent, align 4, !tbaa !16
   %conv47 = zext i32 %11 to i64
-  %arrayidx = getelementptr inbounds [3 x i64], ptr %mib, i64 0, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %mib, i64 8
   store i64 %conv47, ptr %arrayidx, align 8, !tbaa !14
   %12 = load i64, ptr %miblen, align 8, !tbaa !14
   %call49 = call i32 @mallctlbymib(ptr noundef nonnull %mib, i64 noundef %12, ptr noundef null, ptr noundef null, ptr noundef null, i64 noundef 0) #21
@@ -277,25 +279,25 @@ seqcst_fail50.i141:                               ; preds = %invoke.cont72
   br i1 %20, label %if.else95, label %for.cond.cleanup81
 
 if.else95:                                        ; preds = %seqcst_fail50.i141
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp96) #21
-  invoke void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp96, ptr noundef nonnull @.str.2, i32 noundef 103, i32 noundef 1)
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp96) #21
+  invoke void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp96, ptr noundef nonnull @.str.2, i32 noundef 103, i32 noundef 1)
           to label %invoke.cont98 unwind label %lpad97
 
 invoke.cont98:                                    ; preds = %if.else95
-  %call101 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp96)
+  %call101 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp96)
           to label %invoke.cont100 unwind label %lpad99
 
 invoke.cont100:                                   ; preds = %invoke.cont98
   %vtable = load ptr, ptr %17, align 8, !tbaa !25
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %21 = load ptr, ptr %vfn, align 8
   %call102 = call noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(16) %17) #21
   %call104 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call101, ptr noundef %call102)
           to label %invoke.cont103 unwind label %lpad99
 
 invoke.cont103:                                   ; preds = %invoke.cont100
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp96) #21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp96) #21
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp96) #21
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp96) #21
   br label %for.cond.cleanup81
 
 lpad97:                                           ; preds = %if.else95
@@ -306,12 +308,12 @@ lpad97:                                           ; preds = %if.else95
 lpad99:                                           ; preds = %invoke.cont100, %invoke.cont98
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp96) #21
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp96) #21
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad99, %lpad97
   %.pn = phi { ptr, i32 } [ %23, %lpad99 ], [ %22, %lpad97 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp96) #21
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp96) #21
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
@@ -345,12 +347,12 @@ declare i64 @_ZNSt6chrono3_V212system_clock3nowEv() local_unnamed_addr #5
 ; Function Attrs: inlinehint mustprogress uwtable
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #6
 
-declare void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef, i32 noundef) unnamed_addr #0
+declare void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, i32 noundef, i32 noundef) unnamed_addr #0
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #0
 
 ; Function Attrs: nounwind
-declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #5
+declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #5
 
 declare noundef nonnull align 8 dereferenceable(56) ptr @_ZN5folly13CacheLocality6systemISt6atomicEERKS0_v() local_unnamed_addr #0
 
@@ -622,9 +624,9 @@ lor.lhs.false.us.i:                               ; preds = %for.body5.lr.ph.i
   br i1 %tobool3.i.i.not.us.i, label %if.else.us.i, label %for.cond.loopexit.i
 
 if.else.us.i:                                     ; preds = %lor.lhs.false.us.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i) #21
-  call void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull @.str.2, i32 noundef 127, i32 noundef 2)
-  %call10.us.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp.i) #21
+  call void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp.i, ptr noundef nonnull @.str.2, i32 noundef 127, i32 noundef 2)
+  %call10.us.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp.i)
           to label %invoke.cont.us.i unwind label %lpad.split.us.i
 
 invoke.cont.us.i:                                 ; preds = %if.else.us.i
@@ -636,15 +638,15 @@ invoke.cont11.us.i:                               ; preds = %invoke.cont.us.i
           to label %invoke.cont13.us.i unwind label %lpad.split.us.i
 
 invoke.cont13.us.i:                               ; preds = %invoke.cont11.us.i
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i) #21
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp.i) #21
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp.i) #21
   br label %for.cond.loopexit.i
 
 lpad.split.us.i:                                  ; preds = %invoke.cont11.us.i, %invoke.cont.us.i, %if.else.us.i
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i) #21
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp.i) #21
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp.i) #21
   br label %ehcleanup100.i
 
 if.end16.i:                                       ; preds = %if.then1
@@ -671,12 +673,12 @@ lor.lhs.false33.us.i:                             ; preds = %for.body28.lr.ph.i
   br i1 %tobool3.i.i119.not.us.i, label %if.else36.us.i, label %for.cond22.loopexit.i
 
 if.else36.us.i:                                   ; preds = %lor.lhs.false33.us.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp37.i) #21
-  invoke void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp37.i, ptr noundef nonnull @.str.2, i32 noundef 137, i32 noundef 2)
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp37.i) #21
+  invoke void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp37.i, ptr noundef nonnull @.str.2, i32 noundef 137, i32 noundef 2)
           to label %invoke.cont39.us.i unwind label %lpad38.split.us.i
 
 invoke.cont39.us.i:                               ; preds = %if.else36.us.i
-  %call42.us.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp37.i)
+  %call42.us.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp37.i)
           to label %invoke.cont41.us.i unwind label %lpad40.split.us.i
 
 invoke.cont41.us.i:                               ; preds = %invoke.cont39.us.i
@@ -688,8 +690,8 @@ invoke.cont43.us.i:                               ; preds = %invoke.cont41.us.i
           to label %invoke.cont45.us.i unwind label %lpad40.split.us.i
 
 invoke.cont45.us.i:                               ; preds = %invoke.cont43.us.i
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp37.i) #21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp37.i) #21
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp37.i) #21
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp37.i) #21
   br label %for.cond22.loopexit.i
 
 lpad38.split.us.i:                                ; preds = %if.else36.us.i
@@ -700,12 +702,12 @@ lpad38.split.us.i:                                ; preds = %if.else36.us.i
 lpad40.split.us.i:                                ; preds = %invoke.cont43.us.i, %invoke.cont41.us.i, %invoke.cont39.us.i
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp37.i) #21
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp37.i) #21
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad40.split.us.i, %lpad38.split.us.i
   %.pn109.i = phi { ptr, i32 } [ %14, %lpad40.split.us.i ], [ %13, %lpad38.split.us.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp37.i) #21
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp37.i) #21
   br label %"_ZN5folly6detail14ScopeGuardImplIZNS0_L16fetchStackLimitsEvE3$_0Lb1EED2Ev.exit132.i"
 
 if.end52.i:                                       ; preds = %if.end16.i
@@ -730,12 +732,12 @@ lor.lhs.false66.us.i:                             ; preds = %for.body61.lr.ph.i
   br i1 %tobool3.i.i124.not.us.i, label %if.else69.us.i, label %for.cond55.loopexit.i
 
 if.else69.us.i:                                   ; preds = %lor.lhs.false66.us.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp70.i) #21
-  invoke void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp70.i, ptr noundef nonnull @.str.2, i32 noundef 153, i32 noundef 2)
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp70.i) #21
+  invoke void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp70.i, ptr noundef nonnull @.str.2, i32 noundef 153, i32 noundef 2)
           to label %invoke.cont72.us.i unwind label %lpad71.split.us.i
 
 invoke.cont72.us.i:                               ; preds = %if.else69.us.i
-  %call75.us.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp70.i)
+  %call75.us.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp70.i)
           to label %invoke.cont74.us.i unwind label %lpad73.split.us.i
 
 invoke.cont74.us.i:                               ; preds = %invoke.cont72.us.i
@@ -748,8 +750,8 @@ invoke.cont76.us.i:                               ; preds = %invoke.cont74.us.i
           to label %invoke.cont78.us.i unwind label %lpad73.split.us.i
 
 invoke.cont78.us.i:                               ; preds = %invoke.cont76.us.i
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp70.i) #21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp70.i) #21
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp70.i) #21
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp70.i) #21
   br label %for.cond55.loopexit.i
 
 lpad71.split.us.i:                                ; preds = %if.else69.us.i
@@ -760,12 +762,12 @@ lpad71.split.us.i:                                ; preds = %if.else69.us.i
 lpad73.split.us.i:                                ; preds = %invoke.cont76.us.i, %invoke.cont74.us.i, %invoke.cont72.us.i
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp70.i) #21
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp70.i) #21
   br label %ehcleanup81.i
 
 ehcleanup81.i:                                    ; preds = %lpad73.split.us.i, %lpad71.split.us.i
   %.pn.i = phi { ptr, i32 } [ %22, %lpad73.split.us.i ], [ %21, %lpad71.split.us.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp70.i) #21
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp70.i) #21
   br label %"_ZN5folly6detail14ScopeGuardImplIZNS0_L16fetchStackLimitsEvE3$_0Lb1EED2Ev.exit132.i"
 
 if.end87.i:                                       ; preds = %if.end52.i
@@ -866,7 +868,7 @@ cleanup.cont:                                     ; preds = %if.end12, %_ZN5foll
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #16
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal fastcc noundef i64 @_ZN5folly6detailL11getStackPtrEv() unnamed_addr #17 {
 entry:
   %marker = alloca i8, align 1
@@ -929,7 +931,7 @@ attributes #13 = { mustprogress nounwind willreturn allockind("free") memory(arg
 attributes #14 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { cold mustprogress noreturn optsize uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { mustprogress nofree nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { noreturn nounwind }

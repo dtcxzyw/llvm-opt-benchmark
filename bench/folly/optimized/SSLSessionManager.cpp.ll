@@ -128,11 +128,11 @@ invoke.cont:                                      ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !20, !noalias !17
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i16.i.i.i.i8, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !22, !noalias !17
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i16.i.i.i.i8, align 8, !tbaa !23, !noalias !17
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i16.i.i.i.i8, align 8, !tbaa !23, !noalias !17
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i16.i.i.i.i8, i64 16
   %0 = getelementptr inbounds i8, ptr %call5.i.i.i16.i.i.i.i8, i64 32
   store i64 0, ptr %0, align 8, !noalias !17
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly3ssl6detail14OpenSSLSessionE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !tbaa !23, !noalias !17
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN5folly3ssl6detail14OpenSSLSessionE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !tbaa !23, !noalias !17
   %activeSession_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i16.i.i.i.i8, i64 24
   store ptr null, ptr %activeSession_.i.i.i.i.i.i.i.i, align 8, !tbaa !7, !noalias !17
   store ptr %call5.i.i.i16.i.i.i.i8, ptr %_M_refcount.i.i.i, align 8, !tbaa !25, !alias.scope !17
@@ -358,11 +358,8 @@ _ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_delete
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
-
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
   tail call void @_ZSt9terminatev() #16
   unreachable
@@ -371,6 +368,9 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 declare void @_ZSt9terminatev() local_unnamed_addr
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
@@ -441,7 +441,7 @@ cleanup:                                          ; preds = %_ZNKSt9type_infoeqE
 define linkonce_odr void @_ZN5folly3ssl6detail14OpenSSLSessionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state.i.i = alloca i32, align 4
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly3ssl6detail14OpenSSLSessionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !23
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN5folly3ssl6detail14OpenSSLSessionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !23
   %activeSession_ = getelementptr inbounds i8, ptr %this, i64 8
   %mutex_.i = getelementptr inbounds i8, ptr %this, i64 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i) #14
@@ -487,7 +487,7 @@ _ZN5folly12SynchronizedISt10unique_ptrI14ssl_session_stNS_23static_function_dele
 define linkonce_odr void @_ZN5folly3ssl6detail14OpenSSLSessionD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state.i.i.i = alloca i32, align 4
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly3ssl6detail14OpenSSLSessionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !23
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN5folly3ssl6detail14OpenSSLSessionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !23
   %activeSession_.i = getelementptr inbounds i8, ptr %this, i64 8
   %mutex_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i.i) #14
@@ -1254,7 +1254,7 @@ eh.resume:                                        ; preds = %lpad6, %lpad
   resume { ptr, i32 } %.pn
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
@@ -1604,7 +1604,7 @@ if.end:                                           ; preds = %_ZN5boost7variantIS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly3ssl17SSLSessionManager13getRawSessionEv(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly3ssl17SSLSessionManager13getRawSessionEv(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %this.val = load i32, ptr %this, align 8, !tbaa !12, !noalias !44
   %0 = getelementptr inbounds i8, ptr %this, i64 8
@@ -1641,7 +1641,7 @@ if.then.i.i.i.i.i4.i.i:                           ; preds = %sw.bb3.i.i.i
   br label %_ZN5boost13apply_visitorIRN12_GLOBAL__N_126RawSessionRetrievalVisitorERKNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS6_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS7_3ssl6detail14OpenSSLSessionEEEEEEEDcOT_OT0_NS_10disable_ifINS_6detail7variant15has_result_typeISJ_EEbE4typeE.exit
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %sw.bb3.i.i.i
-  tail call void @_ZN5folly3ssl6detail14OpenSSLSession16getActiveSessionEv(ptr sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this.val2)
+  tail call void @_ZN5folly3ssl6detail14OpenSSLSession16getActiveSessionEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this.val2)
   br label %_ZN5boost13apply_visitorIRN12_GLOBAL__N_126RawSessionRetrievalVisitorERKNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS6_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS7_3ssl6detail14OpenSSLSessionEEEEEEEDcOT_OT0_NS_10disable_ifINS_6detail7variant15has_result_typeISJ_EEbE4typeE.exit
 
 _ZN5boost13apply_visitorIRN12_GLOBAL__N_126RawSessionRetrievalVisitorERKNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS6_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS7_3ssl6detail14OpenSSLSessionEEEEEEEDcOT_OT0_NS_10disable_ifINS_6detail7variant15has_result_typeISJ_EEbE4typeE.exit: ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i4.i.i, %_ZN5boost6detail7variant22visitation_impl_invokeINS1_14invoke_visitorINS1_15result_wrapper1IRN12_GLOBAL__N_126RawSessionRetrievalVisitorERKNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterISA_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINSB_3ssl6detail14OpenSSLSessionEEEEEEELb0EEEPKvSE_NSK_18has_fallback_type_EEENT_11result_typeEiRSS_T0_PT1_T2_i.exit.i.i
@@ -1650,10 +1650,10 @@ _ZN5boost13apply_visitorIRN12_GLOBAL__N_126RawSessionRetrievalVisitorERKNS_7vari
 
 declare i32 @SSL_SESSION_up_ref(ptr noundef) local_unnamed_addr #0
 
-declare void @_ZN5folly3ssl6detail14OpenSSLSession16getActiveSessionEv(ptr sret(%"class.std::unique_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
+declare void @_ZN5folly3ssl6detail14OpenSSLSession16getActiveSessionEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZNK5folly3ssl17SSLSessionManager10getSessionEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.8") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly3ssl17SSLSessionManager10getSessionEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.8") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %this, align 8, !noalias !80
   %.lobit.i.i.i = ashr i32 %0, 31
@@ -1884,12 +1884,12 @@ attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind memory(read) }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #10 = { mustprogress nofree norecurse nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nofree nounwind }
 attributes #12 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

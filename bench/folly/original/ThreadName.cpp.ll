@@ -22,17 +22,17 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13getThreadNameB5cxx11ENSt6thread2idE(ptr noalias sret(%"class.folly::Optional") align 8 %agg.result, i64 %id.coerce) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly13getThreadNameB5cxx11ENSt6thread2idE(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 %agg.result, i64 %id.coerce) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i.i.not = icmp eq i64 %id.coerce, 0
   br i1 %cmp.i.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call fastcc void @_ZN5follyL14getPThreadNameB5cxx11Em(ptr noalias align 8 %agg.result, i64 noundef %id.coerce)
+  tail call fastcc void @_ZN5follyL14getPThreadNameB5cxx11Em(ptr dead_on_unwind noalias writable align 8 %agg.result, i64 noundef %id.coerce)
   br label %return
 
 if.end:                                           ; preds = %entry
-  %hasValue.i.i = getelementptr inbounds %"struct.folly::Optional<std::__cxx11::basic_string<char>>::StorageNonTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i8 0, ptr %hasValue.i.i, align 8, !tbaa !7
   br label %return
 
@@ -44,7 +44,7 @@ return:                                           ; preds = %if.end, %if.then
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5follyL14getPThreadNameB5cxx11Em(ptr noalias align 8 %agg.result, i64 noundef %pid) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5follyL14getPThreadNameB5cxx11Em(ptr dead_on_unwind noalias writable align 8 %agg.result, i64 noundef %pid) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %buf = alloca %"struct.std::array", align 1
@@ -56,7 +56,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #12
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr %0, ptr %ref.tmp, align 8, !tbaa !12
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #12
@@ -89,14 +89,14 @@ if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i
 
 invoke.cont:                                      ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i, %if.end.i.i
   %4 = load i64, ptr %__dnew.i.i, align 8, !tbaa !15
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 %4, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !20
   %5 = load ptr, ptr %ref.tmp, align 8, !tbaa !17
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %5, i64 %4
   store i8 0, ptr %arrayidx.i.i.i, align 1, !tbaa !19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i) #12
-  %hasValue.i.i = getelementptr inbounds %"struct.folly::Optional<std::__cxx11::basic_string<char>>::StorageNonTriviallyDestructible", ptr %agg.result, i64 0, i32 1
-  %6 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %hasValue.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %6 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %6, ptr %agg.result, align 8, !tbaa !12
   %7 = load ptr, ptr %ref.tmp, align 8, !tbaa !17
   %cmp.i.i.i.i = icmp eq ptr %7, %0
@@ -119,14 +119,14 @@ if.else.i.i.i:                                    ; preds = %invoke.cont
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.else.i.i.i, %if.then.i.i.i
   %10 = phi i64 [ %8, %if.then.i.i.i ], [ %.pre, %if.else.i.i.i ]
-  %_M_string_length.i24.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i24.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %10, ptr %_M_string_length.i24.i.i.i, align 8, !tbaa !20
   store i8 1, ptr %hasValue.i.i, align 8, !tbaa !21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #12
   br label %cleanup
 
 if.end:                                           ; preds = %entry
-  %hasValue.i.i9 = getelementptr inbounds %"struct.folly::Optional<std::__cxx11::basic_string<char>>::StorageNonTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i9 = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i8 0, ptr %hasValue.i.i9, align 8, !tbaa !7
   br label %cleanup
 
@@ -152,10 +152,10 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly20getCurrentThreadNameB5cxx11Ev(ptr noalias sret(%"class.folly::Optional") align 8 %agg.result) local_unnamed_addr #1 {
+define void @_ZN5folly20getCurrentThreadNameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 %agg.result) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @pthread_self() #13
-  tail call fastcc void @_ZN5follyL14getPThreadNameB5cxx11Em(ptr noalias align 8 %agg.result, i64 noundef %call)
+  tail call fastcc void @_ZN5follyL14getPThreadNameB5cxx11Em(ptr dead_on_unwind noalias writable align 8 %agg.result, i64 noundef %call)
   ret void
 }
 

@@ -86,8 +86,8 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define linkonce_odr void @_ZN5folly13hazptr_domainISt6atomicE19reclaim_all_objectsEv(ptr noundef nonnull align 8 dereferenceable(444) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %children.i = alloca %"class.folly::hazptr_obj_list", align 8
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 32
-  %0 = atomicrmw xchg ptr %arrayidx, i64 0 acq_rel, align 8
+  %untagged_ = getelementptr inbounds i8, ptr %this, i64 32
+  %0 = atomicrmw xchg ptr %untagged_, i64 0 acq_rel, align 8
   %tobool.not3.i = icmp eq i64 %0, 0
   br i1 %tobool.not3.i, label %_ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit, label %while.body.i.preheader
 
@@ -386,9 +386,9 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds (%"class.folly::hazptr_domain", ptr @_ZN5folly14default_domainE, i64 0, i32 8, i64 5, i32 0, i32 0, i32 0), i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds (%"class.folly::hazptr_domain", ptr @_ZN5folly14default_domainE, i64 0, i32 8, i64 6, i32 0, i32 0, i32 0), i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds (%"class.folly::hazptr_domain", ptr @_ZN5folly14default_domainE, i64 0, i32 8, i64 7, i32 0, i32 0, i32 0), i8 0, i64 20, i1 false)
-  store i32 0, ptr getelementptr inbounds (%"class.folly::hazptr_domain", ptr @_ZN5folly14default_domainE, i64 0, i32 9), align 8, !tbaa !42
+  store i32 0, ptr getelementptr inbounds (%"class.folly::hazptr_domain", ptr @_ZN5folly14default_domainE, i64 0, i32 9, i32 0, i32 0), align 8, !tbaa !42
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(31) @_ZN5folly14default_domainE, i8 0, i64 31, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds (%"class.folly::hazptr_domain", ptr @_ZN5folly14default_domainE, i64 0, i32 11), i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds (%"class.folly::hazptr_domain", ptr @_ZN5folly14default_domainE, i64 0, i32 11, i32 0, i32 0), i8 0, i64 20, i1 false)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5folly13hazptr_domainISt6atomicED2Ev, ptr nonnull @_ZN5folly14default_domainE, ptr nonnull @__dso_handle) #11
   ret void
 }

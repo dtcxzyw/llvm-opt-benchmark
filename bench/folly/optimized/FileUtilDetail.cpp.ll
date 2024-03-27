@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.5 = private unnamed_addr constant [27 x i8] c"/tempForAtomicWrite.XXXXXX\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly15fileutil_detail26getTemporaryFilePathStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %filePath, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %temporaryDirectory) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly15fileutil_detail26getTemporaryFilePathStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %filePath, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %temporaryDirectory) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i78.i = alloca i64, align 8
   %__dnew.i.i.i = alloca i64, align 8

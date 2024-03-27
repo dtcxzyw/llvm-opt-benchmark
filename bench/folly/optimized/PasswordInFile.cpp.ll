@@ -69,7 +69,7 @@ entry:
   %fd.i = alloca i32, align 4
   %SCOPE_EXIT_STATE1.i = alloca %"class.folly::detail::ScopeGuardImpl", align 8
   %__dnew.i.i = alloca i64, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly14PasswordInFileE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5folly14PasswordInFileE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
   %fileName_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %0, ptr %fileName_, align 8, !tbaa !10
@@ -277,9 +277,9 @@ entry:
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %SCOPE_EXIT_STATE0) #12
   store i8 0, ptr %SCOPE_EXIT_STATE0, align 8, !tbaa !22, !alias.scope !29
   %function_.i.i.i = getelementptr inbounds i8, ptr %SCOPE_EXIT_STATE0, i64 8
-  store ptr %out, ptr %function_.i.i.i, align 8, !tbaa.struct !32
+  store ptr %out, ptr %function_.i.i.i, align 8, !tbaa !28
   %ref.tmp.sroa.4.0.function_.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %SCOPE_EXIT_STATE0, i64 16
-  store ptr %soFar, ptr %ref.tmp.sroa.4.0.function_.i.i.i.sroa_idx, align 8, !tbaa.struct !33
+  store ptr %soFar, ptr %ref.tmp.sroa.4.0.function_.i.i.i.sroa_idx, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %buf) #12
   %call = call i32 @fstat(i32 noundef %fd, ptr noundef nonnull %buf) #12
   %cmp = icmp eq i32 %call, -1
@@ -377,13 +377,13 @@ _ZN5folly6detail14ScopeGuardImplIZNS_8readFileINSt7__cxx1112basic_stringIcSt11ch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly6detail14ScopeGuardImplIZNS_8readFileINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPKcRT_mEUlvE_Lb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load i8, ptr %this, align 8, !tbaa !22, !range !34, !noundef !35
+  %0 = load i8, ptr %this, align 8, !tbaa !22, !range !32, !noundef !33
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %function_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %1 = load ptr, ptr %function_.i, align 8, !tbaa !36
+  %1 = load ptr, ptr %function_.i, align 8, !tbaa !34
   %2 = load i32, ptr %1, align 4, !tbaa !20
   %call.i.i = invoke noundef i32 @_ZN5folly10closeNoIntEi(i32 noundef %2)
           to label %if.end unwind label %terminate.lpad.i.i
@@ -407,15 +407,15 @@ declare noundef i64 @_ZN5folly8readFullEiPvm(i32 noundef, ptr noundef, i64 nound
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly6detail14ScopeGuardImplIZNS_8readFileINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbiRT_mEUlvE_Lb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load i8, ptr %this, align 8, !tbaa !22, !range !34, !noundef !35
+  %0 = load i8, ptr %this, align 8, !tbaa !22, !range !32, !noundef !33
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %function_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %1 = load ptr, ptr %function_.i, align 8, !tbaa !38
+  %1 = load ptr, ptr %function_.i, align 8, !tbaa !36
   %2 = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !40
+  %3 = load ptr, ptr %2, align 8, !tbaa !38
   %4 = load i64, ptr %3, align 8, !tbaa !18
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %4, i8 noundef signext 0)
           to label %if.end unwind label %terminate.lpad.i.i
@@ -441,7 +441,7 @@ declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly14PasswordInFileD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly14PasswordInFileE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5folly14PasswordInFileE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
   %password_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %password_, align 8, !tbaa !14
   %_M_string_length.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -555,12 +555,10 @@ attributes #15 = { noreturn }
 !29 = !{!30}
 !30 = distinct !{!30, !31, !"_ZN5folly6detailplIZNS_8readFileINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbiRT_mEUlvE_EENS0_14ScopeGuardImplINSt5decayIS9_E4typeELb1EEENS0_16ScopeGuardOnExitEOS9_: %agg.result"}
 !31 = distinct !{!31, !"_ZN5folly6detailplIZNS_8readFileINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbiRT_mEUlvE_EENS0_14ScopeGuardImplINSt5decayIS9_E4typeELb1EEENS0_16ScopeGuardOnExitEOS9_"}
-!32 = !{i64 0, i64 8, !28, i64 8, i64 8, !28}
-!33 = !{i64 0, i64 8, !28}
-!34 = !{i8 0, i8 2}
-!35 = !{}
+!32 = !{i8 0, i8 2}
+!33 = !{}
+!34 = !{!35, !12, i64 0}
+!35 = !{!"_ZTSZN5folly8readFileINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPKcRT_mEUlvE_", !12, i64 0}
 !36 = !{!37, !12, i64 0}
-!37 = !{!"_ZTSZN5folly8readFileINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPKcRT_mEUlvE_", !12, i64 0}
-!38 = !{!39, !12, i64 0}
-!39 = !{!"_ZTSZN5folly8readFileINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbiRT_mEUlvE_", !12, i64 0, !12, i64 8}
-!40 = !{!39, !12, i64 8}
+!37 = !{!"_ZTSZN5folly8readFileINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbiRT_mEUlvE_", !12, i64 0, !12, i64 8}
+!38 = !{!37, !12, i64 8}

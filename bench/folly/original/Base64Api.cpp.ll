@@ -11,14 +11,14 @@ $_ZN5folly6detail13base64_detail21base64URLEncodeScalarEPKcS3_Pc = comdat any
 @_ZN5folly6detail13base64_detail9constantsL17kBase64URLCharsetE = internal unnamed_addr constant [65 x i8] c"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_\00", align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly6detail13base64_detail32base64EncodeSelectImplementationEv(ptr noalias nocapture writeonly sret(%"struct.folly::detail::base64_detail::Base64RuntimeImpl") align 8 %agg.result) local_unnamed_addr #0 {
+define void @_ZN5folly6detail13base64_detail32base64EncodeSelectImplementationEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.folly::detail::base64_detail::Base64RuntimeImpl") align 8 %agg.result) local_unnamed_addr #0 {
 entry:
   store ptr @_ZN5folly6detail13base64_detail18base64EncodeScalarEPKcS3_Pc, ptr %agg.result, align 8, !tbaa !7
-  %encodeURL = getelementptr inbounds %"struct.folly::detail::base64_detail::Base64RuntimeImpl", ptr %agg.result, i64 0, i32 1
+  %encodeURL = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr @_ZN5folly6detail13base64_detail21base64URLEncodeScalarEPKcS3_Pc, ptr %encodeURL, align 8, !tbaa !12
-  %decode = getelementptr inbounds %"struct.folly::detail::base64_detail::Base64RuntimeImpl", ptr %agg.result, i64 0, i32 2
+  %decode = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr @_ZN5folly6detail13base64_detail16base64DecodeSWAREPKcS3_Pc, ptr %decode, align 8, !tbaa !13
-  %decodeURL = getelementptr inbounds %"struct.folly::detail::base64_detail::Base64RuntimeImpl", ptr %agg.result, i64 0, i32 3
+  %decodeURL = getelementptr inbounds i8, ptr %agg.result, i64 24
   store ptr @_ZN5folly6detail13base64_detail19base64URLDecodeSWAREPKcS3_Pc, ptr %decodeURL, align 8, !tbaa !14
   ret void
 }

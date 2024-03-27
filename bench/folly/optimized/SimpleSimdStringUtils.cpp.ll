@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZN5folly6detail26simdHasSpaceOrCntrlSymbolsENS_5RangeIPKcEE(ptr %s.coerce0, ptr %s.coerce1) local_unnamed_addr #0 {
 entry:
-  %cmp.i = icmp eq ptr %s.coerce1, %s.coerce0
+  %cmp.i = icmp eq ptr %s.coerce0, %s.coerce1
   br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi4EKcNS0_13AnyOfDelegateINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEEPS2_NS_6detail25SimpleSimdStringUtilsImplIS6_E28HasSpaceOrCntrlSymbolsLambdaEEEEEviPT0_SE_RT1_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry

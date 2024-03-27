@@ -112,13 +112,13 @@ _ZNSt10unique_ptrIN5folly21ScopedEventBaseThreadESt14default_deleteIS1_EED2Ev.ex
 invoke.cont6:                                     ; preds = %_ZNSt10unique_ptrIN5folly21ScopedEventBaseThreadESt14default_deleteIS1_EED2Ev.exit
   %call_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 48
   %exec_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 56
-  store ptr %this, ptr %agg.tmp, align 16, !tbaa.struct !16
+  store ptr %this, ptr %agg.tmp, align 16, !tbaa !10
   %fun.sroa.2.0.data_2.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store ptr %host, ptr %fun.sroa.2.0.data_2.sroa_idx.i, align 8, !tbaa.struct !17
-  store ptr @"_ZN5folly6detail8function14FunctionTraitsIFvvEE9callSmallIZNS_15ScopedBoundPortC1ENS_9IPAddressEE3$_0EEvRNS1_4DataE", ptr %call_.i, align 16, !tbaa !18
-  store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %exec_.i, align 8, !tbaa !20
+  store ptr %host, ptr %fun.sroa.2.0.data_2.sroa_idx.i, align 8, !tbaa !10
+  store ptr @"_ZN5folly6detail8function14FunctionTraitsIFvvEE9callSmallIZNS_15ScopedBoundPortC1ENS_9IPAddressEE3$_0EEvRNS1_4DataE", ptr %call_.i, align 16, !tbaa !16
+  store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %exec_.i, align 8, !tbaa !18
   call void @_ZN5folly9EventBase27runInEventBaseThreadAndWaitENS_8FunctionIFvvEEE(ptr noundef nonnull align 16 dereferenceable(584) %call7, ptr noundef nonnull %agg.tmp) #15
-  %5 = load ptr, ptr %exec_.i, align 8, !tbaa !20
+  %5 = load ptr, ptr %exec_.i, align 8, !tbaa !18
   %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %_ZN5folly8FunctionIFvvEED2Ev.exit, label %if.end.i.i
 
@@ -173,7 +173,7 @@ declare void @_ZN5folly9EventBase27runInEventBaseThreadAndWaitENS_8FunctionIFvvE
 define linkonce_odr void @_ZNSt12__shared_ptrIN5folly17AsyncServerSocketELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_refcount = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = load ptr, ptr %_M_refcount, align 8, !tbaa !21
+  %0 = load ptr, ptr %_M_refcount, align 8, !tbaa !19
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i
 
@@ -185,9 +185,9 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  store i32 0, ptr %_M_use_count.i.i, align 8, !tbaa !23
+  store i32 0, ptr %_M_use_count.i.i, align 8, !tbaa !21
   %_M_weak_count.i.i = getelementptr inbounds i8, ptr %0, i64 12
-  store i32 0, ptr %_M_weak_count.i.i, align 4, !tbaa !26
+  store i32 0, ptr %_M_weak_count.i.i, align 4, !tbaa !24
   %vtable.i.i = load ptr, ptr %0, align 8, !tbaa !14
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i, align 8
@@ -199,13 +199,13 @@ if.then.i.i:                                      ; preds = %if.then.i
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 if.end.i.i:                                       ; preds = %if.then.i
-  %5 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !27
+  %5 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !25
   %tobool.i.not.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.not.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
   %add.i.i.i = add nsw i32 %2, -1
-  store i32 %add.i.i.i, ptr %_M_use_count.i.i, align 4, !tbaa !28
+  store i32 %add.i.i.i, ptr %_M_use_count.i.i, align 4, !tbaa !26
   br label %invoke.cont.i.i
 
 if.else.i.i.i:                                    ; preds = %if.end.i.i
@@ -215,7 +215,7 @@ if.else.i.i.i:                                    ; preds = %if.end.i.i
 invoke.cont.i.i:                                  ; preds = %if.else.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i32 [ %2, %if.then.i.i.i ], [ %6, %if.else.i.i.i ]
   %cmp6.i.i = icmp eq i32 %retval.0.i.i.i, 1
-  br i1 %cmp6.i.i, label %if.then7.i.i, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !29
+  br i1 %cmp6.i.i, label %if.then7.i.i, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !27
 
 if.then7.i.i:                                     ; preds = %invoke.cont.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
@@ -255,20 +255,20 @@ define internal void @"_ZN5folly6detail8function14FunctionTraitsIFvvEE9callSmall
 entry:
   %ref.tmp.i = alloca %"class.std::shared_ptr", align 16
   %ref.tmp6.i = alloca %"class.folly::SocketAddress", align 8
-  %0 = load ptr, ptr %p, align 16, !tbaa !30
+  %0 = load ptr, ptr %p, align 16, !tbaa !28
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i) #15
   %1 = load ptr, ptr %0, align 8, !tbaa !10
   %vtable.i = load ptr, ptr %1, align 16, !tbaa !14
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 56
   %2 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef ptr %2(ptr noundef nonnull align 16 dereferenceable(636) %1)
-  call void @_ZN5folly17AsyncServerSocket9newSocketEPNS_9EventBaseE(ptr nonnull sret(%"class.std::shared_ptr") align 8 %ref.tmp.i, ptr noundef %call2.i)
+  call void @_ZN5folly17AsyncServerSocket9newSocketEPNS_9EventBaseE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %ref.tmp.i, ptr noundef %call2.i)
   %sock_.i = getelementptr inbounds i8, ptr %0, i64 8
   %_M_refcount4.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load <2 x ptr>, ptr %ref.tmp.i, align 16, !tbaa !10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i, i8 0, i64 16, i1 false)
-  %4 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !21
+  %4 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !19
   store <2 x ptr> %3, ptr %sock_.i, align 8, !tbaa !10
   %cmp.not.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt10shared_ptrIN5folly17AsyncServerSocketEEaSEOS2_.exit.i, label %if.then.i.i.i.i.i
@@ -281,9 +281,9 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
-  store i32 0, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !23
+  store i32 0, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !21
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 12
-  store i32 0, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !26
+  store i32 0, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !24
   %vtable.i.i.i.i.i.i = load ptr, ptr %4, align 8, !tbaa !14
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
@@ -295,13 +295,13 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   br label %_ZNSt10shared_ptrIN5folly17AsyncServerSocketEEaSEOS2_.exit.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i
-  %9 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !27
+  %9 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !25
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.end.i.i.i.i.i.i
   %add.i.i.i.i.i.i.i = add nsw i32 %6, -1
-  store i32 %add.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i, align 4, !tbaa !28
+  store i32 %add.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i, align 4, !tbaa !26
   br label %invoke.cont.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %if.end.i.i.i.i.i.i
@@ -311,14 +311,14 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.end.i.i.i.i.i.i
 invoke.cont.i.i.i.i.i.i:                          ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i.i = phi i32 [ %6, %if.then.i.i.i.i.i.i.i ], [ %10, %if.else.i.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i.i = icmp eq i32 %retval.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN5folly17AsyncServerSocketEEaSEOS2_.exit.i, !prof !29
+  br i1 %cmp6.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN5folly17AsyncServerSocketEEaSEOS2_.exit.i, !prof !27
 
 if.then7.i.i.i.i.i.i:                             ; preds = %invoke.cont.i.i.i.i.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
   br label %_ZNSt10shared_ptrIN5folly17AsyncServerSocketEEaSEOS2_.exit.i
 
 _ZNSt10shared_ptrIN5folly17AsyncServerSocketEEaSEOS2_.exit.i: ; preds = %if.then7.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %entry
-  %11 = load ptr, ptr %_M_refcount4.i.i.i.i, align 8, !tbaa !21
+  %11 = load ptr, ptr %_M_refcount4.i.i.i.i, align 8, !tbaa !19
   %cmp.not.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.not.i.i.i, label %_ZNSt12__shared_ptrIN5folly17AsyncServerSocketELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, label %if.then.i.i.i
 
@@ -330,9 +330,9 @@ if.then.i.i.i:                                    ; preds = %_ZNSt10shared_ptrIN
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
-  store i32 0, ptr %_M_use_count.i.i.i.i, align 8, !tbaa !23
+  store i32 0, ptr %_M_use_count.i.i.i.i, align 8, !tbaa !21
   %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 12
-  store i32 0, ptr %_M_weak_count.i.i.i.i, align 4, !tbaa !26
+  store i32 0, ptr %_M_weak_count.i.i.i.i, align 4, !tbaa !24
   %vtable.i.i.i.i = load ptr, ptr %11, align 8, !tbaa !14
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %14 = load ptr, ptr %vfn.i.i.i.i, align 8
@@ -344,13 +344,13 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   br label %_ZNSt12__shared_ptrIN5folly17AsyncServerSocketELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
-  %16 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !27
+  %16 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !25
   %tobool.i.not.i.i.i.i = icmp eq i8 %16, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i10.i
 
 if.then.i.i.i.i10.i:                              ; preds = %if.end.i.i.i.i
   %add.i.i.i.i.i = add nsw i32 %13, -1
-  store i32 %add.i.i.i.i.i, ptr %_M_use_count.i.i.i.i, align 4, !tbaa !28
+  store i32 %add.i.i.i.i.i, ptr %_M_use_count.i.i.i.i, align 4, !tbaa !26
   br label %invoke.cont.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
@@ -360,7 +360,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 invoke.cont.i.i.i.i:                              ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i10.i
   %retval.0.i.i.i.i.i = phi i32 [ %13, %if.then.i.i.i.i10.i ], [ %17, %if.else.i.i.i.i.i ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.0.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt12__shared_ptrIN5folly17AsyncServerSocketELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, !prof !29
+  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt12__shared_ptrIN5folly17AsyncServerSocketELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, !prof !27
 
 if.then7.i.i.i.i:                                 ; preds = %invoke.cont.i.i.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #15
@@ -368,15 +368,15 @@ if.then7.i.i.i.i:                                 ; preds = %invoke.cont.i.i.i.i
 
 _ZNSt12__shared_ptrIN5folly17AsyncServerSocketELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i: ; preds = %if.then7.i.i.i.i, %invoke.cont.i.i.i.i, %if.then.i.i.i.i, %_ZNSt10shared_ptrIN5folly17AsyncServerSocketEEaSEOS2_.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i) #15
-  %18 = load ptr, ptr %sock_.i, align 8, !tbaa !32
+  %18 = load ptr, ptr %sock_.i, align 8, !tbaa !30
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp6.i) #15
   %19 = getelementptr inbounds i8, ptr %p, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !34
+  %20 = load ptr, ptr %19, align 8, !tbaa !32
   call void @_ZN5folly9IPAddressC1Ev(ptr noundef nonnull align 4 dereferenceable(22) %ref.tmp6.i)
   %port_.i.i = getelementptr inbounds i8, ptr %ref.tmp6.i, i64 24
-  store i16 0, ptr %port_.i.i, align 8, !tbaa !35
+  store i16 0, ptr %port_.i.i, align 8, !tbaa !33
   %external_.i.i = getelementptr inbounds i8, ptr %ref.tmp6.i, i64 26
-  store i8 0, ptr %external_.i.i, align 2, !tbaa !39
+  store i8 0, ptr %external_.i.i, align 2, !tbaa !37
   call void @_ZN5folly13SocketAddress17setFromIpAddrPortERKNS_9IPAddressEt(ptr noundef nonnull align 8 dereferenceable(27) %ref.tmp6.i, ptr noundef nonnull align 4 dereferenceable(22) %20, i16 noundef zeroext 0)
   %vtable7.i = load ptr, ptr %18, align 8, !tbaa !14
   %vfn8.i = getelementptr inbounds i8, ptr %vtable7.i, i64 40
@@ -385,12 +385,12 @@ _ZNSt12__shared_ptrIN5folly17AsyncServerSocketELN9__gnu_cxx12_Lock_policyE2EED2E
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %_ZNSt12__shared_ptrIN5folly17AsyncServerSocketELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
-  %22 = load i8, ptr %external_.i.i, align 2, !tbaa !39, !range !40, !noundef !41
+  %22 = load i8, ptr %external_.i.i, align 2, !tbaa !37, !range !38, !noundef !39
   %tobool.not.i.i = icmp eq i8 %22, 0
   br i1 %tobool.not.i.i, label %"_ZZN5folly15ScopedBoundPortC1ENS_9IPAddressEENK3$_0clEv.exit", label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont.i
-  %23 = load ptr, ptr %ref.tmp6.i, align 8, !tbaa !42
+  %23 = load ptr, ptr %ref.tmp6.i, align 8, !tbaa !40
   %isnull.i.i.i = icmp eq ptr %23, null
   br i1 %isnull.i.i.i, label %"_ZZN5folly15ScopedBoundPortC1ENS_9IPAddressEENK3$_0clEv.exit", label %delete.notnull.i.i.i
 
@@ -401,12 +401,12 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i
 lpad.i:                                           ; preds = %_ZNSt12__shared_ptrIN5folly17AsyncServerSocketELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
   %24 = landingpad { ptr, i32 }
           cleanup
-  %25 = load i8, ptr %external_.i.i, align 2, !tbaa !39, !range !40, !noundef !41
+  %25 = load i8, ptr %external_.i.i, align 2, !tbaa !37, !range !38, !noundef !39
   %tobool.not.i13.i = icmp eq i8 %25, 0
   br i1 %tobool.not.i13.i, label %_ZN5folly13SocketAddressD2Ev.exit17.i, label %if.then.i14.i
 
 if.then.i14.i:                                    ; preds = %lpad.i
-  %26 = load ptr, ptr %ref.tmp6.i, align 8, !tbaa !42
+  %26 = load ptr, ptr %ref.tmp6.i, align 8, !tbaa !40
   %isnull.i.i15.i = icmp eq ptr %26, null
   br i1 %isnull.i.i15.i, label %_ZN5folly13SocketAddressD2Ev.exit17.i, label %delete.notnull.i.i16.i
 
@@ -438,16 +438,16 @@ sw.epilog:                                        ; preds = %sw.bb, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5folly17AsyncServerSocket9newSocketEPNS_9EventBaseE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef %evb) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5folly17AsyncServerSocket9newSocketEPNS_9EventBaseE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef %evb) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #13
   invoke void @_ZN5folly17AsyncServerSocketC1EPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(296) %call, ptr noundef %evb)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr %call, ptr %agg.result, align 8, !tbaa !32
+  store ptr %call, ptr %agg.result, align 8, !tbaa !30
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr null, ptr %_M_refcount.i.i, align 8, !tbaa !21
+  store ptr null, ptr %_M_refcount.i.i, align 8, !tbaa !19
   %call5.i.i.i17.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #13
           to label %_ZNSt10shared_ptrIN5folly17AsyncServerSocketEEC2IS1_NS0_18DelayedDestruction10DestructorEvEEPT_T0_.exit unwind label %lpad.i.i.i.i
 
@@ -488,13 +488,13 @@ unreachable.i.i.i.i:                              ; preds = %invoke.cont10.i.i.i
 
 _ZNSt10shared_ptrIN5folly17AsyncServerSocketEEC2IS1_NS0_18DelayedDestruction10DestructorEvEEPT_T0_.exit: ; preds = %invoke.cont
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i17.i.i.i.i, i64 8
-  store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !23
+  store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !21
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i17.i.i.i.i, i64 12
-  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !26
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5folly17AsyncServerSocketENS0_18DelayedDestruction10DestructorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i, align 8, !tbaa !14
+  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !24
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5folly17AsyncServerSocketENS0_18DelayedDestruction10DestructorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i, align 8, !tbaa !14
   %_M_impl.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i17.i.i.i.i, i64 16
-  store ptr %call, ptr %_M_impl.i.i.i.i.i, align 8, !tbaa !44
-  store ptr %call5.i.i.i17.i.i.i.i, ptr %_M_refcount.i.i, align 8, !tbaa !21
+  store ptr %call, ptr %_M_impl.i.i.i.i.i, align 8, !tbaa !42
+  store ptr %call5.i.i.i17.i.i.i.i, ptr %_M_refcount.i.i, align 8, !tbaa !19
   ret void
 
 lpad:                                             ; preds = %entry
@@ -527,7 +527,7 @@ entry:
 define linkonce_odr void @_ZNSt19_Sp_counted_deleterIPN5folly17AsyncServerSocketENS0_18DelayedDestruction10DestructorESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_impl = getelementptr inbounds i8, ptr %this, i64 16
-  %0 = load ptr, ptr %_M_impl, align 8, !tbaa !46
+  %0 = load ptr, ptr %_M_impl, align 8, !tbaa !44
   %vtable.i = load ptr, ptr %0, align 8, !tbaa !14
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %1 = load ptr, ptr %vfn.i, align 8
@@ -556,12 +556,12 @@ _ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIPN5folly17AsyncServerSocketENS
 define linkonce_odr noundef ptr @_ZNSt19_Sp_counted_deleterIPN5folly17AsyncServerSocketENS0_18DelayedDestruction10DestructorESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
-  %0 = load ptr, ptr %__name.i, align 8, !tbaa !48
+  %0 = load ptr, ptr %__name.i, align 8, !tbaa !46
   %cmp.i = icmp eq ptr %0, @_ZTSN5folly18DelayedDestruction10DestructorE
   br i1 %cmp.i, label %cond.true, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %1 = load i8, ptr %0, align 1, !tbaa !27
+  %1 = load i8, ptr %0, align 1, !tbaa !25
   %cmp4.not.i = icmp eq i8 %1, 42
   br i1 %cmp4.not.i, label %cond.end, label %_ZNKSt9type_infoeqERKS_.exit
 
@@ -590,14 +590,14 @@ entry:
   %0 = load ptr, ptr %vfn.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %this) #15
   %_M_weak_count.i = getelementptr inbounds i8, ptr %this, i64 12
-  %1 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !27
+  %1 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !25
   %tobool.i.not.i = icmp eq i8 %1, 0
   br i1 %tobool.i.not.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %2 = load i32, ptr %_M_weak_count.i, align 4, !tbaa !28
+  %2 = load i32, ptr %_M_weak_count.i, align 4, !tbaa !26
   %add.i.i = add nsw i32 %2, -1
-  store i32 %add.i.i, ptr %_M_weak_count.i, align 4, !tbaa !28
+  store i32 %add.i.i, ptr %_M_weak_count.i, align 4, !tbaa !26
   br label %invoke.cont.i
 
 if.else.i.i:                                      ; preds = %entry
@@ -643,10 +643,10 @@ invoke.cont:                                      ; preds = %entry
   %2 = load <2 x ptr>, ptr %sock_, align 8, !tbaa !10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sock_, i8 0, i64 16, i1 false)
   store <2 x ptr> %2, ptr %agg.tmp, align 16, !tbaa !10
-  store ptr @"_ZN5folly6detail8function14FunctionTraitsIFvvEE9callSmallIZNS_15ScopedBoundPortD1EvE3$_0EEvRNS1_4DataE", ptr %call_.i, align 16, !tbaa !18
-  store ptr @"_ZN5folly6detail8function13DispatchSmall4execIZNS_15ScopedBoundPortD1EvE3$_0EEmNS1_2OpEPNS1_4DataES8_", ptr %exec_.i, align 8, !tbaa !20
+  store ptr @"_ZN5folly6detail8function14FunctionTraitsIFvvEE9callSmallIZNS_15ScopedBoundPortD1EvE3$_0EEvRNS1_4DataE", ptr %call_.i, align 16, !tbaa !16
+  store ptr @"_ZN5folly6detail8function13DispatchSmall4execIZNS_15ScopedBoundPortD1EvE3$_0EEmNS1_2OpEPNS1_4DataES8_", ptr %exec_.i, align 8, !tbaa !18
   call void @_ZN5folly9EventBase20runInEventBaseThreadENS_8FunctionIFvvEEE(ptr noundef nonnull align 16 dereferenceable(584) %call2, ptr noundef nonnull %agg.tmp) #15
-  %3 = load ptr, ptr %exec_.i, align 8, !tbaa !20
+  %3 = load ptr, ptr %exec_.i, align 8, !tbaa !18
   %tobool.not.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i, label %"_ZZN5folly15ScopedBoundPortD1EvEN3$_0D2Ev.exit", label %if.end.i.i
 
@@ -655,7 +655,7 @@ if.end.i.i:                                       ; preds = %invoke.cont
   br label %"_ZZN5folly15ScopedBoundPortD1EvEN3$_0D2Ev.exit"
 
 "_ZZN5folly15ScopedBoundPortD1EvEN3$_0D2Ev.exit": ; preds = %if.end.i.i, %invoke.cont
-  %4 = load ptr, ptr %_M_refcount4.i.i, align 8, !tbaa !21
+  %4 = load ptr, ptr %_M_refcount4.i.i, align 8, !tbaa !19
   %cmp.not.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN5folly17AsyncServerSocketELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
@@ -667,9 +667,9 @@ if.then.i.i:                                      ; preds = %"_ZZN5folly15Scoped
   br i1 %cmp.i.i.i, label %if.then.i.i.i7, label %if.end.i.i.i
 
 if.then.i.i.i7:                                   ; preds = %if.then.i.i
-  store i32 0, ptr %_M_use_count.i.i.i, align 8, !tbaa !23
+  store i32 0, ptr %_M_use_count.i.i.i, align 8, !tbaa !21
   %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %4, i64 12
-  store i32 0, ptr %_M_weak_count.i.i.i, align 4, !tbaa !26
+  store i32 0, ptr %_M_weak_count.i.i.i, align 4, !tbaa !24
   %vtable.i.i.i = load ptr, ptr %4, align 8, !tbaa !14
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i, align 8
@@ -681,13 +681,13 @@ if.then.i.i.i7:                                   ; preds = %if.then.i.i
   br label %_ZNSt12__shared_ptrIN5folly17AsyncServerSocketELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
-  %9 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !27
+  %9 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !25
   %tobool.i.not.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.not.i.i.i, label %if.else.i.i.i.i, label %if.then.i.i.i.i6
 
 if.then.i.i.i.i6:                                 ; preds = %if.end.i.i.i
   %add.i.i.i.i = add nsw i32 %6, -1
-  store i32 %add.i.i.i.i, ptr %_M_use_count.i.i.i, align 4, !tbaa !28
+  store i32 %add.i.i.i.i, ptr %_M_use_count.i.i.i, align 4, !tbaa !26
   br label %invoke.cont.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.end.i.i.i
@@ -697,7 +697,7 @@ if.else.i.i.i.i:                                  ; preds = %if.end.i.i.i
 invoke.cont.i.i.i:                                ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i6
   %retval.0.i.i.i.i = phi i32 [ %6, %if.then.i.i.i.i6 ], [ %10, %if.else.i.i.i.i ]
   %cmp6.i.i.i = icmp eq i32 %retval.0.i.i.i.i, 1
-  br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %_ZNSt12__shared_ptrIN5folly17AsyncServerSocketELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !29
+  br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %_ZNSt12__shared_ptrIN5folly17AsyncServerSocketELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !27
 
 if.then7.i.i.i:                                   ; preds = %invoke.cont.i.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
@@ -746,17 +746,17 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %dst, i64 8
-  store ptr null, ptr %_M_refcount.i.i.i, align 8, !tbaa !21
+  store ptr null, ptr %_M_refcount.i.i.i, align 8, !tbaa !19
   %_M_refcount4.i.i.i = getelementptr inbounds i8, ptr %src, i64 8
   %0 = load <2 x ptr>, ptr %src, align 8, !tbaa !10
-  store ptr null, ptr %_M_refcount4.i.i.i, align 8, !tbaa !21
+  store ptr null, ptr %_M_refcount4.i.i.i, align 8, !tbaa !19
   store <2 x ptr> %0, ptr %dst, align 8, !tbaa !10
-  store ptr null, ptr %src, align 8, !tbaa !32
+  store ptr null, ptr %src, align 8, !tbaa !30
   br label %sw.bb1
 
 sw.bb1:                                           ; preds = %sw.bb, %entry
   %1 = getelementptr i8, ptr %src, i64 8
-  %src.val = load ptr, ptr %1, align 8, !tbaa !21
+  %src.val = load ptr, ptr %1, align 8, !tbaa !19
   %cmp.not.i.i.i = icmp eq ptr %src.val, null
   br i1 %cmp.not.i.i.i, label %sw.epilog, label %if.then.i.i.i
 
@@ -768,9 +768,9 @@ if.then.i.i.i:                                    ; preds = %sw.bb1
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
-  store i32 0, ptr %_M_use_count.i.i.i.i, align 8, !tbaa !23
+  store i32 0, ptr %_M_use_count.i.i.i.i, align 8, !tbaa !21
   %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %src.val, i64 12
-  store i32 0, ptr %_M_weak_count.i.i.i.i, align 4, !tbaa !26
+  store i32 0, ptr %_M_weak_count.i.i.i.i, align 4, !tbaa !24
   %vtable.i.i.i.i = load ptr, ptr %src.val, align 8, !tbaa !14
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
@@ -782,13 +782,13 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   br label %sw.epilog
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
-  %6 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !27
+  %6 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !25
   %tobool.i.not.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   %add.i.i.i.i.i = add nsw i32 %3, -1
-  store i32 %add.i.i.i.i.i, ptr %_M_use_count.i.i.i.i, align 4, !tbaa !28
+  store i32 %add.i.i.i.i.i, ptr %_M_use_count.i.i.i.i, align 4, !tbaa !26
   br label %invoke.cont.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
@@ -798,7 +798,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 invoke.cont.i.i.i.i:                              ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
   %retval.0.i.i.i.i.i = phi i32 [ %3, %if.then.i.i.i.i.i ], [ %7, %if.else.i.i.i.i.i ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.0.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %sw.epilog, !prof !29
+  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %sw.epilog, !prof !27
 
 if.then7.i.i.i.i:                                 ; preds = %invoke.cont.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %src.val) #15
@@ -809,17 +809,17 @@ sw.epilog:                                        ; preds = %if.then7.i.i.i.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly15ScopedBoundPort10getAddressEv(ptr noalias nonnull sret(%"class.folly::SocketAddress") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly15ScopedBoundPort10getAddressEv(ptr dead_on_unwind noalias nonnull writable sret(%"class.folly::SocketAddress") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sock_ = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = load ptr, ptr %sock_, align 8, !tbaa !32
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
+  %0 = load ptr, ptr %sock_, align 8, !tbaa !30
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
   tail call void @_ZN5folly9IPAddressC1Ev(ptr noundef nonnull align 4 dereferenceable(22) %agg.result)
   %port_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
-  store i16 0, ptr %port_.i.i, align 8, !tbaa !35, !alias.scope !50
+  store i16 0, ptr %port_.i.i, align 8, !tbaa !33, !alias.scope !48
   %external_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 26
-  store i8 0, ptr %external_.i.i, align 2, !tbaa !39, !alias.scope !50
-  %vtable.i = load ptr, ptr %0, align 8, !tbaa !14, !noalias !50
+  store i8 0, ptr %external_.i.i, align 2, !tbaa !37, !alias.scope !48
+  %vtable.i = load ptr, ptr %0, align 8, !tbaa !14, !noalias !48
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 80
   %1 = load ptr, ptr %vfn.i, align 8
   invoke void %1(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull %agg.result)
@@ -828,12 +828,12 @@ entry:
 lpad.i:                                           ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %3 = load i8, ptr %external_.i.i, align 2, !tbaa !39, !range !40, !alias.scope !50, !noundef !41
+  %3 = load i8, ptr %external_.i.i, align 2, !tbaa !37, !range !38, !alias.scope !48, !noundef !39
   %tobool.not.i.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i.i, label %_ZN5folly13SocketAddressD2Ev.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %lpad.i
-  %4 = load ptr, ptr %agg.result, align 8, !tbaa !42, !alias.scope !50
+  %4 = load ptr, ptr %agg.result, align 8, !tbaa !40, !alias.scope !48
   %isnull.i.i.i = icmp eq ptr %4, null
   br i1 %isnull.i.i.i, label %_ZN5folly13SocketAddressD2Ev.exit.i, label %delete.notnull.i.i.i
 
@@ -888,40 +888,38 @@ attributes #17 = { noreturn }
 !13 = !{!"Simple C++ TBAA"}
 !14 = !{!15, !15, i64 0}
 !15 = !{!"vtable pointer", !13, i64 0}
-!16 = !{i64 0, i64 8, !10, i64 8, i64 8, !10}
-!17 = !{i64 0, i64 8, !10}
-!18 = !{!19, !11, i64 48}
-!19 = !{!"_ZTSN5folly8FunctionIFvvEEE", !12, i64 0, !11, i64 48, !11, i64 56}
-!20 = !{!19, !11, i64 56}
-!21 = !{!22, !11, i64 0}
-!22 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !11, i64 0}
-!23 = !{!24, !25, i64 8}
-!24 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !25, i64 8, !25, i64 12}
-!25 = !{!"int", !12, i64 0}
-!26 = !{!24, !25, i64 12}
-!27 = !{!12, !12, i64 0}
-!28 = !{!25, !25, i64 0}
-!29 = !{!"branch_weights", i32 1, i32 2000}
+!16 = !{!17, !11, i64 48}
+!17 = !{!"_ZTSN5folly8FunctionIFvvEEE", !12, i64 0, !11, i64 48, !11, i64 56}
+!18 = !{!17, !11, i64 56}
+!19 = !{!20, !11, i64 0}
+!20 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !11, i64 0}
+!21 = !{!22, !23, i64 8}
+!22 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !23, i64 8, !23, i64 12}
+!23 = !{!"int", !12, i64 0}
+!24 = !{!22, !23, i64 12}
+!25 = !{!12, !12, i64 0}
+!26 = !{!23, !23, i64 0}
+!27 = !{!"branch_weights", i32 1, i32 2000}
+!28 = !{!29, !11, i64 0}
+!29 = !{!"_ZTSZN5folly15ScopedBoundPortC1ENS_9IPAddressEE3$_0", !11, i64 0, !11, i64 8}
 !30 = !{!31, !11, i64 0}
-!31 = !{!"_ZTSZN5folly15ScopedBoundPortC1ENS_9IPAddressEE3$_0", !11, i64 0, !11, i64 8}
-!32 = !{!33, !11, i64 0}
-!33 = !{!"_ZTSSt12__shared_ptrIN5folly17AsyncServerSocketELN9__gnu_cxx12_Lock_policyE2EE", !11, i64 0, !22, i64 8}
-!34 = !{!31, !11, i64 8}
-!35 = !{!36, !37, i64 24}
-!36 = !{!"_ZTSN5folly13SocketAddressE", !12, i64 0, !37, i64 24, !38, i64 26}
-!37 = !{!"short", !12, i64 0}
-!38 = !{!"bool", !12, i64 0}
-!39 = !{!36, !38, i64 26}
-!40 = !{i8 0, i8 2}
-!41 = !{}
+!31 = !{!"_ZTSSt12__shared_ptrIN5folly17AsyncServerSocketELN9__gnu_cxx12_Lock_policyE2EE", !11, i64 0, !20, i64 8}
+!32 = !{!29, !11, i64 8}
+!33 = !{!34, !35, i64 24}
+!34 = !{!"_ZTSN5folly13SocketAddressE", !12, i64 0, !35, i64 24, !36, i64 26}
+!35 = !{!"short", !12, i64 0}
+!36 = !{!"bool", !12, i64 0}
+!37 = !{!34, !36, i64 26}
+!38 = !{i8 0, i8 2}
+!39 = !{}
+!40 = !{!41, !11, i64 0}
+!41 = !{!"_ZTSN5folly13SocketAddress16ExternalUnixAddrE", !11, i64 0, !23, i64 8}
 !42 = !{!43, !11, i64 0}
-!43 = !{!"_ZTSN5folly13SocketAddress16ExternalUnixAddrE", !11, i64 0, !25, i64 8}
-!44 = !{!45, !11, i64 0}
-!45 = !{!"_ZTSNSt19_Sp_counted_deleterIPN5folly17AsyncServerSocketENS0_18DelayedDestruction10DestructorESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplE", !11, i64 0}
-!46 = !{!47, !11, i64 16}
-!47 = !{!"_ZTSSt19_Sp_counted_deleterIPN5folly17AsyncServerSocketENS0_18DelayedDestruction10DestructorESaIvELN9__gnu_cxx12_Lock_policyE2EE", !24, i64 0, !45, i64 16}
-!48 = !{!49, !11, i64 8}
-!49 = !{!"_ZTSSt9type_info", !11, i64 8}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"_ZNK5folly17AsyncServerSocket10getAddressEv: %agg.result"}
-!52 = distinct !{!52, !"_ZNK5folly17AsyncServerSocket10getAddressEv"}
+!43 = !{!"_ZTSNSt19_Sp_counted_deleterIPN5folly17AsyncServerSocketENS0_18DelayedDestruction10DestructorESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplE", !11, i64 0}
+!44 = !{!45, !11, i64 16}
+!45 = !{!"_ZTSSt19_Sp_counted_deleterIPN5folly17AsyncServerSocketENS0_18DelayedDestruction10DestructorESaIvELN9__gnu_cxx12_Lock_policyE2EE", !22, i64 0, !43, i64 16}
+!46 = !{!47, !11, i64 8}
+!47 = !{!"_ZTSSt9type_info", !11, i64 8}
+!48 = !{!49}
+!49 = distinct !{!49, !50, !"_ZNK5folly17AsyncServerSocket10getAddressEv: %agg.result"}
+!50 = distinct !{!50, !"_ZNK5folly17AsyncServerSocket10getAddressEv"}

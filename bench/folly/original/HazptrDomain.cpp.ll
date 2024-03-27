@@ -4,7 +4,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.folly::Executor::KeepAlive" = type { i64 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly6detail27hazptr_get_default_executorEv(ptr noalias nocapture writeonly sret(%"class.folly::Executor::KeepAlive") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly6detail27hazptr_get_default_executorEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Executor::KeepAlive") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 _ZN5folly8Executor9KeepAliveIS0_EC2EPS0_.exit:
   %call = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5folly23QueuedImmediateExecutor8instanceEv()
   %vtable = load ptr, ptr %call, align 8, !tbaa !7
@@ -12,7 +12,7 @@ _ZN5folly8Executor9KeepAliveIS0_EC2EPS0_.exit:
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %call, i64 %vbase.offset
   %vtable.i.i = load ptr, ptr %add.ptr, align 8, !tbaa !7, !noalias !10
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 5
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 40
   %0 = load ptr, ptr %vfn.i.i, align 8, !noalias !10
   %call.i.i = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr) #2, !noalias !10
   %1 = ptrtoint ptr %add.ptr to i64

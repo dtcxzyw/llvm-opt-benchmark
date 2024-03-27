@@ -17,7 +17,7 @@ $__clang_call_terminate = comdat any
 
 $_ZN5folly10LogMessageD2Ev = comdat any
 
-@_ZTVN5folly7logging23BridgeFromGoogleLoggingE = unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN5folly7logging23BridgeFromGoogleLoggingE, ptr @_ZN5folly7logging23BridgeFromGoogleLoggingD1Ev, ptr @_ZN5folly7logging23BridgeFromGoogleLoggingD0Ev, ptr @_ZN5folly7logging23BridgeFromGoogleLogging4sendEiPKcS3_iPK2tmS3_m, ptr @_ZN6google7LogSink12WaitTillSentEv] }, align 8
+@_ZTVN5folly7logging23BridgeFromGoogleLoggingE = unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTIN5folly7logging23BridgeFromGoogleLoggingE, ptr @_ZN5folly7logging23BridgeFromGoogleLoggingD1Ev, ptr @_ZN5folly7logging23BridgeFromGoogleLoggingD0Ev, ptr @_ZN6google7LogSink4sendEiPKcS2_iRKNS_14LogMessageTimeES2_m, ptr @_ZN5folly7logging23BridgeFromGoogleLogging4sendEiPKcS3_iPK2tmS3_m, ptr @_ZN6google7LogSink12WaitTillSentEv] }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN5folly7logging23BridgeFromGoogleLoggingE = constant [42 x i8] c"N5folly7logging23BridgeFromGoogleLoggingE\00", align 1
 @_ZTIN6google7LogSinkE = external constant ptr
@@ -36,8 +36,10 @@ entry:
   ret void
 }
 
+declare void @_ZN6google7LogSink4sendEiPKcS2_iRKNS_14LogMessageTimeES2_m(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(80), ptr noundef, i64 noundef) unnamed_addr #1
+
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly7logging23BridgeFromGoogleLogging4sendEiPKcS3_iPK2tmS3_m(ptr nocapture nonnull readnone align 8 %this, i32 noundef %severity, ptr noundef %full_filename, ptr noundef %base_filename, i32 noundef %line, ptr nocapture noundef readonly %pTime, ptr noundef %message, i64 noundef %message_len) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly7logging23BridgeFromGoogleLogging4sendEiPKcS3_iPK2tmS3_m(ptr nocapture nonnull readnone align 8 %this, i32 noundef %severity, ptr noundef %full_filename, ptr noundef %base_filename, i32 noundef %line, ptr nocapture noundef readonly %pTime, ptr noundef %message, i64 noundef %message_len) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %time = alloca %struct.tm, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %time) #14
@@ -53,12 +55,12 @@ entry:
   ret void
 }
 
-declare void @_ZN6google7LogSink12WaitTillSentEv(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
+declare void @_ZN6google7LogSink12WaitTillSentEv(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly7logging23BridgeFromGoogleLoggingC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly7logging23BridgeFromGoogleLoggingC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly7logging23BridgeFromGoogleLoggingE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !16
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN5folly7logging23BridgeFromGoogleLoggingE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !16
   invoke void @_ZN6google10AddLogSinkEPNS_7LogSinkE(ptr noundef nonnull %this)
           to label %invoke.cont unwind label %lpad
 
@@ -72,7 +74,7 @@ lpad:                                             ; preds = %entry
   resume { ptr, i32 } %0
 }
 
-declare void @_ZN6google10AddLogSinkEPNS_7LogSinkE(ptr noundef) local_unnamed_addr #2
+declare void @_ZN6google10AddLogSinkEPNS_7LogSinkE(ptr noundef) local_unnamed_addr #1
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -82,7 +84,7 @@ declare void @_ZN6google7LogSinkD2Ev(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly7logging23BridgeFromGoogleLoggingD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly7logging23BridgeFromGoogleLoggingE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !16
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN5folly7logging23BridgeFromGoogleLoggingE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !16
   invoke void @_ZN6google13RemoveLogSinkEPNS_7LogSinkE(ptr noundef nonnull %this)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -98,7 +100,7 @@ terminate.lpad:                                   ; preds = %entry
   unreachable
 }
 
-declare void @_ZN6google13RemoveLogSinkEPNS_7LogSinkE(ptr noundef) local_unnamed_addr #2
+declare void @_ZN6google13RemoveLogSinkEPNS_7LogSinkE(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
@@ -115,7 +117,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly7logging23BridgeFromGoogleLogging4sendEiPKcS3_iPK2tmS3_mi(ptr nocapture nonnull readnone align 8 %this, i32 noundef %severity, ptr noundef %full_filename, ptr noundef %base_filename, i32 noundef %line, ptr nocapture noundef readonly %pTime, ptr noundef readonly %message, i64 noundef %message_len, i32 noundef %usecs) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly7logging23BridgeFromGoogleLogging4sendEiPKcS3_iPK2tmS3_mi(ptr nocapture nonnull readnone align 8 %this, i32 noundef %severity, ptr noundef %full_filename, ptr noundef %base_filename, i32 noundef %line, ptr nocapture noundef readonly %pTime, ptr noundef readonly %message, i64 noundef %message_len, i32 noundef %usecs) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %time = alloca %struct.tm, align 8
@@ -345,17 +347,17 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
-declare void @_ZN5folly6LoggerC1ENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(8), ptr, ptr) unnamed_addr #2
+declare void @_ZN5folly6LoggerC1ENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(8), ptr, ptr) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
 declare noundef i64 @mktime(ptr nocapture noundef) local_unnamed_addr #8
 
-declare void @_ZN5folly10LogMessageC1EPKNS_11LogCategoryENS_8LogLevelENSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEENS_5RangeIPKcEEjSH_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(176), ptr noundef, i32 noundef, i64, ptr, ptr, i32 noundef, ptr noundef byval(%"class.folly::Range") align 8, ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN5folly10LogMessageC1EPKNS_11LogCategoryENS_8LogLevelENSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEENS_5RangeIPKcEEjSH_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(176), ptr noundef, i32 noundef, i64, ptr, ptr, i32 noundef, ptr noundef byval(%"class.folly::Range") align 8, ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
 
-declare void @_ZNK5folly11LogCategory12admitMessageERKNS_10LogMessageE(ptr noundef nonnull align 8 dereferenceable(136), ptr noundef nonnull align 8 dereferenceable(176)) local_unnamed_addr #2
+declare void @_ZNK5folly11LogCategory12admitMessageERKNS_10LogMessageE(ptr noundef nonnull align 8 dereferenceable(136), ptr noundef nonnull align 8 dereferenceable(176)) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -423,7 +425,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
 ; Function Attrs: noreturn
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #11
 
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #2
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
 declare i64 @_ZNSt6chrono3_V212system_clock3nowEv() local_unnamed_addr #3
@@ -435,8 +437,8 @@ declare void @llvm.assume(i1 noundef) #12
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

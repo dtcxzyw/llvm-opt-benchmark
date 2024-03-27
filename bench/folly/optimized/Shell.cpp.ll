@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [21 x i8] c"basic_string::append\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10shellQuoteB5cxx11ENS_5RangeIPKcEE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr readonly %argument.coerce0, ptr readnone %argument.coerce1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10shellQuoteB5cxx11ENS_5RangeIPKcEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr readonly %argument.coerce0, ptr readnone %argument.coerce1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %quoted = alloca %"class.std::__cxx11::basic_string", align 8

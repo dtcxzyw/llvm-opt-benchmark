@@ -164,7 +164,7 @@ define void @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_
 entry:
   %msg = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %msg) #12
-  call void @llvm.va_start(ptr nonnull %msg)
+  call void @llvm.va_start.p0(ptr nonnull %msg)
   call fastcc void @_ZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNS0_15safe_assert_argEiP13__va_list_tag(ptr noundef %arg, i32 noundef 0, ptr noundef nonnull %msg) #13
   unreachable
 }
@@ -173,7 +173,7 @@ entry:
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #2
+declare void @llvm.va_start.p0(ptr) #2
 
 ; Function Attrs: cold mustprogress noreturn nounwind optsize uwtable
 define internal fastcc void @_ZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNS0_15safe_assert_argEiP13__va_list_tag(ptr nocapture noundef readonly %arg_, i32 noundef %error, ptr nocapture noundef %msg) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -335,7 +335,7 @@ invoke.cont41:                                    ; preds = %invoke.cont39
 
 invoke.cont42:                                    ; preds = %invoke.cont41
   %call46 = call fastcc noundef ptr @"_ZSt7find_ifIPKSt4pairIiPKcEZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNS7_15safe_assert_argEiP13__va_list_tagE3$_0ET_SF_SF_T0_"(i32 %error)
-  %cmp48.not = icmp eq ptr %call46, getelementptr inbounds ([133 x %"struct.std::pair"], ptr @_ZN5folly6detail12_GLOBAL__N_16errorsE, i64 1, i64 0)
+  %cmp48.not = icmp eq ptr %call46, getelementptr inbounds ([133 x %"struct.std::pair"], ptr @_ZN5folly6detail12_GLOBAL__N_16errorsE, i64 1, i64 0, i32 0)
   br i1 %cmp48.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %invoke.cont42
@@ -503,7 +503,7 @@ if.end12.i.i:                                     ; preds = %if.end8.i.i
 
 sw.bb27.i.i:                                      ; preds = %if.end12.i.i
   %cmp.i.i70.i.i = icmp eq i32 %__pred.coerce, 54
-  %spec.select = select i1 %cmp.i.i70.i.i, ptr getelementptr inbounds ([133 x %"struct.std::pair"], ptr @_ZN5folly6detail12_GLOBAL__N_16errorsE, i64 0, i64 132, i32 0), ptr getelementptr inbounds ([133 x %"struct.std::pair"], ptr @_ZN5folly6detail12_GLOBAL__N_16errorsE, i64 1, i64 0)
+  %spec.select = select i1 %cmp.i.i70.i.i, ptr getelementptr inbounds ([133 x %"struct.std::pair"], ptr @_ZN5folly6detail12_GLOBAL__N_16errorsE, i64 0, i64 132, i32 0), ptr getelementptr inbounds ([133 x %"struct.std::pair"], ptr @_ZN5folly6detail12_GLOBAL__N_16errorsE, i64 1, i64 0, i32 0)
   br label %"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit"
 
 "_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit.loopexit.split.loop.exit": ; preds = %if.end.i.i
@@ -711,7 +711,7 @@ define void @_ZN5folly6detail21safe_assert_terminateILb1EEEvPKNS0_15safe_assert_
 entry:
   %msg = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %msg) #12
-  call void @llvm.va_start(ptr nonnull %msg)
+  call void @llvm.va_start.p0(ptr nonnull %msg)
   %call = tail call ptr @__errno_location() #16
   %0 = load i32, ptr %call, align 4, !tbaa !23
   call fastcc void @_ZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNS0_15safe_assert_argEiP13__va_list_tag(ptr noundef %arg, i32 noundef %0, ptr noundef nonnull %msg) #13

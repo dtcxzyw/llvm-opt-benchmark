@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 $_ZN5folly7TimerFD12allocateDataEv = comdat any
 
-$_ZThn184_N5folly7TimerFD12allocateDataEv = comdat any
+$_ZThn176_N5folly7TimerFD12allocateDataEv = comdat any
 
 $_ZN5folly18DelayedDestruction16onDelayedDestroyEb = comdat any
 
@@ -38,7 +38,7 @@ $_ZTIN5folly17EventReadCallback5IoVecE = comdat any
 
 $_ZTIN5folly7TimerFD5IoVecE = comdat any
 
-@_ZTVN5folly7TimerFDE = unnamed_addr constant { [7 x ptr], [5 x ptr], [6 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTIN5folly7TimerFDE, ptr @_ZN5folly7TimerFDD1Ev, ptr @_ZN5folly7TimerFDD0Ev, ptr @_ZN5folly7TimerFD12handlerReadyEt, ptr @__cxa_pure_virtual, ptr @_ZN5folly7TimerFD12allocateDataEv], [5 x ptr] [ptr inttoptr (i64 -184 to ptr), ptr @_ZTIN5folly7TimerFDE, ptr @_ZThn184_N5folly7TimerFDD1Ev, ptr @_ZThn184_N5folly7TimerFDD0Ev, ptr @_ZThn184_N5folly7TimerFD12allocateDataEv], [6 x ptr] [ptr inttoptr (i64 -192 to ptr), ptr @_ZTIN5folly7TimerFDE, ptr @_ZThn192_N5folly7TimerFDD1Ev, ptr @_ZThn192_N5folly7TimerFDD0Ev, ptr @_ZN5folly18DelayedDestruction16onDelayedDestroyEb, ptr @_ZN5folly18DelayedDestruction7destroyEv] }, align 8
+@_ZTVN5folly7TimerFDE = unnamed_addr constant { [7 x ptr], [5 x ptr], [6 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTIN5folly7TimerFDE, ptr @_ZN5folly7TimerFDD1Ev, ptr @_ZN5folly7TimerFDD0Ev, ptr @_ZN5folly7TimerFD12handlerReadyEt, ptr @__cxa_pure_virtual, ptr @_ZN5folly7TimerFD12allocateDataEv], [5 x ptr] [ptr inttoptr (i64 -176 to ptr), ptr @_ZTIN5folly7TimerFDE, ptr @_ZThn176_N5folly7TimerFDD1Ev, ptr @_ZThn176_N5folly7TimerFDD0Ev, ptr @_ZThn176_N5folly7TimerFD12allocateDataEv], [6 x ptr] [ptr inttoptr (i64 -184 to ptr), ptr @_ZTIN5folly7TimerFDE, ptr @_ZThn184_N5folly7TimerFDD1Ev, ptr @_ZThn184_N5folly7TimerFDD0Ev, ptr @_ZN5folly18DelayedDestruction16onDelayedDestroyEb, ptr @_ZN5folly18DelayedDestruction7destroyEv] }, align 8
 @_ZTVN10__cxxabiv121__vmi_class_type_infoE = external global [0 x ptr]
 @_ZTSN5folly7TimerFDE = constant [17 x i8] c"N5folly7TimerFDE\00", align 1
 @_ZTIN5folly12EventHandlerE = external constant ptr
@@ -46,7 +46,7 @@ $_ZTIN5folly7TimerFD5IoVecE = comdat any
 @_ZTSN5folly17EventReadCallbackE = linkonce_odr constant [28 x i8] c"N5folly17EventReadCallbackE\00", comdat, align 1
 @_ZTIN5folly17EventReadCallbackE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN5folly17EventReadCallbackE }, comdat, align 8
 @_ZTIN5folly18DelayedDestructionE = external constant ptr
-@_ZTIN5folly7TimerFDE = constant { ptr, ptr, i32, i32, ptr, i64, ptr, i64, ptr, i64 } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv121__vmi_class_type_infoE, i64 2), ptr @_ZTSN5folly7TimerFDE, i32 0, i32 3, ptr @_ZTIN5folly12EventHandlerE, i64 2, ptr @_ZTIN5folly17EventReadCallbackE, i64 47106, ptr @_ZTIN5folly18DelayedDestructionE, i64 49154 }, align 8
+@_ZTIN5folly7TimerFDE = constant { ptr, ptr, i32, i32, ptr, i64, ptr, i64, ptr, i64 } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv121__vmi_class_type_infoE, i64 2), ptr @_ZTSN5folly7TimerFDE, i32 0, i32 3, ptr @_ZTIN5folly12EventHandlerE, i64 2, ptr @_ZTIN5folly17EventReadCallbackE, i64 45058, ptr @_ZTIN5folly18DelayedDestructionE, i64 47106 }, align 8
 @_ZTVN5folly7TimerFD5IoVecE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTIN5folly7TimerFD5IoVecE, ptr @_ZN5folly17EventReadCallback5IoVecD2Ev, ptr @_ZN5folly7TimerFD5IoVecD0Ev] }, comdat, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN5folly7TimerFD5IoVecE = linkonce_odr constant [23 x i8] c"N5folly7TimerFD5IoVecE\00", comdat, align 1
@@ -64,11 +64,11 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly7TimerFD12handlerReadyEt(ptr noundef nonnull align 8 dereferenceable(220) %this, i16 noundef zeroext %events) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly7TimerFD12handlerReadyEt(ptr noundef nonnull align 8 dereferenceable(212) %this, i16 noundef zeroext %events) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %data = alloca i64, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %this, i64 192
-  %guardCount_.i = getelementptr inbounds i8, ptr %this, i64 200
+  %add.ptr = getelementptr inbounds i8, ptr %this, i64 184
+  %guardCount_.i = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load i32, ptr %guardCount_.i, align 8, !tbaa !7
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %guardCount_.i, align 8, !tbaa !7
@@ -79,7 +79,7 @@ entry:
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data) #15
   store i64 0, ptr %data, align 8, !tbaa !12
-  %fd_ = getelementptr inbounds i8, ptr %this, i64 216
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 208
   %2 = load i32, ptr %fd_, align 8, !tbaa !14
   %call = invoke noundef i64 @_ZN5folly9readNoIntEiPvm(i32 noundef %2, ptr noundef nonnull %data, i64 noundef 8)
           to label %invoke.cont6 unwind label %terminate.lpad
@@ -92,7 +92,7 @@ if.then8:                                         ; preds = %invoke.cont6
   %vtable = load ptr, ptr %this, align 8, !tbaa !35
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %3 = load ptr, ptr %vfn, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(220) %this) #15
+  call void %3(ptr noundef nonnull align 8 dereferenceable(212) %this) #15
   br label %if.end
 
 if.end:                                           ; preds = %if.then8, %invoke.cont6
@@ -135,9 +135,9 @@ terminate.lpad:                                   ; preds = %if.then
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5folly7TimerFD12allocateDataEv(ptr noundef nonnull align 8 dereferenceable(220) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef ptr @_ZN5folly7TimerFD12allocateDataEv(ptr noundef nonnull align 8 dereferenceable(212) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ioVecPtr_ = getelementptr inbounds i8, ptr %this, i64 208
+  %ioVecPtr_ = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load ptr, ptr %ioVecPtr_, align 8, !tbaa !37
   store ptr null, ptr %ioVecPtr_, align 8, !tbaa !37
   %tobool.not = icmp eq ptr %0, null
@@ -150,7 +150,7 @@ cond.false:                                       ; preds = %entry
 invoke.cont:                                      ; preds = %cond.false
   %arg_.i.i = getelementptr inbounds i8, ptr %call2, i64 8
   %freeFunc_.i.i = getelementptr inbounds i8, ptr %call2, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly7TimerFD5IoVecE, i64 0, i32 0, i64 2), ptr %call2, align 8, !tbaa !35
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN5folly7TimerFD5IoVecE, i64 0, i32 0, i64 2), ptr %call2, align 8, !tbaa !35
   %timerData_.i = getelementptr inbounds i8, ptr %call2, i64 48
   store i64 0, ptr %timerData_.i, align 8, !tbaa !38
   store ptr %this, ptr %arg_.i.i, align 8, !tbaa !42
@@ -176,24 +176,24 @@ terminate.lpad:                                   ; preds = %cond.false
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn184_N5folly7TimerFDD1Ev(ptr noundef %this) unnamed_addr #2 align 2 {
+define void @_ZThn176_N5folly7TimerFDD1Ev(ptr noundef %this) unnamed_addr #2 align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 -184
-  tail call void @_ZN5folly7TimerFDD1Ev(ptr noundef nonnull align 8 dereferenceable(220) %0) #15
+  %0 = getelementptr inbounds i8, ptr %this, i64 -176
+  tail call void @_ZN5folly7TimerFDD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %0) #15
   ret void
 }
 
 ; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZThn184_N5folly7TimerFDD0Ev(ptr nocapture readnone %this) unnamed_addr #3 align 2 {
+define void @_ZThn176_N5folly7TimerFDD0Ev(ptr nocapture readnone %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @llvm.trap() #14
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr noundef ptr @_ZThn184_N5folly7TimerFD12allocateDataEv(ptr noundef %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef ptr @_ZThn176_N5folly7TimerFD12allocateDataEv(ptr noundef %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 -184
+  %0 = getelementptr inbounds i8, ptr %this, i64 -176
   %ioVecPtr_.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %ioVecPtr_.i, align 8, !tbaa !37
   store ptr null, ptr %ioVecPtr_.i, align 8, !tbaa !37
@@ -207,7 +207,7 @@ cond.false.i:                                     ; preds = %entry
 invoke.cont.i:                                    ; preds = %cond.false.i
   %arg_.i.i.i = getelementptr inbounds i8, ptr %call2.i, i64 8
   %freeFunc_.i.i.i = getelementptr inbounds i8, ptr %call2.i, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly7TimerFD5IoVecE, i64 0, i32 0, i64 2), ptr %call2.i, align 8, !tbaa !35
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN5folly7TimerFD5IoVecE, i64 0, i32 0, i64 2), ptr %call2.i, align 8, !tbaa !35
   %timerData_.i.i = getelementptr inbounds i8, ptr %call2.i, i64 48
   store i64 0, ptr %timerData_.i.i, align 8, !tbaa !38
   store ptr %0, ptr %arg_.i.i.i, align 8, !tbaa !42
@@ -233,15 +233,15 @@ _ZN5folly7TimerFD12allocateDataEv.exit:           ; preds = %invoke.cont.i, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn192_N5folly7TimerFDD1Ev(ptr noundef %this) unnamed_addr #2 align 2 {
+define void @_ZThn184_N5folly7TimerFDD1Ev(ptr noundef %this) unnamed_addr #2 align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 -192
-  tail call void @_ZN5folly7TimerFDD1Ev(ptr noundef nonnull align 8 dereferenceable(220) %0) #15
+  %0 = getelementptr inbounds i8, ptr %this, i64 -184
+  tail call void @_ZN5folly7TimerFDD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %0) #15
   ret void
 }
 
 ; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZThn192_N5folly7TimerFDD0Ev(ptr nocapture readnone %this) unnamed_addr #3 align 2 {
+define void @_ZThn184_N5folly7TimerFDD0Ev(ptr nocapture readnone %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @llvm.trap() #14
   unreachable
@@ -293,32 +293,32 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly7TimerFDC2EPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(220) %this, ptr noundef %eventBase) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly7TimerFDC2EPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(212) %this, ptr noundef %eventBase) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noundef i32 @timerfd_create(i32 noundef 1, i32 noundef 526336) #15
-  tail call void @_ZN5folly12EventHandlerC2EPNS_9EventBaseENS_13NetworkSocketE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %eventBase, i32 %call.i)
-  %0 = getelementptr inbounds i8, ptr %this, i64 184
-  %1 = getelementptr inbounds i8, ptr %this, i64 192
-  %guardCount_.i.i.i = getelementptr inbounds i8, ptr %this, i64 200
+  tail call void @_ZN5folly12EventHandlerC2EPNS_9EventBaseENS_13NetworkSocketE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef %eventBase, i32 %call.i)
+  %0 = getelementptr inbounds i8, ptr %this, i64 176
+  %1 = getelementptr inbounds i8, ptr %this, i64 184
+  %guardCount_.i.i.i = getelementptr inbounds i8, ptr %this, i64 192
   store i32 0, ptr %guardCount_.i.i.i, align 8, !tbaa !7
-  %destroyPending_.i.i = getelementptr inbounds i8, ptr %this, i64 204
+  %destroyPending_.i.i = getelementptr inbounds i8, ptr %this, i64 196
   store i8 0, ptr %destroyPending_.i.i, align 4, !tbaa !48
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !35
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 1, i64 2), ptr %0, align 8, !tbaa !35
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 2, i64 2), ptr %1, align 8, !tbaa !35
-  %ioVecPtr_.i = getelementptr inbounds i8, ptr %this, i64 208
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 1, i64 2), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 2, i64 2), ptr %1, align 8, !tbaa !35
+  %ioVecPtr_.i = getelementptr inbounds i8, ptr %this, i64 200
   store ptr null, ptr %ioVecPtr_.i, align 8, !tbaa !49
-  %fd_.i = getelementptr inbounds i8, ptr %this, i64 216
+  %fd_.i = getelementptr inbounds i8, ptr %this, i64 208
   store i32 %call.i, ptr %fd_.i, align 8, !tbaa !14
-  %cb_.i.i.i = getelementptr inbounds i8, ptr %this, i64 160
+  %cb_.i.i.i = getelementptr inbounds i8, ptr %this, i64 152
   store i32 1, ptr %cb_.i.i.i, align 8, !tbaa !50
-  %2 = getelementptr inbounds i8, ptr %this, i64 168
+  %2 = getelementptr inbounds i8, ptr %this, i64 160
   store ptr %0, ptr %2, align 8, !tbaa !51
   %cmp.i = icmp sgt i32 %call.i, 0
   br i1 %cmp.i, label %if.then.i, label %_ZN5folly7TimerFDC2EPNS_9EventBaseEi.exit
 
 if.then.i:                                        ; preds = %entry
-  %call.i14.i = invoke noundef zeroext i1 @_ZN5folly12EventHandler12registerImplEtb(ptr noundef nonnull align 8 dereferenceable(184) %this, i16 noundef zeroext 18, i1 noundef zeroext false)
+  %call.i14.i = invoke noundef zeroext i1 @_ZN5folly12EventHandler12registerImplEtb(ptr noundef nonnull align 8 dereferenceable(176) %this, i16 noundef zeroext 18, i1 noundef zeroext false)
           to label %_ZN5folly7TimerFDC2EPNS_9EventBaseEi.exit unwind label %lpad5.i
 
 lpad5.i:                                          ; preds = %if.then.i
@@ -338,7 +338,7 @@ _ZNKSt14default_deleteIN5folly7TimerFD5IoVecEEclEPS2_.exit.i.i: ; preds = %lpad5
 _ZNSt10unique_ptrIN5folly7TimerFD5IoVecESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5folly7TimerFD5IoVecEEclEPS2_.exit.i.i, %lpad5.i
   store ptr null, ptr %ioVecPtr_.i, align 8, !tbaa !37
   tail call void @_ZN5folly18DelayedDestructionD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %1) #15
-  tail call void @_ZN5folly12EventHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) #15
+  tail call void @_ZN5folly12EventHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) #15
   resume { ptr, i32 } %3
 
 _ZN5folly7TimerFDC2EPNS_9EventBaseEi.exit:        ; preds = %if.then.i, %entry
@@ -353,31 +353,31 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly7TimerFDC2EPNS_9EventBaseEi(ptr noundef nonnull align 8 dereferenceable(220) %this, ptr noundef %eventBase, i32 noundef %fd) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly7TimerFDC2EPNS_9EventBaseEi(ptr noundef nonnull align 8 dereferenceable(212) %this, ptr noundef %eventBase, i32 noundef %fd) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont6:
-  tail call void @_ZN5folly12EventHandlerC2EPNS_9EventBaseENS_13NetworkSocketE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %eventBase, i32 %fd)
-  %0 = getelementptr inbounds i8, ptr %this, i64 184
-  %1 = getelementptr inbounds i8, ptr %this, i64 192
-  %guardCount_.i.i = getelementptr inbounds i8, ptr %this, i64 200
+  tail call void @_ZN5folly12EventHandlerC2EPNS_9EventBaseENS_13NetworkSocketE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef %eventBase, i32 %fd)
+  %0 = getelementptr inbounds i8, ptr %this, i64 176
+  %1 = getelementptr inbounds i8, ptr %this, i64 184
+  %guardCount_.i.i = getelementptr inbounds i8, ptr %this, i64 192
   store i32 0, ptr %guardCount_.i.i, align 8, !tbaa !7
-  %destroyPending_.i = getelementptr inbounds i8, ptr %this, i64 204
+  %destroyPending_.i = getelementptr inbounds i8, ptr %this, i64 196
   store i8 0, ptr %destroyPending_.i, align 4, !tbaa !48
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !35
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 1, i64 2), ptr %0, align 8, !tbaa !35
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 2, i64 2), ptr %1, align 8, !tbaa !35
-  %ioVecPtr_ = getelementptr inbounds i8, ptr %this, i64 208
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 1, i64 2), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 2, i64 2), ptr %1, align 8, !tbaa !35
+  %ioVecPtr_ = getelementptr inbounds i8, ptr %this, i64 200
   store ptr null, ptr %ioVecPtr_, align 8, !tbaa !49
-  %fd_ = getelementptr inbounds i8, ptr %this, i64 216
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 208
   store i32 %fd, ptr %fd_, align 8, !tbaa !14
-  %cb_.i.i = getelementptr inbounds i8, ptr %this, i64 160
+  %cb_.i.i = getelementptr inbounds i8, ptr %this, i64 152
   store i32 1, ptr %cb_.i.i, align 8, !tbaa !50
-  %2 = getelementptr inbounds i8, ptr %this, i64 168
+  %2 = getelementptr inbounds i8, ptr %this, i64 160
   store ptr %0, ptr %2, align 8, !tbaa !51
   %cmp = icmp sgt i32 %fd, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont6
-  %call.i14 = invoke noundef zeroext i1 @_ZN5folly12EventHandler12registerImplEtb(ptr noundef nonnull align 8 dereferenceable(184) %this, i16 noundef zeroext 18, i1 noundef zeroext false)
+  %call.i14 = invoke noundef zeroext i1 @_ZN5folly12EventHandler12registerImplEtb(ptr noundef nonnull align 8 dereferenceable(176) %this, i16 noundef zeroext 18, i1 noundef zeroext false)
           to label %if.end unwind label %lpad5
 
 lpad5:                                            ; preds = %if.then
@@ -397,14 +397,14 @@ _ZNKSt14default_deleteIN5folly7TimerFD5IoVecEEclEPS2_.exit.i: ; preds = %lpad5
 _ZNSt10unique_ptrIN5folly7TimerFD5IoVecESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5folly7TimerFD5IoVecEEclEPS2_.exit.i, %lpad5
   store ptr null, ptr %ioVecPtr_, align 8, !tbaa !37
   tail call void @_ZN5folly18DelayedDestructionD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %1) #15
-  tail call void @_ZN5folly12EventHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) #15
+  tail call void @_ZN5folly12EventHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) #15
   resume { ptr, i32 } %3
 
 if.end:                                           ; preds = %if.then, %invoke.cont6
   ret void
 }
 
-declare void @_ZN5folly12EventHandlerC2EPNS_9EventBaseENS_13NetworkSocketE(ptr noundef nonnull align 8 dereferenceable(184), ptr noundef, i32) unnamed_addr #5
+declare void @_ZN5folly12EventHandlerC2EPNS_9EventBaseENS_13NetworkSocketE(ptr noundef nonnull align 8 dereferenceable(176), ptr noundef, i32) unnamed_addr #5
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -412,7 +412,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN5folly18DelayedDestructionD2Ev(ptr noundef nonnull align 8 dereferenceable(13)) unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare void @_ZN5folly12EventHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(184)) unnamed_addr #6
+declare void @_ZN5folly12EventHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(176)) unnamed_addr #6
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
 declare void @llvm.trap() #7
@@ -431,7 +431,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 declare void @_ZSt9terminatev() local_unnamed_addr
 
-declare noundef zeroext i1 @_ZN5folly12EventHandler12registerImplEtb(ptr noundef nonnull align 8 dereferenceable(184), i16 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #5
+declare noundef zeroext i1 @_ZN5folly12EventHandler12registerImplEtb(ptr noundef nonnull align 8 dereferenceable(176), i16 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
@@ -440,15 +440,15 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly7TimerFDD2Ev(ptr noundef nonnull align 8 dereferenceable(220) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly7TimerFDD2Ev(ptr noundef nonnull align 8 dereferenceable(212) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %val.i.i = alloca %struct.itimerspec, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !35
-  %add.ptr = getelementptr inbounds i8, ptr %this, i64 184
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8, !tbaa !35
-  %add.ptr2 = getelementptr inbounds i8, ptr %this, i64 192
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 2, i64 2), ptr %add.ptr2, align 8, !tbaa !35
-  %fd_.i.i = getelementptr inbounds i8, ptr %this, i64 216
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !35
+  %add.ptr = getelementptr inbounds i8, ptr %this, i64 176
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8, !tbaa !35
+  %add.ptr2 = getelementptr inbounds i8, ptr %this, i64 184
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly7TimerFDE, i64 0, i32 2, i64 2), ptr %add.ptr2, align 8, !tbaa !35
+  %fd_.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load i32, ptr %fd_.i.i, align 8, !tbaa !14
   %cmp.i.i = icmp slt i32 %0, 1
   br i1 %cmp.i.i, label %invoke.cont, label %if.end.i.i
@@ -461,7 +461,7 @@ if.end.i.i:                                       ; preds = %entry
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.end.i.i, %entry
-  invoke void @_ZN5folly12EventHandler17unregisterHandlerEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
+  invoke void @_ZN5folly12EventHandler17unregisterHandlerEv(ptr noundef nonnull align 8 dereferenceable(176) %this)
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %invoke.cont
@@ -470,11 +470,11 @@ invoke.cont:                                      ; preds = %if.end.i.i, %entry
   br i1 %cmp.i, label %if.then.i, label %invoke.cont3
 
 if.then.i:                                        ; preds = %.noexc
-  invoke void @_ZN5folly12EventHandler15detachEventBaseEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
+  invoke void @_ZN5folly12EventHandler15detachEventBaseEv(ptr noundef nonnull align 8 dereferenceable(176) %this)
           to label %.noexc4 unwind label %terminate.lpad
 
 .noexc4:                                          ; preds = %if.then.i
-  invoke void @_ZN5folly12EventHandler15changeHandlerFDENS_13NetworkSocketE(ptr noundef nonnull align 8 dereferenceable(184) %this, i32 -1)
+  invoke void @_ZN5folly12EventHandler15changeHandlerFDENS_13NetworkSocketE(ptr noundef nonnull align 8 dereferenceable(176) %this, i32 -1)
           to label %.noexc5 unwind label %terminate.lpad
 
 .noexc5:                                          ; preds = %.noexc4
@@ -487,7 +487,7 @@ call.i.noexc:                                     ; preds = %.noexc5
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %call.i.noexc, %.noexc
-  %ioVecPtr_ = getelementptr inbounds i8, ptr %this, i64 208
+  %ioVecPtr_ = getelementptr inbounds i8, ptr %this, i64 200
   %3 = load ptr, ptr %ioVecPtr_, align 8, !tbaa !37
   %cmp.not.i = icmp eq ptr %3, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly7TimerFD5IoVecESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly7TimerFD5IoVecEEclEPS2_.exit.i
@@ -502,7 +502,7 @@ _ZNKSt14default_deleteIN5folly7TimerFD5IoVecEEclEPS2_.exit.i: ; preds = %invoke.
 _ZNSt10unique_ptrIN5folly7TimerFD5IoVecESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5folly7TimerFD5IoVecEEclEPS2_.exit.i, %invoke.cont3
   store ptr null, ptr %ioVecPtr_, align 8, !tbaa !37
   call void @_ZN5folly18DelayedDestructionD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %add.ptr2) #15
-  call void @_ZN5folly12EventHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) #15
+  call void @_ZN5folly12EventHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) #15
   ret void
 
 terminate.lpad:                                   ; preds = %.noexc5, %.noexc4, %if.then.i, %invoke.cont
@@ -514,10 +514,10 @@ terminate.lpad:                                   ; preds = %.noexc5, %.noexc4, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly7TimerFD6cancelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(220) %this) local_unnamed_addr #1 align 2 {
+define void @_ZN5folly7TimerFD6cancelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(212) %this) local_unnamed_addr #1 align 2 {
 entry:
   %val.i = alloca %struct.itimerspec, align 8
-  %fd_.i = getelementptr inbounds i8, ptr %this, i64 216
+  %fd_.i = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load i32, ptr %fd_.i, align 8, !tbaa !14
   %cmp.i = icmp slt i32 %0, 1
   br i1 %cmp.i, label %_ZN5folly7TimerFD8setTimerENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEE.exit, label %if.end.i
@@ -534,17 +534,17 @@ _ZN5folly7TimerFD8setTimerENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEE.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly7TimerFD5closeEv(ptr noundef nonnull align 8 dereferenceable(220) %this) local_unnamed_addr #4 align 2 {
+define void @_ZN5folly7TimerFD5closeEv(ptr noundef nonnull align 8 dereferenceable(212) %this) local_unnamed_addr #4 align 2 {
 entry:
-  tail call void @_ZN5folly12EventHandler17unregisterHandlerEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
-  %fd_ = getelementptr inbounds i8, ptr %this, i64 216
+  tail call void @_ZN5folly12EventHandler17unregisterHandlerEv(ptr noundef nonnull align 8 dereferenceable(176) %this)
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load i32, ptr %fd_, align 8, !tbaa !14
   %cmp = icmp sgt i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @_ZN5folly12EventHandler15detachEventBaseEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
-  tail call void @_ZN5folly12EventHandler15changeHandlerFDENS_13NetworkSocketE(ptr noundef nonnull align 8 dereferenceable(184) %this, i32 -1)
+  tail call void @_ZN5folly12EventHandler15detachEventBaseEv(ptr noundef nonnull align 8 dereferenceable(176) %this)
+  tail call void @_ZN5folly12EventHandler15changeHandlerFDENS_13NetworkSocketE(ptr noundef nonnull align 8 dereferenceable(176) %this, i32 -1)
   %1 = load i32, ptr %fd_, align 8, !tbaa !14
   %call = tail call i32 @close(i32 noundef %1)
   store i32 -1, ptr %fd_, align 8, !tbaa !14
@@ -554,19 +554,19 @@ if.end:                                           ; preds = %if.then, %entry
   ret void
 }
 
-declare void @_ZN5folly12EventHandler17unregisterHandlerEv(ptr noundef nonnull align 8 dereferenceable(184)) local_unnamed_addr #5
+declare void @_ZN5folly12EventHandler17unregisterHandlerEv(ptr noundef nonnull align 8 dereferenceable(176)) local_unnamed_addr #5
 
-declare void @_ZN5folly12EventHandler15detachEventBaseEv(ptr noundef nonnull align 8 dereferenceable(184)) local_unnamed_addr #5
+declare void @_ZN5folly12EventHandler15detachEventBaseEv(ptr noundef nonnull align 8 dereferenceable(176)) local_unnamed_addr #5
 
-declare void @_ZN5folly12EventHandler15changeHandlerFDENS_13NetworkSocketE(ptr noundef nonnull align 8 dereferenceable(184), i32) local_unnamed_addr #5
+declare void @_ZN5folly12EventHandler15changeHandlerFDENS_13NetworkSocketE(ptr noundef nonnull align 8 dereferenceable(176), i32) local_unnamed_addr #5
 
 declare i32 @close(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly7TimerFD8scheduleENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(220) %this, i64 %timeout.coerce) local_unnamed_addr #1 align 2 {
+define void @_ZN5folly7TimerFD8scheduleENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(212) %this, i64 %timeout.coerce) local_unnamed_addr #1 align 2 {
 entry:
   %val.i = alloca %struct.itimerspec, align 8
-  %fd_.i = getelementptr inbounds i8, ptr %this, i64 216
+  %fd_.i = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load i32, ptr %fd_.i, align 8, !tbaa !14
   %cmp.i = icmp slt i32 %0, 1
   br i1 %cmp.i, label %_ZN5folly7TimerFD8setTimerENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEE.exit, label %if.end.i
@@ -591,10 +591,10 @@ _ZN5folly7TimerFD8setTimerENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEE.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN5folly7TimerFD8setTimerENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(220) %this, i64 %useconds.coerce) local_unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZN5folly7TimerFD8setTimerENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(212) %this, i64 %useconds.coerce) local_unnamed_addr #1 align 2 {
 entry:
   %val = alloca %struct.itimerspec, align 8
-  %fd_ = getelementptr inbounds i8, ptr %this, i64 216
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load i32, ptr %fd_, align 8, !tbaa !14
   %cmp = icmp slt i32 %0, 1
   br i1 %cmp, label %return, label %if.end
@@ -625,11 +625,11 @@ declare i32 @timerfd_settime(i32 noundef, i32 noundef, ptr noundef, ptr noundef)
 declare noundef i64 @_ZN5folly9readNoIntEiPvm(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly7TimerFD17eventReadCallbackEPNS0_5IoVecEi(ptr noundef nonnull align 8 dereferenceable(220) %this, ptr noundef %ioVec, i32 noundef %res) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly7TimerFD17eventReadCallbackEPNS0_5IoVecEi(ptr noundef nonnull align 8 dereferenceable(212) %this, ptr noundef %ioVec, i32 noundef %res) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %timerData_ = getelementptr inbounds i8, ptr %ioVec, i64 48
   store i64 0, ptr %timerData_, align 8, !tbaa !38
-  %ioVecPtr_ = getelementptr inbounds i8, ptr %this, i64 208
+  %ioVecPtr_ = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load ptr, ptr %ioVecPtr_, align 8, !tbaa !37
   store ptr %ioVec, ptr %ioVecPtr_, align 8, !tbaa !37
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -647,14 +647,14 @@ _ZNSt10unique_ptrIN5folly7TimerFD5IoVecESt14default_deleteIS2_EE5resetEPS2_.exit
   br i1 %cmp, label %if.then.i, label %if.end
 
 if.then.i:                                        ; preds = %_ZNSt10unique_ptrIN5folly7TimerFD5IoVecESt14default_deleteIS2_EE5resetEPS2_.exit
-  %guardCount_.i = getelementptr inbounds i8, ptr %this, i64 200
+  %guardCount_.i = getelementptr inbounds i8, ptr %this, i64 192
   %2 = load i32, ptr %guardCount_.i, align 8, !tbaa !7
   %inc.i = add i32 %2, 1
   store i32 %inc.i, ptr %guardCount_.i, align 8, !tbaa !7
   %vtable = load ptr, ptr %this, align 8, !tbaa !35
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %3 = load ptr, ptr %vfn, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(220) %this) #15
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(212) %this) #15
   %4 = load i32, ptr %guardCount_.i, align 8, !tbaa !7
   %dec.i = add i32 %4, -1
   store i32 %dec.i, ptr %guardCount_.i, align 8, !tbaa !7
@@ -662,7 +662,7 @@ if.then.i:                                        ; preds = %_ZNSt10unique_ptrIN
   br i1 %cmp5.i, label %if.then6.i, label %if.end
 
 if.then6.i:                                       ; preds = %if.then.i
-  %add.ptr = getelementptr inbounds i8, ptr %this, i64 192
+  %add.ptr = getelementptr inbounds i8, ptr %this, i64 184
   %vtable.i = load ptr, ptr %add.ptr, align 8, !tbaa !35
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %5 = load ptr, ptr %vfn.i, align 8
@@ -710,7 +710,7 @@ entry:
   %0 = load ptr, ptr %arg_, align 8, !tbaa !42
   %timerData_.i = getelementptr inbounds i8, ptr %ioVec, i64 48
   store i64 0, ptr %timerData_.i, align 8, !tbaa !38
-  %ioVecPtr_.i = getelementptr inbounds i8, ptr %0, i64 208
+  %ioVecPtr_.i = getelementptr inbounds i8, ptr %0, i64 200
   %1 = load ptr, ptr %ioVecPtr_.i, align 8, !tbaa !37
   store ptr %ioVec, ptr %ioVecPtr_.i, align 8, !tbaa !37
   %tobool.not.i.i.i = icmp eq ptr %1, null
@@ -728,14 +728,14 @@ _ZNSt10unique_ptrIN5folly7TimerFD5IoVecESt14default_deleteIS2_EE5resetEPS2_.exit
   br i1 %cmp.i, label %if.then.i.i, label %_ZN5folly7TimerFD17eventReadCallbackEPNS0_5IoVecEi.exit
 
 if.then.i.i:                                      ; preds = %_ZNSt10unique_ptrIN5folly7TimerFD5IoVecESt14default_deleteIS2_EE5resetEPS2_.exit.i
-  %guardCount_.i.i = getelementptr inbounds i8, ptr %0, i64 200
+  %guardCount_.i.i = getelementptr inbounds i8, ptr %0, i64 192
   %3 = load i32, ptr %guardCount_.i.i, align 8, !tbaa !7
   %inc.i.i = add i32 %3, 1
   store i32 %inc.i.i, ptr %guardCount_.i.i, align 8, !tbaa !7
   %vtable.i = load ptr, ptr %0, align 8, !tbaa !35
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %4 = load ptr, ptr %vfn.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(220) %0) #15
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(212) %0) #15
   %5 = load i32, ptr %guardCount_.i.i, align 8, !tbaa !7
   %dec.i.i = add i32 %5, -1
   store i32 %dec.i.i, ptr %guardCount_.i.i, align 8, !tbaa !7
@@ -743,7 +743,7 @@ if.then.i.i:                                      ; preds = %_ZNSt10unique_ptrIN
   br i1 %cmp5.i.i, label %if.then6.i.i, label %_ZN5folly7TimerFD17eventReadCallbackEPNS0_5IoVecEi.exit
 
 if.then6.i.i:                                     ; preds = %if.then.i.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 192
+  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 184
   %vtable.i.i = load ptr, ptr %add.ptr.i, align 8, !tbaa !35
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i, align 8
@@ -815,11 +815,11 @@ attributes #17 = { builtin nounwind }
 !11 = !{!"Simple C++ TBAA"}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"long", !10, i64 0}
-!14 = !{!15, !9, i64 216}
-!15 = !{!"_ZTSN5folly7TimerFDE", !16, i64 0, !26, i64 184, !27, i64 192, !29, i64 208, !9, i64 216}
-!16 = !{!"_ZTSN5folly12EventHandlerE", !17, i64 8, !21, i64 176}
-!17 = !{!"_ZTSN5folly14EventBaseEventE", !18, i64 0, !21, i64 128, !21, i64 136, !21, i64 144, !24, i64 152}
-!18 = !{!"_ZTS5event", !19, i64 0, !10, i64 40, !9, i64 56, !21, i64 64, !10, i64 72, !22, i64 104, !22, i64 106, !23, i64 112}
+!14 = !{!15, !9, i64 208}
+!15 = !{!"_ZTSN5folly7TimerFDE", !16, i64 0, !26, i64 176, !27, i64 184, !29, i64 200, !9, i64 208}
+!16 = !{!"_ZTSN5folly12EventHandlerE", !17, i64 8, !21, i64 168}
+!17 = !{!"_ZTSN5folly14EventBaseEventE", !18, i64 0, !21, i64 120, !21, i64 128, !21, i64 136, !24, i64 144}
+!18 = !{!"_ZTS5event", !19, i64 0, !10, i64 40, !9, i64 56, !22, i64 60, !22, i64 62, !21, i64 64, !10, i64 72, !23, i64 104}
 !19 = !{!"_ZTS14event_callback", !20, i64 0, !22, i64 16, !10, i64 18, !10, i64 19, !10, i64 24, !21, i64 32}
 !20 = !{!"_ZTSN14event_callbackUt_E", !21, i64 0, !21, i64 8}
 !21 = !{!"any pointer", !10, i64 0}
