@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-pc-linux-gnu"
+target triple = "x86_64-unknown-linux-gnu"
 
 %class.OpenGLProcedures = type { %"class.std::unordered_set", ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %"class.std::unordered_set" = type { %"class.std::_Hashtable" }
@@ -45,7 +45,7 @@ $_ZTVN3irr17IReferenceCountedE = comdat any
 @.str = private unnamed_addr constant [11 x i8] c"uThickness\00", align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c"uTextureUsage\00", align 1
 @.str.2 = private unnamed_addr constant [13 x i8] c"uTextureUnit\00", align 1
-@_ZTTN3irr5video18COpenGL3Renderer2DE = unnamed_addr constant [6 x ptr] [ptr getelementptr inbounds ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video18COpenGL3Renderer2DE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [21 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video18COpenGL3Renderer2DE0_NS0_24COpenGL3MaterialRendererE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video18COpenGL3Renderer2DE0_NS0_17IMaterialRendererE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video18COpenGL3Renderer2DE0_NS0_17IMaterialRendererE, i32 0, i32 1, i32 3), ptr getelementptr inbounds ({ [21 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video18COpenGL3Renderer2DE0_NS0_24COpenGL3MaterialRendererE, i32 0, i32 1, i32 3), ptr getelementptr inbounds ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video18COpenGL3Renderer2DE, i32 0, i32 2, i32 3)], align 8
+@_ZTTN3irr5video18COpenGL3Renderer2DE = unnamed_addr constant [6 x ptr] [ptr getelementptr inbounds inrange(-24, 144) ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video18COpenGL3Renderer2DE, i32 0, i32 0, i32 3), ptr getelementptr inbounds inrange(-24, 144) ({ [21 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video18COpenGL3Renderer2DE0_NS0_24COpenGL3MaterialRendererE, i32 0, i32 0, i32 3), ptr getelementptr inbounds inrange(-24, 64) ({ [11 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video18COpenGL3Renderer2DE0_NS0_17IMaterialRendererE, i32 0, i32 0, i32 3), ptr getelementptr inbounds inrange(-24, 16) ({ [11 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video18COpenGL3Renderer2DE0_NS0_17IMaterialRendererE, i32 0, i32 1, i32 3), ptr getelementptr inbounds inrange(-24, 16) ({ [21 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video18COpenGL3Renderer2DE0_NS0_24COpenGL3MaterialRendererE, i32 0, i32 1, i32 3), ptr getelementptr inbounds inrange(-24, 16) ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video18COpenGL3Renderer2DE, i32 0, i32 2, i32 3)], align 8
 @_ZTCN3irr5video18COpenGL3Renderer2DE0_NS0_24COpenGL3MaterialRendererE = unnamed_addr constant { [21 x ptr], [5 x ptr] } { [21 x ptr] [ptr inttoptr (i64 88 to ptr), ptr null, ptr @_ZTIN3irr5video24COpenGL3MaterialRendererE, ptr @_ZN3irr5video24COpenGL3MaterialRenderer13OnSetMaterialERKNS0_9SMaterialES4_bPNS0_25IMaterialRendererServicesE, ptr @_ZN3irr5video24COpenGL3MaterialRenderer8OnRenderEPNS0_25IMaterialRendererServicesENS0_13E_VERTEX_TYPEE, ptr @_ZN3irr5video24COpenGL3MaterialRenderer15OnUnsetMaterialEv, ptr @_ZNK3irr5video24COpenGL3MaterialRenderer13isTransparentEv, ptr @_ZNK3irr5video24COpenGL3MaterialRenderer19getRenderCapabilityEv, ptr @_ZNK3irr5video17IMaterialRenderer28getShaderConstantSetCallBackEv, ptr @_ZN3irr5video24COpenGL3MaterialRendererD1Ev, ptr @_ZN3irr5video24COpenGL3MaterialRendererD0Ev, ptr @_ZN3irr5video24COpenGL3MaterialRenderer20setBasicRenderStatesERKNS0_9SMaterialES4_b, ptr @_ZN3irr5video24COpenGL3MaterialRenderer25getVertexShaderConstantIDEPKc, ptr @_ZN3irr5video24COpenGL3MaterialRenderer24getPixelShaderConstantIDEPKc, ptr @_ZN3irr5video24COpenGL3MaterialRenderer23setVertexShaderConstantEiPKfi, ptr @_ZN3irr5video24COpenGL3MaterialRenderer23setVertexShaderConstantEiPKii, ptr @_ZN3irr5video24COpenGL3MaterialRenderer23setVertexShaderConstantEiPKji, ptr @_ZN3irr5video24COpenGL3MaterialRenderer22setPixelShaderConstantEiPKfi, ptr @_ZN3irr5video24COpenGL3MaterialRenderer22setPixelShaderConstantEiPKii, ptr @_ZN3irr5video24COpenGL3MaterialRenderer22setPixelShaderConstantEiPKji, ptr @_ZN3irr5video24COpenGL3MaterialRenderer14getVideoDriverEv], [5 x ptr] [ptr inttoptr (i64 -88 to ptr), ptr inttoptr (i64 -88 to ptr), ptr @_ZTIN3irr5video24COpenGL3MaterialRendererE, ptr @_ZTv0_n24_N3irr5video24COpenGL3MaterialRendererD1Ev, ptr @_ZTv0_n24_N3irr5video24COpenGL3MaterialRendererD0Ev] }, align 8
 @_ZTIN3irr5video24COpenGL3MaterialRendererE = external constant ptr
 @_ZTCN3irr5video18COpenGL3Renderer2DE0_NS0_17IMaterialRendererE = unnamed_addr constant { [11 x ptr], [5 x ptr] } { [11 x ptr] [ptr inttoptr (i64 88 to ptr), ptr null, ptr @_ZTIN3irr5video17IMaterialRendererE, ptr @_ZN3irr5video17IMaterialRenderer13OnSetMaterialERKNS0_9SMaterialES4_bPNS0_25IMaterialRendererServicesE, ptr @_ZN3irr5video17IMaterialRenderer8OnRenderEPNS0_25IMaterialRendererServicesENS0_13E_VERTEX_TYPEE, ptr @_ZN3irr5video17IMaterialRenderer15OnUnsetMaterialEv, ptr @_ZNK3irr5video17IMaterialRenderer13isTransparentEv, ptr @_ZNK3irr5video17IMaterialRenderer19getRenderCapabilityEv, ptr @_ZNK3irr5video17IMaterialRenderer28getShaderConstantSetCallBackEv, ptr @_ZN3irr5video17IMaterialRendererD1Ev, ptr @_ZN3irr5video17IMaterialRendererD0Ev], [5 x ptr] [ptr inttoptr (i64 -88 to ptr), ptr inttoptr (i64 -88 to ptr), ptr @_ZTIN3irr5video17IMaterialRendererE, ptr @_ZTv0_n24_N3irr5video17IMaterialRendererD1Ev, ptr @_ZTv0_n24_N3irr5video17IMaterialRendererD0Ev] }, align 8
@@ -62,96 +62,97 @@ $_ZTVN3irr17IReferenceCountedE = comdat any
 @GL = external local_unnamed_addr global %class.OpenGLProcedures, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video18COpenGL3Renderer2DC2EPKcS3_PNS0_18COpenGL3DriverBaseEb(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
-  %7 = alloca i32, align 4
-  %8 = alloca i32, align 4
-  %9 = alloca i32, align 4
-  %10 = zext i1 %5 to i8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
-  tail call void @_ZN3irr5video24COpenGL3MaterialRendererC2EPNS0_18COpenGL3DriverBaseEPNS0_26IShaderConstantSetCallBackENS0_15E_MATERIAL_TYPEEi(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull %11, ptr noundef %4, ptr noundef null, i32 noundef 0, i32 noundef 0) #9
-  %12 = load ptr, ptr %1, align 8
-  store ptr %12, ptr %0, align 8, !tbaa !3
-  %13 = getelementptr inbounds i8, ptr %1, i64 40
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr i8, ptr %12, i64 -24
-  %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 %16
-  store ptr %14, ptr %17, align 8, !tbaa !3
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video18COpenGL3Renderer2DE, i64 0, i32 1, i64 2), ptr %18, align 8, !tbaa !3
-  %19 = getelementptr inbounds i8, ptr %0, i64 76
-  store i8 %10, ptr %19, align 4, !tbaa !6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  store i32 0, ptr %7, align 4, !tbaa !20
-  call void @_ZN3irr5video24COpenGL3MaterialRenderer4initERiPKcS4_b(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef %2, ptr noundef %3, i1 noundef zeroext false) #9
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !21
-  %22 = call noundef ptr @_ZNK3irr5video18COpenGL3DriverBase15getCacheHandlerEv(ptr noundef nonnull align 8 dereferenceable(2920) %21) #9
-  %23 = getelementptr inbounds i8, ptr %0, i64 36
-  %24 = load i32, ptr %23, align 4, !tbaa !22
-  %25 = getelementptr inbounds i8, ptr %22, i64 168
-  %26 = load i32, ptr %25, align 8, !tbaa !23
-  %27 = icmp eq i32 %26, %24
-  br i1 %27, label %30, label %28
+define void @_ZN3irr5video18COpenGL3Renderer2DC2EPKcS3_PNS0_18COpenGL3DriverBaseEb(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %vtt, ptr noundef %vertexShaderProgram, ptr noundef %pixelShaderProgram, ptr noundef %driver, i1 noundef zeroext %withTexture) unnamed_addr #0 align 2 {
+entry:
+  %Temp = alloca i32, align 4
+  %TextureUnit = alloca i32, align 4
+  %TextureUsage = alloca i32, align 4
+  %frombool = zext i1 %withTexture to i8
+  %0 = getelementptr inbounds i8, ptr %vtt, i64 8
+  tail call void @_ZN3irr5video24COpenGL3MaterialRendererC2EPNS0_18COpenGL3DriverBaseEPNS0_26IShaderConstantSetCallBackENS0_15E_MATERIAL_TYPEEi(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull %0, ptr noundef %driver, ptr noundef null, i32 noundef 0, i32 noundef 0) #9
+  %1 = load ptr, ptr %vtt, align 8
+  store ptr %1, ptr %this, align 8, !tbaa !3
+  %2 = getelementptr inbounds i8, ptr %vtt, i64 40
+  %3 = load ptr, ptr %2, align 8
+  %vbase.offset.ptr = getelementptr i8, ptr %1, i64 -24
+  %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
+  store ptr %3, ptr %add.ptr, align 8, !tbaa !3
+  %add.ptr3 = getelementptr inbounds i8, ptr %this, i64 8
+  store ptr getelementptr inbounds inrange(-16, 96) ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video18COpenGL3Renderer2DE, i64 0, i32 1, i64 2), ptr %add.ptr3, align 8, !tbaa !3
+  %WithTexture = getelementptr inbounds i8, ptr %this, i64 76
+  store i8 %frombool, ptr %WithTexture, align 4, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %Temp) #9
+  store i32 0, ptr %Temp, align 4, !tbaa !20
+  call void @_ZN3irr5video24COpenGL3MaterialRenderer4initERiPKcS4_b(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull align 4 dereferenceable(4) %Temp, ptr noundef %vertexShaderProgram, ptr noundef %pixelShaderProgram, i1 noundef zeroext false) #9
+  %Driver = getelementptr inbounds i8, ptr %this, i64 16
+  %4 = load ptr, ptr %Driver, align 8, !tbaa !21
+  %call = call noundef ptr @_ZNK3irr5video18COpenGL3DriverBase15getCacheHandlerEv(ptr noundef nonnull align 8 dereferenceable(2920) %4) #9
+  %Program = getelementptr inbounds i8, ptr %this, i64 36
+  %5 = load i32, ptr %Program, align 4, !tbaa !22
+  %ProgramID.i = getelementptr inbounds i8, ptr %call, i64 168
+  %6 = load i32, ptr %ProgramID.i, align 8, !tbaa !23
+  %cmp.not.i = icmp eq i32 %6, %5
+  br i1 %cmp.not.i, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_18COpenGL3DriverBaseENS0_18COpenGLCoreTextureIS2_EEE10setProgramEj.exit, label %if.then.i
 
-28:                                               ; preds = %6
-  %29 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 139), align 8, !tbaa !27
-  call void %29(i32 noundef %24) #9
-  store i32 %24, ptr %25, align 8, !tbaa !23
-  br label %30
+if.then.i:                                        ; preds = %entry
+  %7 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 139), align 8, !tbaa !27
+  call void %7(i32 noundef %5) #9
+  store i32 %5, ptr %ProgramID.i, align 8, !tbaa !23
+  br label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_18COpenGL3DriverBaseENS0_18COpenGLCoreTextureIS2_EEE10setProgramEj.exit
 
-30:                                               ; preds = %28, %6
-  %31 = load ptr, ptr %0, align 8, !tbaa !3
-  %32 = getelementptr inbounds i8, ptr %31, i64 80
-  %33 = load ptr, ptr %32, align 8
-  %34 = call noundef i32 %33(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull @.str) #9
-  %35 = getelementptr inbounds i8, ptr %0, i64 80
-  store i32 %34, ptr %35, align 8, !tbaa !35
-  %36 = load i8, ptr %19, align 4, !tbaa !6, !range !36, !noundef !37
-  %37 = icmp eq i8 %36, 0
-  br i1 %37, label %57, label %38
+_ZN3irr5video23COpenGLCoreCacheHandlerINS0_18COpenGL3DriverBaseENS0_18COpenGLCoreTextureIS2_EEE10setProgramEj.exit: ; preds = %if.then.i, %entry
+  %vtable5 = load ptr, ptr %this, align 8, !tbaa !3
+  %vfn = getelementptr inbounds i8, ptr %vtable5, i64 80
+  %8 = load ptr, ptr %vfn, align 8
+  %call6 = call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull @.str) #9
+  %ThicknessID = getelementptr inbounds i8, ptr %this, i64 80
+  store i32 %call6, ptr %ThicknessID, align 8, !tbaa !35
+  %9 = load i8, ptr %WithTexture, align 4, !tbaa !6, !range !36, !noundef !37
+  %tobool8.not = icmp eq i8 %9, 0
+  br i1 %tobool8.not, label %if.end, label %if.then
 
-38:                                               ; preds = %30
-  %39 = load ptr, ptr %0, align 8, !tbaa !3
-  %40 = getelementptr inbounds i8, ptr %39, i64 80
-  %41 = load ptr, ptr %40, align 8
-  %42 = call noundef i32 %41(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull @.str.1) #9
-  %43 = getelementptr inbounds i8, ptr %0, i64 84
-  store i32 %42, ptr %43, align 4, !tbaa !38
-  %44 = load ptr, ptr %0, align 8, !tbaa !3
-  %45 = getelementptr inbounds i8, ptr %44, i64 80
-  %46 = load ptr, ptr %45, align 8
-  %47 = call noundef i32 %46(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull @.str.2) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
-  store i32 0, ptr %8, align 4, !tbaa !20
-  %48 = load ptr, ptr %0, align 8, !tbaa !3
-  %49 = getelementptr inbounds i8, ptr %48, i64 120
-  %50 = load ptr, ptr %49, align 8
-  %51 = call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(76) %0, i32 noundef %47, ptr noundef nonnull %8, i32 noundef 1) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
-  store i32 0, ptr %9, align 4, !tbaa !20
-  %52 = load i32, ptr %43, align 4, !tbaa !38
-  %53 = load ptr, ptr %0, align 8, !tbaa !3
-  %54 = getelementptr inbounds i8, ptr %53, i64 120
-  %55 = load ptr, ptr %54, align 8
-  %56 = call noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(76) %0, i32 noundef %52, ptr noundef nonnull %9, i32 noundef 1) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  br label %57
+if.then:                                          ; preds = %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_18COpenGL3DriverBaseENS0_18COpenGLCoreTextureIS2_EEE10setProgramEj.exit
+  %vtable9 = load ptr, ptr %this, align 8, !tbaa !3
+  %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 80
+  %10 = load ptr, ptr %vfn10, align 8
+  %call11 = call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull @.str.1) #9
+  %TextureUsageID = getelementptr inbounds i8, ptr %this, i64 84
+  store i32 %call11, ptr %TextureUsageID, align 4, !tbaa !38
+  %vtable12 = load ptr, ptr %this, align 8, !tbaa !3
+  %vfn13 = getelementptr inbounds i8, ptr %vtable12, i64 80
+  %11 = load ptr, ptr %vfn13, align 8
+  %call14 = call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull @.str.2) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %TextureUnit) #9
+  store i32 0, ptr %TextureUnit, align 4, !tbaa !20
+  %vtable15 = load ptr, ptr %this, align 8, !tbaa !3
+  %vfn16 = getelementptr inbounds i8, ptr %vtable15, i64 120
+  %12 = load ptr, ptr %vfn16, align 8
+  %call17 = call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(76) %this, i32 noundef %call14, ptr noundef nonnull %TextureUnit, i32 noundef 1) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %TextureUsage) #9
+  store i32 0, ptr %TextureUsage, align 4, !tbaa !20
+  %13 = load i32, ptr %TextureUsageID, align 4, !tbaa !38
+  %vtable19 = load ptr, ptr %this, align 8, !tbaa !3
+  %vfn20 = getelementptr inbounds i8, ptr %vtable19, i64 120
+  %14 = load ptr, ptr %vfn20, align 8
+  %call21 = call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(76) %this, i32 noundef %13, ptr noundef nonnull %TextureUsage, i32 noundef 1) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %TextureUsage) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %TextureUnit) #9
+  br label %if.end
 
-57:                                               ; preds = %38, %30
-  %58 = load i32, ptr %25, align 8, !tbaa !23
-  %59 = icmp eq i32 %58, 0
-  br i1 %59, label %62, label %60
+if.end:                                           ; preds = %if.then, %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_18COpenGL3DriverBaseENS0_18COpenGLCoreTextureIS2_EEE10setProgramEj.exit
+  %15 = load i32, ptr %ProgramID.i, align 8, !tbaa !23
+  %cmp.not.i24 = icmp eq i32 %15, 0
+  br i1 %cmp.not.i24, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_18COpenGL3DriverBaseENS0_18COpenGLCoreTextureIS2_EEE10setProgramEj.exit26, label %if.then.i25
 
-60:                                               ; preds = %57
-  %61 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 139), align 8, !tbaa !27
-  call void %61(i32 noundef 0) #9
-  store i32 0, ptr %25, align 8, !tbaa !23
-  br label %62
+if.then.i25:                                      ; preds = %if.end
+  %16 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 139), align 8, !tbaa !27
+  call void %16(i32 noundef 0) #9
+  store i32 0, ptr %ProgramID.i, align 8, !tbaa !23
+  br label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_18COpenGL3DriverBaseENS0_18COpenGLCoreTextureIS2_EEE10setProgramEj.exit26
 
-62:                                               ; preds = %60, %57
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
+_ZN3irr5video23COpenGLCoreCacheHandlerINS0_18COpenGL3DriverBaseENS0_18COpenGLCoreTextureIS2_EEE10setProgramEj.exit26: ; preds = %if.then.i25, %if.end
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %Temp) #9
   ret void
 }
 
@@ -168,102 +169,104 @@ declare noundef ptr @_ZNK3irr5video18COpenGL3DriverBase15getCacheHandlerEv(ptr n
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video18COpenGL3Renderer2DC1EPKcS3_PNS0_18COpenGL3DriverBaseEb(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
-  %6 = alloca i32, align 4
-  %7 = alloca i32, align 4
-  %8 = alloca i32, align 4
-  %9 = zext i1 %4 to i8
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3irr17IReferenceCountedE, i64 0, i32 0, i64 2), ptr %10, align 8, !tbaa !3
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
-  store ptr null, ptr %11, align 8, !tbaa !39
-  %12 = getelementptr inbounds i8, ptr %0, i64 104
-  store i32 1, ptr %12, align 8, !tbaa !41
-  tail call void @_ZN3irr5video24COpenGL3MaterialRendererC2EPNS0_18COpenGL3DriverBaseEPNS0_26IShaderConstantSetCallBackENS0_15E_MATERIAL_TYPEEi(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTTN3irr5video18COpenGL3Renderer2DE, i64 0, i64 1), ptr noundef %3, ptr noundef null, i32 noundef 0, i32 noundef 0) #9
-  store ptr getelementptr inbounds ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video18COpenGL3Renderer2DE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video18COpenGL3Renderer2DE, i64 0, i32 2, i64 3), ptr %10, align 8, !tbaa !3
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video18COpenGL3Renderer2DE, i64 0, i32 1, i64 2), ptr %13, align 8, !tbaa !3
-  %14 = getelementptr inbounds i8, ptr %0, i64 76
-  store i8 %9, ptr %14, align 4, !tbaa !6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
-  store i32 0, ptr %6, align 4, !tbaa !20
-  call void @_ZN3irr5video24COpenGL3MaterialRenderer4initERiPKcS4_b(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef %1, ptr noundef %2, i1 noundef zeroext false) #9
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !21
-  %17 = call noundef ptr @_ZNK3irr5video18COpenGL3DriverBase15getCacheHandlerEv(ptr noundef nonnull align 8 dereferenceable(2920) %16) #9
-  %18 = getelementptr inbounds i8, ptr %0, i64 36
-  %19 = load i32, ptr %18, align 4, !tbaa !22
-  %20 = getelementptr inbounds i8, ptr %17, i64 168
-  %21 = load i32, ptr %20, align 8, !tbaa !23
-  %22 = icmp eq i32 %21, %19
-  br i1 %22, label %25, label %23
+define void @_ZN3irr5video18COpenGL3Renderer2DC1EPKcS3_PNS0_18COpenGL3DriverBaseEb(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %vertexShaderProgram, ptr noundef %pixelShaderProgram, ptr noundef %driver, i1 noundef zeroext %withTexture) unnamed_addr #0 align 2 {
+entry:
+  %Temp = alloca i32, align 4
+  %TextureUnit = alloca i32, align 4
+  %TextureUsage = alloca i32, align 4
+  %frombool = zext i1 %withTexture to i8
+  %0 = getelementptr inbounds i8, ptr %this, i64 88
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3irr17IReferenceCountedE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !3
+  %DebugName.i = getelementptr inbounds i8, ptr %this, i64 96
+  store ptr null, ptr %DebugName.i, align 8, !tbaa !39
+  %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 104
+  store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !41
+  tail call void @_ZN3irr5video24COpenGL3MaterialRendererC2EPNS0_18COpenGL3DriverBaseEPNS0_26IShaderConstantSetCallBackENS0_15E_MATERIAL_TYPEEi(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTTN3irr5video18COpenGL3Renderer2DE, i64 0, i64 1), ptr noundef %driver, ptr noundef null, i32 noundef 0, i32 noundef 0) #9
+  store ptr getelementptr inbounds inrange(-24, 144) ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video18COpenGL3Renderer2DE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video18COpenGL3Renderer2DE, i64 0, i32 2, i64 3), ptr %0, align 8, !tbaa !3
+  %add.ptr2 = getelementptr inbounds i8, ptr %this, i64 8
+  store ptr getelementptr inbounds inrange(-16, 96) ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video18COpenGL3Renderer2DE, i64 0, i32 1, i64 2), ptr %add.ptr2, align 8, !tbaa !3
+  %WithTexture = getelementptr inbounds i8, ptr %this, i64 76
+  store i8 %frombool, ptr %WithTexture, align 4, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %Temp) #9
+  store i32 0, ptr %Temp, align 4, !tbaa !20
+  call void @_ZN3irr5video24COpenGL3MaterialRenderer4initERiPKcS4_b(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull align 4 dereferenceable(4) %Temp, ptr noundef %vertexShaderProgram, ptr noundef %pixelShaderProgram, i1 noundef zeroext false) #9
+  %Driver = getelementptr inbounds i8, ptr %this, i64 16
+  %1 = load ptr, ptr %Driver, align 8, !tbaa !21
+  %call = call noundef ptr @_ZNK3irr5video18COpenGL3DriverBase15getCacheHandlerEv(ptr noundef nonnull align 8 dereferenceable(2920) %1) #9
+  %Program = getelementptr inbounds i8, ptr %this, i64 36
+  %2 = load i32, ptr %Program, align 4, !tbaa !22
+  %ProgramID.i = getelementptr inbounds i8, ptr %call, i64 168
+  %3 = load i32, ptr %ProgramID.i, align 8, !tbaa !23
+  %cmp.not.i = icmp eq i32 %3, %2
+  br i1 %cmp.not.i, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_18COpenGL3DriverBaseENS0_18COpenGLCoreTextureIS2_EEE10setProgramEj.exit, label %if.then.i
 
-23:                                               ; preds = %5
-  %24 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 139), align 8, !tbaa !27
-  call void %24(i32 noundef %19) #9
-  store i32 %19, ptr %20, align 8, !tbaa !23
-  br label %25
+if.then.i:                                        ; preds = %entry
+  %4 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 139), align 8, !tbaa !27
+  call void %4(i32 noundef %2) #9
+  store i32 %2, ptr %ProgramID.i, align 8, !tbaa !23
+  br label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_18COpenGL3DriverBaseENS0_18COpenGLCoreTextureIS2_EEE10setProgramEj.exit
 
-25:                                               ; preds = %23, %5
-  %26 = load ptr, ptr %0, align 8, !tbaa !3
-  %27 = getelementptr inbounds i8, ptr %26, i64 80
-  %28 = load ptr, ptr %27, align 8
-  %29 = call noundef i32 %28(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull @.str) #9
-  %30 = getelementptr inbounds i8, ptr %0, i64 80
-  store i32 %29, ptr %30, align 8, !tbaa !35
-  %31 = load i8, ptr %14, align 4, !tbaa !6, !range !36, !noundef !37
-  %32 = icmp eq i8 %31, 0
-  br i1 %32, label %52, label %33
+_ZN3irr5video23COpenGLCoreCacheHandlerINS0_18COpenGL3DriverBaseENS0_18COpenGLCoreTextureIS2_EEE10setProgramEj.exit: ; preds = %if.then.i, %entry
+  %vtable = load ptr, ptr %this, align 8, !tbaa !3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
+  %5 = load ptr, ptr %vfn, align 8
+  %call4 = call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull @.str) #9
+  %ThicknessID = getelementptr inbounds i8, ptr %this, i64 80
+  store i32 %call4, ptr %ThicknessID, align 8, !tbaa !35
+  %6 = load i8, ptr %WithTexture, align 4, !tbaa !6, !range !36, !noundef !37
+  %tobool6.not = icmp eq i8 %6, 0
+  br i1 %tobool6.not, label %if.end, label %if.then
 
-33:                                               ; preds = %25
-  %34 = load ptr, ptr %0, align 8, !tbaa !3
-  %35 = getelementptr inbounds i8, ptr %34, i64 80
-  %36 = load ptr, ptr %35, align 8
-  %37 = call noundef i32 %36(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull @.str.1) #9
-  %38 = getelementptr inbounds i8, ptr %0, i64 84
-  store i32 %37, ptr %38, align 4, !tbaa !38
-  %39 = load ptr, ptr %0, align 8, !tbaa !3
-  %40 = getelementptr inbounds i8, ptr %39, i64 80
-  %41 = load ptr, ptr %40, align 8
-  %42 = call noundef i32 %41(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull @.str.2) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  store i32 0, ptr %7, align 4, !tbaa !20
-  %43 = load ptr, ptr %0, align 8, !tbaa !3
-  %44 = getelementptr inbounds i8, ptr %43, i64 120
-  %45 = load ptr, ptr %44, align 8
-  %46 = call noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(76) %0, i32 noundef %42, ptr noundef nonnull %7, i32 noundef 1) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
-  store i32 0, ptr %8, align 4, !tbaa !20
-  %47 = load i32, ptr %38, align 4, !tbaa !38
-  %48 = load ptr, ptr %0, align 8, !tbaa !3
-  %49 = getelementptr inbounds i8, ptr %48, i64 120
-  %50 = load ptr, ptr %49, align 8
-  %51 = call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(76) %0, i32 noundef %47, ptr noundef nonnull %8, i32 noundef 1) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  br label %52
+if.then:                                          ; preds = %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_18COpenGL3DriverBaseENS0_18COpenGLCoreTextureIS2_EEE10setProgramEj.exit
+  %vtable7 = load ptr, ptr %this, align 8, !tbaa !3
+  %vfn8 = getelementptr inbounds i8, ptr %vtable7, i64 80
+  %7 = load ptr, ptr %vfn8, align 8
+  %call9 = call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull @.str.1) #9
+  %TextureUsageID = getelementptr inbounds i8, ptr %this, i64 84
+  store i32 %call9, ptr %TextureUsageID, align 4, !tbaa !38
+  %vtable10 = load ptr, ptr %this, align 8, !tbaa !3
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 80
+  %8 = load ptr, ptr %vfn11, align 8
+  %call12 = call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull @.str.2) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %TextureUnit) #9
+  store i32 0, ptr %TextureUnit, align 4, !tbaa !20
+  %vtable13 = load ptr, ptr %this, align 8, !tbaa !3
+  %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 120
+  %9 = load ptr, ptr %vfn14, align 8
+  %call15 = call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(76) %this, i32 noundef %call12, ptr noundef nonnull %TextureUnit, i32 noundef 1) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %TextureUsage) #9
+  store i32 0, ptr %TextureUsage, align 4, !tbaa !20
+  %10 = load i32, ptr %TextureUsageID, align 4, !tbaa !38
+  %vtable17 = load ptr, ptr %this, align 8, !tbaa !3
+  %vfn18 = getelementptr inbounds i8, ptr %vtable17, i64 120
+  %11 = load ptr, ptr %vfn18, align 8
+  %call19 = call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(76) %this, i32 noundef %10, ptr noundef nonnull %TextureUsage, i32 noundef 1) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %TextureUsage) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %TextureUnit) #9
+  br label %if.end
 
-52:                                               ; preds = %33, %25
-  %53 = load i32, ptr %20, align 8, !tbaa !23
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %57, label %55
+if.end:                                           ; preds = %if.then, %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_18COpenGL3DriverBaseENS0_18COpenGLCoreTextureIS2_EEE10setProgramEj.exit
+  %12 = load i32, ptr %ProgramID.i, align 8, !tbaa !23
+  %cmp.not.i22 = icmp eq i32 %12, 0
+  br i1 %cmp.not.i22, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_18COpenGL3DriverBaseENS0_18COpenGLCoreTextureIS2_EEE10setProgramEj.exit24, label %if.then.i23
 
-55:                                               ; preds = %52
-  %56 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 139), align 8, !tbaa !27
-  call void %56(i32 noundef 0) #9
-  store i32 0, ptr %20, align 8, !tbaa !23
-  br label %57
+if.then.i23:                                      ; preds = %if.end
+  %13 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 139), align 8, !tbaa !27
+  call void %13(i32 noundef 0) #9
+  store i32 0, ptr %ProgramID.i, align 8, !tbaa !23
+  br label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_18COpenGL3DriverBaseENS0_18COpenGLCoreTextureIS2_EEE10setProgramEj.exit24
 
-57:                                               ; preds = %55, %52
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
+_ZN3irr5video23COpenGLCoreCacheHandlerINS0_18COpenGL3DriverBaseENS0_18COpenGLCoreTextureIS2_EEE10setProgramEj.exit24: ; preds = %if.then.i23, %if.end
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %Temp) #9
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video18COpenGL3Renderer2DD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
-  tail call void @_ZN3irr5video24COpenGL3MaterialRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull %3) #9
+define void @_ZN3irr5video18COpenGL3Renderer2DD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %vtt) unnamed_addr #0 align 2 {
+entry:
+  %0 = getelementptr inbounds i8, ptr %vtt, i64 8
+  tail call void @_ZN3irr5video24COpenGL3MaterialRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull %0) #9
   ret void
 }
 
@@ -271,32 +274,36 @@ define void @_ZN3irr5video18COpenGL3Renderer2DD2Ev(ptr noundef nonnull align 8 d
 declare void @_ZN3irr5video24COpenGL3MaterialRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(76), ptr noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video18COpenGL3Renderer2DD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 align 2 {
+define void @_ZN3irr5video18COpenGL3Renderer2DD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #0 align 2 {
+entry:
+  tail call void @_ZN3irr5video24COpenGL3MaterialRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTTN3irr5video18COpenGL3Renderer2DE, i64 0, i64 1)) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define void @_ZThn8_N3irr5video18COpenGL3Renderer2DD1Ev(ptr noundef %this) unnamed_addr #4 align 2 {
+entry:
+  %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN3irr5video24COpenGL3MaterialRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTTN3irr5video18COpenGL3Renderer2DE, i64 0, i64 1)) #9
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn8_N3irr5video18COpenGL3Renderer2DD1Ev(ptr noundef %0) unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3irr5video24COpenGL3MaterialRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %2, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTTN3irr5video18COpenGL3Renderer2DE, i64 0, i64 1)) #9
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define void @_ZTv0_n24_N3irr5video18COpenGL3Renderer2DD1Ev(ptr noundef %0) unnamed_addr #4 align 2 {
-  %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 -24
-  %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3irr5video24COpenGL3MaterialRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %5, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTTN3irr5video18COpenGL3Renderer2DE, i64 0, i64 1)) #9
+define void @_ZTv0_n24_N3irr5video18COpenGL3Renderer2DD1Ev(ptr noundef %this) unnamed_addr #4 align 2 {
+entry:
+  %0 = load ptr, ptr %this, align 8
+  %1 = getelementptr inbounds i8, ptr %0, i64 -24
+  %2 = load i64, ptr %1, align 8
+  %3 = getelementptr inbounds i8, ptr %this, i64 %2
+  tail call void @_ZN3irr5video24COpenGL3MaterialRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %3, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTTN3irr5video18COpenGL3Renderer2DE, i64 0, i64 1)) #9
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video18COpenGL3Renderer2DD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN3irr5video24COpenGL3MaterialRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTTN3irr5video18COpenGL3Renderer2DE, i64 0, i64 1)) #9
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #10
+define void @_ZN3irr5video18COpenGL3Renderer2DD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #0 align 2 {
+entry:
+  tail call void @_ZN3irr5video24COpenGL3MaterialRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTTN3irr5video18COpenGL3Renderer2DE, i64 0, i64 1)) #9
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #10
   ret void
 }
 
@@ -304,89 +311,93 @@ define void @_ZN3irr5video18COpenGL3Renderer2DD0Ev(ptr noundef nonnull align 8 d
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn8_N3irr5video18COpenGL3Renderer2DD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN3irr5video24COpenGL3MaterialRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %2, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTTN3irr5video18COpenGL3Renderer2DE, i64 0, i64 1)) #9
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #10
+define void @_ZThn8_N3irr5video18COpenGL3Renderer2DD0Ev(ptr noundef %this) unnamed_addr #4 align 2 {
+entry:
+  %0 = getelementptr inbounds i8, ptr %this, i64 -8
+  tail call void @_ZN3irr5video24COpenGL3MaterialRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTTN3irr5video18COpenGL3Renderer2DE, i64 0, i64 1)) #9
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZTv0_n24_N3irr5video18COpenGL3Renderer2DD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
-  %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 -24
-  %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN3irr5video24COpenGL3MaterialRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %5, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTTN3irr5video18COpenGL3Renderer2DE, i64 0, i64 1)) #9
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #10
+define void @_ZTv0_n24_N3irr5video18COpenGL3Renderer2DD0Ev(ptr noundef %this) unnamed_addr #4 align 2 {
+entry:
+  %0 = load ptr, ptr %this, align 8
+  %1 = getelementptr inbounds i8, ptr %0, i64 -24
+  %2 = load i64, ptr %1, align 8
+  %3 = getelementptr inbounds i8, ptr %this, i64 %2
+  tail call void @_ZN3irr5video24COpenGL3MaterialRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %3, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTTN3irr5video18COpenGL3Renderer2DE, i64 0, i64 1)) #9
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #10
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video18COpenGL3Renderer2D13OnSetMaterialERKNS0_9SMaterialES4_bPNS0_25IMaterialRendererServicesE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(178) %1, ptr noundef nonnull align 8 dereferenceable(178) %2, i1 noundef zeroext %3, ptr nocapture readnone %4) unnamed_addr #0 align 2 {
-  %6 = alloca float, align 4
-  %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !21
-  %10 = tail call noundef ptr @_ZNK3irr5video18COpenGL3DriverBase15getCacheHandlerEv(ptr noundef nonnull align 8 dereferenceable(2920) %9) #9
-  %11 = getelementptr inbounds i8, ptr %0, i64 36
-  %12 = load i32, ptr %11, align 4, !tbaa !22
-  %13 = getelementptr inbounds i8, ptr %10, i64 168
-  %14 = load i32, ptr %13, align 8, !tbaa !23
-  %15 = icmp eq i32 %14, %12
-  br i1 %15, label %18, label %16
+define void @_ZN3irr5video18COpenGL3Renderer2D13OnSetMaterialERKNS0_9SMaterialES4_bPNS0_25IMaterialRendererServicesE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(178) %material, ptr noundef nonnull align 8 dereferenceable(178) %lastMaterial, i1 noundef zeroext %resetAllRenderstates, ptr nocapture readnone %services) unnamed_addr #0 align 2 {
+entry:
+  %Thickness = alloca float, align 4
+  %TextureUsage = alloca i32, align 4
+  %Driver = getelementptr inbounds i8, ptr %this, i64 16
+  %0 = load ptr, ptr %Driver, align 8, !tbaa !21
+  %call = tail call noundef ptr @_ZNK3irr5video18COpenGL3DriverBase15getCacheHandlerEv(ptr noundef nonnull align 8 dereferenceable(2920) %0) #9
+  %Program = getelementptr inbounds i8, ptr %this, i64 36
+  %1 = load i32, ptr %Program, align 4, !tbaa !22
+  %ProgramID.i = getelementptr inbounds i8, ptr %call, i64 168
+  %2 = load i32, ptr %ProgramID.i, align 8, !tbaa !23
+  %cmp.not.i = icmp eq i32 %2, %1
+  br i1 %cmp.not.i, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_18COpenGL3DriverBaseENS0_18COpenGLCoreTextureIS2_EEE10setProgramEj.exit, label %if.then.i
 
-16:                                               ; preds = %5
-  %17 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 139), align 8, !tbaa !27
-  tail call void %17(i32 noundef %12) #9
-  store i32 %12, ptr %13, align 8, !tbaa !23
-  br label %18
+if.then.i:                                        ; preds = %entry
+  %3 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 139), align 8, !tbaa !27
+  tail call void %3(i32 noundef %1) #9
+  store i32 %1, ptr %ProgramID.i, align 8, !tbaa !23
+  br label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_18COpenGL3DriverBaseENS0_18COpenGLCoreTextureIS2_EEE10setProgramEj.exit
 
-18:                                               ; preds = %16, %5
-  %19 = load ptr, ptr %8, align 8, !tbaa !21
-  %20 = load ptr, ptr %19, align 8, !tbaa !3
-  %21 = getelementptr inbounds i8, ptr %20, i64 1024
-  %22 = load ptr, ptr %21, align 8
-  tail call void %22(ptr noundef nonnull align 8 dereferenceable(2920) %19, ptr noundef nonnull align 8 dereferenceable(178) %1, ptr noundef nonnull align 8 dereferenceable(178) %2, i1 noundef zeroext %3) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
-  %23 = getelementptr inbounds i8, ptr %1, i64 156
-  %24 = load float, ptr %23, align 4, !tbaa !42
-  %25 = fcmp ogt float %24, 0.000000e+00
-  %26 = select i1 %25, float %24, float 1.000000e+00
-  store float %26, ptr %6, align 4, !tbaa !48
-  %27 = getelementptr inbounds i8, ptr %0, i64 80
-  %28 = load i32, ptr %27, align 8, !tbaa !35
-  %29 = load ptr, ptr %0, align 8, !tbaa !3
-  %30 = getelementptr inbounds i8, ptr %29, i64 112
-  %31 = load ptr, ptr %30, align 8
-  %32 = call noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(76) %0, i32 noundef %28, ptr noundef nonnull %6, i32 noundef 1) #9
-  %33 = getelementptr inbounds i8, ptr %0, i64 76
-  %34 = load i8, ptr %33, align 4, !tbaa !6, !range !36, !noundef !37
-  %35 = icmp eq i8 %34, 0
-  br i1 %35, label %46, label %36
+_ZN3irr5video23COpenGLCoreCacheHandlerINS0_18COpenGL3DriverBaseENS0_18COpenGLCoreTextureIS2_EEE10setProgramEj.exit: ; preds = %if.then.i, %entry
+  %4 = load ptr, ptr %Driver, align 8, !tbaa !21
+  %vtable = load ptr, ptr %4, align 8, !tbaa !3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 960
+  %5 = load ptr, ptr %vfn, align 8
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(2920) %4, ptr noundef nonnull align 8 dereferenceable(178) %material, ptr noundef nonnull align 8 dereferenceable(178) %lastMaterial, i1 noundef zeroext %resetAllRenderstates) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %Thickness) #9
+  %Thickness3 = getelementptr inbounds i8, ptr %material, i64 156
+  %6 = load float, ptr %Thickness3, align 4, !tbaa !42
+  %cmp = fcmp ogt float %6, 0.000000e+00
+  %cond = select i1 %cmp, float %6, float 1.000000e+00
+  store float %cond, ptr %Thickness, align 4, !tbaa !48
+  %ThicknessID = getelementptr inbounds i8, ptr %this, i64 80
+  %7 = load i32, ptr %ThicknessID, align 8, !tbaa !35
+  %vtable5 = load ptr, ptr %this, align 8, !tbaa !3
+  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 112
+  %8 = load ptr, ptr %vfn6, align 8
+  %call7 = call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(76) %this, i32 noundef %7, ptr noundef nonnull %Thickness, i32 noundef 1) #9
+  %WithTexture = getelementptr inbounds i8, ptr %this, i64 76
+  %9 = load i8, ptr %WithTexture, align 4, !tbaa !6, !range !36, !noundef !37
+  %tobool8.not = icmp eq i8 %9, 0
+  br i1 %tobool8.not, label %if.end, label %if.then
 
-36:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  %37 = load ptr, ptr %1, align 8, !tbaa !49
-  %38 = icmp ne ptr %37, null
-  %39 = zext i1 %38 to i32
-  store i32 %39, ptr %7, align 4, !tbaa !20
-  %40 = getelementptr inbounds i8, ptr %0, i64 84
-  %41 = load i32, ptr %40, align 4, !tbaa !38
-  %42 = load ptr, ptr %0, align 8, !tbaa !3
-  %43 = getelementptr inbounds i8, ptr %42, i64 120
-  %44 = load ptr, ptr %43, align 8
-  %45 = call noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(76) %0, i32 noundef %41, ptr noundef nonnull %7, i32 noundef 1) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  br label %46
+if.then:                                          ; preds = %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_18COpenGL3DriverBaseENS0_18COpenGLCoreTextureIS2_EEE10setProgramEj.exit
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %TextureUsage) #9
+  %10 = load ptr, ptr %material, align 8, !tbaa !49
+  %tobool9.not = icmp ne ptr %10, null
+  %cond10 = zext i1 %tobool9.not to i32
+  store i32 %cond10, ptr %TextureUsage, align 4, !tbaa !20
+  %TextureUsageID = getelementptr inbounds i8, ptr %this, i64 84
+  %11 = load i32, ptr %TextureUsageID, align 4, !tbaa !38
+  %vtable11 = load ptr, ptr %this, align 8, !tbaa !3
+  %vfn12 = getelementptr inbounds i8, ptr %vtable11, i64 120
+  %12 = load ptr, ptr %vfn12, align 8
+  %call13 = call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(76) %this, i32 noundef %11, ptr noundef nonnull %TextureUsage, i32 noundef 1) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %TextureUsage) #9
+  br label %if.end
 
-46:                                               ; preds = %36, %18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
+if.end:                                           ; preds = %if.then, %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_18COpenGL3DriverBaseENS0_18COpenGLCoreTextureIS2_EEE10setProgramEj.exit
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %Thickness) #9
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZN3irr5video18COpenGL3Renderer2D8OnRenderEPNS0_25IMaterialRendererServicesENS0_13E_VERTEX_TYPEE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1, i32 %2) unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN3irr5video18COpenGL3Renderer2D8OnRenderEPNS0_25IMaterialRendererServicesENS0_13E_VERTEX_TYPEE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %service, i32 %vtxtype) unnamed_addr #6 align 2 {
+entry:
   ret i1 true
 }
 
@@ -401,7 +412,8 @@ declare noundef zeroext i1 @_ZNK3irr5video24COpenGL3MaterialRenderer13isTranspar
 declare noundef i32 @_ZNK3irr5video24COpenGL3MaterialRenderer19getRenderCapabilityEv(ptr noundef nonnull align 8 dereferenceable(76)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNK3irr5video17IMaterialRenderer28getShaderConstantSetCallBackEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
+define linkonce_odr noundef ptr @_ZNK3irr5video17IMaterialRenderer28getShaderConstantSetCallBackEv(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 comdat align 2 {
+entry:
   ret ptr null
 }
 
@@ -438,53 +450,62 @@ declare void @_ZTv0_n24_N3irr5video24COpenGL3MaterialRendererD1Ev(ptr noundef) u
 declare void @_ZTv0_n24_N3irr5video24COpenGL3MaterialRendererD0Ev(ptr noundef) unnamed_addr #4 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3irr5video17IMaterialRenderer13OnSetMaterialERKNS0_9SMaterialES4_bPNS0_25IMaterialRendererServicesE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(178) %1, ptr noundef nonnull align 8 dereferenceable(178) %2, i1 noundef zeroext %3, ptr noundef %4) unnamed_addr #0 comdat align 2 {
+define linkonce_odr void @_ZN3irr5video17IMaterialRenderer13OnSetMaterialERKNS0_9SMaterialES4_bPNS0_25IMaterialRendererServicesE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(178) %material, ptr noundef nonnull align 8 dereferenceable(178) %lastMaterial, i1 noundef zeroext %resetAllRenderstates, ptr noundef %services) unnamed_addr #0 comdat align 2 {
+entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZN3irr5video17IMaterialRenderer8OnRenderEPNS0_25IMaterialRendererServicesENS0_13E_VERTEX_TYPEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 comdat align 2 {
+define linkonce_odr noundef zeroext i1 @_ZN3irr5video17IMaterialRenderer8OnRenderEPNS0_25IMaterialRendererServicesENS0_13E_VERTEX_TYPEE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %service, i32 noundef %vtxtype) unnamed_addr #0 comdat align 2 {
+entry:
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3irr5video17IMaterialRenderer15OnUnsetMaterialEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
+define linkonce_odr void @_ZN3irr5video17IMaterialRenderer15OnUnsetMaterialEv(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 comdat align 2 {
+entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZNK3irr5video17IMaterialRenderer13isTransparentEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
+define linkonce_odr noundef zeroext i1 @_ZNK3irr5video17IMaterialRenderer13isTransparentEv(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 comdat align 2 {
+entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZNK3irr5video17IMaterialRenderer19getRenderCapabilityEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
+define linkonce_odr noundef i32 @_ZNK3irr5video17IMaterialRenderer19getRenderCapabilityEv(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 comdat align 2 {
+entry:
   ret i32 0
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3irr5video17IMaterialRendererD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+define linkonce_odr void @_ZN3irr5video17IMaterialRendererD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #7 comdat align 2 {
+entry:
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3irr5video17IMaterialRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #10
+define linkonce_odr void @_ZN3irr5video17IMaterialRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #7 comdat align 2 {
+entry:
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #10
   ret void
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3irr5video17IMaterialRendererD1Ev(ptr noundef %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3irr5video17IMaterialRendererD1Ev(ptr noundef %this) unnamed_addr #8 comdat align 2 {
+entry:
   ret void
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3irr5video17IMaterialRendererD0Ev(ptr noundef %0) unnamed_addr #8 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 -24
-  %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #10
+define linkonce_odr void @_ZTv0_n24_N3irr5video17IMaterialRendererD0Ev(ptr noundef %this) unnamed_addr #8 comdat align 2 {
+entry:
+  %0 = load ptr, ptr %this, align 8
+  %1 = getelementptr inbounds i8, ptr %0, i64 -24
+  %2 = load i64, ptr %1, align 8
+  %3 = getelementptr inbounds i8, ptr %this, i64 %2
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #10
   ret void
 }
 
@@ -519,13 +540,15 @@ declare noundef zeroext i1 @_ZThn8_N3irr5video24COpenGL3MaterialRenderer22setPix
 declare noundef ptr @_ZThn8_N3irr5video24COpenGL3MaterialRenderer14getVideoDriverEv(ptr noundef) unnamed_addr #4 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3irr17IReferenceCountedD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #0 comdat align 2 {
+define linkonce_odr void @_ZN3irr17IReferenceCountedD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #0 comdat align 2 {
+entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3irr17IReferenceCountedD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #10
+define linkonce_odr void @_ZN3irr17IReferenceCountedD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #0 comdat align 2 {
+entry:
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #10
   ret void
 }
 

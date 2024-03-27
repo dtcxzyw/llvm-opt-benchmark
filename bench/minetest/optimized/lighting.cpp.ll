@@ -1,15 +1,16 @@
 ; ModuleID = 'bench/minetest/original/lighting.cpp.ll'
 source_filename = "bench/minetest/original/lighting.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-pc-linux-gnu"
+target triple = "x86_64-unknown-linux-gnu"
 
 @_ZN12AutoExposureC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN12AutoExposureC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN12AutoExposureC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(24) %0) unnamed_addr #0 align 2 {
-  store <4 x float> <float -3.000000e+00, float -3.000000e+00, float 0.000000e+00, float 1.000000e+03>, ptr %0, align 4, !tbaa !4
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x float> <float 1.000000e+03, float 1.000000e+00>, ptr %2, align 4, !tbaa !4
+define dso_local void @_ZN12AutoExposureC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(24) %this) unnamed_addr #0 align 2 {
+entry:
+  store <4 x float> <float -3.000000e+00, float -3.000000e+00, float 0.000000e+00, float 1.000000e+03>, ptr %this, align 4, !tbaa !4
+  %speed_bright_dark = getelementptr inbounds i8, ptr %this, i64 16
+  store <2 x float> <float 1.000000e+03, float 1.000000e+00>, ptr %speed_bright_dark, align 4, !tbaa !4
   ret void
 }
 

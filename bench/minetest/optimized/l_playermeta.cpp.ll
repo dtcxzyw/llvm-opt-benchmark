@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/minetest/original/l_playermeta.cpp.ll'
 source_filename = "bench/minetest/original/l_playermeta.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-pc-linux-gnu"
+target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %struct.luaL_Reg = type { ptr, ptr }
@@ -42,38 +42,42 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZN13PlayerMetaRef7getmetaEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i1 zeroext %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !4
-  ret ptr %4
+define dso_local noundef ptr @_ZN13PlayerMetaRef7getmetaEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i1 zeroext %auto_create) unnamed_addr #3 align 2 {
+entry:
+  %metadata = getelementptr inbounds i8, ptr %this, i64 8
+  %0 = load ptr, ptr %metadata, align 8, !tbaa !4
+  ret ptr %0
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13PlayerMetaRef9clearMetaEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !4
-  %4 = load ptr, ptr %3, align 8, !tbaa !10
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
-  %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3)
+define dso_local void @_ZN13PlayerMetaRef9clearMetaEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #4 align 2 {
+entry:
+  %metadata = getelementptr inbounds i8, ptr %this, i64 8
+  %0 = load ptr, ptr %metadata, align 8, !tbaa !4
+  %vtable = load ptr, ptr %0, align 8, !tbaa !10
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %1 = load ptr, ptr %vfn, align 8
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN13PlayerMetaRef20reportMetadataChangeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #5 align 2 {
+define dso_local void @_ZN13PlayerMetaRef20reportMetadataChangeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %name) unnamed_addr #5 align 2 {
+entry:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13PlayerMetaRef6createEP9lua_StateP9IMetadata(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #10
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV13PlayerMetaRef, i64 0, i32 0, i64 2), ptr %3, align 8, !tbaa !10
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %1, ptr %4, align 8, !tbaa !4
-  %5 = tail call ptr @lua_newuserdata(ptr noundef %0, i64 noundef 8)
-  store ptr %3, ptr %5, align 8, !tbaa !12
-  tail call void @lua_getfield(ptr noundef %0, i32 noundef -10000, ptr noundef nonnull @_ZN13PlayerMetaRef9classNameE)
-  %6 = tail call i32 @lua_setmetatable(ptr noundef %0, i32 noundef -2)
+define dso_local void @_ZN13PlayerMetaRef6createEP9lua_StateP9IMetadata(ptr noundef %L, ptr noundef %metadata) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #10
+  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTV13PlayerMetaRef, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !10
+  %metadata2.i = getelementptr inbounds i8, ptr %call, i64 8
+  store ptr %metadata, ptr %metadata2.i, align 8, !tbaa !4
+  %call1 = tail call ptr @lua_newuserdata(ptr noundef %L, i64 noundef 8)
+  store ptr %call, ptr %call1, align 8, !tbaa !12
+  tail call void @lua_getfield(ptr noundef %L, i32 noundef -10000, ptr noundef nonnull @_ZN13PlayerMetaRef9classNameE)
+  %call2 = tail call i32 @lua_setmetatable(ptr noundef %L, i32 noundef -2)
   ret void
 }
 
@@ -92,8 +96,9 @@ declare void @lua_getfield(ptr noundef, i32 noundef, ptr noundef) local_unnamed_
 declare i32 @lua_setmetatable(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13PlayerMetaRef8RegisterEP9lua_State(ptr noundef %0) local_unnamed_addr #4 align 2 {
-  tail call void @_ZN11MetaDataRef21registerMetadataClassEP9lua_StatePKcPK8luaL_Reg(ptr noundef %0, ptr noundef nonnull @_ZN13PlayerMetaRef9classNameE, ptr noundef nonnull @_ZN13PlayerMetaRef7methodsE)
+define dso_local void @_ZN13PlayerMetaRef8RegisterEP9lua_State(ptr noundef %L) local_unnamed_addr #4 align 2 {
+entry:
+  tail call void @_ZN11MetaDataRef21registerMetadataClassEP9lua_StatePKcPK8luaL_Reg(ptr noundef %L, ptr noundef nonnull @_ZN13PlayerMetaRef9classNameE, ptr noundef nonnull @_ZN13PlayerMetaRef7methodsE)
   ret void
 }
 
@@ -124,13 +129,15 @@ declare noundef i32 @_ZN11MetaDataRef12l_from_tableEP9lua_State(ptr noundef) #0
 declare noundef i32 @_ZN11MetaDataRef8l_equalsEP9lua_State(ptr noundef) #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN11MetaDataRefD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr dso_local void @_ZN11MetaDataRefD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #8 comdat align 2 {
+entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN13PlayerMetaRefD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #8 comdat align 2 {
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #11
+define linkonce_odr dso_local void @_ZN13PlayerMetaRefD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #8 comdat align 2 {
+entry:
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #11
   ret void
 }
 
@@ -140,8 +147,9 @@ declare noundef zeroext i1 @_ZN11MetaDataRef15handleFromTableEP9lua_StateiP9IMet
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_l_playermeta.cpp() #9 section ".text.startup" {
+entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #12
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #12
   ret void
 }
 

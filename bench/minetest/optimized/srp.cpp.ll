@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/minetest/original/srp.cpp.ll'
 source_filename = "bench/minetest/original/srp.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-pc-linux-gnu"
+target triple = "x86_64-unknown-linux-gnu"
 
 %struct.NGHex = type { ptr, ptr }
 %struct.__mpz_struct = type { i32, i32, ptr }
@@ -36,136 +36,138 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 declare void @free(ptr allocptr nocapture noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @_Z24srp_set_memory_functionsPFPvmEPFS_S_mEPFvS_E(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
-  store ptr %0, ptr @srp_alloc, align 8, !tbaa !4
-  store ptr %1, ptr @srp_realloc, align 8, !tbaa !4
-  store ptr %2, ptr @srp_free, align 8, !tbaa !4
+define dso_local void @_Z24srp_set_memory_functionsPFPvmEPFS_S_mEPFvS_E(ptr noundef %new_srp_alloc, ptr noundef %new_srp_realloc, ptr noundef %new_srp_free) local_unnamed_addr #3 {
+entry:
+  store ptr %new_srp_alloc, ptr @srp_alloc, align 8, !tbaa !4
+  store ptr %new_srp_realloc, ptr @srp_realloc, align 8, !tbaa !4
+  store ptr %new_srp_free, ptr @srp_free, align 8, !tbaa !4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z34srp_create_salted_verification_key17SRP_HashAlgorithm10SRP_NGTypePKcPKhmPPhPmS6_S7_S2_S2_(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef writeonly %8, ptr noundef %9, ptr noundef %10) local_unnamed_addr #4 {
-  %12 = alloca [1 x %struct.__mpz_struct], align 16
-  %13 = alloca [1 x %struct.__mpz_struct], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #17
-  call void @__gmpz_init(ptr noundef nonnull %12) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #17
-  call void @__gmpz_init(ptr noundef nonnull %13) #17
-  %14 = call fastcc noundef ptr @_ZL6new_ng10SRP_NGTypePKcS1_(i32 noundef %1, ptr noundef %9, ptr noundef %10)
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %76, label %16
+define dso_local noundef i32 @_Z34srp_create_salted_verification_key17SRP_HashAlgorithm10SRP_NGTypePKcPKhmPPhPmS6_S7_S2_S2_(i32 noundef %alg, i32 noundef %ng_type, ptr noundef %username_for_verifier, ptr noundef %password, i64 noundef %len_password, ptr nocapture noundef %bytes_s, ptr nocapture noundef %len_s, ptr nocapture noundef writeonly %bytes_v, ptr nocapture noundef writeonly %len_v, ptr noundef %n_hex, ptr noundef %g_hex) local_unnamed_addr #4 {
+entry:
+  %v = alloca [1 x %struct.__mpz_struct], align 16
+  %x = alloca [1 x %struct.__mpz_struct], align 16
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %v) #17
+  call void @__gmpz_init(ptr noundef nonnull %v) #17
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %x) #17
+  call void @__gmpz_init(ptr noundef nonnull %x) #17
+  %call = call fastcc noundef ptr @_ZL6new_ng10SRP_NGTypePKcS1_(i32 noundef %ng_type, ptr noundef %n_hex, ptr noundef %g_hex)
+  %tobool.not = icmp eq ptr %call, null
+  br i1 %tobool.not, label %_ZL9delete_ngP10NGConstant.exit, label %if.end
 
-16:                                               ; preds = %11
-  %17 = load i32, ptr @_ZL13g_initialized, align 4, !tbaa !8
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %30
+if.end:                                           ; preds = %entry
+  %0 = load i32, ptr @_ZL13g_initialized, align 4, !tbaa !8
+  %tobool.not.i = icmp eq i32 %0, 0
+  br i1 %tobool.not.i, label %if.end.i, label %if.end4
 
-19:                                               ; preds = %16
+if.end.i:                                         ; preds = %if.end
   store i32 0, ptr @_ZL10g_rand_idx, align 4, !tbaa !8
-  %20 = call noalias ptr @fopen(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8)
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %26, label %22
+  %call.i.i = call noalias ptr @fopen(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8)
+  %tobool.not.i.i = icmp eq ptr %call.i.i, null
+  br i1 %tobool.not.i.i, label %_ZL11init_randomv.exit.thread69, label %if.end.i.i
 
-22:                                               ; preds = %19
-  %23 = call i64 @fread(ptr noundef nonnull @_ZL11g_rand_buff, i64 noundef 128, i64 noundef 1, ptr noundef nonnull %20)
-  %24 = icmp eq i64 %23, 1
-  %25 = call i32 @fclose(ptr noundef nonnull %20)
-  br i1 %24, label %27, label %26
+if.end.i.i:                                       ; preds = %if.end.i
+  %call1.i.i = call i64 @fread(ptr noundef nonnull @_ZL11g_rand_buff, i64 noundef 128, i64 noundef 1, ptr noundef nonnull %call.i.i)
+  %cmp.not.i.i = icmp eq i64 %call1.i.i, 1
+  %call5.i.i = call i32 @fclose(ptr noundef nonnull %call.i.i)
+  br i1 %cmp.not.i.i, label %_ZL11init_randomv.exit, label %_ZL11init_randomv.exit.thread69
 
-26:                                               ; preds = %22, %19
+_ZL11init_randomv.exit.thread69:                  ; preds = %if.end.i.i, %if.end.i
   store i32 0, ptr @_ZL13g_initialized, align 4, !tbaa !8
-  br label %72
+  br label %if.then.i
 
-27:                                               ; preds = %22
-  %28 = icmp eq i32 %25, 0
-  %29 = zext i1 %28 to i32
-  store i32 %29, ptr @_ZL13g_initialized, align 4, !tbaa !8
-  br i1 %28, label %30, label %72
+_ZL11init_randomv.exit:                           ; preds = %if.end.i.i
+  %tobool6.not.i.i = icmp eq i32 %call5.i.i, 0
+  %..i.i = zext i1 %tobool6.not.i.i to i32
+  store i32 %..i.i, ptr @_ZL13g_initialized, align 4, !tbaa !8
+  br i1 %tobool6.not.i.i, label %if.end4, label %if.then.i
 
-30:                                               ; preds = %27, %16
-  %31 = load ptr, ptr %5, align 8, !tbaa !4
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %33, label %56
+if.end4:                                          ; preds = %_ZL11init_randomv.exit, %if.end
+  %1 = load ptr, ptr %bytes_s, align 8, !tbaa !4
+  %cmp5 = icmp eq ptr %1, null
+  br i1 %cmp5, label %if.then6, label %if.end20
 
-33:                                               ; preds = %30
-  store i64 16, ptr %6, align 8, !tbaa !10
-  %34 = load i32, ptr @_ZL10g_rand_idx, align 4, !tbaa !8
-  %35 = add i32 %34, -113
-  %36 = icmp ult i32 %35, 16
-  br i1 %36, label %37, label %46
+if.then6:                                         ; preds = %if.end4
+  store i64 16, ptr %len_s, align 8, !tbaa !10
+  %2 = load i32, ptr @_ZL10g_rand_idx, align 4, !tbaa !8
+  %3 = add i32 %2, -113
+  %cmp7 = icmp ult i32 %3, 16
+  br i1 %cmp7, label %if.then8, label %if.end13
 
-37:                                               ; preds = %33
+if.then8:                                         ; preds = %if.then6
   store i32 0, ptr @_ZL10g_rand_idx, align 4, !tbaa !8
-  %38 = call noalias ptr @fopen(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8)
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %72, label %40
+  %call.i = call noalias ptr @fopen(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8)
+  %tobool.not.i60 = icmp eq ptr %call.i, null
+  br i1 %tobool.not.i60, label %if.then.i, label %if.end.i61
 
-40:                                               ; preds = %37
-  %41 = call i64 @fread(ptr noundef nonnull @_ZL11g_rand_buff, i64 noundef 128, i64 noundef 1, ptr noundef nonnull %38)
-  %42 = icmp eq i64 %41, 1
-  %43 = call i32 @fclose(ptr noundef nonnull %38)
-  %44 = icmp eq i32 %43, 0
-  %45 = and i1 %42, %44
-  br i1 %45, label %46, label %72
+if.end.i61:                                       ; preds = %if.then8
+  %call1.i = call i64 @fread(ptr noundef nonnull @_ZL11g_rand_buff, i64 noundef 128, i64 noundef 1, ptr noundef nonnull %call.i)
+  %cmp.not.i = icmp eq i64 %call1.i, 1
+  %call5.i = call i32 @fclose(ptr noundef nonnull %call.i)
+  %tobool6.not.i.not = icmp eq i32 %call5.i, 0
+  %or.cond = and i1 %cmp.not.i, %tobool6.not.i.not
+  br i1 %or.cond, label %if.end13, label %if.then.i
 
-46:                                               ; preds = %40, %33
-  %47 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
-  %48 = call noundef ptr %47(i64 noundef 16)
-  store ptr %48, ptr %5, align 8, !tbaa !4
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %72, label %50
+if.end13:                                         ; preds = %if.end.i61, %if.then6
+  %4 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
+  %call14 = call noundef ptr %4(i64 noundef 16)
+  store ptr %call14, ptr %bytes_s, align 8, !tbaa !4
+  %tobool15.not = icmp eq ptr %call14, null
+  br i1 %tobool15.not, label %if.then.i, label %cleanup
 
-50:                                               ; preds = %46
-  %51 = load i32, ptr @_ZL10g_rand_idx, align 4, !tbaa !8
-  %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds [128 x i8], ptr @_ZL11g_rand_buff, i64 0, i64 %52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %48, ptr noundef nonnull align 1 dereferenceable(16) %53, i64 16, i1 false)
-  %54 = add i32 %51, 16
-  store i32 %54, ptr @_ZL10g_rand_idx, align 4, !tbaa !8
-  %55 = load ptr, ptr %5, align 8, !tbaa !4
-  br label %56
+cleanup:                                          ; preds = %if.end13
+  %5 = load i32, ptr @_ZL10g_rand_idx, align 4, !tbaa !8
+  %idxprom = zext i32 %5 to i64
+  %arrayidx = getelementptr inbounds [128 x i8], ptr @_ZL11g_rand_buff, i64 0, i64 %idxprom
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %call14, ptr noundef nonnull align 1 dereferenceable(16) %arrayidx, i64 16, i1 false)
+  %add = add i32 %5, 16
+  store i32 %add, ptr @_ZL10g_rand_idx, align 4, !tbaa !8
+  %.pre = load ptr, ptr %bytes_s, align 8, !tbaa !4
+  br label %if.end20
 
-56:                                               ; preds = %50, %30
-  %57 = phi ptr [ %55, %50 ], [ %31, %30 ]
-  %58 = load i64, ptr %6, align 8, !tbaa !10
-  %59 = call fastcc noundef i32 @_ZL11calculate_xP12__mpz_struct17SRP_HashAlgorithmPKhmPKcS3_m(ptr noundef nonnull %13, i32 noundef %0, ptr noundef %57, i64 noundef %58, ptr noundef %2, ptr noundef %3, i64 noundef %4), !range !12
-  %60 = icmp eq i32 %59, 0
-  br i1 %60, label %72, label %61
+if.end20:                                         ; preds = %cleanup, %if.end4
+  %6 = phi ptr [ %.pre, %cleanup ], [ %1, %if.end4 ]
+  %7 = load i64, ptr %len_s, align 8, !tbaa !10
+  %call22 = call fastcc noundef i32 @_ZL11calculate_xP12__mpz_struct17SRP_HashAlgorithmPKhmPKcS3_m(ptr noundef nonnull %x, i32 noundef %alg, ptr noundef %6, i64 noundef %7, ptr noundef %username_for_verifier, ptr noundef %password, i64 noundef %len_password), !range !12
+  %tobool23.not = icmp eq i32 %call22, 0
+  br i1 %tobool23.not, label %if.then.i, label %if.end25
 
-61:                                               ; preds = %56
-  %62 = getelementptr inbounds i8, ptr %14, i64 16
-  call void @__gmpz_powm(ptr noundef nonnull %12, ptr noundef nonnull %62, ptr noundef nonnull %13, ptr noundef nonnull %14)
-  %63 = call i64 @__gmpz_sizeinbase(ptr noundef nonnull %12, i32 noundef 2) #18
-  %64 = shl i64 %63, 29
-  %65 = add i64 %64, 3758096384
-  %66 = ashr i64 %65, 32
-  store i64 %66, ptr %8, align 8, !tbaa !10
-  %67 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
-  %68 = call noundef ptr %67(i64 noundef %66)
-  store ptr %68, ptr %7, align 8, !tbaa !4
-  %69 = icmp eq ptr %68, null
-  br i1 %69, label %72, label %70
+if.end25:                                         ; preds = %if.end20
+  %g = getelementptr inbounds i8, ptr %call, i64 16
+  call void @__gmpz_powm(ptr noundef nonnull %v, ptr noundef nonnull %g, ptr noundef nonnull %x, ptr noundef nonnull %call)
+  %call.i63 = call i64 @__gmpz_sizeinbase(ptr noundef nonnull %v, i32 noundef 2) #18
+  %add.i = shl i64 %call.i63, 29
+  %8 = add i64 %add.i, 3758096384
+  %conv32 = ashr i64 %8, 32
+  store i64 %conv32, ptr %len_v, align 8, !tbaa !10
+  %9 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
+  %call33 = call noundef ptr %9(i64 noundef %conv32)
+  store ptr %call33, ptr %bytes_v, align 8, !tbaa !4
+  %tobool34.not = icmp eq ptr %call33, null
+  br i1 %tobool34.not, label %if.then.i, label %if.end36
 
-70:                                               ; preds = %61
-  %71 = call ptr @__gmpz_export(ptr noundef nonnull %68, ptr noundef null, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef nonnull %12)
-  br label %72
+if.end36:                                         ; preds = %if.end25
+  %call.i64 = call ptr @__gmpz_export(ptr noundef nonnull %call33, ptr noundef null, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef nonnull %v)
+  br label %if.then.i
 
-72:                                               ; preds = %70, %61, %56, %46, %40, %37, %27, %26
-  %73 = phi i32 [ 0, %26 ], [ 0, %27 ], [ 0, %56 ], [ 0, %61 ], [ 1, %70 ], [ 0, %46 ], [ 0, %37 ], [ 0, %40 ]
-  call void @__gmpz_clear(ptr noundef nonnull %14)
-  %74 = getelementptr inbounds i8, ptr %14, i64 16
-  call void @__gmpz_clear(ptr noundef nonnull %74)
-  %75 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  call void %75(ptr noundef nonnull %14)
-  br label %76
+if.then.i:                                        ; preds = %if.end36, %if.end25, %if.end20, %if.end13, %if.end.i61, %if.then8, %_ZL11init_randomv.exit, %_ZL11init_randomv.exit.thread69
+  %ret.0.ph = phi i32 [ 0, %_ZL11init_randomv.exit.thread69 ], [ 0, %_ZL11init_randomv.exit ], [ 0, %if.end20 ], [ 0, %if.end25 ], [ 1, %if.end36 ], [ 0, %if.end13 ], [ 0, %if.then8 ], [ 0, %if.end.i61 ]
+  call void @__gmpz_clear(ptr noundef nonnull %call)
+  %g.i = getelementptr inbounds i8, ptr %call, i64 16
+  call void @__gmpz_clear(ptr noundef nonnull %g.i)
+  %10 = load ptr, ptr @srp_free, align 8, !tbaa !4
+  call void %10(ptr noundef nonnull %call)
+  br label %_ZL9delete_ngP10NGConstant.exit
 
-76:                                               ; preds = %72, %11
-  %77 = phi i32 [ %73, %72 ], [ 0, %11 ]
-  call void @__gmpz_clear(ptr noundef nonnull %12)
-  call void @__gmpz_clear(ptr noundef nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #17
-  ret i32 %77
+_ZL9delete_ngP10NGConstant.exit:                  ; preds = %if.then.i, %entry
+  %ret.078 = phi i32 [ %ret.0.ph, %if.then.i ], [ 0, %entry ]
+  call void @__gmpz_clear(ptr noundef nonnull %v)
+  call void @__gmpz_clear(ptr noundef nonnull %x)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %x) #17
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %v) #17
+  ret i32 %ret.078
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -175,46 +177,47 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
 declare void @__gmpz_init(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL6new_ng10SRP_NGTypePKcS1_(i32 noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 {
-  %4 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
-  %5 = tail call noundef ptr %4(i64 noundef 32)
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %25, label %7
+define internal fastcc noundef ptr @_ZL6new_ng10SRP_NGTypePKcS1_(i32 noundef %ng_type, ptr noundef %n_hex, ptr noundef %g_hex) unnamed_addr #4 {
+entry:
+  %0 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
+  %call = tail call noundef ptr %0(i64 noundef 32)
+  %tobool.not = icmp eq ptr %call, null
+  br i1 %tobool.not, label %cleanup17, label %if.end
 
-7:                                                ; preds = %3
-  tail call void @__gmpz_init(ptr noundef nonnull %5) #17
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
-  tail call void @__gmpz_init(ptr noundef nonnull %8) #17
-  %9 = icmp eq i32 %0, 4
-  br i1 %9, label %16, label %10
+if.end:                                           ; preds = %entry
+  tail call void @__gmpz_init(ptr noundef nonnull %call) #17
+  %g = getelementptr inbounds i8, ptr %call, i64 16
+  tail call void @__gmpz_init(ptr noundef nonnull %g) #17
+  %cmp.not = icmp eq i32 %ng_type, 4
+  br i1 %cmp.not, label %if.end7, label %if.then2
 
-10:                                               ; preds = %7
-  %11 = zext i32 %0 to i64
-  %12 = getelementptr inbounds [5 x %struct.NGHex], ptr @_ZL19global_Ng_constants, i64 0, i64 %11
-  %13 = load ptr, ptr %12, align 16, !tbaa !13
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !15
-  br label %16
+if.then2:                                         ; preds = %if.end
+  %idxprom = zext i32 %ng_type to i64
+  %arrayidx = getelementptr inbounds [5 x %struct.NGHex], ptr @_ZL19global_Ng_constants, i64 0, i64 %idxprom
+  %1 = load ptr, ptr %arrayidx, align 16, !tbaa !13
+  %g_hex6 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %2 = load ptr, ptr %g_hex6, align 8, !tbaa !15
+  br label %if.end7
 
-16:                                               ; preds = %10, %7
-  %17 = phi ptr [ %15, %10 ], [ %2, %7 ]
-  %18 = phi ptr [ %13, %10 ], [ %1, %7 ]
-  %19 = tail call i32 @__gmpz_set_str(ptr noundef nonnull %5, ptr noundef %18, i32 noundef 16)
-  %20 = tail call i32 @__gmpz_set_str(ptr noundef nonnull %8, ptr noundef %17, i32 noundef 16)
-  %21 = or i32 %20, %19
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %25, label %23
+if.end7:                                          ; preds = %if.then2, %if.end
+  %g_hex.addr.0 = phi ptr [ %2, %if.then2 ], [ %g_hex, %if.end ]
+  %n_hex.addr.0 = phi ptr [ %1, %if.then2 ], [ %n_hex, %if.end ]
+  %call10 = tail call i32 @__gmpz_set_str(ptr noundef nonnull %call, ptr noundef %n_hex.addr.0, i32 noundef 16)
+  %call13 = tail call i32 @__gmpz_set_str(ptr noundef nonnull %g, ptr noundef %g_hex.addr.0, i32 noundef 16)
+  %or = or i32 %call13, %call10
+  %tobool14.not = icmp eq i32 %or, 0
+  br i1 %tobool14.not, label %cleanup17, label %_ZL9delete_ngP10NGConstant.exit
 
-23:                                               ; preds = %16
-  tail call void @__gmpz_clear(ptr noundef nonnull %5)
-  tail call void @__gmpz_clear(ptr noundef nonnull %8)
-  %24 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  tail call void %24(ptr noundef nonnull %5)
-  br label %25
+_ZL9delete_ngP10NGConstant.exit:                  ; preds = %if.end7
+  tail call void @__gmpz_clear(ptr noundef nonnull %call)
+  tail call void @__gmpz_clear(ptr noundef nonnull %g)
+  %3 = load ptr, ptr @srp_free, align 8, !tbaa !4
+  tail call void %3(ptr noundef nonnull %call)
+  br label %cleanup17
 
-25:                                               ; preds = %23, %16, %3
-  %26 = phi ptr [ null, %3 ], [ null, %23 ], [ %5, %16 ]
-  ret ptr %26
+cleanup17:                                        ; preds = %_ZL9delete_ngP10NGConstant.exit, %if.end7, %entry
+  %retval.1 = phi ptr [ null, %entry ], [ null, %_ZL9delete_ngP10NGConstant.exit ], [ %call, %if.end7 ]
+  ret ptr %retval.1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -224,56 +227,57 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL11calculate_xP12__mpz_struct17SRP_HashAlgorithmPKhmPKcS3_m(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6) unnamed_addr #4 {
-  %8 = alloca [32 x i8], align 16
-  %9 = alloca [32 x i8], align 16
-  %10 = alloca %union.HashCTX, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #17
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %10) #17
-  %11 = icmp eq i32 %1, 0
-  br i1 %11, label %12, label %19
+define internal fastcc noundef i32 @_ZL11calculate_xP12__mpz_struct17SRP_HashAlgorithmPKhmPKcS3_m(ptr noundef %result, i32 noundef %alg, ptr nocapture noundef readonly %salt, i64 noundef %salt_len, ptr noundef %username, ptr noundef %password, i64 noundef %password_len) unnamed_addr #4 {
+entry:
+  %buff.i = alloca [32 x i8], align 16
+  %ucp_hash = alloca [32 x i8], align 16
+  %ctx = alloca %union.HashCTX, align 4
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ucp_hash) #17
+  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %ctx) #17
+  %cond.i = icmp eq i32 %alg, 0
+  br i1 %cond.i, label %sw.bb.i32, label %_ZL10hash_final17SRP_HashAlgorithmP7HashCTXPh.exit
 
-12:                                               ; preds = %7
-  %13 = call i32 @SHA256_Init(ptr noundef nonnull %10)
-  %14 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #18
-  %15 = call i32 @SHA256_Update(ptr noundef nonnull %10, ptr noundef %4, i64 noundef %14)
-  %16 = call i32 @SHA256_Update(ptr noundef nonnull %10, ptr noundef nonnull @.str.9, i64 noundef 1)
-  %17 = call i32 @SHA256_Update(ptr noundef nonnull %10, ptr noundef %5, i64 noundef %6)
-  %18 = call i32 @SHA256_Final(ptr noundef nonnull %9, ptr noundef nonnull %10)
-  br label %19
+sw.bb.i32:                                        ; preds = %entry
+  %call.i = call i32 @SHA256_Init(ptr noundef nonnull %ctx)
+  %call137 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %username) #18
+  %call.i19 = call i32 @SHA256_Update(ptr noundef nonnull %ctx, ptr noundef %username, i64 noundef %call137)
+  %call.i23 = call i32 @SHA256_Update(ptr noundef nonnull %ctx, ptr noundef nonnull @.str.9, i64 noundef 1)
+  %call.i28 = call i32 @SHA256_Update(ptr noundef nonnull %ctx, ptr noundef %password, i64 noundef %password_len)
+  %call.i33 = call i32 @SHA256_Final(ptr noundef nonnull %ucp_hash, ptr noundef nonnull %ctx)
+  br label %_ZL10hash_final17SRP_HashAlgorithmP7HashCTXPh.exit
 
-19:                                               ; preds = %12, %7
-  %20 = phi i64 [ 32, %12 ], [ 0, %7 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #17
-  %21 = add i64 %20, %3
-  %22 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
-  %23 = call noundef ptr %22(i64 noundef %21)
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %32, label %25
+_ZL10hash_final17SRP_HashAlgorithmP7HashCTXPh.exit: ; preds = %sw.bb.i32, %entry
+  %..i = phi i64 [ 32, %sw.bb.i32 ], [ 0, %entry ]
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buff.i) #17
+  %add.i = add i64 %..i, %salt_len
+  %0 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
+  %call.i35 = call noundef ptr %0(i64 noundef %add.i)
+  %tobool.not.i = icmp eq ptr %call.i35, null
+  br i1 %tobool.not.i, label %_ZL4H_nsP12__mpz_struct17SRP_HashAlgorithmPKhmS3_m.exit, label %if.end.i
 
-25:                                               ; preds = %19
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr align 1 %2, i64 %3, i1 false)
-  %26 = getelementptr inbounds i8, ptr %23, i64 %3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr nonnull align 16 %9, i64 %20, i1 false)
-  br i1 %11, label %27, label %29
+if.end.i:                                         ; preds = %_ZL10hash_final17SRP_HashAlgorithmP7HashCTXPh.exit
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i35, ptr align 1 %salt, i64 %salt_len, i1 false)
+  %add.ptr.i = getelementptr inbounds i8, ptr %call.i35, i64 %salt_len
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull align 16 %ucp_hash, i64 %..i, i1 false)
+  br i1 %cond.i, label %sw.bb.i.i, label %_ZL4hash17SRP_HashAlgorithmPKhmPh.exit.i
 
-27:                                               ; preds = %25
-  %28 = call ptr @SHA256(ptr noundef nonnull %23, i64 noundef %21, ptr noundef nonnull %8)
-  br label %29
+sw.bb.i.i:                                        ; preds = %if.end.i
+  %call.i.i = call ptr @SHA256(ptr noundef nonnull %call.i35, i64 noundef %add.i, ptr noundef nonnull %buff.i)
+  br label %_ZL4hash17SRP_HashAlgorithmPKhmPh.exit.i
 
-29:                                               ; preds = %27, %25
-  %30 = phi i64 [ 0, %25 ], [ 32, %27 ]
-  %31 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  call void %31(ptr noundef nonnull %23)
-  call void @__gmpz_import(ptr noundef %0, i64 noundef %30, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef nonnull %8)
-  br label %32
+_ZL4hash17SRP_HashAlgorithmPKhmPh.exit.i:         ; preds = %sw.bb.i.i, %if.end.i
+  %..i.i = phi i64 [ 0, %if.end.i ], [ 32, %sw.bb.i.i ]
+  %1 = load ptr, ptr @srp_free, align 8, !tbaa !4
+  call void %1(ptr noundef nonnull %call.i35)
+  call void @__gmpz_import(ptr noundef %result, i64 noundef %..i.i, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef nonnull %buff.i)
+  br label %_ZL4H_nsP12__mpz_struct17SRP_HashAlgorithmPKhmS3_m.exit
 
-32:                                               ; preds = %29, %19
-  %33 = phi i32 [ 1, %29 ], [ 0, %19 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #17
-  ret i32 %33
+_ZL4H_nsP12__mpz_struct17SRP_HashAlgorithmPKhmS3_m.exit: ; preds = %_ZL4hash17SRP_HashAlgorithmPKhmPh.exit.i, %_ZL10hash_final17SRP_HashAlgorithmP7HashCTXPh.exit
+  %retval.0.i36 = phi i32 [ 1, %_ZL4hash17SRP_HashAlgorithmPKhmPh.exit.i ], [ 0, %_ZL10hash_final17SRP_HashAlgorithmP7HashCTXPh.exit ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %buff.i) #17
+  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %ctx) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ucp_hash) #17
+  ret i32 %retval.0.i36
 }
 
 declare void @__gmpz_powm(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
@@ -281,275 +285,276 @@ declare void @__gmpz_powm(ptr noundef, ptr noundef, ptr noundef, ptr noundef) lo
 declare void @__gmpz_clear(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_Z16srp_verifier_new17SRP_HashAlgorithm10SRP_NGTypePKcPKhmS4_mS4_mS4_mPPhPmS2_S2_(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i64 noundef %8, ptr noundef %9, i64 noundef %10, ptr nocapture noundef %11, ptr nocapture noundef writeonly %12, ptr noundef %13, ptr noundef %14) local_unnamed_addr #4 {
-  %16 = alloca [1 x %struct.__mpz_struct], align 16
-  %17 = alloca [1 x %struct.__mpz_struct], align 16
-  %18 = alloca [1 x %struct.__mpz_struct], align 16
-  %19 = alloca [1 x %struct.__mpz_struct], align 16
-  %20 = alloca [1 x %struct.__mpz_struct], align 16
-  %21 = alloca [1 x %struct.__mpz_struct], align 16
-  %22 = alloca [1 x %struct.__mpz_struct], align 16
-  %23 = alloca [1 x %struct.__mpz_struct], align 16
-  %24 = alloca [1 x %struct.__mpz_struct], align 16
-  %25 = alloca [1 x %struct.__mpz_struct], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #17
-  call void @__gmpz_init(ptr noundef nonnull %16) #17
-  call void @__gmpz_import(ptr noundef nonnull %16, i64 noundef %6, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #17
-  call void @__gmpz_init(ptr noundef nonnull %17) #17
-  call void @__gmpz_import(ptr noundef nonnull %17, i64 noundef %8, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #17
-  call void @__gmpz_init(ptr noundef nonnull %18) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #17
-  call void @__gmpz_init(ptr noundef nonnull %19) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #17
-  call void @__gmpz_init(ptr noundef nonnull %20) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #17
-  call void @__gmpz_init(ptr noundef nonnull %21) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22) #17
-  call void @__gmpz_init(ptr noundef nonnull %22) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23) #17
-  call void @__gmpz_init(ptr noundef nonnull %23) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24) #17
-  call void @__gmpz_init(ptr noundef nonnull %24) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25) #17
-  call void @__gmpz_init(ptr noundef nonnull %25) #17
-  %26 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #18
-  %27 = add i64 %26, 1
-  %28 = call fastcc noundef ptr @_ZL6new_ng10SRP_NGTypePKcS1_(i32 noundef %1, ptr noundef %13, ptr noundef %14)
-  store i64 0, ptr %12, align 8, !tbaa !10
-  store ptr null, ptr %11, align 8, !tbaa !4
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %135, label %30
+define dso_local noundef ptr @_Z16srp_verifier_new17SRP_HashAlgorithm10SRP_NGTypePKcPKhmS4_mS4_mS4_mPPhPmS2_S2_(i32 noundef %alg, i32 noundef %ng_type, ptr noundef %username, ptr noundef %bytes_s, i64 noundef %len_s, ptr noundef %bytes_v, i64 noundef %len_v, ptr noundef %bytes_A, i64 noundef %len_A, ptr noundef %bytes_b, i64 noundef %len_b, ptr nocapture noundef %bytes_B, ptr nocapture noundef writeonly %len_B, ptr noundef %n_hex, ptr noundef %g_hex) local_unnamed_addr #4 {
+entry:
+  %v = alloca [1 x %struct.__mpz_struct], align 16
+  %A = alloca [1 x %struct.__mpz_struct], align 16
+  %u = alloca [1 x %struct.__mpz_struct], align 16
+  %B = alloca [1 x %struct.__mpz_struct], align 16
+  %S = alloca [1 x %struct.__mpz_struct], align 16
+  %b = alloca [1 x %struct.__mpz_struct], align 16
+  %k = alloca [1 x %struct.__mpz_struct], align 16
+  %tmp1 = alloca [1 x %struct.__mpz_struct], align 16
+  %tmp2 = alloca [1 x %struct.__mpz_struct], align 16
+  %tmp3 = alloca [1 x %struct.__mpz_struct], align 16
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %v) #17
+  call void @__gmpz_init(ptr noundef nonnull %v) #17
+  call void @__gmpz_import(ptr noundef nonnull %v, i64 noundef %len_v, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef %bytes_v)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %A) #17
+  call void @__gmpz_init(ptr noundef nonnull %A) #17
+  call void @__gmpz_import(ptr noundef nonnull %A, i64 noundef %len_A, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef %bytes_A)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %u) #17
+  call void @__gmpz_init(ptr noundef nonnull %u) #17
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %B) #17
+  call void @__gmpz_init(ptr noundef nonnull %B) #17
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %S) #17
+  call void @__gmpz_init(ptr noundef nonnull %S) #17
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %b) #17
+  call void @__gmpz_init(ptr noundef nonnull %b) #17
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %k) #17
+  call void @__gmpz_init(ptr noundef nonnull %k) #17
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp1) #17
+  call void @__gmpz_init(ptr noundef nonnull %tmp1) #17
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp2) #17
+  call void @__gmpz_init(ptr noundef nonnull %tmp2) #17
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp3) #17
+  call void @__gmpz_init(ptr noundef nonnull %tmp3) #17
+  %call = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %username) #18
+  %add = add i64 %call, 1
+  %call12 = call fastcc noundef ptr @_ZL6new_ng10SRP_NGTypePKcS1_(i32 noundef %ng_type, ptr noundef %n_hex, ptr noundef %g_hex)
+  store i64 0, ptr %len_B, align 8, !tbaa !10
+  store ptr null, ptr %bytes_B, align 8, !tbaa !4
+  %tobool.not = icmp eq ptr %call12, null
+  br i1 %tobool.not, label %cleanup_and_exit, label %if.end
 
-30:                                               ; preds = %15
-  %31 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
-  %32 = call noundef ptr %31(i64 noundef 136)
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %135, label %34
+if.end:                                           ; preds = %entry
+  %0 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
+  %call13 = call noundef ptr %0(i64 noundef 136)
+  %tobool14.not = icmp eq ptr %call13, null
+  br i1 %tobool14.not, label %cleanup_and_exit, label %if.end16
 
-34:                                               ; preds = %30
-  %35 = load i32, ptr @_ZL13g_initialized, align 4, !tbaa !8
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %50
+if.end16:                                         ; preds = %if.end
+  %1 = load i32, ptr @_ZL13g_initialized, align 4, !tbaa !8
+  %tobool.not.i = icmp eq i32 %1, 0
+  br i1 %tobool.not.i, label %if.end.i, label %if.end19
 
-37:                                               ; preds = %34
+if.end.i:                                         ; preds = %if.end16
   store i32 0, ptr @_ZL10g_rand_idx, align 4, !tbaa !8
-  %38 = call noalias ptr @fopen(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8)
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %44, label %40
+  %call.i.i = call noalias ptr @fopen(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8)
+  %tobool.not.i.i = icmp eq ptr %call.i.i, null
+  br i1 %tobool.not.i.i, label %_ZL11init_randomv.exit.thread213, label %if.end.i.i
 
-40:                                               ; preds = %37
-  %41 = call i64 @fread(ptr noundef nonnull @_ZL11g_rand_buff, i64 noundef 128, i64 noundef 1, ptr noundef nonnull %38)
-  %42 = icmp eq i64 %41, 1
-  %43 = call i32 @fclose(ptr noundef nonnull %38)
-  br i1 %42, label %45, label %44
+if.end.i.i:                                       ; preds = %if.end.i
+  %call1.i.i = call i64 @fread(ptr noundef nonnull @_ZL11g_rand_buff, i64 noundef 128, i64 noundef 1, ptr noundef nonnull %call.i.i)
+  %cmp.not.i.i = icmp eq i64 %call1.i.i, 1
+  %call5.i.i = call i32 @fclose(ptr noundef nonnull %call.i.i)
+  br i1 %cmp.not.i.i, label %_ZL11init_randomv.exit, label %_ZL11init_randomv.exit.thread213
 
-44:                                               ; preds = %40, %37
+_ZL11init_randomv.exit.thread213:                 ; preds = %if.end.i.i, %if.end.i
   store i32 0, ptr @_ZL13g_initialized, align 4, !tbaa !8
-  br label %48
+  br label %if.then18
 
-45:                                               ; preds = %40
-  %46 = icmp eq i32 %43, 0
-  %47 = zext i1 %46 to i32
-  store i32 %47, ptr @_ZL13g_initialized, align 4, !tbaa !8
-  br i1 %46, label %50, label %48
+_ZL11init_randomv.exit:                           ; preds = %if.end.i.i
+  %tobool6.not.i.i = icmp eq i32 %call5.i.i, 0
+  %..i.i = zext i1 %tobool6.not.i.i to i32
+  store i32 %..i.i, ptr @_ZL13g_initialized, align 4, !tbaa !8
+  br i1 %tobool6.not.i.i, label %if.end19, label %if.then18
 
-48:                                               ; preds = %45, %44
-  %49 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  call void %49(ptr noundef nonnull %32)
-  br label %135
+if.then18:                                        ; preds = %_ZL11init_randomv.exit, %_ZL11init_randomv.exit.thread213
+  %2 = load ptr, ptr @srp_free, align 8, !tbaa !4
+  call void %2(ptr noundef nonnull %call13)
+  br label %cleanup_and_exit
 
-50:                                               ; preds = %45, %34
-  %51 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
-  %52 = call noundef ptr %51(i64 noundef %27)
-  %53 = getelementptr inbounds i8, ptr %32, i64 16
-  store ptr %52, ptr %53, align 8, !tbaa !16
-  store i32 %0, ptr %32, align 8, !tbaa !19
-  %54 = getelementptr inbounds i8, ptr %32, i64 8
-  store ptr %28, ptr %54, align 8, !tbaa !20
-  %55 = icmp eq ptr %52, null
-  br i1 %55, label %56, label %58
+if.end19:                                         ; preds = %_ZL11init_randomv.exit, %if.end16
+  %3 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
+  %call20 = call noundef ptr %3(i64 noundef %add)
+  %username21 = getelementptr inbounds i8, ptr %call13, i64 16
+  store ptr %call20, ptr %username21, align 8, !tbaa !16
+  store i32 %alg, ptr %call13, align 8, !tbaa !19
+  %ng22 = getelementptr inbounds i8, ptr %call13, i64 8
+  store ptr %call12, ptr %ng22, align 8, !tbaa !20
+  %tobool24.not = icmp eq ptr %call20, null
+  br i1 %tobool24.not, label %if.then25, label %if.end26
 
-56:                                               ; preds = %50
-  %57 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  call void %57(ptr noundef nonnull %32)
-  br label %135
+if.then25:                                        ; preds = %if.end19
+  %4 = load ptr, ptr @srp_free, align 8, !tbaa !4
+  call void %4(ptr noundef nonnull %call13)
+  br label %cleanup_and_exit
 
-58:                                               ; preds = %50
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %52, ptr align 1 %2, i64 %27, i1 false)
-  %59 = getelementptr inbounds i8, ptr %32, i64 32
-  store i32 0, ptr %59, align 8, !tbaa !21
-  call void @__gmpz_mod(ptr noundef nonnull %23, ptr noundef nonnull %17, ptr noundef nonnull %28)
-  %60 = getelementptr inbounds i8, ptr %23, i64 4
-  %61 = load i32, ptr %60, align 4
-  %62 = icmp eq i32 %61, 0
-  br i1 %62, label %133, label %63
+if.end26:                                         ; preds = %if.end19
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call20, ptr align 1 %username, i64 %add, i1 false)
+  %authenticated = getelementptr inbounds i8, ptr %call13, i64 32
+  store i32 0, ptr %authenticated, align 8, !tbaa !21
+  call void @__gmpz_mod(ptr noundef nonnull %tmp1, ptr noundef nonnull %A, ptr noundef nonnull %call12)
+  %_mp_size = getelementptr inbounds i8, ptr %tmp1, i64 4
+  %5 = load i32, ptr %_mp_size, align 4
+  %cmp36.not = icmp eq i32 %5, 0
+  br i1 %cmp36.not, label %if.else134, label %if.then37
 
-63:                                               ; preds = %58
-  %64 = icmp eq ptr %9, null
-  br i1 %64, label %66, label %65
+if.then37:                                        ; preds = %if.end26
+  %tobool38.not = icmp eq ptr %bytes_b, null
+  br i1 %tobool38.not, label %if.else, label %if.then39
 
-65:                                               ; preds = %63
-  call void @__gmpz_import(ptr noundef nonnull %21, i64 noundef %10, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef nonnull %9)
-  br label %87
+if.then39:                                        ; preds = %if.then37
+  call void @__gmpz_import(ptr noundef nonnull %b, i64 noundef %len_b, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef nonnull %bytes_b)
+  br label %if.end46
 
-66:                                               ; preds = %63
-  %67 = load i32, ptr @_ZL10g_rand_idx, align 4, !tbaa !8
-  %68 = add i32 %67, -97
-  %69 = icmp ult i32 %68, 32
-  br i1 %69, label %70, label %81
+if.else:                                          ; preds = %if.then37
+  %6 = load i32, ptr @_ZL10g_rand_idx, align 4, !tbaa !8
+  %7 = add i32 %6, -97
+  %cmp.i = icmp ult i32 %7, 32
+  br i1 %cmp.i, label %if.then.i, label %_ZL15mpz_fill_randomP12__mpz_struct.exit
 
-70:                                               ; preds = %66
+if.then.i:                                        ; preds = %if.else
   store i32 0, ptr @_ZL10g_rand_idx, align 4, !tbaa !8
-  %71 = call noalias ptr @fopen(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8)
-  %72 = icmp eq ptr %71, null
-  br i1 %72, label %137, label %73
+  %call.i.i198 = call noalias ptr @fopen(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8)
+  %tobool.not.i.i199 = icmp eq ptr %call.i.i198, null
+  br i1 %tobool.not.i.i199, label %ver_cleanup_and_exit, label %if.end.i.i200
 
-73:                                               ; preds = %70
-  %74 = call i64 @fread(ptr noundef nonnull @_ZL11g_rand_buff, i64 noundef 128, i64 noundef 1, ptr noundef nonnull %71)
-  %75 = icmp eq i64 %74, 1
-  %76 = call i32 @fclose(ptr noundef nonnull %71)
-  %77 = icmp eq i32 %76, 0
-  %78 = and i1 %75, %77
-  br i1 %78, label %79, label %137
+if.end.i.i200:                                    ; preds = %if.then.i
+  %call1.i.i201 = call i64 @fread(ptr noundef nonnull @_ZL11g_rand_buff, i64 noundef 128, i64 noundef 1, ptr noundef nonnull %call.i.i198)
+  %cmp.not.i.i202 = icmp eq i64 %call1.i.i201, 1
+  %call5.i.i203 = call i32 @fclose(ptr noundef nonnull %call.i.i198)
+  %tobool6.not.i.not.i = icmp eq i32 %call5.i.i203, 0
+  %or.cond.i = and i1 %cmp.not.i.i202, %tobool6.not.i.not.i
+  br i1 %or.cond.i, label %if.end.i.if.end3_crit_edge.i, label %ver_cleanup_and_exit
 
-79:                                               ; preds = %73
-  %80 = load i32, ptr @_ZL10g_rand_idx, align 4, !tbaa !8
-  br label %81
+if.end.i.if.end3_crit_edge.i:                     ; preds = %if.end.i.i200
+  %.pre.i = load i32, ptr @_ZL10g_rand_idx, align 4, !tbaa !8
+  br label %_ZL15mpz_fill_randomP12__mpz_struct.exit
 
-81:                                               ; preds = %79, %66
-  %82 = phi i32 [ %80, %79 ], [ %67, %66 ]
-  %83 = zext i32 %82 to i64
-  %84 = getelementptr inbounds [128 x i8], ptr @_ZL11g_rand_buff, i64 0, i64 %83
-  call void @__gmpz_import(ptr noundef nonnull %21, i64 noundef 32, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef nonnull %84)
-  %85 = load i32, ptr @_ZL10g_rand_idx, align 4, !tbaa !8
-  %86 = add i32 %85, 32
-  store i32 %86, ptr @_ZL10g_rand_idx, align 4, !tbaa !8
-  br label %87
+_ZL15mpz_fill_randomP12__mpz_struct.exit:         ; preds = %if.end.i.if.end3_crit_edge.i, %if.else
+  %8 = phi i32 [ %.pre.i, %if.end.i.if.end3_crit_edge.i ], [ %6, %if.else ]
+  %idxprom.i = zext i32 %8 to i64
+  %arrayidx.i = getelementptr inbounds [128 x i8], ptr @_ZL11g_rand_buff, i64 0, i64 %idxprom.i
+  call void @__gmpz_import(ptr noundef nonnull %b, i64 noundef 32, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef nonnull %arrayidx.i)
+  %9 = load i32, ptr @_ZL10g_rand_idx, align 4, !tbaa !8
+  %add.i = add i32 %9, 32
+  store i32 %add.i, ptr @_ZL10g_rand_idx, align 4, !tbaa !8
+  br label %if.end46
 
-87:                                               ; preds = %81, %65
-  %88 = getelementptr inbounds i8, ptr %28, i64 16
-  %89 = call fastcc noundef i32 @_ZL4H_nnP12__mpz_struct17SRP_HashAlgorithmPKS_S3_S3_(ptr noundef nonnull %22, i32 noundef %0, ptr noundef nonnull %28, ptr noundef nonnull %28, ptr noundef nonnull %88), !range !12
-  %90 = icmp eq i32 %89, 0
-  br i1 %90, label %137, label %91
+if.end46:                                         ; preds = %_ZL15mpz_fill_randomP12__mpz_struct.exit, %if.then39
+  %g = getelementptr inbounds i8, ptr %call12, i64 16
+  %call53 = call fastcc noundef i32 @_ZL4H_nnP12__mpz_struct17SRP_HashAlgorithmPKS_S3_S3_(ptr noundef nonnull %k, i32 noundef %alg, ptr noundef nonnull %call12, ptr noundef nonnull %call12, ptr noundef nonnull %g), !range !12
+  %tobool54.not = icmp eq i32 %call53, 0
+  br i1 %tobool54.not, label %ver_cleanup_and_exit, label %if.end56
 
-91:                                               ; preds = %87
-  call void @__gmpz_mul(ptr noundef nonnull %25, ptr noundef nonnull %22, ptr noundef nonnull %16)
-  call void @__gmpz_mod(ptr noundef nonnull %23, ptr noundef nonnull %25, ptr noundef nonnull %28)
-  call void @__gmpz_powm(ptr noundef nonnull %24, ptr noundef nonnull %88, ptr noundef nonnull %21, ptr noundef nonnull %28)
-  call void @__gmpz_add(ptr noundef nonnull %25, ptr noundef nonnull %23, ptr noundef nonnull %24)
-  call void @__gmpz_mod(ptr noundef nonnull %19, ptr noundef nonnull %25, ptr noundef nonnull %28)
-  %92 = call fastcc noundef i32 @_ZL4H_nnP12__mpz_struct17SRP_HashAlgorithmPKS_S3_S3_(ptr noundef nonnull %18, i32 noundef %0, ptr noundef nonnull %28, ptr noundef nonnull %17, ptr noundef nonnull %19), !range !12
-  %93 = icmp eq i32 %92, 0
-  br i1 %93, label %137, label %94
+if.end56:                                         ; preds = %if.end46
+  call void @__gmpz_mul(ptr noundef nonnull %tmp3, ptr noundef nonnull %k, ptr noundef nonnull %v)
+  call void @__gmpz_mod(ptr noundef nonnull %tmp1, ptr noundef nonnull %tmp3, ptr noundef nonnull %call12)
+  call void @__gmpz_powm(ptr noundef nonnull %tmp2, ptr noundef nonnull %g, ptr noundef nonnull %b, ptr noundef nonnull %call12)
+  call void @__gmpz_add(ptr noundef nonnull %tmp3, ptr noundef nonnull %tmp1, ptr noundef nonnull %tmp2)
+  call void @__gmpz_mod(ptr noundef nonnull %B, ptr noundef nonnull %tmp3, ptr noundef nonnull %call12)
+  %call80 = call fastcc noundef i32 @_ZL4H_nnP12__mpz_struct17SRP_HashAlgorithmPKS_S3_S3_(ptr noundef nonnull %u, i32 noundef %alg, ptr noundef nonnull %call12, ptr noundef nonnull %A, ptr noundef nonnull %B), !range !12
+  %tobool81.not = icmp eq i32 %call80, 0
+  br i1 %tobool81.not, label %ver_cleanup_and_exit, label %if.end83
 
-94:                                               ; preds = %91
-  call void @__gmpz_powm(ptr noundef nonnull %23, ptr noundef nonnull %16, ptr noundef nonnull %18, ptr noundef nonnull %28)
-  call void @__gmpz_mul(ptr noundef nonnull %25, ptr noundef nonnull %17, ptr noundef nonnull %23)
-  call void @__gmpz_mod(ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %28)
-  call void @__gmpz_powm(ptr noundef nonnull %20, ptr noundef nonnull %24, ptr noundef nonnull %21, ptr noundef nonnull %28)
-  %95 = getelementptr inbounds i8, ptr %32, i64 100
-  %96 = call i64 @__gmpz_sizeinbase(ptr noundef nonnull %20, i32 noundef 2) #18
-  %97 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
-  %98 = shl i64 %96, 29
-  %99 = add i64 %98, 3758096384
-  %100 = ashr i64 %99, 32
-  %101 = call noundef ptr %97(i64 noundef %100)
-  %102 = icmp eq ptr %101, null
-  br i1 %102, label %137, label %103
+if.end83:                                         ; preds = %if.end56
+  call void @__gmpz_powm(ptr noundef nonnull %tmp1, ptr noundef nonnull %v, ptr noundef nonnull %u, ptr noundef nonnull %call12)
+  call void @__gmpz_mul(ptr noundef nonnull %tmp3, ptr noundef nonnull %A, ptr noundef nonnull %tmp1)
+  call void @__gmpz_mod(ptr noundef nonnull %tmp2, ptr noundef nonnull %tmp3, ptr noundef nonnull %call12)
+  call void @__gmpz_powm(ptr noundef nonnull %S, ptr noundef nonnull %tmp2, ptr noundef nonnull %b, ptr noundef nonnull %call12)
+  %session_key = getelementptr inbounds i8, ptr %call13, i64 100
+  %call.i.i204 = call i64 @__gmpz_sizeinbase(ptr noundef nonnull %S, i32 noundef 2) #18
+  %10 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
+  %add.i.i = shl i64 %call.i.i204, 29
+  %11 = add i64 %add.i.i, 3758096384
+  %conv.i = ashr i64 %11, 32
+  %call1.i = call noundef ptr %10(i64 noundef %conv.i)
+  %tobool.not.i205 = icmp eq ptr %call1.i, null
+  br i1 %tobool.not.i205, label %ver_cleanup_and_exit, label %if.end.i206
 
-103:                                              ; preds = %94
-  %104 = call ptr @__gmpz_export(ptr noundef nonnull %101, ptr noundef null, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef nonnull %20)
-  %105 = icmp eq i32 %0, 0
-  br i1 %105, label %.split2, label %.split
+if.end.i206:                                      ; preds = %if.end83
+  %call.i10.i = call ptr @__gmpz_export(ptr noundef nonnull %call1.i, ptr noundef null, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef nonnull %S)
+  %cond.i.i = icmp eq i32 %alg, 0
+  br i1 %cond.i.i, label %sw.bb.i.i, label %if.end.i206.split
 
-.split:                                           ; preds = %103
-  %106 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  call void %106(ptr noundef nonnull %101)
-  %107 = getelementptr inbounds i8, ptr %32, i64 36
-  %108 = call fastcc noundef i32 @_ZL11calculate_M17SRP_HashAlgorithmP10NGConstantPhPKcPKhmPK12__mpz_structS9_S6_(i32 noundef %0, ptr noundef nonnull %28, ptr noundef nonnull %107, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %17, ptr noundef nonnull %19, ptr noundef nonnull %95), !range !12
-  br label %113
+if.end.i206.split:                                ; preds = %if.end.i206
+  %12 = load ptr, ptr @srp_free, align 8, !tbaa !4
+  call void %12(ptr noundef nonnull %call1.i)
+  %M1 = getelementptr inbounds i8, ptr %call13, i64 36
+  %call1112 = call fastcc noundef i32 @_ZL11calculate_M17SRP_HashAlgorithmP10NGConstantPhPKcPKhmPK12__mpz_structS9_S6_(i32 noundef %alg, ptr noundef nonnull %call12, ptr noundef nonnull %M1, ptr noundef %username, ptr noundef %bytes_s, i64 noundef %len_s, ptr noundef nonnull %A, ptr noundef nonnull %B, ptr noundef nonnull %session_key), !range !12
+  br label %if.end105
 
-.split2:                                          ; preds = %103
-  %109 = call ptr @SHA256(ptr noundef nonnull %101, i64 noundef %100, ptr noundef nonnull %95)
-  %110 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  call void %110(ptr noundef nonnull %101)
-  %111 = getelementptr inbounds i8, ptr %32, i64 36
-  %112 = call fastcc noundef i32 @_ZL11calculate_M17SRP_HashAlgorithmP10NGConstantPhPKcPKhmPK12__mpz_structS9_S6_(i32 noundef 0, ptr noundef nonnull %28, ptr noundef nonnull %111, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %17, ptr noundef nonnull %19, ptr noundef nonnull %95), !range !12
-  br label %113
+sw.bb.i.i:                                        ; preds = %if.end.i206
+  %call.i11.i = call ptr @SHA256(ptr noundef nonnull %call1.i, i64 noundef %conv.i, ptr noundef nonnull %session_key)
+  %13 = load ptr, ptr @srp_free, align 8, !tbaa !4
+  call void %13(ptr noundef nonnull %call1.i)
+  %M3 = getelementptr inbounds i8, ptr %call13, i64 36
+  %call1114 = call fastcc noundef i32 @_ZL11calculate_M17SRP_HashAlgorithmP10NGConstantPhPKcPKhmPK12__mpz_structS9_S6_(i32 noundef 0, ptr noundef nonnull %call12, ptr noundef nonnull %M3, ptr noundef %username, ptr noundef %bytes_s, i64 noundef %len_s, ptr noundef nonnull %A, ptr noundef nonnull %B, ptr noundef nonnull %session_key), !range !12
+  br label %if.end105
 
-113:                                              ; preds = %.split, %.split2
-  %114 = phi ptr [ %107, %.split ], [ %111, %.split2 ]
-  %phi.call = phi i32 [ %108, %.split ], [ %112, %.split2 ]
-  %115 = icmp eq i32 %phi.call, 0
-  br i1 %115, label %137, label %116
+if.end105:                                        ; preds = %if.end.i206.split, %sw.bb.i.i
+  %14 = phi ptr [ %M1, %if.end.i206.split ], [ %M3, %sw.bb.i.i ]
+  %phi.call = phi i32 [ %call1112, %if.end.i206.split ], [ %call1114, %sw.bb.i.i ]
+  %tobool112.not = icmp eq i32 %phi.call, 0
+  br i1 %tobool112.not, label %ver_cleanup_and_exit, label %if.end114
 
-116:                                              ; preds = %113
-  %117 = getelementptr inbounds i8, ptr %32, i64 68
-  %118 = call fastcc noundef i32 @_ZL15calculate_H_AMK17SRP_HashAlgorithmPhPK12__mpz_structPKhS5_(i32 noundef %0, ptr noundef nonnull %117, ptr noundef nonnull %17, ptr noundef nonnull %114, ptr noundef nonnull %95), !range !12
-  %119 = icmp eq i32 %118, 0
-  br i1 %119, label %137, label %120
+if.end114:                                        ; preds = %if.end105
+  %H_AMK = getelementptr inbounds i8, ptr %call13, i64 68
+  %call121 = call fastcc noundef i32 @_ZL15calculate_H_AMK17SRP_HashAlgorithmPhPK12__mpz_structPKhS5_(i32 noundef %alg, ptr noundef nonnull %H_AMK, ptr noundef nonnull %A, ptr noundef nonnull %14, ptr noundef nonnull %session_key), !range !12
+  %tobool122.not = icmp eq i32 %call121, 0
+  br i1 %tobool122.not, label %ver_cleanup_and_exit, label %if.end124
 
-120:                                              ; preds = %116
-  %121 = call i64 @__gmpz_sizeinbase(ptr noundef nonnull %19, i32 noundef 2) #18
-  %122 = shl i64 %121, 29
-  %123 = add i64 %122, 3758096384
-  %124 = ashr i64 %123, 32
-  store i64 %124, ptr %12, align 8, !tbaa !10
-  %125 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
-  %126 = call noundef ptr %125(i64 noundef %124)
-  store ptr %126, ptr %11, align 8, !tbaa !4
-  %127 = icmp eq ptr %126, null
-  br i1 %127, label %128, label %129
+if.end124:                                        ; preds = %if.end114
+  %call.i = call i64 @__gmpz_sizeinbase(ptr noundef nonnull %B, i32 noundef 2) #18
+  %add.i208 = shl i64 %call.i, 29
+  %15 = add i64 %add.i208, 3758096384
+  %conv127 = ashr i64 %15, 32
+  store i64 %conv127, ptr %len_B, align 8, !tbaa !10
+  %16 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
+  %call128 = call noundef ptr %16(i64 noundef %conv127)
+  store ptr %call128, ptr %bytes_B, align 8, !tbaa !4
+  %tobool129.not = icmp eq ptr %call128, null
+  br i1 %tobool129.not, label %if.then130, label %if.end131
 
-128:                                              ; preds = %120
-  store i64 0, ptr %12, align 8, !tbaa !10
-  br label %137
+if.then130:                                       ; preds = %if.end124
+  store i64 0, ptr %len_B, align 8, !tbaa !10
+  br label %ver_cleanup_and_exit
 
-129:                                              ; preds = %120
-  %130 = call ptr @__gmpz_export(ptr noundef nonnull %126, ptr noundef null, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef nonnull %19)
-  %131 = load ptr, ptr %11, align 8, !tbaa !4
-  %132 = getelementptr inbounds i8, ptr %32, i64 24
-  store ptr %131, ptr %132, align 8, !tbaa !22
-  br label %135
+if.end131:                                        ; preds = %if.end124
+  %call.i210 = call ptr @__gmpz_export(ptr noundef nonnull %call128, ptr noundef null, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef nonnull %B)
+  %17 = load ptr, ptr %bytes_B, align 8, !tbaa !4
+  %bytes_B133 = getelementptr inbounds i8, ptr %call13, i64 24
+  store ptr %17, ptr %bytes_B133, align 8, !tbaa !22
+  br label %cleanup_and_exit
 
-133:                                              ; preds = %58
-  %134 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  call void %134(ptr noundef nonnull %32)
-  br label %135
+if.else134:                                       ; preds = %if.end26
+  %18 = load ptr, ptr @srp_free, align 8, !tbaa !4
+  call void %18(ptr noundef nonnull %call13)
+  br label %cleanup_and_exit
 
-135:                                              ; preds = %137, %133, %129, %56, %48, %30, %15
-  %136 = phi ptr [ null, %48 ], [ %32, %129 ], [ null, %137 ], [ null, %133 ], [ null, %56 ], [ null, %30 ], [ null, %15 ]
-  call void @__gmpz_clear(ptr noundef nonnull %16)
-  call void @__gmpz_clear(ptr noundef nonnull %17)
-  call void @__gmpz_clear(ptr noundef nonnull %18)
-  call void @__gmpz_clear(ptr noundef nonnull %22)
-  call void @__gmpz_clear(ptr noundef nonnull %19)
-  call void @__gmpz_clear(ptr noundef nonnull %20)
-  call void @__gmpz_clear(ptr noundef nonnull %21)
-  call void @__gmpz_clear(ptr noundef nonnull %23)
-  call void @__gmpz_clear(ptr noundef nonnull %24)
-  call void @__gmpz_clear(ptr noundef nonnull %25)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #17
-  ret ptr %136
+cleanup_and_exit:                                 ; preds = %ver_cleanup_and_exit, %if.else134, %if.end131, %if.then25, %if.then18, %if.end, %entry
+  %ver.0 = phi ptr [ null, %if.then18 ], [ %call13, %if.end131 ], [ null, %ver_cleanup_and_exit ], [ null, %if.else134 ], [ null, %if.then25 ], [ null, %if.end ], [ null, %entry ]
+  call void @__gmpz_clear(ptr noundef nonnull %v)
+  call void @__gmpz_clear(ptr noundef nonnull %A)
+  call void @__gmpz_clear(ptr noundef nonnull %u)
+  call void @__gmpz_clear(ptr noundef nonnull %k)
+  call void @__gmpz_clear(ptr noundef nonnull %B)
+  call void @__gmpz_clear(ptr noundef nonnull %S)
+  call void @__gmpz_clear(ptr noundef nonnull %b)
+  call void @__gmpz_clear(ptr noundef nonnull %tmp1)
+  call void @__gmpz_clear(ptr noundef nonnull %tmp2)
+  call void @__gmpz_clear(ptr noundef nonnull %tmp3)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tmp3) #17
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tmp2) #17
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tmp1) #17
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %k) #17
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %b) #17
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %S) #17
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %B) #17
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %u) #17
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %A) #17
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %v) #17
+  ret ptr %ver.0
 
-137:                                              ; preds = %128, %116, %113, %94, %91, %87, %73, %70
-  %138 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  %139 = load ptr, ptr %53, align 8, !tbaa !16
-  call void %138(ptr noundef %139)
-  %140 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  call void %140(ptr noundef nonnull %32)
-  br label %135
+ver_cleanup_and_exit:                             ; preds = %if.then130, %if.end114, %if.end105, %if.end83, %if.end56, %if.end46, %if.end.i.i200, %if.then.i
+  %19 = load ptr, ptr @srp_free, align 8, !tbaa !4
+  %20 = load ptr, ptr %username21, align 8, !tbaa !16
+  call void %19(ptr noundef %20)
+  %21 = load ptr, ptr @srp_free, align 8, !tbaa !4
+  call void %21(ptr noundef nonnull %call13)
+  br label %cleanup_and_exit
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -558,283 +563,287 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 declare void @__gmpz_mod(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL4H_nnP12__mpz_struct17SRP_HashAlgorithmPKS_S3_S3_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #4 {
-  %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #17
-  %7 = tail call i64 @__gmpz_sizeinbase(ptr noundef %2, i32 noundef 2) #18
-  %8 = add i64 %7, 7
-  %9 = lshr i64 %8, 3
-  %10 = shl i64 %9, 32
-  %11 = ashr exact i64 %10, 32
-  %12 = tail call i64 @__gmpz_sizeinbase(ptr noundef %3, i32 noundef 2) #18
-  %13 = add i64 %12, 7
-  %14 = lshr i64 %13, 3
-  %15 = shl i64 %14, 32
-  %16 = ashr exact i64 %15, 32
-  %17 = tail call i64 @__gmpz_sizeinbase(ptr noundef %4, i32 noundef 2) #18
-  %18 = add i64 %17, 7
-  %19 = lshr i64 %18, 3
-  %20 = shl i64 %19, 32
-  %21 = ashr exact i64 %20, 32
-  %22 = ashr exact i64 %10, 31
-  %23 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
-  %24 = tail call noundef ptr %23(i64 noundef %22)
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %48, label %26
+define internal fastcc noundef i32 @_ZL4H_nnP12__mpz_struct17SRP_HashAlgorithmPKS_S3_S3_(ptr noundef %result, i32 noundef %alg, ptr noundef %N, ptr noundef %n1, ptr noundef %n2) unnamed_addr #4 {
+entry:
+  %buff = alloca [32 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buff) #17
+  %call.i = tail call i64 @__gmpz_sizeinbase(ptr noundef %N, i32 noundef 2) #18
+  %add.i = add i64 %call.i, 7
+  %div1.i = lshr i64 %add.i, 3
+  %sext = shl i64 %div1.i, 32
+  %conv = ashr exact i64 %sext, 32
+  %call.i39 = tail call i64 @__gmpz_sizeinbase(ptr noundef %n1, i32 noundef 2) #18
+  %add.i40 = add i64 %call.i39, 7
+  %div1.i41 = lshr i64 %add.i40, 3
+  %sext51 = shl i64 %div1.i41, 32
+  %conv2 = ashr exact i64 %sext51, 32
+  %call.i43 = tail call i64 @__gmpz_sizeinbase(ptr noundef %n2, i32 noundef 2) #18
+  %add.i44 = add i64 %call.i43, 7
+  %div1.i45 = lshr i64 %add.i44, 3
+  %sext52 = shl i64 %div1.i45, 32
+  %conv4 = ashr exact i64 %sext52, 32
+  %add = ashr exact i64 %sext, 31
+  %0 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
+  %call5 = tail call noundef ptr %0(i64 noundef %add)
+  %tobool.not = icmp eq ptr %call5, null
+  br i1 %tobool.not, label %cleanup, label %if.end
 
-26:                                               ; preds = %5
-  %27 = trunc i64 %19 to i32
-  %28 = trunc i64 %14 to i32
-  %29 = trunc i64 %9 to i32
-  %30 = icmp ugt i32 %28, %29
-  %31 = icmp ugt i32 %27, %29
-  %32 = or i1 %30, %31
-  br i1 %32, label %33, label %35
+if.end:                                           ; preds = %entry
+  %conv.i46 = trunc i64 %div1.i45 to i32
+  %conv.i42 = trunc i64 %div1.i41 to i32
+  %conv.i = trunc i64 %div1.i to i32
+  %cmp = icmp ugt i32 %conv.i42, %conv.i
+  %cmp6 = icmp ugt i32 %conv.i46, %conv.i
+  %or.cond = or i1 %cmp, %cmp6
+  br i1 %or.cond, label %if.then7, label %if.end8
 
-33:                                               ; preds = %26
-  %34 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  tail call void %34(ptr noundef nonnull %24)
-  br label %48
+if.then7:                                         ; preds = %if.end
+  %1 = load ptr, ptr @srp_free, align 8, !tbaa !4
+  tail call void %1(ptr noundef nonnull %call5)
+  br label %cleanup
 
-35:                                               ; preds = %26
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %24, i8 0, i64 %22, i1 false)
-  %36 = sub nsw i64 %11, %16
-  %37 = getelementptr inbounds i8, ptr %24, i64 %36
-  %38 = tail call ptr @__gmpz_export(ptr noundef nonnull %37, ptr noundef null, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef %3)
-  %39 = sub nsw i64 %22, %21
-  %40 = getelementptr inbounds i8, ptr %24, i64 %39
-  %41 = tail call ptr @__gmpz_export(ptr noundef nonnull %40, ptr noundef null, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef %4)
-  %42 = icmp eq i32 %1, 0
-  br i1 %42, label %43, label %45
+if.end8:                                          ; preds = %if.end
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %call5, i8 0, i64 %add, i1 false)
+  %sub = sub nsw i64 %conv, %conv2
+  %add.ptr = getelementptr inbounds i8, ptr %call5, i64 %sub
+  %call.i47 = tail call ptr @__gmpz_export(ptr noundef nonnull %add.ptr, ptr noundef null, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef %n1)
+  %sub10 = sub nsw i64 %add, %conv4
+  %add.ptr11 = getelementptr inbounds i8, ptr %call5, i64 %sub10
+  %call.i48 = tail call ptr @__gmpz_export(ptr noundef nonnull %add.ptr11, ptr noundef null, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef %n2)
+  %cond.i = icmp eq i32 %alg, 0
+  br i1 %cond.i, label %sw.bb.i, label %_ZL4hash17SRP_HashAlgorithmPKhmPh.exit
 
-43:                                               ; preds = %35
-  %44 = call ptr @SHA256(ptr noundef nonnull %24, i64 noundef %22, ptr noundef nonnull %6)
-  br label %45
+sw.bb.i:                                          ; preds = %if.end8
+  %call.i49 = call ptr @SHA256(ptr noundef nonnull %call5, i64 noundef %add, ptr noundef nonnull %buff)
+  br label %_ZL4hash17SRP_HashAlgorithmPKhmPh.exit
 
-45:                                               ; preds = %43, %35
-  %46 = phi i64 [ 0, %35 ], [ 32, %43 ]
-  %47 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  call void %47(ptr noundef nonnull %24)
-  call void @__gmpz_import(ptr noundef %0, i64 noundef %46, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef nonnull %6)
-  br label %48
+_ZL4hash17SRP_HashAlgorithmPKhmPh.exit:           ; preds = %sw.bb.i, %if.end8
+  %..i = phi i64 [ 0, %if.end8 ], [ 32, %sw.bb.i ]
+  %2 = load ptr, ptr @srp_free, align 8, !tbaa !4
+  call void %2(ptr noundef nonnull %call5)
+  call void @__gmpz_import(ptr noundef %result, i64 noundef %..i, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef nonnull %buff)
+  br label %cleanup
 
-48:                                               ; preds = %45, %33, %5
-  %49 = phi i32 [ 0, %33 ], [ 1, %45 ], [ 0, %5 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #17
-  ret i32 %49
+cleanup:                                          ; preds = %_ZL4hash17SRP_HashAlgorithmPKhmPh.exit, %if.then7, %entry
+  %retval.0 = phi i32 [ 0, %if.then7 ], [ 1, %_ZL4hash17SRP_HashAlgorithmPKhmPh.exit ], [ 0, %entry ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %buff) #17
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL11calculate_M17SRP_HashAlgorithmP10NGConstantPhPKcPKhmPK12__mpz_structS9_S6_(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) unnamed_addr #4 {
-  %10 = alloca [32 x i8], align 16
-  %11 = alloca [32 x i8], align 16
-  %12 = alloca [32 x i8], align 16
-  %13 = alloca [32 x i8], align 16
-  %14 = alloca %union.HashCTX, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #17
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %14) #17
-  %15 = icmp eq i32 %0, 0
-  %16 = tail call i64 @__gmpz_sizeinbase(ptr noundef %1, i32 noundef 2) #18
+define internal fastcc noundef i32 @_ZL11calculate_M17SRP_HashAlgorithmP10NGConstantPhPKcPKhmPK12__mpz_structS9_S6_(i32 noundef %alg, ptr noundef %ng, ptr noundef %dest, ptr noundef %I, ptr noundef %s_bytes, i64 noundef %s_len, ptr noundef %A, ptr noundef %B, ptr noundef %K) unnamed_addr #4 {
+entry:
+  %H_N = alloca [32 x i8], align 16
+  %H_g = alloca [32 x i8], align 16
+  %H_I = alloca [32 x i8], align 16
+  %H_xor = alloca [32 x i8], align 16
+  %ctx = alloca %union.HashCTX, align 4
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %H_N) #17
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %H_g) #17
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %H_I) #17
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %H_xor) #17
+  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %ctx) #17
+  %cond.i = icmp eq i32 %alg, 0
+  %call.i.i = tail call i64 @__gmpz_sizeinbase(ptr noundef %ng, i32 noundef 2) #18
+  %0 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
+  %add.i.i = shl i64 %call.i.i, 29
+  %1 = add i64 %add.i.i, 3758096384
+  %conv.i = ashr i64 %1, 32
+  %call1.i = tail call noundef ptr %0(i64 noundef %conv.i)
+  %tobool.not.i = icmp eq ptr %call1.i, null
+  br i1 %tobool.not.i, label %cleanup, label %if.end.i
+
+if.end.i:                                         ; preds = %entry
+  %call.i10.i = tail call ptr @__gmpz_export(ptr noundef nonnull %call1.i, ptr noundef null, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef %ng)
+  br i1 %cond.i, label %sw.bb.i.i, label %if.end
+
+sw.bb.i.i:                                        ; preds = %if.end.i
+  %call.i11.i = call ptr @SHA256(ptr noundef nonnull %call1.i, i64 noundef %conv.i, ptr noundef nonnull %H_N)
+  br label %if.end
+
+if.end:                                           ; preds = %sw.bb.i.i, %if.end.i
+  %2 = load ptr, ptr @srp_free, align 8, !tbaa !4
+  call void %2(ptr noundef nonnull %call1.i)
+  %g = getelementptr inbounds i8, ptr %ng, i64 16
+  %call.i.i59 = call i64 @__gmpz_sizeinbase(ptr noundef nonnull %g, i32 noundef 2) #18
+  %3 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
+  %add.i.i60 = shl i64 %call.i.i59, 29
+  %4 = add i64 %add.i.i60, 3758096384
+  %conv.i61 = ashr i64 %4, 32
+  %call1.i62 = call noundef ptr %3(i64 noundef %conv.i61)
+  %tobool.not.i63 = icmp eq ptr %call1.i62, null
+  br i1 %tobool.not.i63, label %cleanup, label %if.end.i64
+
+if.end.i64:                                       ; preds = %if.end
+  %call.i10.i65 = call ptr @__gmpz_export(ptr noundef nonnull %call1.i62, ptr noundef null, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef nonnull %g)
+  br i1 %cond.i, label %sw.bb.i89, label %_ZL4hash17SRP_HashAlgorithmPKhmPh.exit
+
+_ZL4hash17SRP_HashAlgorithmPKhmPh.exit:           ; preds = %if.end.i64
+  %5 = load ptr, ptr @srp_free, align 8, !tbaa !4
+  call void %5(ptr noundef nonnull %call1.i62)
+  br label %_ZL11hash_update17SRP_HashAlgorithmP7HashCTXPKvm.exit91
+
+sw.bb.i89:                                        ; preds = %if.end.i64
+  %call.i11.i70 = call ptr @SHA256(ptr noundef nonnull %call1.i62, i64 noundef %conv.i61, ptr noundef nonnull %H_g)
+  %6 = load ptr, ptr @srp_free, align 8, !tbaa !4
+  call void %6(ptr noundef nonnull %call1.i62)
+  %call9 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %I) #18
+  %call.i = call ptr @SHA256(ptr noundef %I, i64 noundef %call9, ptr noundef nonnull %H_I)
+  %7 = load <16 x i8>, ptr %H_N, align 16, !tbaa !23
+  %8 = load <16 x i8>, ptr %H_g, align 16, !tbaa !23
+  %9 = xor <16 x i8> %8, %7
+  store <16 x i8> %9, ptr %H_xor, align 16, !tbaa !23
+  %arrayidx.16 = getelementptr inbounds i8, ptr %H_N, i64 16
+  %arrayidx12.16 = getelementptr inbounds i8, ptr %H_g, i64 16
+  %arrayidx15.16 = getelementptr inbounds i8, ptr %H_xor, i64 16
+  %10 = load <16 x i8>, ptr %arrayidx.16, align 16, !tbaa !23
+  %11 = load <16 x i8>, ptr %arrayidx12.16, align 16, !tbaa !23
+  %12 = xor <16 x i8> %11, %10
+  store <16 x i8> %12, ptr %arrayidx15.16, align 16, !tbaa !23
+  %call.i77 = call i32 @SHA256_Init(ptr noundef nonnull %ctx)
+  %call.i81 = call i32 @SHA256_Update(ptr noundef nonnull %ctx, ptr noundef nonnull %H_xor, i64 noundef 32)
+  %call.i85 = call i32 @SHA256_Update(ptr noundef nonnull %ctx, ptr noundef nonnull %H_I, i64 noundef 32)
+  %call.i90 = call i32 @SHA256_Update(ptr noundef nonnull %ctx, ptr noundef %s_bytes, i64 noundef %s_len)
+  br label %_ZL11hash_update17SRP_HashAlgorithmP7HashCTXPKvm.exit91
+
+_ZL11hash_update17SRP_HashAlgorithmP7HashCTXPKvm.exit91: ; preds = %sw.bb.i89, %_ZL4hash17SRP_HashAlgorithmPKhmPh.exit
+  %call.i.i92 = call i64 @__gmpz_sizeinbase(ptr noundef %A, i32 noundef 2) #18
+  %add.i.i93 = shl i64 %call.i.i92, 29
+  %13 = add i64 %add.i.i93, 3758096384
+  %conv.i94 = ashr i64 %13, 32
+  %14 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
+  %call1.i95 = call noundef ptr %14(i64 noundef %conv.i94)
+  %tobool.not.i96 = icmp eq ptr %call1.i95, null
+  br i1 %tobool.not.i96, label %cleanup, label %if.end.i97
+
+if.end.i97:                                       ; preds = %_ZL11hash_update17SRP_HashAlgorithmP7HashCTXPKvm.exit91
+  %call.i9.i = call ptr @__gmpz_export(ptr noundef nonnull %call1.i95, ptr noundef null, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef %A)
+  br i1 %cond.i, label %sw.bb.i.i100, label %if.end25
+
+sw.bb.i.i100:                                     ; preds = %if.end.i97
+  %call.i10.i101 = call i32 @SHA256_Update(ptr noundef nonnull %ctx, ptr noundef nonnull %call1.i95, i64 noundef %conv.i94)
+  br label %if.end25
+
+if.end25:                                         ; preds = %sw.bb.i.i100, %if.end.i97
+  %15 = load ptr, ptr @srp_free, align 8, !tbaa !4
+  call void %15(ptr noundef nonnull %call1.i95)
+  %call.i.i102 = call i64 @__gmpz_sizeinbase(ptr noundef %B, i32 noundef 2) #18
+  %add.i.i103 = shl i64 %call.i.i102, 29
+  %16 = add i64 %add.i.i103, 3758096384
+  %conv.i104 = ashr i64 %16, 32
   %17 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
-  %18 = shl i64 %16, 29
-  %19 = add i64 %18, 3758096384
-  %20 = ashr i64 %19, 32
-  %21 = tail call noundef ptr %17(i64 noundef %20)
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %89, label %23
+  %call1.i105 = call noundef ptr %17(i64 noundef %conv.i104)
+  %tobool.not.i106 = icmp eq ptr %call1.i105, null
+  br i1 %tobool.not.i106, label %cleanup, label %if.end.i107
 
-23:                                               ; preds = %9
-  %24 = tail call ptr @__gmpz_export(ptr noundef nonnull %21, ptr noundef null, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef %1)
-  br i1 %15, label %25, label %27
+if.end.i107:                                      ; preds = %if.end25
+  %call.i9.i108 = call ptr @__gmpz_export(ptr noundef nonnull %call1.i105, ptr noundef null, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef %B)
+  br i1 %cond.i, label %sw.bb.i122, label %_ZL11hash_update17SRP_HashAlgorithmP7HashCTXPKvm.exit119
 
-25:                                               ; preds = %23
-  %26 = call ptr @SHA256(ptr noundef nonnull %21, i64 noundef %20, ptr noundef nonnull %10)
-  br label %27
+_ZL11hash_update17SRP_HashAlgorithmP7HashCTXPKvm.exit119: ; preds = %if.end.i107
+  %18 = load ptr, ptr @srp_free, align 8, !tbaa !4
+  call void %18(ptr noundef nonnull %call1.i105)
+  br label %cleanup
 
-27:                                               ; preds = %25, %23
-  %28 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  call void %28(ptr noundef nonnull %21)
-  %29 = getelementptr inbounds i8, ptr %1, i64 16
-  %30 = call i64 @__gmpz_sizeinbase(ptr noundef nonnull %29, i32 noundef 2) #18
-  %31 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
-  %32 = shl i64 %30, 29
-  %33 = add i64 %32, 3758096384
-  %34 = ashr i64 %33, 32
-  %35 = call noundef ptr %31(i64 noundef %34)
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %89, label %37
+sw.bb.i122:                                       ; preds = %if.end.i107
+  %call.i10.i113 = call i32 @SHA256_Update(ptr noundef nonnull %ctx, ptr noundef nonnull %call1.i105, i64 noundef %conv.i104)
+  %19 = load ptr, ptr @srp_free, align 8, !tbaa !4
+  call void %19(ptr noundef nonnull %call1.i105)
+  %call.i118 = call i32 @SHA256_Update(ptr noundef nonnull %ctx, ptr noundef %K, i64 noundef 32)
+  %call.i123 = call i32 @SHA256_Final(ptr noundef %dest, ptr noundef nonnull %ctx)
+  br label %cleanup
 
-37:                                               ; preds = %27
-  %38 = call ptr @__gmpz_export(ptr noundef nonnull %35, ptr noundef null, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef nonnull %29)
-  br i1 %15, label %41, label %39
-
-39:                                               ; preds = %37
-  %40 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  call void %40(ptr noundef nonnull %35)
-  br label %59
-
-41:                                               ; preds = %37
-  %42 = call ptr @SHA256(ptr noundef nonnull %35, i64 noundef %34, ptr noundef nonnull %11)
-  %43 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  call void %43(ptr noundef nonnull %35)
-  %44 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #18
-  %45 = call ptr @SHA256(ptr noundef %3, i64 noundef %44, ptr noundef nonnull %12)
-  %46 = load <16 x i8>, ptr %10, align 16, !tbaa !23
-  %47 = load <16 x i8>, ptr %11, align 16, !tbaa !23
-  %48 = xor <16 x i8> %47, %46
-  store <16 x i8> %48, ptr %13, align 16, !tbaa !23
-  %49 = getelementptr inbounds i8, ptr %10, i64 16
-  %50 = getelementptr inbounds i8, ptr %11, i64 16
-  %51 = getelementptr inbounds i8, ptr %13, i64 16
-  %52 = load <16 x i8>, ptr %49, align 16, !tbaa !23
-  %53 = load <16 x i8>, ptr %50, align 16, !tbaa !23
-  %54 = xor <16 x i8> %53, %52
-  store <16 x i8> %54, ptr %51, align 16, !tbaa !23
-  %55 = call i32 @SHA256_Init(ptr noundef nonnull %14)
-  %56 = call i32 @SHA256_Update(ptr noundef nonnull %14, ptr noundef nonnull %13, i64 noundef 32)
-  %57 = call i32 @SHA256_Update(ptr noundef nonnull %14, ptr noundef nonnull %12, i64 noundef 32)
-  %58 = call i32 @SHA256_Update(ptr noundef nonnull %14, ptr noundef %4, i64 noundef %5)
-  br label %59
-
-59:                                               ; preds = %41, %39
-  %60 = call i64 @__gmpz_sizeinbase(ptr noundef %6, i32 noundef 2) #18
-  %61 = shl i64 %60, 29
-  %62 = add i64 %61, 3758096384
-  %63 = ashr i64 %62, 32
-  %64 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
-  %65 = call noundef ptr %64(i64 noundef %63)
-  %66 = icmp eq ptr %65, null
-  br i1 %66, label %89, label %67
-
-67:                                               ; preds = %59
-  %68 = call ptr @__gmpz_export(ptr noundef nonnull %65, ptr noundef null, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef %6)
-  br i1 %15, label %69, label %71
-
-69:                                               ; preds = %67
-  %70 = call i32 @SHA256_Update(ptr noundef nonnull %14, ptr noundef nonnull %65, i64 noundef %63)
-  br label %71
-
-71:                                               ; preds = %69, %67
-  %72 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  call void %72(ptr noundef nonnull %65)
-  %73 = call i64 @__gmpz_sizeinbase(ptr noundef %7, i32 noundef 2) #18
-  %74 = shl i64 %73, 29
-  %75 = add i64 %74, 3758096384
-  %76 = ashr i64 %75, 32
-  %77 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
-  %78 = call noundef ptr %77(i64 noundef %76)
-  %79 = icmp eq ptr %78, null
-  br i1 %79, label %89, label %80
-
-80:                                               ; preds = %71
-  %81 = call ptr @__gmpz_export(ptr noundef nonnull %78, ptr noundef null, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef %7)
-  br i1 %15, label %84, label %82
-
-82:                                               ; preds = %80
-  %83 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  call void %83(ptr noundef nonnull %78)
-  br label %89
-
-84:                                               ; preds = %80
-  %85 = call i32 @SHA256_Update(ptr noundef nonnull %14, ptr noundef nonnull %78, i64 noundef %76)
-  %86 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  call void %86(ptr noundef nonnull %78)
-  %87 = call i32 @SHA256_Update(ptr noundef nonnull %14, ptr noundef %8, i64 noundef 32)
-  %88 = call i32 @SHA256_Final(ptr noundef %2, ptr noundef nonnull %14)
-  br label %89
-
-89:                                               ; preds = %84, %82, %71, %59, %27, %9
-  %90 = phi i32 [ 1, %82 ], [ 1, %84 ], [ 0, %9 ], [ 0, %27 ], [ 0, %59 ], [ 0, %71 ]
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %14) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #17
-  ret i32 %90
+cleanup:                                          ; preds = %sw.bb.i122, %_ZL11hash_update17SRP_HashAlgorithmP7HashCTXPKvm.exit119, %if.end25, %_ZL11hash_update17SRP_HashAlgorithmP7HashCTXPKvm.exit91, %if.end, %entry
+  %retval.0 = phi i32 [ 1, %_ZL11hash_update17SRP_HashAlgorithmP7HashCTXPKvm.exit119 ], [ 1, %sw.bb.i122 ], [ 0, %entry ], [ 0, %if.end ], [ 0, %_ZL11hash_update17SRP_HashAlgorithmP7HashCTXPKvm.exit91 ], [ 0, %if.end25 ]
+  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %ctx) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %H_xor) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %H_I) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %H_g) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %H_N) #17
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL15calculate_H_AMK17SRP_HashAlgorithmPhPK12__mpz_structPKhS5_(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #4 {
-  %6 = alloca %union.HashCTX, align 4
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6) #17
-  %7 = icmp eq i32 %0, 0
-  br i1 %7, label %8, label %10
+define internal fastcc noundef i32 @_ZL15calculate_H_AMK17SRP_HashAlgorithmPhPK12__mpz_structPKhS5_(i32 noundef %alg, ptr noundef %dest, ptr noundef %A, ptr noundef %M, ptr noundef %K) unnamed_addr #4 {
+entry:
+  %ctx = alloca %union.HashCTX, align 4
+  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %ctx) #17
+  %cond.i = icmp eq i32 %alg, 0
+  br i1 %cond.i, label %sw.bb.i, label %_ZL9hash_init17SRP_HashAlgorithmP7HashCTX.exit
 
-8:                                                ; preds = %5
-  %9 = call i32 @SHA256_Init(ptr noundef nonnull %6)
-  br label %10
+sw.bb.i:                                          ; preds = %entry
+  %call.i = call i32 @SHA256_Init(ptr noundef nonnull %ctx)
+  br label %_ZL9hash_init17SRP_HashAlgorithmP7HashCTX.exit
 
-10:                                               ; preds = %8, %5
-  %11 = call i64 @__gmpz_sizeinbase(ptr noundef %2, i32 noundef 2) #18
-  %12 = shl i64 %11, 29
-  %13 = add i64 %12, 3758096384
-  %14 = ashr i64 %13, 32
-  %15 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
-  %16 = call noundef ptr %15(i64 noundef %14)
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %28, label %18
+_ZL9hash_init17SRP_HashAlgorithmP7HashCTX.exit:   ; preds = %sw.bb.i, %entry
+  %call.i.i = call i64 @__gmpz_sizeinbase(ptr noundef %A, i32 noundef 2) #18
+  %add.i.i = shl i64 %call.i.i, 29
+  %0 = add i64 %add.i.i, 3758096384
+  %conv.i = ashr i64 %0, 32
+  %1 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
+  %call1.i = call noundef ptr %1(i64 noundef %conv.i)
+  %tobool.not.i = icmp eq ptr %call1.i, null
+  br i1 %tobool.not.i, label %cleanup, label %if.end.i
 
-18:                                               ; preds = %10
-  %19 = call ptr @__gmpz_export(ptr noundef nonnull %16, ptr noundef null, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef %2)
-  br i1 %7, label %22, label %20
+if.end.i:                                         ; preds = %_ZL9hash_init17SRP_HashAlgorithmP7HashCTX.exit
+  %call.i9.i = call ptr @__gmpz_export(ptr noundef nonnull %call1.i, ptr noundef null, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef %A)
+  br i1 %cond.i, label %sw.bb.i28, label %_ZL11hash_update17SRP_HashAlgorithmP7HashCTXPKvm.exit25
 
-20:                                               ; preds = %18
-  %21 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  call void %21(ptr noundef nonnull %16)
-  br label %28
+_ZL11hash_update17SRP_HashAlgorithmP7HashCTXPKvm.exit25: ; preds = %if.end.i
+  %2 = load ptr, ptr @srp_free, align 8, !tbaa !4
+  call void %2(ptr noundef nonnull %call1.i)
+  br label %cleanup
 
-22:                                               ; preds = %18
-  %23 = call i32 @SHA256_Update(ptr noundef nonnull %6, ptr noundef nonnull %16, i64 noundef %14)
-  %24 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  call void %24(ptr noundef nonnull %16)
-  %25 = call i32 @SHA256_Update(ptr noundef nonnull %6, ptr noundef %3, i64 noundef 32)
-  %26 = call i32 @SHA256_Update(ptr noundef nonnull %6, ptr noundef %4, i64 noundef 32)
-  %27 = call i32 @SHA256_Final(ptr noundef %1, ptr noundef nonnull %6)
-  br label %28
+sw.bb.i28:                                        ; preds = %if.end.i
+  %call.i10.i = call i32 @SHA256_Update(ptr noundef nonnull %ctx, ptr noundef nonnull %call1.i, i64 noundef %conv.i)
+  %3 = load ptr, ptr @srp_free, align 8, !tbaa !4
+  call void %3(ptr noundef nonnull %call1.i)
+  %call.i18 = call i32 @SHA256_Update(ptr noundef nonnull %ctx, ptr noundef %M, i64 noundef 32)
+  %call.i24 = call i32 @SHA256_Update(ptr noundef nonnull %ctx, ptr noundef %K, i64 noundef 32)
+  %call.i29 = call i32 @SHA256_Final(ptr noundef %dest, ptr noundef nonnull %ctx)
+  br label %cleanup
 
-28:                                               ; preds = %22, %20, %10
-  %29 = phi i32 [ 1, %20 ], [ 1, %22 ], [ 0, %10 ]
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6) #17
-  ret i32 %29
+cleanup:                                          ; preds = %sw.bb.i28, %_ZL11hash_update17SRP_HashAlgorithmP7HashCTXPKvm.exit25, %_ZL9hash_init17SRP_HashAlgorithmP7HashCTX.exit
+  %retval.0 = phi i32 [ 1, %_ZL11hash_update17SRP_HashAlgorithmP7HashCTXPKvm.exit25 ], [ 1, %sw.bb.i28 ], [ 0, %_ZL9hash_init17SRP_HashAlgorithmP7HashCTX.exit ]
+  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %ctx) #17
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z19srp_verifier_deleteP11SRPVerifier(ptr noundef %0) local_unnamed_addr #4 {
-  %2 = icmp eq ptr %0, null
-  br i1 %2, label %18, label %3
+define dso_local void @_Z19srp_verifier_deleteP11SRPVerifier(ptr noundef %ver) local_unnamed_addr #4 {
+entry:
+  %tobool.not = icmp eq ptr %ver, null
+  br i1 %tobool.not, label %if.end, label %if.then
 
-3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !20
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %10, label %7
+if.then:                                          ; preds = %entry
+  %ng = getelementptr inbounds i8, ptr %ver, i64 8
+  %0 = load ptr, ptr %ng, align 8, !tbaa !20
+  %tobool.not.i = icmp eq ptr %0, null
+  br i1 %tobool.not.i, label %_ZL9delete_ngP10NGConstant.exit, label %if.then.i
 
-7:                                                ; preds = %3
-  tail call void @__gmpz_clear(ptr noundef nonnull %5)
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
-  tail call void @__gmpz_clear(ptr noundef nonnull %8)
-  %9 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  tail call void %9(ptr noundef nonnull %5)
-  br label %10
+if.then.i:                                        ; preds = %if.then
+  tail call void @__gmpz_clear(ptr noundef nonnull %0)
+  %g.i = getelementptr inbounds i8, ptr %0, i64 16
+  tail call void @__gmpz_clear(ptr noundef nonnull %g.i)
+  %1 = load ptr, ptr @srp_free, align 8, !tbaa !4
+  tail call void %1(ptr noundef nonnull %0)
+  br label %_ZL9delete_ngP10NGConstant.exit
 
-10:                                               ; preds = %7, %3
-  %11 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !16
-  tail call void %11(ptr noundef %13)
-  %14 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %16 = load ptr, ptr %15, align 8, !tbaa !22
-  tail call void %14(ptr noundef %16)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %0, i8 0, i64 136, i1 false)
-  %17 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  tail call void %17(ptr noundef nonnull %0)
-  br label %18
+_ZL9delete_ngP10NGConstant.exit:                  ; preds = %if.then.i, %if.then
+  %2 = load ptr, ptr @srp_free, align 8, !tbaa !4
+  %username = getelementptr inbounds i8, ptr %ver, i64 16
+  %3 = load ptr, ptr %username, align 8, !tbaa !16
+  tail call void %2(ptr noundef %3)
+  %4 = load ptr, ptr @srp_free, align 8, !tbaa !4
+  %bytes_B = getelementptr inbounds i8, ptr %ver, i64 24
+  %5 = load ptr, ptr %bytes_B, align 8, !tbaa !22
+  tail call void %4(ptr noundef %5)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %ver, i8 0, i64 136, i1 false)
+  %6 = load ptr, ptr @srp_free, align 8, !tbaa !4
+  tail call void %6(ptr noundef nonnull %ver)
+  br label %if.end
 
-18:                                               ; preds = %10, %1
+if.end:                                           ; preds = %_ZL9delete_ngP10NGConstant.exit, %entry
   ret void
 }
 
@@ -842,564 +851,577 @@ define dso_local void @_Z19srp_verifier_deleteP11SRPVerifier(ptr noundef %0) loc
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_Z29srp_verifier_is_authenticatedP11SRPVerifier(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
-  %3 = load i32, ptr %2, align 8, !tbaa !21
-  ret i32 %3
+define dso_local noundef i32 @_Z29srp_verifier_is_authenticatedP11SRPVerifier(ptr nocapture noundef readonly %ver) local_unnamed_addr #11 {
+entry:
+  %authenticated = getelementptr inbounds i8, ptr %ver, i64 32
+  %0 = load i32, ptr %authenticated, align 8, !tbaa !21
+  ret i32 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_Z25srp_verifier_get_usernameP11SRPVerifier(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !16
-  ret ptr %3
+define dso_local noundef ptr @_Z25srp_verifier_get_usernameP11SRPVerifier(ptr nocapture noundef readonly %ver) local_unnamed_addr #11 {
+entry:
+  %username = getelementptr inbounds i8, ptr %ver, i64 16
+  %0 = load ptr, ptr %username, align 8, !tbaa !16
+  ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef nonnull ptr @_Z28srp_verifier_get_session_keyP11SRPVerifierPm(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #12 {
-  %3 = icmp eq ptr %1, null
-  br i1 %3, label %8, label %4
+define dso_local noundef nonnull ptr @_Z28srp_verifier_get_session_keyP11SRPVerifierPm(ptr noundef readonly %ver, ptr noundef writeonly %key_length) local_unnamed_addr #12 {
+entry:
+  %tobool.not = icmp eq ptr %key_length, null
+  br i1 %tobool.not, label %if.end, label %if.then
 
-4:                                                ; preds = %2
-  %5 = load i32, ptr %0, align 8, !tbaa !19
-  %6 = icmp eq i32 %5, 0
-  %7 = select i1 %6, i64 32, i64 0
-  store i64 %7, ptr %1, align 8, !tbaa !10
-  br label %8
+if.then:                                          ; preds = %entry
+  %0 = load i32, ptr %ver, align 8, !tbaa !19
+  %cond.i = icmp eq i32 %0, 0
+  %..i = select i1 %cond.i, i64 32, i64 0
+  store i64 %..i, ptr %key_length, align 8, !tbaa !10
+  br label %if.end
 
-8:                                                ; preds = %4, %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 100
-  ret ptr %9
+if.end:                                           ; preds = %if.then, %entry
+  %session_key = getelementptr inbounds i8, ptr %ver, i64 100
+  ret ptr %session_key
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_Z35srp_verifier_get_session_key_lengthP11SRPVerifier(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
-  %2 = load i32, ptr %0, align 8, !tbaa !19
-  %3 = icmp eq i32 %2, 0
-  %4 = select i1 %3, i64 32, i64 0
-  ret i64 %4
+define dso_local noundef i64 @_Z35srp_verifier_get_session_key_lengthP11SRPVerifier(ptr nocapture noundef readonly %ver) local_unnamed_addr #11 {
+entry:
+  %0 = load i32, ptr %ver, align 8, !tbaa !19
+  %cond.i = icmp eq i32 %0, 0
+  %..i = select i1 %cond.i, i64 32, i64 0
+  ret i64 %..i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_Z27srp_verifier_verify_sessionP11SRPVerifierPKhPPh(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #13 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 36
-  %5 = load i32, ptr %0, align 8, !tbaa !19
-  %6 = icmp eq i32 %5, 0
-  %7 = select i1 %6, i64 32, i64 0
-  %8 = tail call i32 @bcmp(ptr nonnull %4, ptr %1, i64 %7)
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %13
+define dso_local void @_Z27srp_verifier_verify_sessionP11SRPVerifierPKhPPh(ptr noundef %ver, ptr nocapture noundef readonly %user_M, ptr nocapture noundef writeonly %bytes_HAMK) local_unnamed_addr #13 {
+entry:
+  %M = getelementptr inbounds i8, ptr %ver, i64 36
+  %0 = load i32, ptr %ver, align 8, !tbaa !19
+  %cond.i = icmp eq i32 %0, 0
+  %..i = select i1 %cond.i, i64 32, i64 0
+  %bcmp = tail call i32 @bcmp(ptr nonnull %M, ptr %user_M, i64 %..i)
+  %cmp = icmp eq i32 %bcmp, 0
+  br i1 %cmp, label %if.then, label %if.end
 
-10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
-  store i32 1, ptr %11, align 8, !tbaa !21
-  %12 = getelementptr inbounds i8, ptr %0, i64 68
-  br label %13
+if.then:                                          ; preds = %entry
+  %authenticated = getelementptr inbounds i8, ptr %ver, i64 32
+  store i32 1, ptr %authenticated, align 8, !tbaa !21
+  %H_AMK = getelementptr inbounds i8, ptr %ver, i64 68
+  br label %if.end
 
-13:                                               ; preds = %10, %3
-  %14 = phi ptr [ %12, %10 ], [ null, %3 ]
-  store ptr %14, ptr %2, align 8, !tbaa !4
+if.end:                                           ; preds = %if.then, %entry
+  %storemerge = phi ptr [ %H_AMK, %if.then ], [ null, %entry ]
+  store ptr %storemerge, ptr %bytes_HAMK, align 8, !tbaa !4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_Z12srp_user_new17SRP_HashAlgorithm10SRP_NGTypePKcS2_PKhmS2_S2_(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #4 {
-  %9 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
-  %10 = tail call noundef ptr %9(i64 noundef 208)
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #18
-  %12 = add i64 %11, 1
-  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #18
-  %14 = add i64 %13, 1
-  %15 = icmp eq ptr %10, null
-  br i1 %15, label %88, label %16
+define dso_local noundef ptr @_Z12srp_user_new17SRP_HashAlgorithm10SRP_NGTypePKcS2_PKhmS2_S2_(i32 noundef %alg, i32 noundef %ng_type, ptr nocapture noundef readonly %username, ptr nocapture noundef readonly %username_for_verifier, ptr nocapture noundef readonly %bytes_password, i64 noundef %len_password, ptr noundef %n_hex, ptr noundef %g_hex) local_unnamed_addr #4 {
+entry:
+  %0 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
+  %call = tail call noundef ptr %0(i64 noundef 208)
+  %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %username) #18
+  %add = add i64 %call1, 1
+  %call2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %username_for_verifier) #18
+  %add3 = add i64 %call2, 1
+  %tobool.not = icmp eq ptr %call, null
+  br i1 %tobool.not, label %cleanup, label %if.end
 
-16:                                               ; preds = %8
-  %17 = load i32, ptr @_ZL13g_initialized, align 4, !tbaa !8
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %30
+if.end:                                           ; preds = %entry
+  %1 = load i32, ptr @_ZL13g_initialized, align 4, !tbaa !8
+  %tobool.not.i = icmp eq i32 %1, 0
+  br i1 %tobool.not.i, label %if.end.i, label %if.end6
 
-19:                                               ; preds = %16
+if.end.i:                                         ; preds = %if.end
   store i32 0, ptr @_ZL10g_rand_idx, align 4, !tbaa !8
-  %20 = tail call noalias ptr @fopen(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8)
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %26, label %22
+  %call.i.i = tail call noalias ptr @fopen(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8)
+  %tobool.not.i.i = icmp eq ptr %call.i.i, null
+  br i1 %tobool.not.i.i, label %_ZL11init_randomv.exit.thread93, label %if.end.i.i
 
-22:                                               ; preds = %19
-  %23 = tail call i64 @fread(ptr noundef nonnull @_ZL11g_rand_buff, i64 noundef 128, i64 noundef 1, ptr noundef nonnull %20)
-  %24 = icmp eq i64 %23, 1
-  %25 = tail call i32 @fclose(ptr noundef nonnull %20)
-  br i1 %24, label %27, label %26
+if.end.i.i:                                       ; preds = %if.end.i
+  %call1.i.i = tail call i64 @fread(ptr noundef nonnull @_ZL11g_rand_buff, i64 noundef 128, i64 noundef 1, ptr noundef nonnull %call.i.i)
+  %cmp.not.i.i = icmp eq i64 %call1.i.i, 1
+  %call5.i.i = tail call i32 @fclose(ptr noundef nonnull %call.i.i)
+  br i1 %cmp.not.i.i, label %_ZL11init_randomv.exit, label %_ZL11init_randomv.exit.thread93
 
-26:                                               ; preds = %22, %19
+_ZL11init_randomv.exit.thread93:                  ; preds = %if.end.i.i, %if.end.i
   store i32 0, ptr @_ZL13g_initialized, align 4, !tbaa !8
-  br label %61
+  br label %if.then31
 
-27:                                               ; preds = %22
-  %28 = icmp eq i32 %25, 0
-  %29 = zext i1 %28 to i32
-  store i32 %29, ptr @_ZL13g_initialized, align 4, !tbaa !8
-  br i1 %28, label %30, label %61
+_ZL11init_randomv.exit:                           ; preds = %if.end.i.i
+  %tobool6.not.i.i = icmp eq i32 %call5.i.i, 0
+  %..i.i = zext i1 %tobool6.not.i.i to i32
+  store i32 %..i.i, ptr @_ZL13g_initialized, align 4, !tbaa !8
+  br i1 %tobool6.not.i.i, label %if.end6, label %if.then31
 
-30:                                               ; preds = %27, %16
-  store i32 %0, ptr %10, align 8, !tbaa !24
-  %31 = tail call fastcc noundef ptr @_ZL6new_ng10SRP_NGTypePKcS1_(i32 noundef %1, ptr noundef %6, ptr noundef %7)
-  %32 = getelementptr inbounds i8, ptr %10, i64 8
-  store ptr %31, ptr %32, align 8, !tbaa !26
-  %33 = getelementptr inbounds i8, ptr %10, i64 16
-  tail call void @__gmpz_init(ptr noundef nonnull %33) #17
-  %34 = getelementptr inbounds i8, ptr %10, i64 32
-  tail call void @__gmpz_init(ptr noundef nonnull %34) #17
-  %35 = getelementptr inbounds i8, ptr %10, i64 48
-  tail call void @__gmpz_init(ptr noundef nonnull %35) #17
-  %36 = load ptr, ptr %32, align 8, !tbaa !26
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %61, label %38
+if.end6:                                          ; preds = %_ZL11init_randomv.exit, %if.end
+  store i32 %alg, ptr %call, align 8, !tbaa !24
+  %call7 = tail call fastcc noundef ptr @_ZL6new_ng10SRP_NGTypePKcS1_(i32 noundef %ng_type, ptr noundef %n_hex, ptr noundef %g_hex)
+  %ng = getelementptr inbounds i8, ptr %call, i64 8
+  store ptr %call7, ptr %ng, align 8, !tbaa !26
+  %a = getelementptr inbounds i8, ptr %call, i64 16
+  tail call void @__gmpz_init(ptr noundef nonnull %a) #17
+  %A = getelementptr inbounds i8, ptr %call, i64 32
+  tail call void @__gmpz_init(ptr noundef nonnull %A) #17
+  %S = getelementptr inbounds i8, ptr %call, i64 48
+  tail call void @__gmpz_init(ptr noundef nonnull %S) #17
+  %2 = load ptr, ptr %ng, align 8, !tbaa !26
+  %tobool11.not = icmp eq ptr %2, null
+  br i1 %tobool11.not, label %if.then31, label %if.end13
 
-38:                                               ; preds = %30
-  %39 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
-  %40 = tail call noundef ptr %39(i64 noundef %12)
-  %41 = getelementptr inbounds i8, ptr %10, i64 80
-  store ptr %40, ptr %41, align 8, !tbaa !27
-  %42 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
-  %43 = tail call noundef ptr %42(i64 noundef %14)
-  %44 = getelementptr inbounds i8, ptr %10, i64 88
-  store ptr %43, ptr %44, align 8, !tbaa !28
-  %45 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
-  %46 = tail call noundef ptr %45(i64 noundef %5)
-  %47 = getelementptr inbounds i8, ptr %10, i64 96
-  store ptr %46, ptr %47, align 8, !tbaa !29
-  %48 = getelementptr inbounds i8, ptr %10, i64 104
-  store i64 %5, ptr %48, align 8, !tbaa !30
-  %49 = load ptr, ptr %41, align 8, !tbaa !27
-  %50 = icmp eq ptr %49, null
-  %51 = icmp eq ptr %46, null
-  %52 = or i1 %51, %50
-  br i1 %52, label %61, label %53
+if.end13:                                         ; preds = %if.end6
+  %3 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
+  %call14 = tail call noundef ptr %3(i64 noundef %add)
+  %username15 = getelementptr inbounds i8, ptr %call, i64 80
+  store ptr %call14, ptr %username15, align 8, !tbaa !27
+  %4 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
+  %call16 = tail call noundef ptr %4(i64 noundef %add3)
+  %username_verifier = getelementptr inbounds i8, ptr %call, i64 88
+  store ptr %call16, ptr %username_verifier, align 8, !tbaa !28
+  %5 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
+  %call17 = tail call noundef ptr %5(i64 noundef %len_password)
+  %password = getelementptr inbounds i8, ptr %call, i64 96
+  store ptr %call17, ptr %password, align 8, !tbaa !29
+  %password_len = getelementptr inbounds i8, ptr %call, i64 104
+  store i64 %len_password, ptr %password_len, align 8, !tbaa !30
+  %6 = load ptr, ptr %username15, align 8, !tbaa !27
+  %tobool19.not = icmp eq ptr %6, null
+  %tobool21.not = icmp eq ptr %call17, null
+  %or.cond = or i1 %tobool21.not, %tobool19.not
+  br i1 %or.cond, label %if.then31, label %lor.lhs.false22
 
-53:                                               ; preds = %38
-  %54 = load ptr, ptr %44, align 8, !tbaa !28
-  %55 = icmp eq ptr %54, null
-  br i1 %55, label %61, label %56
+lor.lhs.false22:                                  ; preds = %if.end13
+  %7 = load ptr, ptr %username_verifier, align 8, !tbaa !28
+  %tobool24.not = icmp eq ptr %7, null
+  br i1 %tobool24.not, label %if.then31, label %if.end26
 
-56:                                               ; preds = %53
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %49, ptr align 1 %2, i64 %12, i1 false)
-  %57 = load ptr, ptr %44, align 8, !tbaa !28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %57, ptr align 1 %3, i64 %14, i1 false)
-  %58 = load ptr, ptr %47, align 8, !tbaa !29
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %58, ptr align 1 %4, i64 %5, i1 false)
-  %59 = getelementptr inbounds i8, ptr %10, i64 72
-  store i32 0, ptr %59, align 8, !tbaa !31
-  %60 = getelementptr inbounds i8, ptr %10, i64 64
-  store ptr null, ptr %60, align 8, !tbaa !32
-  br label %88
+if.end26:                                         ; preds = %lor.lhs.false22
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr align 1 %username, i64 %add, i1 false)
+  %8 = load ptr, ptr %username_verifier, align 8, !tbaa !28
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr align 1 %username_for_verifier, i64 %add3, i1 false)
+  %9 = load ptr, ptr %password, align 8, !tbaa !29
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr align 1 %bytes_password, i64 %len_password, i1 false)
+  %authenticated = getelementptr inbounds i8, ptr %call, i64 72
+  store i32 0, ptr %authenticated, align 8, !tbaa !31
+  %bytes_A = getelementptr inbounds i8, ptr %call, i64 64
+  store ptr null, ptr %bytes_A, align 8, !tbaa !32
+  br label %cleanup
 
-61:                                               ; preds = %53, %38, %30, %27, %26
-  %62 = getelementptr inbounds i8, ptr %10, i64 16
-  tail call void @__gmpz_clear(ptr noundef nonnull %62)
-  %63 = getelementptr inbounds i8, ptr %10, i64 32
-  tail call void @__gmpz_clear(ptr noundef nonnull %63)
-  %64 = getelementptr inbounds i8, ptr %10, i64 48
-  tail call void @__gmpz_clear(ptr noundef nonnull %64)
-  %65 = getelementptr inbounds i8, ptr %10, i64 8
-  %66 = load ptr, ptr %65, align 8, !tbaa !26
-  %67 = icmp eq ptr %66, null
-  br i1 %67, label %71, label %68
+if.then31:                                        ; preds = %lor.lhs.false22, %if.end13, %if.end6, %_ZL11init_randomv.exit, %_ZL11init_randomv.exit.thread93
+  %a32 = getelementptr inbounds i8, ptr %call, i64 16
+  tail call void @__gmpz_clear(ptr noundef nonnull %a32)
+  %A34 = getelementptr inbounds i8, ptr %call, i64 32
+  tail call void @__gmpz_clear(ptr noundef nonnull %A34)
+  %S36 = getelementptr inbounds i8, ptr %call, i64 48
+  tail call void @__gmpz_clear(ptr noundef nonnull %S36)
+  %ng38 = getelementptr inbounds i8, ptr %call, i64 8
+  %10 = load ptr, ptr %ng38, align 8, !tbaa !26
+  %tobool.not.i89 = icmp eq ptr %10, null
+  br i1 %tobool.not.i89, label %_ZL9delete_ngP10NGConstant.exit, label %if.then.i
 
-68:                                               ; preds = %61
-  tail call void @__gmpz_clear(ptr noundef nonnull %66)
-  %69 = getelementptr inbounds i8, ptr %66, i64 16
-  tail call void @__gmpz_clear(ptr noundef nonnull %69)
-  %70 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  tail call void %70(ptr noundef nonnull %66)
-  br label %71
+if.then.i:                                        ; preds = %if.then31
+  tail call void @__gmpz_clear(ptr noundef nonnull %10)
+  %g.i = getelementptr inbounds i8, ptr %10, i64 16
+  tail call void @__gmpz_clear(ptr noundef nonnull %g.i)
+  %11 = load ptr, ptr @srp_free, align 8, !tbaa !4
+  tail call void %11(ptr noundef nonnull %10)
+  br label %_ZL9delete_ngP10NGConstant.exit
 
-71:                                               ; preds = %68, %61
-  %72 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  %73 = getelementptr inbounds i8, ptr %10, i64 80
-  %74 = load ptr, ptr %73, align 8, !tbaa !27
-  tail call void %72(ptr noundef %74)
-  %75 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  %76 = getelementptr inbounds i8, ptr %10, i64 88
-  %77 = load ptr, ptr %76, align 8, !tbaa !28
-  tail call void %75(ptr noundef %77)
-  %78 = getelementptr inbounds i8, ptr %10, i64 96
-  %79 = load ptr, ptr %78, align 8, !tbaa !29
-  %80 = icmp eq ptr %79, null
-  br i1 %80, label %86, label %81
+_ZL9delete_ngP10NGConstant.exit:                  ; preds = %if.then.i, %if.then31
+  %12 = load ptr, ptr @srp_free, align 8, !tbaa !4
+  %username39 = getelementptr inbounds i8, ptr %call, i64 80
+  %13 = load ptr, ptr %username39, align 8, !tbaa !27
+  tail call void %12(ptr noundef %13)
+  %14 = load ptr, ptr @srp_free, align 8, !tbaa !4
+  %username_verifier40 = getelementptr inbounds i8, ptr %call, i64 88
+  %15 = load ptr, ptr %username_verifier40, align 8, !tbaa !28
+  tail call void %14(ptr noundef %15)
+  %password41 = getelementptr inbounds i8, ptr %call, i64 96
+  %16 = load ptr, ptr %password41, align 8, !tbaa !29
+  %tobool42.not = icmp eq ptr %16, null
+  br i1 %tobool42.not, label %if.end47, label %if.then43
 
-81:                                               ; preds = %71
-  %82 = getelementptr inbounds i8, ptr %10, i64 104
-  %83 = load i64, ptr %82, align 8, !tbaa !30
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %79, i8 0, i64 %83, i1 false)
-  %84 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  %85 = load ptr, ptr %78, align 8, !tbaa !29
-  tail call void %84(ptr noundef %85)
-  br label %86
+if.then43:                                        ; preds = %_ZL9delete_ngP10NGConstant.exit
+  %password_len45 = getelementptr inbounds i8, ptr %call, i64 104
+  %17 = load i64, ptr %password_len45, align 8, !tbaa !30
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %16, i8 0, i64 %17, i1 false)
+  %18 = load ptr, ptr @srp_free, align 8, !tbaa !4
+  %19 = load ptr, ptr %password41, align 8, !tbaa !29
+  tail call void %18(ptr noundef %19)
+  br label %if.end47
 
-86:                                               ; preds = %81, %71
-  %87 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  tail call void %87(ptr noundef nonnull %10)
-  br label %88
+if.end47:                                         ; preds = %if.then43, %_ZL9delete_ngP10NGConstant.exit
+  %20 = load ptr, ptr @srp_free, align 8, !tbaa !4
+  tail call void %20(ptr noundef nonnull %call)
+  br label %cleanup
 
-88:                                               ; preds = %86, %56, %8
-  %89 = phi ptr [ %10, %56 ], [ null, %8 ], [ null, %86 ]
-  ret ptr %89
+cleanup:                                          ; preds = %if.end47, %if.end26, %entry
+  %retval.0 = phi ptr [ %call, %if.end26 ], [ null, %entry ], [ null, %if.end47 ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z15srp_user_deleteP7SRPUser(ptr noundef %0) local_unnamed_addr #4 {
-  %2 = icmp eq ptr %0, null
-  br i1 %2, label %33, label %3
+define dso_local void @_Z15srp_user_deleteP7SRPUser(ptr noundef %usr) local_unnamed_addr #4 {
+entry:
+  %tobool.not = icmp eq ptr %usr, null
+  br i1 %tobool.not, label %if.end7, label %if.then
 
-3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @__gmpz_clear(ptr noundef nonnull %4)
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @__gmpz_clear(ptr noundef nonnull %5)
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
-  tail call void @__gmpz_clear(ptr noundef nonnull %6)
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !26
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %13, label %10
+if.then:                                          ; preds = %entry
+  %a = getelementptr inbounds i8, ptr %usr, i64 16
+  tail call void @__gmpz_clear(ptr noundef nonnull %a)
+  %A = getelementptr inbounds i8, ptr %usr, i64 32
+  tail call void @__gmpz_clear(ptr noundef nonnull %A)
+  %S = getelementptr inbounds i8, ptr %usr, i64 48
+  tail call void @__gmpz_clear(ptr noundef nonnull %S)
+  %ng = getelementptr inbounds i8, ptr %usr, i64 8
+  %0 = load ptr, ptr %ng, align 8, !tbaa !26
+  %tobool.not.i = icmp eq ptr %0, null
+  br i1 %tobool.not.i, label %_ZL9delete_ngP10NGConstant.exit, label %if.then.i
 
-10:                                               ; preds = %3
-  tail call void @__gmpz_clear(ptr noundef nonnull %8)
-  %11 = getelementptr inbounds i8, ptr %8, i64 16
-  tail call void @__gmpz_clear(ptr noundef nonnull %11)
+if.then.i:                                        ; preds = %if.then
+  tail call void @__gmpz_clear(ptr noundef nonnull %0)
+  %g.i = getelementptr inbounds i8, ptr %0, i64 16
+  tail call void @__gmpz_clear(ptr noundef nonnull %g.i)
+  %1 = load ptr, ptr @srp_free, align 8, !tbaa !4
+  tail call void %1(ptr noundef nonnull %0)
+  br label %_ZL9delete_ngP10NGConstant.exit
+
+_ZL9delete_ngP10NGConstant.exit:                  ; preds = %if.then.i, %if.then
+  %password = getelementptr inbounds i8, ptr %usr, i64 96
+  %2 = load ptr, ptr %password, align 8, !tbaa !29
+  %password_len = getelementptr inbounds i8, ptr %usr, i64 104
+  %3 = load i64, ptr %password_len, align 8, !tbaa !30
+  tail call void @llvm.memset.p0.i64(ptr align 1 %2, i8 0, i64 %3, i1 false)
+  %4 = load ptr, ptr @srp_free, align 8, !tbaa !4
+  %username = getelementptr inbounds i8, ptr %usr, i64 80
+  %5 = load ptr, ptr %username, align 8, !tbaa !27
+  tail call void %4(ptr noundef %5)
+  %6 = load ptr, ptr @srp_free, align 8, !tbaa !4
+  %username_verifier = getelementptr inbounds i8, ptr %usr, i64 88
+  %7 = load ptr, ptr %username_verifier, align 8, !tbaa !28
+  tail call void %6(ptr noundef %7)
+  %8 = load ptr, ptr @srp_free, align 8, !tbaa !4
+  %9 = load ptr, ptr %password, align 8, !tbaa !29
+  tail call void %8(ptr noundef %9)
+  %bytes_A = getelementptr inbounds i8, ptr %usr, i64 64
+  %10 = load ptr, ptr %bytes_A, align 8, !tbaa !32
+  %tobool4.not = icmp eq ptr %10, null
+  br i1 %tobool4.not, label %if.end, label %if.then5
+
+if.then5:                                         ; preds = %_ZL9delete_ngP10NGConstant.exit
+  %11 = load ptr, ptr @srp_free, align 8, !tbaa !4
+  tail call void %11(ptr noundef nonnull %10)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then5, %_ZL9delete_ngP10NGConstant.exit
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %usr, i8 0, i64 208, i1 false)
   %12 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  tail call void %12(ptr noundef nonnull %8)
-  br label %13
+  tail call void %12(ptr noundef nonnull %usr)
+  br label %if.end7
 
-13:                                               ; preds = %10, %3
-  %14 = getelementptr inbounds i8, ptr %0, i64 96
-  %15 = load ptr, ptr %14, align 8, !tbaa !29
-  %16 = getelementptr inbounds i8, ptr %0, i64 104
-  %17 = load i64, ptr %16, align 8, !tbaa !30
-  tail call void @llvm.memset.p0.i64(ptr align 1 %15, i8 0, i64 %17, i1 false)
-  %18 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  %19 = getelementptr inbounds i8, ptr %0, i64 80
-  %20 = load ptr, ptr %19, align 8, !tbaa !27
-  tail call void %18(ptr noundef %20)
-  %21 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  %22 = getelementptr inbounds i8, ptr %0, i64 88
-  %23 = load ptr, ptr %22, align 8, !tbaa !28
-  tail call void %21(ptr noundef %23)
-  %24 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  %25 = load ptr, ptr %14, align 8, !tbaa !29
-  tail call void %24(ptr noundef %25)
-  %26 = getelementptr inbounds i8, ptr %0, i64 64
-  %27 = load ptr, ptr %26, align 8, !tbaa !32
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %31, label %29
-
-29:                                               ; preds = %13
-  %30 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  tail call void %30(ptr noundef nonnull %27)
-  br label %31
-
-31:                                               ; preds = %29, %13
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %0, i8 0, i64 208, i1 false)
-  %32 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  tail call void %32(ptr noundef nonnull %0)
-  br label %33
-
-33:                                               ; preds = %31, %1
+if.end7:                                          ; preds = %if.end, %entry
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_Z25srp_user_is_authenticatedP7SRPUser(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
-  %3 = load i32, ptr %2, align 8, !tbaa !31
-  ret i32 %3
+define dso_local noundef i32 @_Z25srp_user_is_authenticatedP7SRPUser(ptr nocapture noundef readonly %usr) local_unnamed_addr #11 {
+entry:
+  %authenticated = getelementptr inbounds i8, ptr %usr, i64 72
+  %0 = load i32, ptr %authenticated, align 8, !tbaa !31
+  ret i32 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_Z21srp_user_get_usernameP7SRPUser(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
-  %3 = load ptr, ptr %2, align 8, !tbaa !27
-  ret ptr %3
+define dso_local noundef ptr @_Z21srp_user_get_usernameP7SRPUser(ptr nocapture noundef readonly %usr) local_unnamed_addr #11 {
+entry:
+  %username = getelementptr inbounds i8, ptr %usr, i64 80
+  %0 = load ptr, ptr %username, align 8, !tbaa !27
+  ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef nonnull ptr @_Z24srp_user_get_session_keyP7SRPUserPm(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #12 {
-  %3 = icmp eq ptr %1, null
-  br i1 %3, label %8, label %4
+define dso_local noundef nonnull ptr @_Z24srp_user_get_session_keyP7SRPUserPm(ptr noundef readonly %usr, ptr noundef writeonly %key_length) local_unnamed_addr #12 {
+entry:
+  %tobool.not = icmp eq ptr %key_length, null
+  br i1 %tobool.not, label %if.end, label %if.then
 
-4:                                                ; preds = %2
-  %5 = load i32, ptr %0, align 8, !tbaa !24
-  %6 = icmp eq i32 %5, 0
-  %7 = select i1 %6, i64 32, i64 0
-  store i64 %7, ptr %1, align 8, !tbaa !10
-  br label %8
+if.then:                                          ; preds = %entry
+  %0 = load i32, ptr %usr, align 8, !tbaa !24
+  %cond.i = icmp eq i32 %0, 0
+  %..i = select i1 %cond.i, i64 32, i64 0
+  store i64 %..i, ptr %key_length, align 8, !tbaa !10
+  br label %if.end
 
-8:                                                ; preds = %4, %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 176
-  ret ptr %9
+if.end:                                           ; preds = %if.then, %entry
+  %session_key = getelementptr inbounds i8, ptr %usr, i64 176
+  ret ptr %session_key
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_Z31srp_user_get_session_key_lengthP7SRPUser(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
-  %2 = load i32, ptr %0, align 8, !tbaa !24
-  %3 = icmp eq i32 %2, 0
-  %4 = select i1 %3, i64 32, i64 0
-  ret i64 %4
+define dso_local noundef i64 @_Z31srp_user_get_session_key_lengthP7SRPUser(ptr nocapture noundef readonly %usr) local_unnamed_addr #11 {
+entry:
+  %0 = load i32, ptr %usr, align 8, !tbaa !24
+  %cond.i = icmp eq i32 %0, 0
+  %..i = select i1 %cond.i, i64 32, i64 0
+  ret i64 %..i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z29srp_user_start_authenticationP7SRPUserPPcPKhmPPhPm(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #4 {
-  %7 = icmp eq ptr %2, null
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
-  br i1 %7, label %10, label %9
+define dso_local noundef i32 @_Z29srp_user_start_authenticationP7SRPUserPPcPKhmPPhPm(ptr noundef %usr, ptr noundef writeonly %username, ptr noundef %bytes_a, i64 noundef %len_a, ptr nocapture noundef %bytes_A, ptr nocapture noundef writeonly %len_A) local_unnamed_addr #4 {
+entry:
+  %tobool.not = icmp eq ptr %bytes_a, null
+  %a1 = getelementptr inbounds i8, ptr %usr, i64 16
+  br i1 %tobool.not, label %if.else, label %if.then
 
-9:                                                ; preds = %6
-  tail call void @__gmpz_import(ptr noundef nonnull %8, i64 noundef %3, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef nonnull %2)
-  br label %31
+if.then:                                          ; preds = %entry
+  tail call void @__gmpz_import(ptr noundef nonnull %a1, i64 noundef %len_a, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef nonnull %bytes_a)
+  br label %if.end5
 
-10:                                               ; preds = %6
-  %11 = load i32, ptr @_ZL10g_rand_idx, align 4, !tbaa !8
-  %12 = add i32 %11, -97
-  %13 = icmp ult i32 %12, 32
-  br i1 %13, label %14, label %25
+if.else:                                          ; preds = %entry
+  %0 = load i32, ptr @_ZL10g_rand_idx, align 4, !tbaa !8
+  %1 = add i32 %0, -97
+  %cmp.i = icmp ult i32 %1, 32
+  br i1 %cmp.i, label %if.then.i, label %_ZL15mpz_fill_randomP12__mpz_struct.exit
 
-14:                                               ; preds = %10
+if.then.i:                                        ; preds = %if.else
   store i32 0, ptr @_ZL10g_rand_idx, align 4, !tbaa !8
-  %15 = tail call noalias ptr @fopen(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8)
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %51, label %17
+  %call.i.i = tail call noalias ptr @fopen(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8)
+  %tobool.not.i.i = icmp eq ptr %call.i.i, null
+  br i1 %tobool.not.i.i, label %error_and_exit, label %if.end.i.i
 
-17:                                               ; preds = %14
-  %18 = tail call i64 @fread(ptr noundef nonnull @_ZL11g_rand_buff, i64 noundef 128, i64 noundef 1, ptr noundef nonnull %15)
-  %19 = icmp eq i64 %18, 1
-  %20 = tail call i32 @fclose(ptr noundef nonnull %15)
-  %21 = icmp eq i32 %20, 0
-  %22 = and i1 %19, %21
-  br i1 %22, label %23, label %51
+if.end.i.i:                                       ; preds = %if.then.i
+  %call1.i.i = tail call i64 @fread(ptr noundef nonnull @_ZL11g_rand_buff, i64 noundef 128, i64 noundef 1, ptr noundef nonnull %call.i.i)
+  %cmp.not.i.i = icmp eq i64 %call1.i.i, 1
+  %call5.i.i = tail call i32 @fclose(ptr noundef nonnull %call.i.i)
+  %tobool6.not.i.not.i = icmp eq i32 %call5.i.i, 0
+  %or.cond.i = and i1 %cmp.not.i.i, %tobool6.not.i.not.i
+  br i1 %or.cond.i, label %if.end.i.if.end3_crit_edge.i, label %error_and_exit
 
-23:                                               ; preds = %17
-  %24 = load i32, ptr @_ZL10g_rand_idx, align 4, !tbaa !8
-  br label %25
+if.end.i.if.end3_crit_edge.i:                     ; preds = %if.end.i.i
+  %.pre.i = load i32, ptr @_ZL10g_rand_idx, align 4, !tbaa !8
+  br label %_ZL15mpz_fill_randomP12__mpz_struct.exit
 
-25:                                               ; preds = %23, %10
-  %26 = phi i32 [ %24, %23 ], [ %11, %10 ]
-  %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds [128 x i8], ptr @_ZL11g_rand_buff, i64 0, i64 %27
-  tail call void @__gmpz_import(ptr noundef nonnull %8, i64 noundef 32, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef nonnull %28)
-  %29 = load i32, ptr @_ZL10g_rand_idx, align 4, !tbaa !8
-  %30 = add i32 %29, 32
-  store i32 %30, ptr @_ZL10g_rand_idx, align 4, !tbaa !8
-  br label %31
+_ZL15mpz_fill_randomP12__mpz_struct.exit:         ; preds = %if.end.i.if.end3_crit_edge.i, %if.else
+  %2 = phi i32 [ %.pre.i, %if.end.i.if.end3_crit_edge.i ], [ %0, %if.else ]
+  %idxprom.i = zext i32 %2 to i64
+  %arrayidx.i = getelementptr inbounds [128 x i8], ptr @_ZL11g_rand_buff, i64 0, i64 %idxprom.i
+  tail call void @__gmpz_import(ptr noundef nonnull %a1, i64 noundef 32, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef nonnull %arrayidx.i)
+  %3 = load i32, ptr @_ZL10g_rand_idx, align 4, !tbaa !8
+  %add.i = add i32 %3, 32
+  store i32 %add.i, ptr @_ZL10g_rand_idx, align 4, !tbaa !8
+  br label %if.end5
 
-31:                                               ; preds = %25, %9
-  %32 = getelementptr inbounds i8, ptr %0, i64 32
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
-  %34 = load ptr, ptr %33, align 8, !tbaa !26
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
-  tail call void @__gmpz_powm(ptr noundef nonnull %32, ptr noundef nonnull %35, ptr noundef nonnull %8, ptr noundef %34)
-  %36 = tail call i64 @__gmpz_sizeinbase(ptr noundef nonnull %32, i32 noundef 2) #18
-  %37 = shl i64 %36, 29
-  %38 = add i64 %37, 3758096384
-  %39 = ashr i64 %38, 32
-  store i64 %39, ptr %5, align 8, !tbaa !10
-  %40 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
-  %41 = tail call noundef ptr %40(i64 noundef %39)
-  store ptr %41, ptr %4, align 8, !tbaa !4
-  %42 = icmp eq ptr %41, null
-  br i1 %42, label %51, label %43
+if.end5:                                          ; preds = %_ZL15mpz_fill_randomP12__mpz_struct.exit, %if.then
+  %A = getelementptr inbounds i8, ptr %usr, i64 32
+  %ng = getelementptr inbounds i8, ptr %usr, i64 8
+  %4 = load ptr, ptr %ng, align 8, !tbaa !26
+  %g = getelementptr inbounds i8, ptr %4, i64 16
+  tail call void @__gmpz_powm(ptr noundef nonnull %A, ptr noundef nonnull %g, ptr noundef nonnull %a1, ptr noundef %4)
+  %call.i = tail call i64 @__gmpz_sizeinbase(ptr noundef nonnull %A, i32 noundef 2) #18
+  %add.i44 = shl i64 %call.i, 29
+  %5 = add i64 %add.i44, 3758096384
+  %conv = ashr i64 %5, 32
+  store i64 %conv, ptr %len_A, align 8, !tbaa !10
+  %6 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
+  %call15 = tail call noundef ptr %6(i64 noundef %conv)
+  store ptr %call15, ptr %bytes_A, align 8, !tbaa !4
+  %tobool16.not = icmp eq ptr %call15, null
+  br i1 %tobool16.not, label %error_and_exit, label %if.end18
 
-43:                                               ; preds = %31
-  %44 = tail call ptr @__gmpz_export(ptr noundef nonnull %41, ptr noundef null, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef nonnull %32)
-  %45 = load ptr, ptr %4, align 8, !tbaa !4
-  %46 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr %45, ptr %46, align 8, !tbaa !32
-  %47 = icmp eq ptr %1, null
-  br i1 %47, label %55, label %48
+if.end18:                                         ; preds = %if.end5
+  %call.i45 = tail call ptr @__gmpz_export(ptr noundef nonnull %call15, ptr noundef null, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef nonnull %A)
+  %7 = load ptr, ptr %bytes_A, align 8, !tbaa !4
+  %bytes_A21 = getelementptr inbounds i8, ptr %usr, i64 64
+  store ptr %7, ptr %bytes_A21, align 8, !tbaa !32
+  %tobool22.not = icmp eq ptr %username, null
+  br i1 %tobool22.not, label %return, label %if.then23
 
-48:                                               ; preds = %43
-  %49 = getelementptr inbounds i8, ptr %0, i64 80
-  %50 = load ptr, ptr %49, align 8, !tbaa !27
-  br label %52
+if.then23:                                        ; preds = %if.end18
+  %username24 = getelementptr inbounds i8, ptr %usr, i64 80
+  %8 = load ptr, ptr %username24, align 8, !tbaa !27
+  br label %return.sink.split
 
-51:                                               ; preds = %31, %17, %14
-  store i64 0, ptr %5, align 8, !tbaa !10
-  store ptr null, ptr %4, align 8, !tbaa !4
-  br label %52
+error_and_exit:                                   ; preds = %if.end5, %if.end.i.i, %if.then.i
+  store i64 0, ptr %len_A, align 8, !tbaa !10
+  store ptr null, ptr %bytes_A, align 8, !tbaa !4
+  br label %return.sink.split
 
-52:                                               ; preds = %51, %48
-  %53 = phi ptr [ %50, %48 ], [ null, %51 ]
-  %54 = phi i32 [ 1, %48 ], [ 0, %51 ]
-  store ptr %53, ptr %1, align 8, !tbaa !4
-  br label %55
+return.sink.split:                                ; preds = %error_and_exit, %if.then23
+  %.sink = phi ptr [ %8, %if.then23 ], [ null, %error_and_exit ]
+  %retval.0.ph = phi i32 [ 1, %if.then23 ], [ 0, %error_and_exit ]
+  store ptr %.sink, ptr %username, align 8, !tbaa !4
+  br label %return
 
-55:                                               ; preds = %52, %43
-  %56 = phi i32 [ 1, %43 ], [ %54, %52 ]
-  ret i32 %56
+return:                                           ; preds = %return.sink.split, %if.end18
+  %retval.0 = phi i32 [ 1, %if.end18 ], [ %retval.0.ph, %return.sink.split ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z26srp_user_process_challengeP7SRPUserPKhmS2_mPPhPm(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #4 {
-  %8 = alloca [1 x %struct.__mpz_struct], align 16
-  %9 = alloca [1 x %struct.__mpz_struct], align 16
-  %10 = alloca [1 x %struct.__mpz_struct], align 16
-  %11 = alloca [1 x %struct.__mpz_struct], align 16
-  %12 = alloca [1 x %struct.__mpz_struct], align 16
-  %13 = alloca [1 x %struct.__mpz_struct], align 16
-  %14 = alloca [1 x %struct.__mpz_struct], align 16
-  %15 = alloca [1 x %struct.__mpz_struct], align 16
-  %16 = alloca [1 x %struct.__mpz_struct], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #17
-  call void @__gmpz_init(ptr noundef nonnull %8) #17
-  call void @__gmpz_import(ptr noundef nonnull %8, i64 noundef %4, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #17
-  call void @__gmpz_init(ptr noundef nonnull %9) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #17
-  call void @__gmpz_init(ptr noundef nonnull %10) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #17
-  call void @__gmpz_init(ptr noundef nonnull %11) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #17
-  call void @__gmpz_init(ptr noundef nonnull %12) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #17
-  call void @__gmpz_init(ptr noundef nonnull %13) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #17
-  call void @__gmpz_init(ptr noundef nonnull %14) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #17
-  call void @__gmpz_init(ptr noundef nonnull %15) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #17
-  call void @__gmpz_init(ptr noundef nonnull %16) #17
-  store i64 0, ptr %6, align 8, !tbaa !10
-  store ptr null, ptr %5, align 8, !tbaa !4
-  %17 = load i32, ptr %0, align 8, !tbaa !24
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !26
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
-  %21 = call fastcc noundef i32 @_ZL4H_nnP12__mpz_struct17SRP_HashAlgorithmPKS_S3_S3_(ptr noundef nonnull %9, i32 noundef %17, ptr noundef %19, ptr noundef nonnull %20, ptr noundef nonnull %8), !range !12
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %92, label %23
+define dso_local void @_Z26srp_user_process_challengeP7SRPUserPKhmS2_mPPhPm(ptr noundef %usr, ptr noundef %bytes_s, i64 noundef %len_s, ptr noundef %bytes_B, i64 noundef %len_B, ptr nocapture noundef writeonly %bytes_M, ptr nocapture noundef writeonly %len_M) local_unnamed_addr #4 {
+entry:
+  %B = alloca [1 x %struct.__mpz_struct], align 16
+  %u = alloca [1 x %struct.__mpz_struct], align 16
+  %x = alloca [1 x %struct.__mpz_struct], align 16
+  %k = alloca [1 x %struct.__mpz_struct], align 16
+  %v = alloca [1 x %struct.__mpz_struct], align 16
+  %tmp1 = alloca [1 x %struct.__mpz_struct], align 16
+  %tmp2 = alloca [1 x %struct.__mpz_struct], align 16
+  %tmp3 = alloca [1 x %struct.__mpz_struct], align 16
+  %tmp4 = alloca [1 x %struct.__mpz_struct], align 16
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %B) #17
+  call void @__gmpz_init(ptr noundef nonnull %B) #17
+  call void @__gmpz_import(ptr noundef nonnull %B, i64 noundef %len_B, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef %bytes_B)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %u) #17
+  call void @__gmpz_init(ptr noundef nonnull %u) #17
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %x) #17
+  call void @__gmpz_init(ptr noundef nonnull %x) #17
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %k) #17
+  call void @__gmpz_init(ptr noundef nonnull %k) #17
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %v) #17
+  call void @__gmpz_init(ptr noundef nonnull %v) #17
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp1) #17
+  call void @__gmpz_init(ptr noundef nonnull %tmp1) #17
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp2) #17
+  call void @__gmpz_init(ptr noundef nonnull %tmp2) #17
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp3) #17
+  call void @__gmpz_init(ptr noundef nonnull %tmp3) #17
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp4) #17
+  call void @__gmpz_init(ptr noundef nonnull %tmp4) #17
+  store i64 0, ptr %len_M, align 8, !tbaa !10
+  store ptr null, ptr %bytes_M, align 8, !tbaa !4
+  %0 = load i32, ptr %usr, align 8, !tbaa !24
+  %ng = getelementptr inbounds i8, ptr %usr, i64 8
+  %1 = load ptr, ptr %ng, align 8, !tbaa !26
+  %A = getelementptr inbounds i8, ptr %usr, i64 32
+  %call = call fastcc noundef i32 @_ZL4H_nnP12__mpz_struct17SRP_HashAlgorithmPKS_S3_S3_(ptr noundef nonnull %u, i32 noundef %0, ptr noundef %1, ptr noundef nonnull %A, ptr noundef nonnull %B), !range !12
+  %tobool.not = icmp eq i32 %call, 0
+  br i1 %tobool.not, label %cleanup_and_exit, label %if.end
 
-23:                                               ; preds = %7
-  %24 = load i32, ptr %0, align 8, !tbaa !24
-  %25 = getelementptr inbounds i8, ptr %0, i64 88
-  %26 = load ptr, ptr %25, align 8, !tbaa !28
-  %27 = getelementptr inbounds i8, ptr %0, i64 96
-  %28 = load ptr, ptr %27, align 8, !tbaa !29
-  %29 = getelementptr inbounds i8, ptr %0, i64 104
-  %30 = load i64, ptr %29, align 8, !tbaa !30
-  %31 = call fastcc noundef i32 @_ZL11calculate_xP12__mpz_struct17SRP_HashAlgorithmPKhmPKcS3_m(ptr noundef nonnull %10, i32 noundef %24, ptr noundef %1, i64 noundef %2, ptr noundef %26, ptr noundef %28, i64 noundef %30), !range !12
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %92, label %33
+if.end:                                           ; preds = %entry
+  %2 = load i32, ptr %usr, align 8, !tbaa !24
+  %username_verifier = getelementptr inbounds i8, ptr %usr, i64 88
+  %3 = load ptr, ptr %username_verifier, align 8, !tbaa !28
+  %password = getelementptr inbounds i8, ptr %usr, i64 96
+  %4 = load ptr, ptr %password, align 8, !tbaa !29
+  %password_len = getelementptr inbounds i8, ptr %usr, i64 104
+  %5 = load i64, ptr %password_len, align 8, !tbaa !30
+  %call16 = call fastcc noundef i32 @_ZL11calculate_xP12__mpz_struct17SRP_HashAlgorithmPKhmPKcS3_m(ptr noundef nonnull %x, i32 noundef %2, ptr noundef %bytes_s, i64 noundef %len_s, ptr noundef %3, ptr noundef %4, i64 noundef %5), !range !12
+  %tobool17.not = icmp eq i32 %call16, 0
+  br i1 %tobool17.not, label %cleanup_and_exit, label %if.end19
 
-33:                                               ; preds = %23
-  %34 = load i32, ptr %0, align 8, !tbaa !24
-  %35 = load ptr, ptr %18, align 8, !tbaa !26
-  %36 = getelementptr inbounds i8, ptr %35, i64 16
-  %37 = call fastcc noundef i32 @_ZL4H_nnP12__mpz_struct17SRP_HashAlgorithmPKS_S3_S3_(ptr noundef nonnull %11, i32 noundef %34, ptr noundef %35, ptr noundef %35, ptr noundef nonnull %36), !range !12
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %92, label %39
+if.end19:                                         ; preds = %if.end
+  %6 = load i32, ptr %usr, align 8, !tbaa !24
+  %7 = load ptr, ptr %ng, align 8, !tbaa !26
+  %g = getelementptr inbounds i8, ptr %7, i64 16
+  %call30 = call fastcc noundef i32 @_ZL4H_nnP12__mpz_struct17SRP_HashAlgorithmPKS_S3_S3_(ptr noundef nonnull %k, i32 noundef %6, ptr noundef %7, ptr noundef %7, ptr noundef nonnull %g), !range !12
+  %tobool31.not = icmp eq i32 %call30, 0
+  br i1 %tobool31.not, label %cleanup_and_exit, label %if.end33
 
-39:                                               ; preds = %33
-  %40 = getelementptr inbounds i8, ptr %8, i64 4
-  %41 = load i32, ptr %40, align 4
-  %42 = icmp eq i32 %41, 0
-  %43 = getelementptr inbounds i8, ptr %9, i64 4
-  %44 = load i32, ptr %43, align 4
-  %45 = icmp eq i32 %44, 0
-  %46 = select i1 %42, i1 true, i1 %45
-  br i1 %46, label %89, label %47
+if.end33:                                         ; preds = %if.end19
+  %_mp_size = getelementptr inbounds i8, ptr %B, i64 4
+  %8 = load i32, ptr %_mp_size, align 4
+  %cmp38.not = icmp eq i32 %8, 0
+  %_mp_size40 = getelementptr inbounds i8, ptr %u, i64 4
+  %9 = load i32, ptr %_mp_size40, align 4
+  %cmp50.not = icmp eq i32 %9, 0
+  %or.cond = select i1 %cmp38.not, i1 true, i1 %cmp50.not
+  br i1 %or.cond, label %if.else, label %if.then51
 
-47:                                               ; preds = %39
-  %48 = load ptr, ptr %18, align 8, !tbaa !26
-  %49 = getelementptr inbounds i8, ptr %48, i64 16
-  call void @__gmpz_powm(ptr noundef nonnull %12, ptr noundef nonnull %49, ptr noundef nonnull %10, ptr noundef %48)
-  call void @__gmpz_mul(ptr noundef nonnull %13, ptr noundef nonnull %9, ptr noundef nonnull %10)
-  %50 = getelementptr inbounds i8, ptr %0, i64 16
-  call void @__gmpz_add(ptr noundef nonnull %14, ptr noundef nonnull %50, ptr noundef nonnull %13)
-  %51 = load ptr, ptr %18, align 8, !tbaa !26
-  %52 = getelementptr inbounds i8, ptr %51, i64 16
-  call void @__gmpz_powm(ptr noundef nonnull %13, ptr noundef nonnull %52, ptr noundef nonnull %10, ptr noundef %51)
-  %53 = load ptr, ptr %18, align 8, !tbaa !26
-  call void @__gmpz_mul(ptr noundef nonnull %16, ptr noundef nonnull %11, ptr noundef nonnull %13)
-  call void @__gmpz_mod(ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef %53)
-  %54 = load ptr, ptr %18, align 8, !tbaa !26
-  call void @__gmpz_sub(ptr noundef nonnull %16, ptr noundef nonnull %8, ptr noundef nonnull %15)
-  call void @__gmpz_mod(ptr noundef nonnull %13, ptr noundef nonnull %16, ptr noundef %54)
-  %55 = getelementptr inbounds i8, ptr %0, i64 48
-  %56 = load ptr, ptr %18, align 8, !tbaa !26
-  call void @__gmpz_powm(ptr noundef nonnull %55, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef %56)
-  %57 = load i32, ptr %0, align 8, !tbaa !24
-  %58 = getelementptr inbounds i8, ptr %0, i64 176
-  %59 = call i64 @__gmpz_sizeinbase(ptr noundef nonnull %55, i32 noundef 2) #18
-  %60 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
-  %61 = shl i64 %59, 29
-  %62 = add i64 %61, 3758096384
-  %63 = ashr i64 %62, 32
-  %64 = call noundef ptr %60(i64 noundef %63)
-  %65 = icmp eq ptr %64, null
-  br i1 %65, label %92, label %66
+if.then51:                                        ; preds = %if.end33
+  %10 = load ptr, ptr %ng, align 8, !tbaa !26
+  %g54 = getelementptr inbounds i8, ptr %10, i64 16
+  call void @__gmpz_powm(ptr noundef nonnull %v, ptr noundef nonnull %g54, ptr noundef nonnull %x, ptr noundef %10)
+  call void @__gmpz_mul(ptr noundef nonnull %tmp1, ptr noundef nonnull %u, ptr noundef nonnull %x)
+  %a = getelementptr inbounds i8, ptr %usr, i64 16
+  call void @__gmpz_add(ptr noundef nonnull %tmp2, ptr noundef nonnull %a, ptr noundef nonnull %tmp1)
+  %11 = load ptr, ptr %ng, align 8, !tbaa !26
+  %g68 = getelementptr inbounds i8, ptr %11, i64 16
+  call void @__gmpz_powm(ptr noundef nonnull %tmp1, ptr noundef nonnull %g68, ptr noundef nonnull %x, ptr noundef %11)
+  %12 = load ptr, ptr %ng, align 8, !tbaa !26
+  call void @__gmpz_mul(ptr noundef nonnull %tmp4, ptr noundef nonnull %k, ptr noundef nonnull %tmp1)
+  call void @__gmpz_mod(ptr noundef nonnull %tmp3, ptr noundef nonnull %tmp4, ptr noundef %12)
+  %13 = load ptr, ptr %ng, align 8, !tbaa !26
+  call void @__gmpz_sub(ptr noundef nonnull %tmp4, ptr noundef nonnull %B, ptr noundef nonnull %tmp3)
+  call void @__gmpz_mod(ptr noundef nonnull %tmp1, ptr noundef nonnull %tmp4, ptr noundef %13)
+  %S = getelementptr inbounds i8, ptr %usr, i64 48
+  %14 = load ptr, ptr %ng, align 8, !tbaa !26
+  call void @__gmpz_powm(ptr noundef nonnull %S, ptr noundef nonnull %tmp1, ptr noundef nonnull %tmp2, ptr noundef %14)
+  %15 = load i32, ptr %usr, align 8, !tbaa !24
+  %session_key = getelementptr inbounds i8, ptr %usr, i64 176
+  %call.i.i = call i64 @__gmpz_sizeinbase(ptr noundef nonnull %S, i32 noundef 2) #18
+  %16 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
+  %add.i.i = shl i64 %call.i.i, 29
+  %17 = add i64 %add.i.i, 3758096384
+  %conv.i = ashr i64 %17, 32
+  %call1.i = call noundef ptr %16(i64 noundef %conv.i)
+  %tobool.not.i = icmp eq ptr %call1.i, null
+  br i1 %tobool.not.i, label %cleanup_and_exit, label %if.end.i
 
-66:                                               ; preds = %47
-  %67 = call ptr @__gmpz_export(ptr noundef nonnull %64, ptr noundef null, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef nonnull %55)
-  %68 = icmp eq i32 %57, 0
-  br i1 %68, label %69, label %71
+if.end.i:                                         ; preds = %if.then51
+  %call.i10.i = call ptr @__gmpz_export(ptr noundef nonnull %call1.i, ptr noundef null, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef nonnull %S)
+  %cond.i.i = icmp eq i32 %15, 0
+  br i1 %cond.i.i, label %sw.bb.i.i, label %if.end101
 
-69:                                               ; preds = %66
-  %70 = call ptr @SHA256(ptr noundef nonnull %64, i64 noundef %63, ptr noundef nonnull %58)
-  br label %71
+sw.bb.i.i:                                        ; preds = %if.end.i
+  %call.i11.i = call ptr @SHA256(ptr noundef nonnull %call1.i, i64 noundef %conv.i, ptr noundef nonnull %session_key)
+  br label %if.end101
 
-71:                                               ; preds = %69, %66
-  %72 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  call void %72(ptr noundef nonnull %64)
-  %73 = load i32, ptr %0, align 8, !tbaa !24
-  %74 = load ptr, ptr %18, align 8, !tbaa !26
-  %75 = getelementptr inbounds i8, ptr %0, i64 112
-  %76 = getelementptr inbounds i8, ptr %0, i64 80
-  %77 = load ptr, ptr %76, align 8, !tbaa !27
-  %78 = call fastcc noundef i32 @_ZL11calculate_M17SRP_HashAlgorithmP10NGConstantPhPKcPKhmPK12__mpz_structS9_S6_(i32 noundef %73, ptr noundef %74, ptr noundef nonnull %75, ptr noundef %77, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %20, ptr noundef nonnull %8, ptr noundef nonnull %58), !range !12
-  %79 = icmp eq i32 %78, 0
-  br i1 %79, label %92, label %80
+if.end101:                                        ; preds = %sw.bb.i.i, %if.end.i
+  %18 = load ptr, ptr @srp_free, align 8, !tbaa !4
+  call void %18(ptr noundef nonnull %call1.i)
+  %19 = load i32, ptr %usr, align 8, !tbaa !24
+  %20 = load ptr, ptr %ng, align 8, !tbaa !26
+  %M = getelementptr inbounds i8, ptr %usr, i64 112
+  %username = getelementptr inbounds i8, ptr %usr, i64 80
+  %21 = load ptr, ptr %username, align 8, !tbaa !27
+  %call110 = call fastcc noundef i32 @_ZL11calculate_M17SRP_HashAlgorithmP10NGConstantPhPKcPKhmPK12__mpz_structS9_S6_(i32 noundef %19, ptr noundef %20, ptr noundef nonnull %M, ptr noundef %21, ptr noundef %bytes_s, i64 noundef %len_s, ptr noundef nonnull %A, ptr noundef nonnull %B, ptr noundef nonnull %session_key), !range !12
+  %tobool111.not = icmp eq i32 %call110, 0
+  br i1 %tobool111.not, label %cleanup_and_exit, label %if.end113
 
-80:                                               ; preds = %71
-  %81 = load i32, ptr %0, align 8, !tbaa !24
-  %82 = getelementptr inbounds i8, ptr %0, i64 144
-  %83 = call fastcc noundef i32 @_ZL15calculate_H_AMK17SRP_HashAlgorithmPhPK12__mpz_structPKhS5_(i32 noundef %81, ptr noundef nonnull %82, ptr noundef nonnull %20, ptr noundef nonnull %75, ptr noundef nonnull %58), !range !12
-  %84 = icmp eq i32 %83, 0
-  br i1 %84, label %92, label %85
+if.end113:                                        ; preds = %if.end101
+  %22 = load i32, ptr %usr, align 8, !tbaa !24
+  %H_AMK = getelementptr inbounds i8, ptr %usr, i64 144
+  %call122 = call fastcc noundef i32 @_ZL15calculate_H_AMK17SRP_HashAlgorithmPhPK12__mpz_structPKhS5_(i32 noundef %22, ptr noundef nonnull %H_AMK, ptr noundef nonnull %A, ptr noundef nonnull %M, ptr noundef nonnull %session_key), !range !12
+  %tobool123.not = icmp eq i32 %call122, 0
+  br i1 %tobool123.not, label %cleanup_and_exit, label %if.end125
 
-85:                                               ; preds = %80
-  store ptr %75, ptr %5, align 8, !tbaa !4
-  %86 = load i32, ptr %0, align 8, !tbaa !24
-  %87 = icmp eq i32 %86, 0
-  %88 = select i1 %87, i64 32, i64 0
-  br label %90
+if.end125:                                        ; preds = %if.end113
+  store ptr %M, ptr %bytes_M, align 8, !tbaa !4
+  %23 = load i32, ptr %usr, align 8, !tbaa !24
+  %cond.i = icmp eq i32 %23, 0
+  %..i = select i1 %cond.i, i64 32, i64 0
+  br label %cleanup_and_exit.sink.split
 
-89:                                               ; preds = %39
-  store ptr null, ptr %5, align 8, !tbaa !4
-  br label %90
+if.else:                                          ; preds = %if.end33
+  store ptr null, ptr %bytes_M, align 8, !tbaa !4
+  br label %cleanup_and_exit.sink.split
 
-90:                                               ; preds = %89, %85
-  %91 = phi i64 [ %88, %85 ], [ 0, %89 ]
-  store i64 %91, ptr %6, align 8, !tbaa !10
-  br label %92
+cleanup_and_exit.sink.split:                      ; preds = %if.else, %if.end125
+  %..i.sink = phi i64 [ %..i, %if.end125 ], [ 0, %if.else ]
+  store i64 %..i.sink, ptr %len_M, align 8, !tbaa !10
+  br label %cleanup_and_exit
 
-92:                                               ; preds = %90, %80, %71, %47, %33, %23, %7
-  call void @__gmpz_clear(ptr noundef nonnull %8)
-  call void @__gmpz_clear(ptr noundef nonnull %9)
-  call void @__gmpz_clear(ptr noundef nonnull %10)
-  call void @__gmpz_clear(ptr noundef nonnull %11)
-  call void @__gmpz_clear(ptr noundef nonnull %12)
-  call void @__gmpz_clear(ptr noundef nonnull %13)
-  call void @__gmpz_clear(ptr noundef nonnull %14)
-  call void @__gmpz_clear(ptr noundef nonnull %15)
-  call void @__gmpz_clear(ptr noundef nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #17
+cleanup_and_exit:                                 ; preds = %cleanup_and_exit.sink.split, %if.end113, %if.end101, %if.then51, %if.end19, %if.end, %entry
+  call void @__gmpz_clear(ptr noundef nonnull %B)
+  call void @__gmpz_clear(ptr noundef nonnull %u)
+  call void @__gmpz_clear(ptr noundef nonnull %x)
+  call void @__gmpz_clear(ptr noundef nonnull %k)
+  call void @__gmpz_clear(ptr noundef nonnull %v)
+  call void @__gmpz_clear(ptr noundef nonnull %tmp1)
+  call void @__gmpz_clear(ptr noundef nonnull %tmp2)
+  call void @__gmpz_clear(ptr noundef nonnull %tmp3)
+  call void @__gmpz_clear(ptr noundef nonnull %tmp4)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tmp4) #17
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tmp3) #17
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tmp2) #17
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tmp1) #17
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %v) #17
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %k) #17
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %x) #17
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %u) #17
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %B) #17
   ret void
 }
 
@@ -1408,21 +1430,22 @@ declare void @__gmpz_mul(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 declare void @__gmpz_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_Z23srp_user_verify_sessionP7SRPUserPKh(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #13 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 144
-  %4 = load i32, ptr %0, align 8, !tbaa !24
-  %5 = icmp eq i32 %4, 0
-  %6 = select i1 %5, i64 32, i64 0
-  %7 = tail call i32 @bcmp(ptr nonnull %3, ptr %1, i64 %6)
-  %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %11
+define dso_local void @_Z23srp_user_verify_sessionP7SRPUserPKh(ptr nocapture noundef %usr, ptr nocapture noundef readonly %bytes_HAMK) local_unnamed_addr #13 {
+entry:
+  %H_AMK = getelementptr inbounds i8, ptr %usr, i64 144
+  %0 = load i32, ptr %usr, align 8, !tbaa !24
+  %cond.i = icmp eq i32 %0, 0
+  %..i = select i1 %cond.i, i64 32, i64 0
+  %bcmp = tail call i32 @bcmp(ptr nonnull %H_AMK, ptr %bytes_HAMK, i64 %..i)
+  %cmp = icmp eq i32 %bcmp, 0
+  br i1 %cmp, label %if.then, label %if.end
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
-  store i32 1, ptr %10, align 8, !tbaa !31
-  br label %11
+if.then:                                          ; preds = %entry
+  %authenticated = getelementptr inbounds i8, ptr %usr, i64 72
+  store i32 1, ptr %authenticated, align 8, !tbaa !31
+  br label %if.end
 
-11:                                               ; preds = %9, %2
+if.end:                                           ; preds = %if.then, %entry
   ret void
 }
 

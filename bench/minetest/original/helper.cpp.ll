@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-pc-linux-gnu"
+target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
@@ -20,35 +20,39 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN9LuaHelper9readParamIbEET_P9lua_Statei(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
-  %3 = tail call i32 @lua_toboolean(ptr noundef %0, i32 noundef %1)
-  %4 = icmp ne i32 %3, 0
-  ret i1 %4
+define dso_local noundef zeroext i1 @_ZN9LuaHelper9readParamIbEET_P9lua_Statei(ptr noundef %L, i32 noundef %index) local_unnamed_addr #3 align 2 {
+entry:
+  %call = tail call i32 @lua_toboolean(ptr noundef %L, i32 noundef %index)
+  %cmp = icmp ne i32 %call, 0
+  ret i1 %cmp
 }
 
 declare i32 @lua_toboolean(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef signext i16 @_ZN9LuaHelper9readParamIsEET_P9lua_Statei(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
-  %3 = tail call i64 @luaL_checkinteger(ptr noundef %0, i32 noundef %1)
-  %4 = trunc i64 %3 to i16
-  ret i16 %4
+define dso_local noundef signext i16 @_ZN9LuaHelper9readParamIsEET_P9lua_Statei(ptr noundef %L, i32 noundef %index) local_unnamed_addr #3 align 2 {
+entry:
+  %call = tail call i64 @luaL_checkinteger(ptr noundef %L, i32 noundef %index)
+  %conv = trunc i64 %call to i16
+  ret i16 %conv
 }
 
 declare i64 @luaL_checkinteger(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9LuaHelper9readParamIiEET_P9lua_Statei(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
-  %3 = tail call i64 @luaL_checkinteger(ptr noundef %0, i32 noundef %1)
-  %4 = trunc i64 %3 to i32
-  ret i32 %4
+define dso_local noundef i32 @_ZN9LuaHelper9readParamIiEET_P9lua_Statei(ptr noundef %L, i32 noundef %index) local_unnamed_addr #3 align 2 {
+entry:
+  %call = tail call i64 @luaL_checkinteger(ptr noundef %L, i32 noundef %index)
+  %conv = trunc i64 %call to i32
+  ret i32 %conv
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZN9LuaHelper9readParamIfEET_P9lua_Statei(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = tail call nsz double @luaL_checknumber(ptr noundef %0, i32 noundef %1)
-  %4 = fptrunc double %3 to float
-  ret float %4
+define dso_local noundef float @_ZN9LuaHelper9readParamIfEET_P9lua_Statei(ptr noundef %L, i32 noundef %index) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %call = tail call nsz double @luaL_checknumber(ptr noundef %L, i32 noundef %index)
+  %conv = fptrunc double %call to float
+  ret float %conv
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -62,25 +66,28 @@ declare i32 @__gxx_personality_v0(...)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i32 @_ZN9LuaHelper9readParamIN3irr4core8vector2dIsEEEET_P9lua_Statei(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
-  %3 = tail call i32 @_Z10read_v2s16P9lua_Statei(ptr noundef %0, i32 noundef %1)
-  ret i32 %3
+define dso_local i32 @_ZN9LuaHelper9readParamIN3irr4core8vector2dIsEEEET_P9lua_Statei(ptr noundef %L, i32 noundef %index) local_unnamed_addr #3 align 2 {
+entry:
+  %call = tail call i32 @_Z10read_v2s16P9lua_Statei(ptr noundef %L, i32 noundef %index)
+  ret i32 %call
 }
 
 declare i32 @_Z10read_v2s16P9lua_Statei(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local <2 x float> @_ZN9LuaHelper9readParamIN3irr4core8vector2dIfEEEET_P9lua_Statei(ptr noundef %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
-  %3 = tail call nsz <2 x float> @_Z9check_v2fP9lua_Statei(ptr noundef %0, i32 noundef %1)
-  ret <2 x float> %3
+define dso_local <2 x float> @_ZN9LuaHelper9readParamIN3irr4core8vector2dIfEEEET_P9lua_Statei(ptr noundef %L, i32 noundef %index) local_unnamed_addr #5 align 2 {
+entry:
+  %call = tail call nsz <2 x float> @_Z9check_v2fP9lua_Statei(ptr noundef %L, i32 noundef %index)
+  ret <2 x float> %call
 }
 
 declare <2 x float> @_Z9check_v2fP9lua_Statei(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { <2 x float>, float } @_ZN9LuaHelper9readParamIN3irr4core8vector3dIfEEEET_P9lua_Statei(ptr noundef %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
-  %3 = tail call { <2 x float>, float } @_Z9check_v3fP9lua_Statei(ptr noundef %0, i32 noundef %1)
-  ret { <2 x float>, float } %3
+define dso_local { <2 x float>, float } @_ZN9LuaHelper9readParamIN3irr4core8vector3dIfEEEET_P9lua_Statei(ptr noundef %L, i32 noundef %index) local_unnamed_addr #5 align 2 {
+entry:
+  %call = tail call { <2 x float>, float } @_Z9check_v3fP9lua_Statei(ptr noundef %L, i32 noundef %index)
+  ret { <2 x float>, float } %call
 }
 
 declare { <2 x float>, float } @_Z9check_v3fP9lua_Statei(ptr noundef, i32 noundef) local_unnamed_addr #0
@@ -89,75 +96,77 @@ declare { <2 x float>, float } @_Z9check_v3fP9lua_Statei(ptr noundef, i32 nounde
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { i64, ptr } @_ZN9LuaHelper9readParamISt17basic_string_viewIcSt11char_traitsIcEEEET_P9lua_Statei(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
-  %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
-  %4 = call ptr @luaL_checklstring(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %3)
-  %5 = load i64, ptr %3, align 8, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
-  %6 = insertvalue { i64, ptr } poison, i64 %5, 0
-  %7 = insertvalue { i64, ptr } %6, ptr %4, 1
-  ret { i64, ptr } %7
+define dso_local { i64, ptr } @_ZN9LuaHelper9readParamISt17basic_string_viewIcSt11char_traitsIcEEEET_P9lua_Statei(ptr noundef %L, i32 noundef %index) local_unnamed_addr #3 align 2 {
+entry:
+  %length = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %length) #9
+  %call = call ptr @luaL_checklstring(ptr noundef %L, i32 noundef %index, ptr noundef nonnull %length)
+  %0 = load i64, ptr %length, align 8, !tbaa !4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %length) #9
+  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %0, 0
+  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %call, 1
+  ret { i64, ptr } %.fca.1.insert
 }
 
 declare ptr @luaL_checklstring(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9LuaHelper9readParamINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_P9lua_Statei(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca i64, align 8
-  %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
-  %6 = call ptr @luaL_checklstring(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %5)
-  %7 = load i64, ptr %5, align 8, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %8, ptr %0, align 8, !tbaa !8
-  %9 = icmp eq ptr %6, null
-  %10 = icmp ne i64 %7, 0
-  %11 = and i1 %9, %10
-  br i1 %11, label %12, label %13
+define dso_local void @_ZN9LuaHelper9readParamINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_P9lua_Statei(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %L, i32 noundef %index) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %__dnew.i.i.i.i = alloca i64, align 8
+  %length.i = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %length.i) #9
+  %call.i = call ptr @luaL_checklstring(ptr noundef %L, i32 noundef %index, ptr noundef nonnull %length.i)
+  %0 = load i64, ptr %length.i, align 8, !tbaa !4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %length.i) #9
+  %1 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  store ptr %1, ptr %agg.result, align 8, !tbaa !8
+  %cmp.i.i.i = icmp eq ptr %call.i, null
+  %cmp2.i.i.i = icmp ne i64 %0, 0
+  %or.cond.i.i.i = and i1 %cmp.i.i.i, %cmp2.i.i.i
+  br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
-12:                                               ; preds = %3
+if.then.i.i.i:                                    ; preds = %entry
   call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.1) #10
   unreachable
 
-13:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
-  store i64 %7, ptr %4, align 8, !tbaa !4
-  %14 = icmp ugt i64 %7, 15
-  br i1 %14, label %15, label %18
+if.end.i.i.i:                                     ; preds = %entry
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i.i) #9
+  store i64 %0, ptr %__dnew.i.i.i.i, align 8, !tbaa !4
+  %cmp.i.i.i.i = icmp ugt i64 %0, 15
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
-15:                                               ; preds = %13
-  %16 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0)
-  store ptr %16, ptr %0, align 8, !tbaa !11
-  %17 = load i64, ptr %4, align 8, !tbaa !4
-  store i64 %17, ptr %8, align 8, !tbaa !13
-  br label %18
+if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
+  %call2.i8.i.i.i2 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i.i.i, i64 noundef 0)
+  store ptr %call2.i8.i.i.i2, ptr %agg.result, align 8, !tbaa !11
+  %2 = load i64, ptr %__dnew.i.i.i.i, align 8, !tbaa !4
+  store i64 %2, ptr %1, align 8, !tbaa !13
+  br label %if.end.i.i.i.i
 
-18:                                               ; preds = %15, %13
-  %19 = phi ptr [ %16, %15 ], [ %8, %13 ]
-  switch i64 %7, label %22 [
-    i64 1, label %20
-    i64 0, label %23
+if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i, %if.end.i.i.i
+  %3 = phi ptr [ %call2.i8.i.i.i2, %if.then.i.i.i.i ], [ %1, %if.end.i.i.i ]
+  switch i64 %0, label %if.end.i.i.i.i.i.i.i [
+    i64 1, label %if.then.i.i.i.i.i.i
+    i64 0, label %invoke.cont
   ]
 
-20:                                               ; preds = %18
-  %21 = load i8, ptr %6, align 1, !tbaa !13
-  store i8 %21, ptr %19, align 1, !tbaa !13
-  br label %23
+if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i
+  %4 = load i8, ptr %call.i, align 1, !tbaa !13
+  store i8 %4, ptr %3, align 1, !tbaa !13
+  br label %invoke.cont
 
-22:                                               ; preds = %18
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr align 1 %6, i64 %7, i1 false)
-  br label %23
+if.end.i.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %call.i, i64 %0, i1 false)
+  br label %invoke.cont
 
-23:                                               ; preds = %22, %20, %18
-  %24 = load i64, ptr %4, align 8, !tbaa !4
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %24, ptr %25, align 8, !tbaa !14
-  %26 = load ptr, ptr %0, align 8, !tbaa !11
-  %27 = getelementptr inbounds i8, ptr %26, i64 %24
-  store i8 0, ptr %27, align 1, !tbaa !13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+invoke.cont:                                      ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %if.end.i.i.i.i
+  %5 = load i64, ptr %__dnew.i.i.i.i, align 8, !tbaa !4
+  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store i64 %5, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !14
+  %6 = load ptr, ptr %agg.result, align 8, !tbaa !11
+  %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 %5
+  store i8 0, ptr %arrayidx.i.i.i.i.i, align 1, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i.i) #9
   ret void
 }
 
@@ -168,8 +177,9 @@ declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_helper.cpp() #8 section ".text.startup" {
+entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #9
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #9
   ret void
 }
 

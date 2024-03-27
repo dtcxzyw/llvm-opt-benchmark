@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-pc-linux-gnu"
+target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %class.TestVoxelArea = type { %class.TestBase }
@@ -155,1649 +155,1651 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN8TestBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !4
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !7
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = icmp eq ptr %3, %4
-  br i1 %5, label %6, label %10
+define linkonce_odr dso_local void @_ZN8TestBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
+  %m_test_dir = getelementptr inbounds i8, ptr %this, i64 16
+  %0 = load ptr, ptr %m_test_dir, align 8, !tbaa !7
+  %1 = getelementptr inbounds i8, ptr %this, i64 32
+  %cmp.i.i.i = icmp eq ptr %0, %1
+  br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = load i64, ptr %7, align 8, !tbaa !13
-  %9 = icmp ult i64 %8, 16
-  tail call void @llvm.assume(i1 %9)
-  br label %11
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %entry
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !13
+  %cmp3.i.i.i = icmp ult i64 %2, 16
+  tail call void @llvm.assume(i1 %cmp3.i.i.i)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-10:                                               ; preds = %1
-  tail call void @_ZdlPv(ptr noundef %3) #18
-  br label %11
+if.then.i.i:                                      ; preds = %entry
+  tail call void @_ZdlPv(ptr noundef %0) #18
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-11:                                               ; preds = %10, %6
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13TestVoxelArea8runTestsEP8IGameDef(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture readnone %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"class.std::function", align 8
-  %4 = alloca %"class.std::function", align 8
-  %5 = alloca %"class.std::function", align 8
-  %6 = alloca %"class.std::function", align 8
-  %7 = alloca %"class.std::function", align 8
-  %8 = alloca %"class.std::function", align 8
-  %9 = alloca %"class.std::function", align 8
-  %10 = alloca %"class.std::function", align 8
-  %11 = alloca %"class.std::function", align 8
-  %12 = alloca %"class.std::function", align 8
-  %13 = alloca %"class.std::function", align 8
-  %14 = alloca %"class.std::function", align 8
-  %15 = alloca %"class.std::function", align 8
-  %16 = alloca %"class.std::function", align 8
-  %17 = alloca %"class.std::function", align 8
-  %18 = alloca %"class.std::function", align 8
-  %19 = alloca %"class.std::function", align 8
-  %20 = alloca %"class.std::function", align 8
-  %21 = alloca %"class.std::function", align 8
-  %22 = alloca %"class.std::function", align 8
-  %23 = alloca %"class.std::function", align 8
-  %24 = alloca %"class.std::function", align 8
-  %25 = alloca %"class.std::function", align 8
-  %26 = alloca %"class.std::function", align 8
-  %27 = alloca %"class.std::function", align 8
-  %28 = alloca %"class.std::function", align 8
-  %29 = alloca %"class.std::function", align 8
-  %30 = alloca %"class.std::function", align 8
-  %31 = alloca %"class.std::function", align 8
-  %32 = alloca %"class.std::function", align 8
-  %33 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
-  %34 = getelementptr inbounds i8, ptr %3, i64 16
-  %35 = getelementptr inbounds i8, ptr %3, i64 24
-  %36 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 0, ptr %36, align 8
-  %37 = ptrtoint ptr %0 to i64
-  store i64 %37, ptr %3, align 8, !tbaa !14
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_0E9_M_invokeERKSt9_Any_data", ptr %35, align 8, !tbaa !15
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %34, align 8, !tbaa !18
-  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %38 unwind label %407
+define dso_local void @_ZN13TestVoxelArea8runTestsEP8IGameDef(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture readnone %gamedef) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %ref.tmp = alloca %"class.std::function", align 8
+  %ref.tmp3 = alloca %"class.std::function", align 8
+  %ref.tmp7 = alloca %"class.std::function", align 8
+  %ref.tmp11 = alloca %"class.std::function", align 8
+  %ref.tmp15 = alloca %"class.std::function", align 8
+  %ref.tmp19 = alloca %"class.std::function", align 8
+  %ref.tmp23 = alloca %"class.std::function", align 8
+  %ref.tmp27 = alloca %"class.std::function", align 8
+  %ref.tmp31 = alloca %"class.std::function", align 8
+  %ref.tmp35 = alloca %"class.std::function", align 8
+  %ref.tmp39 = alloca %"class.std::function", align 8
+  %ref.tmp43 = alloca %"class.std::function", align 8
+  %ref.tmp47 = alloca %"class.std::function", align 8
+  %ref.tmp51 = alloca %"class.std::function", align 8
+  %ref.tmp55 = alloca %"class.std::function", align 8
+  %ref.tmp59 = alloca %"class.std::function", align 8
+  %ref.tmp63 = alloca %"class.std::function", align 8
+  %ref.tmp67 = alloca %"class.std::function", align 8
+  %ref.tmp71 = alloca %"class.std::function", align 8
+  %ref.tmp75 = alloca %"class.std::function", align 8
+  %ref.tmp79 = alloca %"class.std::function", align 8
+  %ref.tmp83 = alloca %"class.std::function", align 8
+  %ref.tmp87 = alloca %"class.std::function", align 8
+  %ref.tmp91 = alloca %"class.std::function", align 8
+  %ref.tmp95 = alloca %"class.std::function", align 8
+  %ref.tmp99 = alloca %"class.std::function", align 8
+  %ref.tmp103 = alloca %"class.std::function", align 8
+  %ref.tmp107 = alloca %"class.std::function", align 8
+  %ref.tmp111 = alloca %"class.std::function", align 8
+  %ref.tmp115 = alloca %"class.std::function", align 8
+  %ref.tmp119 = alloca %"class.std::function", align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #19
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
+  %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store i64 0, ptr %0, align 8
+  %1 = ptrtoint ptr %this to i64
+  store i64 %1, ptr %ref.tmp, align 8, !tbaa !14
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i, align 8, !tbaa !15
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i, align 8, !tbaa !18
+  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
+          to label %invoke.cont unwind label %lpad
 
-38:                                               ; preds = %2
-  %39 = load ptr, ptr %34, align 8, !tbaa !18
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %46, label %41
+invoke.cont:                                      ; preds = %entry
+  %2 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !18
+  %tobool.not.i = icmp eq ptr %2, null
+  br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i
 
-41:                                               ; preds = %38
-  %42 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
-          to label %46 unwind label %43
+if.then.i:                                        ; preds = %invoke.cont
+  %call.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i
 
-43:                                               ; preds = %41
-  %44 = landingpad { ptr, i32 }
+terminate.lpad.i:                                 ; preds = %if.then.i
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %45 = extractvalue { ptr, i32 } %44, 0
-  call void @__clang_call_terminate(ptr %45) #20
+  %4 = extractvalue { ptr, i32 } %3, 0
+  call void @__clang_call_terminate(ptr %4) #20
   unreachable
 
-46:                                               ; preds = %41, %38
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #19
-  %47 = getelementptr inbounds i8, ptr %4, i64 16
-  %48 = getelementptr inbounds i8, ptr %4, i64 24
-  %49 = getelementptr inbounds i8, ptr %4, i64 8
+_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %if.then.i, %invoke.cont
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #19
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp3) #19
+  %_M_manager.i.i125 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
+  %_M_invoker.i126 = getelementptr inbounds i8, ptr %ref.tmp3, i64 24
+  %5 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
+  store i64 0, ptr %5, align 8
+  store i64 %1, ptr %ref.tmp3, align 8, !tbaa !14
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_1E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i126, align 8, !tbaa !15
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_1E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i125, align 8, !tbaa !18
+  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull @.str.2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3)
+          to label %invoke.cont6 unwind label %lpad5
+
+invoke.cont6:                                     ; preds = %_ZNSt14_Function_baseD2Ev.exit
+  %6 = load ptr, ptr %_M_manager.i.i125, align 8, !tbaa !18
+  %tobool.not.i129 = icmp eq ptr %6, null
+  br i1 %tobool.not.i129, label %_ZNSt14_Function_baseD2Ev.exit133, label %if.then.i130
+
+if.then.i130:                                     ; preds = %invoke.cont6
+  %call.i131 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit133 unwind label %terminate.lpad.i132
+
+terminate.lpad.i132:                              ; preds = %if.then.i130
+  %7 = landingpad { ptr, i32 }
+          catch ptr null
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #20
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit133:                ; preds = %if.then.i130, %invoke.cont6
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3) #19
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp7) #19
+  %_M_manager.i.i134 = getelementptr inbounds i8, ptr %ref.tmp7, i64 16
+  %_M_invoker.i135 = getelementptr inbounds i8, ptr %ref.tmp7, i64 24
+  %9 = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
+  store i64 0, ptr %9, align 8
+  store i64 %1, ptr %ref.tmp7, align 8, !tbaa !14
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_2E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i135, align 8, !tbaa !15
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_2E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i134, align 8, !tbaa !18
+  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull @.str.3, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7)
+          to label %invoke.cont10 unwind label %lpad9
+
+invoke.cont10:                                    ; preds = %_ZNSt14_Function_baseD2Ev.exit133
+  %10 = load ptr, ptr %_M_manager.i.i134, align 8, !tbaa !18
+  %tobool.not.i138 = icmp eq ptr %10, null
+  br i1 %tobool.not.i138, label %_ZNSt14_Function_baseD2Ev.exit142, label %if.then.i139
+
+if.then.i139:                                     ; preds = %invoke.cont10
+  %call.i140 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit142 unwind label %terminate.lpad.i141
+
+terminate.lpad.i141:                              ; preds = %if.then.i139
+  %11 = landingpad { ptr, i32 }
+          catch ptr null
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #20
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit142:                ; preds = %if.then.i139, %invoke.cont10
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp7) #19
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp11) #19
+  %_M_manager.i.i143 = getelementptr inbounds i8, ptr %ref.tmp11, i64 16
+  %_M_invoker.i144 = getelementptr inbounds i8, ptr %ref.tmp11, i64 24
+  %13 = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
+  store i64 0, ptr %13, align 8
+  store i64 %1, ptr %ref.tmp11, align 8, !tbaa !14
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_3E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i144, align 8, !tbaa !15
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_3E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i143, align 8, !tbaa !18
+  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11)
+          to label %invoke.cont14 unwind label %lpad13
+
+invoke.cont14:                                    ; preds = %_ZNSt14_Function_baseD2Ev.exit142
+  %14 = load ptr, ptr %_M_manager.i.i143, align 8, !tbaa !18
+  %tobool.not.i147 = icmp eq ptr %14, null
+  br i1 %tobool.not.i147, label %_ZNSt14_Function_baseD2Ev.exit151, label %if.then.i148
+
+if.then.i148:                                     ; preds = %invoke.cont14
+  %call.i149 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit151 unwind label %terminate.lpad.i150
+
+terminate.lpad.i150:                              ; preds = %if.then.i148
+  %15 = landingpad { ptr, i32 }
+          catch ptr null
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #20
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit151:                ; preds = %if.then.i148, %invoke.cont14
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp11) #19
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp15) #19
+  %_M_manager.i.i152 = getelementptr inbounds i8, ptr %ref.tmp15, i64 16
+  %_M_invoker.i153 = getelementptr inbounds i8, ptr %ref.tmp15, i64 24
+  %17 = getelementptr inbounds i8, ptr %ref.tmp15, i64 8
+  store i64 0, ptr %17, align 8
+  store i64 %1, ptr %ref.tmp15, align 8, !tbaa !14
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_4E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i153, align 8, !tbaa !15
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_4E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i152, align 8, !tbaa !18
+  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull @.str.5, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15)
+          to label %invoke.cont18 unwind label %lpad17
+
+invoke.cont18:                                    ; preds = %_ZNSt14_Function_baseD2Ev.exit151
+  %18 = load ptr, ptr %_M_manager.i.i152, align 8, !tbaa !18
+  %tobool.not.i156 = icmp eq ptr %18, null
+  br i1 %tobool.not.i156, label %_ZNSt14_Function_baseD2Ev.exit160, label %if.then.i157
+
+if.then.i157:                                     ; preds = %invoke.cont18
+  %call.i158 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit160 unwind label %terminate.lpad.i159
+
+terminate.lpad.i159:                              ; preds = %if.then.i157
+  %19 = landingpad { ptr, i32 }
+          catch ptr null
+  %20 = extractvalue { ptr, i32 } %19, 0
+  call void @__clang_call_terminate(ptr %20) #20
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit160:                ; preds = %if.then.i157, %invoke.cont18
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp15) #19
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp19) #19
+  %_M_manager.i.i161 = getelementptr inbounds i8, ptr %ref.tmp19, i64 16
+  %_M_invoker.i162 = getelementptr inbounds i8, ptr %ref.tmp19, i64 24
+  %21 = getelementptr inbounds i8, ptr %ref.tmp19, i64 8
+  store i64 0, ptr %21, align 8
+  store i64 %1, ptr %ref.tmp19, align 8, !tbaa !14
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_5E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i162, align 8, !tbaa !15
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_5E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i161, align 8, !tbaa !18
+  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull @.str.6, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp19)
+          to label %invoke.cont22 unwind label %lpad21
+
+invoke.cont22:                                    ; preds = %_ZNSt14_Function_baseD2Ev.exit160
+  %22 = load ptr, ptr %_M_manager.i.i161, align 8, !tbaa !18
+  %tobool.not.i165 = icmp eq ptr %22, null
+  br i1 %tobool.not.i165, label %_ZNSt14_Function_baseD2Ev.exit169, label %if.then.i166
+
+if.then.i166:                                     ; preds = %invoke.cont22
+  %call.i167 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp19, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp19, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit169 unwind label %terminate.lpad.i168
+
+terminate.lpad.i168:                              ; preds = %if.then.i166
+  %23 = landingpad { ptr, i32 }
+          catch ptr null
+  %24 = extractvalue { ptr, i32 } %23, 0
+  call void @__clang_call_terminate(ptr %24) #20
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit169:                ; preds = %if.then.i166, %invoke.cont22
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp19) #19
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp23) #19
+  %_M_manager.i.i170 = getelementptr inbounds i8, ptr %ref.tmp23, i64 16
+  %_M_invoker.i171 = getelementptr inbounds i8, ptr %ref.tmp23, i64 24
+  %25 = getelementptr inbounds i8, ptr %ref.tmp23, i64 8
+  store i64 0, ptr %25, align 8
+  store i64 %1, ptr %ref.tmp23, align 8, !tbaa !14
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_6E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i171, align 8, !tbaa !15
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_6E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i170, align 8, !tbaa !18
+  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull @.str.7, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23)
+          to label %invoke.cont26 unwind label %lpad25
+
+invoke.cont26:                                    ; preds = %_ZNSt14_Function_baseD2Ev.exit169
+  %26 = load ptr, ptr %_M_manager.i.i170, align 8, !tbaa !18
+  %tobool.not.i174 = icmp eq ptr %26, null
+  br i1 %tobool.not.i174, label %_ZNSt14_Function_baseD2Ev.exit178, label %if.then.i175
+
+if.then.i175:                                     ; preds = %invoke.cont26
+  %call.i176 = invoke noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit178 unwind label %terminate.lpad.i177
+
+terminate.lpad.i177:                              ; preds = %if.then.i175
+  %27 = landingpad { ptr, i32 }
+          catch ptr null
+  %28 = extractvalue { ptr, i32 } %27, 0
+  call void @__clang_call_terminate(ptr %28) #20
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit178:                ; preds = %if.then.i175, %invoke.cont26
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp23) #19
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp27) #19
+  %_M_manager.i.i179 = getelementptr inbounds i8, ptr %ref.tmp27, i64 16
+  %_M_invoker.i180 = getelementptr inbounds i8, ptr %ref.tmp27, i64 24
+  %29 = getelementptr inbounds i8, ptr %ref.tmp27, i64 8
+  store i64 0, ptr %29, align 8
+  store i64 %1, ptr %ref.tmp27, align 8, !tbaa !14
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_7E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i180, align 8, !tbaa !15
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_7E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i179, align 8, !tbaa !18
+  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull @.str.8, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27)
+          to label %invoke.cont30 unwind label %lpad29
+
+invoke.cont30:                                    ; preds = %_ZNSt14_Function_baseD2Ev.exit178
+  %30 = load ptr, ptr %_M_manager.i.i179, align 8, !tbaa !18
+  %tobool.not.i183 = icmp eq ptr %30, null
+  br i1 %tobool.not.i183, label %_ZNSt14_Function_baseD2Ev.exit187, label %if.then.i184
+
+if.then.i184:                                     ; preds = %invoke.cont30
+  %call.i185 = invoke noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp27, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp27, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit187 unwind label %terminate.lpad.i186
+
+terminate.lpad.i186:                              ; preds = %if.then.i184
+  %31 = landingpad { ptr, i32 }
+          catch ptr null
+  %32 = extractvalue { ptr, i32 } %31, 0
+  call void @__clang_call_terminate(ptr %32) #20
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit187:                ; preds = %if.then.i184, %invoke.cont30
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp27) #19
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp31) #19
+  %_M_manager.i.i188 = getelementptr inbounds i8, ptr %ref.tmp31, i64 16
+  %_M_invoker.i189 = getelementptr inbounds i8, ptr %ref.tmp31, i64 24
+  %33 = getelementptr inbounds i8, ptr %ref.tmp31, i64 8
+  store i64 0, ptr %33, align 8
+  store i64 %1, ptr %ref.tmp31, align 8, !tbaa !14
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_8E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i189, align 8, !tbaa !15
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_8E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i188, align 8, !tbaa !18
+  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull @.str.9, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp31)
+          to label %invoke.cont34 unwind label %lpad33
+
+invoke.cont34:                                    ; preds = %_ZNSt14_Function_baseD2Ev.exit187
+  %34 = load ptr, ptr %_M_manager.i.i188, align 8, !tbaa !18
+  %tobool.not.i192 = icmp eq ptr %34, null
+  br i1 %tobool.not.i192, label %_ZNSt14_Function_baseD2Ev.exit196, label %if.then.i193
+
+if.then.i193:                                     ; preds = %invoke.cont34
+  %call.i194 = invoke noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp31, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp31, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit196 unwind label %terminate.lpad.i195
+
+terminate.lpad.i195:                              ; preds = %if.then.i193
+  %35 = landingpad { ptr, i32 }
+          catch ptr null
+  %36 = extractvalue { ptr, i32 } %35, 0
+  call void @__clang_call_terminate(ptr %36) #20
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit196:                ; preds = %if.then.i193, %invoke.cont34
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp31) #19
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp35) #19
+  %_M_manager.i.i197 = getelementptr inbounds i8, ptr %ref.tmp35, i64 16
+  %_M_invoker.i198 = getelementptr inbounds i8, ptr %ref.tmp35, i64 24
+  %37 = getelementptr inbounds i8, ptr %ref.tmp35, i64 8
+  store i64 0, ptr %37, align 8
+  store i64 %1, ptr %ref.tmp35, align 8, !tbaa !14
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_9E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i198, align 8, !tbaa !15
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_9E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i197, align 8, !tbaa !18
+  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull @.str.10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35)
+          to label %invoke.cont38 unwind label %lpad37
+
+invoke.cont38:                                    ; preds = %_ZNSt14_Function_baseD2Ev.exit196
+  %38 = load ptr, ptr %_M_manager.i.i197, align 8, !tbaa !18
+  %tobool.not.i201 = icmp eq ptr %38, null
+  br i1 %tobool.not.i201, label %_ZNSt14_Function_baseD2Ev.exit205, label %if.then.i202
+
+if.then.i202:                                     ; preds = %invoke.cont38
+  %call.i203 = invoke noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp35, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp35, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit205 unwind label %terminate.lpad.i204
+
+terminate.lpad.i204:                              ; preds = %if.then.i202
+  %39 = landingpad { ptr, i32 }
+          catch ptr null
+  %40 = extractvalue { ptr, i32 } %39, 0
+  call void @__clang_call_terminate(ptr %40) #20
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit205:                ; preds = %if.then.i202, %invoke.cont38
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp35) #19
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp39) #19
+  %_M_manager.i.i206 = getelementptr inbounds i8, ptr %ref.tmp39, i64 16
+  %_M_invoker.i207 = getelementptr inbounds i8, ptr %ref.tmp39, i64 24
+  %41 = getelementptr inbounds i8, ptr %ref.tmp39, i64 8
+  store i64 0, ptr %41, align 8
+  store i64 %1, ptr %ref.tmp39, align 8, !tbaa !14
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_10E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i207, align 8, !tbaa !15
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_10E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i206, align 8, !tbaa !18
+  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull @.str.11, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39)
+          to label %invoke.cont42 unwind label %lpad41
+
+invoke.cont42:                                    ; preds = %_ZNSt14_Function_baseD2Ev.exit205
+  %42 = load ptr, ptr %_M_manager.i.i206, align 8, !tbaa !18
+  %tobool.not.i210 = icmp eq ptr %42, null
+  br i1 %tobool.not.i210, label %_ZNSt14_Function_baseD2Ev.exit214, label %if.then.i211
+
+if.then.i211:                                     ; preds = %invoke.cont42
+  %call.i212 = invoke noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp39, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp39, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit214 unwind label %terminate.lpad.i213
+
+terminate.lpad.i213:                              ; preds = %if.then.i211
+  %43 = landingpad { ptr, i32 }
+          catch ptr null
+  %44 = extractvalue { ptr, i32 } %43, 0
+  call void @__clang_call_terminate(ptr %44) #20
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit214:                ; preds = %if.then.i211, %invoke.cont42
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp39) #19
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp43) #19
+  %_M_manager.i.i215 = getelementptr inbounds i8, ptr %ref.tmp43, i64 16
+  %_M_invoker.i216 = getelementptr inbounds i8, ptr %ref.tmp43, i64 24
+  %45 = getelementptr inbounds i8, ptr %ref.tmp43, i64 8
+  store i64 0, ptr %45, align 8
+  store i64 %1, ptr %ref.tmp43, align 8, !tbaa !14
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_11E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i216, align 8, !tbaa !15
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_11E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i215, align 8, !tbaa !18
+  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull @.str.12, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43)
+          to label %invoke.cont46 unwind label %lpad45
+
+invoke.cont46:                                    ; preds = %_ZNSt14_Function_baseD2Ev.exit214
+  %46 = load ptr, ptr %_M_manager.i.i215, align 8, !tbaa !18
+  %tobool.not.i219 = icmp eq ptr %46, null
+  br i1 %tobool.not.i219, label %_ZNSt14_Function_baseD2Ev.exit223, label %if.then.i220
+
+if.then.i220:                                     ; preds = %invoke.cont46
+  %call.i221 = invoke noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp43, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp43, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit223 unwind label %terminate.lpad.i222
+
+terminate.lpad.i222:                              ; preds = %if.then.i220
+  %47 = landingpad { ptr, i32 }
+          catch ptr null
+  %48 = extractvalue { ptr, i32 } %47, 0
+  call void @__clang_call_terminate(ptr %48) #20
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit223:                ; preds = %if.then.i220, %invoke.cont46
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp43) #19
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp47) #19
+  %_M_manager.i.i224 = getelementptr inbounds i8, ptr %ref.tmp47, i64 16
+  %_M_invoker.i225 = getelementptr inbounds i8, ptr %ref.tmp47, i64 24
+  %49 = getelementptr inbounds i8, ptr %ref.tmp47, i64 8
   store i64 0, ptr %49, align 8
-  store i64 %37, ptr %4, align 8, !tbaa !14
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_1E9_M_invokeERKSt9_Any_data", ptr %48, align 8, !tbaa !15
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_1E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %47, align 8, !tbaa !18
-  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.2, ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %50 unwind label %417
+  store i64 %1, ptr %ref.tmp47, align 8, !tbaa !14
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_12E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i225, align 8, !tbaa !15
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_12E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i224, align 8, !tbaa !18
+  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47)
+          to label %invoke.cont50 unwind label %lpad49
 
-50:                                               ; preds = %46
-  %51 = load ptr, ptr %47, align 8, !tbaa !18
-  %52 = icmp eq ptr %51, null
-  br i1 %52, label %58, label %53
+invoke.cont50:                                    ; preds = %_ZNSt14_Function_baseD2Ev.exit223
+  %50 = load ptr, ptr %_M_manager.i.i224, align 8, !tbaa !18
+  %tobool.not.i228 = icmp eq ptr %50, null
+  br i1 %tobool.not.i228, label %_ZNSt14_Function_baseD2Ev.exit232, label %if.then.i229
 
-53:                                               ; preds = %50
-  %54 = invoke noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
-          to label %58 unwind label %55
+if.then.i229:                                     ; preds = %invoke.cont50
+  %call.i230 = invoke noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp47, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp47, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit232 unwind label %terminate.lpad.i231
 
-55:                                               ; preds = %53
-  %56 = landingpad { ptr, i32 }
+terminate.lpad.i231:                              ; preds = %if.then.i229
+  %51 = landingpad { ptr, i32 }
           catch ptr null
-  %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #20
+  %52 = extractvalue { ptr, i32 } %51, 0
+  call void @__clang_call_terminate(ptr %52) #20
   unreachable
 
-58:                                               ; preds = %53, %50
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #19
-  %59 = getelementptr inbounds i8, ptr %5, i64 16
-  %60 = getelementptr inbounds i8, ptr %5, i64 24
-  %61 = getelementptr inbounds i8, ptr %5, i64 8
+_ZNSt14_Function_baseD2Ev.exit232:                ; preds = %if.then.i229, %invoke.cont50
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp47) #19
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp51) #19
+  %_M_manager.i.i233 = getelementptr inbounds i8, ptr %ref.tmp51, i64 16
+  %_M_invoker.i234 = getelementptr inbounds i8, ptr %ref.tmp51, i64 24
+  %53 = getelementptr inbounds i8, ptr %ref.tmp51, i64 8
+  store i64 0, ptr %53, align 8
+  store i64 %1, ptr %ref.tmp51, align 8, !tbaa !14
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_13E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i234, align 8, !tbaa !15
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_13E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i233, align 8, !tbaa !18
+  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull @.str.14, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp51)
+          to label %invoke.cont54 unwind label %lpad53
+
+invoke.cont54:                                    ; preds = %_ZNSt14_Function_baseD2Ev.exit232
+  %54 = load ptr, ptr %_M_manager.i.i233, align 8, !tbaa !18
+  %tobool.not.i237 = icmp eq ptr %54, null
+  br i1 %tobool.not.i237, label %_ZNSt14_Function_baseD2Ev.exit241, label %if.then.i238
+
+if.then.i238:                                     ; preds = %invoke.cont54
+  %call.i239 = invoke noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp51, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp51, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit241 unwind label %terminate.lpad.i240
+
+terminate.lpad.i240:                              ; preds = %if.then.i238
+  %55 = landingpad { ptr, i32 }
+          catch ptr null
+  %56 = extractvalue { ptr, i32 } %55, 0
+  call void @__clang_call_terminate(ptr %56) #20
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit241:                ; preds = %if.then.i238, %invoke.cont54
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp51) #19
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp55) #19
+  %_M_manager.i.i242 = getelementptr inbounds i8, ptr %ref.tmp55, i64 16
+  %_M_invoker.i243 = getelementptr inbounds i8, ptr %ref.tmp55, i64 24
+  %57 = getelementptr inbounds i8, ptr %ref.tmp55, i64 8
+  store i64 0, ptr %57, align 8
+  store i64 %1, ptr %ref.tmp55, align 8, !tbaa !14
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_14E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i243, align 8, !tbaa !15
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_14E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i242, align 8, !tbaa !18
+  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull @.str.15, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp55)
+          to label %invoke.cont58 unwind label %lpad57
+
+invoke.cont58:                                    ; preds = %_ZNSt14_Function_baseD2Ev.exit241
+  %58 = load ptr, ptr %_M_manager.i.i242, align 8, !tbaa !18
+  %tobool.not.i246 = icmp eq ptr %58, null
+  br i1 %tobool.not.i246, label %_ZNSt14_Function_baseD2Ev.exit250, label %if.then.i247
+
+if.then.i247:                                     ; preds = %invoke.cont58
+  %call.i248 = invoke noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp55, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp55, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit250 unwind label %terminate.lpad.i249
+
+terminate.lpad.i249:                              ; preds = %if.then.i247
+  %59 = landingpad { ptr, i32 }
+          catch ptr null
+  %60 = extractvalue { ptr, i32 } %59, 0
+  call void @__clang_call_terminate(ptr %60) #20
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit250:                ; preds = %if.then.i247, %invoke.cont58
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp55) #19
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp59) #19
+  %_M_manager.i.i251 = getelementptr inbounds i8, ptr %ref.tmp59, i64 16
+  %_M_invoker.i252 = getelementptr inbounds i8, ptr %ref.tmp59, i64 24
+  %61 = getelementptr inbounds i8, ptr %ref.tmp59, i64 8
   store i64 0, ptr %61, align 8
-  store i64 %37, ptr %5, align 8, !tbaa !14
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_2E9_M_invokeERKSt9_Any_data", ptr %60, align 8, !tbaa !15
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_2E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %59, align 8, !tbaa !18
-  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.3, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %62 unwind label %427
+  store i64 %1, ptr %ref.tmp59, align 8, !tbaa !14
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_15E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i252, align 8, !tbaa !15
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_15E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i251, align 8, !tbaa !18
+  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull @.str.16, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp59)
+          to label %invoke.cont62 unwind label %lpad61
 
-62:                                               ; preds = %58
-  %63 = load ptr, ptr %59, align 8, !tbaa !18
-  %64 = icmp eq ptr %63, null
-  br i1 %64, label %70, label %65
+invoke.cont62:                                    ; preds = %_ZNSt14_Function_baseD2Ev.exit250
+  %62 = load ptr, ptr %_M_manager.i.i251, align 8, !tbaa !18
+  %tobool.not.i255 = icmp eq ptr %62, null
+  br i1 %tobool.not.i255, label %_ZNSt14_Function_baseD2Ev.exit259, label %if.then.i256
 
-65:                                               ; preds = %62
-  %66 = invoke noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
-          to label %70 unwind label %67
+if.then.i256:                                     ; preds = %invoke.cont62
+  %call.i257 = invoke noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp59, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp59, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit259 unwind label %terminate.lpad.i258
 
-67:                                               ; preds = %65
-  %68 = landingpad { ptr, i32 }
+terminate.lpad.i258:                              ; preds = %if.then.i256
+  %63 = landingpad { ptr, i32 }
           catch ptr null
-  %69 = extractvalue { ptr, i32 } %68, 0
-  call void @__clang_call_terminate(ptr %69) #20
+  %64 = extractvalue { ptr, i32 } %63, 0
+  call void @__clang_call_terminate(ptr %64) #20
   unreachable
 
-70:                                               ; preds = %65, %62
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #19
-  %71 = getelementptr inbounds i8, ptr %6, i64 16
-  %72 = getelementptr inbounds i8, ptr %6, i64 24
-  %73 = getelementptr inbounds i8, ptr %6, i64 8
+_ZNSt14_Function_baseD2Ev.exit259:                ; preds = %if.then.i256, %invoke.cont62
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp59) #19
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp63) #19
+  %_M_manager.i.i260 = getelementptr inbounds i8, ptr %ref.tmp63, i64 16
+  %_M_invoker.i261 = getelementptr inbounds i8, ptr %ref.tmp63, i64 24
+  %65 = getelementptr inbounds i8, ptr %ref.tmp63, i64 8
+  store i64 0, ptr %65, align 8
+  store i64 %1, ptr %ref.tmp63, align 8, !tbaa !14
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_16E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i261, align 8, !tbaa !15
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_16E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i260, align 8, !tbaa !18
+  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull @.str.17, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp63)
+          to label %invoke.cont66 unwind label %lpad65
+
+invoke.cont66:                                    ; preds = %_ZNSt14_Function_baseD2Ev.exit259
+  %66 = load ptr, ptr %_M_manager.i.i260, align 8, !tbaa !18
+  %tobool.not.i264 = icmp eq ptr %66, null
+  br i1 %tobool.not.i264, label %_ZNSt14_Function_baseD2Ev.exit268, label %if.then.i265
+
+if.then.i265:                                     ; preds = %invoke.cont66
+  %call.i266 = invoke noundef zeroext i1 %66(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp63, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp63, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit268 unwind label %terminate.lpad.i267
+
+terminate.lpad.i267:                              ; preds = %if.then.i265
+  %67 = landingpad { ptr, i32 }
+          catch ptr null
+  %68 = extractvalue { ptr, i32 } %67, 0
+  call void @__clang_call_terminate(ptr %68) #20
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit268:                ; preds = %if.then.i265, %invoke.cont66
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp63) #19
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp67) #19
+  %_M_manager.i.i269 = getelementptr inbounds i8, ptr %ref.tmp67, i64 16
+  %_M_invoker.i270 = getelementptr inbounds i8, ptr %ref.tmp67, i64 24
+  %69 = getelementptr inbounds i8, ptr %ref.tmp67, i64 8
+  store i64 0, ptr %69, align 8
+  store i64 %1, ptr %ref.tmp67, align 8, !tbaa !14
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_17E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i270, align 8, !tbaa !15
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_17E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i269, align 8, !tbaa !18
+  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull @.str.18, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp67)
+          to label %invoke.cont70 unwind label %lpad69
+
+invoke.cont70:                                    ; preds = %_ZNSt14_Function_baseD2Ev.exit268
+  %70 = load ptr, ptr %_M_manager.i.i269, align 8, !tbaa !18
+  %tobool.not.i273 = icmp eq ptr %70, null
+  br i1 %tobool.not.i273, label %_ZNSt14_Function_baseD2Ev.exit277, label %if.then.i274
+
+if.then.i274:                                     ; preds = %invoke.cont70
+  %call.i275 = invoke noundef zeroext i1 %70(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp67, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp67, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit277 unwind label %terminate.lpad.i276
+
+terminate.lpad.i276:                              ; preds = %if.then.i274
+  %71 = landingpad { ptr, i32 }
+          catch ptr null
+  %72 = extractvalue { ptr, i32 } %71, 0
+  call void @__clang_call_terminate(ptr %72) #20
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit277:                ; preds = %if.then.i274, %invoke.cont70
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp67) #19
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp71) #19
+  %_M_manager.i.i278 = getelementptr inbounds i8, ptr %ref.tmp71, i64 16
+  %_M_invoker.i279 = getelementptr inbounds i8, ptr %ref.tmp71, i64 24
+  %73 = getelementptr inbounds i8, ptr %ref.tmp71, i64 8
   store i64 0, ptr %73, align 8
-  store i64 %37, ptr %6, align 8, !tbaa !14
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_3E9_M_invokeERKSt9_Any_data", ptr %72, align 8, !tbaa !15
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_3E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %71, align 8, !tbaa !18
-  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %74 unwind label %437
+  store i64 %1, ptr %ref.tmp71, align 8, !tbaa !14
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_18E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i279, align 8, !tbaa !15
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_18E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i278, align 8, !tbaa !18
+  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull @.str.19, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp71)
+          to label %invoke.cont74 unwind label %lpad73
 
-74:                                               ; preds = %70
-  %75 = load ptr, ptr %71, align 8, !tbaa !18
-  %76 = icmp eq ptr %75, null
-  br i1 %76, label %82, label %77
+invoke.cont74:                                    ; preds = %_ZNSt14_Function_baseD2Ev.exit277
+  %74 = load ptr, ptr %_M_manager.i.i278, align 8, !tbaa !18
+  %tobool.not.i282 = icmp eq ptr %74, null
+  br i1 %tobool.not.i282, label %_ZNSt14_Function_baseD2Ev.exit286, label %if.then.i283
 
-77:                                               ; preds = %74
-  %78 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
-          to label %82 unwind label %79
+if.then.i283:                                     ; preds = %invoke.cont74
+  %call.i284 = invoke noundef zeroext i1 %74(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp71, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp71, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit286 unwind label %terminate.lpad.i285
 
-79:                                               ; preds = %77
-  %80 = landingpad { ptr, i32 }
+terminate.lpad.i285:                              ; preds = %if.then.i283
+  %75 = landingpad { ptr, i32 }
           catch ptr null
-  %81 = extractvalue { ptr, i32 } %80, 0
-  call void @__clang_call_terminate(ptr %81) #20
+  %76 = extractvalue { ptr, i32 } %75, 0
+  call void @__clang_call_terminate(ptr %76) #20
   unreachable
 
-82:                                               ; preds = %77, %74
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #19
-  %83 = getelementptr inbounds i8, ptr %7, i64 16
-  %84 = getelementptr inbounds i8, ptr %7, i64 24
-  %85 = getelementptr inbounds i8, ptr %7, i64 8
+_ZNSt14_Function_baseD2Ev.exit286:                ; preds = %if.then.i283, %invoke.cont74
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp71) #19
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp75) #19
+  %_M_manager.i.i287 = getelementptr inbounds i8, ptr %ref.tmp75, i64 16
+  %_M_invoker.i288 = getelementptr inbounds i8, ptr %ref.tmp75, i64 24
+  %77 = getelementptr inbounds i8, ptr %ref.tmp75, i64 8
+  store i64 0, ptr %77, align 8
+  store i64 %1, ptr %ref.tmp75, align 8, !tbaa !14
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_19E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i288, align 8, !tbaa !15
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_19E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i287, align 8, !tbaa !18
+  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull @.str.20, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp75)
+          to label %invoke.cont78 unwind label %lpad77
+
+invoke.cont78:                                    ; preds = %_ZNSt14_Function_baseD2Ev.exit286
+  %78 = load ptr, ptr %_M_manager.i.i287, align 8, !tbaa !18
+  %tobool.not.i291 = icmp eq ptr %78, null
+  br i1 %tobool.not.i291, label %_ZNSt14_Function_baseD2Ev.exit295, label %if.then.i292
+
+if.then.i292:                                     ; preds = %invoke.cont78
+  %call.i293 = invoke noundef zeroext i1 %78(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp75, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp75, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit295 unwind label %terminate.lpad.i294
+
+terminate.lpad.i294:                              ; preds = %if.then.i292
+  %79 = landingpad { ptr, i32 }
+          catch ptr null
+  %80 = extractvalue { ptr, i32 } %79, 0
+  call void @__clang_call_terminate(ptr %80) #20
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit295:                ; preds = %if.then.i292, %invoke.cont78
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp75) #19
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp79) #19
+  %_M_manager.i.i296 = getelementptr inbounds i8, ptr %ref.tmp79, i64 16
+  %_M_invoker.i297 = getelementptr inbounds i8, ptr %ref.tmp79, i64 24
+  %81 = getelementptr inbounds i8, ptr %ref.tmp79, i64 8
+  store i64 0, ptr %81, align 8
+  store i64 %1, ptr %ref.tmp79, align 8, !tbaa !14
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_20E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i297, align 8, !tbaa !15
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_20E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i296, align 8, !tbaa !18
+  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull @.str.21, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp79)
+          to label %invoke.cont82 unwind label %lpad81
+
+invoke.cont82:                                    ; preds = %_ZNSt14_Function_baseD2Ev.exit295
+  %82 = load ptr, ptr %_M_manager.i.i296, align 8, !tbaa !18
+  %tobool.not.i300 = icmp eq ptr %82, null
+  br i1 %tobool.not.i300, label %_ZNSt14_Function_baseD2Ev.exit304, label %if.then.i301
+
+if.then.i301:                                     ; preds = %invoke.cont82
+  %call.i302 = invoke noundef zeroext i1 %82(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp79, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp79, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit304 unwind label %terminate.lpad.i303
+
+terminate.lpad.i303:                              ; preds = %if.then.i301
+  %83 = landingpad { ptr, i32 }
+          catch ptr null
+  %84 = extractvalue { ptr, i32 } %83, 0
+  call void @__clang_call_terminate(ptr %84) #20
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit304:                ; preds = %if.then.i301, %invoke.cont82
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp79) #19
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp83) #19
+  %_M_manager.i.i305 = getelementptr inbounds i8, ptr %ref.tmp83, i64 16
+  %_M_invoker.i306 = getelementptr inbounds i8, ptr %ref.tmp83, i64 24
+  %85 = getelementptr inbounds i8, ptr %ref.tmp83, i64 8
   store i64 0, ptr %85, align 8
-  store i64 %37, ptr %7, align 8, !tbaa !14
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_4E9_M_invokeERKSt9_Any_data", ptr %84, align 8, !tbaa !15
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_4E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %83, align 8, !tbaa !18
-  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.5, ptr noundef nonnull align 8 dereferenceable(32) %7)
-          to label %86 unwind label %447
+  store i64 %1, ptr %ref.tmp83, align 8, !tbaa !14
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_21E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i306, align 8, !tbaa !15
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_21E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i305, align 8, !tbaa !18
+  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull @.str.22, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp83)
+          to label %invoke.cont86 unwind label %lpad85
 
-86:                                               ; preds = %82
-  %87 = load ptr, ptr %83, align 8, !tbaa !18
-  %88 = icmp eq ptr %87, null
-  br i1 %88, label %94, label %89
+invoke.cont86:                                    ; preds = %_ZNSt14_Function_baseD2Ev.exit304
+  %86 = load ptr, ptr %_M_manager.i.i305, align 8, !tbaa !18
+  %tobool.not.i309 = icmp eq ptr %86, null
+  br i1 %tobool.not.i309, label %_ZNSt14_Function_baseD2Ev.exit313, label %if.then.i310
 
-89:                                               ; preds = %86
-  %90 = invoke noundef zeroext i1 %87(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
-          to label %94 unwind label %91
+if.then.i310:                                     ; preds = %invoke.cont86
+  %call.i311 = invoke noundef zeroext i1 %86(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp83, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp83, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit313 unwind label %terminate.lpad.i312
 
-91:                                               ; preds = %89
-  %92 = landingpad { ptr, i32 }
+terminate.lpad.i312:                              ; preds = %if.then.i310
+  %87 = landingpad { ptr, i32 }
           catch ptr null
-  %93 = extractvalue { ptr, i32 } %92, 0
-  call void @__clang_call_terminate(ptr %93) #20
+  %88 = extractvalue { ptr, i32 } %87, 0
+  call void @__clang_call_terminate(ptr %88) #20
   unreachable
 
-94:                                               ; preds = %89, %86
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #19
-  %95 = getelementptr inbounds i8, ptr %8, i64 16
-  %96 = getelementptr inbounds i8, ptr %8, i64 24
-  %97 = getelementptr inbounds i8, ptr %8, i64 8
+_ZNSt14_Function_baseD2Ev.exit313:                ; preds = %if.then.i310, %invoke.cont86
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp83) #19
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp87) #19
+  %_M_manager.i.i314 = getelementptr inbounds i8, ptr %ref.tmp87, i64 16
+  %_M_invoker.i315 = getelementptr inbounds i8, ptr %ref.tmp87, i64 24
+  %89 = getelementptr inbounds i8, ptr %ref.tmp87, i64 8
+  store i64 0, ptr %89, align 8
+  store i64 %1, ptr %ref.tmp87, align 8, !tbaa !14
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_22E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i315, align 8, !tbaa !15
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_22E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i314, align 8, !tbaa !18
+  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull @.str.23, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp87)
+          to label %invoke.cont90 unwind label %lpad89
+
+invoke.cont90:                                    ; preds = %_ZNSt14_Function_baseD2Ev.exit313
+  %90 = load ptr, ptr %_M_manager.i.i314, align 8, !tbaa !18
+  %tobool.not.i318 = icmp eq ptr %90, null
+  br i1 %tobool.not.i318, label %_ZNSt14_Function_baseD2Ev.exit322, label %if.then.i319
+
+if.then.i319:                                     ; preds = %invoke.cont90
+  %call.i320 = invoke noundef zeroext i1 %90(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp87, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp87, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit322 unwind label %terminate.lpad.i321
+
+terminate.lpad.i321:                              ; preds = %if.then.i319
+  %91 = landingpad { ptr, i32 }
+          catch ptr null
+  %92 = extractvalue { ptr, i32 } %91, 0
+  call void @__clang_call_terminate(ptr %92) #20
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit322:                ; preds = %if.then.i319, %invoke.cont90
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp87) #19
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp91) #19
+  %_M_manager.i.i323 = getelementptr inbounds i8, ptr %ref.tmp91, i64 16
+  %_M_invoker.i324 = getelementptr inbounds i8, ptr %ref.tmp91, i64 24
+  %93 = getelementptr inbounds i8, ptr %ref.tmp91, i64 8
+  store i64 0, ptr %93, align 8
+  store i64 %1, ptr %ref.tmp91, align 8, !tbaa !14
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_23E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i324, align 8, !tbaa !15
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_23E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i323, align 8, !tbaa !18
+  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull @.str.24, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp91)
+          to label %invoke.cont94 unwind label %lpad93
+
+invoke.cont94:                                    ; preds = %_ZNSt14_Function_baseD2Ev.exit322
+  %94 = load ptr, ptr %_M_manager.i.i323, align 8, !tbaa !18
+  %tobool.not.i327 = icmp eq ptr %94, null
+  br i1 %tobool.not.i327, label %_ZNSt14_Function_baseD2Ev.exit331, label %if.then.i328
+
+if.then.i328:                                     ; preds = %invoke.cont94
+  %call.i329 = invoke noundef zeroext i1 %94(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp91, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp91, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit331 unwind label %terminate.lpad.i330
+
+terminate.lpad.i330:                              ; preds = %if.then.i328
+  %95 = landingpad { ptr, i32 }
+          catch ptr null
+  %96 = extractvalue { ptr, i32 } %95, 0
+  call void @__clang_call_terminate(ptr %96) #20
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit331:                ; preds = %if.then.i328, %invoke.cont94
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp91) #19
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp95) #19
+  %_M_manager.i.i332 = getelementptr inbounds i8, ptr %ref.tmp95, i64 16
+  %_M_invoker.i333 = getelementptr inbounds i8, ptr %ref.tmp95, i64 24
+  %97 = getelementptr inbounds i8, ptr %ref.tmp95, i64 8
   store i64 0, ptr %97, align 8
-  store i64 %37, ptr %8, align 8, !tbaa !14
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_5E9_M_invokeERKSt9_Any_data", ptr %96, align 8, !tbaa !15
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_5E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %95, align 8, !tbaa !18
-  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.6, ptr noundef nonnull align 8 dereferenceable(32) %8)
-          to label %98 unwind label %457
+  store i64 %1, ptr %ref.tmp95, align 8, !tbaa !14
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_24E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i333, align 8, !tbaa !15
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_24E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i332, align 8, !tbaa !18
+  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull @.str.25, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp95)
+          to label %invoke.cont98 unwind label %lpad97
 
-98:                                               ; preds = %94
-  %99 = load ptr, ptr %95, align 8, !tbaa !18
-  %100 = icmp eq ptr %99, null
-  br i1 %100, label %106, label %101
+invoke.cont98:                                    ; preds = %_ZNSt14_Function_baseD2Ev.exit331
+  %98 = load ptr, ptr %_M_manager.i.i332, align 8, !tbaa !18
+  %tobool.not.i336 = icmp eq ptr %98, null
+  br i1 %tobool.not.i336, label %_ZNSt14_Function_baseD2Ev.exit340, label %if.then.i337
 
-101:                                              ; preds = %98
-  %102 = invoke noundef zeroext i1 %99(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
-          to label %106 unwind label %103
+if.then.i337:                                     ; preds = %invoke.cont98
+  %call.i338 = invoke noundef zeroext i1 %98(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp95, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp95, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit340 unwind label %terminate.lpad.i339
 
-103:                                              ; preds = %101
-  %104 = landingpad { ptr, i32 }
+terminate.lpad.i339:                              ; preds = %if.then.i337
+  %99 = landingpad { ptr, i32 }
           catch ptr null
-  %105 = extractvalue { ptr, i32 } %104, 0
-  call void @__clang_call_terminate(ptr %105) #20
+  %100 = extractvalue { ptr, i32 } %99, 0
+  call void @__clang_call_terminate(ptr %100) #20
   unreachable
 
-106:                                              ; preds = %101, %98
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #19
-  %107 = getelementptr inbounds i8, ptr %9, i64 16
-  %108 = getelementptr inbounds i8, ptr %9, i64 24
-  %109 = getelementptr inbounds i8, ptr %9, i64 8
+_ZNSt14_Function_baseD2Ev.exit340:                ; preds = %if.then.i337, %invoke.cont98
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp95) #19
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp99) #19
+  %_M_manager.i.i341 = getelementptr inbounds i8, ptr %ref.tmp99, i64 16
+  %_M_invoker.i342 = getelementptr inbounds i8, ptr %ref.tmp99, i64 24
+  %101 = getelementptr inbounds i8, ptr %ref.tmp99, i64 8
+  store i64 0, ptr %101, align 8
+  store i64 %1, ptr %ref.tmp99, align 8, !tbaa !14
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_25E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i342, align 8, !tbaa !15
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_25E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i341, align 8, !tbaa !18
+  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull @.str.26, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp99)
+          to label %invoke.cont102 unwind label %lpad101
+
+invoke.cont102:                                   ; preds = %_ZNSt14_Function_baseD2Ev.exit340
+  %102 = load ptr, ptr %_M_manager.i.i341, align 8, !tbaa !18
+  %tobool.not.i345 = icmp eq ptr %102, null
+  br i1 %tobool.not.i345, label %_ZNSt14_Function_baseD2Ev.exit349, label %if.then.i346
+
+if.then.i346:                                     ; preds = %invoke.cont102
+  %call.i347 = invoke noundef zeroext i1 %102(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp99, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp99, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit349 unwind label %terminate.lpad.i348
+
+terminate.lpad.i348:                              ; preds = %if.then.i346
+  %103 = landingpad { ptr, i32 }
+          catch ptr null
+  %104 = extractvalue { ptr, i32 } %103, 0
+  call void @__clang_call_terminate(ptr %104) #20
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit349:                ; preds = %if.then.i346, %invoke.cont102
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp99) #19
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp103) #19
+  %_M_manager.i.i350 = getelementptr inbounds i8, ptr %ref.tmp103, i64 16
+  %_M_invoker.i351 = getelementptr inbounds i8, ptr %ref.tmp103, i64 24
+  %105 = getelementptr inbounds i8, ptr %ref.tmp103, i64 8
+  store i64 0, ptr %105, align 8
+  store i64 %1, ptr %ref.tmp103, align 8, !tbaa !14
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_26E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i351, align 8, !tbaa !15
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_26E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i350, align 8, !tbaa !18
+  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull @.str.27, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp103)
+          to label %invoke.cont106 unwind label %lpad105
+
+invoke.cont106:                                   ; preds = %_ZNSt14_Function_baseD2Ev.exit349
+  %106 = load ptr, ptr %_M_manager.i.i350, align 8, !tbaa !18
+  %tobool.not.i354 = icmp eq ptr %106, null
+  br i1 %tobool.not.i354, label %_ZNSt14_Function_baseD2Ev.exit358, label %if.then.i355
+
+if.then.i355:                                     ; preds = %invoke.cont106
+  %call.i356 = invoke noundef zeroext i1 %106(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp103, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp103, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit358 unwind label %terminate.lpad.i357
+
+terminate.lpad.i357:                              ; preds = %if.then.i355
+  %107 = landingpad { ptr, i32 }
+          catch ptr null
+  %108 = extractvalue { ptr, i32 } %107, 0
+  call void @__clang_call_terminate(ptr %108) #20
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit358:                ; preds = %if.then.i355, %invoke.cont106
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp103) #19
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp107) #19
+  %_M_manager.i.i359 = getelementptr inbounds i8, ptr %ref.tmp107, i64 16
+  %_M_invoker.i360 = getelementptr inbounds i8, ptr %ref.tmp107, i64 24
+  %109 = getelementptr inbounds i8, ptr %ref.tmp107, i64 8
   store i64 0, ptr %109, align 8
-  store i64 %37, ptr %9, align 8, !tbaa !14
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_6E9_M_invokeERKSt9_Any_data", ptr %108, align 8, !tbaa !15
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_6E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %107, align 8, !tbaa !18
-  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.7, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %110 unwind label %467
+  store i64 %1, ptr %ref.tmp107, align 8, !tbaa !14
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_27E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i360, align 8, !tbaa !15
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_27E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i359, align 8, !tbaa !18
+  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull @.str.28, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp107)
+          to label %invoke.cont110 unwind label %lpad109
 
-110:                                              ; preds = %106
-  %111 = load ptr, ptr %107, align 8, !tbaa !18
-  %112 = icmp eq ptr %111, null
-  br i1 %112, label %118, label %113
+invoke.cont110:                                   ; preds = %_ZNSt14_Function_baseD2Ev.exit358
+  %110 = load ptr, ptr %_M_manager.i.i359, align 8, !tbaa !18
+  %tobool.not.i363 = icmp eq ptr %110, null
+  br i1 %tobool.not.i363, label %_ZNSt14_Function_baseD2Ev.exit367, label %if.then.i364
 
-113:                                              ; preds = %110
-  %114 = invoke noundef zeroext i1 %111(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
-          to label %118 unwind label %115
+if.then.i364:                                     ; preds = %invoke.cont110
+  %call.i365 = invoke noundef zeroext i1 %110(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp107, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp107, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit367 unwind label %terminate.lpad.i366
 
-115:                                              ; preds = %113
-  %116 = landingpad { ptr, i32 }
+terminate.lpad.i366:                              ; preds = %if.then.i364
+  %111 = landingpad { ptr, i32 }
           catch ptr null
-  %117 = extractvalue { ptr, i32 } %116, 0
-  call void @__clang_call_terminate(ptr %117) #20
+  %112 = extractvalue { ptr, i32 } %111, 0
+  call void @__clang_call_terminate(ptr %112) #20
   unreachable
 
-118:                                              ; preds = %113, %110
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #19
-  %119 = getelementptr inbounds i8, ptr %10, i64 16
-  %120 = getelementptr inbounds i8, ptr %10, i64 24
-  %121 = getelementptr inbounds i8, ptr %10, i64 8
+_ZNSt14_Function_baseD2Ev.exit367:                ; preds = %if.then.i364, %invoke.cont110
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp107) #19
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp111) #19
+  %_M_manager.i.i368 = getelementptr inbounds i8, ptr %ref.tmp111, i64 16
+  %_M_invoker.i369 = getelementptr inbounds i8, ptr %ref.tmp111, i64 24
+  %113 = getelementptr inbounds i8, ptr %ref.tmp111, i64 8
+  store i64 0, ptr %113, align 8
+  store i64 %1, ptr %ref.tmp111, align 8, !tbaa !14
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_28E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i369, align 8, !tbaa !15
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_28E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i368, align 8, !tbaa !18
+  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull @.str.29, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp111)
+          to label %invoke.cont114 unwind label %lpad113
+
+invoke.cont114:                                   ; preds = %_ZNSt14_Function_baseD2Ev.exit367
+  %114 = load ptr, ptr %_M_manager.i.i368, align 8, !tbaa !18
+  %tobool.not.i372 = icmp eq ptr %114, null
+  br i1 %tobool.not.i372, label %_ZNSt14_Function_baseD2Ev.exit376, label %if.then.i373
+
+if.then.i373:                                     ; preds = %invoke.cont114
+  %call.i374 = invoke noundef zeroext i1 %114(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp111, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp111, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit376 unwind label %terminate.lpad.i375
+
+terminate.lpad.i375:                              ; preds = %if.then.i373
+  %115 = landingpad { ptr, i32 }
+          catch ptr null
+  %116 = extractvalue { ptr, i32 } %115, 0
+  call void @__clang_call_terminate(ptr %116) #20
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit376:                ; preds = %if.then.i373, %invoke.cont114
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp111) #19
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp115) #19
+  %_M_manager.i.i377 = getelementptr inbounds i8, ptr %ref.tmp115, i64 16
+  %_M_invoker.i378 = getelementptr inbounds i8, ptr %ref.tmp115, i64 24
+  %117 = getelementptr inbounds i8, ptr %ref.tmp115, i64 8
+  store i64 0, ptr %117, align 8
+  store i64 %1, ptr %ref.tmp115, align 8, !tbaa !14
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_29E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i378, align 8, !tbaa !15
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_29E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i377, align 8, !tbaa !18
+  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull @.str.30, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp115)
+          to label %invoke.cont118 unwind label %lpad117
+
+invoke.cont118:                                   ; preds = %_ZNSt14_Function_baseD2Ev.exit376
+  %118 = load ptr, ptr %_M_manager.i.i377, align 8, !tbaa !18
+  %tobool.not.i381 = icmp eq ptr %118, null
+  br i1 %tobool.not.i381, label %_ZNSt14_Function_baseD2Ev.exit385, label %if.then.i382
+
+if.then.i382:                                     ; preds = %invoke.cont118
+  %call.i383 = invoke noundef zeroext i1 %118(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp115, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp115, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit385 unwind label %terminate.lpad.i384
+
+terminate.lpad.i384:                              ; preds = %if.then.i382
+  %119 = landingpad { ptr, i32 }
+          catch ptr null
+  %120 = extractvalue { ptr, i32 } %119, 0
+  call void @__clang_call_terminate(ptr %120) #20
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit385:                ; preds = %if.then.i382, %invoke.cont118
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp115) #19
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp119) #19
+  %_M_manager.i.i386 = getelementptr inbounds i8, ptr %ref.tmp119, i64 16
+  %_M_invoker.i387 = getelementptr inbounds i8, ptr %ref.tmp119, i64 24
+  %121 = getelementptr inbounds i8, ptr %ref.tmp119, i64 8
   store i64 0, ptr %121, align 8
-  store i64 %37, ptr %10, align 8, !tbaa !14
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_7E9_M_invokeERKSt9_Any_data", ptr %120, align 8, !tbaa !15
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_7E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %119, align 8, !tbaa !18
-  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.8, ptr noundef nonnull align 8 dereferenceable(32) %10)
-          to label %122 unwind label %477
+  store i64 %1, ptr %ref.tmp119, align 8, !tbaa !14
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_30E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i387, align 8, !tbaa !15
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_30E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i386, align 8, !tbaa !18
+  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull @.str.31, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp119)
+          to label %invoke.cont122 unwind label %lpad121
 
-122:                                              ; preds = %118
-  %123 = load ptr, ptr %119, align 8, !tbaa !18
-  %124 = icmp eq ptr %123, null
-  br i1 %124, label %130, label %125
+invoke.cont122:                                   ; preds = %_ZNSt14_Function_baseD2Ev.exit385
+  %122 = load ptr, ptr %_M_manager.i.i386, align 8, !tbaa !18
+  %tobool.not.i390 = icmp eq ptr %122, null
+  br i1 %tobool.not.i390, label %_ZNSt14_Function_baseD2Ev.exit394, label %if.then.i391
 
-125:                                              ; preds = %122
-  %126 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
-          to label %130 unwind label %127
+if.then.i391:                                     ; preds = %invoke.cont122
+  %call.i392 = invoke noundef zeroext i1 %122(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp119, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp119, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit394 unwind label %terminate.lpad.i393
 
-127:                                              ; preds = %125
-  %128 = landingpad { ptr, i32 }
+terminate.lpad.i393:                              ; preds = %if.then.i391
+  %123 = landingpad { ptr, i32 }
           catch ptr null
-  %129 = extractvalue { ptr, i32 } %128, 0
-  call void @__clang_call_terminate(ptr %129) #20
+  %124 = extractvalue { ptr, i32 } %123, 0
+  call void @__clang_call_terminate(ptr %124) #20
   unreachable
 
-130:                                              ; preds = %125, %122
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #19
-  %131 = getelementptr inbounds i8, ptr %11, i64 16
-  %132 = getelementptr inbounds i8, ptr %11, i64 24
-  %133 = getelementptr inbounds i8, ptr %11, i64 8
-  store i64 0, ptr %133, align 8
-  store i64 %37, ptr %11, align 8, !tbaa !14
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_8E9_M_invokeERKSt9_Any_data", ptr %132, align 8, !tbaa !15
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_8E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %131, align 8, !tbaa !18
-  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.9, ptr noundef nonnull align 8 dereferenceable(32) %11)
-          to label %134 unwind label %487
-
-134:                                              ; preds = %130
-  %135 = load ptr, ptr %131, align 8, !tbaa !18
-  %136 = icmp eq ptr %135, null
-  br i1 %136, label %142, label %137
-
-137:                                              ; preds = %134
-  %138 = invoke noundef zeroext i1 %135(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3)
-          to label %142 unwind label %139
-
-139:                                              ; preds = %137
-  %140 = landingpad { ptr, i32 }
-          catch ptr null
-  %141 = extractvalue { ptr, i32 } %140, 0
-  call void @__clang_call_terminate(ptr %141) #20
-  unreachable
-
-142:                                              ; preds = %137, %134
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #19
-  %143 = getelementptr inbounds i8, ptr %12, i64 16
-  %144 = getelementptr inbounds i8, ptr %12, i64 24
-  %145 = getelementptr inbounds i8, ptr %12, i64 8
-  store i64 0, ptr %145, align 8
-  store i64 %37, ptr %12, align 8, !tbaa !14
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_9E9_M_invokeERKSt9_Any_data", ptr %144, align 8, !tbaa !15
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_9E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %143, align 8, !tbaa !18
-  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.10, ptr noundef nonnull align 8 dereferenceable(32) %12)
-          to label %146 unwind label %497
-
-146:                                              ; preds = %142
-  %147 = load ptr, ptr %143, align 8, !tbaa !18
-  %148 = icmp eq ptr %147, null
-  br i1 %148, label %154, label %149
-
-149:                                              ; preds = %146
-  %150 = invoke noundef zeroext i1 %147(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 3)
-          to label %154 unwind label %151
-
-151:                                              ; preds = %149
-  %152 = landingpad { ptr, i32 }
-          catch ptr null
-  %153 = extractvalue { ptr, i32 } %152, 0
-  call void @__clang_call_terminate(ptr %153) #20
-  unreachable
-
-154:                                              ; preds = %149, %146
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #19
-  %155 = getelementptr inbounds i8, ptr %13, i64 16
-  %156 = getelementptr inbounds i8, ptr %13, i64 24
-  %157 = getelementptr inbounds i8, ptr %13, i64 8
-  store i64 0, ptr %157, align 8
-  store i64 %37, ptr %13, align 8, !tbaa !14
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_10E9_M_invokeERKSt9_Any_data", ptr %156, align 8, !tbaa !15
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_10E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %155, align 8, !tbaa !18
-  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.11, ptr noundef nonnull align 8 dereferenceable(32) %13)
-          to label %158 unwind label %507
-
-158:                                              ; preds = %154
-  %159 = load ptr, ptr %155, align 8, !tbaa !18
-  %160 = icmp eq ptr %159, null
-  br i1 %160, label %166, label %161
-
-161:                                              ; preds = %158
-  %162 = invoke noundef zeroext i1 %159(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 3)
-          to label %166 unwind label %163
-
-163:                                              ; preds = %161
-  %164 = landingpad { ptr, i32 }
-          catch ptr null
-  %165 = extractvalue { ptr, i32 } %164, 0
-  call void @__clang_call_terminate(ptr %165) #20
-  unreachable
-
-166:                                              ; preds = %161, %158
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #19
-  %167 = getelementptr inbounds i8, ptr %14, i64 16
-  %168 = getelementptr inbounds i8, ptr %14, i64 24
-  %169 = getelementptr inbounds i8, ptr %14, i64 8
-  store i64 0, ptr %169, align 8
-  store i64 %37, ptr %14, align 8, !tbaa !14
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_11E9_M_invokeERKSt9_Any_data", ptr %168, align 8, !tbaa !15
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_11E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %167, align 8, !tbaa !18
-  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.12, ptr noundef nonnull align 8 dereferenceable(32) %14)
-          to label %170 unwind label %517
-
-170:                                              ; preds = %166
-  %171 = load ptr, ptr %167, align 8, !tbaa !18
-  %172 = icmp eq ptr %171, null
-  br i1 %172, label %178, label %173
-
-173:                                              ; preds = %170
-  %174 = invoke noundef zeroext i1 %171(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef 3)
-          to label %178 unwind label %175
-
-175:                                              ; preds = %173
-  %176 = landingpad { ptr, i32 }
-          catch ptr null
-  %177 = extractvalue { ptr, i32 } %176, 0
-  call void @__clang_call_terminate(ptr %177) #20
-  unreachable
-
-178:                                              ; preds = %173, %170
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #19
-  %179 = getelementptr inbounds i8, ptr %15, i64 16
-  %180 = getelementptr inbounds i8, ptr %15, i64 24
-  %181 = getelementptr inbounds i8, ptr %15, i64 8
-  store i64 0, ptr %181, align 8
-  store i64 %37, ptr %15, align 8, !tbaa !14
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_12E9_M_invokeERKSt9_Any_data", ptr %180, align 8, !tbaa !15
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_12E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %179, align 8, !tbaa !18
-  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(32) %15)
-          to label %182 unwind label %527
-
-182:                                              ; preds = %178
-  %183 = load ptr, ptr %179, align 8, !tbaa !18
-  %184 = icmp eq ptr %183, null
-  br i1 %184, label %190, label %185
-
-185:                                              ; preds = %182
-  %186 = invoke noundef zeroext i1 %183(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
-          to label %190 unwind label %187
-
-187:                                              ; preds = %185
-  %188 = landingpad { ptr, i32 }
-          catch ptr null
-  %189 = extractvalue { ptr, i32 } %188, 0
-  call void @__clang_call_terminate(ptr %189) #20
-  unreachable
-
-190:                                              ; preds = %185, %182
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #19
-  %191 = getelementptr inbounds i8, ptr %16, i64 16
-  %192 = getelementptr inbounds i8, ptr %16, i64 24
-  %193 = getelementptr inbounds i8, ptr %16, i64 8
-  store i64 0, ptr %193, align 8
-  store i64 %37, ptr %16, align 8, !tbaa !14
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_13E9_M_invokeERKSt9_Any_data", ptr %192, align 8, !tbaa !15
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_13E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %191, align 8, !tbaa !18
-  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.14, ptr noundef nonnull align 8 dereferenceable(32) %16)
-          to label %194 unwind label %537
-
-194:                                              ; preds = %190
-  %195 = load ptr, ptr %191, align 8, !tbaa !18
-  %196 = icmp eq ptr %195, null
-  br i1 %196, label %202, label %197
-
-197:                                              ; preds = %194
-  %198 = invoke noundef zeroext i1 %195(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 3)
-          to label %202 unwind label %199
-
-199:                                              ; preds = %197
-  %200 = landingpad { ptr, i32 }
-          catch ptr null
-  %201 = extractvalue { ptr, i32 } %200, 0
-  call void @__clang_call_terminate(ptr %201) #20
-  unreachable
-
-202:                                              ; preds = %197, %194
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #19
-  %203 = getelementptr inbounds i8, ptr %17, i64 16
-  %204 = getelementptr inbounds i8, ptr %17, i64 24
-  %205 = getelementptr inbounds i8, ptr %17, i64 8
-  store i64 0, ptr %205, align 8
-  store i64 %37, ptr %17, align 8, !tbaa !14
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_14E9_M_invokeERKSt9_Any_data", ptr %204, align 8, !tbaa !15
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_14E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %203, align 8, !tbaa !18
-  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.15, ptr noundef nonnull align 8 dereferenceable(32) %17)
-          to label %206 unwind label %547
-
-206:                                              ; preds = %202
-  %207 = load ptr, ptr %203, align 8, !tbaa !18
-  %208 = icmp eq ptr %207, null
-  br i1 %208, label %214, label %209
-
-209:                                              ; preds = %206
-  %210 = invoke noundef zeroext i1 %207(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %17, i32 noundef 3)
-          to label %214 unwind label %211
-
-211:                                              ; preds = %209
-  %212 = landingpad { ptr, i32 }
-          catch ptr null
-  %213 = extractvalue { ptr, i32 } %212, 0
-  call void @__clang_call_terminate(ptr %213) #20
-  unreachable
-
-214:                                              ; preds = %209, %206
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18) #19
-  %215 = getelementptr inbounds i8, ptr %18, i64 16
-  %216 = getelementptr inbounds i8, ptr %18, i64 24
-  %217 = getelementptr inbounds i8, ptr %18, i64 8
-  store i64 0, ptr %217, align 8
-  store i64 %37, ptr %18, align 8, !tbaa !14
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_15E9_M_invokeERKSt9_Any_data", ptr %216, align 8, !tbaa !15
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_15E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %215, align 8, !tbaa !18
-  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.16, ptr noundef nonnull align 8 dereferenceable(32) %18)
-          to label %218 unwind label %557
-
-218:                                              ; preds = %214
-  %219 = load ptr, ptr %215, align 8, !tbaa !18
-  %220 = icmp eq ptr %219, null
-  br i1 %220, label %226, label %221
-
-221:                                              ; preds = %218
-  %222 = invoke noundef zeroext i1 %219(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %18, i32 noundef 3)
-          to label %226 unwind label %223
-
-223:                                              ; preds = %221
-  %224 = landingpad { ptr, i32 }
-          catch ptr null
-  %225 = extractvalue { ptr, i32 } %224, 0
-  call void @__clang_call_terminate(ptr %225) #20
-  unreachable
-
-226:                                              ; preds = %221, %218
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19) #19
-  %227 = getelementptr inbounds i8, ptr %19, i64 16
-  %228 = getelementptr inbounds i8, ptr %19, i64 24
-  %229 = getelementptr inbounds i8, ptr %19, i64 8
-  store i64 0, ptr %229, align 8
-  store i64 %37, ptr %19, align 8, !tbaa !14
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_16E9_M_invokeERKSt9_Any_data", ptr %228, align 8, !tbaa !15
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_16E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %227, align 8, !tbaa !18
-  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.17, ptr noundef nonnull align 8 dereferenceable(32) %19)
-          to label %230 unwind label %567
-
-230:                                              ; preds = %226
-  %231 = load ptr, ptr %227, align 8, !tbaa !18
-  %232 = icmp eq ptr %231, null
-  br i1 %232, label %238, label %233
-
-233:                                              ; preds = %230
-  %234 = invoke noundef zeroext i1 %231(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %19, i32 noundef 3)
-          to label %238 unwind label %235
-
-235:                                              ; preds = %233
-  %236 = landingpad { ptr, i32 }
-          catch ptr null
-  %237 = extractvalue { ptr, i32 } %236, 0
-  call void @__clang_call_terminate(ptr %237) #20
-  unreachable
-
-238:                                              ; preds = %233, %230
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20) #19
-  %239 = getelementptr inbounds i8, ptr %20, i64 16
-  %240 = getelementptr inbounds i8, ptr %20, i64 24
-  %241 = getelementptr inbounds i8, ptr %20, i64 8
-  store i64 0, ptr %241, align 8
-  store i64 %37, ptr %20, align 8, !tbaa !14
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_17E9_M_invokeERKSt9_Any_data", ptr %240, align 8, !tbaa !15
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_17E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %239, align 8, !tbaa !18
-  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.18, ptr noundef nonnull align 8 dereferenceable(32) %20)
-          to label %242 unwind label %577
-
-242:                                              ; preds = %238
-  %243 = load ptr, ptr %239, align 8, !tbaa !18
-  %244 = icmp eq ptr %243, null
-  br i1 %244, label %250, label %245
-
-245:                                              ; preds = %242
-  %246 = invoke noundef zeroext i1 %243(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %20, i32 noundef 3)
-          to label %250 unwind label %247
-
-247:                                              ; preds = %245
-  %248 = landingpad { ptr, i32 }
-          catch ptr null
-  %249 = extractvalue { ptr, i32 } %248, 0
-  call void @__clang_call_terminate(ptr %249) #20
-  unreachable
-
-250:                                              ; preds = %245, %242
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21) #19
-  %251 = getelementptr inbounds i8, ptr %21, i64 16
-  %252 = getelementptr inbounds i8, ptr %21, i64 24
-  %253 = getelementptr inbounds i8, ptr %21, i64 8
-  store i64 0, ptr %253, align 8
-  store i64 %37, ptr %21, align 8, !tbaa !14
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_18E9_M_invokeERKSt9_Any_data", ptr %252, align 8, !tbaa !15
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_18E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %251, align 8, !tbaa !18
-  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.19, ptr noundef nonnull align 8 dereferenceable(32) %21)
-          to label %254 unwind label %587
-
-254:                                              ; preds = %250
-  %255 = load ptr, ptr %251, align 8, !tbaa !18
-  %256 = icmp eq ptr %255, null
-  br i1 %256, label %262, label %257
-
-257:                                              ; preds = %254
-  %258 = invoke noundef zeroext i1 %255(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %21, i32 noundef 3)
-          to label %262 unwind label %259
-
-259:                                              ; preds = %257
-  %260 = landingpad { ptr, i32 }
-          catch ptr null
-  %261 = extractvalue { ptr, i32 } %260, 0
-  call void @__clang_call_terminate(ptr %261) #20
-  unreachable
-
-262:                                              ; preds = %257, %254
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22) #19
-  %263 = getelementptr inbounds i8, ptr %22, i64 16
-  %264 = getelementptr inbounds i8, ptr %22, i64 24
-  %265 = getelementptr inbounds i8, ptr %22, i64 8
-  store i64 0, ptr %265, align 8
-  store i64 %37, ptr %22, align 8, !tbaa !14
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_19E9_M_invokeERKSt9_Any_data", ptr %264, align 8, !tbaa !15
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_19E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %263, align 8, !tbaa !18
-  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.20, ptr noundef nonnull align 8 dereferenceable(32) %22)
-          to label %266 unwind label %597
-
-266:                                              ; preds = %262
-  %267 = load ptr, ptr %263, align 8, !tbaa !18
-  %268 = icmp eq ptr %267, null
-  br i1 %268, label %274, label %269
-
-269:                                              ; preds = %266
-  %270 = invoke noundef zeroext i1 %267(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %22, i32 noundef 3)
-          to label %274 unwind label %271
-
-271:                                              ; preds = %269
-  %272 = landingpad { ptr, i32 }
-          catch ptr null
-  %273 = extractvalue { ptr, i32 } %272, 0
-  call void @__clang_call_terminate(ptr %273) #20
-  unreachable
-
-274:                                              ; preds = %269, %266
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23) #19
-  %275 = getelementptr inbounds i8, ptr %23, i64 16
-  %276 = getelementptr inbounds i8, ptr %23, i64 24
-  %277 = getelementptr inbounds i8, ptr %23, i64 8
-  store i64 0, ptr %277, align 8
-  store i64 %37, ptr %23, align 8, !tbaa !14
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_20E9_M_invokeERKSt9_Any_data", ptr %276, align 8, !tbaa !15
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_20E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %275, align 8, !tbaa !18
-  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.21, ptr noundef nonnull align 8 dereferenceable(32) %23)
-          to label %278 unwind label %607
-
-278:                                              ; preds = %274
-  %279 = load ptr, ptr %275, align 8, !tbaa !18
-  %280 = icmp eq ptr %279, null
-  br i1 %280, label %286, label %281
-
-281:                                              ; preds = %278
-  %282 = invoke noundef zeroext i1 %279(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef 3)
-          to label %286 unwind label %283
-
-283:                                              ; preds = %281
-  %284 = landingpad { ptr, i32 }
-          catch ptr null
-  %285 = extractvalue { ptr, i32 } %284, 0
-  call void @__clang_call_terminate(ptr %285) #20
-  unreachable
-
-286:                                              ; preds = %281, %278
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24) #19
-  %287 = getelementptr inbounds i8, ptr %24, i64 16
-  %288 = getelementptr inbounds i8, ptr %24, i64 24
-  %289 = getelementptr inbounds i8, ptr %24, i64 8
-  store i64 0, ptr %289, align 8
-  store i64 %37, ptr %24, align 8, !tbaa !14
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_21E9_M_invokeERKSt9_Any_data", ptr %288, align 8, !tbaa !15
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_21E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %287, align 8, !tbaa !18
-  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.22, ptr noundef nonnull align 8 dereferenceable(32) %24)
-          to label %290 unwind label %617
-
-290:                                              ; preds = %286
-  %291 = load ptr, ptr %287, align 8, !tbaa !18
-  %292 = icmp eq ptr %291, null
-  br i1 %292, label %298, label %293
-
-293:                                              ; preds = %290
-  %294 = invoke noundef zeroext i1 %291(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %24, i32 noundef 3)
-          to label %298 unwind label %295
-
-295:                                              ; preds = %293
-  %296 = landingpad { ptr, i32 }
-          catch ptr null
-  %297 = extractvalue { ptr, i32 } %296, 0
-  call void @__clang_call_terminate(ptr %297) #20
-  unreachable
-
-298:                                              ; preds = %293, %290
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25) #19
-  %299 = getelementptr inbounds i8, ptr %25, i64 16
-  %300 = getelementptr inbounds i8, ptr %25, i64 24
-  %301 = getelementptr inbounds i8, ptr %25, i64 8
-  store i64 0, ptr %301, align 8
-  store i64 %37, ptr %25, align 8, !tbaa !14
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_22E9_M_invokeERKSt9_Any_data", ptr %300, align 8, !tbaa !15
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_22E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %299, align 8, !tbaa !18
-  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.23, ptr noundef nonnull align 8 dereferenceable(32) %25)
-          to label %302 unwind label %627
-
-302:                                              ; preds = %298
-  %303 = load ptr, ptr %299, align 8, !tbaa !18
-  %304 = icmp eq ptr %303, null
-  br i1 %304, label %310, label %305
-
-305:                                              ; preds = %302
-  %306 = invoke noundef zeroext i1 %303(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %25, i32 noundef 3)
-          to label %310 unwind label %307
-
-307:                                              ; preds = %305
-  %308 = landingpad { ptr, i32 }
-          catch ptr null
-  %309 = extractvalue { ptr, i32 } %308, 0
-  call void @__clang_call_terminate(ptr %309) #20
-  unreachable
-
-310:                                              ; preds = %305, %302
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26) #19
-  %311 = getelementptr inbounds i8, ptr %26, i64 16
-  %312 = getelementptr inbounds i8, ptr %26, i64 24
-  %313 = getelementptr inbounds i8, ptr %26, i64 8
-  store i64 0, ptr %313, align 8
-  store i64 %37, ptr %26, align 8, !tbaa !14
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_23E9_M_invokeERKSt9_Any_data", ptr %312, align 8, !tbaa !15
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_23E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %311, align 8, !tbaa !18
-  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.24, ptr noundef nonnull align 8 dereferenceable(32) %26)
-          to label %314 unwind label %637
-
-314:                                              ; preds = %310
-  %315 = load ptr, ptr %311, align 8, !tbaa !18
-  %316 = icmp eq ptr %315, null
-  br i1 %316, label %322, label %317
-
-317:                                              ; preds = %314
-  %318 = invoke noundef zeroext i1 %315(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %26, i32 noundef 3)
-          to label %322 unwind label %319
-
-319:                                              ; preds = %317
-  %320 = landingpad { ptr, i32 }
-          catch ptr null
-  %321 = extractvalue { ptr, i32 } %320, 0
-  call void @__clang_call_terminate(ptr %321) #20
-  unreachable
-
-322:                                              ; preds = %317, %314
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27) #19
-  %323 = getelementptr inbounds i8, ptr %27, i64 16
-  %324 = getelementptr inbounds i8, ptr %27, i64 24
-  %325 = getelementptr inbounds i8, ptr %27, i64 8
-  store i64 0, ptr %325, align 8
-  store i64 %37, ptr %27, align 8, !tbaa !14
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_24E9_M_invokeERKSt9_Any_data", ptr %324, align 8, !tbaa !15
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_24E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %323, align 8, !tbaa !18
-  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.25, ptr noundef nonnull align 8 dereferenceable(32) %27)
-          to label %326 unwind label %647
-
-326:                                              ; preds = %322
-  %327 = load ptr, ptr %323, align 8, !tbaa !18
-  %328 = icmp eq ptr %327, null
-  br i1 %328, label %334, label %329
-
-329:                                              ; preds = %326
-  %330 = invoke noundef zeroext i1 %327(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %27, i32 noundef 3)
-          to label %334 unwind label %331
-
-331:                                              ; preds = %329
-  %332 = landingpad { ptr, i32 }
-          catch ptr null
-  %333 = extractvalue { ptr, i32 } %332, 0
-  call void @__clang_call_terminate(ptr %333) #20
-  unreachable
-
-334:                                              ; preds = %329, %326
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28) #19
-  %335 = getelementptr inbounds i8, ptr %28, i64 16
-  %336 = getelementptr inbounds i8, ptr %28, i64 24
-  %337 = getelementptr inbounds i8, ptr %28, i64 8
-  store i64 0, ptr %337, align 8
-  store i64 %37, ptr %28, align 8, !tbaa !14
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_25E9_M_invokeERKSt9_Any_data", ptr %336, align 8, !tbaa !15
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_25E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %335, align 8, !tbaa !18
-  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.26, ptr noundef nonnull align 8 dereferenceable(32) %28)
-          to label %338 unwind label %657
-
-338:                                              ; preds = %334
-  %339 = load ptr, ptr %335, align 8, !tbaa !18
-  %340 = icmp eq ptr %339, null
-  br i1 %340, label %346, label %341
-
-341:                                              ; preds = %338
-  %342 = invoke noundef zeroext i1 %339(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %28, i32 noundef 3)
-          to label %346 unwind label %343
-
-343:                                              ; preds = %341
-  %344 = landingpad { ptr, i32 }
-          catch ptr null
-  %345 = extractvalue { ptr, i32 } %344, 0
-  call void @__clang_call_terminate(ptr %345) #20
-  unreachable
-
-346:                                              ; preds = %341, %338
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29) #19
-  %347 = getelementptr inbounds i8, ptr %29, i64 16
-  %348 = getelementptr inbounds i8, ptr %29, i64 24
-  %349 = getelementptr inbounds i8, ptr %29, i64 8
-  store i64 0, ptr %349, align 8
-  store i64 %37, ptr %29, align 8, !tbaa !14
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_26E9_M_invokeERKSt9_Any_data", ptr %348, align 8, !tbaa !15
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_26E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %347, align 8, !tbaa !18
-  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.27, ptr noundef nonnull align 8 dereferenceable(32) %29)
-          to label %350 unwind label %667
-
-350:                                              ; preds = %346
-  %351 = load ptr, ptr %347, align 8, !tbaa !18
-  %352 = icmp eq ptr %351, null
-  br i1 %352, label %358, label %353
-
-353:                                              ; preds = %350
-  %354 = invoke noundef zeroext i1 %351(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %29, i32 noundef 3)
-          to label %358 unwind label %355
-
-355:                                              ; preds = %353
-  %356 = landingpad { ptr, i32 }
-          catch ptr null
-  %357 = extractvalue { ptr, i32 } %356, 0
-  call void @__clang_call_terminate(ptr %357) #20
-  unreachable
-
-358:                                              ; preds = %353, %350
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %30) #19
-  %359 = getelementptr inbounds i8, ptr %30, i64 16
-  %360 = getelementptr inbounds i8, ptr %30, i64 24
-  %361 = getelementptr inbounds i8, ptr %30, i64 8
-  store i64 0, ptr %361, align 8
-  store i64 %37, ptr %30, align 8, !tbaa !14
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_27E9_M_invokeERKSt9_Any_data", ptr %360, align 8, !tbaa !15
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_27E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %359, align 8, !tbaa !18
-  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.28, ptr noundef nonnull align 8 dereferenceable(32) %30)
-          to label %362 unwind label %677
-
-362:                                              ; preds = %358
-  %363 = load ptr, ptr %359, align 8, !tbaa !18
-  %364 = icmp eq ptr %363, null
-  br i1 %364, label %370, label %365
-
-365:                                              ; preds = %362
-  %366 = invoke noundef zeroext i1 %363(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %30, i32 noundef 3)
-          to label %370 unwind label %367
-
-367:                                              ; preds = %365
-  %368 = landingpad { ptr, i32 }
-          catch ptr null
-  %369 = extractvalue { ptr, i32 } %368, 0
-  call void @__clang_call_terminate(ptr %369) #20
-  unreachable
-
-370:                                              ; preds = %365, %362
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %31) #19
-  %371 = getelementptr inbounds i8, ptr %31, i64 16
-  %372 = getelementptr inbounds i8, ptr %31, i64 24
-  %373 = getelementptr inbounds i8, ptr %31, i64 8
-  store i64 0, ptr %373, align 8
-  store i64 %37, ptr %31, align 8, !tbaa !14
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_28E9_M_invokeERKSt9_Any_data", ptr %372, align 8, !tbaa !15
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_28E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %371, align 8, !tbaa !18
-  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.29, ptr noundef nonnull align 8 dereferenceable(32) %31)
-          to label %374 unwind label %687
-
-374:                                              ; preds = %370
-  %375 = load ptr, ptr %371, align 8, !tbaa !18
-  %376 = icmp eq ptr %375, null
-  br i1 %376, label %382, label %377
-
-377:                                              ; preds = %374
-  %378 = invoke noundef zeroext i1 %375(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %31, i32 noundef 3)
-          to label %382 unwind label %379
-
-379:                                              ; preds = %377
-  %380 = landingpad { ptr, i32 }
-          catch ptr null
-  %381 = extractvalue { ptr, i32 } %380, 0
-  call void @__clang_call_terminate(ptr %381) #20
-  unreachable
-
-382:                                              ; preds = %377, %374
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %31) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %32) #19
-  %383 = getelementptr inbounds i8, ptr %32, i64 16
-  %384 = getelementptr inbounds i8, ptr %32, i64 24
-  %385 = getelementptr inbounds i8, ptr %32, i64 8
-  store i64 0, ptr %385, align 8
-  store i64 %37, ptr %32, align 8, !tbaa !14
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_29E9_M_invokeERKSt9_Any_data", ptr %384, align 8, !tbaa !15
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_29E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %383, align 8, !tbaa !18
-  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.30, ptr noundef nonnull align 8 dereferenceable(32) %32)
-          to label %386 unwind label %697
-
-386:                                              ; preds = %382
-  %387 = load ptr, ptr %383, align 8, !tbaa !18
-  %388 = icmp eq ptr %387, null
-  br i1 %388, label %394, label %389
-
-389:                                              ; preds = %386
-  %390 = invoke noundef zeroext i1 %387(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %32, i32 noundef 3)
-          to label %394 unwind label %391
-
-391:                                              ; preds = %389
-  %392 = landingpad { ptr, i32 }
-          catch ptr null
-  %393 = extractvalue { ptr, i32 } %392, 0
-  call void @__clang_call_terminate(ptr %393) #20
-  unreachable
-
-394:                                              ; preds = %389, %386
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %32) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %33) #19
-  %395 = getelementptr inbounds i8, ptr %33, i64 16
-  %396 = getelementptr inbounds i8, ptr %33, i64 24
-  %397 = getelementptr inbounds i8, ptr %33, i64 8
-  store i64 0, ptr %397, align 8
-  store i64 %37, ptr %33, align 8, !tbaa !14
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_30E9_M_invokeERKSt9_Any_data", ptr %396, align 8, !tbaa !15
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_30E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %395, align 8, !tbaa !18
-  invoke void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.31, ptr noundef nonnull align 8 dereferenceable(32) %33)
-          to label %398 unwind label %707
-
-398:                                              ; preds = %394
-  %399 = load ptr, ptr %395, align 8, !tbaa !18
-  %400 = icmp eq ptr %399, null
-  br i1 %400, label %406, label %401
-
-401:                                              ; preds = %398
-  %402 = invoke noundef zeroext i1 %399(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(16) %33, i32 noundef 3)
-          to label %406 unwind label %403
-
-403:                                              ; preds = %401
-  %404 = landingpad { ptr, i32 }
-          catch ptr null
-  %405 = extractvalue { ptr, i32 } %404, 0
-  call void @__clang_call_terminate(ptr %405) #20
-  unreachable
-
-406:                                              ; preds = %401, %398
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %33) #19
+_ZNSt14_Function_baseD2Ev.exit394:                ; preds = %if.then.i391, %invoke.cont122
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp119) #19
   ret void
 
-407:                                              ; preds = %2
-  %408 = landingpad { ptr, i32 }
+lpad:                                             ; preds = %entry
+  %125 = landingpad { ptr, i32 }
           cleanup
-  %409 = load ptr, ptr %34, align 8, !tbaa !18
-  %410 = icmp eq ptr %409, null
-  br i1 %410, label %416, label %411
+  %126 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !18
+  %tobool.not.i396 = icmp eq ptr %126, null
+  br i1 %tobool.not.i396, label %_ZNSt14_Function_baseD2Ev.exit400, label %if.then.i397
 
-411:                                              ; preds = %407
-  %412 = invoke noundef zeroext i1 %409(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
-          to label %416 unwind label %413
+if.then.i397:                                     ; preds = %lpad
+  %call.i398 = invoke noundef zeroext i1 %126(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit400 unwind label %terminate.lpad.i399
 
-413:                                              ; preds = %411
-  %414 = landingpad { ptr, i32 }
+terminate.lpad.i399:                              ; preds = %if.then.i397
+  %127 = landingpad { ptr, i32 }
           catch ptr null
-  %415 = extractvalue { ptr, i32 } %414, 0
-  call void @__clang_call_terminate(ptr %415) #20
+  %128 = extractvalue { ptr, i32 } %127, 0
+  call void @__clang_call_terminate(ptr %128) #20
   unreachable
 
-416:                                              ; preds = %411, %407
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
-  br label %717
+_ZNSt14_Function_baseD2Ev.exit400:                ; preds = %if.then.i397, %lpad
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #19
+  br label %eh.resume
 
-417:                                              ; preds = %46
-  %418 = landingpad { ptr, i32 }
+lpad5:                                            ; preds = %_ZNSt14_Function_baseD2Ev.exit
+  %129 = landingpad { ptr, i32 }
           cleanup
-  %419 = load ptr, ptr %47, align 8, !tbaa !18
-  %420 = icmp eq ptr %419, null
-  br i1 %420, label %426, label %421
+  %130 = load ptr, ptr %_M_manager.i.i125, align 8, !tbaa !18
+  %tobool.not.i402 = icmp eq ptr %130, null
+  br i1 %tobool.not.i402, label %_ZNSt14_Function_baseD2Ev.exit406, label %if.then.i403
 
-421:                                              ; preds = %417
-  %422 = invoke noundef zeroext i1 %419(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
-          to label %426 unwind label %423
+if.then.i403:                                     ; preds = %lpad5
+  %call.i404 = invoke noundef zeroext i1 %130(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit406 unwind label %terminate.lpad.i405
 
-423:                                              ; preds = %421
-  %424 = landingpad { ptr, i32 }
+terminate.lpad.i405:                              ; preds = %if.then.i403
+  %131 = landingpad { ptr, i32 }
           catch ptr null
-  %425 = extractvalue { ptr, i32 } %424, 0
-  call void @__clang_call_terminate(ptr %425) #20
+  %132 = extractvalue { ptr, i32 } %131, 0
+  call void @__clang_call_terminate(ptr %132) #20
   unreachable
 
-426:                                              ; preds = %421, %417
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #19
-  br label %717
+_ZNSt14_Function_baseD2Ev.exit406:                ; preds = %if.then.i403, %lpad5
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3) #19
+  br label %eh.resume
 
-427:                                              ; preds = %58
-  %428 = landingpad { ptr, i32 }
+lpad9:                                            ; preds = %_ZNSt14_Function_baseD2Ev.exit133
+  %133 = landingpad { ptr, i32 }
           cleanup
-  %429 = load ptr, ptr %59, align 8, !tbaa !18
-  %430 = icmp eq ptr %429, null
-  br i1 %430, label %436, label %431
+  %134 = load ptr, ptr %_M_manager.i.i134, align 8, !tbaa !18
+  %tobool.not.i408 = icmp eq ptr %134, null
+  br i1 %tobool.not.i408, label %_ZNSt14_Function_baseD2Ev.exit412, label %if.then.i409
 
-431:                                              ; preds = %427
-  %432 = invoke noundef zeroext i1 %429(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
-          to label %436 unwind label %433
+if.then.i409:                                     ; preds = %lpad9
+  %call.i410 = invoke noundef zeroext i1 %134(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit412 unwind label %terminate.lpad.i411
 
-433:                                              ; preds = %431
-  %434 = landingpad { ptr, i32 }
+terminate.lpad.i411:                              ; preds = %if.then.i409
+  %135 = landingpad { ptr, i32 }
           catch ptr null
-  %435 = extractvalue { ptr, i32 } %434, 0
-  call void @__clang_call_terminate(ptr %435) #20
+  %136 = extractvalue { ptr, i32 } %135, 0
+  call void @__clang_call_terminate(ptr %136) #20
   unreachable
 
-436:                                              ; preds = %431, %427
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #19
-  br label %717
+_ZNSt14_Function_baseD2Ev.exit412:                ; preds = %if.then.i409, %lpad9
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp7) #19
+  br label %eh.resume
 
-437:                                              ; preds = %70
-  %438 = landingpad { ptr, i32 }
+lpad13:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit142
+  %137 = landingpad { ptr, i32 }
           cleanup
-  %439 = load ptr, ptr %71, align 8, !tbaa !18
-  %440 = icmp eq ptr %439, null
-  br i1 %440, label %446, label %441
+  %138 = load ptr, ptr %_M_manager.i.i143, align 8, !tbaa !18
+  %tobool.not.i414 = icmp eq ptr %138, null
+  br i1 %tobool.not.i414, label %_ZNSt14_Function_baseD2Ev.exit418, label %if.then.i415
 
-441:                                              ; preds = %437
-  %442 = invoke noundef zeroext i1 %439(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
-          to label %446 unwind label %443
+if.then.i415:                                     ; preds = %lpad13
+  %call.i416 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit418 unwind label %terminate.lpad.i417
 
-443:                                              ; preds = %441
-  %444 = landingpad { ptr, i32 }
+terminate.lpad.i417:                              ; preds = %if.then.i415
+  %139 = landingpad { ptr, i32 }
           catch ptr null
-  %445 = extractvalue { ptr, i32 } %444, 0
-  call void @__clang_call_terminate(ptr %445) #20
+  %140 = extractvalue { ptr, i32 } %139, 0
+  call void @__clang_call_terminate(ptr %140) #20
   unreachable
 
-446:                                              ; preds = %441, %437
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #19
-  br label %717
+_ZNSt14_Function_baseD2Ev.exit418:                ; preds = %if.then.i415, %lpad13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp11) #19
+  br label %eh.resume
 
-447:                                              ; preds = %82
-  %448 = landingpad { ptr, i32 }
+lpad17:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit151
+  %141 = landingpad { ptr, i32 }
           cleanup
-  %449 = load ptr, ptr %83, align 8, !tbaa !18
-  %450 = icmp eq ptr %449, null
-  br i1 %450, label %456, label %451
+  %142 = load ptr, ptr %_M_manager.i.i152, align 8, !tbaa !18
+  %tobool.not.i420 = icmp eq ptr %142, null
+  br i1 %tobool.not.i420, label %_ZNSt14_Function_baseD2Ev.exit424, label %if.then.i421
 
-451:                                              ; preds = %447
-  %452 = invoke noundef zeroext i1 %449(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
-          to label %456 unwind label %453
+if.then.i421:                                     ; preds = %lpad17
+  %call.i422 = invoke noundef zeroext i1 %142(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit424 unwind label %terminate.lpad.i423
 
-453:                                              ; preds = %451
-  %454 = landingpad { ptr, i32 }
+terminate.lpad.i423:                              ; preds = %if.then.i421
+  %143 = landingpad { ptr, i32 }
           catch ptr null
-  %455 = extractvalue { ptr, i32 } %454, 0
-  call void @__clang_call_terminate(ptr %455) #20
+  %144 = extractvalue { ptr, i32 } %143, 0
+  call void @__clang_call_terminate(ptr %144) #20
   unreachable
 
-456:                                              ; preds = %451, %447
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #19
-  br label %717
+_ZNSt14_Function_baseD2Ev.exit424:                ; preds = %if.then.i421, %lpad17
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp15) #19
+  br label %eh.resume
 
-457:                                              ; preds = %94
-  %458 = landingpad { ptr, i32 }
+lpad21:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit160
+  %145 = landingpad { ptr, i32 }
           cleanup
-  %459 = load ptr, ptr %95, align 8, !tbaa !18
-  %460 = icmp eq ptr %459, null
-  br i1 %460, label %466, label %461
+  %146 = load ptr, ptr %_M_manager.i.i161, align 8, !tbaa !18
+  %tobool.not.i426 = icmp eq ptr %146, null
+  br i1 %tobool.not.i426, label %_ZNSt14_Function_baseD2Ev.exit430, label %if.then.i427
 
-461:                                              ; preds = %457
-  %462 = invoke noundef zeroext i1 %459(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
-          to label %466 unwind label %463
+if.then.i427:                                     ; preds = %lpad21
+  %call.i428 = invoke noundef zeroext i1 %146(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp19, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp19, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit430 unwind label %terminate.lpad.i429
 
-463:                                              ; preds = %461
-  %464 = landingpad { ptr, i32 }
+terminate.lpad.i429:                              ; preds = %if.then.i427
+  %147 = landingpad { ptr, i32 }
           catch ptr null
-  %465 = extractvalue { ptr, i32 } %464, 0
-  call void @__clang_call_terminate(ptr %465) #20
+  %148 = extractvalue { ptr, i32 } %147, 0
+  call void @__clang_call_terminate(ptr %148) #20
   unreachable
 
-466:                                              ; preds = %461, %457
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #19
-  br label %717
+_ZNSt14_Function_baseD2Ev.exit430:                ; preds = %if.then.i427, %lpad21
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp19) #19
+  br label %eh.resume
 
-467:                                              ; preds = %106
-  %468 = landingpad { ptr, i32 }
+lpad25:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit169
+  %149 = landingpad { ptr, i32 }
           cleanup
-  %469 = load ptr, ptr %107, align 8, !tbaa !18
-  %470 = icmp eq ptr %469, null
-  br i1 %470, label %476, label %471
+  %150 = load ptr, ptr %_M_manager.i.i170, align 8, !tbaa !18
+  %tobool.not.i432 = icmp eq ptr %150, null
+  br i1 %tobool.not.i432, label %_ZNSt14_Function_baseD2Ev.exit436, label %if.then.i433
 
-471:                                              ; preds = %467
-  %472 = invoke noundef zeroext i1 %469(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
-          to label %476 unwind label %473
+if.then.i433:                                     ; preds = %lpad25
+  %call.i434 = invoke noundef zeroext i1 %150(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit436 unwind label %terminate.lpad.i435
 
-473:                                              ; preds = %471
-  %474 = landingpad { ptr, i32 }
+terminate.lpad.i435:                              ; preds = %if.then.i433
+  %151 = landingpad { ptr, i32 }
           catch ptr null
-  %475 = extractvalue { ptr, i32 } %474, 0
-  call void @__clang_call_terminate(ptr %475) #20
+  %152 = extractvalue { ptr, i32 } %151, 0
+  call void @__clang_call_terminate(ptr %152) #20
   unreachable
 
-476:                                              ; preds = %471, %467
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #19
-  br label %717
+_ZNSt14_Function_baseD2Ev.exit436:                ; preds = %if.then.i433, %lpad25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp23) #19
+  br label %eh.resume
 
-477:                                              ; preds = %118
-  %478 = landingpad { ptr, i32 }
+lpad29:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit178
+  %153 = landingpad { ptr, i32 }
           cleanup
-  %479 = load ptr, ptr %119, align 8, !tbaa !18
-  %480 = icmp eq ptr %479, null
-  br i1 %480, label %486, label %481
+  %154 = load ptr, ptr %_M_manager.i.i179, align 8, !tbaa !18
+  %tobool.not.i438 = icmp eq ptr %154, null
+  br i1 %tobool.not.i438, label %_ZNSt14_Function_baseD2Ev.exit442, label %if.then.i439
 
-481:                                              ; preds = %477
-  %482 = invoke noundef zeroext i1 %479(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
-          to label %486 unwind label %483
+if.then.i439:                                     ; preds = %lpad29
+  %call.i440 = invoke noundef zeroext i1 %154(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp27, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp27, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit442 unwind label %terminate.lpad.i441
 
-483:                                              ; preds = %481
-  %484 = landingpad { ptr, i32 }
+terminate.lpad.i441:                              ; preds = %if.then.i439
+  %155 = landingpad { ptr, i32 }
           catch ptr null
-  %485 = extractvalue { ptr, i32 } %484, 0
-  call void @__clang_call_terminate(ptr %485) #20
+  %156 = extractvalue { ptr, i32 } %155, 0
+  call void @__clang_call_terminate(ptr %156) #20
   unreachable
 
-486:                                              ; preds = %481, %477
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #19
-  br label %717
+_ZNSt14_Function_baseD2Ev.exit442:                ; preds = %if.then.i439, %lpad29
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp27) #19
+  br label %eh.resume
 
-487:                                              ; preds = %130
-  %488 = landingpad { ptr, i32 }
+lpad33:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit187
+  %157 = landingpad { ptr, i32 }
           cleanup
-  %489 = load ptr, ptr %131, align 8, !tbaa !18
-  %490 = icmp eq ptr %489, null
-  br i1 %490, label %496, label %491
+  %158 = load ptr, ptr %_M_manager.i.i188, align 8, !tbaa !18
+  %tobool.not.i444 = icmp eq ptr %158, null
+  br i1 %tobool.not.i444, label %_ZNSt14_Function_baseD2Ev.exit448, label %if.then.i445
 
-491:                                              ; preds = %487
-  %492 = invoke noundef zeroext i1 %489(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3)
-          to label %496 unwind label %493
+if.then.i445:                                     ; preds = %lpad33
+  %call.i446 = invoke noundef zeroext i1 %158(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp31, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp31, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit448 unwind label %terminate.lpad.i447
 
-493:                                              ; preds = %491
-  %494 = landingpad { ptr, i32 }
+terminate.lpad.i447:                              ; preds = %if.then.i445
+  %159 = landingpad { ptr, i32 }
           catch ptr null
-  %495 = extractvalue { ptr, i32 } %494, 0
-  call void @__clang_call_terminate(ptr %495) #20
+  %160 = extractvalue { ptr, i32 } %159, 0
+  call void @__clang_call_terminate(ptr %160) #20
   unreachable
 
-496:                                              ; preds = %491, %487
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #19
-  br label %717
+_ZNSt14_Function_baseD2Ev.exit448:                ; preds = %if.then.i445, %lpad33
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp31) #19
+  br label %eh.resume
 
-497:                                              ; preds = %142
-  %498 = landingpad { ptr, i32 }
+lpad37:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit196
+  %161 = landingpad { ptr, i32 }
           cleanup
-  %499 = load ptr, ptr %143, align 8, !tbaa !18
-  %500 = icmp eq ptr %499, null
-  br i1 %500, label %506, label %501
+  %162 = load ptr, ptr %_M_manager.i.i197, align 8, !tbaa !18
+  %tobool.not.i450 = icmp eq ptr %162, null
+  br i1 %tobool.not.i450, label %_ZNSt14_Function_baseD2Ev.exit454, label %if.then.i451
 
-501:                                              ; preds = %497
-  %502 = invoke noundef zeroext i1 %499(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 3)
-          to label %506 unwind label %503
+if.then.i451:                                     ; preds = %lpad37
+  %call.i452 = invoke noundef zeroext i1 %162(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp35, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp35, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit454 unwind label %terminate.lpad.i453
 
-503:                                              ; preds = %501
-  %504 = landingpad { ptr, i32 }
+terminate.lpad.i453:                              ; preds = %if.then.i451
+  %163 = landingpad { ptr, i32 }
           catch ptr null
-  %505 = extractvalue { ptr, i32 } %504, 0
-  call void @__clang_call_terminate(ptr %505) #20
+  %164 = extractvalue { ptr, i32 } %163, 0
+  call void @__clang_call_terminate(ptr %164) #20
   unreachable
 
-506:                                              ; preds = %501, %497
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #19
-  br label %717
+_ZNSt14_Function_baseD2Ev.exit454:                ; preds = %if.then.i451, %lpad37
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp35) #19
+  br label %eh.resume
 
-507:                                              ; preds = %154
-  %508 = landingpad { ptr, i32 }
+lpad41:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit205
+  %165 = landingpad { ptr, i32 }
           cleanup
-  %509 = load ptr, ptr %155, align 8, !tbaa !18
-  %510 = icmp eq ptr %509, null
-  br i1 %510, label %516, label %511
+  %166 = load ptr, ptr %_M_manager.i.i206, align 8, !tbaa !18
+  %tobool.not.i456 = icmp eq ptr %166, null
+  br i1 %tobool.not.i456, label %_ZNSt14_Function_baseD2Ev.exit460, label %if.then.i457
 
-511:                                              ; preds = %507
-  %512 = invoke noundef zeroext i1 %509(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 3)
-          to label %516 unwind label %513
+if.then.i457:                                     ; preds = %lpad41
+  %call.i458 = invoke noundef zeroext i1 %166(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp39, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp39, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit460 unwind label %terminate.lpad.i459
 
-513:                                              ; preds = %511
-  %514 = landingpad { ptr, i32 }
+terminate.lpad.i459:                              ; preds = %if.then.i457
+  %167 = landingpad { ptr, i32 }
           catch ptr null
-  %515 = extractvalue { ptr, i32 } %514, 0
-  call void @__clang_call_terminate(ptr %515) #20
+  %168 = extractvalue { ptr, i32 } %167, 0
+  call void @__clang_call_terminate(ptr %168) #20
   unreachable
 
-516:                                              ; preds = %511, %507
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #19
-  br label %717
+_ZNSt14_Function_baseD2Ev.exit460:                ; preds = %if.then.i457, %lpad41
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp39) #19
+  br label %eh.resume
 
-517:                                              ; preds = %166
-  %518 = landingpad { ptr, i32 }
+lpad45:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit214
+  %169 = landingpad { ptr, i32 }
           cleanup
-  %519 = load ptr, ptr %167, align 8, !tbaa !18
-  %520 = icmp eq ptr %519, null
-  br i1 %520, label %526, label %521
+  %170 = load ptr, ptr %_M_manager.i.i215, align 8, !tbaa !18
+  %tobool.not.i462 = icmp eq ptr %170, null
+  br i1 %tobool.not.i462, label %_ZNSt14_Function_baseD2Ev.exit466, label %if.then.i463
 
-521:                                              ; preds = %517
-  %522 = invoke noundef zeroext i1 %519(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef 3)
-          to label %526 unwind label %523
+if.then.i463:                                     ; preds = %lpad45
+  %call.i464 = invoke noundef zeroext i1 %170(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp43, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp43, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit466 unwind label %terminate.lpad.i465
 
-523:                                              ; preds = %521
-  %524 = landingpad { ptr, i32 }
+terminate.lpad.i465:                              ; preds = %if.then.i463
+  %171 = landingpad { ptr, i32 }
           catch ptr null
-  %525 = extractvalue { ptr, i32 } %524, 0
-  call void @__clang_call_terminate(ptr %525) #20
+  %172 = extractvalue { ptr, i32 } %171, 0
+  call void @__clang_call_terminate(ptr %172) #20
   unreachable
 
-526:                                              ; preds = %521, %517
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #19
-  br label %717
+_ZNSt14_Function_baseD2Ev.exit466:                ; preds = %if.then.i463, %lpad45
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp43) #19
+  br label %eh.resume
 
-527:                                              ; preds = %178
-  %528 = landingpad { ptr, i32 }
+lpad49:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit223
+  %173 = landingpad { ptr, i32 }
           cleanup
-  %529 = load ptr, ptr %179, align 8, !tbaa !18
-  %530 = icmp eq ptr %529, null
-  br i1 %530, label %536, label %531
+  %174 = load ptr, ptr %_M_manager.i.i224, align 8, !tbaa !18
+  %tobool.not.i468 = icmp eq ptr %174, null
+  br i1 %tobool.not.i468, label %_ZNSt14_Function_baseD2Ev.exit472, label %if.then.i469
 
-531:                                              ; preds = %527
-  %532 = invoke noundef zeroext i1 %529(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
-          to label %536 unwind label %533
+if.then.i469:                                     ; preds = %lpad49
+  %call.i470 = invoke noundef zeroext i1 %174(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp47, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp47, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit472 unwind label %terminate.lpad.i471
 
-533:                                              ; preds = %531
-  %534 = landingpad { ptr, i32 }
+terminate.lpad.i471:                              ; preds = %if.then.i469
+  %175 = landingpad { ptr, i32 }
           catch ptr null
-  %535 = extractvalue { ptr, i32 } %534, 0
-  call void @__clang_call_terminate(ptr %535) #20
+  %176 = extractvalue { ptr, i32 } %175, 0
+  call void @__clang_call_terminate(ptr %176) #20
   unreachable
 
-536:                                              ; preds = %531, %527
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #19
-  br label %717
+_ZNSt14_Function_baseD2Ev.exit472:                ; preds = %if.then.i469, %lpad49
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp47) #19
+  br label %eh.resume
 
-537:                                              ; preds = %190
-  %538 = landingpad { ptr, i32 }
+lpad53:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit232
+  %177 = landingpad { ptr, i32 }
           cleanup
-  %539 = load ptr, ptr %191, align 8, !tbaa !18
-  %540 = icmp eq ptr %539, null
-  br i1 %540, label %546, label %541
+  %178 = load ptr, ptr %_M_manager.i.i233, align 8, !tbaa !18
+  %tobool.not.i474 = icmp eq ptr %178, null
+  br i1 %tobool.not.i474, label %_ZNSt14_Function_baseD2Ev.exit478, label %if.then.i475
 
-541:                                              ; preds = %537
-  %542 = invoke noundef zeroext i1 %539(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 3)
-          to label %546 unwind label %543
+if.then.i475:                                     ; preds = %lpad53
+  %call.i476 = invoke noundef zeroext i1 %178(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp51, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp51, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit478 unwind label %terminate.lpad.i477
 
-543:                                              ; preds = %541
-  %544 = landingpad { ptr, i32 }
+terminate.lpad.i477:                              ; preds = %if.then.i475
+  %179 = landingpad { ptr, i32 }
           catch ptr null
-  %545 = extractvalue { ptr, i32 } %544, 0
-  call void @__clang_call_terminate(ptr %545) #20
+  %180 = extractvalue { ptr, i32 } %179, 0
+  call void @__clang_call_terminate(ptr %180) #20
   unreachable
 
-546:                                              ; preds = %541, %537
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #19
-  br label %717
+_ZNSt14_Function_baseD2Ev.exit478:                ; preds = %if.then.i475, %lpad53
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp51) #19
+  br label %eh.resume
 
-547:                                              ; preds = %202
-  %548 = landingpad { ptr, i32 }
+lpad57:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit241
+  %181 = landingpad { ptr, i32 }
           cleanup
-  %549 = load ptr, ptr %203, align 8, !tbaa !18
-  %550 = icmp eq ptr %549, null
-  br i1 %550, label %556, label %551
+  %182 = load ptr, ptr %_M_manager.i.i242, align 8, !tbaa !18
+  %tobool.not.i480 = icmp eq ptr %182, null
+  br i1 %tobool.not.i480, label %_ZNSt14_Function_baseD2Ev.exit484, label %if.then.i481
 
-551:                                              ; preds = %547
-  %552 = invoke noundef zeroext i1 %549(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %17, i32 noundef 3)
-          to label %556 unwind label %553
+if.then.i481:                                     ; preds = %lpad57
+  %call.i482 = invoke noundef zeroext i1 %182(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp55, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp55, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit484 unwind label %terminate.lpad.i483
 
-553:                                              ; preds = %551
-  %554 = landingpad { ptr, i32 }
+terminate.lpad.i483:                              ; preds = %if.then.i481
+  %183 = landingpad { ptr, i32 }
           catch ptr null
-  %555 = extractvalue { ptr, i32 } %554, 0
-  call void @__clang_call_terminate(ptr %555) #20
+  %184 = extractvalue { ptr, i32 } %183, 0
+  call void @__clang_call_terminate(ptr %184) #20
   unreachable
 
-556:                                              ; preds = %551, %547
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #19
-  br label %717
+_ZNSt14_Function_baseD2Ev.exit484:                ; preds = %if.then.i481, %lpad57
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp55) #19
+  br label %eh.resume
 
-557:                                              ; preds = %214
-  %558 = landingpad { ptr, i32 }
+lpad61:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit250
+  %185 = landingpad { ptr, i32 }
           cleanup
-  %559 = load ptr, ptr %215, align 8, !tbaa !18
-  %560 = icmp eq ptr %559, null
-  br i1 %560, label %566, label %561
+  %186 = load ptr, ptr %_M_manager.i.i251, align 8, !tbaa !18
+  %tobool.not.i486 = icmp eq ptr %186, null
+  br i1 %tobool.not.i486, label %_ZNSt14_Function_baseD2Ev.exit490, label %if.then.i487
 
-561:                                              ; preds = %557
-  %562 = invoke noundef zeroext i1 %559(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %18, i32 noundef 3)
-          to label %566 unwind label %563
+if.then.i487:                                     ; preds = %lpad61
+  %call.i488 = invoke noundef zeroext i1 %186(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp59, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp59, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit490 unwind label %terminate.lpad.i489
 
-563:                                              ; preds = %561
-  %564 = landingpad { ptr, i32 }
+terminate.lpad.i489:                              ; preds = %if.then.i487
+  %187 = landingpad { ptr, i32 }
           catch ptr null
-  %565 = extractvalue { ptr, i32 } %564, 0
-  call void @__clang_call_terminate(ptr %565) #20
+  %188 = extractvalue { ptr, i32 } %187, 0
+  call void @__clang_call_terminate(ptr %188) #20
   unreachable
 
-566:                                              ; preds = %561, %557
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #19
-  br label %717
+_ZNSt14_Function_baseD2Ev.exit490:                ; preds = %if.then.i487, %lpad61
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp59) #19
+  br label %eh.resume
 
-567:                                              ; preds = %226
-  %568 = landingpad { ptr, i32 }
+lpad65:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit259
+  %189 = landingpad { ptr, i32 }
           cleanup
-  %569 = load ptr, ptr %227, align 8, !tbaa !18
-  %570 = icmp eq ptr %569, null
-  br i1 %570, label %576, label %571
+  %190 = load ptr, ptr %_M_manager.i.i260, align 8, !tbaa !18
+  %tobool.not.i492 = icmp eq ptr %190, null
+  br i1 %tobool.not.i492, label %_ZNSt14_Function_baseD2Ev.exit496, label %if.then.i493
 
-571:                                              ; preds = %567
-  %572 = invoke noundef zeroext i1 %569(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %19, i32 noundef 3)
-          to label %576 unwind label %573
+if.then.i493:                                     ; preds = %lpad65
+  %call.i494 = invoke noundef zeroext i1 %190(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp63, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp63, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit496 unwind label %terminate.lpad.i495
 
-573:                                              ; preds = %571
-  %574 = landingpad { ptr, i32 }
+terminate.lpad.i495:                              ; preds = %if.then.i493
+  %191 = landingpad { ptr, i32 }
           catch ptr null
-  %575 = extractvalue { ptr, i32 } %574, 0
-  call void @__clang_call_terminate(ptr %575) #20
+  %192 = extractvalue { ptr, i32 } %191, 0
+  call void @__clang_call_terminate(ptr %192) #20
   unreachable
 
-576:                                              ; preds = %571, %567
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19) #19
-  br label %717
+_ZNSt14_Function_baseD2Ev.exit496:                ; preds = %if.then.i493, %lpad65
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp63) #19
+  br label %eh.resume
 
-577:                                              ; preds = %238
-  %578 = landingpad { ptr, i32 }
+lpad69:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit268
+  %193 = landingpad { ptr, i32 }
           cleanup
-  %579 = load ptr, ptr %239, align 8, !tbaa !18
-  %580 = icmp eq ptr %579, null
-  br i1 %580, label %586, label %581
+  %194 = load ptr, ptr %_M_manager.i.i269, align 8, !tbaa !18
+  %tobool.not.i498 = icmp eq ptr %194, null
+  br i1 %tobool.not.i498, label %_ZNSt14_Function_baseD2Ev.exit502, label %if.then.i499
 
-581:                                              ; preds = %577
-  %582 = invoke noundef zeroext i1 %579(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %20, i32 noundef 3)
-          to label %586 unwind label %583
+if.then.i499:                                     ; preds = %lpad69
+  %call.i500 = invoke noundef zeroext i1 %194(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp67, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp67, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit502 unwind label %terminate.lpad.i501
 
-583:                                              ; preds = %581
-  %584 = landingpad { ptr, i32 }
+terminate.lpad.i501:                              ; preds = %if.then.i499
+  %195 = landingpad { ptr, i32 }
           catch ptr null
-  %585 = extractvalue { ptr, i32 } %584, 0
-  call void @__clang_call_terminate(ptr %585) #20
+  %196 = extractvalue { ptr, i32 } %195, 0
+  call void @__clang_call_terminate(ptr %196) #20
   unreachable
 
-586:                                              ; preds = %581, %577
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20) #19
-  br label %717
+_ZNSt14_Function_baseD2Ev.exit502:                ; preds = %if.then.i499, %lpad69
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp67) #19
+  br label %eh.resume
 
-587:                                              ; preds = %250
-  %588 = landingpad { ptr, i32 }
+lpad73:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit277
+  %197 = landingpad { ptr, i32 }
           cleanup
-  %589 = load ptr, ptr %251, align 8, !tbaa !18
-  %590 = icmp eq ptr %589, null
-  br i1 %590, label %596, label %591
+  %198 = load ptr, ptr %_M_manager.i.i278, align 8, !tbaa !18
+  %tobool.not.i504 = icmp eq ptr %198, null
+  br i1 %tobool.not.i504, label %_ZNSt14_Function_baseD2Ev.exit508, label %if.then.i505
 
-591:                                              ; preds = %587
-  %592 = invoke noundef zeroext i1 %589(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %21, i32 noundef 3)
-          to label %596 unwind label %593
+if.then.i505:                                     ; preds = %lpad73
+  %call.i506 = invoke noundef zeroext i1 %198(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp71, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp71, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit508 unwind label %terminate.lpad.i507
 
-593:                                              ; preds = %591
-  %594 = landingpad { ptr, i32 }
+terminate.lpad.i507:                              ; preds = %if.then.i505
+  %199 = landingpad { ptr, i32 }
           catch ptr null
-  %595 = extractvalue { ptr, i32 } %594, 0
-  call void @__clang_call_terminate(ptr %595) #20
+  %200 = extractvalue { ptr, i32 } %199, 0
+  call void @__clang_call_terminate(ptr %200) #20
   unreachable
 
-596:                                              ; preds = %591, %587
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21) #19
-  br label %717
+_ZNSt14_Function_baseD2Ev.exit508:                ; preds = %if.then.i505, %lpad73
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp71) #19
+  br label %eh.resume
 
-597:                                              ; preds = %262
-  %598 = landingpad { ptr, i32 }
+lpad77:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit286
+  %201 = landingpad { ptr, i32 }
           cleanup
-  %599 = load ptr, ptr %263, align 8, !tbaa !18
-  %600 = icmp eq ptr %599, null
-  br i1 %600, label %606, label %601
+  %202 = load ptr, ptr %_M_manager.i.i287, align 8, !tbaa !18
+  %tobool.not.i510 = icmp eq ptr %202, null
+  br i1 %tobool.not.i510, label %_ZNSt14_Function_baseD2Ev.exit514, label %if.then.i511
 
-601:                                              ; preds = %597
-  %602 = invoke noundef zeroext i1 %599(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %22, i32 noundef 3)
-          to label %606 unwind label %603
+if.then.i511:                                     ; preds = %lpad77
+  %call.i512 = invoke noundef zeroext i1 %202(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp75, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp75, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit514 unwind label %terminate.lpad.i513
 
-603:                                              ; preds = %601
-  %604 = landingpad { ptr, i32 }
+terminate.lpad.i513:                              ; preds = %if.then.i511
+  %203 = landingpad { ptr, i32 }
           catch ptr null
-  %605 = extractvalue { ptr, i32 } %604, 0
-  call void @__clang_call_terminate(ptr %605) #20
+  %204 = extractvalue { ptr, i32 } %203, 0
+  call void @__clang_call_terminate(ptr %204) #20
   unreachable
 
-606:                                              ; preds = %601, %597
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22) #19
-  br label %717
+_ZNSt14_Function_baseD2Ev.exit514:                ; preds = %if.then.i511, %lpad77
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp75) #19
+  br label %eh.resume
 
-607:                                              ; preds = %274
-  %608 = landingpad { ptr, i32 }
+lpad81:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit295
+  %205 = landingpad { ptr, i32 }
           cleanup
-  %609 = load ptr, ptr %275, align 8, !tbaa !18
-  %610 = icmp eq ptr %609, null
-  br i1 %610, label %616, label %611
+  %206 = load ptr, ptr %_M_manager.i.i296, align 8, !tbaa !18
+  %tobool.not.i516 = icmp eq ptr %206, null
+  br i1 %tobool.not.i516, label %_ZNSt14_Function_baseD2Ev.exit520, label %if.then.i517
 
-611:                                              ; preds = %607
-  %612 = invoke noundef zeroext i1 %609(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef 3)
-          to label %616 unwind label %613
+if.then.i517:                                     ; preds = %lpad81
+  %call.i518 = invoke noundef zeroext i1 %206(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp79, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp79, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit520 unwind label %terminate.lpad.i519
 
-613:                                              ; preds = %611
-  %614 = landingpad { ptr, i32 }
+terminate.lpad.i519:                              ; preds = %if.then.i517
+  %207 = landingpad { ptr, i32 }
           catch ptr null
-  %615 = extractvalue { ptr, i32 } %614, 0
-  call void @__clang_call_terminate(ptr %615) #20
+  %208 = extractvalue { ptr, i32 } %207, 0
+  call void @__clang_call_terminate(ptr %208) #20
   unreachable
 
-616:                                              ; preds = %611, %607
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23) #19
-  br label %717
+_ZNSt14_Function_baseD2Ev.exit520:                ; preds = %if.then.i517, %lpad81
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp79) #19
+  br label %eh.resume
 
-617:                                              ; preds = %286
-  %618 = landingpad { ptr, i32 }
+lpad85:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit304
+  %209 = landingpad { ptr, i32 }
           cleanup
-  %619 = load ptr, ptr %287, align 8, !tbaa !18
-  %620 = icmp eq ptr %619, null
-  br i1 %620, label %626, label %621
+  %210 = load ptr, ptr %_M_manager.i.i305, align 8, !tbaa !18
+  %tobool.not.i522 = icmp eq ptr %210, null
+  br i1 %tobool.not.i522, label %_ZNSt14_Function_baseD2Ev.exit526, label %if.then.i523
 
-621:                                              ; preds = %617
-  %622 = invoke noundef zeroext i1 %619(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %24, i32 noundef 3)
-          to label %626 unwind label %623
+if.then.i523:                                     ; preds = %lpad85
+  %call.i524 = invoke noundef zeroext i1 %210(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp83, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp83, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit526 unwind label %terminate.lpad.i525
 
-623:                                              ; preds = %621
-  %624 = landingpad { ptr, i32 }
+terminate.lpad.i525:                              ; preds = %if.then.i523
+  %211 = landingpad { ptr, i32 }
           catch ptr null
-  %625 = extractvalue { ptr, i32 } %624, 0
-  call void @__clang_call_terminate(ptr %625) #20
+  %212 = extractvalue { ptr, i32 } %211, 0
+  call void @__clang_call_terminate(ptr %212) #20
   unreachable
 
-626:                                              ; preds = %621, %617
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24) #19
-  br label %717
+_ZNSt14_Function_baseD2Ev.exit526:                ; preds = %if.then.i523, %lpad85
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp83) #19
+  br label %eh.resume
 
-627:                                              ; preds = %298
-  %628 = landingpad { ptr, i32 }
+lpad89:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit313
+  %213 = landingpad { ptr, i32 }
           cleanup
-  %629 = load ptr, ptr %299, align 8, !tbaa !18
-  %630 = icmp eq ptr %629, null
-  br i1 %630, label %636, label %631
+  %214 = load ptr, ptr %_M_manager.i.i314, align 8, !tbaa !18
+  %tobool.not.i528 = icmp eq ptr %214, null
+  br i1 %tobool.not.i528, label %_ZNSt14_Function_baseD2Ev.exit532, label %if.then.i529
 
-631:                                              ; preds = %627
-  %632 = invoke noundef zeroext i1 %629(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %25, i32 noundef 3)
-          to label %636 unwind label %633
+if.then.i529:                                     ; preds = %lpad89
+  %call.i530 = invoke noundef zeroext i1 %214(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp87, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp87, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit532 unwind label %terminate.lpad.i531
 
-633:                                              ; preds = %631
-  %634 = landingpad { ptr, i32 }
+terminate.lpad.i531:                              ; preds = %if.then.i529
+  %215 = landingpad { ptr, i32 }
           catch ptr null
-  %635 = extractvalue { ptr, i32 } %634, 0
-  call void @__clang_call_terminate(ptr %635) #20
+  %216 = extractvalue { ptr, i32 } %215, 0
+  call void @__clang_call_terminate(ptr %216) #20
   unreachable
 
-636:                                              ; preds = %631, %627
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25) #19
-  br label %717
+_ZNSt14_Function_baseD2Ev.exit532:                ; preds = %if.then.i529, %lpad89
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp87) #19
+  br label %eh.resume
 
-637:                                              ; preds = %310
-  %638 = landingpad { ptr, i32 }
+lpad93:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit322
+  %217 = landingpad { ptr, i32 }
           cleanup
-  %639 = load ptr, ptr %311, align 8, !tbaa !18
-  %640 = icmp eq ptr %639, null
-  br i1 %640, label %646, label %641
+  %218 = load ptr, ptr %_M_manager.i.i323, align 8, !tbaa !18
+  %tobool.not.i534 = icmp eq ptr %218, null
+  br i1 %tobool.not.i534, label %_ZNSt14_Function_baseD2Ev.exit538, label %if.then.i535
 
-641:                                              ; preds = %637
-  %642 = invoke noundef zeroext i1 %639(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %26, i32 noundef 3)
-          to label %646 unwind label %643
+if.then.i535:                                     ; preds = %lpad93
+  %call.i536 = invoke noundef zeroext i1 %218(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp91, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp91, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit538 unwind label %terminate.lpad.i537
 
-643:                                              ; preds = %641
-  %644 = landingpad { ptr, i32 }
+terminate.lpad.i537:                              ; preds = %if.then.i535
+  %219 = landingpad { ptr, i32 }
           catch ptr null
-  %645 = extractvalue { ptr, i32 } %644, 0
-  call void @__clang_call_terminate(ptr %645) #20
+  %220 = extractvalue { ptr, i32 } %219, 0
+  call void @__clang_call_terminate(ptr %220) #20
   unreachable
 
-646:                                              ; preds = %641, %637
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26) #19
-  br label %717
+_ZNSt14_Function_baseD2Ev.exit538:                ; preds = %if.then.i535, %lpad93
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp91) #19
+  br label %eh.resume
 
-647:                                              ; preds = %322
-  %648 = landingpad { ptr, i32 }
+lpad97:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit331
+  %221 = landingpad { ptr, i32 }
           cleanup
-  %649 = load ptr, ptr %323, align 8, !tbaa !18
-  %650 = icmp eq ptr %649, null
-  br i1 %650, label %656, label %651
+  %222 = load ptr, ptr %_M_manager.i.i332, align 8, !tbaa !18
+  %tobool.not.i540 = icmp eq ptr %222, null
+  br i1 %tobool.not.i540, label %_ZNSt14_Function_baseD2Ev.exit544, label %if.then.i541
 
-651:                                              ; preds = %647
-  %652 = invoke noundef zeroext i1 %649(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %27, i32 noundef 3)
-          to label %656 unwind label %653
+if.then.i541:                                     ; preds = %lpad97
+  %call.i542 = invoke noundef zeroext i1 %222(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp95, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp95, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit544 unwind label %terminate.lpad.i543
 
-653:                                              ; preds = %651
-  %654 = landingpad { ptr, i32 }
+terminate.lpad.i543:                              ; preds = %if.then.i541
+  %223 = landingpad { ptr, i32 }
           catch ptr null
-  %655 = extractvalue { ptr, i32 } %654, 0
-  call void @__clang_call_terminate(ptr %655) #20
+  %224 = extractvalue { ptr, i32 } %223, 0
+  call void @__clang_call_terminate(ptr %224) #20
   unreachable
 
-656:                                              ; preds = %651, %647
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27) #19
-  br label %717
+_ZNSt14_Function_baseD2Ev.exit544:                ; preds = %if.then.i541, %lpad97
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp95) #19
+  br label %eh.resume
 
-657:                                              ; preds = %334
-  %658 = landingpad { ptr, i32 }
+lpad101:                                          ; preds = %_ZNSt14_Function_baseD2Ev.exit340
+  %225 = landingpad { ptr, i32 }
           cleanup
-  %659 = load ptr, ptr %335, align 8, !tbaa !18
-  %660 = icmp eq ptr %659, null
-  br i1 %660, label %666, label %661
+  %226 = load ptr, ptr %_M_manager.i.i341, align 8, !tbaa !18
+  %tobool.not.i546 = icmp eq ptr %226, null
+  br i1 %tobool.not.i546, label %_ZNSt14_Function_baseD2Ev.exit550, label %if.then.i547
 
-661:                                              ; preds = %657
-  %662 = invoke noundef zeroext i1 %659(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %28, i32 noundef 3)
-          to label %666 unwind label %663
+if.then.i547:                                     ; preds = %lpad101
+  %call.i548 = invoke noundef zeroext i1 %226(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp99, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp99, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit550 unwind label %terminate.lpad.i549
 
-663:                                              ; preds = %661
-  %664 = landingpad { ptr, i32 }
+terminate.lpad.i549:                              ; preds = %if.then.i547
+  %227 = landingpad { ptr, i32 }
           catch ptr null
-  %665 = extractvalue { ptr, i32 } %664, 0
-  call void @__clang_call_terminate(ptr %665) #20
+  %228 = extractvalue { ptr, i32 } %227, 0
+  call void @__clang_call_terminate(ptr %228) #20
   unreachable
 
-666:                                              ; preds = %661, %657
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28) #19
-  br label %717
+_ZNSt14_Function_baseD2Ev.exit550:                ; preds = %if.then.i547, %lpad101
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp99) #19
+  br label %eh.resume
 
-667:                                              ; preds = %346
-  %668 = landingpad { ptr, i32 }
+lpad105:                                          ; preds = %_ZNSt14_Function_baseD2Ev.exit349
+  %229 = landingpad { ptr, i32 }
           cleanup
-  %669 = load ptr, ptr %347, align 8, !tbaa !18
-  %670 = icmp eq ptr %669, null
-  br i1 %670, label %676, label %671
+  %230 = load ptr, ptr %_M_manager.i.i350, align 8, !tbaa !18
+  %tobool.not.i552 = icmp eq ptr %230, null
+  br i1 %tobool.not.i552, label %_ZNSt14_Function_baseD2Ev.exit556, label %if.then.i553
 
-671:                                              ; preds = %667
-  %672 = invoke noundef zeroext i1 %669(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %29, i32 noundef 3)
-          to label %676 unwind label %673
+if.then.i553:                                     ; preds = %lpad105
+  %call.i554 = invoke noundef zeroext i1 %230(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp103, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp103, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit556 unwind label %terminate.lpad.i555
 
-673:                                              ; preds = %671
-  %674 = landingpad { ptr, i32 }
+terminate.lpad.i555:                              ; preds = %if.then.i553
+  %231 = landingpad { ptr, i32 }
           catch ptr null
-  %675 = extractvalue { ptr, i32 } %674, 0
-  call void @__clang_call_terminate(ptr %675) #20
+  %232 = extractvalue { ptr, i32 } %231, 0
+  call void @__clang_call_terminate(ptr %232) #20
   unreachable
 
-676:                                              ; preds = %671, %667
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29) #19
-  br label %717
+_ZNSt14_Function_baseD2Ev.exit556:                ; preds = %if.then.i553, %lpad105
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp103) #19
+  br label %eh.resume
 
-677:                                              ; preds = %358
-  %678 = landingpad { ptr, i32 }
+lpad109:                                          ; preds = %_ZNSt14_Function_baseD2Ev.exit358
+  %233 = landingpad { ptr, i32 }
           cleanup
-  %679 = load ptr, ptr %359, align 8, !tbaa !18
-  %680 = icmp eq ptr %679, null
-  br i1 %680, label %686, label %681
+  %234 = load ptr, ptr %_M_manager.i.i359, align 8, !tbaa !18
+  %tobool.not.i558 = icmp eq ptr %234, null
+  br i1 %tobool.not.i558, label %_ZNSt14_Function_baseD2Ev.exit562, label %if.then.i559
 
-681:                                              ; preds = %677
-  %682 = invoke noundef zeroext i1 %679(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %30, i32 noundef 3)
-          to label %686 unwind label %683
+if.then.i559:                                     ; preds = %lpad109
+  %call.i560 = invoke noundef zeroext i1 %234(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp107, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp107, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit562 unwind label %terminate.lpad.i561
 
-683:                                              ; preds = %681
-  %684 = landingpad { ptr, i32 }
+terminate.lpad.i561:                              ; preds = %if.then.i559
+  %235 = landingpad { ptr, i32 }
           catch ptr null
-  %685 = extractvalue { ptr, i32 } %684, 0
-  call void @__clang_call_terminate(ptr %685) #20
+  %236 = extractvalue { ptr, i32 } %235, 0
+  call void @__clang_call_terminate(ptr %236) #20
   unreachable
 
-686:                                              ; preds = %681, %677
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30) #19
-  br label %717
+_ZNSt14_Function_baseD2Ev.exit562:                ; preds = %if.then.i559, %lpad109
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp107) #19
+  br label %eh.resume
 
-687:                                              ; preds = %370
-  %688 = landingpad { ptr, i32 }
+lpad113:                                          ; preds = %_ZNSt14_Function_baseD2Ev.exit367
+  %237 = landingpad { ptr, i32 }
           cleanup
-  %689 = load ptr, ptr %371, align 8, !tbaa !18
-  %690 = icmp eq ptr %689, null
-  br i1 %690, label %696, label %691
+  %238 = load ptr, ptr %_M_manager.i.i368, align 8, !tbaa !18
+  %tobool.not.i564 = icmp eq ptr %238, null
+  br i1 %tobool.not.i564, label %_ZNSt14_Function_baseD2Ev.exit568, label %if.then.i565
 
-691:                                              ; preds = %687
-  %692 = invoke noundef zeroext i1 %689(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %31, i32 noundef 3)
-          to label %696 unwind label %693
+if.then.i565:                                     ; preds = %lpad113
+  %call.i566 = invoke noundef zeroext i1 %238(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp111, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp111, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit568 unwind label %terminate.lpad.i567
 
-693:                                              ; preds = %691
-  %694 = landingpad { ptr, i32 }
+terminate.lpad.i567:                              ; preds = %if.then.i565
+  %239 = landingpad { ptr, i32 }
           catch ptr null
-  %695 = extractvalue { ptr, i32 } %694, 0
-  call void @__clang_call_terminate(ptr %695) #20
+  %240 = extractvalue { ptr, i32 } %239, 0
+  call void @__clang_call_terminate(ptr %240) #20
   unreachable
 
-696:                                              ; preds = %691, %687
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %31) #19
-  br label %717
+_ZNSt14_Function_baseD2Ev.exit568:                ; preds = %if.then.i565, %lpad113
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp111) #19
+  br label %eh.resume
 
-697:                                              ; preds = %382
-  %698 = landingpad { ptr, i32 }
+lpad117:                                          ; preds = %_ZNSt14_Function_baseD2Ev.exit376
+  %241 = landingpad { ptr, i32 }
           cleanup
-  %699 = load ptr, ptr %383, align 8, !tbaa !18
-  %700 = icmp eq ptr %699, null
-  br i1 %700, label %706, label %701
+  %242 = load ptr, ptr %_M_manager.i.i377, align 8, !tbaa !18
+  %tobool.not.i570 = icmp eq ptr %242, null
+  br i1 %tobool.not.i570, label %_ZNSt14_Function_baseD2Ev.exit574, label %if.then.i571
 
-701:                                              ; preds = %697
-  %702 = invoke noundef zeroext i1 %699(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %32, i32 noundef 3)
-          to label %706 unwind label %703
+if.then.i571:                                     ; preds = %lpad117
+  %call.i572 = invoke noundef zeroext i1 %242(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp115, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp115, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit574 unwind label %terminate.lpad.i573
 
-703:                                              ; preds = %701
-  %704 = landingpad { ptr, i32 }
+terminate.lpad.i573:                              ; preds = %if.then.i571
+  %243 = landingpad { ptr, i32 }
           catch ptr null
-  %705 = extractvalue { ptr, i32 } %704, 0
-  call void @__clang_call_terminate(ptr %705) #20
+  %244 = extractvalue { ptr, i32 } %243, 0
+  call void @__clang_call_terminate(ptr %244) #20
   unreachable
 
-706:                                              ; preds = %701, %697
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %32) #19
-  br label %717
+_ZNSt14_Function_baseD2Ev.exit574:                ; preds = %if.then.i571, %lpad117
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp115) #19
+  br label %eh.resume
 
-707:                                              ; preds = %394
-  %708 = landingpad { ptr, i32 }
+lpad121:                                          ; preds = %_ZNSt14_Function_baseD2Ev.exit385
+  %245 = landingpad { ptr, i32 }
           cleanup
-  %709 = load ptr, ptr %395, align 8, !tbaa !18
-  %710 = icmp eq ptr %709, null
-  br i1 %710, label %716, label %711
+  %246 = load ptr, ptr %_M_manager.i.i386, align 8, !tbaa !18
+  %tobool.not.i576 = icmp eq ptr %246, null
+  br i1 %tobool.not.i576, label %_ZNSt14_Function_baseD2Ev.exit580, label %if.then.i577
 
-711:                                              ; preds = %707
-  %712 = invoke noundef zeroext i1 %709(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(16) %33, i32 noundef 3)
-          to label %716 unwind label %713
+if.then.i577:                                     ; preds = %lpad121
+  %call.i578 = invoke noundef zeroext i1 %246(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp119, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp119, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit580 unwind label %terminate.lpad.i579
 
-713:                                              ; preds = %711
-  %714 = landingpad { ptr, i32 }
+terminate.lpad.i579:                              ; preds = %if.then.i577
+  %247 = landingpad { ptr, i32 }
           catch ptr null
-  %715 = extractvalue { ptr, i32 } %714, 0
-  call void @__clang_call_terminate(ptr %715) #20
+  %248 = extractvalue { ptr, i32 } %247, 0
+  call void @__clang_call_terminate(ptr %248) #20
   unreachable
 
-716:                                              ; preds = %711, %707
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %33) #19
-  br label %717
+_ZNSt14_Function_baseD2Ev.exit580:                ; preds = %if.then.i577, %lpad121
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp119) #19
+  br label %eh.resume
 
-717:                                              ; preds = %716, %706, %696, %686, %676, %666, %656, %646, %636, %626, %616, %606, %596, %586, %576, %566, %556, %546, %536, %526, %516, %506, %496, %486, %476, %466, %456, %446, %436, %426, %416
-  %718 = phi { ptr, i32 } [ %708, %716 ], [ %698, %706 ], [ %688, %696 ], [ %678, %686 ], [ %668, %676 ], [ %658, %666 ], [ %648, %656 ], [ %638, %646 ], [ %628, %636 ], [ %618, %626 ], [ %608, %616 ], [ %598, %606 ], [ %588, %596 ], [ %578, %586 ], [ %568, %576 ], [ %558, %566 ], [ %548, %556 ], [ %538, %546 ], [ %528, %536 ], [ %518, %526 ], [ %508, %516 ], [ %498, %506 ], [ %488, %496 ], [ %478, %486 ], [ %468, %476 ], [ %458, %466 ], [ %448, %456 ], [ %438, %446 ], [ %428, %436 ], [ %418, %426 ], [ %408, %416 ]
-  resume { ptr, i32 } %718
+eh.resume:                                        ; preds = %_ZNSt14_Function_baseD2Ev.exit580, %_ZNSt14_Function_baseD2Ev.exit574, %_ZNSt14_Function_baseD2Ev.exit568, %_ZNSt14_Function_baseD2Ev.exit562, %_ZNSt14_Function_baseD2Ev.exit556, %_ZNSt14_Function_baseD2Ev.exit550, %_ZNSt14_Function_baseD2Ev.exit544, %_ZNSt14_Function_baseD2Ev.exit538, %_ZNSt14_Function_baseD2Ev.exit532, %_ZNSt14_Function_baseD2Ev.exit526, %_ZNSt14_Function_baseD2Ev.exit520, %_ZNSt14_Function_baseD2Ev.exit514, %_ZNSt14_Function_baseD2Ev.exit508, %_ZNSt14_Function_baseD2Ev.exit502, %_ZNSt14_Function_baseD2Ev.exit496, %_ZNSt14_Function_baseD2Ev.exit490, %_ZNSt14_Function_baseD2Ev.exit484, %_ZNSt14_Function_baseD2Ev.exit478, %_ZNSt14_Function_baseD2Ev.exit472, %_ZNSt14_Function_baseD2Ev.exit466, %_ZNSt14_Function_baseD2Ev.exit460, %_ZNSt14_Function_baseD2Ev.exit454, %_ZNSt14_Function_baseD2Ev.exit448, %_ZNSt14_Function_baseD2Ev.exit442, %_ZNSt14_Function_baseD2Ev.exit436, %_ZNSt14_Function_baseD2Ev.exit430, %_ZNSt14_Function_baseD2Ev.exit424, %_ZNSt14_Function_baseD2Ev.exit418, %_ZNSt14_Function_baseD2Ev.exit412, %_ZNSt14_Function_baseD2Ev.exit406, %_ZNSt14_Function_baseD2Ev.exit400
+  %.pn = phi { ptr, i32 } [ %245, %_ZNSt14_Function_baseD2Ev.exit580 ], [ %241, %_ZNSt14_Function_baseD2Ev.exit574 ], [ %237, %_ZNSt14_Function_baseD2Ev.exit568 ], [ %233, %_ZNSt14_Function_baseD2Ev.exit562 ], [ %229, %_ZNSt14_Function_baseD2Ev.exit556 ], [ %225, %_ZNSt14_Function_baseD2Ev.exit550 ], [ %221, %_ZNSt14_Function_baseD2Ev.exit544 ], [ %217, %_ZNSt14_Function_baseD2Ev.exit538 ], [ %213, %_ZNSt14_Function_baseD2Ev.exit532 ], [ %209, %_ZNSt14_Function_baseD2Ev.exit526 ], [ %205, %_ZNSt14_Function_baseD2Ev.exit520 ], [ %201, %_ZNSt14_Function_baseD2Ev.exit514 ], [ %197, %_ZNSt14_Function_baseD2Ev.exit508 ], [ %193, %_ZNSt14_Function_baseD2Ev.exit502 ], [ %189, %_ZNSt14_Function_baseD2Ev.exit496 ], [ %185, %_ZNSt14_Function_baseD2Ev.exit490 ], [ %181, %_ZNSt14_Function_baseD2Ev.exit484 ], [ %177, %_ZNSt14_Function_baseD2Ev.exit478 ], [ %173, %_ZNSt14_Function_baseD2Ev.exit472 ], [ %169, %_ZNSt14_Function_baseD2Ev.exit466 ], [ %165, %_ZNSt14_Function_baseD2Ev.exit460 ], [ %161, %_ZNSt14_Function_baseD2Ev.exit454 ], [ %157, %_ZNSt14_Function_baseD2Ev.exit448 ], [ %153, %_ZNSt14_Function_baseD2Ev.exit442 ], [ %149, %_ZNSt14_Function_baseD2Ev.exit436 ], [ %145, %_ZNSt14_Function_baseD2Ev.exit430 ], [ %141, %_ZNSt14_Function_baseD2Ev.exit424 ], [ %137, %_ZNSt14_Function_baseD2Ev.exit418 ], [ %133, %_ZNSt14_Function_baseD2Ev.exit412 ], [ %129, %_ZNSt14_Function_baseD2Ev.exit406 ], [ %125, %_ZNSt14_Function_baseD2Ev.exit400 ]
+  resume { ptr, i32 } %.pn
 }
 
 declare void @_ZN8TestBase7runTestEPKcOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
@@ -1811,251 +1813,284 @@ declare i32 @__gxx_personality_v0(...)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN13TestVoxelArea12test_addareaEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13TestVoxelArea12test_addareaEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+if.end30:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN13TestVoxelArea8test_padEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13TestVoxelArea8test_padEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+if.end29:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN13TestVoxelArea11test_extentEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13TestVoxelArea11test_extentEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+if.end32:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN13TestVoxelArea11test_volumeEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13TestVoxelArea11test_volumeEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+if.end61:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN13TestVoxelArea23test_contains_voxelareaEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13TestVoxelArea23test_contains_voxelareaEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+if.end220:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN13TestVoxelArea19test_contains_pointEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13TestVoxelArea19test_contains_pointEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+if.end256:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN13TestVoxelArea15test_contains_iEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13TestVoxelArea15test_contains_iEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+if.end345:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN13TestVoxelArea10test_equalEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13TestVoxelArea10test_equalEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+if.end172:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN13TestVoxelArea9test_plusEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13TestVoxelArea9test_plusEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+if.end60:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN13TestVoxelArea10test_minorEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13TestVoxelArea10test_minorEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+if.end60:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN13TestVoxelArea14test_intersectEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13TestVoxelArea14test_intersectEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+_ZNK9VoxelArea9intersectERKS_.exit340:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN13TestVoxelArea22test_index_xyz_all_posEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13TestVoxelArea22test_index_xyz_all_posEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+if.end59:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN13TestVoxelArea20test_index_xyz_x_negEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13TestVoxelArea20test_index_xyz_x_negEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+if.end59:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN13TestVoxelArea20test_index_xyz_y_negEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13TestVoxelArea20test_index_xyz_y_negEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+if.end59:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN13TestVoxelArea20test_index_xyz_z_negEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13TestVoxelArea20test_index_xyz_z_negEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+if.end59:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN13TestVoxelArea21test_index_xyz_xy_negEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13TestVoxelArea21test_index_xyz_xy_negEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+if.end59:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN13TestVoxelArea21test_index_xyz_yz_negEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13TestVoxelArea21test_index_xyz_yz_negEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+if.end59:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN13TestVoxelArea21test_index_xyz_xz_negEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13TestVoxelArea21test_index_xyz_xz_negEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+if.end59:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN13TestVoxelArea22test_index_xyz_all_negEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13TestVoxelArea22test_index_xyz_all_negEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+if.end59:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN13TestVoxelArea24test_index_v3s16_all_posEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13TestVoxelArea24test_index_v3s16_all_posEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+if.end61:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN13TestVoxelArea22test_index_v3s16_x_negEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13TestVoxelArea22test_index_v3s16_x_negEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+if.end61:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN13TestVoxelArea22test_index_v3s16_y_negEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13TestVoxelArea22test_index_v3s16_y_negEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+if.end61:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN13TestVoxelArea22test_index_v3s16_z_negEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13TestVoxelArea22test_index_v3s16_z_negEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+if.end61:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN13TestVoxelArea23test_index_v3s16_xy_negEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13TestVoxelArea23test_index_v3s16_xy_negEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+if.end61:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN13TestVoxelArea23test_index_v3s16_yz_negEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13TestVoxelArea23test_index_v3s16_yz_negEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+if.end61:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN13TestVoxelArea23test_index_v3s16_xz_negEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13TestVoxelArea23test_index_v3s16_xz_negEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+if.end61:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN13TestVoxelArea24test_index_v3s16_all_negEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13TestVoxelArea24test_index_v3s16_all_negEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+if.end61:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN13TestVoxelArea10test_add_xEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13TestVoxelArea10test_add_xEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+if.end:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN13TestVoxelArea10test_add_yEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13TestVoxelArea10test_add_yEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+if.end:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN13TestVoxelArea10test_add_zEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13TestVoxelArea10test_add_zEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+if.end:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN13TestVoxelArea10test_add_pEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13TestVoxelArea10test_add_pEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+if.end:
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZN13TestVoxelArea7getNameEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #7 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZN13TestVoxelArea7getNameEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 comdat align 2 {
+entry:
   ret ptr @.str.113
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN11TestManager18registerTestModuleEP8TestBase(ptr noundef %0) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load atomic i8, ptr @_ZGVZN11TestManager14getTestModulesEvE17m_modules_to_test acquire, align 8
-  %3 = icmp eq i8 %2, 0
-  br i1 %3, label %4, label %9, !prof !19
+define linkonce_odr dso_local void @_ZN11TestManager18registerTestModuleEP8TestBase(ptr noundef %module) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %0 = load atomic i8, ptr @_ZGVZN11TestManager14getTestModulesEvE17m_modules_to_test acquire, align 8
+  %guard.uninitialized.i = icmp eq i8 %0, 0
+  br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN11TestManager14getTestModulesEv.exit, !prof !19
 
-4:                                                ; preds = %1
-  %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN11TestManager14getTestModulesEvE17m_modules_to_test) #19
-  %6 = icmp eq i32 %5, 0
-  br i1 %6, label %9, label %7
+init.check.i:                                     ; preds = %entry
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN11TestManager14getTestModulesEvE17m_modules_to_test) #19
+  %tobool.not.i = icmp eq i32 %1, 0
+  br i1 %tobool.not.i, label %_ZN11TestManager14getTestModulesEv.exit, label %init.i
 
-7:                                                ; preds = %4
+init.i:                                           ; preds = %init.check.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i8 0, i64 24, i1 false)
-  %8 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIP8TestBaseSaIS1_EED2Ev, ptr nonnull @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, ptr nonnull @__dso_handle) #19
+  %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIP8TestBaseSaIS1_EED2Ev, ptr nonnull @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, ptr nonnull @__dso_handle) #19
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN11TestManager14getTestModulesEvE17m_modules_to_test) #19
-  br label %9
+  br label %_ZN11TestManager14getTestModulesEv.exit
 
-9:                                                ; preds = %7, %4, %1
-  %10 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !tbaa !14
-  %11 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 0, i32 0, i32 0, i32 0, i32 2), align 8, !tbaa !20
-  %12 = icmp eq ptr %10, %11
-  br i1 %12, label %16, label %13
+_ZN11TestManager14getTestModulesEv.exit:          ; preds = %init.i, %init.check.i, %entry
+  %3 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !tbaa !14
+  %4 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 0, i32 0, i32 0, i32 0, i32 2), align 8, !tbaa !20
+  %cmp.not.i = icmp eq ptr %3, %4
+  br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
-13:                                               ; preds = %9
-  store ptr %0, ptr %10, align 8, !tbaa !14
-  %14 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !tbaa !22
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
-  store ptr %15, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !tbaa !22
-  br label %46
+if.then.i:                                        ; preds = %_ZN11TestManager14getTestModulesEv.exit
+  store ptr %module, ptr %3, align 8, !tbaa !14
+  %5 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !tbaa !22
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %incdec.ptr.i, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !tbaa !22
+  br label %_ZNSt6vectorIP8TestBaseSaIS1_EE9push_backERKS1_.exit
 
-16:                                               ; preds = %9
-  %17 = load ptr, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, align 8, !tbaa !14
-  %18 = ptrtoint ptr %10 to i64
-  %19 = ptrtoint ptr %17 to i64
-  %20 = sub i64 %18, %19
-  %21 = icmp eq i64 %20, 9223372036854775800
-  br i1 %21, label %22, label %23
+if.else.i:                                        ; preds = %_ZN11TestManager14getTestModulesEv.exit
+  %6 = load ptr, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, align 8, !tbaa !14
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %3 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %6 to i64
+  %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
+  %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
+  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIP8TestBaseSaIS1_EE12_M_check_lenEmPKc.exit.i.i
 
-22:                                               ; preds = %16
+if.then.i.i.i:                                    ; preds = %if.else.i
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.112) #21
   unreachable
 
-23:                                               ; preds = %16
-  %24 = ashr exact i64 %20, 3
-  %25 = tail call i64 @llvm.umax.i64(i64 %24, i64 1)
-  %26 = add nsw i64 %25, %24
-  %27 = icmp ult i64 %26, %24
-  %28 = tail call i64 @llvm.umin.i64(i64 %26, i64 1152921504606846975)
-  %29 = select i1 %27, i64 1152921504606846975, i64 %28
-  %30 = icmp eq i64 %29, 0
-  br i1 %30, label %34, label %31
+_ZNKSt6vectorIP8TestBaseSaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
+  %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
+  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
+  %7 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %7
+  %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
+  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIP8TestBaseSaIS1_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
-31:                                               ; preds = %23
-  %32 = shl nuw nsw i64 %29, 3
-  %33 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #22
-  br label %34
+cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIP8TestBaseSaIS1_EE12_M_check_lenEmPKc.exit.i.i
+  %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 3
+  %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #22
+  br label %_ZNSt12_Vector_baseIP8TestBaseSaIS1_EE11_M_allocateEm.exit.i.i
 
-34:                                               ; preds = %31, %23
-  %35 = phi ptr [ %33, %31 ], [ null, %23 ]
-  %36 = getelementptr inbounds ptr, ptr %35, i64 %24
-  store ptr %0, ptr %36, align 8, !tbaa !14
-  %37 = icmp sgt i64 %20, 0
-  br i1 %37, label %38, label %39
+_ZNSt12_Vector_baseIP8TestBaseSaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIP8TestBaseSaIS1_EE12_M_check_lenEmPKc.exit.i.i
+  %cond.i31.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIP8TestBaseSaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
+  %add.ptr.i.i = getelementptr inbounds ptr, ptr %cond.i31.i.i, i64 %sub.ptr.div.i.i.i.i
+  store ptr %module, ptr %add.ptr.i.i, align 8, !tbaa !14
+  %cmp.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIP8TestBaseSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i
 
-38:                                               ; preds = %34
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %35, ptr align 8 %17, i64 %20, i1 false)
-  br label %39
+if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIP8TestBaseSaIS1_EE11_M_allocateEm.exit.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i31.i.i, ptr align 8 %6, i64 %sub.ptr.sub.i.i.i.i, i1 false)
+  br label %_ZNSt6vectorIP8TestBaseSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i
 
-39:                                               ; preds = %38, %34
-  %40 = getelementptr inbounds i8, ptr %35, i64 %20
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
-  %42 = icmp eq ptr %17, null
-  br i1 %42, label %44, label %43
+_ZNSt6vectorIP8TestBaseSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIP8TestBaseSaIS1_EE11_M_allocateEm.exit.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i31.i.i, i64 %sub.ptr.sub.i.i.i.i
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 8
+  %tobool.not.i.i.i = icmp eq ptr %6, null
+  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIP8TestBaseSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i39.i.i
 
-43:                                               ; preds = %39
-  tail call void @_ZdlPv(ptr noundef nonnull %17) #18
-  br label %44
+if.then.i39.i.i:                                  ; preds = %_ZNSt6vectorIP8TestBaseSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #18
+  br label %_ZNSt6vectorIP8TestBaseSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
-44:                                               ; preds = %43, %39
-  store ptr %35, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, align 8, !tbaa !23
-  store ptr %41, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !tbaa !22
-  %45 = getelementptr inbounds ptr, ptr %35, i64 %29
-  store ptr %45, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 0, i32 0, i32 0, i32 0, i32 2), align 8, !tbaa !20
-  br label %46
+_ZNSt6vectorIP8TestBaseSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i39.i.i, %_ZNSt6vectorIP8TestBaseSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i
+  store ptr %cond.i31.i.i, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, align 8, !tbaa !23
+  store ptr %incdec.ptr.i.i, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !tbaa !22
+  %add.ptr19.i.i = getelementptr inbounds ptr, ptr %cond.i31.i.i, i64 %cond.i.i.i
+  store ptr %add.ptr19.i.i, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 0, i32 0, i32 0, i32 0, i32 2), align 8, !tbaa !20
+  br label %_ZNSt6vectorIP8TestBaseSaIS1_EE9push_backERKS1_.exit
 
-46:                                               ; preds = %44, %13
+_ZNSt6vectorIP8TestBaseSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP8TestBaseSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %if.then.i
   ret void
 }
 
@@ -2076,16 +2111,17 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSt6vectorIP8TestBaseSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !23
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %5, label %4
+define linkonce_odr dso_local void @_ZNSt6vectorIP8TestBaseSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+invoke.cont:
+  %0 = load ptr, ptr %this, align 8, !tbaa !23
+  %tobool.not.i.i = icmp eq ptr %0, null
+  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIP8TestBaseSaIS1_EED2Ev.exit, label %if.then.i.i
 
-4:                                                ; preds = %1
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #18
-  br label %5
+if.then.i.i:                                      ; preds = %invoke.cont
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
+  br label %_ZNSt12_Vector_baseIP8TestBaseSaIS1_EED2Ev.exit
 
-5:                                                ; preds = %4, %1
+_ZNSt12_Vector_baseIP8TestBaseSaIS1_EED2Ev.exit:  ; preds = %if.then.i.i, %invoke.cont
   ret void
 }
 
@@ -2108,969 +2144,1032 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_0E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %0) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_0E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %__functor) #6 align 2 personality ptr @__gxx_personality_v0 {
+entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %8 [
-    i32 0, label %4
-    i32 1, label %5
-    i32 2, label %6
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
   ]
 
-4:                                                ; preds = %3
-  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE3$_0", ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb:                                            ; preds = %entry
+  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE3$_0", ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !14
-  store i64 %7, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb4.i:                                         ; preds = %entry
+  %call5.val.i = load i64, ptr %__source, align 8, !tbaa !14
+  store i64 %call5.val.i, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-8:                                                ; preds = %6, %5, %4, %3
+sw.epilog:                                        ; preds = %sw.bb4.i, %sw.bb1, %sw.bb, %entry
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_1E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %0) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_1E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %__functor) #6 align 2 personality ptr @__gxx_personality_v0 {
+entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_1E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %8 [
-    i32 0, label %4
-    i32 1, label %5
-    i32 2, label %6
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_1E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
   ]
 
-4:                                                ; preds = %3
-  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE3$_1", ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb:                                            ; preds = %entry
+  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE3$_1", ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !14
-  store i64 %7, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb4.i:                                         ; preds = %entry
+  %call5.val.i = load i64, ptr %__source, align 8, !tbaa !14
+  store i64 %call5.val.i, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-8:                                                ; preds = %6, %5, %4, %3
+sw.epilog:                                        ; preds = %sw.bb4.i, %sw.bb1, %sw.bb, %entry
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_2E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %0) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_2E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %__functor) #6 align 2 personality ptr @__gxx_personality_v0 {
+entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_2E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %8 [
-    i32 0, label %4
-    i32 1, label %5
-    i32 2, label %6
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_2E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
   ]
 
-4:                                                ; preds = %3
-  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE3$_2", ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb:                                            ; preds = %entry
+  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE3$_2", ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !14
-  store i64 %7, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb4.i:                                         ; preds = %entry
+  %call5.val.i = load i64, ptr %__source, align 8, !tbaa !14
+  store i64 %call5.val.i, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-8:                                                ; preds = %6, %5, %4, %3
+sw.epilog:                                        ; preds = %sw.bb4.i, %sw.bb1, %sw.bb, %entry
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_3E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %0) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_3E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %__functor) #6 align 2 personality ptr @__gxx_personality_v0 {
+entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_3E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %8 [
-    i32 0, label %4
-    i32 1, label %5
-    i32 2, label %6
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_3E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
   ]
 
-4:                                                ; preds = %3
-  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE3$_3", ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb:                                            ; preds = %entry
+  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE3$_3", ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !14
-  store i64 %7, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb4.i:                                         ; preds = %entry
+  %call5.val.i = load i64, ptr %__source, align 8, !tbaa !14
+  store i64 %call5.val.i, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-8:                                                ; preds = %6, %5, %4, %3
+sw.epilog:                                        ; preds = %sw.bb4.i, %sw.bb1, %sw.bb, %entry
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_4E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %0) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_4E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %__functor) #6 align 2 personality ptr @__gxx_personality_v0 {
+entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_4E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %8 [
-    i32 0, label %4
-    i32 1, label %5
-    i32 2, label %6
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_4E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
   ]
 
-4:                                                ; preds = %3
-  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE3$_4", ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb:                                            ; preds = %entry
+  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE3$_4", ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !14
-  store i64 %7, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb4.i:                                         ; preds = %entry
+  %call5.val.i = load i64, ptr %__source, align 8, !tbaa !14
+  store i64 %call5.val.i, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-8:                                                ; preds = %6, %5, %4, %3
+sw.epilog:                                        ; preds = %sw.bb4.i, %sw.bb1, %sw.bb, %entry
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_5E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %0) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_5E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %__functor) #6 align 2 personality ptr @__gxx_personality_v0 {
+entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_5E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %8 [
-    i32 0, label %4
-    i32 1, label %5
-    i32 2, label %6
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_5E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
   ]
 
-4:                                                ; preds = %3
-  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE3$_5", ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb:                                            ; preds = %entry
+  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE3$_5", ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !14
-  store i64 %7, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb4.i:                                         ; preds = %entry
+  %call5.val.i = load i64, ptr %__source, align 8, !tbaa !14
+  store i64 %call5.val.i, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-8:                                                ; preds = %6, %5, %4, %3
+sw.epilog:                                        ; preds = %sw.bb4.i, %sw.bb1, %sw.bb, %entry
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_6E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %0) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_6E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %__functor) #6 align 2 personality ptr @__gxx_personality_v0 {
+entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_6E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %8 [
-    i32 0, label %4
-    i32 1, label %5
-    i32 2, label %6
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_6E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
   ]
 
-4:                                                ; preds = %3
-  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE3$_6", ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb:                                            ; preds = %entry
+  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE3$_6", ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !14
-  store i64 %7, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb4.i:                                         ; preds = %entry
+  %call5.val.i = load i64, ptr %__source, align 8, !tbaa !14
+  store i64 %call5.val.i, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-8:                                                ; preds = %6, %5, %4, %3
+sw.epilog:                                        ; preds = %sw.bb4.i, %sw.bb1, %sw.bb, %entry
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_7E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %0) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_7E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %__functor) #6 align 2 personality ptr @__gxx_personality_v0 {
+entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_7E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %8 [
-    i32 0, label %4
-    i32 1, label %5
-    i32 2, label %6
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_7E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
   ]
 
-4:                                                ; preds = %3
-  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE3$_7", ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb:                                            ; preds = %entry
+  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE3$_7", ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !14
-  store i64 %7, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb4.i:                                         ; preds = %entry
+  %call5.val.i = load i64, ptr %__source, align 8, !tbaa !14
+  store i64 %call5.val.i, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-8:                                                ; preds = %6, %5, %4, %3
+sw.epilog:                                        ; preds = %sw.bb4.i, %sw.bb1, %sw.bb, %entry
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_8E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %0) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_8E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %__functor) #6 align 2 personality ptr @__gxx_personality_v0 {
+entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_8E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %8 [
-    i32 0, label %4
-    i32 1, label %5
-    i32 2, label %6
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_8E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
   ]
 
-4:                                                ; preds = %3
-  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE3$_8", ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb:                                            ; preds = %entry
+  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE3$_8", ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !14
-  store i64 %7, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb4.i:                                         ; preds = %entry
+  %call5.val.i = load i64, ptr %__source, align 8, !tbaa !14
+  store i64 %call5.val.i, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-8:                                                ; preds = %6, %5, %4, %3
+sw.epilog:                                        ; preds = %sw.bb4.i, %sw.bb1, %sw.bb, %entry
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_9E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %0) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_9E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %__functor) #6 align 2 personality ptr @__gxx_personality_v0 {
+entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_9E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %8 [
-    i32 0, label %4
-    i32 1, label %5
-    i32 2, label %6
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_9E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
   ]
 
-4:                                                ; preds = %3
-  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE3$_9", ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb:                                            ; preds = %entry
+  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE3$_9", ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !14
-  store i64 %7, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb4.i:                                         ; preds = %entry
+  %call5.val.i = load i64, ptr %__source, align 8, !tbaa !14
+  store i64 %call5.val.i, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-8:                                                ; preds = %6, %5, %4, %3
+sw.epilog:                                        ; preds = %sw.bb4.i, %sw.bb1, %sw.bb, %entry
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_10E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %0) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_10E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %__functor) #6 align 2 personality ptr @__gxx_personality_v0 {
+entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_10E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %8 [
-    i32 0, label %4
-    i32 1, label %5
-    i32 2, label %6
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_10E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
   ]
 
-4:                                                ; preds = %3
-  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE4$_10", ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb:                                            ; preds = %entry
+  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE4$_10", ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !14
-  store i64 %7, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb4.i:                                         ; preds = %entry
+  %call5.val.i = load i64, ptr %__source, align 8, !tbaa !14
+  store i64 %call5.val.i, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-8:                                                ; preds = %6, %5, %4, %3
+sw.epilog:                                        ; preds = %sw.bb4.i, %sw.bb1, %sw.bb, %entry
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_11E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %0) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_11E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %__functor) #6 align 2 personality ptr @__gxx_personality_v0 {
+entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_11E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %8 [
-    i32 0, label %4
-    i32 1, label %5
-    i32 2, label %6
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_11E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
   ]
 
-4:                                                ; preds = %3
-  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE4$_11", ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb:                                            ; preds = %entry
+  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE4$_11", ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !14
-  store i64 %7, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb4.i:                                         ; preds = %entry
+  %call5.val.i = load i64, ptr %__source, align 8, !tbaa !14
+  store i64 %call5.val.i, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-8:                                                ; preds = %6, %5, %4, %3
+sw.epilog:                                        ; preds = %sw.bb4.i, %sw.bb1, %sw.bb, %entry
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_12E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %0) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_12E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %__functor) #6 align 2 personality ptr @__gxx_personality_v0 {
+entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_12E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %8 [
-    i32 0, label %4
-    i32 1, label %5
-    i32 2, label %6
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_12E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
   ]
 
-4:                                                ; preds = %3
-  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE4$_12", ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb:                                            ; preds = %entry
+  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE4$_12", ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !14
-  store i64 %7, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb4.i:                                         ; preds = %entry
+  %call5.val.i = load i64, ptr %__source, align 8, !tbaa !14
+  store i64 %call5.val.i, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-8:                                                ; preds = %6, %5, %4, %3
+sw.epilog:                                        ; preds = %sw.bb4.i, %sw.bb1, %sw.bb, %entry
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_13E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %0) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_13E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %__functor) #6 align 2 personality ptr @__gxx_personality_v0 {
+entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_13E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %8 [
-    i32 0, label %4
-    i32 1, label %5
-    i32 2, label %6
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_13E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
   ]
 
-4:                                                ; preds = %3
-  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE4$_13", ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb:                                            ; preds = %entry
+  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE4$_13", ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !14
-  store i64 %7, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb4.i:                                         ; preds = %entry
+  %call5.val.i = load i64, ptr %__source, align 8, !tbaa !14
+  store i64 %call5.val.i, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-8:                                                ; preds = %6, %5, %4, %3
+sw.epilog:                                        ; preds = %sw.bb4.i, %sw.bb1, %sw.bb, %entry
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_14E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %0) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_14E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %__functor) #6 align 2 personality ptr @__gxx_personality_v0 {
+entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_14E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %8 [
-    i32 0, label %4
-    i32 1, label %5
-    i32 2, label %6
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_14E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
   ]
 
-4:                                                ; preds = %3
-  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE4$_14", ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb:                                            ; preds = %entry
+  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE4$_14", ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !14
-  store i64 %7, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb4.i:                                         ; preds = %entry
+  %call5.val.i = load i64, ptr %__source, align 8, !tbaa !14
+  store i64 %call5.val.i, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-8:                                                ; preds = %6, %5, %4, %3
+sw.epilog:                                        ; preds = %sw.bb4.i, %sw.bb1, %sw.bb, %entry
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_15E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %0) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_15E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %__functor) #6 align 2 personality ptr @__gxx_personality_v0 {
+entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_15E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %8 [
-    i32 0, label %4
-    i32 1, label %5
-    i32 2, label %6
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_15E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
   ]
 
-4:                                                ; preds = %3
-  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE4$_15", ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb:                                            ; preds = %entry
+  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE4$_15", ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !14
-  store i64 %7, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb4.i:                                         ; preds = %entry
+  %call5.val.i = load i64, ptr %__source, align 8, !tbaa !14
+  store i64 %call5.val.i, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-8:                                                ; preds = %6, %5, %4, %3
+sw.epilog:                                        ; preds = %sw.bb4.i, %sw.bb1, %sw.bb, %entry
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_16E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %0) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_16E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %__functor) #6 align 2 personality ptr @__gxx_personality_v0 {
+entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_16E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %8 [
-    i32 0, label %4
-    i32 1, label %5
-    i32 2, label %6
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_16E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
   ]
 
-4:                                                ; preds = %3
-  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE4$_16", ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb:                                            ; preds = %entry
+  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE4$_16", ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !14
-  store i64 %7, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb4.i:                                         ; preds = %entry
+  %call5.val.i = load i64, ptr %__source, align 8, !tbaa !14
+  store i64 %call5.val.i, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-8:                                                ; preds = %6, %5, %4, %3
+sw.epilog:                                        ; preds = %sw.bb4.i, %sw.bb1, %sw.bb, %entry
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_17E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %0) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_17E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %__functor) #6 align 2 personality ptr @__gxx_personality_v0 {
+entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_17E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %8 [
-    i32 0, label %4
-    i32 1, label %5
-    i32 2, label %6
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_17E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
   ]
 
-4:                                                ; preds = %3
-  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE4$_17", ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb:                                            ; preds = %entry
+  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE4$_17", ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !14
-  store i64 %7, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb4.i:                                         ; preds = %entry
+  %call5.val.i = load i64, ptr %__source, align 8, !tbaa !14
+  store i64 %call5.val.i, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-8:                                                ; preds = %6, %5, %4, %3
+sw.epilog:                                        ; preds = %sw.bb4.i, %sw.bb1, %sw.bb, %entry
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_18E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %0) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_18E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %__functor) #6 align 2 personality ptr @__gxx_personality_v0 {
+entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_18E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %8 [
-    i32 0, label %4
-    i32 1, label %5
-    i32 2, label %6
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_18E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
   ]
 
-4:                                                ; preds = %3
-  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE4$_18", ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb:                                            ; preds = %entry
+  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE4$_18", ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !14
-  store i64 %7, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb4.i:                                         ; preds = %entry
+  %call5.val.i = load i64, ptr %__source, align 8, !tbaa !14
+  store i64 %call5.val.i, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-8:                                                ; preds = %6, %5, %4, %3
+sw.epilog:                                        ; preds = %sw.bb4.i, %sw.bb1, %sw.bb, %entry
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_19E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %0) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_19E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %__functor) #6 align 2 personality ptr @__gxx_personality_v0 {
+entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_19E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %8 [
-    i32 0, label %4
-    i32 1, label %5
-    i32 2, label %6
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_19E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
   ]
 
-4:                                                ; preds = %3
-  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE4$_19", ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb:                                            ; preds = %entry
+  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE4$_19", ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !14
-  store i64 %7, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb4.i:                                         ; preds = %entry
+  %call5.val.i = load i64, ptr %__source, align 8, !tbaa !14
+  store i64 %call5.val.i, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-8:                                                ; preds = %6, %5, %4, %3
+sw.epilog:                                        ; preds = %sw.bb4.i, %sw.bb1, %sw.bb, %entry
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_20E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %0) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_20E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %__functor) #6 align 2 personality ptr @__gxx_personality_v0 {
+entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_20E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %8 [
-    i32 0, label %4
-    i32 1, label %5
-    i32 2, label %6
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_20E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
   ]
 
-4:                                                ; preds = %3
-  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE4$_20", ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb:                                            ; preds = %entry
+  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE4$_20", ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !14
-  store i64 %7, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb4.i:                                         ; preds = %entry
+  %call5.val.i = load i64, ptr %__source, align 8, !tbaa !14
+  store i64 %call5.val.i, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-8:                                                ; preds = %6, %5, %4, %3
+sw.epilog:                                        ; preds = %sw.bb4.i, %sw.bb1, %sw.bb, %entry
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_21E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %0) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_21E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %__functor) #6 align 2 personality ptr @__gxx_personality_v0 {
+entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_21E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %8 [
-    i32 0, label %4
-    i32 1, label %5
-    i32 2, label %6
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_21E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
   ]
 
-4:                                                ; preds = %3
-  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE4$_21", ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb:                                            ; preds = %entry
+  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE4$_21", ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !14
-  store i64 %7, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb4.i:                                         ; preds = %entry
+  %call5.val.i = load i64, ptr %__source, align 8, !tbaa !14
+  store i64 %call5.val.i, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-8:                                                ; preds = %6, %5, %4, %3
+sw.epilog:                                        ; preds = %sw.bb4.i, %sw.bb1, %sw.bb, %entry
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_22E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %0) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_22E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %__functor) #6 align 2 personality ptr @__gxx_personality_v0 {
+entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_22E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %8 [
-    i32 0, label %4
-    i32 1, label %5
-    i32 2, label %6
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_22E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
   ]
 
-4:                                                ; preds = %3
-  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE4$_22", ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb:                                            ; preds = %entry
+  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE4$_22", ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !14
-  store i64 %7, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb4.i:                                         ; preds = %entry
+  %call5.val.i = load i64, ptr %__source, align 8, !tbaa !14
+  store i64 %call5.val.i, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-8:                                                ; preds = %6, %5, %4, %3
+sw.epilog:                                        ; preds = %sw.bb4.i, %sw.bb1, %sw.bb, %entry
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_23E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %0) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_23E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %__functor) #6 align 2 personality ptr @__gxx_personality_v0 {
+entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_23E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %8 [
-    i32 0, label %4
-    i32 1, label %5
-    i32 2, label %6
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_23E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
   ]
 
-4:                                                ; preds = %3
-  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE4$_23", ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb:                                            ; preds = %entry
+  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE4$_23", ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !14
-  store i64 %7, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb4.i:                                         ; preds = %entry
+  %call5.val.i = load i64, ptr %__source, align 8, !tbaa !14
+  store i64 %call5.val.i, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-8:                                                ; preds = %6, %5, %4, %3
+sw.epilog:                                        ; preds = %sw.bb4.i, %sw.bb1, %sw.bb, %entry
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_24E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %0) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_24E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %__functor) #6 align 2 personality ptr @__gxx_personality_v0 {
+entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_24E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %8 [
-    i32 0, label %4
-    i32 1, label %5
-    i32 2, label %6
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_24E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
   ]
 
-4:                                                ; preds = %3
-  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE4$_24", ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb:                                            ; preds = %entry
+  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE4$_24", ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !14
-  store i64 %7, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb4.i:                                         ; preds = %entry
+  %call5.val.i = load i64, ptr %__source, align 8, !tbaa !14
+  store i64 %call5.val.i, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-8:                                                ; preds = %6, %5, %4, %3
+sw.epilog:                                        ; preds = %sw.bb4.i, %sw.bb1, %sw.bb, %entry
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_25E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %0) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_25E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %__functor) #6 align 2 personality ptr @__gxx_personality_v0 {
+entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_25E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %8 [
-    i32 0, label %4
-    i32 1, label %5
-    i32 2, label %6
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_25E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
   ]
 
-4:                                                ; preds = %3
-  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE4$_25", ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb:                                            ; preds = %entry
+  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE4$_25", ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !14
-  store i64 %7, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb4.i:                                         ; preds = %entry
+  %call5.val.i = load i64, ptr %__source, align 8, !tbaa !14
+  store i64 %call5.val.i, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-8:                                                ; preds = %6, %5, %4, %3
+sw.epilog:                                        ; preds = %sw.bb4.i, %sw.bb1, %sw.bb, %entry
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_26E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %0) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_26E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %__functor) #6 align 2 personality ptr @__gxx_personality_v0 {
+entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_26E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %8 [
-    i32 0, label %4
-    i32 1, label %5
-    i32 2, label %6
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_26E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
   ]
 
-4:                                                ; preds = %3
-  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE4$_26", ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb:                                            ; preds = %entry
+  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE4$_26", ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !14
-  store i64 %7, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb4.i:                                         ; preds = %entry
+  %call5.val.i = load i64, ptr %__source, align 8, !tbaa !14
+  store i64 %call5.val.i, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-8:                                                ; preds = %6, %5, %4, %3
+sw.epilog:                                        ; preds = %sw.bb4.i, %sw.bb1, %sw.bb, %entry
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_27E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %0) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_27E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %__functor) #6 align 2 personality ptr @__gxx_personality_v0 {
+entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_27E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %8 [
-    i32 0, label %4
-    i32 1, label %5
-    i32 2, label %6
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_27E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
   ]
 
-4:                                                ; preds = %3
-  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE4$_27", ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb:                                            ; preds = %entry
+  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE4$_27", ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !14
-  store i64 %7, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb4.i:                                         ; preds = %entry
+  %call5.val.i = load i64, ptr %__source, align 8, !tbaa !14
+  store i64 %call5.val.i, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-8:                                                ; preds = %6, %5, %4, %3
+sw.epilog:                                        ; preds = %sw.bb4.i, %sw.bb1, %sw.bb, %entry
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_28E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %0) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_28E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %__functor) #6 align 2 personality ptr @__gxx_personality_v0 {
+entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_28E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %8 [
-    i32 0, label %4
-    i32 1, label %5
-    i32 2, label %6
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_28E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
   ]
 
-4:                                                ; preds = %3
-  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE4$_28", ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb:                                            ; preds = %entry
+  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE4$_28", ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !14
-  store i64 %7, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb4.i:                                         ; preds = %entry
+  %call5.val.i = load i64, ptr %__source, align 8, !tbaa !14
+  store i64 %call5.val.i, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-8:                                                ; preds = %6, %5, %4, %3
+sw.epilog:                                        ; preds = %sw.bb4.i, %sw.bb1, %sw.bb, %entry
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_29E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %0) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_29E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %__functor) #6 align 2 personality ptr @__gxx_personality_v0 {
+entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_29E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %8 [
-    i32 0, label %4
-    i32 1, label %5
-    i32 2, label %6
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_29E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
   ]
 
-4:                                                ; preds = %3
-  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE4$_29", ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb:                                            ; preds = %entry
+  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE4$_29", ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !14
-  store i64 %7, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb4.i:                                         ; preds = %entry
+  %call5.val.i = load i64, ptr %__source, align 8, !tbaa !14
+  store i64 %call5.val.i, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-8:                                                ; preds = %6, %5, %4, %3
+sw.epilog:                                        ; preds = %sw.bb4.i, %sw.bb1, %sw.bb, %entry
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_30E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %0) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_30E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %__functor) #6 align 2 personality ptr @__gxx_personality_v0 {
+entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_30E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %8 [
-    i32 0, label %4
-    i32 1, label %5
-    i32 2, label %6
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_30E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
   ]
 
-4:                                                ; preds = %3
-  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE4$_30", ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb:                                            ; preds = %entry
+  store ptr @"_ZTIZN13TestVoxelArea8runTestsEP8IGameDefE4$_30", ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !14
-  store i64 %7, ptr %0, align 8, !tbaa !14
-  br label %8
+sw.bb4.i:                                         ; preds = %entry
+  %call5.val.i = load i64, ptr %__source, align 8, !tbaa !14
+  store i64 %call5.val.i, ptr %__dest, align 8, !tbaa !14
+  br label %sw.epilog
 
-8:                                                ; preds = %6, %5, %4, %3
+sw.epilog:                                        ; preds = %sw.bb4.i, %sw.bb1, %sw.bb, %entry
   ret i1 false
 }
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_test_voxelarea.cpp() #15 section ".text.startup" personality ptr @__gxx_personality_v0 {
+entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #19
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #19
   store ptr getelementptr inbounds (%class.TestVoxelArea, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 2, i32 0), ptr getelementptr inbounds (%class.TestVoxelArea, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 0, i32 0), align 8, !tbaa !24
   store i64 0, ptr getelementptr inbounds (%class.TestVoxelArea, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 1), align 8, !tbaa !13
   store i8 0, ptr getelementptr inbounds (%class.TestVoxelArea, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 2, i32 0), align 8, !tbaa !25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13TestVoxelArea, i64 0, i32 0, i64 2), ptr @_ZL15g_test_instance, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTV13TestVoxelArea, i64 0, i32 0, i64 2), ptr @_ZL15g_test_instance, align 8, !tbaa !4
   invoke void @_ZN11TestManager18registerTestModuleEP8TestBase(ptr noundef nonnull @_ZL15g_test_instance)
-          to label %11 unwind label %2
+          to label %__cxx_global_var_init.1.exit unwind label %lpad.i.i
 
-2:                                                ; preds = %0
-  %3 = landingpad { ptr, i32 }
+lpad.i.i:                                         ; preds = %entry
+  %1 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, i32 0, i64 2), ptr @_ZL15g_test_instance, align 8, !tbaa !4
-  %4 = load ptr, ptr getelementptr inbounds (%class.TestVoxelArea, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 0, i32 0), align 8, !tbaa !7
-  %5 = icmp eq ptr %4, getelementptr inbounds (%class.TestVoxelArea, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 2, i32 0)
-  br i1 %5, label %6, label %9
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, i32 0, i64 2), ptr @_ZL15g_test_instance, align 8, !tbaa !4
+  %2 = load ptr, ptr getelementptr inbounds (%class.TestVoxelArea, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 0, i32 0), align 8, !tbaa !7
+  %cmp.i.i.i.i.i.i = icmp eq ptr %2, getelementptr inbounds (%class.TestVoxelArea, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 2, i32 0)
+  br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i.i.i
 
-6:                                                ; preds = %2
-  %7 = load i64, ptr getelementptr inbounds (%class.TestVoxelArea, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 1), align 8, !tbaa !13
-  %8 = icmp ult i64 %7, 16
-  tail call void @llvm.assume(i1 %8)
-  br label %10
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %lpad.i.i
+  %3 = load i64, ptr getelementptr inbounds (%class.TestVoxelArea, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 1), align 8, !tbaa !13
+  %cmp3.i.i.i.i.i.i = icmp ult i64 %3, 16
+  tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i)
+  br label %_ZN8TestBaseD2Ev.exit.i.i
 
-9:                                                ; preds = %2
-  tail call void @_ZdlPv(ptr noundef %4) #18
-  br label %10
+if.then.i.i.i.i.i:                                ; preds = %lpad.i.i
+  tail call void @_ZdlPv(ptr noundef %2) #18
+  br label %_ZN8TestBaseD2Ev.exit.i.i
 
-10:                                               ; preds = %9, %6
-  resume { ptr, i32 } %3
+_ZN8TestBaseD2Ev.exit.i.i:                        ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
+  resume { ptr, i32 } %1
 
-11:                                               ; preds = %0
-  %12 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN8TestBaseD2Ev, ptr nonnull @_ZL15g_test_instance, ptr nonnull @__dso_handle) #19
+__cxx_global_var_init.1.exit:                     ; preds = %entry
+  %4 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN8TestBaseD2Ev, ptr nonnull @_ZL15g_test_instance, ptr nonnull @__dso_handle) #19
   ret void
 }
 

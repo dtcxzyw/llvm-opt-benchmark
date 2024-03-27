@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-pc-linux-gnu"
+target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %struct.luaL_Reg = type { ptr, ptr }
@@ -36,17 +36,18 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN12NodeTimerRef9gc_objectEP9lua_State(ptr noundef %0) #3 align 2 {
-  %2 = tail call ptr @lua_touserdata(ptr noundef %0, i32 noundef 1)
-  %3 = load ptr, ptr %2, align 8, !tbaa !4
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %6, label %5
+define dso_local noundef i32 @_ZN12NodeTimerRef9gc_objectEP9lua_State(ptr noundef %L) #3 align 2 {
+entry:
+  %call = tail call ptr @lua_touserdata(ptr noundef %L, i32 noundef 1)
+  %0 = load ptr, ptr %call, align 8, !tbaa !4
+  %isnull = icmp eq ptr %0, null
+  br i1 %isnull, label %delete.end, label %delete.notnull
 
-5:                                                ; preds = %1
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #11
-  br label %6
+delete.notnull:                                   ; preds = %entry
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #11
+  br label %delete.end
 
-6:                                                ; preds = %5, %1
+delete.end:                                       ; preds = %delete.notnull, %entry
   ret i32 0
 }
 
@@ -62,23 +63,24 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN12NodeTimerRef5l_setEP9lua_State(ptr noundef %0) #3 align 2 {
-  %2 = alloca %class.NodeTimer, align 4
-  %3 = tail call ptr @luaL_checkudata(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @_ZN12NodeTimerRef9classNameE)
-  %4 = load ptr, ptr %3, align 8, !tbaa !4
-  %5 = tail call nsz noundef float @_ZN9LuaHelper9readParamIfEET_P9lua_Statei(ptr noundef %0, i32 noundef 2)
-  %6 = tail call nsz noundef float @_ZN9LuaHelper9readParamIfEET_P9lua_Statei(ptr noundef %0, i32 noundef 3)
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #12
-  %9 = load i48, ptr %4, align 8, !tbaa.struct !12
-  store float %5, ptr %2, align 4, !tbaa !14
-  %10 = getelementptr inbounds i8, ptr %2, i64 4
-  store float %6, ptr %10, align 4, !tbaa !17
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
-  store i48 %9, ptr %11, align 4, !tbaa.struct !12
-  call void @_ZN3Map12setNodeTimerERK9NodeTimer(ptr noundef nonnull align 8 dereferenceable(144) %8, ptr noundef nonnull align 4 dereferenceable(14) %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #12
+define dso_local noundef i32 @_ZN12NodeTimerRef5l_setEP9lua_State(ptr noundef %L) #3 align 2 {
+entry:
+  %ref.tmp = alloca %class.NodeTimer, align 4
+  %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN12NodeTimerRef9classNameE)
+  %0 = load ptr, ptr %call.i, align 8, !tbaa !4
+  %call1 = tail call nsz noundef float @_ZN9LuaHelper9readParamIfEET_P9lua_Statei(ptr noundef %L, i32 noundef 2)
+  %call2 = tail call nsz noundef float @_ZN9LuaHelper9readParamIfEET_P9lua_Statei(ptr noundef %L, i32 noundef 3)
+  %m_map = getelementptr inbounds i8, ptr %0, i64 8
+  %1 = load ptr, ptr %m_map, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #12
+  %agg.tmp.sroa.0.0.copyload = load i48, ptr %0, align 8, !tbaa.struct !12
+  store float %call1, ptr %ref.tmp, align 4, !tbaa !14
+  %elapsed.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  store float %call2, ptr %elapsed.i, align 4, !tbaa !17
+  %position.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store i48 %agg.tmp.sroa.0.0.copyload, ptr %position.i, align 4, !tbaa.struct !12
+  call void @_ZN3Map12setNodeTimerERK9NodeTimer(ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull align 4 dereferenceable(14) %ref.tmp)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #12
   ret i32 0
 }
 
@@ -87,51 +89,54 @@ declare noundef float @_ZN9LuaHelper9readParamIfEET_P9lua_Statei(ptr noundef, i3
 declare void @_ZN3Map12setNodeTimerERK9NodeTimer(ptr noundef nonnull align 8 dereferenceable(144), ptr noundef nonnull align 4 dereferenceable(14)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN12NodeTimerRef7l_startEP9lua_State(ptr noundef %0) #3 align 2 {
-  %2 = alloca %class.NodeTimer, align 4
-  %3 = tail call ptr @luaL_checkudata(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @_ZN12NodeTimerRef9classNameE)
-  %4 = load ptr, ptr %3, align 8, !tbaa !4
-  %5 = tail call nsz noundef float @_ZN9LuaHelper9readParamIfEET_P9lua_Statei(ptr noundef %0, i32 noundef 2)
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #12
-  %8 = load i48, ptr %4, align 8, !tbaa.struct !12
-  store float %5, ptr %2, align 4, !tbaa !14
-  %9 = getelementptr inbounds i8, ptr %2, i64 4
-  store float 0.000000e+00, ptr %9, align 4, !tbaa !17
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
-  store i48 %8, ptr %10, align 4, !tbaa.struct !12
-  call void @_ZN3Map12setNodeTimerERK9NodeTimer(ptr noundef nonnull align 8 dereferenceable(144) %7, ptr noundef nonnull align 4 dereferenceable(14) %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #12
+define dso_local noundef i32 @_ZN12NodeTimerRef7l_startEP9lua_State(ptr noundef %L) #3 align 2 {
+entry:
+  %ref.tmp = alloca %class.NodeTimer, align 4
+  %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN12NodeTimerRef9classNameE)
+  %0 = load ptr, ptr %call.i, align 8, !tbaa !4
+  %call1 = tail call nsz noundef float @_ZN9LuaHelper9readParamIfEET_P9lua_Statei(ptr noundef %L, i32 noundef 2)
+  %m_map = getelementptr inbounds i8, ptr %0, i64 8
+  %1 = load ptr, ptr %m_map, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #12
+  %agg.tmp.sroa.0.0.copyload = load i48, ptr %0, align 8, !tbaa.struct !12
+  store float %call1, ptr %ref.tmp, align 4, !tbaa !14
+  %elapsed.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  store float 0.000000e+00, ptr %elapsed.i, align 4, !tbaa !17
+  %position.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store i48 %agg.tmp.sroa.0.0.copyload, ptr %position.i, align 4, !tbaa.struct !12
+  call void @_ZN3Map12setNodeTimerERK9NodeTimer(ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull align 4 dereferenceable(14) %ref.tmp)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #12
   ret i32 0
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN12NodeTimerRef6l_stopEP9lua_State(ptr noundef %0) #3 align 2 {
-  %2 = tail call ptr @luaL_checkudata(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @_ZN12NodeTimerRef9classNameE)
-  %3 = load ptr, ptr %2, align 8, !tbaa !4
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !8
-  %6 = load i48, ptr %3, align 8, !tbaa.struct !12
-  tail call void @_ZN3Map15removeNodeTimerEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(144) %5, i48 %6)
+define dso_local noundef i32 @_ZN12NodeTimerRef6l_stopEP9lua_State(ptr noundef %L) #3 align 2 {
+entry:
+  %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN12NodeTimerRef9classNameE)
+  %0 = load ptr, ptr %call.i, align 8, !tbaa !4
+  %m_map = getelementptr inbounds i8, ptr %0, i64 8
+  %1 = load ptr, ptr %m_map, align 8, !tbaa !8
+  %agg.tmp.sroa.0.0.copyload = load i48, ptr %0, align 8, !tbaa.struct !12
+  tail call void @_ZN3Map15removeNodeTimerEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(144) %1, i48 %agg.tmp.sroa.0.0.copyload)
   ret i32 0
 }
 
 declare void @_ZN3Map15removeNodeTimerEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(144), i48) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN12NodeTimerRef12l_is_startedEP9lua_State(ptr noundef %0) #6 align 2 {
-  %2 = tail call ptr @luaL_checkudata(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @_ZN12NodeTimerRef9classNameE)
-  %3 = load ptr, ptr %2, align 8, !tbaa !4
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !8
-  %6 = load i48, ptr %3, align 8, !tbaa.struct !12
-  %7 = tail call { <2 x float>, i64 } @_ZN3Map12getNodeTimerEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(144) %5, i48 %6)
-  %8 = extractvalue { <2 x float>, i64 } %7, 0
-  %9 = extractelement <2 x float> %8, i64 0
-  %10 = fcmp nsz une float %9, 0.000000e+00
-  %11 = zext i1 %10 to i32
-  tail call void @lua_pushboolean(ptr noundef %0, i32 noundef %11)
+define dso_local noundef i32 @_ZN12NodeTimerRef12l_is_startedEP9lua_State(ptr noundef %L) #6 align 2 {
+entry:
+  %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN12NodeTimerRef9classNameE)
+  %0 = load ptr, ptr %call.i, align 8, !tbaa !4
+  %m_map = getelementptr inbounds i8, ptr %0, i64 8
+  %1 = load ptr, ptr %m_map, align 8, !tbaa !8
+  %agg.tmp.sroa.0.0.copyload = load i48, ptr %0, align 8, !tbaa.struct !12
+  %call1 = tail call { <2 x float>, i64 } @_ZN3Map12getNodeTimerEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(144) %1, i48 %agg.tmp.sroa.0.0.copyload)
+  %2 = extractvalue { <2 x float>, i64 } %call1, 0
+  %t.sroa.0.0.vec.extract = extractelement <2 x float> %2, i64 0
+  %cmp = fcmp nsz une float %t.sroa.0.0.vec.extract, 0.000000e+00
+  %conv = zext i1 %cmp to i32
+  tail call void @lua_pushboolean(ptr noundef %L, i32 noundef %conv)
   ret i32 1
 }
 
@@ -140,47 +145,50 @@ declare { <2 x float>, i64 } @_ZN3Map12getNodeTimerEN3irr4core8vector3dIsEE(ptr 
 declare void @lua_pushboolean(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN12NodeTimerRef13l_get_timeoutEP9lua_State(ptr noundef %0) #6 align 2 {
-  %2 = tail call ptr @luaL_checkudata(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @_ZN12NodeTimerRef9classNameE)
-  %3 = load ptr, ptr %2, align 8, !tbaa !4
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !8
-  %6 = load i48, ptr %3, align 8, !tbaa.struct !12
-  %7 = tail call { <2 x float>, i64 } @_ZN3Map12getNodeTimerEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(144) %5, i48 %6)
-  %8 = extractvalue { <2 x float>, i64 } %7, 0
-  %9 = extractelement <2 x float> %8, i64 0
-  %10 = fpext float %9 to double
-  tail call void @lua_pushnumber(ptr noundef %0, double noundef %10)
+define dso_local noundef i32 @_ZN12NodeTimerRef13l_get_timeoutEP9lua_State(ptr noundef %L) #6 align 2 {
+entry:
+  %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN12NodeTimerRef9classNameE)
+  %0 = load ptr, ptr %call.i, align 8, !tbaa !4
+  %m_map = getelementptr inbounds i8, ptr %0, i64 8
+  %1 = load ptr, ptr %m_map, align 8, !tbaa !8
+  %agg.tmp.sroa.0.0.copyload = load i48, ptr %0, align 8, !tbaa.struct !12
+  %call1 = tail call { <2 x float>, i64 } @_ZN3Map12getNodeTimerEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(144) %1, i48 %agg.tmp.sroa.0.0.copyload)
+  %2 = extractvalue { <2 x float>, i64 } %call1, 0
+  %t.sroa.0.0.vec.extract = extractelement <2 x float> %2, i64 0
+  %conv = fpext float %t.sroa.0.0.vec.extract to double
+  tail call void @lua_pushnumber(ptr noundef %L, double noundef %conv)
   ret i32 1
 }
 
 declare void @lua_pushnumber(ptr noundef, double noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN12NodeTimerRef13l_get_elapsedEP9lua_State(ptr noundef %0) #6 align 2 {
-  %2 = tail call ptr @luaL_checkudata(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @_ZN12NodeTimerRef9classNameE)
-  %3 = load ptr, ptr %2, align 8, !tbaa !4
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !8
-  %6 = load i48, ptr %3, align 8, !tbaa.struct !12
-  %7 = tail call { <2 x float>, i64 } @_ZN3Map12getNodeTimerEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(144) %5, i48 %6)
-  %8 = extractvalue { <2 x float>, i64 } %7, 0
-  %9 = extractelement <2 x float> %8, i64 1
-  %10 = fpext float %9 to double
-  tail call void @lua_pushnumber(ptr noundef %0, double noundef %10)
+define dso_local noundef i32 @_ZN12NodeTimerRef13l_get_elapsedEP9lua_State(ptr noundef %L) #6 align 2 {
+entry:
+  %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN12NodeTimerRef9classNameE)
+  %0 = load ptr, ptr %call.i, align 8, !tbaa !4
+  %m_map = getelementptr inbounds i8, ptr %0, i64 8
+  %1 = load ptr, ptr %m_map, align 8, !tbaa !8
+  %agg.tmp.sroa.0.0.copyload = load i48, ptr %0, align 8, !tbaa.struct !12
+  %call1 = tail call { <2 x float>, i64 } @_ZN3Map12getNodeTimerEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(144) %1, i48 %agg.tmp.sroa.0.0.copyload)
+  %2 = extractvalue { <2 x float>, i64 } %call1, 0
+  %t.sroa.0.4.vec.extract = extractelement <2 x float> %2, i64 1
+  %conv = fpext float %t.sroa.0.4.vec.extract to double
+  tail call void @lua_pushnumber(ptr noundef %L, double noundef %conv)
   ret i32 1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12NodeTimerRef6createEP9lua_StateN3irr4core8vector3dIsEEP9ServerMap(ptr noundef %0, i48 %1, ptr noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
-  store i48 %1, ptr %4, align 8, !tbaa.struct !12
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %2, ptr %5, align 8, !tbaa !8
-  %6 = tail call ptr @lua_newuserdata(ptr noundef %0, i64 noundef 8)
-  store ptr %4, ptr %6, align 8, !tbaa !4
-  tail call void @lua_getfield(ptr noundef %0, i32 noundef -10000, ptr noundef nonnull @_ZN12NodeTimerRef9classNameE)
-  %7 = tail call i32 @lua_setmetatable(ptr noundef %0, i32 noundef -2)
+define dso_local void @_ZN12NodeTimerRef6createEP9lua_StateN3irr4core8vector3dIsEEP9ServerMap(ptr noundef %L, i48 %p.coerce, ptr noundef %map) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
+  store i48 %p.coerce, ptr %call, align 8, !tbaa.struct !12
+  %m_map.i = getelementptr inbounds i8, ptr %call, i64 8
+  store ptr %map, ptr %m_map.i, align 8, !tbaa !8
+  %call1 = tail call ptr @lua_newuserdata(ptr noundef %L, i64 noundef 8)
+  store ptr %call, ptr %call1, align 8, !tbaa !4
+  tail call void @lua_getfield(ptr noundef %L, i32 noundef -10000, ptr noundef nonnull @_ZN12NodeTimerRef9classNameE)
+  %call2 = tail call i32 @lua_setmetatable(ptr noundef %L, i32 noundef -2)
   ret void
 }
 
@@ -196,8 +204,9 @@ declare void @lua_getfield(ptr noundef, i32 noundef, ptr noundef) local_unnamed_
 declare i32 @lua_setmetatable(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12NodeTimerRef8RegisterEP9lua_State(ptr noundef %0) local_unnamed_addr #3 align 2 {
-  tail call void @_ZN10ModApiBase13registerClassEP9lua_StatePKcPK8luaL_RegS6_(ptr noundef %0, ptr noundef nonnull @_ZN12NodeTimerRef9classNameE, ptr noundef nonnull @_ZN12NodeTimerRef7methodsE, ptr noundef nonnull @_ZZN12NodeTimerRef8RegisterEP9lua_StateE11metamethods)
+define dso_local void @_ZN12NodeTimerRef8RegisterEP9lua_State(ptr noundef %L) local_unnamed_addr #3 align 2 {
+entry:
+  tail call void @_ZN10ModApiBase13registerClassEP9lua_StatePKcPK8luaL_RegS6_(ptr noundef %L, ptr noundef nonnull @_ZN12NodeTimerRef9classNameE, ptr noundef nonnull @_ZN12NodeTimerRef7methodsE, ptr noundef nonnull @_ZZN12NodeTimerRef8RegisterEP9lua_StateE11metamethods)
   ret void
 }
 
@@ -205,34 +214,36 @@ declare void @_ZN10ModApiBase13registerClassEP9lua_StatePKcPK8luaL_RegS6_(ptr no
 
 ; Function Attrs: nofree nounwind uwtable
 define internal void @__cxx_global_var_init.9() #8 section ".text.startup" comdat($_ZN13ModifySafeMapItSt10unique_ptrI18ServerActiveObjectSt14default_deleteIS1_EEE10null_valueE) {
-  %1 = load i8, ptr @_ZGVN13ModifySafeMapItSt10unique_ptrI18ServerActiveObjectSt14default_deleteIS1_EEE10null_valueE, align 8
-  %2 = icmp eq i8 %1, 0
-  br i1 %2, label %3, label %5
+entry:
+  %0 = load i8, ptr @_ZGVN13ModifySafeMapItSt10unique_ptrI18ServerActiveObjectSt14default_deleteIS1_EEE10null_valueE, align 8
+  %guard.uninitialized = icmp eq i8 %0, 0
+  br i1 %guard.uninitialized, label %init.check, label %init.end
 
-3:                                                ; preds = %0
+init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN13ModifySafeMapItSt10unique_ptrI18ServerActiveObjectSt14default_deleteIS1_EEE10null_valueE, align 8
-  %4 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt10unique_ptrI18ServerActiveObjectSt14default_deleteIS0_EED2Ev, ptr nonnull @_ZN13ModifySafeMapItSt10unique_ptrI18ServerActiveObjectSt14default_deleteIS1_EEE10null_valueE, ptr nonnull @__dso_handle) #12
-  br label %5
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt10unique_ptrI18ServerActiveObjectSt14default_deleteIS0_EED2Ev, ptr nonnull @_ZN13ModifySafeMapItSt10unique_ptrI18ServerActiveObjectSt14default_deleteIS1_EEE10null_valueE, ptr nonnull @__dso_handle) #12
+  br label %init.end
 
-5:                                                ; preds = %3, %0
+init.end:                                         ; preds = %init.check, %entry
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSt10unique_ptrI18ServerActiveObjectSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !4
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %8, label %4
+define linkonce_odr dso_local void @_ZNSt10unique_ptrI18ServerActiveObjectSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %0 = load ptr, ptr %this, align 8, !tbaa !4
+  %cmp.not = icmp eq ptr %0, null
+  br i1 %cmp.not, label %if.end, label %_ZNKSt14default_deleteI18ServerActiveObjectEclEPS0_.exit
 
-4:                                                ; preds = %1
-  %5 = load ptr, ptr %2, align 8, !tbaa !18
-  %6 = getelementptr inbounds i8, ptr %5, i64 88
-  %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(192) %2) #12
-  br label %8
+_ZNKSt14default_deleteI18ServerActiveObjectEclEPS0_.exit: ; preds = %entry
+  %vtable.i = load ptr, ptr %0, align 8, !tbaa !18
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 88
+  %1 = load ptr, ptr %vfn.i, align 8
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(192) %0) #12
+  br label %if.end
 
-8:                                                ; preds = %4, %1
-  store ptr null, ptr %0, align 8, !tbaa !4
+if.end:                                           ; preds = %_ZNKSt14default_deleteI18ServerActiveObjectEclEPS0_.exit, %entry
+  store ptr null, ptr %this, align 8, !tbaa !4
   ret void
 }
 
@@ -240,8 +251,9 @@ declare ptr @luaL_checkudata(ptr noundef, i32 noundef, ptr noundef) local_unname
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_l_nodetimer.cpp() #10 section ".text.startup" {
+entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #12
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #12
   ret void
 }
 

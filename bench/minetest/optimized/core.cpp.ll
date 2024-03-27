@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/minetest/original/core.cpp.ll'
 source_filename = "bench/minetest/original/core.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-pc-linux-gnu"
+target triple = "x86_64-unknown-linux-gnu"
 
 %struct.PipelineContext = type <{ ptr, ptr, ptr, ptr, %"class.irr::video::SColor", %"class.irr::core::vector2d.0", i8, i8, i8, i8 }>
 %"class.irr::video::SColor" = type { i32 }
@@ -16,54 +16,56 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN13RenderingCoreD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN13RenderingCoreD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN13RenderingCoreC2EPN3irr14IrrlichtDeviceEP6ClientP3HudP14ShadowRendererP14RenderPipelineNS0_4core8vector2dIfEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, <2 x float> %6) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13RenderingCore, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %1, ptr %8, align 8, !tbaa !7
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %2, ptr %9, align 8, !tbaa !15
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %3, ptr %10, align 8, !tbaa !16
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %4, ptr %11, align 8, !tbaa !17
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %5, ptr %12, align 8, !tbaa !18
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
-  store <2 x float> %6, ptr %13, align 8, !tbaa.struct !19
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
-  store i32 0, ptr %14, align 8, !tbaa !21
-  %15 = getelementptr inbounds i8, ptr %0, i64 60
-  store i32 0, ptr %15, align 4, !tbaa !22
+define dso_local void @_ZN13RenderingCoreC2EPN3irr14IrrlichtDeviceEP6ClientP3HudP14ShadowRendererP14RenderPipelineNS0_4core8vector2dIfEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, ptr noundef %_device, ptr noundef %_client, ptr noundef %_hud, ptr noundef %_shadow_renderer, ptr noundef %_pipeline, <2 x float> %_virtual_size_scale.coerce) unnamed_addr #0 align 2 {
+entry:
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTV13RenderingCore, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
+  %device = getelementptr inbounds i8, ptr %this, i64 8
+  store ptr %_device, ptr %device, align 8, !tbaa !7
+  %client = getelementptr inbounds i8, ptr %this, i64 16
+  store ptr %_client, ptr %client, align 8, !tbaa !15
+  %hud = getelementptr inbounds i8, ptr %this, i64 24
+  store ptr %_hud, ptr %hud, align 8, !tbaa !16
+  %shadow_renderer = getelementptr inbounds i8, ptr %this, i64 32
+  store ptr %_shadow_renderer, ptr %shadow_renderer, align 8, !tbaa !17
+  %pipeline = getelementptr inbounds i8, ptr %this, i64 40
+  store ptr %_pipeline, ptr %pipeline, align 8, !tbaa !18
+  %virtual_size_scale = getelementptr inbounds i8, ptr %this, i64 48
+  store <2 x float> %_virtual_size_scale.coerce, ptr %virtual_size_scale, align 8, !tbaa.struct !19
+  %virtual_size = getelementptr inbounds i8, ptr %this, i64 56
+  store i32 0, ptr %virtual_size, align 8, !tbaa !21
+  %Y.i = getelementptr inbounds i8, ptr %this, i64 60
+  store i32 0, ptr %Y.i, align 4, !tbaa !22
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN13RenderingCoreD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13RenderingCore, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !4
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8, !tbaa !18
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %9, label %5
+define dso_local void @_ZN13RenderingCoreD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+entry:
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTV13RenderingCore, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
+  %pipeline = getelementptr inbounds i8, ptr %this, i64 40
+  %0 = load ptr, ptr %pipeline, align 8, !tbaa !18
+  %isnull = icmp eq ptr %0, null
+  br i1 %isnull, label %delete.end, label %delete.notnull
 
-5:                                                ; preds = %1
-  %6 = load ptr, ptr %3, align 8, !tbaa !4
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
-  %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(104) %3) #7
-  br label %9
+delete.notnull:                                   ; preds = %entry
+  %vtable = load ptr, ptr %0, align 8, !tbaa !4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
+  %1 = load ptr, ptr %vfn, align 8
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(104) %0) #7
+  br label %delete.end
 
-9:                                                ; preds = %5, %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !17
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %14, label %13
+delete.end:                                       ; preds = %delete.notnull, %entry
+  %shadow_renderer = getelementptr inbounds i8, ptr %this, i64 32
+  %2 = load ptr, ptr %shadow_renderer, align 8, !tbaa !17
+  %isnull2 = icmp eq ptr %2, null
+  br i1 %isnull2, label %delete.end4, label %delete.notnull3
 
-13:                                               ; preds = %9
-  tail call void @_ZN14ShadowRendererD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %11) #7
-  tail call void @_ZdlPv(ptr noundef nonnull %11) #8
-  br label %14
+delete.notnull3:                                  ; preds = %delete.end
+  tail call void @_ZN14ShadowRendererD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2) #7
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #8
+  br label %delete.end4
 
-14:                                               ; preds = %13, %9
+delete.end4:                                      ; preds = %delete.notnull3, %delete.end
   ret void
 }
 
@@ -74,104 +76,106 @@ declare void @_ZN14ShadowRendererD1Ev(ptr noundef nonnull align 8 dereferenceabl
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN13RenderingCoreD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13RenderingCore, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !4
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8, !tbaa !18
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %9, label %5
+define dso_local void @_ZN13RenderingCoreD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+entry:
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTV13RenderingCore, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
+  %pipeline.i = getelementptr inbounds i8, ptr %this, i64 40
+  %0 = load ptr, ptr %pipeline.i, align 8, !tbaa !18
+  %isnull.i = icmp eq ptr %0, null
+  br i1 %isnull.i, label %delete.end.i, label %delete.notnull.i
 
-5:                                                ; preds = %1
-  %6 = load ptr, ptr %3, align 8, !tbaa !4
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
-  %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(104) %3) #7
-  br label %9
+delete.notnull.i:                                 ; preds = %entry
+  %vtable.i = load ptr, ptr %0, align 8, !tbaa !4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
+  %1 = load ptr, ptr %vfn.i, align 8
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(104) %0) #7
+  br label %delete.end.i
 
-9:                                                ; preds = %5, %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !17
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %14, label %13
+delete.end.i:                                     ; preds = %delete.notnull.i, %entry
+  %shadow_renderer.i = getelementptr inbounds i8, ptr %this, i64 32
+  %2 = load ptr, ptr %shadow_renderer.i, align 8, !tbaa !17
+  %isnull2.i = icmp eq ptr %2, null
+  br i1 %isnull2.i, label %_ZN13RenderingCoreD2Ev.exit, label %delete.notnull3.i
 
-13:                                               ; preds = %9
-  tail call void @_ZN14ShadowRendererD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %11) #7
-  tail call void @_ZdlPv(ptr noundef nonnull %11) #8
-  br label %14
+delete.notnull3.i:                                ; preds = %delete.end.i
+  tail call void @_ZN14ShadowRendererD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2) #7
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #8
+  br label %_ZN13RenderingCoreD2Ev.exit
 
-14:                                               ; preds = %13, %9
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #8
+_ZN13RenderingCoreD2Ev.exit:                      ; preds = %delete.notnull3.i, %delete.end.i
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13RenderingCore4drawEN3irr5video6SColorEbbb(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, i32 %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #4 align 2 {
-  %6 = alloca %struct.PipelineContext, align 16
-  %7 = zext i1 %2 to i8
-  %8 = zext i1 %3 to i8
-  %9 = zext i1 %4 to i8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !7
-  %12 = load ptr, ptr %11, align 8, !tbaa !4
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
-  %14 = load ptr, ptr %13, align 8
-  %15 = tail call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(8) %11)
-  %16 = load ptr, ptr %15, align 8, !tbaa !4
-  %17 = getelementptr inbounds i8, ptr %16, i64 472
-  %18 = load ptr, ptr %17, align 8
-  %19 = tail call noundef nonnull align 4 dereferenceable(8) ptr %18(ptr noundef nonnull align 8 dereferenceable(8) %15)
-  %20 = load i32, ptr %19, align 4, !tbaa !23
-  %21 = getelementptr inbounds i8, ptr %19, i64 4
-  %22 = load i32, ptr %21, align 4, !tbaa !25
-  %23 = uitofp i32 %20 to float
-  %24 = getelementptr inbounds i8, ptr %0, i64 48
-  %25 = load float, ptr %24, align 8, !tbaa !26
-  %26 = fmul nsz float %25, %23
-  %27 = fptoui float %26 to i32
-  %28 = uitofp i32 %22 to float
-  %29 = getelementptr inbounds i8, ptr %0, i64 52
-  %30 = load float, ptr %29, align 4, !tbaa !27
-  %31 = fmul nsz float %30, %28
-  %32 = fptoui float %31 to i32
-  %33 = getelementptr inbounds i8, ptr %0, i64 56
-  %34 = zext i32 %32 to i64
-  %35 = shl nuw i64 %34, 32
-  %36 = zext i32 %27 to i64
-  %37 = or disjoint i64 %35, %36
-  store i64 %37, ptr %33, align 8, !tbaa.struct !28
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #7
-  %38 = getelementptr inbounds i8, ptr %0, i64 24
-  %39 = zext i32 %22 to i64
-  %40 = shl nuw i64 %39, 32
-  %41 = zext i32 %20 to i64
-  %42 = or disjoint i64 %40, %41
-  %43 = load <2 x ptr>, ptr %10, align 8, !tbaa !30
-  store <2 x ptr> %43, ptr %6, align 16, !tbaa !30
-  %44 = getelementptr inbounds i8, ptr %6, i64 16
-  %45 = load <2 x ptr>, ptr %38, align 8, !tbaa !30
-  store <2 x ptr> %45, ptr %44, align 16, !tbaa !30
-  %46 = getelementptr inbounds i8, ptr %6, i64 32
-  store i32 %1, ptr %46, align 16, !tbaa !29
-  %47 = getelementptr inbounds i8, ptr %6, i64 36
-  store i64 %42, ptr %47, align 4, !tbaa.struct !28
-  %48 = getelementptr inbounds i8, ptr %6, i64 44
-  %49 = getelementptr inbounds i8, ptr %6, i64 45
-  %50 = getelementptr inbounds i8, ptr %6, i64 46
-  store i8 %9, ptr %50, align 2, !tbaa !31
-  store i8 %8, ptr %49, align 1, !tbaa !35
-  store i8 %7, ptr %48, align 4, !tbaa !36
-  %51 = getelementptr inbounds i8, ptr %0, i64 40
-  %52 = load ptr, ptr %51, align 8, !tbaa !18
-  %53 = load ptr, ptr %52, align 8, !tbaa !4
-  %54 = getelementptr inbounds i8, ptr %53, i64 16
-  %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(104) %52, ptr noundef nonnull align 8 dereferenceable(47) %6)
-  %56 = load ptr, ptr %51, align 8, !tbaa !18
-  %57 = load ptr, ptr %56, align 8, !tbaa !4
-  %58 = getelementptr inbounds i8, ptr %57, i64 40
-  %59 = load ptr, ptr %58, align 8
-  call void %59(ptr noundef nonnull align 8 dereferenceable(104) %56, ptr noundef nonnull align 8 dereferenceable(47) %6)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #7
+define dso_local void @_ZN13RenderingCore4drawEN3irr5video6SColorEbbb(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, i32 %_skycolor.coerce, i1 noundef zeroext %_show_hud, i1 noundef zeroext %_draw_wield_tool, i1 noundef zeroext %_draw_crosshair) local_unnamed_addr #4 align 2 {
+entry:
+  %context = alloca %struct.PipelineContext, align 16
+  %frombool = zext i1 %_show_hud to i8
+  %frombool1 = zext i1 %_draw_wield_tool to i8
+  %frombool2 = zext i1 %_draw_crosshair to i8
+  %device = getelementptr inbounds i8, ptr %this, i64 8
+  %0 = load ptr, ptr %device, align 8, !tbaa !7
+  %vtable = load ptr, ptr %0, align 8, !tbaa !4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %1 = load ptr, ptr %vfn, align 8
+  %call = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %vtable4 = load ptr, ptr %call, align 8, !tbaa !4
+  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 472
+  %2 = load ptr, ptr %vfn5, align 8
+  %call6 = tail call noundef nonnull align 4 dereferenceable(8) ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %call)
+  %3 = load i32, ptr %call6, align 4, !tbaa !23
+  %Height.i = getelementptr inbounds i8, ptr %call6, i64 4
+  %4 = load i32, ptr %Height.i, align 4, !tbaa !25
+  %conv = uitofp i32 %3 to float
+  %virtual_size_scale = getelementptr inbounds i8, ptr %this, i64 48
+  %5 = load float, ptr %virtual_size_scale, align 8, !tbaa !26
+  %mul = fmul nsz float %5, %conv
+  %conv8 = fptoui float %mul to i32
+  %conv9 = uitofp i32 %4 to float
+  %Y11 = getelementptr inbounds i8, ptr %this, i64 52
+  %6 = load float, ptr %Y11, align 4, !tbaa !27
+  %mul12 = fmul nsz float %6, %conv9
+  %conv13 = fptoui float %mul12 to i32
+  %virtual_size = getelementptr inbounds i8, ptr %this, i64 56
+  %ref.tmp.sroa.4.0.insert.ext = zext i32 %conv13 to i64
+  %ref.tmp.sroa.4.0.insert.shift = shl nuw i64 %ref.tmp.sroa.4.0.insert.ext, 32
+  %ref.tmp.sroa.0.0.insert.ext = zext i32 %conv8 to i64
+  %ref.tmp.sroa.0.0.insert.insert = or disjoint i64 %ref.tmp.sroa.4.0.insert.shift, %ref.tmp.sroa.0.0.insert.ext
+  store i64 %ref.tmp.sroa.0.0.insert.insert, ptr %virtual_size, align 8, !tbaa.struct !28
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %context) #7
+  %hud = getelementptr inbounds i8, ptr %this, i64 24
+  %screensize.sroa.5.0.insert.ext = zext i32 %4 to i64
+  %screensize.sroa.5.0.insert.shift = shl nuw i64 %screensize.sroa.5.0.insert.ext, 32
+  %screensize.sroa.0.0.insert.ext = zext i32 %3 to i64
+  %screensize.sroa.0.0.insert.insert = or disjoint i64 %screensize.sroa.5.0.insert.shift, %screensize.sroa.0.0.insert.ext
+  %7 = load <2 x ptr>, ptr %device, align 8, !tbaa !30
+  store <2 x ptr> %7, ptr %context, align 16, !tbaa !30
+  %hud.i = getelementptr inbounds i8, ptr %context, i64 16
+  %8 = load <2 x ptr>, ptr %hud, align 8, !tbaa !30
+  store <2 x ptr> %8, ptr %hud.i, align 16, !tbaa !30
+  %clear_color.i = getelementptr inbounds i8, ptr %context, i64 32
+  store i32 %_skycolor.coerce, ptr %clear_color.i, align 16, !tbaa !29
+  %target_size.i = getelementptr inbounds i8, ptr %context, i64 36
+  store i64 %screensize.sroa.0.0.insert.insert, ptr %target_size.i, align 4, !tbaa.struct !28
+  %show_hud.i = getelementptr inbounds i8, ptr %context, i64 44
+  %draw_wield_tool.i = getelementptr inbounds i8, ptr %context, i64 45
+  %draw_crosshair.i = getelementptr inbounds i8, ptr %context, i64 46
+  store i8 %frombool2, ptr %draw_crosshair.i, align 2, !tbaa !31
+  store i8 %frombool1, ptr %draw_wield_tool.i, align 1, !tbaa !35
+  store i8 %frombool, ptr %show_hud.i, align 4, !tbaa !36
+  %pipeline = getelementptr inbounds i8, ptr %this, i64 40
+  %9 = load ptr, ptr %pipeline, align 8, !tbaa !18
+  %vtable22 = load ptr, ptr %9, align 8, !tbaa !4
+  %vfn23 = getelementptr inbounds i8, ptr %vtable22, i64 16
+  %10 = load ptr, ptr %vfn23, align 8
+  call void %10(ptr noundef nonnull align 8 dereferenceable(104) %9, ptr noundef nonnull align 8 dereferenceable(47) %context)
+  %11 = load ptr, ptr %pipeline, align 8, !tbaa !18
+  %vtable25 = load ptr, ptr %11, align 8, !tbaa !4
+  %vfn26 = getelementptr inbounds i8, ptr %vtable25, i64 40
+  %12 = load ptr, ptr %vfn26, align 8
+  call void %12(ptr noundef nonnull align 8 dereferenceable(104) %11, ptr noundef nonnull align 8 dereferenceable(47) %context)
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %context) #7
   ret void
 }
 
@@ -182,10 +186,11 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @_ZNK13RenderingCore14getVirtualSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #6 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
-  %3 = load i64, ptr %2, align 8, !tbaa.struct !28
-  ret i64 %3
+define dso_local i64 @_ZNK13RenderingCore14getVirtualSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #6 align 2 {
+entry:
+  %virtual_size = getelementptr inbounds i8, ptr %this, i64 56
+  %retval.sroa.0.0.copyload = load i64, ptr %virtual_size, align 8, !tbaa.struct !28
+  ret i64 %retval.sroa.0.0.copyload
 }
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="64" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -1,89 +1,95 @@
 ; ModuleID = 'bench/minetest/original/CFPSCounter.cpp.ll'
 source_filename = "bench/minetest/original/CFPSCounter.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-pc-linux-gnu"
+target triple = "x86_64-unknown-linux-gnu"
 
 @_ZN3irr5video11CFPSCounterC1Ev = unnamed_addr alias void (ptr), ptr @_ZN3irr5video11CFPSCounterC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr5video11CFPSCounterC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(28) %0) unnamed_addr #0 align 2 {
-  store i32 60, ptr %0, align 4, !tbaa !3
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %2, i8 0, i64 24, i1 false)
+define void @_ZN3irr5video11CFPSCounterC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(28) %this) unnamed_addr #0 align 2 {
+entry:
+  store i32 60, ptr %this, align 4, !tbaa !3
+  %Primitive = getelementptr inbounds i8, ptr %this, i64 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %Primitive, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK3irr5video11CFPSCounter6getFPSEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %0) local_unnamed_addr #1 align 2 {
-  %2 = load i32, ptr %0, align 4, !tbaa !3
-  ret i32 %2
+define noundef i32 @_ZNK3irr5video11CFPSCounter6getFPSEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %this) local_unnamed_addr #1 align 2 {
+entry:
+  %0 = load i32, ptr %this, align 4, !tbaa !3
+  ret i32 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK3irr5video11CFPSCounter12getPrimitiveEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !8
-  ret i32 %3
+define noundef i32 @_ZNK3irr5video11CFPSCounter12getPrimitiveEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %this) local_unnamed_addr #1 align 2 {
+entry:
+  %Primitive = getelementptr inbounds i8, ptr %this, i64 4
+  %0 = load i32, ptr %Primitive, align 4, !tbaa !8
+  ret i32 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK3irr5video11CFPSCounter19getPrimitiveAverageEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 20
-  %3 = load i32, ptr %2, align 4, !tbaa !9
-  ret i32 %3
+define noundef i32 @_ZNK3irr5video11CFPSCounter19getPrimitiveAverageEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %this) local_unnamed_addr #1 align 2 {
+entry:
+  %PrimitiveAverage = getelementptr inbounds i8, ptr %this, i64 20
+  %0 = load i32, ptr %PrimitiveAverage, align 4, !tbaa !9
+  ret i32 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK3irr5video11CFPSCounter17getPrimitiveTotalEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
-  %3 = load i32, ptr %2, align 4, !tbaa !10
-  ret i32 %3
+define noundef i32 @_ZNK3irr5video11CFPSCounter17getPrimitiveTotalEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %this) local_unnamed_addr #1 align 2 {
+entry:
+  %PrimitiveTotal = getelementptr inbounds i8, ptr %this, i64 24
+  %0 = load i32, ptr %PrimitiveTotal, align 4, !tbaa !10
+  ret i32 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3irr5video11CFPSCounter13registerFrameEjj(ptr nocapture noundef nonnull align 4 dereferenceable(28) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
-  %5 = load i32, ptr %4, align 4, !tbaa !11
-  %6 = add i32 %5, 1
-  store i32 %6, ptr %4, align 4, !tbaa !11
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = load i32, ptr %7, align 4, !tbaa !10
-  %9 = add i32 %8, %2
-  store i32 %9, ptr %7, align 4, !tbaa !10
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
-  %11 = load i32, ptr %10, align 4, !tbaa !12
-  %12 = add i32 %11, %2
-  store i32 %12, ptr %10, align 4, !tbaa !12
-  %13 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %2, ptr %13, align 4, !tbaa !8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = load i32, ptr %14, align 4, !tbaa !13
-  %16 = sub i32 %1, %15
-  %17 = icmp ugt i32 %16, 1499
-  br i1 %17, label %18, label %32
+define void @_ZN3irr5video11CFPSCounter13registerFrameEjj(ptr nocapture noundef nonnull align 4 dereferenceable(28) %this, i32 noundef %now, i32 noundef %primitivesDrawn) local_unnamed_addr #2 align 2 {
+entry:
+  %FramesCounted = getelementptr inbounds i8, ptr %this, i64 12
+  %0 = load i32, ptr %FramesCounted, align 4, !tbaa !11
+  %inc = add i32 %0, 1
+  store i32 %inc, ptr %FramesCounted, align 4, !tbaa !11
+  %PrimitiveTotal = getelementptr inbounds i8, ptr %this, i64 24
+  %1 = load i32, ptr %PrimitiveTotal, align 4, !tbaa !10
+  %add = add i32 %1, %primitivesDrawn
+  store i32 %add, ptr %PrimitiveTotal, align 4, !tbaa !10
+  %PrimitivesCounted = getelementptr inbounds i8, ptr %this, i64 16
+  %2 = load i32, ptr %PrimitivesCounted, align 4, !tbaa !12
+  %add2 = add i32 %2, %primitivesDrawn
+  store i32 %add2, ptr %PrimitivesCounted, align 4, !tbaa !12
+  %Primitive = getelementptr inbounds i8, ptr %this, i64 4
+  store i32 %primitivesDrawn, ptr %Primitive, align 4, !tbaa !8
+  %StartTime = getelementptr inbounds i8, ptr %this, i64 8
+  %3 = load i32, ptr %StartTime, align 4, !tbaa !13
+  %sub = sub i32 %now, %3
+  %cmp = icmp ugt i32 %sub, 1499
+  br i1 %cmp, label %if.then, label %if.end
 
-18:                                               ; preds = %3
-  %19 = uitofp i32 %16 to float
-  %20 = fdiv float 1.000000e+00, %19
-  %21 = mul i32 %6, 1000
-  %22 = uitofp i32 %21 to float
-  %23 = fmul float %20, %22
-  %24 = tail call float @llvm.ceil.f32(float %23)
-  %25 = fptosi float %24 to i32
-  store i32 %25, ptr %0, align 4, !tbaa !3
-  %26 = mul i32 %12, 1000
-  %27 = uitofp i32 %26 to float
-  %28 = fmul float %20, %27
-  %29 = tail call float @llvm.ceil.f32(float %28)
-  %30 = fptosi float %29 to i32
-  %31 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %30, ptr %31, align 4, !tbaa !9
-  store i32 0, ptr %4, align 4, !tbaa !11
-  store i32 0, ptr %10, align 4, !tbaa !12
-  store i32 %1, ptr %14, align 4, !tbaa !13
-  br label %32
+if.then:                                          ; preds = %entry
+  %conv = uitofp i32 %sub to float
+  %div.i = fdiv float 1.000000e+00, %conv
+  %mul = mul i32 %inc, 1000
+  %conv4 = uitofp i32 %mul to float
+  %mul5 = fmul float %div.i, %conv4
+  %4 = tail call float @llvm.ceil.f32(float %mul5)
+  %conv.i = fptosi float %4 to i32
+  store i32 %conv.i, ptr %this, align 4, !tbaa !3
+  %mul8 = mul i32 %add2, 1000
+  %conv9 = uitofp i32 %mul8 to float
+  %mul10 = fmul float %div.i, %conv9
+  %5 = tail call float @llvm.ceil.f32(float %mul10)
+  %conv.i20 = fptosi float %5 to i32
+  %PrimitiveAverage = getelementptr inbounds i8, ptr %this, i64 20
+  store i32 %conv.i20, ptr %PrimitiveAverage, align 4, !tbaa !9
+  store i32 0, ptr %FramesCounted, align 4, !tbaa !11
+  store i32 0, ptr %PrimitivesCounted, align 4, !tbaa !12
+  store i32 %now, ptr %StartTime, align 4, !tbaa !13
+  br label %if.end
 
-32:                                               ; preds = %18, %3
+if.end:                                           ; preds = %if.then, %entry
   ret void
 }
 

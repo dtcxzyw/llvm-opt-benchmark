@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/minetest/original/os.cpp.ll'
 source_filename = "bench/minetest/original/os.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-pc-linux-gnu"
+target triple = "x86_64-unknown-linux-gnu"
 
 %struct.timeval = type { i64, i64 }
 
@@ -13,56 +13,63 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN3irr2os5Timer10StaticTimeE = local_unnamed_addr global i32 0, align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i16 @_ZN3irr2os8Byteswap8byteswapEt(i16 noundef zeroext %0) local_unnamed_addr #0 align 2 {
-  %2 = tail call i16 @llvm.bswap.i16(i16 %0)
-  ret i16 %2
+define noundef zeroext i16 @_ZN3irr2os8Byteswap8byteswapEt(i16 noundef zeroext %num) local_unnamed_addr #0 align 2 {
+entry:
+  %0 = tail call i16 @llvm.bswap.i16(i16 %num)
+  ret i16 %0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef signext i16 @_ZN3irr2os8Byteswap8byteswapEs(i16 noundef signext %0) local_unnamed_addr #0 align 2 {
-  %2 = tail call i16 @llvm.bswap.i16(i16 %0)
-  ret i16 %2
+define noundef signext i16 @_ZN3irr2os8Byteswap8byteswapEs(i16 noundef signext %num) local_unnamed_addr #0 align 2 {
+entry:
+  %0 = tail call i16 @llvm.bswap.i16(i16 %num)
+  ret i16 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN3irr2os8Byteswap8byteswapEj(i32 noundef %0) local_unnamed_addr #0 align 2 {
-  %2 = tail call i32 @llvm.bswap.i32(i32 %0)
-  ret i32 %2
+define noundef i32 @_ZN3irr2os8Byteswap8byteswapEj(i32 noundef %num) local_unnamed_addr #0 align 2 {
+entry:
+  %0 = tail call i32 @llvm.bswap.i32(i32 %num)
+  ret i32 %0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN3irr2os8Byteswap8byteswapEi(i32 noundef %0) local_unnamed_addr #0 align 2 {
-  %2 = tail call i32 @llvm.bswap.i32(i32 %0)
-  ret i32 %2
+define noundef i32 @_ZN3irr2os8Byteswap8byteswapEi(i32 noundef %num) local_unnamed_addr #0 align 2 {
+entry:
+  %0 = tail call i32 @llvm.bswap.i32(i32 %num)
+  ret i32 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_ZN3irr2os8Byteswap8byteswapEm(i64 noundef %0) local_unnamed_addr #0 align 2 {
-  %2 = tail call i64 @llvm.bswap.i64(i64 %0)
-  ret i64 %2
+define noundef i64 @_ZN3irr2os8Byteswap8byteswapEm(i64 noundef %num) local_unnamed_addr #0 align 2 {
+entry:
+  %0 = tail call i64 @llvm.bswap.i64(i64 %num)
+  ret i64 %0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.bswap.i64(i64) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_ZN3irr2os8Byteswap8byteswapEl(i64 noundef %0) local_unnamed_addr #0 align 2 {
-  %2 = tail call i64 @llvm.bswap.i64(i64 %0)
-  ret i64 %2
+define noundef i64 @_ZN3irr2os8Byteswap8byteswapEl(i64 noundef %num) local_unnamed_addr #0 align 2 {
+entry:
+  %0 = tail call i64 @llvm.bswap.i64(i64 %num)
+  ret i64 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef float @_ZN3irr2os8Byteswap8byteswapEf(float noundef %0) local_unnamed_addr #0 align 2 {
-  %2 = bitcast float %0 to i32
-  %3 = tail call i32 @llvm.bswap.i32(i32 %2)
-  %4 = bitcast i32 %3 to float
-  ret float %4
+define noundef float @_ZN3irr2os8Byteswap8byteswapEf(float noundef %num) local_unnamed_addr #0 align 2 {
+entry:
+  %0 = bitcast float %num to i32
+  %1 = tail call i32 @llvm.bswap.i32(i32 %0)
+  %2 = bitcast i32 %1 to float
+  ret float %2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -72,283 +79,298 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN3irr2os7Printer5printEPKcNS_10ELOG_LEVELE(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
-  %3 = tail call i32 @puts(ptr nonnull dereferenceable(1) %0)
+define void @_ZN3irr2os7Printer5printEPKcNS_10ELOG_LEVELE(ptr nocapture noundef readonly %message, i32 noundef %ll) local_unnamed_addr #3 align 2 {
+entry:
+  %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) %message)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_ZN3irr2os5Timer9initTimerEv() local_unnamed_addr #3 align 2 {
-  %1 = alloca %struct.timeval, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #9
-  %2 = call i32 @gettimeofday(ptr noundef nonnull %1, ptr noundef null) #9
-  %3 = load i64, ptr %1, align 8, !tbaa !3
-  %4 = mul i64 %3, 1000
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !8
-  %7 = sdiv i64 %6, 1000
-  %8 = add i64 %7, %4
-  %9 = trunc i64 %8 to i32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #9
-  store i32 %9, ptr @_ZN3irr2os5Timer10StaticTimeE, align 4, !tbaa !9
-  store i32 %9, ptr @_ZN3irr2os5Timer13StartRealTimeE, align 4, !tbaa !9
+entry:
+  %tv.i.i = alloca %struct.timeval, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i) #9
+  %call.i.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i, ptr noundef null) #9
+  %0 = load i64, ptr %tv.i.i, align 8, !tbaa !3
+  %conv.i.i = mul i64 %0, 1000
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
+  %1 = load i64, ptr %tv_usec.i.i, align 8, !tbaa !8
+  %div.i.i = sdiv i64 %1, 1000
+  %add.i.i = add i64 %div.i.i, %conv.i.i
+  %conv2.i.i = trunc i64 %add.i.i to i32
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i) #9
+  store i32 %conv2.i.i, ptr @_ZN3irr2os5Timer10StaticTimeE, align 4, !tbaa !9
+  store i32 %conv2.i.i, ptr @_ZN3irr2os5Timer13StartRealTimeE, align 4, !tbaa !9
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_ZN3irr2os5Timer16initVirtualTimerEv() local_unnamed_addr #3 align 2 {
-  %1 = alloca %struct.timeval, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #9
-  %2 = call i32 @gettimeofday(ptr noundef nonnull %1, ptr noundef null) #9
-  %3 = load i64, ptr %1, align 8, !tbaa !3
-  %4 = mul i64 %3, 1000
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !8
-  %7 = sdiv i64 %6, 1000
-  %8 = add i64 %7, %4
-  %9 = trunc i64 %8 to i32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #9
-  store i32 %9, ptr @_ZN3irr2os5Timer10StaticTimeE, align 4, !tbaa !9
-  store i32 %9, ptr @_ZN3irr2os5Timer13StartRealTimeE, align 4, !tbaa !9
+entry:
+  %tv.i = alloca %struct.timeval, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i) #9
+  %call.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i, ptr noundef null) #9
+  %0 = load i64, ptr %tv.i, align 8, !tbaa !3
+  %conv.i = mul i64 %0, 1000
+  %tv_usec.i = getelementptr inbounds i8, ptr %tv.i, i64 8
+  %1 = load i64, ptr %tv_usec.i, align 8, !tbaa !8
+  %div.i = sdiv i64 %1, 1000
+  %add.i = add i64 %div.i, %conv.i
+  %conv2.i = trunc i64 %add.i to i32
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i) #9
+  store i32 %conv2.i, ptr @_ZN3irr2os5Timer10StaticTimeE, align 4, !tbaa !9
+  store i32 %conv2.i, ptr @_ZN3irr2os5Timer13StartRealTimeE, align 4, !tbaa !9
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef i32 @_ZN3irr2os5Timer11getRealTimeEv() local_unnamed_addr #3 align 2 {
-  %1 = alloca %struct.timeval, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #9
-  %2 = call i32 @gettimeofday(ptr noundef nonnull %1, ptr noundef null) #9
-  %3 = load i64, ptr %1, align 8, !tbaa !3
-  %4 = mul i64 %3, 1000
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !8
-  %7 = sdiv i64 %6, 1000
-  %8 = add i64 %7, %4
-  %9 = trunc i64 %8 to i32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #9
-  ret i32 %9
+entry:
+  %tv = alloca %struct.timeval, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv) #9
+  %call = call i32 @gettimeofday(ptr noundef nonnull %tv, ptr noundef null) #9
+  %0 = load i64, ptr %tv, align 8, !tbaa !3
+  %conv = mul i64 %0, 1000
+  %tv_usec = getelementptr inbounds i8, ptr %tv, i64 8
+  %1 = load i64, ptr %tv_usec, align 8, !tbaa !8
+  %div = sdiv i64 %1, 1000
+  %add = add i64 %div, %conv
+  %conv2 = trunc i64 %add to i32
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv) #9
+  ret i32 %conv2
 }
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
-  %3 = load ptr, ptr @_ZN3irr2os7Printer6LoggerE, align 8, !tbaa !11
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %9, label %5
+define void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef %message, i32 noundef %ll) local_unnamed_addr #5 align 2 {
+entry:
+  %0 = load ptr, ptr @_ZN3irr2os7Printer6LoggerE, align 8, !tbaa !11
+  %tobool.not = icmp eq ptr %0, null
+  br i1 %tobool.not, label %if.end, label %if.then
 
-5:                                                ; preds = %2
-  %6 = load ptr, ptr %3, align 8, !tbaa !13
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
-  %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %0, i32 noundef %1) #9
-  br label %9
+if.then:                                          ; preds = %entry
+  %vtable = load ptr, ptr %0, align 8, !tbaa !13
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %1 = load ptr, ptr %vfn, align 8
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %message, i32 noundef %ll) #9
+  br label %if.end
 
-9:                                                ; preds = %5, %2
+if.end:                                           ; preds = %if.then, %entry
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2os7Printer3logEPKcS3_NS_10ELOG_LEVELE(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
-  %4 = load ptr, ptr @_ZN3irr2os7Printer6LoggerE, align 8, !tbaa !11
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %10, label %6
+define void @_ZN3irr2os7Printer3logEPKcS3_NS_10ELOG_LEVELE(ptr noundef %message, ptr noundef %hint, i32 noundef %ll) local_unnamed_addr #5 align 2 {
+entry:
+  %0 = load ptr, ptr @_ZN3irr2os7Printer6LoggerE, align 8, !tbaa !11
+  %tobool.not = icmp eq ptr %0, null
+  br i1 %tobool.not, label %if.end, label %if.then
 
-6:                                                ; preds = %3
-  %7 = load ptr, ptr %4, align 8, !tbaa !13
-  %8 = getelementptr inbounds i8, ptr %7, i64 40
-  %9 = load ptr, ptr %8, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %0, ptr noundef %1, i32 noundef %2) #9
-  br label %10
+if.then:                                          ; preds = %entry
+  %vtable = load ptr, ptr %0, align 8, !tbaa !13
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %1 = load ptr, ptr %vfn, align 8
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %message, ptr noundef %hint, i32 noundef %ll) #9
+  br label %if.end
 
-10:                                               ; preds = %6, %3
+if.end:                                           ; preds = %if.then, %entry
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2os7Printer3logEPKcRKNS_4core6stringIcEENS_10ELOG_LEVELE(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
-  %4 = load ptr, ptr @_ZN3irr2os7Printer6LoggerE, align 8, !tbaa !11
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %11, label %6
+define void @_ZN3irr2os7Printer3logEPKcRKNS_4core6stringIcEENS_10ELOG_LEVELE(ptr noundef %message, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %hint, i32 noundef %ll) local_unnamed_addr #5 align 2 {
+entry:
+  %0 = load ptr, ptr @_ZN3irr2os7Printer6LoggerE, align 8, !tbaa !11
+  %tobool.not = icmp eq ptr %0, null
+  br i1 %tobool.not, label %if.end, label %if.then
 
-6:                                                ; preds = %3
-  %7 = load ptr, ptr %1, align 8, !tbaa !15
-  %8 = load ptr, ptr %4, align 8, !tbaa !13
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
-  %10 = load ptr, ptr %9, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %0, ptr noundef %7, i32 noundef %2) #9
-  br label %11
+if.then:                                          ; preds = %entry
+  %1 = load ptr, ptr %hint, align 8, !tbaa !15
+  %vtable = load ptr, ptr %0, align 8, !tbaa !13
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %2 = load ptr, ptr %vfn, align 8
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %message, ptr noundef %1, i32 noundef %ll) #9
+  br label %if.end
 
-11:                                               ; preds = %6, %3
+if.end:                                           ; preds = %if.then, %entry
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define noundef i32 @_ZN3irr2os5Timer7getTimeEv() local_unnamed_addr #6 align 2 {
-  %1 = load i32, ptr @_ZN3irr2os5Timer23VirtualTimerStopCounterE, align 4, !tbaa !9
-  %2 = icmp slt i32 %1, 0
-  %3 = load i32, ptr @_ZN3irr2os5Timer15LastVirtualTimeE, align 4, !tbaa !9
-  br i1 %2, label %13, label %4
+entry:
+  %0 = load i32, ptr @_ZN3irr2os5Timer23VirtualTimerStopCounterE, align 4, !tbaa !9
+  %cmp.i = icmp slt i32 %0, 0
+  %1 = load i32, ptr @_ZN3irr2os5Timer15LastVirtualTimeE, align 4, !tbaa !9
+  br i1 %cmp.i, label %return, label %if.end
 
-4:                                                ; preds = %0
-  %5 = load i32, ptr @_ZN3irr2os5Timer10StaticTimeE, align 4, !tbaa !9
-  %6 = load i32, ptr @_ZN3irr2os5Timer13StartRealTimeE, align 4, !tbaa !9
-  %7 = sub i32 %5, %6
-  %8 = uitofp i32 %7 to float
-  %9 = load float, ptr @_ZN3irr2os5Timer17VirtualTimerSpeedE, align 4, !tbaa !18
-  %10 = fmul float %9, %8
-  %11 = fptoui float %10 to i32
-  %12 = add i32 %3, %11
-  br label %13
+if.end:                                           ; preds = %entry
+  %2 = load i32, ptr @_ZN3irr2os5Timer10StaticTimeE, align 4, !tbaa !9
+  %3 = load i32, ptr @_ZN3irr2os5Timer13StartRealTimeE, align 4, !tbaa !9
+  %sub = sub i32 %2, %3
+  %conv = uitofp i32 %sub to float
+  %4 = load float, ptr @_ZN3irr2os5Timer17VirtualTimerSpeedE, align 4, !tbaa !18
+  %mul = fmul float %4, %conv
+  %conv1 = fptoui float %mul to i32
+  %add = add i32 %1, %conv1
+  br label %return
 
-13:                                               ; preds = %4, %0
-  %14 = phi i32 [ %12, %4 ], [ %3, %0 ]
-  ret i32 %14
+return:                                           ; preds = %if.end, %entry
+  %retval.0 = phi i32 [ %add, %if.end ], [ %1, %entry ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZN3irr2os5Timer9isStoppedEv() local_unnamed_addr #6 align 2 {
-  %1 = load i32, ptr @_ZN3irr2os5Timer23VirtualTimerStopCounterE, align 4, !tbaa !9
-  %2 = icmp slt i32 %1, 0
-  ret i1 %2
+entry:
+  %0 = load i32, ptr @_ZN3irr2os5Timer23VirtualTimerStopCounterE, align 4, !tbaa !9
+  %cmp = icmp slt i32 %0, 0
+  ret i1 %cmp
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_ZN3irr2os5Timer4tickEv() local_unnamed_addr #3 align 2 {
-  %1 = alloca %struct.timeval, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #9
-  %2 = call i32 @gettimeofday(ptr noundef nonnull %1, ptr noundef null) #9
-  %3 = load i64, ptr %1, align 8, !tbaa !3
-  %4 = mul i64 %3, 1000
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !8
-  %7 = sdiv i64 %6, 1000
-  %8 = add i64 %7, %4
-  %9 = trunc i64 %8 to i32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #9
-  store i32 %9, ptr @_ZN3irr2os5Timer10StaticTimeE, align 4, !tbaa !9
+entry:
+  %tv.i = alloca %struct.timeval, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i) #9
+  %call.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i, ptr noundef null) #9
+  %0 = load i64, ptr %tv.i, align 8, !tbaa !3
+  %conv.i = mul i64 %0, 1000
+  %tv_usec.i = getelementptr inbounds i8, ptr %tv.i, i64 8
+  %1 = load i64, ptr %tv_usec.i, align 8, !tbaa !8
+  %div.i = sdiv i64 %1, 1000
+  %add.i = add i64 %div.i, %conv.i
+  %conv2.i = trunc i64 %add.i to i32
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i) #9
+  store i32 %conv2.i, ptr @_ZN3irr2os5Timer10StaticTimeE, align 4, !tbaa !9
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN3irr2os5Timer7setTimeEj(i32 noundef %0) local_unnamed_addr #3 align 2 {
-  %2 = alloca %struct.timeval, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #9
-  %3 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #9
-  %4 = load i64, ptr %2, align 8, !tbaa !3
-  %5 = mul i64 %4, 1000
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !8
-  %8 = sdiv i64 %7, 1000
-  %9 = add i64 %8, %5
-  %10 = trunc i64 %9 to i32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #9
-  store i32 %10, ptr @_ZN3irr2os5Timer10StaticTimeE, align 4, !tbaa !9
-  store i32 %0, ptr @_ZN3irr2os5Timer15LastVirtualTimeE, align 4, !tbaa !9
-  store i32 %10, ptr @_ZN3irr2os5Timer13StartRealTimeE, align 4, !tbaa !9
+define void @_ZN3irr2os5Timer7setTimeEj(i32 noundef %time) local_unnamed_addr #3 align 2 {
+entry:
+  %tv.i = alloca %struct.timeval, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i) #9
+  %call.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i, ptr noundef null) #9
+  %0 = load i64, ptr %tv.i, align 8, !tbaa !3
+  %conv.i = mul i64 %0, 1000
+  %tv_usec.i = getelementptr inbounds i8, ptr %tv.i, i64 8
+  %1 = load i64, ptr %tv_usec.i, align 8, !tbaa !8
+  %div.i = sdiv i64 %1, 1000
+  %add.i = add i64 %div.i, %conv.i
+  %conv2.i = trunc i64 %add.i to i32
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i) #9
+  store i32 %conv2.i, ptr @_ZN3irr2os5Timer10StaticTimeE, align 4, !tbaa !9
+  store i32 %time, ptr @_ZN3irr2os5Timer15LastVirtualTimeE, align 4, !tbaa !9
+  store i32 %conv2.i, ptr @_ZN3irr2os5Timer13StartRealTimeE, align 4, !tbaa !9
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define void @_ZN3irr2os5Timer9stopTimerEv() local_unnamed_addr #7 align 2 {
-  %1 = load i32, ptr @_ZN3irr2os5Timer23VirtualTimerStopCounterE, align 4, !tbaa !9
-  %2 = icmp slt i32 %1, 0
-  br i1 %2, label %13, label %3
+entry:
+  %0 = load i32, ptr @_ZN3irr2os5Timer23VirtualTimerStopCounterE, align 4, !tbaa !9
+  %cmp.i = icmp slt i32 %0, 0
+  br i1 %cmp.i, label %if.end, label %_ZN3irr2os5Timer7getTimeEv.exit
 
-3:                                                ; preds = %0
-  %4 = load i32, ptr @_ZN3irr2os5Timer15LastVirtualTimeE, align 4, !tbaa !9
-  %5 = load i32, ptr @_ZN3irr2os5Timer10StaticTimeE, align 4, !tbaa !9
-  %6 = load i32, ptr @_ZN3irr2os5Timer13StartRealTimeE, align 4, !tbaa !9
-  %7 = sub i32 %5, %6
-  %8 = uitofp i32 %7 to float
-  %9 = load float, ptr @_ZN3irr2os5Timer17VirtualTimerSpeedE, align 4, !tbaa !18
-  %10 = fmul float %9, %8
-  %11 = fptoui float %10 to i32
-  %12 = add i32 %4, %11
-  store i32 %12, ptr @_ZN3irr2os5Timer15LastVirtualTimeE, align 4, !tbaa !9
-  br label %13
+_ZN3irr2os5Timer7getTimeEv.exit:                  ; preds = %entry
+  %1 = load i32, ptr @_ZN3irr2os5Timer15LastVirtualTimeE, align 4, !tbaa !9
+  %2 = load i32, ptr @_ZN3irr2os5Timer10StaticTimeE, align 4, !tbaa !9
+  %3 = load i32, ptr @_ZN3irr2os5Timer13StartRealTimeE, align 4, !tbaa !9
+  %sub.i = sub i32 %2, %3
+  %conv.i = uitofp i32 %sub.i to float
+  %4 = load float, ptr @_ZN3irr2os5Timer17VirtualTimerSpeedE, align 4, !tbaa !18
+  %mul.i = fmul float %4, %conv.i
+  %conv1.i = fptoui float %mul.i to i32
+  %add.i = add i32 %1, %conv1.i
+  store i32 %add.i, ptr @_ZN3irr2os5Timer15LastVirtualTimeE, align 4, !tbaa !9
+  br label %if.end
 
-13:                                               ; preds = %3, %0
-  %14 = add nsw i32 %1, -1
-  store i32 %14, ptr @_ZN3irr2os5Timer23VirtualTimerStopCounterE, align 4, !tbaa !9
+if.end:                                           ; preds = %_ZN3irr2os5Timer7getTimeEv.exit, %entry
+  %dec = add nsw i32 %0, -1
+  store i32 %dec, ptr @_ZN3irr2os5Timer23VirtualTimerStopCounterE, align 4, !tbaa !9
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_ZN3irr2os5Timer10startTimerEv() local_unnamed_addr #3 align 2 {
-  %1 = alloca %struct.timeval, align 8
-  %2 = load i32, ptr @_ZN3irr2os5Timer23VirtualTimerStopCounterE, align 4, !tbaa !9
-  %3 = add nsw i32 %2, 1
-  store i32 %3, ptr @_ZN3irr2os5Timer23VirtualTimerStopCounterE, align 4, !tbaa !9
-  %4 = icmp slt i32 %2, -1
-  br i1 %4, label %15, label %5
+entry:
+  %tv.i.i = alloca %struct.timeval, align 8
+  %0 = load i32, ptr @_ZN3irr2os5Timer23VirtualTimerStopCounterE, align 4, !tbaa !9
+  %inc = add nsw i32 %0, 1
+  store i32 %inc, ptr @_ZN3irr2os5Timer23VirtualTimerStopCounterE, align 4, !tbaa !9
+  %cmp.i = icmp slt i32 %0, -1
+  br i1 %cmp.i, label %if.end, label %if.then
 
-5:                                                ; preds = %0
-  %6 = load i32, ptr @_ZN3irr2os5Timer15LastVirtualTimeE, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #9
-  %7 = call i32 @gettimeofday(ptr noundef nonnull %1, ptr noundef null) #9
-  %8 = load i64, ptr %1, align 8, !tbaa !3
-  %9 = mul i64 %8, 1000
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !8
-  %12 = sdiv i64 %11, 1000
-  %13 = add i64 %12, %9
-  %14 = trunc i64 %13 to i32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #9
-  store i32 %14, ptr @_ZN3irr2os5Timer10StaticTimeE, align 4, !tbaa !9
-  store i32 %6, ptr @_ZN3irr2os5Timer15LastVirtualTimeE, align 4, !tbaa !9
-  store i32 %14, ptr @_ZN3irr2os5Timer13StartRealTimeE, align 4, !tbaa !9
-  br label %15
+if.then:                                          ; preds = %entry
+  %1 = load i32, ptr @_ZN3irr2os5Timer15LastVirtualTimeE, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i) #9
+  %call.i.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i, ptr noundef null) #9
+  %2 = load i64, ptr %tv.i.i, align 8, !tbaa !3
+  %conv.i.i = mul i64 %2, 1000
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
+  %3 = load i64, ptr %tv_usec.i.i, align 8, !tbaa !8
+  %div.i.i = sdiv i64 %3, 1000
+  %add.i.i = add i64 %div.i.i, %conv.i.i
+  %conv2.i.i = trunc i64 %add.i.i to i32
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i) #9
+  store i32 %conv2.i.i, ptr @_ZN3irr2os5Timer10StaticTimeE, align 4, !tbaa !9
+  store i32 %1, ptr @_ZN3irr2os5Timer15LastVirtualTimeE, align 4, !tbaa !9
+  store i32 %conv2.i.i, ptr @_ZN3irr2os5Timer13StartRealTimeE, align 4, !tbaa !9
+  br label %if.end
 
-15:                                               ; preds = %5, %0
+if.end:                                           ; preds = %if.then, %entry
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN3irr2os5Timer8setSpeedEf(float noundef %0) local_unnamed_addr #3 align 2 {
-  %2 = alloca %struct.timeval, align 8
-  %3 = load i32, ptr @_ZN3irr2os5Timer23VirtualTimerStopCounterE, align 4, !tbaa !9
-  %4 = icmp slt i32 %3, 0
-  %5 = load i32, ptr @_ZN3irr2os5Timer15LastVirtualTimeE, align 4, !tbaa !9
-  br i1 %4, label %15, label %6
+define void @_ZN3irr2os5Timer8setSpeedEf(float noundef %speed) local_unnamed_addr #3 align 2 {
+entry:
+  %tv.i.i = alloca %struct.timeval, align 8
+  %0 = load i32, ptr @_ZN3irr2os5Timer23VirtualTimerStopCounterE, align 4, !tbaa !9
+  %cmp.i.i = icmp slt i32 %0, 0
+  %1 = load i32, ptr @_ZN3irr2os5Timer15LastVirtualTimeE, align 4, !tbaa !9
+  br i1 %cmp.i.i, label %_ZN3irr2os5Timer7getTimeEv.exit, label %if.end.i
 
-6:                                                ; preds = %1
-  %7 = load i32, ptr @_ZN3irr2os5Timer10StaticTimeE, align 4, !tbaa !9
-  %8 = load i32, ptr @_ZN3irr2os5Timer13StartRealTimeE, align 4, !tbaa !9
-  %9 = sub i32 %7, %8
-  %10 = uitofp i32 %9 to float
-  %11 = load float, ptr @_ZN3irr2os5Timer17VirtualTimerSpeedE, align 4, !tbaa !18
-  %12 = fmul float %11, %10
-  %13 = fptoui float %12 to i32
-  %14 = add i32 %5, %13
-  br label %15
+if.end.i:                                         ; preds = %entry
+  %2 = load i32, ptr @_ZN3irr2os5Timer10StaticTimeE, align 4, !tbaa !9
+  %3 = load i32, ptr @_ZN3irr2os5Timer13StartRealTimeE, align 4, !tbaa !9
+  %sub.i = sub i32 %2, %3
+  %conv.i = uitofp i32 %sub.i to float
+  %4 = load float, ptr @_ZN3irr2os5Timer17VirtualTimerSpeedE, align 4, !tbaa !18
+  %mul.i = fmul float %4, %conv.i
+  %conv1.i = fptoui float %mul.i to i32
+  %add.i = add i32 %1, %conv1.i
+  br label %_ZN3irr2os5Timer7getTimeEv.exit
 
-15:                                               ; preds = %6, %1
-  %16 = phi i32 [ %14, %6 ], [ %5, %1 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #9
-  %17 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #9
-  %18 = load i64, ptr %2, align 8, !tbaa !3
-  %19 = mul i64 %18, 1000
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
-  %21 = load i64, ptr %20, align 8, !tbaa !8
-  %22 = sdiv i64 %21, 1000
-  %23 = add i64 %22, %19
-  %24 = trunc i64 %23 to i32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #9
-  store i32 %24, ptr @_ZN3irr2os5Timer10StaticTimeE, align 4, !tbaa !9
-  store i32 %16, ptr @_ZN3irr2os5Timer15LastVirtualTimeE, align 4, !tbaa !9
-  store i32 %24, ptr @_ZN3irr2os5Timer13StartRealTimeE, align 4, !tbaa !9
-  %25 = fcmp olt float %0, 0.000000e+00
-  %26 = select i1 %25, float 0.000000e+00, float %0
-  store float %26, ptr @_ZN3irr2os5Timer17VirtualTimerSpeedE, align 4, !tbaa !18
+_ZN3irr2os5Timer7getTimeEv.exit:                  ; preds = %if.end.i, %entry
+  %retval.0.i = phi i32 [ %add.i, %if.end.i ], [ %1, %entry ]
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i) #9
+  %call.i.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i, ptr noundef null) #9
+  %5 = load i64, ptr %tv.i.i, align 8, !tbaa !3
+  %conv.i.i = mul i64 %5, 1000
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
+  %6 = load i64, ptr %tv_usec.i.i, align 8, !tbaa !8
+  %div.i.i = sdiv i64 %6, 1000
+  %add.i.i = add i64 %div.i.i, %conv.i.i
+  %conv2.i.i = trunc i64 %add.i.i to i32
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i) #9
+  store i32 %conv2.i.i, ptr @_ZN3irr2os5Timer10StaticTimeE, align 4, !tbaa !9
+  store i32 %retval.0.i, ptr @_ZN3irr2os5Timer15LastVirtualTimeE, align 4, !tbaa !9
+  store i32 %conv2.i.i, ptr @_ZN3irr2os5Timer13StartRealTimeE, align 4, !tbaa !9
+  %cmp = fcmp olt float %speed, 0.000000e+00
+  %storemerge = select i1 %cmp, float 0.000000e+00, float %speed
+  store float %storemerge, ptr @_ZN3irr2os5Timer17VirtualTimerSpeedE, align 4, !tbaa !18
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define noundef float @_ZN3irr2os5Timer8getSpeedEv() local_unnamed_addr #6 align 2 {
-  %1 = load float, ptr @_ZN3irr2os5Timer17VirtualTimerSpeedE, align 4, !tbaa !18
-  ret float %1
+entry:
+  %0 = load float, ptr @_ZN3irr2os5Timer17VirtualTimerSpeedE, align 4, !tbaa !18
+  ret float %0
 }
 
 ; Function Attrs: nofree nounwind

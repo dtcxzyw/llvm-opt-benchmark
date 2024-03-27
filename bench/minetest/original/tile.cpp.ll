@@ -1,131 +1,133 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-pc-linux-gnu"
+target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK9TileLayer20applyMaterialOptionsERN3irr5video9SMaterialE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(53) %0, ptr nocapture noundef nonnull align 8 dereferenceable(178) %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 36
-  %4 = load i8, ptr %3, align 4, !tbaa !4
-  switch i8 %4, label %11 [
-    i8 6, label %8
-    i8 3, label %8
-    i8 9, label %8
-    i8 0, label %5
-    i8 4, label %5
-    i8 5, label %5
-    i8 7, label %5
-    i8 1, label %7
-    i8 2, label %7
-    i8 8, label %7
+define dso_local void @_ZNK9TileLayer20applyMaterialOptionsERN3irr5video9SMaterialE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(53) %this, ptr nocapture noundef nonnull align 8 dereferenceable(178) %material) local_unnamed_addr #0 align 2 {
+entry:
+  %material_type = getelementptr inbounds i8, ptr %this, i64 36
+  %0 = load i8, ptr %material_type, align 4, !tbaa !4
+  switch i8 %0, label %sw.epilog [
+    i8 6, label %sw.epilog.sink.split
+    i8 3, label %sw.epilog.sink.split
+    i8 9, label %sw.epilog.sink.split
+    i8 0, label %sw.bb2
+    i8 4, label %sw.bb2
+    i8 5, label %sw.bb2
+    i8 7, label %sw.bb2
+    i8 1, label %sw.bb4
+    i8 2, label %sw.bb4
+    i8 8, label %sw.bb4
   ]
 
-5:                                                ; preds = %2, %2, %2, %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 152
-  store float 5.000000e-01, ptr %6, align 8, !tbaa !13
-  br label %8
+sw.bb2:                                           ; preds = %entry, %entry, %entry, %entry
+  %MaterialTypeParam = getelementptr inbounds i8, ptr %material, i64 152
+  store float 5.000000e-01, ptr %MaterialTypeParam, align 8, !tbaa !13
+  br label %sw.epilog.sink.split
 
-7:                                                ; preds = %2, %2, %2
-  br label %8
+sw.bb4:                                           ; preds = %entry, %entry, %entry
+  br label %sw.epilog.sink.split
 
-8:                                                ; preds = %7, %5, %2, %2, %2
-  %9 = phi i32 [ 1, %7 ], [ 2, %5 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ]
-  %10 = getelementptr inbounds i8, ptr %1, i64 128
-  store i32 %9, ptr %10, align 8, !tbaa !19
-  br label %11
+sw.epilog.sink.split:                             ; preds = %sw.bb4, %sw.bb2, %entry, %entry, %entry
+  %.sink = phi i32 [ 1, %sw.bb4 ], [ 2, %sw.bb2 ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ]
+  %MaterialType5 = getelementptr inbounds i8, ptr %material, i64 128
+  store i32 %.sink, ptr %MaterialType5, align 8, !tbaa !19
+  br label %sw.epilog
 
-11:                                               ; preds = %8, %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 37
-  %13 = load i8, ptr %12, align 1, !tbaa !20
-  %14 = getelementptr inbounds i8, ptr %1, i64 176
-  %15 = load i16, ptr %14, align 8
-  %16 = shl i8 %13, 6
-  %17 = and i8 %16, 64
-  %18 = zext nneg i8 %17 to i16
-  %19 = and i16 %15, -65
-  %20 = or disjoint i16 %19, %18
-  store i16 %20, ptr %14, align 8
-  %21 = load i8, ptr %12, align 1, !tbaa !20
-  %22 = and i8 %21, 32
-  %23 = icmp eq i8 %22, 0
-  br i1 %23, label %24, label %30
+sw.epilog:                                        ; preds = %sw.epilog.sink.split, %entry
+  %material_flags = getelementptr inbounds i8, ptr %this, i64 37
+  %1 = load i8, ptr %material_flags, align 1, !tbaa !20
+  %BackfaceCulling = getelementptr inbounds i8, ptr %material, i64 176
+  %bf.load = load i16, ptr %BackfaceCulling, align 8
+  %2 = shl i8 %1, 6
+  %3 = and i8 %2, 64
+  %bf.shl = zext nneg i8 %3 to i16
+  %bf.clear = and i16 %bf.load, -65
+  %bf.set = or disjoint i16 %bf.clear, %bf.shl
+  store i16 %bf.set, ptr %BackfaceCulling, align 8
+  %4 = load i8, ptr %material_flags, align 1, !tbaa !20
+  %5 = and i8 %4, 32
+  %tobool.not = icmp eq i8 %5, 0
+  br i1 %tobool.not, label %if.then, label %if.end
 
-24:                                               ; preds = %11
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
-  %26 = load i16, ptr %25, align 8
-  %27 = and i16 %26, -16
-  %28 = or disjoint i16 %27, 2
-  store i16 %28, ptr %25, align 8
-  %29 = load i8, ptr %12, align 1, !tbaa !20
-  br label %30
+if.then:                                          ; preds = %sw.epilog
+  %TextureWrapU = getelementptr inbounds i8, ptr %material, i64 8
+  %bf.load10 = load i16, ptr %TextureWrapU, align 8
+  %bf.clear11 = and i16 %bf.load10, -16
+  %bf.set12 = or disjoint i16 %bf.clear11, 2
+  store i16 %bf.set12, ptr %TextureWrapU, align 8
+  %.pre = load i8, ptr %material_flags, align 1, !tbaa !20
+  br label %if.end
 
-30:                                               ; preds = %24, %11
-  %31 = phi i8 [ %29, %24 ], [ %21, %11 ]
-  %32 = and i8 %31, 64
-  %33 = icmp eq i8 %32, 0
-  br i1 %33, label %34, label %39
+if.end:                                           ; preds = %if.then, %sw.epilog
+  %6 = phi i8 [ %.pre, %if.then ], [ %4, %sw.epilog ]
+  %7 = and i8 %6, 64
+  %tobool16.not = icmp eq i8 %7, 0
+  br i1 %tobool16.not, label %if.then17, label %if.end23
 
-34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %1, i64 8
-  %36 = load i16, ptr %35, align 8
-  %37 = and i16 %36, -241
-  %38 = or disjoint i16 %37, 32
-  store i16 %38, ptr %35, align 8
-  br label %39
+if.then17:                                        ; preds = %if.end
+  %TextureWrapV = getelementptr inbounds i8, ptr %material, i64 8
+  %bf.load20 = load i16, ptr %TextureWrapV, align 8
+  %bf.clear21 = and i16 %bf.load20, -241
+  %bf.set22 = or disjoint i16 %bf.clear21, 32
+  store i16 %bf.set22, ptr %TextureWrapV, align 8
+  br label %if.end23
 
-39:                                               ; preds = %34, %30
+if.end23:                                         ; preds = %if.then17, %if.end
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK9TileLayer31applyMaterialOptionsWithShadersERN3irr5video9SMaterialE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(53) %0, ptr nocapture noundef nonnull align 8 dereferenceable(178) %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 37
-  %4 = load i8, ptr %3, align 1, !tbaa !20
-  %5 = getelementptr inbounds i8, ptr %1, i64 176
-  %6 = load i16, ptr %5, align 8
-  %7 = shl i8 %4, 6
-  %8 = and i8 %7, 64
-  %9 = zext nneg i8 %8 to i16
-  %10 = and i16 %6, -65
-  %11 = or disjoint i16 %10, %9
-  store i16 %11, ptr %5, align 8
-  %12 = load i8, ptr %3, align 1, !tbaa !20
-  %13 = and i8 %12, 32
-  %14 = icmp eq i8 %13, 0
-  br i1 %14, label %15, label %25
+define dso_local void @_ZNK9TileLayer31applyMaterialOptionsWithShadersERN3irr5video9SMaterialE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(53) %this, ptr nocapture noundef nonnull align 8 dereferenceable(178) %material) local_unnamed_addr #0 align 2 {
+entry:
+  %material_flags = getelementptr inbounds i8, ptr %this, i64 37
+  %0 = load i8, ptr %material_flags, align 1, !tbaa !20
+  %BackfaceCulling = getelementptr inbounds i8, ptr %material, i64 176
+  %bf.load = load i16, ptr %BackfaceCulling, align 8
+  %1 = shl i8 %0, 6
+  %2 = and i8 %1, 64
+  %bf.shl = zext nneg i8 %2 to i16
+  %bf.clear = and i16 %bf.load, -65
+  %bf.set = or disjoint i16 %bf.clear, %bf.shl
+  store i16 %bf.set, ptr %BackfaceCulling, align 8
+  %3 = load i8, ptr %material_flags, align 1, !tbaa !20
+  %4 = and i8 %3, 32
+  %tobool.not = icmp eq i8 %4, 0
+  br i1 %tobool.not, label %if.then, label %if.end
 
-15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
-  %17 = load i16, ptr %16, align 8
-  %18 = and i16 %17, -16
-  %19 = or disjoint i16 %18, 2
-  store i16 %19, ptr %16, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 40
-  %21 = load i16, ptr %20, align 8
-  %22 = and i16 %21, -16
-  %23 = or disjoint i16 %22, 2
-  store i16 %23, ptr %20, align 8
-  %24 = load i8, ptr %3, align 1, !tbaa !20
-  br label %25
+if.then:                                          ; preds = %entry
+  %TextureWrapU = getelementptr inbounds i8, ptr %material, i64 8
+  %bf.load5 = load i16, ptr %TextureWrapU, align 8
+  %bf.clear6 = and i16 %bf.load5, -16
+  %bf.set7 = or disjoint i16 %bf.clear6, 2
+  store i16 %bf.set7, ptr %TextureWrapU, align 8
+  %TextureWrapU10 = getelementptr inbounds i8, ptr %material, i64 40
+  %bf.load11 = load i16, ptr %TextureWrapU10, align 8
+  %bf.clear12 = and i16 %bf.load11, -16
+  %bf.set13 = or disjoint i16 %bf.clear12, 2
+  store i16 %bf.set13, ptr %TextureWrapU10, align 8
+  %.pre = load i8, ptr %material_flags, align 1, !tbaa !20
+  br label %if.end
 
-25:                                               ; preds = %15, %2
-  %26 = phi i8 [ %24, %15 ], [ %12, %2 ]
-  %27 = and i8 %26, 64
-  %28 = icmp eq i8 %27, 0
-  br i1 %28, label %29, label %38
+if.end:                                           ; preds = %if.then, %entry
+  %5 = phi i8 [ %.pre, %if.then ], [ %3, %entry ]
+  %6 = and i8 %5, 64
+  %tobool17.not = icmp eq i8 %6, 0
+  br i1 %tobool17.not, label %if.then18, label %if.end30
 
-29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
-  %31 = load i16, ptr %30, align 8
-  %32 = and i16 %31, -241
-  %33 = or disjoint i16 %32, 32
-  store i16 %33, ptr %30, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 40
-  %35 = load i16, ptr %34, align 8
-  %36 = and i16 %35, -241
-  %37 = or disjoint i16 %36, 32
-  store i16 %37, ptr %34, align 8
-  br label %38
+if.then18:                                        ; preds = %if.end
+  %TextureWrapV = getelementptr inbounds i8, ptr %material, i64 8
+  %bf.load21 = load i16, ptr %TextureWrapV, align 8
+  %bf.clear22 = and i16 %bf.load21, -241
+  %bf.set23 = or disjoint i16 %bf.clear22, 32
+  store i16 %bf.set23, ptr %TextureWrapV, align 8
+  %TextureWrapV26 = getelementptr inbounds i8, ptr %material, i64 40
+  %bf.load27 = load i16, ptr %TextureWrapV26, align 8
+  %bf.clear28 = and i16 %bf.load27, -241
+  %bf.set29 = or disjoint i16 %bf.clear28, 32
+  store i16 %bf.set29, ptr %TextureWrapV26, align 8
+  br label %if.end30
 
-38:                                               ; preds = %29, %25
+if.end30:                                         ; preds = %if.then18, %if.end
   ret void
 }
 

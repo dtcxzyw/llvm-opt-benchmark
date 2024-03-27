@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-pc-linux-gnu"
+target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 
@@ -16,51 +16,52 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef float @_Z12u32Tof32Slowj(i32 noundef %0) local_unnamed_addr #3 {
-  %2 = lshr i32 %0, 23
-  %3 = and i32 %0, -2147483648
-  %4 = and i32 %0, 8388607
-  %5 = trunc i32 %2 to i8
-  switch i8 %5, label %17 [
-    i8 -1, label %6
-    i8 0, label %11
+define dso_local noundef float @_Z12u32Tof32Slowj(i32 noundef %i) local_unnamed_addr #3 {
+entry:
+  %shr = lshr i32 %i, 23
+  %and1 = and i32 %i, -2147483648
+  %0 = and i32 %i, 8388607
+  %trunc = trunc i32 %shr to i8
+  switch i8 %trunc, label %if.end20 [
+    i8 -1, label %if.then
+    i8 0, label %if.then12
   ]
 
-6:                                                ; preds = %1
-  %7 = icmp eq i32 %4, 0
-  br i1 %7, label %8, label %26
+if.then:                                          ; preds = %entry
+  %cmp6 = icmp eq i32 %0, 0
+  br i1 %cmp6, label %if.then7, label %cleanup
 
-8:                                                ; preds = %6
-  %9 = icmp eq i32 %3, 0
-  %10 = select nsz i1 %9, float 0x7FF0000000000000, float 0xFFF0000000000000
-  br label %26
+if.then7:                                         ; preds = %if.then
+  %tobool.not = icmp eq i32 %and1, 0
+  %cond = select nsz i1 %tobool.not, float 0x7FF0000000000000, float 0xFFF0000000000000
+  br label %cleanup
 
-11:                                               ; preds = %1
-  %12 = icmp eq i32 %3, 0
-  %13 = uitofp i32 %4 to float
-  %14 = tail call nsz float @ldexpf(float noundef %13, i32 noundef -149) #10
-  br i1 %12, label %26, label %15
+if.then12:                                        ; preds = %entry
+  %tobool13.not = icmp eq i32 %and1, 0
+  %conv17 = uitofp i32 %0 to float
+  %call18 = tail call nsz float @ldexpf(float noundef %conv17, i32 noundef -149) #10
+  br i1 %tobool13.not, label %cleanup, label %cond.true
 
-15:                                               ; preds = %11
-  %16 = fneg nsz float %14
-  br label %26
+cond.true:                                        ; preds = %if.then12
+  %fneg16 = fneg nsz float %call18
+  br label %cleanup
 
-17:                                               ; preds = %1
-  %18 = and i32 %2, 255
-  %19 = icmp eq i32 %3, 0
-  %20 = or disjoint i32 %4, 8388608
-  %21 = uitofp i32 %20 to float
-  %22 = add nsw i32 %18, -150
-  %23 = tail call nsz float @ldexpf(float noundef %21, i32 noundef %22) #10
-  br i1 %19, label %26, label %24
+if.end20:                                         ; preds = %entry
+  %and = and i32 %shr, 255
+  %tobool21.not = icmp eq i32 %and1, 0
+  %1 = or disjoint i32 %0, 8388608
+  %conv30 = uitofp i32 %1 to float
+  %sub31 = add nsw i32 %and, -150
+  %call32 = tail call nsz float @ldexpf(float noundef %conv30, i32 noundef %sub31) #10
+  br i1 %tobool21.not, label %cleanup, label %cond.true22
 
-24:                                               ; preds = %17
-  %25 = fneg nsz float %23
-  br label %26
+cond.true22:                                      ; preds = %if.end20
+  %fneg26 = fneg nsz float %call32
+  br label %cleanup
 
-26:                                               ; preds = %24, %17, %15, %11, %8, %6
-  %27 = phi float [ %10, %8 ], [ %16, %15 ], [ %25, %24 ], [ 0x7FF8000000000000, %6 ], [ %14, %11 ], [ %23, %17 ]
-  ret float %27
+cleanup:                                          ; preds = %cond.true22, %if.end20, %cond.true, %if.then12, %if.then7, %if.then
+  %retval.0 = phi float [ %cond, %if.then7 ], [ %fneg16, %cond.true ], [ %fneg26, %cond.true22 ], [ 0x7FF8000000000000, %if.then ], [ %call18, %if.then12 ], [ %call32, %if.end20 ]
+  ret float %retval.0
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -73,75 +74,76 @@ declare float @ldexpf(float noundef, i32 noundef) local_unnamed_addr #5
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_Z12f32Tou32Slowf(float noundef %0) local_unnamed_addr #3 {
-  %2 = alloca i32, align 4
-  %3 = tail call nsz noundef float @llvm.copysign.f32(float 1.000000e+00, float %0)
-  %4 = fcmp nsz oeq float %3, 1.000000e+00
-  %5 = select i1 %4, i32 0, i32 -2147483648
-  %6 = fcmp nsz oeq float %0, 0.000000e+00
-  br i1 %6, label %42, label %7
+define dso_local noundef i32 @_Z12f32Tou32Slowf(float noundef %f) local_unnamed_addr #3 {
+entry:
+  %exp = alloca i32, align 4
+  %0 = tail call nsz noundef float @llvm.copysign.f32(float 1.000000e+00, float %f)
+  %cmp = fcmp nsz oeq float %0, 1.000000e+00
+  %conv = select i1 %cmp, i32 0, i32 -2147483648
+  %cmp1 = fcmp nsz oeq float %f, 0.000000e+00
+  br i1 %cmp1, label %cleanup36, label %if.end
 
-7:                                                ; preds = %1
-  %8 = fcmp uno float %0, 0.000000e+00
-  br i1 %8, label %9, label %11
+if.end:                                           ; preds = %entry
+  %1 = fcmp uno float %f, 0.000000e+00
+  br i1 %1, label %if.then3, label %if.end6
 
-9:                                                ; preds = %7
-  %10 = or disjoint i32 %5, 2143289344
-  br label %42
+if.then3:                                         ; preds = %if.end
+  %2 = or disjoint i32 %conv, 2143289344
+  br label %cleanup36
 
-11:                                               ; preds = %7
-  %12 = tail call float @llvm.fabs.f32(float %0)
-  %13 = fcmp oeq float %12, 0x7FF0000000000000
-  br i1 %13, label %14, label %16
+if.end6:                                          ; preds = %if.end
+  %3 = tail call float @llvm.fabs.f32(float %f)
+  %4 = fcmp oeq float %3, 0x7FF0000000000000
+  br i1 %4, label %if.then8, label %if.end12
 
-14:                                               ; preds = %11
-  %15 = or disjoint i32 %5, 2139095040
-  br label %42
+if.then8:                                         ; preds = %if.end6
+  %5 = or disjoint i32 %conv, 2139095040
+  br label %cleanup36
 
-16:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #11
-  store i32 0, ptr %2, align 4, !tbaa !4
-  %17 = call nsz float @frexpf(float noundef %0, ptr noundef nonnull %2) #11
-  %18 = select nsz i1 %4, float 0x4170000000000000, float 0xC170000000000000
-  %19 = fmul nsz float %18, %17
-  %20 = tail call nsz noundef float @llvm.floor.f32(float %19)
-  %21 = fptoui float %20 to i32
-  %22 = load i32, ptr %2, align 4, !tbaa !4
-  %23 = icmp slt i32 %22, -125
-  br i1 %23, label %24, label %30
+if.end12:                                         ; preds = %if.end6
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %exp) #11
+  store i32 0, ptr %exp, align 4, !tbaa !4
+  %call13 = call nsz float @frexpf(float noundef %f, ptr noundef nonnull %exp) #11
+  %cond14 = select nsz i1 %cmp, float 0x4170000000000000, float 0xC170000000000000
+  %mul = fmul nsz float %cond14, %call13
+  %6 = tail call nsz noundef float @llvm.floor.f32(float %mul)
+  %conv16 = fptoui float %6 to i32
+  %7 = load i32, ptr %exp, align 4, !tbaa !4
+  %cmp17 = icmp slt i32 %7, -125
+  br i1 %cmp17, label %if.then18, label %if.end22
 
-24:                                               ; preds = %16
-  %25 = icmp ult i32 %22, -156
-  %26 = sub nuw nsw i32 -125, %22
-  %27 = lshr i32 %21, %26
-  %28 = select i1 %25, i32 0, i32 %27
-  %29 = or i32 %28, %5
-  br label %40
+if.then18:                                        ; preds = %if.end12
+  %cmp19 = icmp ult i32 %7, -156
+  %sub = sub nuw nsw i32 -125, %7
+  %shr = lshr i32 %conv16, %sub
+  %cond20 = select i1 %cmp19, i32 0, i32 %shr
+  %or21 = or i32 %cond20, %conv
+  br label %cleanup
 
-30:                                               ; preds = %16
-  %31 = icmp sgt i32 %22, 128
-  br i1 %31, label %32, label %34
+if.end22:                                         ; preds = %if.end12
+  %cmp23 = icmp sgt i32 %7, 128
+  br i1 %cmp23, label %if.then24, label %if.end28
 
-32:                                               ; preds = %30
-  %33 = or disjoint i32 %5, 2139095040
-  br label %40
+if.then24:                                        ; preds = %if.end22
+  %8 = or disjoint i32 %conv, 2139095040
+  br label %cleanup
 
-34:                                               ; preds = %30
-  %35 = shl i32 %22, 23
-  %36 = add i32 %35, 1056964608
-  %37 = and i32 %21, 8388607
-  %38 = or disjoint i32 %37, %36
-  %39 = or disjoint i32 %38, %5
-  br label %40
+if.end28:                                         ; preds = %if.end22
+  %add = shl i32 %7, 23
+  %shl = add i32 %add, 1056964608
+  %9 = and i32 %conv16, 8388607
+  %10 = or disjoint i32 %9, %shl
+  %or3248 = or disjoint i32 %10, %conv
+  br label %cleanup
 
-40:                                               ; preds = %34, %32, %24
-  %41 = phi i32 [ %29, %24 ], [ %33, %32 ], [ %39, %34 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #11
-  br label %42
+cleanup:                                          ; preds = %if.end28, %if.then24, %if.then18
+  %retval.0 = phi i32 [ %or21, %if.then18 ], [ %8, %if.then24 ], [ %or3248, %if.end28 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %exp) #11
+  br label %cleanup36
 
-42:                                               ; preds = %40, %14, %9, %1
-  %43 = phi i32 [ %10, %9 ], [ %15, %14 ], [ %41, %40 ], [ %5, %1 ]
-  ret i32 %43
+cleanup36:                                        ; preds = %cleanup, %if.then8, %if.then3, %entry
+  %retval.1 = phi i32 [ %2, %if.then3 ], [ %5, %if.then8 ], [ %retval.0, %cleanup ], [ %conv, %entry ]
+  ret i32 %retval.1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
@@ -149,6 +151,7 @@ declare float @frexpf(float noundef, ptr nocapture noundef) local_unnamed_addr #
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef i32 @_Z25getFloatSerializationTypev() local_unnamed_addr #7 {
+entry:
   ret i32 2
 }
 
@@ -160,8 +163,9 @@ declare float @llvm.floor.f32(float) #8
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_ieee_float.cpp() #9 section ".text.startup" {
+entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #11
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #11
   ret void
 }
 

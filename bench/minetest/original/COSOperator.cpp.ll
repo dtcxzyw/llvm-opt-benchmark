@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-pc-linux-gnu"
+target triple = "x86_64-unknown-linux-gnu"
 
 $_ZN3irr11IOSOperatorD1Ev = comdat any
 
@@ -18,7 +18,7 @@ $_ZTIN3irr17IReferenceCountedE = comdat any
 $_ZTIN3irr11IOSOperatorE = comdat any
 
 @_ZTVN3irr11COSOperatorE = unnamed_addr constant { [11 x ptr], [5 x ptr] } { [11 x ptr] [ptr inttoptr (i64 56 to ptr), ptr null, ptr @_ZTIN3irr11COSOperatorE, ptr @_ZNK3irr11COSOperator25getOperatingSystemVersionEv, ptr @_ZNK3irr11COSOperator15copyToClipboardEPKc, ptr @_ZNK3irr11COSOperator22copyToPrimarySelectionEPKc, ptr @_ZNK3irr11COSOperator20getTextFromClipboardEv, ptr @_ZNK3irr11COSOperator27getTextFromPrimarySelectionEv, ptr @_ZNK3irr11COSOperator15getSystemMemoryEPjS1_, ptr @_ZN3irr11COSOperatorD1Ev, ptr @_ZN3irr11COSOperatorD0Ev], [5 x ptr] [ptr inttoptr (i64 -56 to ptr), ptr inttoptr (i64 -56 to ptr), ptr @_ZTIN3irr11COSOperatorE, ptr @_ZTv0_n24_N3irr11COSOperatorD1Ev, ptr @_ZTv0_n24_N3irr11COSOperatorD0Ev] }, align 8
-@_ZTTN3irr11COSOperatorE = unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTCN3irr11COSOperatorE0_NS_11IOSOperatorE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTCN3irr11COSOperatorE0_NS_11IOSOperatorE, i32 0, i32 1, i32 3), ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i32 0, i32 1, i32 3)], align 8
+@_ZTTN3irr11COSOperatorE = unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds inrange(-24, 64) ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i32 0, i32 0, i32 3), ptr getelementptr inbounds inrange(-24, 64) ({ [11 x ptr], [5 x ptr] }, ptr @_ZTCN3irr11COSOperatorE0_NS_11IOSOperatorE, i32 0, i32 0, i32 3), ptr getelementptr inbounds inrange(-24, 16) ({ [11 x ptr], [5 x ptr] }, ptr @_ZTCN3irr11COSOperatorE0_NS_11IOSOperatorE, i32 0, i32 1, i32 3), ptr getelementptr inbounds inrange(-24, 16) ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i32 0, i32 1, i32 3)], align 8
 @_ZTCN3irr11COSOperatorE0_NS_11IOSOperatorE = unnamed_addr constant { [11 x ptr], [5 x ptr] } { [11 x ptr] [ptr inttoptr (i64 56 to ptr), ptr null, ptr @_ZTIN3irr11IOSOperatorE, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @_ZN3irr11IOSOperatorD1Ev, ptr @_ZN3irr11IOSOperatorD0Ev], [5 x ptr] [ptr inttoptr (i64 -56 to ptr), ptr inttoptr (i64 -56 to ptr), ptr @_ZTIN3irr11IOSOperatorE, ptr @_ZTv0_n24_N3irr11IOSOperatorD1Ev, ptr @_ZTv0_n24_N3irr11IOSOperatorD0Ev] }, align 8
 @_ZTVN10__cxxabiv121__vmi_class_type_infoE = external global [0 x ptr]
 @_ZTSN3irr11IOSOperatorE = linkonce_odr constant [20 x i8] c"N3irr11IOSOperatorE\00", comdat, align 1
@@ -31,208 +31,214 @@ $_ZTIN3irr11IOSOperatorE = comdat any
 @_ZTIN3irr11COSOperatorE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3irr11COSOperatorE, ptr @_ZTIN3irr11IOSOperatorE }, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr11COSOperatorC2ERKNS_4core6stringIcEE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
-  %5 = load ptr, ptr %4, align 8
-  store ptr %5, ptr %0, align 8, !tbaa !3
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
-  %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr i8, ptr %5, i64 -24
-  %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 %9
-  store ptr %7, ptr %10, align 8, !tbaa !3
-  %11 = load ptr, ptr %1, align 8
-  store ptr %11, ptr %0, align 8, !tbaa !3
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr i8, ptr %11, i64 -24
-  %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 %15
-  store ptr %13, ptr %16, align 8, !tbaa !3
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %18, ptr %17, align 8, !tbaa !6
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 0, ptr %19, align 8, !tbaa !10
-  store i8 0, ptr %18, align 8, !tbaa !13
-  %20 = icmp eq ptr %17, %2
-  br i1 %20, label %22, label %21
-
-21:                                               ; preds = %3
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %2) #11
-  br label %22
-
-22:                                               ; preds = %21, %3
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr11COSOperatorC1ERKNS_4core6stringIcEE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr null, ptr %4, align 8, !tbaa !14
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
-  store i32 1, ptr %5, align 8, !tbaa !17
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i64 0, i32 1, i64 3), ptr %3, align 8, !tbaa !3
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %7, ptr %6, align 8, !tbaa !6
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 0, ptr %8, align 8, !tbaa !10
+define void @_ZN3irr11COSOperatorC2ERKNS_4core6stringIcEE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %vtt, ptr noundef nonnull align 8 dereferenceable(32) %osVersion) unnamed_addr #0 align 2 {
+entry:
+  %0 = getelementptr inbounds i8, ptr %vtt, i64 8
+  %1 = load ptr, ptr %0, align 8
+  store ptr %1, ptr %this, align 8, !tbaa !3
+  %2 = getelementptr inbounds i8, ptr %vtt, i64 16
+  %3 = load ptr, ptr %2, align 8
+  %vbase.offset.ptr.i = getelementptr i8, ptr %1, i64 -24
+  %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 %vbase.offset.i
+  store ptr %3, ptr %add.ptr.i, align 8, !tbaa !3
+  %4 = load ptr, ptr %vtt, align 8
+  store ptr %4, ptr %this, align 8, !tbaa !3
+  %5 = getelementptr inbounds i8, ptr %vtt, i64 24
+  %6 = load ptr, ptr %5, align 8
+  %vbase.offset.ptr = getelementptr i8, ptr %4, i64 -24
+  %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
+  store ptr %6, ptr %add.ptr, align 8, !tbaa !3
+  %OperatingSystem = getelementptr inbounds i8, ptr %this, i64 8
+  %7 = getelementptr inbounds i8, ptr %this, i64 24
+  store ptr %7, ptr %OperatingSystem, align 8, !tbaa !6
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  store i64 0, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !10
   store i8 0, ptr %7, align 8, !tbaa !13
-  %9 = icmp eq ptr %6, %1
-  br i1 %9, label %11, label %10
+  %cmp.i.i = icmp eq ptr %OperatingSystem, %osVersion
+  br i1 %cmp.i.i, label %_ZN3irr4core6stringIcEC2ERKS2_.exit, label %if.end.i.i
 
-10:                                               ; preds = %2
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %1) #11
-  br label %11
+if.end.i.i:                                       ; preds = %entry
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %OperatingSystem, ptr noundef nonnull align 8 dereferenceable(32) %osVersion) #11
+  br label %_ZN3irr4core6stringIcEC2ERKS2_.exit
 
-11:                                               ; preds = %10, %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
+_ZN3irr4core6stringIcEC2ERKS2_.exit:              ; preds = %if.end.i.i, %entry
+  %ClipboardSelectionText = getelementptr inbounds i8, ptr %this, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ClipboardSelectionText, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr11COSOperatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
-  %3 = load ptr, ptr %1, align 8
-  store ptr %3, ptr %0, align 8, !tbaa !3
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr i8, ptr %3, i64 -24
-  %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 %7
-  store ptr %5, ptr %8, align 8, !tbaa !3
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
-  %10 = load ptr, ptr %9, align 8, !tbaa !18
-  tail call void @SDL_free(ptr noundef %10) #11
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
-  %12 = load ptr, ptr %11, align 8, !tbaa !22
-  tail call void @SDL_free(ptr noundef %12) #11
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !23
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %16 = icmp eq ptr %14, %15
-  br i1 %16, label %17, label %21
+define void @_ZN3irr11COSOperatorC1ERKNS_4core6stringIcEE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(32) %osVersion) unnamed_addr #0 align 2 {
+entry:
+  %0 = getelementptr inbounds i8, ptr %this, i64 56
+  %DebugName.i = getelementptr inbounds i8, ptr %this, i64 64
+  store ptr null, ptr %DebugName.i, align 8, !tbaa !14
+  %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 72
+  store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !17
+  store ptr getelementptr inbounds inrange(-24, 64) ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-24, 16) ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  %OperatingSystem = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = getelementptr inbounds i8, ptr %this, i64 24
+  store ptr %1, ptr %OperatingSystem, align 8, !tbaa !6
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  store i64 0, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !10
+  store i8 0, ptr %1, align 8, !tbaa !13
+  %cmp.i.i = icmp eq ptr %OperatingSystem, %osVersion
+  br i1 %cmp.i.i, label %_ZN3irr4core6stringIcEC2ERKS2_.exit, label %if.end.i.i
 
-17:                                               ; preds = %2
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
-  %19 = load i64, ptr %18, align 8, !tbaa !10
-  %20 = icmp ult i64 %19, 16
-  tail call void @llvm.assume(i1 %20)
-  br label %22
+if.end.i.i:                                       ; preds = %entry
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %OperatingSystem, ptr noundef nonnull align 8 dereferenceable(32) %osVersion) #11
+  br label %_ZN3irr4core6stringIcEC2ERKS2_.exit
 
-21:                                               ; preds = %2
-  tail call void @_ZdlPv(ptr noundef %14) #12
-  br label %22
+_ZN3irr4core6stringIcEC2ERKS2_.exit:              ; preds = %if.end.i.i, %entry
+  %ClipboardSelectionText = getelementptr inbounds i8, ptr %this, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ClipboardSelectionText, i8 0, i64 16, i1 false)
+  ret void
+}
 
-22:                                               ; preds = %21, %17
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN3irr11COSOperatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 {
+entry:
+  %0 = load ptr, ptr %vtt, align 8
+  store ptr %0, ptr %this, align 8, !tbaa !3
+  %1 = getelementptr inbounds i8, ptr %vtt, i64 24
+  %2 = load ptr, ptr %1, align 8
+  %vbase.offset.ptr = getelementptr i8, ptr %0, i64 -24
+  %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
+  store ptr %2, ptr %add.ptr, align 8, !tbaa !3
+  %ClipboardSelectionText = getelementptr inbounds i8, ptr %this, i64 40
+  %3 = load ptr, ptr %ClipboardSelectionText, align 8, !tbaa !18
+  tail call void @SDL_free(ptr noundef %3) #11
+  %PrimarySelectionText = getelementptr inbounds i8, ptr %this, i64 48
+  %4 = load ptr, ptr %PrimarySelectionText, align 8, !tbaa !22
+  tail call void @SDL_free(ptr noundef %4) #11
+  %OperatingSystem = getelementptr inbounds i8, ptr %this, i64 8
+  %5 = load ptr, ptr %OperatingSystem, align 8, !tbaa !23
+  %6 = getelementptr inbounds i8, ptr %this, i64 24
+  %cmp.i.i.i.i = icmp eq ptr %5, %6
+  br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %entry
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %7 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !10
+  %cmp3.i.i.i.i = icmp ult i64 %7, 16
+  tail call void @llvm.assume(i1 %cmp3.i.i.i.i)
+  br label %_ZN3irr4core6stringIcED2Ev.exit
+
+if.then.i.i.i:                                    ; preds = %entry
+  tail call void @_ZdlPv(ptr noundef %5) #12
+  br label %_ZN3irr4core6stringIcED2Ev.exit
+
+_ZN3irr4core6stringIcED2Ev.exit:                  ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   ret void
 }
 
 declare void @SDL_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr11COSOperatorD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i64 0, i32 1, i64 3), ptr %2, align 8, !tbaa !3
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !18
-  tail call void @SDL_free(ptr noundef %4) #11
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !22
-  tail call void @SDL_free(ptr noundef %6) #11
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !23
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  %10 = icmp eq ptr %8, %9
-  br i1 %10, label %11, label %15
+define void @_ZN3irr11COSOperatorD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 align 2 {
+entry:
+  store ptr getelementptr inbounds inrange(-24, 64) ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
+  %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 56
+  store ptr getelementptr inbounds inrange(-24, 16) ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i64 0, i32 1, i64 3), ptr %add.ptr.i, align 8, !tbaa !3
+  %ClipboardSelectionText.i = getelementptr inbounds i8, ptr %this, i64 40
+  %0 = load ptr, ptr %ClipboardSelectionText.i, align 8, !tbaa !18
+  tail call void @SDL_free(ptr noundef %0) #11
+  %PrimarySelectionText.i = getelementptr inbounds i8, ptr %this, i64 48
+  %1 = load ptr, ptr %PrimarySelectionText.i, align 8, !tbaa !22
+  tail call void @SDL_free(ptr noundef %1) #11
+  %OperatingSystem.i = getelementptr inbounds i8, ptr %this, i64 8
+  %2 = load ptr, ptr %OperatingSystem.i, align 8, !tbaa !23
+  %3 = getelementptr inbounds i8, ptr %this, i64 24
+  %cmp.i.i.i.i.i = icmp eq ptr %2, %3
+  br i1 %cmp.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %if.then.i.i.i.i
 
-11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  %13 = load i64, ptr %12, align 8, !tbaa !10
-  %14 = icmp ult i64 %13, 16
-  tail call void @llvm.assume(i1 %14)
-  br label %16
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %entry
+  %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %4 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !10
+  %cmp3.i.i.i.i.i = icmp ult i64 %4, 16
+  tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i)
+  br label %_ZN3irr11COSOperatorD2Ev.exit
 
-15:                                               ; preds = %1
-  tail call void @_ZdlPv(ptr noundef %8) #12
-  br label %16
+if.then.i.i.i.i:                                  ; preds = %entry
+  tail call void @_ZdlPv(ptr noundef %2) #12
+  br label %_ZN3irr11COSOperatorD2Ev.exit
 
-16:                                               ; preds = %15, %11
+_ZN3irr11COSOperatorD2Ev.exit:                    ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZTv0_n24_N3irr11COSOperatorD1Ev(ptr noundef %0) unnamed_addr #2 align 2 {
-  %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 -24
-  %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i64 0, i32 0, i64 3), ptr %5, align 8, !tbaa !3
-  %6 = getelementptr inbounds i8, ptr %5, i64 56
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i64 0, i32 1, i64 3), ptr %6, align 8, !tbaa !3
-  %7 = getelementptr inbounds i8, ptr %5, i64 40
-  %8 = load ptr, ptr %7, align 8, !tbaa !18
-  tail call void @SDL_free(ptr noundef %8) #11
-  %9 = getelementptr inbounds i8, ptr %5, i64 48
-  %10 = load ptr, ptr %9, align 8, !tbaa !22
-  tail call void @SDL_free(ptr noundef %10) #11
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !23
-  %13 = getelementptr inbounds i8, ptr %5, i64 24
-  %14 = icmp eq ptr %12, %13
-  br i1 %14, label %15, label %19
+define void @_ZTv0_n24_N3irr11COSOperatorD1Ev(ptr noundef %this) unnamed_addr #2 align 2 {
+entry:
+  %0 = load ptr, ptr %this, align 8
+  %1 = getelementptr inbounds i8, ptr %0, i64 -24
+  %2 = load i64, ptr %1, align 8
+  %3 = getelementptr inbounds i8, ptr %this, i64 %2
+  store ptr getelementptr inbounds inrange(-24, 64) ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i64 0, i32 0, i64 3), ptr %3, align 8, !tbaa !3
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 56
+  store ptr getelementptr inbounds inrange(-24, 16) ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i, align 8, !tbaa !3
+  %ClipboardSelectionText.i.i = getelementptr inbounds i8, ptr %3, i64 40
+  %4 = load ptr, ptr %ClipboardSelectionText.i.i, align 8, !tbaa !18
+  tail call void @SDL_free(ptr noundef %4) #11
+  %PrimarySelectionText.i.i = getelementptr inbounds i8, ptr %3, i64 48
+  %5 = load ptr, ptr %PrimarySelectionText.i.i, align 8, !tbaa !22
+  tail call void @SDL_free(ptr noundef %5) #11
+  %OperatingSystem.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = load ptr, ptr %OperatingSystem.i.i, align 8, !tbaa !23
+  %7 = getelementptr inbounds i8, ptr %3, i64 24
+  %cmp.i.i.i.i.i.i = icmp eq ptr %6, %7
+  br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i.i.i
 
-15:                                               ; preds = %1
-  %16 = getelementptr inbounds i8, ptr %5, i64 16
-  %17 = load i64, ptr %16, align 8, !tbaa !10
-  %18 = icmp ult i64 %17, 16
-  tail call void @llvm.assume(i1 %18)
-  br label %20
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %entry
+  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !10
+  %cmp3.i.i.i.i.i.i = icmp ult i64 %8, 16
+  tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i)
+  br label %_ZN3irr11COSOperatorD1Ev.exit
 
-19:                                               ; preds = %1
-  tail call void @_ZdlPv(ptr noundef %12) #12
-  br label %20
+if.then.i.i.i.i.i:                                ; preds = %entry
+  tail call void @_ZdlPv(ptr noundef %6) #12
+  br label %_ZN3irr11COSOperatorD1Ev.exit
 
-20:                                               ; preds = %19, %15
+_ZN3irr11COSOperatorD1Ev.exit:                    ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr11COSOperatorD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i64 0, i32 1, i64 3), ptr %2, align 8, !tbaa !3
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !18
-  tail call void @SDL_free(ptr noundef %4) #11
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !22
-  tail call void @SDL_free(ptr noundef %6) #11
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !23
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  %10 = icmp eq ptr %8, %9
-  br i1 %10, label %11, label %15
+define void @_ZN3irr11COSOperatorD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 align 2 {
+entry:
+  store ptr getelementptr inbounds inrange(-24, 64) ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  store ptr getelementptr inbounds inrange(-24, 16) ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i, align 8, !tbaa !3
+  %ClipboardSelectionText.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %0 = load ptr, ptr %ClipboardSelectionText.i.i, align 8, !tbaa !18
+  tail call void @SDL_free(ptr noundef %0) #11
+  %PrimarySelectionText.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %1 = load ptr, ptr %PrimarySelectionText.i.i, align 8, !tbaa !22
+  tail call void @SDL_free(ptr noundef %1) #11
+  %OperatingSystem.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %2 = load ptr, ptr %OperatingSystem.i.i, align 8, !tbaa !23
+  %3 = getelementptr inbounds i8, ptr %this, i64 24
+  %cmp.i.i.i.i.i.i = icmp eq ptr %2, %3
+  br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i.i.i
 
-11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  %13 = load i64, ptr %12, align 8, !tbaa !10
-  %14 = icmp ult i64 %13, 16
-  tail call void @llvm.assume(i1 %14)
-  br label %16
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %entry
+  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %4 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !10
+  %cmp3.i.i.i.i.i.i = icmp ult i64 %4, 16
+  tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i)
+  br label %_ZN3irr11COSOperatorD1Ev.exit
 
-15:                                               ; preds = %1
-  tail call void @_ZdlPv(ptr noundef %8) #12
-  br label %16
+if.then.i.i.i.i.i:                                ; preds = %entry
+  tail call void @_ZdlPv(ptr noundef %2) #12
+  br label %_ZN3irr11COSOperatorD1Ev.exit
 
-16:                                               ; preds = %15, %11
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #12
+_ZN3irr11COSOperatorD1Ev.exit:                    ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #12
   ret void
 }
 
@@ -240,129 +246,136 @@ define void @_ZN3irr11COSOperatorD0Ev(ptr noundef nonnull align 8 dereferenceabl
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @_ZTv0_n24_N3irr11COSOperatorD0Ev(ptr noundef %0) unnamed_addr #2 align 2 {
-  %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 -24
-  %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i64 0, i32 0, i64 3), ptr %5, align 8, !tbaa !3
-  %6 = getelementptr inbounds i8, ptr %5, i64 56
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i64 0, i32 1, i64 3), ptr %6, align 8, !tbaa !3
-  %7 = getelementptr inbounds i8, ptr %5, i64 40
-  %8 = load ptr, ptr %7, align 8, !tbaa !18
-  tail call void @SDL_free(ptr noundef %8) #11
-  %9 = getelementptr inbounds i8, ptr %5, i64 48
-  %10 = load ptr, ptr %9, align 8, !tbaa !22
-  tail call void @SDL_free(ptr noundef %10) #11
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !23
-  %13 = getelementptr inbounds i8, ptr %5, i64 24
-  %14 = icmp eq ptr %12, %13
-  br i1 %14, label %15, label %19
+define void @_ZTv0_n24_N3irr11COSOperatorD0Ev(ptr noundef %this) unnamed_addr #2 align 2 {
+entry:
+  %0 = load ptr, ptr %this, align 8
+  %1 = getelementptr inbounds i8, ptr %0, i64 -24
+  %2 = load i64, ptr %1, align 8
+  %3 = getelementptr inbounds i8, ptr %this, i64 %2
+  store ptr getelementptr inbounds inrange(-24, 64) ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i64 0, i32 0, i64 3), ptr %3, align 8, !tbaa !3
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 56
+  store ptr getelementptr inbounds inrange(-24, 16) ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i.i, align 8, !tbaa !3
+  %ClipboardSelectionText.i.i.i = getelementptr inbounds i8, ptr %3, i64 40
+  %4 = load ptr, ptr %ClipboardSelectionText.i.i.i, align 8, !tbaa !18
+  tail call void @SDL_free(ptr noundef %4) #11
+  %PrimarySelectionText.i.i.i = getelementptr inbounds i8, ptr %3, i64 48
+  %5 = load ptr, ptr %PrimarySelectionText.i.i.i, align 8, !tbaa !22
+  tail call void @SDL_free(ptr noundef %5) #11
+  %OperatingSystem.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = load ptr, ptr %OperatingSystem.i.i.i, align 8, !tbaa !23
+  %7 = getelementptr inbounds i8, ptr %3, i64 24
+  %cmp.i.i.i.i.i.i.i = icmp eq ptr %6, %7
+  br i1 %cmp.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
-15:                                               ; preds = %1
-  %16 = getelementptr inbounds i8, ptr %5, i64 16
-  %17 = load i64, ptr %16, align 8, !tbaa !10
-  %18 = icmp ult i64 %17, 16
-  tail call void @llvm.assume(i1 %18)
-  br label %20
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i: ; preds = %entry
+  %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !10
+  %cmp3.i.i.i.i.i.i.i = icmp ult i64 %8, 16
+  tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i)
+  br label %_ZN3irr11COSOperatorD0Ev.exit
 
-19:                                               ; preds = %1
-  tail call void @_ZdlPv(ptr noundef %12) #12
-  br label %20
+if.then.i.i.i.i.i.i:                              ; preds = %entry
+  tail call void @_ZdlPv(ptr noundef %6) #12
+  br label %_ZN3irr11COSOperatorD0Ev.exit
 
-20:                                               ; preds = %19, %15
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #12
+_ZN3irr11COSOperatorD0Ev.exit:                    ; preds = %if.then.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3irr11COSOperator25getOperatingSystemVersionEv(ptr noundef nonnull readnone align 8 dereferenceable(56) %0) unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
-  ret ptr %2
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3irr11COSOperator25getOperatingSystemVersionEv(ptr noundef nonnull readnone align 8 dereferenceable(56) %this) unnamed_addr #4 align 2 {
+entry:
+  %OperatingSystem = getelementptr inbounds i8, ptr %this, i64 8
+  ret ptr %OperatingSystem
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK3irr11COSOperator15copyToClipboardEPKc(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1) unnamed_addr #0 align 2 {
-  %3 = load i8, ptr %1, align 1
-  %4 = icmp eq i8 %3, 0
-  br i1 %4, label %7, label %5
+define void @_ZNK3irr11COSOperator15copyToClipboardEPKc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %text) unnamed_addr #0 align 2 {
+entry:
+  %char0 = load i8, ptr %text, align 1
+  %cmp = icmp eq i8 %char0, 0
+  br i1 %cmp, label %return, label %if.end
 
-5:                                                ; preds = %2
-  %6 = tail call i32 @SDL_SetClipboardText(ptr noundef nonnull %1) #11
-  br label %7
+if.end:                                           ; preds = %entry
+  %call2 = tail call i32 @SDL_SetClipboardText(ptr noundef nonnull %text) #11
+  br label %return
 
-7:                                                ; preds = %5, %2
+return:                                           ; preds = %if.end, %entry
   ret void
 }
 
 declare i32 @SDL_SetClipboardText(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZNK3irr11COSOperator22copyToPrimarySelectionEPKc(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #4 align 2 {
+define void @_ZNK3irr11COSOperator22copyToPrimarySelectionEPKc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %text) unnamed_addr #4 align 2 {
+entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZNK3irr11COSOperator20getTextFromClipboardEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8, !tbaa !18
-  tail call void @SDL_free(ptr noundef %3) #11
-  %4 = tail call ptr @SDL_GetClipboardText() #11
-  store ptr %4, ptr %2, align 8, !tbaa !18
-  ret ptr %4
+define noundef ptr @_ZNK3irr11COSOperator20getTextFromClipboardEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 align 2 {
+entry:
+  %ClipboardSelectionText = getelementptr inbounds i8, ptr %this, i64 40
+  %0 = load ptr, ptr %ClipboardSelectionText, align 8, !tbaa !18
+  tail call void @SDL_free(ptr noundef %0) #11
+  %call = tail call ptr @SDL_GetClipboardText() #11
+  store ptr %call, ptr %ClipboardSelectionText, align 8, !tbaa !18
+  ret ptr %call
 }
 
 declare ptr @SDL_GetClipboardText() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noalias noundef ptr @_ZNK3irr11COSOperator27getTextFromPrimarySelectionEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define noalias noundef ptr @_ZNK3irr11COSOperator27getTextFromPrimarySelectionEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+entry:
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZNK3irr11COSOperator15getSystemMemoryEPjS1_(ptr nocapture nonnull readnone align 8 %0, ptr noundef writeonly %1, ptr noundef writeonly %2) unnamed_addr #0 align 2 {
-  %4 = tail call i64 @sysconf(i32 noundef 30) #11
-  %5 = tail call i64 @sysconf(i32 noundef 85) #11
-  %6 = tail call i64 @sysconf(i32 noundef 86) #11
-  %7 = icmp eq i64 %4, -1
-  br i1 %7, label %26, label %8
+define noundef zeroext i1 @_ZNK3irr11COSOperator15getSystemMemoryEPjS1_(ptr nocapture nonnull readnone align 8 %this, ptr noundef writeonly %Total, ptr noundef writeonly %Avail) unnamed_addr #0 align 2 {
+entry:
+  %call = tail call i64 @sysconf(i32 noundef 30) #11
+  %call2 = tail call i64 @sysconf(i32 noundef 85) #11
+  %call3 = tail call i64 @sysconf(i32 noundef 86) #11
+  %cmp = icmp eq i64 %call, -1
+  br i1 %cmp, label %cleanup, label %lor.lhs.false
 
-8:                                                ; preds = %3
-  %9 = icmp ne ptr %1, null
-  %10 = icmp eq i64 %5, -1
-  %11 = select i1 %9, i1 %10, i1 false
-  br i1 %11, label %26, label %12
+lor.lhs.false:                                    ; preds = %entry
+  %tobool = icmp ne ptr %Total, null
+  %cmp4 = icmp eq i64 %call2, -1
+  %or.cond = select i1 %tobool, i1 %cmp4, i1 false
+  br i1 %or.cond, label %cleanup, label %lor.lhs.false5
 
-12:                                               ; preds = %8
-  %13 = icmp ne ptr %2, null
-  %14 = icmp eq i64 %6, -1
-  %15 = select i1 %13, i1 %14, i1 false
-  br i1 %15, label %26, label %16
+lor.lhs.false5:                                   ; preds = %lor.lhs.false
+  %tobool6 = icmp ne ptr %Avail, null
+  %cmp8 = icmp eq i64 %call3, -1
+  %or.cond20 = select i1 %tobool6, i1 %cmp8, i1 false
+  br i1 %or.cond20, label %cleanup, label %if.end
 
-16:                                               ; preds = %12
-  br i1 %9, label %17, label %21
+if.end:                                           ; preds = %lor.lhs.false5
+  br i1 %tobool, label %if.then10, label %if.end11
 
-17:                                               ; preds = %16
-  %18 = lshr i64 %5, 10
-  %19 = mul i64 %18, %4
-  %20 = trunc i64 %19 to i32
-  store i32 %20, ptr %1, align 4, !tbaa !24
-  br label %21
+if.then10:                                        ; preds = %if.end
+  %shr = lshr i64 %call2, 10
+  %mul = mul i64 %shr, %call
+  %conv = trunc i64 %mul to i32
+  store i32 %conv, ptr %Total, align 4, !tbaa !24
+  br label %if.end11
 
-21:                                               ; preds = %17, %16
-  br i1 %13, label %22, label %26
+if.end11:                                         ; preds = %if.then10, %if.end
+  br i1 %tobool6, label %if.then13, label %cleanup
 
-22:                                               ; preds = %21
-  %23 = lshr i64 %6, 10
-  %24 = mul i64 %23, %4
-  %25 = trunc i64 %24 to i32
-  store i32 %25, ptr %2, align 4, !tbaa !24
-  br label %26
+if.then13:                                        ; preds = %if.end11
+  %shr14 = lshr i64 %call3, 10
+  %mul15 = mul i64 %shr14, %call
+  %conv16 = trunc i64 %mul15 to i32
+  store i32 %conv16, ptr %Avail, align 4, !tbaa !24
+  br label %cleanup
 
-26:                                               ; preds = %22, %21, %12, %8, %3
-  %27 = phi i1 [ false, %12 ], [ false, %8 ], [ false, %3 ], [ true, %22 ], [ true, %21 ]
-  ret i1 %27
+cleanup:                                          ; preds = %if.then13, %if.end11, %lor.lhs.false5, %lor.lhs.false, %entry
+  %retval.0 = phi i1 [ false, %lor.lhs.false5 ], [ false, %lor.lhs.false ], [ false, %entry ], [ true, %if.then13 ], [ true, %if.end11 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: nounwind
@@ -371,25 +384,29 @@ declare i64 @sysconf(i32 noundef) local_unnamed_addr #5
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3irr11IOSOperatorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #6 comdat align 2 {
+define linkonce_odr void @_ZN3irr11IOSOperatorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #6 comdat align 2 {
+entry:
   tail call void @llvm.trap() #13
   unreachable
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3irr11IOSOperatorD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #6 comdat align 2 {
+define linkonce_odr void @_ZN3irr11IOSOperatorD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #6 comdat align 2 {
+entry:
   tail call void @llvm.trap() #13
   unreachable
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3irr11IOSOperatorD1Ev(ptr noundef %0) unnamed_addr #7 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3irr11IOSOperatorD1Ev(ptr noundef %this) unnamed_addr #7 comdat align 2 {
+entry:
   tail call void @llvm.trap() #13
   unreachable
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3irr11IOSOperatorD0Ev(ptr noundef %0) unnamed_addr #7 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3irr11IOSOperatorD0Ev(ptr noundef %this) unnamed_addr #7 comdat align 2 {
+entry:
   tail call void @llvm.trap() #13
   unreachable
 }

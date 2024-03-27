@@ -1,69 +1,71 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-pc-linux-gnu"
+target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZN11MapDatabase17getBlockAsIntegerERKN3irr4core8vector3dIsEE(ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
-  %3 = load i16, ptr %2, align 2, !tbaa !4
-  %4 = sext i16 %3 to i64
-  %5 = shl nsw i64 %4, 24
-  %6 = getelementptr inbounds i8, ptr %0, i64 2
-  %7 = load i16, ptr %6, align 2, !tbaa !9
-  %8 = sext i16 %7 to i64
-  %9 = shl nsw i64 %8, 12
-  %10 = add nsw i64 %9, %5
-  %11 = load i16, ptr %0, align 2, !tbaa !10
-  %12 = sext i16 %11 to i64
-  %13 = add nsw i64 %10, %12
-  ret i64 %13
+define dso_local noundef i64 @_ZN11MapDatabase17getBlockAsIntegerERKN3irr4core8vector3dIsEE(ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %pos) local_unnamed_addr #0 align 2 {
+entry:
+  %Z = getelementptr inbounds i8, ptr %pos, i64 4
+  %0 = load i16, ptr %Z, align 2, !tbaa !4
+  %conv = sext i16 %0 to i64
+  %mul = shl nsw i64 %conv, 24
+  %Y = getelementptr inbounds i8, ptr %pos, i64 2
+  %1 = load i16, ptr %Y, align 2, !tbaa !9
+  %conv1 = sext i16 %1 to i64
+  %mul2 = shl nsw i64 %conv1, 12
+  %add = add nsw i64 %mul2, %mul
+  %2 = load i16, ptr %pos, align 2, !tbaa !10
+  %conv3 = sext i16 %2 to i64
+  %add4 = add nsw i64 %add, %conv3
+  ret i64 %add4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i48 @_ZN11MapDatabase17getIntegerAsBlockEl(i64 noundef %0) local_unnamed_addr #1 align 2 {
-  %2 = and i64 %0, 4095
-  %3 = sub i64 0, %0
-  %4 = and i64 %3, 4095
-  %5 = sub nuw nsw i64 4096, %4
-  %6 = icmp slt i64 %0, 0
-  %7 = select i1 %6, i64 %5, i64 %2
-  %8 = trunc i64 %7 to i16
-  %9 = icmp ult i16 %8, 2048
-  %10 = add nsw i16 %8, -4096
-  %11 = select i1 %9, i16 %8, i16 %10
-  %12 = sext i16 %11 to i64
-  %13 = sub nsw i64 %0, %12
-  %14 = sdiv i64 %13, 4096
-  %15 = and i64 %14, 4095
-  %16 = sub nsw i64 0, %14
-  %17 = and i64 %16, 4095
-  %18 = sub nuw nsw i64 4096, %17
-  %19 = icmp slt i64 %13, -4095
-  %20 = select i1 %19, i64 %18, i64 %15
-  %21 = trunc i64 %20 to i16
-  %22 = icmp ult i16 %21, 2048
-  %23 = add nsw i16 %21, -4096
-  %24 = select i1 %22, i16 %21, i16 %23
-  %25 = sext i16 %24 to i64
-  %26 = sub nsw i64 %14, %25
-  %27 = sdiv i64 %26, 4096
-  %28 = and i64 %27, 4095
-  %29 = sub nsw i64 0, %27
-  %30 = and i64 %29, 4095
-  %31 = sub nuw nsw i64 4096, %30
-  %32 = icmp slt i64 %26, -4095
-  %33 = select i1 %32, i64 %31, i64 %28
-  %34 = trunc i64 %33 to i16
-  %35 = icmp ult i16 %34, 2048
-  %36 = add nsw i16 %34, -4096
-  %37 = select i1 %35, i16 %34, i16 %36
-  %38 = zext i16 %37 to i48
-  %39 = shl nuw i48 %38, 32
-  %40 = zext i16 %24 to i48
-  %41 = shl nuw nsw i48 %40, 16
-  %42 = or disjoint i48 %39, %41
-  %43 = zext i16 %11 to i48
-  %44 = or disjoint i48 %42, %43
-  ret i48 %44
+define dso_local i48 @_ZN11MapDatabase17getIntegerAsBlockEl(i64 noundef %i) local_unnamed_addr #1 align 2 {
+entry:
+  %rem.i = and i64 %i, 4095
+  %sub.i = sub nsw i64 0, %i
+  %rem3.i = and i64 %sub.i, 4095
+  %sub4.i = sub nuw nsw i64 4096, %rem3.i
+  %cmp9.i = icmp slt i64 %i, 0
+  %retval.0.i = select i1 %cmp9.i, i64 %sub4.i, i64 %rem.i
+  %conv = trunc i64 %retval.0.i to i16
+  %cmp.i = icmp ult i16 %conv, 2048
+  %sub.i18 = add nsw i16 %conv, -4096
+  %retval.0.i19 = select i1 %cmp.i, i16 %conv, i16 %sub.i18
+  %conv3 = sext i16 %retval.0.i19 to i64
+  %sub = sub nsw i64 %i, %conv3
+  %div = sdiv i64 %sub, 4096
+  %rem.i20 = and i64 %div, 4095
+  %sub.i21 = sub nsw i64 0, %div
+  %rem3.i22 = and i64 %sub.i21, 4095
+  %sub4.i23 = sub nuw nsw i64 4096, %rem3.i22
+  %cmp9.i24 = icmp slt i64 %sub, -4095
+  %retval.0.i25 = select i1 %cmp9.i24, i64 %sub4.i23, i64 %rem.i20
+  %conv5 = trunc i64 %retval.0.i25 to i16
+  %cmp.i26 = icmp ult i16 %conv5, 2048
+  %sub.i27 = add nsw i16 %conv5, -4096
+  %retval.0.i28 = select i1 %cmp.i26, i16 %conv5, i16 %sub.i27
+  %conv8 = sext i16 %retval.0.i28 to i64
+  %sub9 = sub nsw i64 %div, %conv8
+  %div10 = sdiv i64 %sub9, 4096
+  %rem.i29 = and i64 %div10, 4095
+  %sub.i30 = sub nsw i64 0, %div10
+  %rem3.i31 = and i64 %sub.i30, 4095
+  %sub4.i32 = sub nuw nsw i64 4096, %rem3.i31
+  %cmp9.i33 = icmp slt i64 %sub9, -4095
+  %retval.0.i34 = select i1 %cmp9.i33, i64 %sub4.i32, i64 %rem.i29
+  %conv12 = trunc i64 %retval.0.i34 to i16
+  %cmp.i35 = icmp ult i16 %conv12, 2048
+  %sub.i36 = add nsw i16 %conv12, -4096
+  %retval.0.i37 = select i1 %cmp.i35, i16 %conv12, i16 %sub.i36
+  %retval.sroa.5.0.insert.ext = zext i16 %retval.0.i37 to i48
+  %retval.sroa.5.0.insert.shift = shl nuw i48 %retval.sroa.5.0.insert.ext, 32
+  %retval.sroa.3.0.insert.ext = zext i16 %retval.0.i28 to i48
+  %retval.sroa.3.0.insert.shift = shl nuw nsw i48 %retval.sroa.3.0.insert.ext, 16
+  %retval.sroa.3.0.insert.insert = or disjoint i48 %retval.sroa.5.0.insert.shift, %retval.sroa.3.0.insert.shift
+  %retval.sroa.0.0.insert.ext = zext i16 %retval.0.i19 to i48
+  %retval.sroa.0.0.insert.insert = or disjoint i48 %retval.sroa.3.0.insert.insert, %retval.sroa.0.0.insert.ext
+  ret i48 %retval.sroa.0.0.insert.insert
 }
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
