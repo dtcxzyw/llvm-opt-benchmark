@@ -140,7 +140,7 @@ $_ZTIN7testing8internal15TestFactoryImplI32YCombinator_Functionalities_TestEE = 
 @_ZTVN7testing8internal15TestFactoryImplI32YCombinator_Functionalities_TestEE = linkonce_odr hidden unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplI32YCombinator_Functionalities_TestEE, ptr @_ZN7testing8internal15TestFactoryBaseD2Ev, ptr @_ZN7testing8internal15TestFactoryImplI32YCombinator_Functionalities_TestED0Ev, ptr @_ZN7testing8internal15TestFactoryImplI32YCombinator_Functionalities_TestE10CreateTestEv] }, comdat, align 8
 @_ZTSN7testing8internal15TestFactoryImplI32YCombinator_Functionalities_TestEE = linkonce_odr hidden constant [73 x i8] c"N7testing8internal15TestFactoryImplI32YCombinator_Functionalities_TestEE\00", comdat, align 1
 @_ZTIN7testing8internal15TestFactoryImplI32YCombinator_Functionalities_TestEE = linkonce_odr hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7testing8internal15TestFactoryImplI32YCombinator_Functionalities_TestEE, ptr @_ZTIN7testing8internal15TestFactoryBaseE }, comdat, align 8
-@.str.39 = private unnamed_addr constant [54 x i8] c"generated/usr/include/gtest/internal/gtest-internal.h\00", align 1
+@.str.39 = private unnamed_addr constant [103 x i8] c"generated/home/dtcxzyw/WorkSpace/SDK/vcpkg/installed/x64-linux/include/gtest/internal/gtest-internal.h\00", align 1
 @.str.40 = private unnamed_addr constant [51 x i8] c"Condition !test_case_fp || !test_suite_fp failed. \00", align 1
 @.str.41 = private unnamed_addr constant [107 x i8] c"Test can not provide both SetUpTestSuite and SetUpTestCase, please make sure there is only one present at \00", align 1
 @.str.42 = private unnamed_addr constant [2 x i8] c":\00", align 1
@@ -174,7 +174,7 @@ entry:
 
 if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp) #13
-  call void @_ZN7testing8internal8GTestLogC1ENS0_16GTestLogSeverityEPKci(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, i32 noundef 3, ptr noundef nonnull @.str.39, i32 noundef 529)
+  call void @_ZN7testing8internal8GTestLogC1ENS0_16GTestLogSeverityEPKci(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, i32 noundef 3, ptr noundef nonnull @.str.39, i32 noundef 528)
   %call1.i19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.40, i64 noundef 50)
           to label %invoke.cont5 unwind label %lpad
 
@@ -235,7 +235,7 @@ entry:
 
 if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp) #13
-  call void @_ZN7testing8internal8GTestLogC1ENS0_16GTestLogSeverityEPKci(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, i32 noundef 3, ptr noundef nonnull @.str.39, i32 noundef 550)
+  call void @_ZN7testing8internal8GTestLogC1ENS0_16GTestLogSeverityEPKci(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, i32 noundef 3, ptr noundef nonnull @.str.39, i32 noundef 549)
   %call1.i18 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.40, i64 noundef 50)
           to label %invoke.cont unwind label %lpad
 
@@ -309,7 +309,7 @@ _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integra
   %ref.tmp56 = alloca %"class.testing::Message", align 8
   %ref.tmp59 = alloca %"class.testing::internal::AssertHelper", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar) #13
-  call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar)
+  call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %gtest_ar)
   %0 = load i8, ptr %gtest_ar, align 8, !tbaa !17, !range !26, !noundef !27
   %tobool.i122.not = icmp eq i8 %0, 0
   br i1 %tobool.i122.not, label %if.else25, label %cleanup.cont45.critedge
@@ -451,7 +451,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing8internal8EqHelper7CompareIPiS3_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSD_RKS5_RKS6_.exit: ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i149, %cleanup.cont45.critedge
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar) #13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar47) #13
-  call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar47)
+  call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %gtest_ar47)
   %18 = load i8, ptr %gtest_ar47, align 8, !tbaa !17, !range !26, !noundef !27
   %tobool.i157.not = icmp eq i8 %18, 0
   br i1 %tobool.i157.not, label %if.else55, label %cleanup71
@@ -646,7 +646,7 @@ _ZN7testing8internal8EqHelper7CompareIPFviES4_TnPNSt9enable_ifIXoontsr3std11is_i
   %ref.tmp241 = alloca %"class.testing::Message", align 8
   %ref.tmp242 = alloca %"class.testing::internal::AssertHelper", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar) #13
-  call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar)
+  call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %gtest_ar)
   %0 = load i8, ptr %gtest_ar, align 8, !tbaa !17, !range !26, !noundef !27
   %tobool.i.not = icmp eq i8 %0, 0
   br i1 %tobool.i.not, label %if.else, label %cleanup
@@ -764,7 +764,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %_ZNKSt14default_del
 
 _ZN7testing8internal8EqHelper7CompareIPFvvES4_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSE_RKS6_RKS7_.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar19) #13
-  call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar19)
+  call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %gtest_ar19)
   %14 = load i8, ptr %gtest_ar19, align 8, !tbaa !17, !range !26, !noundef !27
   %tobool.i307.not = icmp eq i8 %14, 0
   br i1 %tobool.i307.not, label %if.else27, label %cleanup43
@@ -882,7 +882,7 @@ _ZN7testing15AssertionResultD2Ev.exit332:         ; preds = %_ZNKSt14default_del
 
 _ZN7testing8internal8EqHelper7CompareIM9functionsFviES5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit332
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar49) #13
-  call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar49)
+  call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %gtest_ar49)
   %28 = load i8, ptr %gtest_ar49, align 8, !tbaa !17, !range !26, !noundef !27
   %tobool.i335.not = icmp eq i8 %28, 0
   br i1 %tobool.i335.not, label %if.else57, label %cleanup73
@@ -1000,7 +1000,7 @@ _ZN7testing15AssertionResultD2Ev.exit360:         ; preds = %_ZNKSt14default_del
 
 _ZN7testing8internal8EqHelper7CompareIM9functionsFvvES5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit360
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar79) #13
-  call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar79)
+  call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %gtest_ar79)
   %42 = load i8, ptr %gtest_ar79, align 8, !tbaa !17, !range !26, !noundef !27
   %tobool.i373.not = icmp eq i8 %42, 0
   br i1 %tobool.i373.not, label %if.else88, label %cleanup104
@@ -1473,7 +1473,7 @@ _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integra
   %ref.tmp26 = alloca %"class.testing::Message", align 8
   %ref.tmp29 = alloca %"class.testing::internal::AssertHelper", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar) #13
-  call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar)
+  call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %gtest_ar)
   %0 = load i8, ptr %gtest_ar, align 8, !tbaa !17, !range !26, !noundef !27
   %tobool.i.not = icmp eq i8 %0, 0
   br i1 %tobool.i.not, label %if.else, label %cleanup.cont.critedge
@@ -1615,7 +1615,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing8internal8EqHelper7CompareIccTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit: ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i76, %cleanup.cont.critedge
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar) #13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar19) #13
-  call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar19)
+  call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %gtest_ar19)
   %.pre = load i8, ptr %gtest_ar19, align 8, !tbaa !17, !range !26
   %tobool.i84.not = icmp eq i8 %.pre, 0
   br i1 %tobool.i84.not, label %if.else25, label %cleanup41
@@ -1752,7 +1752,7 @@ _ZN7testing8internal8EqHelper7CompareIjjTnPNSt9enable_ifIXoontsr3std11is_integra
   %ref.tmp30 = alloca %"class.testing::Message", align 8
   %ref.tmp33 = alloca %"class.testing::internal::AssertHelper", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar) #13
-  call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar)
+  call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %gtest_ar)
   %0 = load i8, ptr %gtest_ar, align 8, !tbaa !17, !range !26, !noundef !27
   %tobool.i.not = icmp eq i8 %0, 0
   br i1 %tobool.i.not, label %if.else, label %cleanup.cont.critedge
@@ -1894,7 +1894,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing8internal8EqHelper7CompareIjjTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit87: ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i76, %cleanup.cont.critedge
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar) #13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar20) #13
-  call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar20)
+  call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %gtest_ar20)
   %18 = load i8, ptr %gtest_ar20, align 8, !tbaa !17, !range !26, !noundef !27
   %tobool.i88.not = icmp eq i8 %18, 0
   br i1 %tobool.i88.not, label %if.else29, label %cleanup45
@@ -2080,7 +2080,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV29Identity_Functionalities_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTV29Identity_Functionalities_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -2107,7 +2107,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV29Overload_Functionalities_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTV29Overload_Functionalities_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -2132,7 +2132,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV31Overloaded_Functionalities_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTV31Overloaded_Functionalities_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -2163,7 +2163,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV32YCombinator_Functionalities_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTV32YCombinator_Functionalities_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -2189,7 +2189,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIc
 
 declare void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264), i32 noundef) local_unnamed_addr #0
 
-declare void @_ZN7testing16AssertionSuccessEv(ptr sret(%"class.testing::AssertionResult") align 8) local_unnamed_addr #0
+declare void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_utility.cpp() #11 section ".text.startup" personality ptr @__gxx_personality_v0 {
@@ -2289,7 +2289,7 @@ invoke.cont8.i:                                   ; preds = %invoke.cont6.i
           to label %invoke.cont13.i unwind label %lpad4.i
 
 invoke.cont13.i:                                  ; preds = %invoke.cont8.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29Identity_Functionalities_TestEE, i64 0, i32 0, i64 2), ptr %call11.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29Identity_Functionalities_TestEE, i64 0, i32 0, i64 2), ptr %call11.i, align 8, !tbaa !4
   %call15.i = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i, ptr noundef %call.i, ptr noundef %call7.i, ptr noundef %call9.i, ptr noundef nonnull %call11.i)
           to label %invoke.cont14.i unwind label %lpad4.i
 
@@ -2451,7 +2451,7 @@ invoke.cont8.i21:                                 ; preds = %invoke.cont6.i19
           to label %invoke.cont10.i unwind label %lpad4.i14
 
 invoke.cont10.i:                                  ; preds = %invoke.cont8.i21
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29Overload_Functionalities_TestEE, i64 0, i32 0, i64 2), ptr %call11.i22, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29Overload_Functionalities_TestEE, i64 0, i32 0, i64 2), ptr %call11.i22, align 8, !tbaa !4
   %call15.i23 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i3, ptr noundef %call.i13, ptr noundef %call7.i18, ptr noundef %call9.i20, ptr noundef nonnull %call11.i22)
           to label %invoke.cont14.i24 unwind label %lpad4.i14
 
@@ -2609,7 +2609,7 @@ invoke.cont8.i66:                                 ; preds = %invoke.cont6.i64
           to label %invoke.cont10.i68 unwind label %lpad4.i50
 
 invoke.cont10.i68:                                ; preds = %invoke.cont8.i66
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI31Overloaded_Functionalities_TestEE, i64 0, i32 0, i64 2), ptr %call11.i67, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI31Overloaded_Functionalities_TestEE, i64 0, i32 0, i64 2), ptr %call11.i67, align 8, !tbaa !4
   %call15.i69 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i38, ptr noundef %call.i49, ptr noundef %call7.i63, ptr noundef %call9.i65, ptr noundef nonnull %call11.i67)
           to label %invoke.cont14.i70 unwind label %lpad4.i50
 
@@ -2767,7 +2767,7 @@ invoke.cont8.i116:                                ; preds = %invoke.cont6.i114
           to label %invoke.cont10.i118 unwind label %lpad4.i100
 
 invoke.cont10.i118:                               ; preds = %invoke.cont8.i116
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI32YCombinator_Functionalities_TestEE, i64 0, i32 0, i64 2), ptr %call11.i117, align 8, !tbaa !4
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI32YCombinator_Functionalities_TestEE, i64 0, i32 0, i64 2), ptr %call11.i117, align 8, !tbaa !4
   %call15.i119 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i88, ptr noundef %call.i99, ptr noundef %call7.i113, ptr noundef %call9.i115, ptr noundef nonnull %call11.i117)
           to label %invoke.cont14.i120 unwind label %lpad4.i100
 
