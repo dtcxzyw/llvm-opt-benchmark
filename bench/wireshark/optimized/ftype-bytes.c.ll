@@ -123,17 +123,17 @@ define hidden ptr @byte_array_from_literal(ptr noundef %0, ptr noundef writeonly
   %18 = tail call ptr @g_byte_array_new() #8
   %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #9
   %20 = icmp eq i64 %19, 10
-  br i1 %20, label %21, label %45
+  br i1 %20, label %21, label %44
 
 21:                                               ; preds = %17
   %22 = load i8, ptr %.1, align 1
   %23 = icmp eq i8 %22, 48
-  br i1 %23, label %24, label %45
+  br i1 %23, label %24, label %44
 
 24:                                               ; preds = %21
   %25 = getelementptr i8, ptr %.1, i64 1
   %26 = load i8, ptr %25, align 1
-  switch i8 %26, label %45 [
+  switch i8 %26, label %44 [
     i8 98, label %27
     i8 66, label %27
   ]
@@ -143,7 +143,7 @@ define hidden ptr @byte_array_from_literal(ptr noundef %0, ptr noundef writeonly
   %29 = load i8, ptr %28, align 1
   %30 = and i8 %29, -2
   %switch = icmp eq i8 %30, 48
-  br i1 %switch, label %31, label %45
+  br i1 %switch, label %31, label %44
 
 31:                                               ; preds = %27
   %32 = tail call ptr @__errno_location() #10
@@ -151,44 +151,42 @@ define hidden ptr @byte_array_from_literal(ptr noundef %0, ptr noundef writeonly
   %33 = call i64 @strtol(ptr noundef nonnull %28, ptr noundef nonnull %3, i32 noundef 2) #8
   %34 = load i32, ptr %32, align 4
   %35 = icmp eq i32 %34, 0
-  br i1 %35, label %36, label %45
+  br i1 %35, label %36, label %44
 
 36:                                               ; preds = %31
   %37 = load ptr, ptr %3, align 8
   %38 = load i8, ptr %37, align 1
   %39 = icmp eq i8 %38, 0
-  %40 = icmp sgt i64 %33, -1
-  %or.cond = select i1 %39, i1 %40, i1 false
-  %41 = icmp slt i64 %33, 256
-  %or.cond3 = select i1 %or.cond, i1 %41, i1 false
-  br i1 %or.cond3, label %42, label %45
+  %40 = icmp ult i64 %33, 256
+  %or.cond3 = select i1 %39, i1 %40, i1 false
+  br i1 %or.cond3, label %41, label %44
 
-42:                                               ; preds = %36
-  %43 = trunc i64 %33 to i8
-  store i8 %43, ptr %4, align 1
-  %44 = call ptr @g_byte_array_append(ptr noundef %18, ptr noundef nonnull %4, i32 noundef 1) #8
-  br label %52
+41:                                               ; preds = %36
+  %42 = trunc i64 %33 to i8
+  store i8 %42, ptr %4, align 1
+  %43 = call ptr @g_byte_array_append(ptr noundef %18, ptr noundef nonnull %4, i32 noundef 1) #8
+  br label %51
 
-45:                                               ; preds = %27, %24, %31, %36, %21, %17
-  %46 = tail call i32 @hex_str_to_bytes(ptr noundef %.1, ptr noundef %18, i32 noundef 0) #8
-  %.not = icmp eq i32 %46, 0
-  br i1 %.not, label %47, label %52
+44:                                               ; preds = %27, %24, %31, %36, %21, %17
+  %45 = tail call i32 @hex_str_to_bytes(ptr noundef %.1, ptr noundef %18, i32 noundef 0) #8
+  %.not = icmp eq i32 %45, 0
+  br i1 %.not, label %46, label %51
 
-47:                                               ; preds = %45
+46:                                               ; preds = %44
   %.not36 = icmp eq ptr %1, null
-  br i1 %.not36, label %50, label %48
+  br i1 %.not36, label %49, label %47
 
-48:                                               ; preds = %47
-  %49 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str, ptr noundef %.1) #8
-  store ptr %49, ptr %1, align 8
-  br label %50
+47:                                               ; preds = %46
+  %48 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str, ptr noundef %.1) #8
+  store ptr %48, ptr %1, align 8
+  br label %49
 
-50:                                               ; preds = %48, %47
-  %51 = tail call ptr @g_byte_array_free(ptr noundef %18, i32 noundef 1) #8
-  br label %52
+49:                                               ; preds = %47, %46
+  %50 = tail call ptr @g_byte_array_free(ptr noundef %18, i32 noundef 1) #8
+  br label %51
 
-52:                                               ; preds = %45, %50, %42
-  %.0 = phi ptr [ %18, %42 ], [ null, %50 ], [ %18, %45 ]
+51:                                               ; preds = %44, %49, %41
+  %.0 = phi ptr [ %18, %41 ], [ null, %49 ], [ %18, %44 ]
   ret ptr %.0
 }
 

@@ -1317,10 +1317,8 @@ sw.bb11:                                          ; preds = %if.end6
   %6 = load i32, ptr %val, align 8
   %cmp13 = icmp ne i32 %6, 1
   %7 = load i64, ptr %0, align 8
-  %cmp15 = icmp slt i64 %7, 0
-  %or.cond = select i1 %cmp13, i1 true, i1 %cmp15
-  %cmp18 = icmp sgt i64 %7, 7
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %cmp18
+  %8 = icmp ugt i64 %7, 7
+  %or.cond3 = select i1 %cmp13, i1 true, i1 %8
   br i1 %or.cond3, label %return, label %if.end21
 
 if.end21:                                         ; preds = %sw.bb11

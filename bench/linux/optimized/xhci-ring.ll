@@ -3938,9 +3938,9 @@ define dso_local noundef i32 @xhci_irq(ptr noundef %0) local_unnamed_addr #2 ali
   %932 = load i8, ptr %931, align 8, !range !52, !noundef !53
   %933 = icmp ne i8 %932, 0
   %934 = icmp ne i32 %929, 23
-  %935 = select i1 %933, i1 %934, i1 false
-  %936 = icmp ne i32 %929, 20
-  %937 = select i1 %935, i1 %936, i1 false
+  %935 = icmp ne i32 %929, 20
+  %936 = and i1 %934, %935
+  %937 = select i1 %933, i1 %936, i1 false
   br i1 %937, label %434, label %.thread, !llvm.loop !61
 
 938:                                              ; preds = %367, %351, %.thread58

@@ -10013,102 +10013,102 @@ define dso_local void @issue_xlog_fsync(i32 noundef %0, i64 noundef %1, i32 noun
   %.not12 = icmp eq i8 %8, 0
   %9 = load i32, ptr @wal_sync_method, align 4
   %10 = icmp eq i32 %9, 2
-  %or.cond = select i1 %.not12, i1 true, i1 %10
   %11 = icmp eq i32 %9, 4
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %11
-  br i1 %or.cond3, label %54, label %12
+  %12 = or i1 %10, %11
+  %or.cond3 = select i1 %.not12, i1 true, i1 %12
+  br i1 %or.cond3, label %55, label %13
 
-12:                                               ; preds = %3
-  %13 = load i8, ptr @track_wal_io_timing, align 1
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %20, label %15
+13:                                               ; preds = %3
+  %14 = load i8, ptr @track_wal_io_timing, align 1
+  %15 = and i8 %14, 1
+  %.not = icmp eq i8 %15, 0
+  br i1 %.not, label %21, label %16
 
-15:                                               ; preds = %12
+16:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %16 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #26
-  %17 = load i64, ptr %5, align 8
-  %.neg = mul i64 %17, -1000000000
-  %18 = getelementptr inbounds i8, ptr %5, i64 8
-  %19 = load i64, ptr %18, align 8
-  %.neg23 = sub i64 %.neg, %19
+  %17 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #26
+  %18 = load i64, ptr %5, align 8
+  %.neg = mul i64 %18, -1000000000
+  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %20 = load i64, ptr %19, align 8
+  %.neg23 = sub i64 %.neg, %20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br label %20
+  br label %21
 
-20:                                               ; preds = %12, %15
-  %.sroa.06.0.neg24 = phi i64 [ %.neg23, %15 ], [ 0, %12 ]
-  %21 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 167772234, ptr %21, align 4
-  %22 = load i32, ptr @wal_sync_method, align 4
-  switch i32 %22, label %25 [
-    i32 0, label %23
-    i32 1, label %29
+21:                                               ; preds = %13, %16
+  %.sroa.06.0.neg24 = phi i64 [ %.neg23, %16 ], [ 0, %13 ]
+  %22 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 167772234, ptr %22, align 4
+  %23 = load i32, ptr @wal_sync_method, align 4
+  switch i32 %23, label %26 [
+    i32 0, label %24
+    i32 1, label %30
     i32 2, label %.thread
     i32 4, label %.thread
   ]
 
-23:                                               ; preds = %20
-  %24 = call i32 @pg_fsync_no_writethrough(i32 noundef %0) #26
-  %.not14 = icmp eq i32 %24, 0
-  br i1 %.not14, label %.thread, label %31
+24:                                               ; preds = %21
+  %25 = call i32 @pg_fsync_no_writethrough(i32 noundef %0) #26
+  %.not14 = icmp eq i32 %25, 0
+  br i1 %.not14, label %.thread, label %32
 
-25:                                               ; preds = %20
-  %26 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #25
-  call void @llvm.assume(i1 %26)
-  %27 = load i32, ptr @wal_sync_method, align 4
-  %28 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.77, i32 noundef %27) #26
+26:                                               ; preds = %21
+  %27 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #25
+  call void @llvm.assume(i1 %27)
+  %28 = load i32, ptr @wal_sync_method, align 4
+  %29 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.77, i32 noundef %28) #26
   call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 8566, ptr noundef nonnull @__func__.issue_xlog_fsync) #26
   unreachable
 
-29:                                               ; preds = %20
-  %30 = call i32 @pg_fdatasync(i32 noundef %0) #26
-  %.not13 = icmp eq i32 %30, 0
-  br i1 %.not13, label %.thread, label %31
+30:                                               ; preds = %21
+  %31 = call i32 @pg_fdatasync(i32 noundef %0) #26
+  %.not13 = icmp eq i32 %31, 0
+  br i1 %.not13, label %.thread, label %32
 
-31:                                               ; preds = %23, %29
-  %.022 = phi ptr [ @.str.75, %23 ], [ @.str.76, %29 ]
-  %32 = tail call ptr @__errno_location() #27
-  %33 = load i32, ptr %32, align 4
-  %34 = load i32, ptr @wal_segment_size, align 4
-  call fastcc void @XLogFileName(ptr noundef nonnull %6, i32 noundef %2, i64 noundef %1, i32 noundef %34)
-  store i32 %33, ptr %32, align 4
-  %35 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #25
-  call void @llvm.assume(i1 %35)
-  %36 = call i32 @errcode_for_file_access() #26
-  %37 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.022, ptr noundef nonnull %6) #26
+32:                                               ; preds = %24, %30
+  %.022 = phi ptr [ @.str.75, %24 ], [ @.str.76, %30 ]
+  %33 = tail call ptr @__errno_location() #27
+  %34 = load i32, ptr %33, align 4
+  %35 = load i32, ptr @wal_segment_size, align 4
+  call fastcc void @XLogFileName(ptr noundef nonnull %6, i32 noundef %2, i64 noundef %1, i32 noundef %35)
+  store i32 %34, ptr %33, align 4
+  %36 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #25
+  call void @llvm.assume(i1 %36)
+  %37 = call i32 @errcode_for_file_access() #26
+  %38 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.022, ptr noundef nonnull %6) #26
   call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 8580, ptr noundef nonnull @__func__.issue_xlog_fsync) #26
   unreachable
 
-.thread:                                          ; preds = %20, %20, %23, %29
-  %38 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 0, ptr %38, align 4
-  %39 = load i8, ptr @track_wal_io_timing, align 1
-  %40 = and i8 %39, 1
-  %.not16 = icmp eq i8 %40, 0
-  br i1 %.not16, label %51, label %41
+.thread:                                          ; preds = %21, %21, %24, %30
+  %39 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 0, ptr %39, align 4
+  %40 = load i8, ptr @track_wal_io_timing, align 1
+  %41 = and i8 %40, 1
+  %.not16 = icmp eq i8 %41, 0
+  br i1 %.not16, label %52, label %42
 
-41:                                               ; preds = %.thread
+42:                                               ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %42 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #26
-  %43 = load i64, ptr %4, align 8
-  %44 = mul i64 %43, 1000000000
-  %45 = getelementptr inbounds i8, ptr %4, i64 8
-  %46 = load i64, ptr %45, align 8
+  %43 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #26
+  %44 = load i64, ptr %4, align 8
+  %45 = mul i64 %44, 1000000000
+  %46 = getelementptr inbounds i8, ptr %4, i64 8
+  %47 = load i64, ptr %46, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %47 = load i64, ptr getelementptr inbounds (%struct.PgStat_PendingWalStats, ptr @PendingWalStats, i64 0, i32 4), align 8
-  %48 = add i64 %46, %.sroa.06.0.neg24
-  %49 = add i64 %48, %44
-  %50 = add i64 %49, %47
-  store i64 %50, ptr getelementptr inbounds (%struct.PgStat_PendingWalStats, ptr @PendingWalStats, i64 0, i32 4), align 8
-  br label %51
+  %48 = load i64, ptr getelementptr inbounds (%struct.PgStat_PendingWalStats, ptr @PendingWalStats, i64 0, i32 4), align 8
+  %49 = add i64 %47, %.sroa.06.0.neg24
+  %50 = add i64 %49, %45
+  %51 = add i64 %50, %48
+  store i64 %51, ptr getelementptr inbounds (%struct.PgStat_PendingWalStats, ptr @PendingWalStats, i64 0, i32 4), align 8
+  br label %52
 
-51:                                               ; preds = %41, %.thread
-  %52 = load i64, ptr getelementptr inbounds (%struct.PgStat_PendingWalStats, ptr @PendingWalStats, i64 0, i32 2), align 8
-  %53 = add i64 %52, 1
-  store i64 %53, ptr getelementptr inbounds (%struct.PgStat_PendingWalStats, ptr @PendingWalStats, i64 0, i32 2), align 8
-  br label %54
+52:                                               ; preds = %42, %.thread
+  %53 = load i64, ptr getelementptr inbounds (%struct.PgStat_PendingWalStats, ptr @PendingWalStats, i64 0, i32 2), align 8
+  %54 = add i64 %53, 1
+  store i64 %54, ptr getelementptr inbounds (%struct.PgStat_PendingWalStats, ptr @PendingWalStats, i64 0, i32 2), align 8
+  br label %55
 
-54:                                               ; preds = %3, %51
+55:                                               ; preds = %3, %52
   ret void
 }
 

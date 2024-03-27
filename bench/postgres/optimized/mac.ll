@@ -75,84 +75,74 @@ define dso_local noundef i64 @macaddr_in(ptr nocapture noundef readonly %0) loca
 
 28:                                               ; preds = %.critedge63
   %29 = call zeroext i1 @errsave_start(ptr noundef %13, ptr noundef null) #6
-  br i1 %29, label %30, label %74
+  br i1 %29, label %30, label %69
 
 30:                                               ; preds = %28
   %31 = call i32 @errcode(i32 noundef 33685634) #6
   %32 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef %11) #6
   call void @errsave_finish(ptr noundef %13, ptr noundef nonnull @.str.9, i32 noundef 95, ptr noundef nonnull @__func__.macaddr_in) #6
-  br label %74
+  br label %69
 
 .critedge64:                                      ; preds = %.critedge62, %.critedge60, %15, %1, %.critedge, %.critedge61, %.critedge63
   %33 = load i32, ptr %2, align 4
   %or.cond = icmp ugt i32 %33, 255
   %34 = load i32, ptr %3, align 4
-  %35 = icmp slt i32 %34, 0
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %35
-  %36 = icmp sgt i32 %34, 255
-  %or.cond5 = select i1 %or.cond3, i1 true, i1 %36
-  %37 = load i32, ptr %4, align 4
-  %38 = icmp slt i32 %37, 0
-  %or.cond7 = select i1 %or.cond5, i1 true, i1 %38
-  %39 = icmp sgt i32 %37, 255
-  %or.cond9 = select i1 %or.cond7, i1 true, i1 %39
-  %40 = load i32, ptr %5, align 4
-  %41 = icmp slt i32 %40, 0
-  %or.cond11 = select i1 %or.cond9, i1 true, i1 %41
-  %42 = icmp sgt i32 %40, 255
-  %or.cond13 = select i1 %or.cond11, i1 true, i1 %42
-  %43 = load i32, ptr %6, align 4
-  %44 = icmp slt i32 %43, 0
-  %or.cond15 = select i1 %or.cond13, i1 true, i1 %44
-  %45 = icmp sgt i32 %43, 255
-  %or.cond17 = select i1 %or.cond15, i1 true, i1 %45
-  %46 = load i32, ptr %7, align 4
-  %47 = icmp slt i32 %46, 0
-  %or.cond19 = select i1 %or.cond17, i1 true, i1 %47
-  %48 = icmp sgt i32 %46, 255
-  %or.cond21 = select i1 %or.cond19, i1 true, i1 %48
-  br i1 %or.cond21, label %49, label %54
+  %35 = icmp ugt i32 %34, 255
+  %or.cond5 = select i1 %or.cond, i1 true, i1 %35
+  %36 = load i32, ptr %4, align 4
+  %37 = icmp ugt i32 %36, 255
+  %or.cond9 = select i1 %or.cond5, i1 true, i1 %37
+  %38 = load i32, ptr %5, align 4
+  %39 = icmp ugt i32 %38, 255
+  %or.cond13 = select i1 %or.cond9, i1 true, i1 %39
+  %40 = load i32, ptr %6, align 4
+  %41 = icmp ugt i32 %40, 255
+  %or.cond17 = select i1 %or.cond13, i1 true, i1 %41
+  %42 = load i32, ptr %7, align 4
+  %43 = icmp ugt i32 %42, 255
+  %or.cond21 = select i1 %or.cond17, i1 true, i1 %43
+  br i1 %or.cond21, label %44, label %49
+
+44:                                               ; preds = %.critedge64
+  %45 = call zeroext i1 @errsave_start(ptr noundef %13, ptr noundef null) #6
+  br i1 %45, label %46, label %69
+
+46:                                               ; preds = %44
+  %47 = call i32 @errcode(i32 noundef 50331778) #6
+  %48 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef %11) #6
+  call void @errsave_finish(ptr noundef %13, ptr noundef nonnull @.str.9, i32 noundef 102, ptr noundef nonnull @__func__.macaddr_in) #6
+  br label %69
 
 49:                                               ; preds = %.critedge64
-  %50 = call zeroext i1 @errsave_start(ptr noundef %13, ptr noundef null) #6
-  br i1 %50, label %51, label %74
-
-51:                                               ; preds = %49
-  %52 = call i32 @errcode(i32 noundef 50331778) #6
-  %53 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef %11) #6
-  call void @errsave_finish(ptr noundef %13, ptr noundef nonnull @.str.9, i32 noundef 102, ptr noundef nonnull @__func__.macaddr_in) #6
-  br label %74
-
-54:                                               ; preds = %.critedge64
-  %55 = call ptr @palloc(i64 noundef 6) #6
-  %56 = load i32, ptr %2, align 4
+  %50 = call ptr @palloc(i64 noundef 6) #6
+  %51 = load i32, ptr %2, align 4
+  %52 = trunc i32 %51 to i8
+  store i8 %52, ptr %50, align 1
+  %53 = load i32, ptr %3, align 4
+  %54 = trunc i32 %53 to i8
+  %55 = getelementptr inbounds i8, ptr %50, i64 1
+  store i8 %54, ptr %55, align 1
+  %56 = load i32, ptr %4, align 4
   %57 = trunc i32 %56 to i8
-  store i8 %57, ptr %55, align 1
-  %58 = load i32, ptr %3, align 4
-  %59 = trunc i32 %58 to i8
-  %60 = getelementptr inbounds i8, ptr %55, i64 1
-  store i8 %59, ptr %60, align 1
-  %61 = load i32, ptr %4, align 4
-  %62 = trunc i32 %61 to i8
-  %63 = getelementptr inbounds i8, ptr %55, i64 2
-  store i8 %62, ptr %63, align 1
-  %64 = load i32, ptr %5, align 4
-  %65 = trunc i32 %64 to i8
-  %66 = getelementptr inbounds i8, ptr %55, i64 3
-  store i8 %65, ptr %66, align 1
-  %67 = load i32, ptr %6, align 4
-  %68 = trunc i32 %67 to i8
-  %69 = getelementptr inbounds i8, ptr %55, i64 4
-  store i8 %68, ptr %69, align 1
-  %70 = load i32, ptr %7, align 4
-  %71 = trunc i32 %70 to i8
-  %72 = getelementptr inbounds i8, ptr %55, i64 5
-  store i8 %71, ptr %72, align 1
-  %73 = ptrtoint ptr %55 to i64
-  br label %74
+  %58 = getelementptr inbounds i8, ptr %50, i64 2
+  store i8 %57, ptr %58, align 1
+  %59 = load i32, ptr %5, align 4
+  %60 = trunc i32 %59 to i8
+  %61 = getelementptr inbounds i8, ptr %50, i64 3
+  store i8 %60, ptr %61, align 1
+  %62 = load i32, ptr %6, align 4
+  %63 = trunc i32 %62 to i8
+  %64 = getelementptr inbounds i8, ptr %50, i64 4
+  store i8 %63, ptr %64, align 1
+  %65 = load i32, ptr %7, align 4
+  %66 = trunc i32 %65 to i8
+  %67 = getelementptr inbounds i8, ptr %50, i64 5
+  store i8 %66, ptr %67, align 1
+  %68 = ptrtoint ptr %50 to i64
+  br label %69
 
-74:                                               ; preds = %51, %49, %30, %28, %54
-  %.0 = phi i64 [ %73, %54 ], [ 0, %28 ], [ 0, %30 ], [ 0, %49 ], [ 0, %51 ]
+69:                                               ; preds = %46, %44, %30, %28, %49
+  %.0 = phi i64 [ %68, %49 ], [ 0, %28 ], [ 0, %30 ], [ 0, %44 ], [ 0, %46 ]
   ret i64 %.0
 }
 

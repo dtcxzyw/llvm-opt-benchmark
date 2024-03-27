@@ -5238,38 +5238,36 @@ define void @_ZN5sim_t17interactive_freghERKNSt7__cxx1112basic_stringIcSt11char_
   %6 = extractvalue { i64, i64 } %5, 0
   %7 = extractvalue { i64, i64 } %5, 1
   %8 = icmp eq i64 %7, -1
-  %9 = icmp ugt i64 %6, -4294967297
-  %or.cond.i = select i1 %8, i1 %9, i1 false
-  %10 = icmp ugt i64 %6, -65537
-  %or.cond4.i = select i1 %or.cond.i, i1 %10, i1 false
-  %11 = trunc i64 %6 to i16
-  %12 = select i1 %or.cond4.i, i16 %11, i16 32256
-  %13 = tail call i32 @f16_to_f32(i16 %12)
-  %14 = getelementptr inbounds i8, ptr %0, i64 1168
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr i8, ptr %15, i64 -24
-  %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %14, i64 %17
-  %19 = tail call noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %18)
-  call void @_ZNSoC1EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %19)
-  %20 = bitcast i32 %13 to float
-  %21 = fpext float %20 to double
-  %22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %4, double noundef %21)
-          to label %23 unwind label %26
+  %9 = icmp ugt i64 %6, -65537
+  %or.cond4.i = select i1 %8, i1 %9, i1 false
+  %10 = trunc i64 %6 to i16
+  %11 = select i1 %or.cond4.i, i16 %10, i16 32256
+  %12 = tail call i32 @f16_to_f32(i16 %11)
+  %13 = getelementptr inbounds i8, ptr %0, i64 1168
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr i8, ptr %14, i64 -24
+  %16 = load i64, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %13, i64 %16
+  %18 = tail call noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %17)
+  call void @_ZNSoC1EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %18)
+  %19 = bitcast i32 %12 to float
+  %20 = fpext float %19 to double
+  %21 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %4, double noundef %20)
+          to label %22 unwind label %25
 
-23:                                               ; preds = %3
-  %24 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-          to label %25 unwind label %26
+22:                                               ; preds = %3
+  %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+          to label %24 unwind label %25
 
-25:                                               ; preds = %23
+24:                                               ; preds = %22
   call void @_ZNSoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #26
   ret void
 
-26:                                               ; preds = %23, %3
-  %27 = landingpad { ptr, i32 }
+25:                                               ; preds = %22, %3
+  %26 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #26
-  resume { ptr, i32 } %27
+  resume { ptr, i32 } %26
 }
 
 ; Function Attrs: mustprogress uwtable

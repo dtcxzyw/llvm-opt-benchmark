@@ -29378,10 +29378,9 @@ entry:
   %1 = load i8, ptr %m_has_seq, align 8
   %2 = and i8 %1, 1
   %tobool = icmp ne i8 %2, 0
-  %cmp = icmp ne i32 %0, 2
-  %or.cond = select i1 %tobool, i1 %cmp, i1 false
-  %cmp3 = icmp ne i32 %0, 6
-  %or.cond1 = select i1 %or.cond, i1 %cmp3, i1 false
+  %3 = and i32 %0, -5
+  %4 = icmp ne i32 %3, 2
+  %or.cond1 = select i1 %tobool, i1 %4, i1 false
   br i1 %or.cond1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -29398,14 +29397,14 @@ invoke.cont:                                      ; preds = %if.then
           to label %unreachable unwind label %ehcleanup
 
 ehcleanup:                                        ; preds = %invoke.cont
-  %3 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #23
   br label %eh.resume
 
 cleanup.action:                                   ; preds = %if.then
-  %4 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #23
   call void @__cxa_free_exception(ptr %exception) #23
@@ -29415,7 +29414,7 @@ if.end:                                           ; preds = %entry
   ret void
 
 eh.resume:                                        ; preds = %ehcleanup, %cleanup.action
-  %.pn6 = phi { ptr, i32 } [ %3, %ehcleanup ], [ %4, %cleanup.action ]
+  %.pn6 = phi { ptr, i32 } [ %5, %ehcleanup ], [ %6, %cleanup.action ]
   resume { ptr, i32 } %.pn6
 
 unreachable:                                      ; preds = %invoke.cont

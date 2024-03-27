@@ -6838,11 +6838,11 @@ define dso_local i32 @move_hugetlb_page_tables(ptr nocapture noundef readonly %0
   %42 = and i64 %41, 128
   %43 = icmp ne i64 %42, 0
   %44 = icmp ugt i64 %39, %36
-  %45 = select i1 %43, i1 %44, i1 false
-  %46 = icmp ugt i64 %28, %36
-  %47 = select i1 %45, i1 %46, i1 false
-  %48 = icmp ugt i64 %39, %2
-  %49 = select i1 %47, i1 %48, i1 false
+  %45 = icmp ugt i64 %28, %36
+  %46 = and i1 %44, %45
+  %47 = icmp ugt i64 %39, %2
+  %48 = and i1 %47, %46
+  %49 = select i1 %43, i1 %48, i1 false
   br i1 %49, label %50, label %59
 
 50:                                               ; preds = %5
@@ -8427,11 +8427,11 @@ define dso_local void @unmap_hugepage_range(ptr nocapture noundef %0, i64 nounde
   %23 = and i64 %22, 128
   %24 = icmp ne i64 %23, 0
   %25 = icmp ugt i64 %20, %17
-  %26 = select i1 %24, i1 %25, i1 false
-  %27 = icmp ult i64 %17, %2
-  %28 = select i1 %26, i1 %27, i1 false
-  %29 = icmp ugt i64 %20, %1
-  %30 = select i1 %28, i1 %29, i1 false
+  %26 = icmp ult i64 %17, %2
+  %27 = and i1 %25, %26
+  %28 = icmp ugt i64 %20, %1
+  %29 = and i1 %28, %27
+  %30 = select i1 %24, i1 %29, i1 false
   br i1 %30, label %31, label %40
 
 31:                                               ; preds = %5
@@ -10927,11 +10927,11 @@ define dso_local i64 @hugetlb_change_protection(ptr noundef %0, i64 noundef %1, 
   %45 = and i64 %44, 128
   %46 = icmp ne i64 %45, 0
   %47 = icmp ugt i64 %42, %39
-  %48 = select i1 %46, i1 %47, i1 false
-  %49 = icmp ult i64 %39, %2
-  %50 = select i1 %48, i1 %49, i1 false
-  %51 = icmp ugt i64 %42, %1
-  %52 = select i1 %50, i1 %51, i1 false
+  %48 = icmp ult i64 %39, %2
+  %49 = and i1 %47, %48
+  %50 = icmp ugt i64 %42, %1
+  %51 = and i1 %50, %49
+  %52 = select i1 %46, i1 %51, i1 false
   br i1 %52, label %53, label %62
 
 53:                                               ; preds = %5

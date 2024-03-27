@@ -38,7 +38,7 @@ define noundef i32 @ws_socket_ptoa(ptr nocapture noundef writeonly %0, ptr nound
 13:                                               ; preds = %9
   %14 = tail call ptr @__errno_location() #12
   store i32 22, ptr %14, align 4
-  br label %65
+  br label %70
 
 15:                                               ; preds = %9
   %16 = getelementptr i8, ptr %11, i64 1
@@ -56,7 +56,7 @@ define noundef i32 @ws_socket_ptoa(ptr nocapture noundef writeonly %0, ptr nound
 20:                                               ; preds = %15
   %21 = tail call ptr @__errno_location() #12
   store i32 22, ptr %21, align 4
-  br label %65
+  br label %70
 
 22:                                               ; preds = %15, %18
   %.045 = phi ptr [ %19, %18 ], [ null, %15 ]
@@ -70,7 +70,7 @@ define noundef i32 @ws_socket_ptoa(ptr nocapture noundef writeonly %0, ptr nound
 26:                                               ; preds = %24
   %27 = tail call ptr @__errno_location() #12
   store i32 22, ptr %27, align 4
-  br label %65
+  br label %70
 
 28:                                               ; preds = %3
   %29 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 58) #11
@@ -90,79 +90,84 @@ define noundef i32 @ws_socket_ptoa(ptr nocapture noundef writeonly %0, ptr nound
 34:                                               ; preds = %32
   %35 = tail call ptr @__errno_location() #12
   store i32 22, ptr %35, align 4
-  br label %65
+  br label %70
 
 36:                                               ; preds = %32, %24, %22
   %.2 = phi ptr [ %.045, %22 ], [ %.045, %24 ], [ %.1, %32 ]
   %37 = phi i1 [ true, %22 ], [ false, %24 ], [ false, %32 ]
   %38 = phi i1 [ false, %22 ], [ true, %24 ], [ true, %32 ]
   %.not52 = icmp eq ptr %.2, null
-  br i1 %.not52, label %53, label %39
+  br i1 %.not52, label %57, label %39
 
 39:                                               ; preds = %36
   %40 = load i8, ptr %.2, align 1
   %.not53 = icmp eq i8 %40, 0
-  br i1 %.not53, label %53, label %41
+  br i1 %.not53, label %57, label %41
 
 41:                                               ; preds = %39
   %42 = call i64 @strtol(ptr noundef nonnull %.2, ptr noundef nonnull %5, i32 noundef 10) #10
   %43 = load ptr, ptr %5, align 8
   %44 = icmp eq ptr %43, %.2
-  br i1 %44, label %50, label %45
+  br i1 %44, label %49, label %45
 
 45:                                               ; preds = %41
   %46 = load i8, ptr %43, align 1
   %47 = icmp ne i8 %46, 0
-  %48 = icmp slt i64 %42, 0
-  %or.cond = select i1 %47, i1 true, i1 %48
-  %49 = icmp sgt i64 %42, 65535
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %49
-  br i1 %or.cond3, label %50, label %52
+  %48 = icmp ugt i64 %42, 65535
+  %or.cond3 = select i1 %47, i1 true, i1 %48
+  br i1 %or.cond3, label %49, label %51
 
-50:                                               ; preds = %45, %41
-  %51 = tail call ptr @__errno_location() #12
-  store i32 22, ptr %51, align 4
-  br label %65
+49:                                               ; preds = %45, %41
+  %50 = tail call ptr @__errno_location() #12
+  store i32 22, ptr %50, align 4
+  br label %70
 
-52:                                               ; preds = %45
-  %trunc = trunc i64 %42 to i16
-  br label %53
+51:                                               ; preds = %45
+  %52 = trunc i64 %42 to i16
+  %53 = lshr i64 %42, 8
+  %54 = trunc i64 %53 to i16
+  %55 = shl i16 %52, 8
+  %56 = or disjoint i16 %55, %54
+  br label %58
 
-53:                                               ; preds = %36, %39, %52
-  %.sink = phi i16 [ %trunc, %52 ], [ %2, %39 ], [ %2, %36 ]
-  %rev = call i16 @llvm.bswap.i16(i16 %.sink)
-  br i1 %37, label %54, label %58
+57:                                               ; preds = %39, %36
+  %rev = call i16 @llvm.bswap.i16(i16 %2)
+  br label %58
 
-54:                                               ; preds = %53
-  %55 = getelementptr inbounds i8, ptr %0, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %55, i8 0, i64 24, i1 false)
-  store i16 10, ptr %0, align 4
-  %56 = getelementptr inbounds i8, ptr %0, i64 2
-  store i16 %rev, ptr %56, align 2
-  %57 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %57, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
-  br label %65
-
-58:                                               ; preds = %53
-  br i1 %38, label %59, label %64
+58:                                               ; preds = %57, %51
+  %.044 = phi i16 [ %56, %51 ], [ %rev, %57 ]
+  br i1 %37, label %59, label %63
 
 59:                                               ; preds = %58
-  %60 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 0, ptr %60, align 4
-  store i16 2, ptr %0, align 4
+  %60 = getelementptr inbounds i8, ptr %0, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %60, i8 0, i64 24, i1 false)
+  store i16 10, ptr %0, align 4
   %61 = getelementptr inbounds i8, ptr %0, i64 2
-  store i16 %rev, ptr %61, align 2
-  %62 = getelementptr inbounds i8, ptr %0, i64 4
-  %63 = load i32, ptr %4, align 4
-  store i32 %63, ptr %62, align 4
-  br label %65
+  store i16 %.044, ptr %61, align 2
+  %62 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %62, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
+  br label %70
 
-64:                                               ; preds = %58
+63:                                               ; preds = %58
+  br i1 %38, label %64, label %69
+
+64:                                               ; preds = %63
+  %65 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 0, ptr %65, align 4
+  store i16 2, ptr %0, align 4
+  %66 = getelementptr inbounds i8, ptr %0, i64 2
+  store i16 %.044, ptr %66, align 2
+  %67 = getelementptr inbounds i8, ptr %0, i64 4
+  %68 = load i32, ptr %4, align 4
+  store i32 %68, ptr %67, align 4
+  br label %70
+
+69:                                               ; preds = %63
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 144, ptr noundef nonnull @__func__.ws_socket_ptoa, ptr noundef nonnull @.str.2) #13
   unreachable
 
-65:                                               ; preds = %54, %59, %50, %34, %26, %20, %13
-  %.0 = phi i32 [ -1, %13 ], [ -1, %50 ], [ 0, %54 ], [ 0, %59 ], [ -1, %26 ], [ -1, %20 ], [ -1, %34 ]
+70:                                               ; preds = %59, %64, %49, %34, %26, %20, %13
+  %.0 = phi i32 [ -1, %13 ], [ -1, %49 ], [ 0, %59 ], [ 0, %64 ], [ -1, %26 ], [ -1, %20 ], [ -1, %34 ]
   call void @g_free(ptr noundef nonnull %6) #10
   ret i32 %.0
 }

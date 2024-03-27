@@ -3470,11 +3470,11 @@ define internal fastcc noundef i32 @DecodeNumber(i32 noundef %0, ptr noundef %1,
   %10 = call i32 @strtoint(ptr noundef %1, ptr noundef nonnull %9, i32 noundef 10) #18
   %11 = load ptr, ptr %9, align 8
   %12 = icmp eq ptr %11, %1
-  br i1 %12, label %119, label %13
+  br i1 %12, label %118, label %13
 
 13:                                               ; preds = %8
   %14 = load i8, ptr %11, align 1
-  switch i8 %14, label %119 [
+  switch i8 %14, label %118 [
     i8 46, label %15
     i8 0, label %28
   ]
@@ -3489,7 +3489,7 @@ define internal fastcc noundef i32 @DecodeNumber(i32 noundef %0, ptr noundef %1,
 20:                                               ; preds = %15
   %21 = or i32 %2, 14
   %22 = call fastcc i32 @DecodeNumberField(i32 noundef %0, ptr noundef %1, i32 noundef %21, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5, ptr noundef %6), !range !21
-  br label %119
+  br label %118
 
 23:                                               ; preds = %15
   %24 = call double @strtod(ptr noundef nonnull %11, ptr noundef nonnull %9) #18
@@ -3498,7 +3498,7 @@ define internal fastcc noundef i32 @DecodeNumber(i32 noundef %0, ptr noundef %1,
   %26 = load ptr, ptr %9, align 8
   %27 = load i8, ptr %26, align 1
   %.not98 = icmp eq i8 %27, 0
-  br i1 %.not98, label %28, label %119
+  br i1 %.not98, label %28, label %118
 
 28:                                               ; preds = %13, %23
   %29 = icmp eq i32 %0, 3
@@ -3507,10 +3507,9 @@ define internal fastcc noundef i32 @DecodeNumber(i32 noundef %0, ptr noundef %1,
 30:                                               ; preds = %28
   %31 = and i32 %2, 4
   %32 = icmp ne i32 %31, 0
-  %33 = icmp sgt i32 %10, 0
-  %or.cond = select i1 %32, i1 %33, i1 false
-  %34 = icmp slt i32 %10, 367
-  %or.cond3 = select i1 %or.cond, i1 %34, i1 false
+  %33 = add i32 %10, -1
+  %34 = icmp ult i32 %33, 366
+  %or.cond3 = select i1 %32, i1 %34, i1 false
   br i1 %or.cond3, label %35, label %.thread
 
 35:                                               ; preds = %30
@@ -3533,8 +3532,8 @@ define internal fastcc noundef i32 @DecodeNumber(i32 noundef %0, ptr noundef %1,
   %48 = getelementptr inbounds i8, ptr %4, i64 12
   %49 = add i32 %46, 32043
   %50 = udiv i32 %49, 146097
-  %.neg.i107 = mul i32 %50, 1073595727
-  %51 = add i32 %.neg.i107, %49
+  %.neg.i106 = mul i32 %50, 1073595727
+  %51 = add i32 %.neg.i106, %49
   %52 = shl i32 %51, 2
   %53 = or disjoint i32 %52, 3
   %54 = mul nuw nsw i32 %50, 3
@@ -3569,7 +3568,7 @@ define internal fastcc noundef i32 @DecodeNumber(i32 noundef %0, ptr noundef %1,
   %narrow.i = add nuw nsw i8 %75, 1
   %76 = zext nneg i8 %narrow.i to i32
   store i32 %76, ptr %47, align 4
-  br label %119
+  br label %118
 
 77:                                               ; preds = %28
   %78 = icmp sgt i32 %0, 3
@@ -3582,15 +3581,15 @@ define internal fastcc noundef i32 @DecodeNumber(i32 noundef %0, ptr noundef %1,
 79:                                               ; preds = %77
   store i32 4, ptr %3, align 4
   %80 = and i32 %2, 12
-  %or.cond103 = icmp eq i32 %80, 4
-  br i1 %or.cond103, label %81, label %87
+  %or.cond = icmp eq i32 %80, 4
+  br i1 %or.cond, label %81, label %87
 
 81:                                               ; preds = %79
   %82 = getelementptr inbounds i8, ptr %4, i64 20
   %83 = load i32, ptr %82, align 4
   %84 = add i32 %83, -1
-  %or.cond104 = icmp ult i32 %84, 31
-  br i1 %or.cond104, label %85, label %87
+  %or.cond103 = icmp ult i32 %84, 31
+  br i1 %or.cond103, label %85, label %87
 
 85:                                               ; preds = %81
   %86 = getelementptr inbounds i8, ptr %4, i64 12
@@ -3601,7 +3600,7 @@ define internal fastcc noundef i32 @DecodeNumber(i32 noundef %0, ptr noundef %1,
 87:                                               ; preds = %85, %81, %79
   %88 = getelementptr inbounds i8, ptr %4, i64 20
   store i32 %10, ptr %88, align 4
-  br label %119
+  br label %118
 
 .thread:                                          ; preds = %..thread_crit_edge, %30
   %.pre-phi = phi i32 [ %.pre, %..thread_crit_edge ], [ %31, %30 ]
@@ -3611,82 +3610,82 @@ define internal fastcc noundef i32 @DecodeNumber(i32 noundef %0, ptr noundef %1,
 89:                                               ; preds = %.thread
   %90 = and i32 %2, 2
   %91 = icmp eq i32 %90, 0
-  %92 = icmp sgt i32 %10, 0
-  %or.cond5 = select i1 %91, i1 %92, i1 false
-  %93 = icmp slt i32 %10, 13
-  %or.cond7 = select i1 %or.cond5, i1 %93, i1 false
-  br i1 %or.cond7, label %94, label %.thread108
+  %92 = add i32 %10, -1
+  %93 = icmp ult i32 %92, 12
+  %or.cond7 = select i1 %91, i1 %93, i1 false
+  br i1 %or.cond7, label %94, label %.thread107
 
 94:                                               ; preds = %89
   store i32 2, ptr %3, align 4
   %95 = getelementptr inbounds i8, ptr %4, i64 16
   store i32 %10, ptr %95, align 8
-  br label %119
+  br label %118
 
 96:                                               ; preds = %.thread
   %.not = xor i1 %7, true
   %97 = and i32 %2, 2
   %.not100 = icmp eq i32 %97, 0
-  %or.cond105 = and i1 %.not100, %.not
-  br i1 %or.cond105, label %.thread108, label %98
+  %or.cond104 = and i1 %.not100, %.not
+  br i1 %or.cond104, label %._crit_edge, label %98
+
+._crit_edge:                                      ; preds = %96
+  %.pre114 = add i32 %10, -1
+  br label %.thread107
 
 98:                                               ; preds = %96
   %99 = and i32 %2, 8
   %100 = icmp eq i32 %99, 0
-  %101 = icmp sgt i32 %10, 0
-  %or.cond9 = select i1 %100, i1 %101, i1 false
-  %102 = icmp slt i32 %10, 32
-  %or.cond11 = select i1 %or.cond9, i1 %102, i1 false
-  br i1 %or.cond11, label %103, label %.thread108
+  %101 = add i32 %10, -1
+  %102 = icmp ult i32 %101, 31
+  %or.cond11 = select i1 %100, i1 %102, i1 false
+  br i1 %or.cond11, label %103, label %.thread107
 
 103:                                              ; preds = %98
   store i32 8, ptr %3, align 4
   %104 = getelementptr inbounds i8, ptr %4, i64 12
   store i32 %10, ptr %104, align 4
-  br label %119
+  br label %118
 
-.thread108:                                       ; preds = %89, %96, %98
-  %.not100114 = phi i1 [ true, %96 ], [ %.not100, %98 ], [ %91, %89 ]
-  %105 = icmp sgt i32 %10, 0
-  %or.cond13 = select i1 %.not100114, i1 %105, i1 false
-  %106 = icmp slt i32 %10, 13
-  %or.cond15 = select i1 %or.cond13, i1 %106, i1 false
-  br i1 %or.cond15, label %107, label %109
+.thread107:                                       ; preds = %89, %._crit_edge, %98
+  %.pre-phi115 = phi i32 [ %.pre114, %._crit_edge ], [ %101, %98 ], [ %92, %89 ]
+  %.not100113 = phi i1 [ true, %._crit_edge ], [ %.not100, %98 ], [ %91, %89 ]
+  %105 = icmp ult i32 %.pre-phi115, 12
+  %or.cond15 = select i1 %.not100113, i1 %105, i1 false
+  br i1 %or.cond15, label %106, label %108
 
-107:                                              ; preds = %.thread108
+106:                                              ; preds = %.thread107
   store i32 2, ptr %3, align 4
-  %108 = getelementptr inbounds i8, ptr %4, i64 16
-  store i32 %10, ptr %108, align 8
-  br label %119
+  %107 = getelementptr inbounds i8, ptr %4, i64 16
+  store i32 %10, ptr %107, align 8
+  br label %118
 
-109:                                              ; preds = %.thread108
-  %110 = and i32 %2, 8
-  %111 = icmp eq i32 %110, 0
-  %or.cond17 = select i1 %111, i1 %105, i1 false
-  %112 = icmp slt i32 %10, 32
-  %or.cond19 = select i1 %or.cond17, i1 %112, i1 false
-  br i1 %or.cond19, label %113, label %115
+108:                                              ; preds = %.thread107
+  %109 = and i32 %2, 8
+  %110 = icmp eq i32 %109, 0
+  %111 = icmp ult i32 %.pre-phi115, 31
+  %or.cond19 = select i1 %110, i1 %111, i1 false
+  br i1 %or.cond19, label %112, label %114
 
-113:                                              ; preds = %109
+112:                                              ; preds = %108
   store i32 8, ptr %3, align 4
-  %114 = getelementptr inbounds i8, ptr %4, i64 12
-  store i32 %10, ptr %114, align 4
-  br label %119
+  %113 = getelementptr inbounds i8, ptr %4, i64 12
+  store i32 %10, ptr %113, align 4
+  br label %118
 
-115:                                              ; preds = %109
-  %116 = icmp eq i32 %0, 2
-  %or.cond106 = and i1 %116, %.not99
-  br i1 %or.cond106, label %117, label %119
+114:                                              ; preds = %108
+  %115 = icmp eq i32 %0, 2
+  %or.cond105 = and i1 %115, %.not99
+  br i1 %or.cond105, label %116, label %118
 
-117:                                              ; preds = %115
+116:                                              ; preds = %114
   store i32 4, ptr %3, align 4
-  %118 = getelementptr inbounds i8, ptr %4, i64 20
-  store i32 %10, ptr %118, align 4
+  %117 = getelementptr inbounds i8, ptr %4, i64 20
+  store i32 %10, ptr %117, align 4
   store i8 1, ptr %6, align 1
-  br label %119
+  br label %118
 
-119:                                              ; preds = %35, %94, %107, %117, %113, %103, %87, %115, %13, %23, %8, %20
-  %.0 = phi i32 [ %22, %20 ], [ -1, %8 ], [ -1, %23 ], [ -1, %13 ], [ -1, %115 ], [ 0, %87 ], [ 0, %103 ], [ 0, %113 ], [ 0, %117 ], [ 0, %107 ], [ 0, %94 ], [ 0, %35 ]
+118:                                              ; preds = %35, %94, %106, %116, %112, %103, %87, %114, %13, %23, %8, %20
+  %.0 = phi i32 [ %22, %20 ], [ -1, %8 ], [ -1, %23 ], [ -1, %13 ], [ -1, %114 ], [ 0, %87 ], [ 0, %103 ], [ 0, %112 ], [ 0, %116 ], [ 0, %106 ], [ 0, %94 ], [ 0, %35 ]
   ret i32 %.0
 }
 

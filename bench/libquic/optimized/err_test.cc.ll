@@ -211,31 +211,24 @@ _ZL9TestPrintv.exit:                              ; preds = %for.body.i14
   %22 = load ptr, ptr %file.i17, align 8
   %call1.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #7
   %cmp.i.i = icmp ult i64 %call1.i.i, 11
-  br i1 %cmp.i.i, label %_ZL9HasSuffixPKcS0_.exit.i, label %if.end.i.i
+  br i1 %cmp.i.i, label %_ZL12TestPutMacrov.exit, label %_ZL9HasSuffixPKcS0_.exit.i
 
-if.end.i.i:                                       ; preds = %_ZL9TestPrintv.exit
+_ZL9HasSuffixPKcS0_.exit.i:                       ; preds = %_ZL9TestPrintv.exit
   %add.ptr.i.i = getelementptr inbounds i8, ptr %22, i64 %call1.i.i
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -11
   %call3.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr2.i.i, ptr noundef nonnull dereferenceable(12) @.str.10) #7
   %cmp4.i.i = icmp eq i32 %call3.i.i, 0
-  br label %_ZL9HasSuffixPKcS0_.exit.i
-
-_ZL9HasSuffixPKcS0_.exit.i:                       ; preds = %if.end.i.i, %_ZL9TestPrintv.exit
-  %retval.0.i.i = phi i1 [ %cmp4.i.i, %if.end.i.i ], [ false, %_ZL9TestPrintv.exit ]
   %23 = load i32, ptr %line.i16, align 4
   %cmp.not.i19 = icmp eq i32 %23, 131
-  %or.cond.i = select i1 %retval.0.i.i, i1 %cmp.not.i19, i1 false
-  %shr.mask.i = and i32 %call.i18, -16777216
-  %cmp3.not.i20 = icmp eq i32 %shr.mask.i, 536870912
-  %or.cond2.i = select i1 %or.cond.i, i1 %cmp3.not.i20, i1 false
-  %and5.i = and i32 %call.i18, 4095
-  %cmp6.not.i = icmp eq i32 %and5.i, 68
-  %or.cond3.i = select i1 %or.cond2.i, i1 %cmp6.not.i, i1 false
+  %or.cond.i = select i1 %cmp4.i.i, i1 %cmp.not.i19, i1 false
+  %24 = and i32 %call.i18, -16773121
+  %25 = icmp eq i32 %24, 536870980
+  %or.cond3.i = select i1 %or.cond.i, i1 %25, i1 false
   br i1 %or.cond3.i, label %if.end, label %_ZL12TestPutMacrov.exit
 
-_ZL12TestPutMacrov.exit:                          ; preds = %_ZL9HasSuffixPKcS0_.exit.i
-  %24 = load ptr, ptr @stderr, align 8
-  %25 = call i64 @fwrite(ptr nonnull @.str.7, i64 25, i64 1, ptr %24) #6
+_ZL12TestPutMacrov.exit:                          ; preds = %_ZL9TestPrintv.exit, %_ZL9HasSuffixPKcS0_.exit.i
+  %26 = load ptr, ptr @stderr, align 8
+  %27 = call i64 @fwrite(ptr nonnull @.str.7, i64 25, i64 1, ptr %26) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %line.i16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %file.i17)
   br label %return

@@ -3255,10 +3255,9 @@ define internal fastcc void @dissect_infiniband_common(ptr noundef %0, ptr nound
   %188 = tail call ptr @proto_tree_add_uint(ptr noundef %182, i32 noundef %186, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef %187) #11
   %189 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 12) #11
   %190 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 12) #11
-  %191 = or i32 %190, %189
-  %or.cond.i = icmp sgt i32 %191, -1
+  %191 = icmp sgt i32 %189, -1
   %192 = icmp sgt i32 %190, 1
-  %or.cond3.i = and i1 %192, %or.cond.i
+  %or.cond3.i = and i1 %191, %192
   %193 = add nsw i32 %190, -2
   %spec.select.i = select i1 %or.cond3.i, i32 %193, i32 %190
   %194 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 12, i32 noundef %spec.select.i) #11

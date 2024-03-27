@@ -1879,7 +1879,7 @@ define void @jobacct_gather_handle_mem_limit(i64 noundef %0, i64 noundef %1) loc
   %8 = alloca %struct.job_notify_msg, align 8
   %9 = load i32, ptr @plugin_inited, align 4
   %10 = icmp eq i32 %9, 1
-  br i1 %10, label %52, label %11
+  br i1 %10, label %54, label %11
 
 11:                                               ; preds = %2
   %12 = load i64, ptr @jobacct_mem_limit, align 8
@@ -1889,7 +1889,7 @@ define void @jobacct_gather_handle_mem_limit(i64 noundef %0, i64 noundef %1) loc
 .thread:                                          ; preds = %11
   %13 = load i32, ptr @jobacct_step_id, align 4
   %14 = icmp ne i32 %13, 0
-  br label %36
+  br label %37
 
 15:                                               ; preds = %11
   %16 = tail call i32 @get_log_level() #10
@@ -1907,79 +1907,79 @@ define void @jobacct_gather_handle_mem_limit(i64 noundef %0, i64 noundef %1) loc
   %21 = load i32, ptr @jobacct_step_id, align 4
   %22 = icmp ne i32 %21, 0
   %23 = icmp ne i64 %20, 0
-  %or.cond = select i1 %22, i1 %23, i1 false
   %24 = icmp ult i64 %20, %0
-  %or.cond11 = select i1 %or.cond, i1 %24, i1 false
-  br i1 %or.cond11, label %25, label %36
+  %25 = and i1 %23, %24
+  %or.cond11 = select i1 %22, i1 %25, i1 false
+  br i1 %or.cond11, label %26, label %37
 
-25:                                               ; preds = %19
-  %26 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.27, ptr noundef nonnull @jobacct_step_id, i64 noundef %0, i64 noundef %20) #10
+26:                                               ; preds = %19
+  %27 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.27, ptr noundef nonnull @jobacct_step_id, i64 noundef %0, i64 noundef %20) #10
   call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @slurm_msg_t_init(ptr noundef nonnull %6) #10
-  %27 = getelementptr inbounds i8, ptr %8, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %27, ptr noundef nonnull align 4 dereferenceable(12) @jobacct_step_id, i64 12, i1 false)
+  %28 = getelementptr inbounds i8, ptr %8, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %28, ptr noundef nonnull align 4 dereferenceable(12) @jobacct_step_id, i64 12, i1 false)
   store ptr @.str.48, ptr %8, align 8
-  %28 = getelementptr inbounds i8, ptr %6, i64 204
-  store i16 4022, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %6, i64 192
-  store ptr %8, ptr %29, align 8
-  %30 = load ptr, ptr @working_cluster_rec, align 8
-  %31 = call i32 @slurm_send_only_controller_msg(ptr noundef nonnull %6, ptr noundef %30) #10
+  %29 = getelementptr inbounds i8, ptr %6, i64 204
+  store i16 4022, ptr %29, align 4
+  %30 = getelementptr inbounds i8, ptr %6, i64 192
+  store ptr %8, ptr %30, align 8
+  %31 = load ptr, ptr @working_cluster_rec, align 8
+  %32 = call i32 @slurm_send_only_controller_msg(ptr noundef nonnull %6, ptr noundef %31) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false)
-  %32 = getelementptr inbounds i8, ptr %7, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %32, ptr noundef nonnull align 4 dereferenceable(12) @jobacct_step_id, i64 12, i1 false)
-  %33 = getelementptr inbounds i8, ptr %7, i64 8
-  store i16 9, ptr %33, align 8
-  store i16 5005, ptr %28, align 4
-  store ptr %7, ptr %29, align 8
-  %34 = load ptr, ptr @working_cluster_rec, align 8
-  %35 = call i32 @slurm_send_only_controller_msg(ptr noundef nonnull %6, ptr noundef %34) #10
+  %33 = getelementptr inbounds i8, ptr %7, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %33, ptr noundef nonnull align 4 dereferenceable(12) @jobacct_step_id, i64 12, i1 false)
+  %34 = getelementptr inbounds i8, ptr %7, i64 8
+  store i16 9, ptr %34, align 8
+  store i16 5005, ptr %29, align 4
+  store ptr %7, ptr %30, align 8
+  %35 = load ptr, ptr @working_cluster_rec, align 8
+  %36 = call i32 @slurm_send_only_controller_msg(ptr noundef nonnull %6, ptr noundef %35) #10
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  br label %52
+  br label %54
 
-36:                                               ; preds = %.thread, %19
-  %37 = phi i1 [ %14, %.thread ], [ %22, %19 ]
-  %38 = load i64, ptr @jobacct_vmem_limit, align 8
-  %39 = icmp ne i64 %38, 0
-  %or.cond3 = select i1 %37, i1 %39, i1 false
-  %40 = icmp ult i64 %38, %1
-  %or.cond12 = select i1 %or.cond3, i1 %40, i1 false
-  br i1 %or.cond12, label %41, label %52
+37:                                               ; preds = %.thread, %19
+  %38 = phi i1 [ %14, %.thread ], [ %22, %19 ]
+  %39 = load i64, ptr @jobacct_vmem_limit, align 8
+  %40 = icmp ne i64 %39, 0
+  %41 = icmp ult i64 %39, %1
+  %42 = and i1 %40, %41
+  %or.cond12 = select i1 %38, i1 %42, i1 false
+  br i1 %or.cond12, label %43, label %54
 
-41:                                               ; preds = %36
-  %42 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.28, ptr noundef nonnull @jobacct_step_id, i64 noundef %1, i64 noundef %38) #10
+43:                                               ; preds = %37
+  %44 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.28, ptr noundef nonnull @jobacct_step_id, i64 noundef %1, i64 noundef %39) #10
   call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @slurm_msg_t_init(ptr noundef nonnull %3) #10
-  %43 = getelementptr inbounds i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %43, ptr noundef nonnull align 4 dereferenceable(12) @jobacct_step_id, i64 12, i1 false)
+  %45 = getelementptr inbounds i8, ptr %5, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %45, ptr noundef nonnull align 4 dereferenceable(12) @jobacct_step_id, i64 12, i1 false)
   store ptr @.str.48, ptr %5, align 8
-  %44 = getelementptr inbounds i8, ptr %3, i64 204
-  store i16 4022, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %3, i64 192
-  store ptr %5, ptr %45, align 8
-  %46 = load ptr, ptr @working_cluster_rec, align 8
-  %47 = call i32 @slurm_send_only_controller_msg(ptr noundef nonnull %3, ptr noundef %46) #10
+  %46 = getelementptr inbounds i8, ptr %3, i64 204
+  store i16 4022, ptr %46, align 4
+  %47 = getelementptr inbounds i8, ptr %3, i64 192
+  store ptr %5, ptr %47, align 8
+  %48 = load ptr, ptr @working_cluster_rec, align 8
+  %49 = call i32 @slurm_send_only_controller_msg(ptr noundef nonnull %3, ptr noundef %48) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
-  %48 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %48, ptr noundef nonnull align 4 dereferenceable(12) @jobacct_step_id, i64 12, i1 false)
-  %49 = getelementptr inbounds i8, ptr %4, i64 8
-  store i16 9, ptr %49, align 8
-  store i16 5005, ptr %44, align 4
-  store ptr %4, ptr %45, align 8
-  %50 = load ptr, ptr @working_cluster_rec, align 8
-  %51 = call i32 @slurm_send_only_controller_msg(ptr noundef nonnull %3, ptr noundef %50) #10
+  %50 = getelementptr inbounds i8, ptr %4, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %50, ptr noundef nonnull align 4 dereferenceable(12) @jobacct_step_id, i64 12, i1 false)
+  %51 = getelementptr inbounds i8, ptr %4, i64 8
+  store i16 9, ptr %51, align 8
+  store i16 5005, ptr %46, align 4
+  store ptr %4, ptr %47, align 8
+  %52 = load ptr, ptr @working_cluster_rec, align 8
+  %53 = call i32 @slurm_send_only_controller_msg(ptr noundef nonnull %3, ptr noundef %52) #10
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br label %52
+  br label %54
 
-52:                                               ; preds = %36, %41, %2, %25
+54:                                               ; preds = %37, %43, %2, %26
   ret void
 }
 

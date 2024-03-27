@@ -86,17 +86,16 @@ define i32 @f32_max(i32 %0, i32 %1) local_unnamed_addr #0 {
   %11 = icmp ne i32 %10, 2139095040
   %12 = and i32 %0, 8388607
   %.not = icmp eq i32 %12, 0
-  %or.cond.not20.not = or i1 %11, %.not
+  %or.cond.not20.not24 = or i1 %11, %.not
   %13 = and i32 %1, 2139095040
   %14 = icmp ne i32 %13, 2139095040
-  %or.cond16 = select i1 %or.cond.not20.not, i1 true, i1 %14
   %15 = and i32 %1, 8388607
   %.not13 = icmp eq i32 %15, 0
-  %or.cond17 = select i1 %or.cond16, i1 true, i1 %.not13
-  %or.cond18 = or i1 %14, %.not13
-  %spec.select = select i1 %or.cond18, i32 %1, i32 %0
-  %spec.select22 = select i1 %cond.fr, i32 %0, i32 %spec.select
-  %.sroa.012.0 = select i1 %or.cond17, i32 %spec.select22, i32 2143289344
+  %16 = or i1 %14, %.not13
+  %or.cond17 = select i1 %or.cond.not20.not24, i1 true, i1 %16
+  %spec.select = select i1 %16, i32 %1, i32 %0
+  %spec.select25 = select i1 %cond.fr, i32 %0, i32 %spec.select
+  %.sroa.012.0 = select i1 %or.cond17, i32 %spec.select25, i32 2143289344
   ret i32 %.sroa.012.0
 }
 
@@ -122,17 +121,16 @@ define i64 @f64_max(i64 %0, i64 %1) local_unnamed_addr #0 {
   %11 = icmp ne i64 %10, 9218868437227405312
   %12 = and i64 %0, 4503599627370495
   %.not = icmp eq i64 %12, 0
-  %or.cond.not20.not = or i1 %11, %.not
+  %or.cond.not20.not24 = or i1 %11, %.not
   %13 = and i64 %1, 9218868437227405312
   %14 = icmp ne i64 %13, 9218868437227405312
-  %or.cond16 = select i1 %or.cond.not20.not, i1 true, i1 %14
   %15 = and i64 %1, 4503599627370495
   %.not13 = icmp eq i64 %15, 0
-  %or.cond17 = select i1 %or.cond16, i1 true, i1 %.not13
-  %or.cond18 = or i1 %14, %.not13
-  %spec.select = select i1 %or.cond18, i64 %1, i64 %0
-  %spec.select22 = select i1 %cond.fr, i64 %0, i64 %spec.select
-  %.sroa.012.0 = select i1 %or.cond17, i64 %spec.select22, i64 9221120237041090560
+  %16 = or i1 %14, %.not13
+  %or.cond17 = select i1 %or.cond.not20.not24, i1 true, i1 %16
+  %spec.select = select i1 %16, i64 %1, i64 %0
+  %spec.select25 = select i1 %cond.fr, i64 %0, i64 %spec.select
+  %.sroa.012.0 = select i1 %or.cond17, i64 %spec.select25, i64 9221120237041090560
   ret i64 %.sroa.012.0
 }
 
@@ -219,17 +217,16 @@ define i32 @f32_min(i32 %0, i32 %1) local_unnamed_addr #0 {
   %11 = icmp ne i32 %10, 2139095040
   %12 = and i32 %0, 8388607
   %.not = icmp eq i32 %12, 0
-  %or.cond.not20.not = or i1 %11, %.not
+  %or.cond.not20.not24 = or i1 %11, %.not
   %13 = and i32 %1, 2139095040
   %14 = icmp ne i32 %13, 2139095040
-  %or.cond16 = select i1 %or.cond.not20.not, i1 true, i1 %14
   %15 = and i32 %1, 8388607
   %.not13 = icmp eq i32 %15, 0
-  %or.cond17 = select i1 %or.cond16, i1 true, i1 %.not13
-  %or.cond18 = or i1 %14, %.not13
-  %spec.select = select i1 %or.cond18, i32 %1, i32 %0
-  %spec.select22 = select i1 %cond.fr, i32 %0, i32 %spec.select
-  %.sroa.012.0 = select i1 %or.cond17, i32 %spec.select22, i32 2143289344
+  %16 = or i1 %14, %.not13
+  %or.cond17 = select i1 %or.cond.not20.not24, i1 true, i1 %16
+  %spec.select = select i1 %16, i32 %1, i32 %0
+  %spec.select25 = select i1 %cond.fr, i32 %0, i32 %spec.select
+  %.sroa.012.0 = select i1 %or.cond17, i32 %spec.select25, i32 2143289344
   ret i32 %.sroa.012.0
 }
 
@@ -251,17 +248,16 @@ define i64 @f64_min(i64 %0, i64 %1) local_unnamed_addr #0 {
   %11 = icmp ne i64 %10, 9218868437227405312
   %12 = and i64 %0, 4503599627370495
   %.not = icmp eq i64 %12, 0
-  %or.cond.not20.not = or i1 %11, %.not
+  %or.cond.not20.not24 = or i1 %11, %.not
   %13 = and i64 %1, 9218868437227405312
   %14 = icmp ne i64 %13, 9218868437227405312
-  %or.cond16 = select i1 %or.cond.not20.not, i1 true, i1 %14
   %15 = and i64 %1, 4503599627370495
   %.not13 = icmp eq i64 %15, 0
-  %or.cond17 = select i1 %or.cond16, i1 true, i1 %.not13
-  %or.cond18 = or i1 %14, %.not13
-  %spec.select = select i1 %or.cond18, i64 %1, i64 %0
-  %spec.select22 = select i1 %cond.fr, i64 %0, i64 %spec.select
-  %.sroa.012.0 = select i1 %or.cond17, i64 %spec.select22, i64 9221120237041090560
+  %16 = or i1 %14, %.not13
+  %or.cond17 = select i1 %or.cond.not20.not24, i1 true, i1 %16
+  %spec.select = select i1 %16, i64 %1, i64 %0
+  %spec.select25 = select i1 %cond.fr, i64 %0, i64 %spec.select
+  %.sroa.012.0 = select i1 %or.cond17, i64 %spec.select25, i64 9221120237041090560
   ret i64 %.sroa.012.0
 }
 

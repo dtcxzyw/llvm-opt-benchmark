@@ -276,10 +276,9 @@ define internal i32 @dissect_m2m(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %21 = call i32 @get_tlv_type(ptr noundef nonnull %5) #2
   %22 = call i32 @get_tlv_length(ptr noundef nonnull %5) #2
   %23 = icmp eq i32 %21, -1
-  %24 = icmp sgt i32 %22, 64000
-  %or.cond = select i1 %23, i1 true, i1 %24
-  %25 = icmp slt i32 %22, 1
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %25
+  %24 = add i32 %22, -64001
+  %25 = icmp ult i32 %24, -64000
+  %or.cond3 = select i1 %23, i1 true, i1 %25
   br i1 %or.cond3, label %26, label %31
 
 26:                                               ; preds = %.lr.ph

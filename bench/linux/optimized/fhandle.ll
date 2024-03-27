@@ -119,9 +119,9 @@ define internal fastcc i64 @__se_sys_name_to_handle_at(i64 noundef %0, i64 nound
   %63 = load i32, ptr %6, align 8
   %64 = icmp ugt i32 %62, %63
   %65 = icmp eq i32 %59, 255
-  %66 = select i1 %64, i1 true, i1 %65
-  %67 = icmp slt i32 %59, 0
-  %68 = select i1 %66, i1 true, i1 %67
+  %66 = icmp slt i32 %59, 0
+  %67 = or i1 %65, %66
+  %68 = select i1 %64, i1 true, i1 %67
   br i1 %68, label %69, label %73
 
 69:                                               ; preds = %54

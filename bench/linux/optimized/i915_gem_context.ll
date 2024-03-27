@@ -1970,19 +1970,19 @@ define dso_local i32 @i915_gem_user_to_context_sseu(ptr noundef %0, ptr nocaptur
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %101, label %10
+  br i1 %9, label %98, label %10
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, 0
-  br i1 %13, label %101, label %14
+  br i1 %13, label %98, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %1, i64 24
   %16 = load i16, ptr %15, align 8
   %17 = icmp eq i16 %16, 0
-  br i1 %17, label %101, label %18
+  br i1 %17, label %98, label %18
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds i8, ptr %1, i64 26
@@ -1994,7 +1994,7 @@ define dso_local i32 @i915_gem_user_to_context_sseu(ptr noundef %0, ptr nocaptur
   %25 = or i16 %20, %16
   %26 = icmp ugt i16 %25, 255
   %27 = or i1 %24, %26
-  br i1 %27, label %101, label %28
+  br i1 %27, label %98, label %28
 
 28:                                               ; preds = %18
   %29 = load i8, ptr %4, align 8
@@ -2002,21 +2002,21 @@ define dso_local i32 @i915_gem_user_to_context_sseu(ptr noundef %0, ptr nocaptur
   %31 = xor i64 %30, -1
   %32 = and i64 %8, %31
   %33 = icmp eq i64 %32, 0
-  br i1 %33, label %34, label %101
+  br i1 %33, label %34, label %98
 
 34:                                               ; preds = %28
   %35 = xor i32 %6, -1
   %36 = zext i32 %35 to i64
   %37 = and i64 %12, %36
   %38 = icmp eq i64 %37, 0
-  br i1 %38, label %39, label %101
+  br i1 %38, label %39, label %98
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds i8, ptr %0, i64 5138
   %41 = load i8, ptr %40, align 2
   %42 = zext i8 %41 to i16
   %43 = icmp ugt i16 %20, %42
-  br i1 %43, label %101, label %44
+  br i1 %43, label %98, label %44
 
 44:                                               ; preds = %39
   %45 = trunc i64 %8 to i8
@@ -2036,7 +2036,7 @@ define dso_local i32 @i915_gem_user_to_context_sseu(ptr noundef %0, ptr nocaptur
   %55 = getelementptr inbounds i8, ptr %5, i64 7176
   %56 = load i8, ptr %55, align 8
   %57 = icmp eq i8 %56, 11
-  br i1 %57, label %58, label %101
+  br i1 %57, label %58, label %98
 
 58:                                               ; preds = %44
   %59 = load i8, ptr %4, align 8
@@ -2052,50 +2052,47 @@ define dso_local i32 @i915_gem_user_to_context_sseu(ptr noundef %0, ptr nocaptur
   %69 = icmp ult i32 %65, 2
   %70 = icmp eq i32 %68, %63
   %71 = select i1 %69, i1 true, i1 %70
-  br i1 %71, label %72, label %101
+  br i1 %71, label %72, label %98
 
 72:                                               ; preds = %58
   %73 = icmp ult i32 %68, 5
   %74 = and i32 %68, 1
   %75 = icmp eq i32 %74, 0
   %76 = or i1 %73, %75
-  br i1 %76, label %77, label %101
+  br i1 %76, label %77, label %98
 
 77:                                               ; preds = %72
-  %78 = icmp eq i32 %65, 1
+  %78 = icmp ne i32 %65, 1
   %79 = icmp uge i32 %68, %63
-  %80 = xor i1 %78, true
-  %81 = select i1 %80, i1 true, i1 %79
-  %82 = lshr i32 %63, 1
-  %83 = icmp ule i32 %68, %82
-  %84 = select i1 %81, i1 true, i1 %83
-  %85 = icmp eq i32 %65, %61
-  %86 = select i1 %78, i1 true, i1 %85
-  %87 = select i1 %84, i1 %86, i1 false
-  br i1 %87, label %88, label %101
+  %80 = lshr i32 %63, 1
+  %81 = icmp ule i32 %68, %80
+  %82 = or i1 %79, %81
+  %83 = icmp eq i32 %65, %61
+  %84 = select i1 %78, i1 %83, i1 %82
+  br i1 %84, label %85, label %98
 
-88:                                               ; preds = %77
-  %89 = select i1 %80, i1 true, i1 %70
-  %90 = icmp eq i32 %68, %82
-  %91 = select i1 %89, i1 true, i1 %90
-  br i1 %91, label %92, label %101
+85:                                               ; preds = %77
+  %86 = icmp eq i32 %68, %80
+  %87 = or i1 %70, %86
+  %88 = select i1 %78, i1 true, i1 %87
+  br i1 %88, label %89, label %98
 
-92:                                               ; preds = %88
-  %93 = load i16, ptr %15, align 8
-  %94 = load i8, ptr %40, align 2
-  %95 = zext i8 %94 to i16
-  %96 = icmp eq i16 %93, %95
-  br i1 %96, label %97, label %101
+89:                                               ; preds = %85
+  %90 = load i16, ptr %15, align 8
+  %91 = load i8, ptr %40, align 2
+  %92 = zext i8 %91 to i16
+  %93 = icmp eq i16 %90, %92
+  br i1 %93, label %94, label %98
 
-97:                                               ; preds = %92
-  %98 = load i16, ptr %19, align 2
-  %99 = icmp eq i16 %98, %93
-  %100 = select i1 %99, i32 0, i32 -22
-  br label %101
+94:                                               ; preds = %89
+  %95 = load i16, ptr %19, align 2
+  %96 = icmp eq i16 %95, %90
+  %97 = select i1 %96, i32 0, i32 -22
+  br label %98
 
-101:                                              ; preds = %97, %92, %88, %77, %72, %58, %44, %39, %34, %28, %18, %14, %10, %3
-  %102 = phi i32 [ -22, %18 ], [ -22, %14 ], [ -22, %10 ], [ -22, %3 ], [ -22, %28 ], [ -22, %34 ], [ -22, %39 ], [ -22, %92 ], [ -22, %88 ], [ -22, %77 ], [ -22, %72 ], [ -22, %58 ], [ 0, %44 ], [ %100, %97 ]
-  ret i32 %102
+98:                                               ; preds = %94, %89, %85, %77, %72, %58, %44, %39, %34, %28, %18, %14, %10, %3
+  %99 = phi i32 [ -22, %18 ], [ -22, %14 ], [ -22, %10 ], [ -22, %3 ], [ -22, %28 ], [ -22, %34 ], [ -22, %39 ], [ -22, %89 ], [ -22, %85 ], [ -22, %77 ], [ -22, %72 ], [ -22, %58 ], [ 0, %44 ], [ %97, %94 ]
+  ret i32 %99
 }
 
 ; Function Attrs: null_pointer_is_valid

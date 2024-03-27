@@ -3999,24 +3999,20 @@ if.end36:                                         ; preds = %switch.early.test, 
 land.lhs.true41:                                  ; preds = %if.end36
   %serverState = getelementptr inbounds i8, ptr %ssl, i64 1021
   %43 = load i8, ptr %serverState, align 1
-  %.fr128 = freeze i8 %43
-  %cmp44 = icmp eq i8 %.fr128, 0
-  br i1 %cmp44, label %switch.early.test94, label %if.end81
+  %cmp44 = icmp eq i8 %43, 0
+  %44 = and i8 %type, -5
+  %45 = icmp ne i8 %44, 2
+  %or.cond6 = and i1 %45, %cmp44
+  br i1 %or.cond6, label %do.end56, label %if.end81
 
-switch.early.test94:                              ; preds = %land.lhs.true41
-  switch i8 %type, label %do.end56 [
-    i8 2, label %do.end84
-    i8 6, label %if.end157
-  ]
-
-do.end56:                                         ; preds = %switch.early.test94
+do.end56:                                         ; preds = %land.lhs.true41
   %call57 = tail call i32 @SendAlert(ptr noundef nonnull %ssl, i32 noundef 2, i32 noundef 10) #11
   br label %return
 
 land.lhs.true68:                                  ; preds = %if.end36
   %clientState = getelementptr inbounds i8, ptr %ssl, i64 1022
-  %44 = load i8, ptr %clientState, align 2
-  %cmp71 = icmp eq i8 %44, 0
+  %46 = load i8, ptr %clientState, align 2
+  %cmp71 = icmp eq i8 %46, 0
   %cmp75 = icmp ne i8 %type, 1
   %or.cond7 = and i1 %cmp75, %cmp71
   br i1 %or.cond7, label %do.end79, label %if.end81
@@ -4038,7 +4034,7 @@ if.end81:                                         ; preds = %if.end36, %land.lhs
     i8 24, label %do.end116
   ]
 
-do.end84:                                         ; preds = %switch.early.test94, %if.end81
+do.end84:                                         ; preds = %if.end81
   %call85 = call i32 @DoTls13ServerHello(ptr noundef nonnull %ssl, ptr noundef %input, ptr noundef nonnull %inOutIdx, i32 noundef %size, ptr noundef nonnull %type.addr)
   br label %sw.epilog
 
@@ -4051,11 +4047,11 @@ do.end92:                                         ; preds = %if.end81
   br label %sw.epilog
 
 do.end96:                                         ; preds = %if.end81
-  %45 = getelementptr i8, ptr %ssl, i64 992
-  %ssl.val = load i32, ptr %45, align 4
+  %47 = getelementptr i8, ptr %ssl, i64 992
+  %ssl.val = load i32, ptr %47, align 4
   %add.i = add i32 %ssl.val, %size
-  %46 = load i32, ptr %inOutIdx, align 4
-  %add1.i = add i32 %add.i, %46
+  %48 = load i32, ptr %inOutIdx, align 4
+  %add1.i = add i32 %add.i, %48
   store i32 %add1.i, ptr %inOutIdx, align 4
   br label %land.lhs.true131
 
@@ -4069,14 +4065,14 @@ do.end104:                                        ; preds = %if.end81
   br i1 %cmp3.i, label %if.then4.i, label %sw.epilog
 
 if.then4.i:                                       ; preds = %do.end104
-  %bf.load.i98 = load i64, ptr %side, align 8
-  %47 = and i64 %bf.load.i98, 48
-  %cmp5.i99 = icmp eq i64 %47, 16
-  br i1 %cmp5.i99, label %if.then7.i, label %land.lhs.true131
+  %bf.load.i97 = load i64, ptr %side, align 8
+  %49 = and i64 %bf.load.i97, 48
+  %cmp5.i98 = icmp eq i64 %49, 16
+  br i1 %cmp5.i98, label %if.then7.i, label %land.lhs.true131
 
 if.then7.i:                                       ; preds = %if.then4.i
-  %serverState.i100 = getelementptr inbounds i8, ptr %ssl, i64 1021
-  store i8 5, ptr %serverState.i100, align 1
+  %serverState.i99 = getelementptr inbounds i8, ptr %ssl, i64 1021
+  store i8 5, ptr %serverState.i99, align 1
   br label %land.lhs.true131
 
 do.end108:                                        ; preds = %if.end81
@@ -4093,59 +4089,59 @@ do.end116:                                        ; preds = %if.end81
 
 sw.epilog:                                        ; preds = %do.end104, %do.end116, %do.end112, %do.end108, %do.end100, %do.end92, %do.end88, %do.end84
   %ret.0 = phi i32 [ %call117, %do.end116 ], [ %call113, %do.end112 ], [ %call109, %do.end108 ], [ %call101, %do.end100 ], [ %call93, %do.end92 ], [ %call89, %do.end88 ], [ %call85, %do.end84 ], [ %call.i, %do.end104 ]
-  switch i32 %ret.0, label %sw.epilog.if.end140.thread113_crit_edge [
+  switch i32 %ret.0, label %sw.epilog.if.end140.thread112_crit_edge [
     i32 -108, label %land.lhs.true124
     i32 -408, label %land.lhs.true124
     i32 0, label %land.lhs.true131
   ]
 
-sw.epilog.if.end140.thread113_crit_edge:          ; preds = %sw.epilog
+sw.epilog.if.end140.thread112_crit_edge:          ; preds = %sw.epilog
   %.pre = load i8, ptr %type.addr, align 1
   br label %if.end157
 
 land.lhs.true124:                                 ; preds = %sw.epilog, %sw.epilog
-  %48 = load i32, ptr %inOutIdx, align 4
-  %cmp125.not = icmp eq i32 %48, 0
+  %50 = load i32, ptr %inOutIdx, align 4
+  %cmp125.not = icmp eq i32 %50, 0
   br i1 %cmp125.not, label %if.end140, label %if.then127
 
 if.then127:                                       ; preds = %land.lhs.true124
-  %sub = add i32 %48, -4
+  %sub = add i32 %50, -4
   store i32 %sub, ptr %inOutIdx, align 4
   br label %if.end140
 
 land.lhs.true131:                                 ; preds = %sw.epilog, %do.end96, %if.then4.i, %if.then7.i
   %error = getelementptr inbounds i8, ptr %ssl, i64 648
-  %49 = load i32, ptr %error, align 8
-  switch i32 %49, label %switch.early.test95 [
+  %51 = load i32, ptr %error, align 8
+  switch i32 %51, label %switch.early.test94 [
     i32 -108, label %if.then138
     i32 -408, label %if.then138
   ]
 
 if.then138:                                       ; preds = %land.lhs.true131, %land.lhs.true131
   store i32 0, ptr %error, align 8
-  br label %switch.early.test95
+  br label %switch.early.test94
 
 if.end140:                                        ; preds = %if.then127, %land.lhs.true124
-  %50 = load i8, ptr %type.addr, align 1
+  %52 = load i8, ptr %type.addr, align 1
   br label %if.end157
 
-switch.early.test95:                              ; preds = %land.lhs.true131, %if.then138
-  %51 = load i8, ptr %type.addr, align 1
-  switch i8 %51, label %if.then155 [
+switch.early.test94:                              ; preds = %land.lhs.true131, %if.then138
+  %53 = load i8, ptr %type.addr, align 1
+  switch i8 %53, label %if.then155 [
     i8 24, label %if.end157
     i8 4, label %if.end157
     i8 1, label %if.end157
   ]
 
-if.then155:                                       ; preds = %switch.early.test95
+if.then155:                                       ; preds = %switch.early.test94
   %idx.ext = zext i32 %0 to i64
   %add.ptr = getelementptr inbounds i8, ptr %input, i64 %idx.ext
   %call156 = tail call i32 @HashInput(ptr noundef nonnull %ssl, ptr noundef %add.ptr, i32 noundef %size) #11
   br label %if.end157
 
-if.end157:                                        ; preds = %if.end81, %switch.early.test94, %sw.epilog.if.end140.thread113_crit_edge, %if.end140, %switch.early.test95, %switch.early.test95, %switch.early.test95, %if.then155
-  %52 = phi i8 [ %51, %if.then155 ], [ %51, %switch.early.test95 ], [ %50, %if.end140 ], [ %51, %switch.early.test95 ], [ %51, %switch.early.test95 ], [ %type, %if.end81 ], [ %type, %switch.early.test94 ], [ %.pre, %sw.epilog.if.end140.thread113_crit_edge ]
-  %ret.1 = phi i32 [ %call156, %if.then155 ], [ 0, %switch.early.test95 ], [ %ret.0, %if.end140 ], [ 0, %switch.early.test95 ], [ 0, %switch.early.test95 ], [ -307, %if.end81 ], [ -307, %switch.early.test94 ], [ %ret.0, %sw.epilog.if.end140.thread113_crit_edge ]
+if.end157:                                        ; preds = %if.end81, %sw.epilog.if.end140.thread112_crit_edge, %if.end140, %switch.early.test94, %switch.early.test94, %switch.early.test94, %if.then155
+  %54 = phi i8 [ %53, %if.then155 ], [ %53, %switch.early.test94 ], [ %52, %if.end140 ], [ %53, %switch.early.test94 ], [ %53, %switch.early.test94 ], [ %type, %if.end81 ], [ %.pre, %sw.epilog.if.end140.thread112_crit_edge ]
+  %ret.1 = phi i32 [ %call156, %if.then155 ], [ 0, %switch.early.test94 ], [ %ret.0, %if.end140 ], [ 0, %switch.early.test94 ], [ 0, %switch.early.test94 ], [ -307, %if.end81 ], [ %ret.0, %sw.epilog.if.end140.thread112_crit_edge ]
   %call158 = tail call i32 @TranslateErrorToAlert(i32 noundef %ret.1) #11
   %cmp159.not = icmp eq i32 %call158, -1
   br i1 %cmp159.not, label %if.end167, label %if.then161
@@ -4161,12 +4157,12 @@ if.end167:                                        ; preds = %if.then161, %if.end
 
 land.lhs.true170:                                 ; preds = %if.end167
   %bf.load172 = load i64, ptr %side, align 8
-  %53 = and i64 %bf.load172, 65584
-  %or.cond = icmp eq i64 %53, 65552
+  %55 = and i64 %bf.load172, 65584
+  %or.cond = icmp eq i64 %55, 65552
   br i1 %or.cond, label %if.then187, label %return
 
 if.then187:                                       ; preds = %land.lhs.true170
-  switch i8 %52, label %return [
+  switch i8 %54, label %return [
     i8 2, label %if.then191
     i8 20, label %if.then216
   ]
@@ -4197,12 +4193,12 @@ if.then216:                                       ; preds = %if.then187
 
 if.end221:                                        ; preds = %if.then216
   %arrays = getelementptr inbounds i8, ptr %ssl, i64 16
-  %54 = load ptr, ptr %arrays, align 16
-  %preMasterSecret = getelementptr inbounds i8, ptr %54, i64 8
-  %55 = load ptr, ptr %preMasterSecret, align 8
-  %preMasterSz = getelementptr inbounds i8, ptr %54, i64 16
-  %56 = load i32, ptr %preMasterSz, align 8
-  tail call fastcc void @ForceZero(ptr noundef %55, i32 noundef %56)
+  %56 = load ptr, ptr %arrays, align 16
+  %preMasterSecret = getelementptr inbounds i8, ptr %56, i64 8
+  %57 = load ptr, ptr %preMasterSecret, align 8
+  %preMasterSz = getelementptr inbounds i8, ptr %56, i64 16
+  %58 = load i32, ptr %preMasterSz, align 8
+  tail call fastcc void @ForceZero(ptr noundef %57, i32 noundef %58)
   %call223 = tail call i32 @DeriveTls13Keys(ptr noundef nonnull %ssl, i32 noundef 3, i32 noundef 3, i32 noundef 1)
   br label %return
 

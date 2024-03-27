@@ -8611,8 +8611,8 @@ define linkonce_odr noundef i32 @_ZN3vcg9GLPickTriI6CMeshOE15PickVisibleFaceEiiR
   %39 = sitofp <2 x i32> %15 to <2 x float>
   %40 = getelementptr inbounds i8, ptr %3, i64 8
   %41 = getelementptr inbounds i8, ptr %3, i64 16
-  %42 = shufflevector <2 x float> %39, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %43 = shufflevector <4 x float> %42, <4 x float> <float poison, float poison, float 0.000000e+00, float 0.000000e+00>, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
+  %42 = shufflevector <2 x float> %39, <2 x float> poison, <4 x i32> <i32 1, i32 0, i32 poison, i32 poison>
+  %43 = shufflevector <4 x float> <float 0.000000e+00, float 0.000000e+00, float poison, float poison>, <4 x float> %42, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %.sroa.0.i.12.i.12.i.12..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i, i64 12
   br label %44
 
@@ -8686,9 +8686,9 @@ define linkonce_odr noundef i32 @_ZN3vcg9GLPickTriI6CMeshOE15PickVisibleFaceEiiR
   %103 = shufflevector <4 x float> %99, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %104 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %102, <2 x float> %103, <2 x float> %100)
   %105 = fadd <2 x float> %102, %104
-  %106 = shufflevector <2 x float> %105, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %107 = fcmp olt <4 x float> %106, %43
-  %108 = fcmp oge <4 x float> %106, %43
+  %106 = shufflevector <2 x float> %105, <2 x float> poison, <4 x i32> <i32 1, i32 0, i32 1, i32 0>
+  %107 = fcmp oge <4 x float> %106, %43
+  %108 = fcmp olt <4 x float> %106, %43
   %109 = shufflevector <4 x i1> %107, <4 x i1> %108, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
   %110 = freeze <4 x i1> %109
   %111 = bitcast <4 x i1> %110 to i4

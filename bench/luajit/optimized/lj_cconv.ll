@@ -770,9 +770,9 @@ sw.bb318:                                         ; preds = %if.end
   %46 = or disjoint i32 %and323, %and319
   %or.cond218 = icmp ne i32 %46, 0
   %cmp326.not = icmp ne i32 %3, %2
-  %or.cond219.not227 = select i1 %or.cond218, i1 true, i1 %cmp326.not
   %cmp330 = icmp eq i32 %3, -1
-  %or.cond220 = select i1 %or.cond219.not227, i1 true, i1 %cmp330
+  %47 = or i1 %cmp330, %cmp326.not
+  %or.cond220 = select i1 %or.cond218, i1 true, i1 %47
   br i1 %or.cond220, label %err_conv, label %lor.lhs.false332
 
 lor.lhs.false332:                                 ; preds = %sw.bb318
@@ -783,8 +783,8 @@ lor.lhs.false332:                                 ; preds = %sw.bb318
 sw.bb337:                                         ; preds = %if.end
   %and338 = and i32 %flags, 1
   %and342 = and i32 %5, 1048576
-  %47 = or disjoint i32 %and342, %and338
-  %or.cond221 = icmp eq i32 %47, 0
+  %48 = or disjoint i32 %and342, %and338
+  %or.cond221 = icmp eq i32 %48, 0
   %cmp345.not = icmp eq ptr %d.tr423, %s.tr424
   %or.cond222 = and i1 %cmp345.not, %or.cond221
   br i1 %or.cond222, label %copyval, label %err_conv

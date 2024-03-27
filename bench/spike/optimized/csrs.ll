@@ -1554,25 +1554,24 @@ define noundef zeroext i1 @_ZNK13pmpaddr_csr_t9access_okE11access_typem(ptr noca
   br i1 %.not72, label %40, label %26
 
 26:                                               ; preds = %3
-  %.not48 = xor i1 %8, true
-  %brmerge49 = select i1 %.not48, i1 true, i1 %.not44
-  %brmerge50 = select i1 %brmerge49, i1 true, i1 %.not
-  %.not51 = xor i1 %11, true
-  %brmerge52 = select i1 %brmerge50, i1 true, i1 %.not51
-  br i1 %brmerge52, label %27, label %44
+  %27 = and i32 %6, 7
+  %brmerge50.not = icmp eq i32 %27, 7
+  %brmerge52.not = select i1 %brmerge50.not, i1 %11, i1 false
+  br i1 %brmerge52.not, label %44, label %28
 
-27:                                               ; preds = %26
-  %28 = and i32 %6, 3
-  %29 = icmp eq i32 %28, 2
-  %30 = icmp sgt i8 %5, -1
-  %31 = xor i1 %12, %30
-  %32 = select i1 %31, i1 %spec.select67, i1 false
+28:                                               ; preds = %26
+  %29 = and i32 %6, 3
+  %30 = icmp eq i32 %29, 2
+  %31 = icmp sgt i8 %5, -1
+  %32 = xor i1 %12, %31
+  %33 = select i1 %32, i1 %spec.select67, i1 false
+  %not. = xor i1 %11, true
+  %brmerge54.not = select i1 %not., i1 %8, i1 false
   %switch = icmp ult i32 %1, 2
-  %33 = and i1 %switch, %.not51
-  %or.cond68 = and i1 %33, %8
+  %or.cond68 = and i1 %switch, %brmerge54.not
   br i1 %or.cond68, label %37, label %34
 
-34:                                               ; preds = %27
+34:                                               ; preds = %28
   %brmerge56 = select i1 %11, i1 true, i1 %8
   br i1 %brmerge56, label %36, label %35
 
@@ -1584,14 +1583,14 @@ define noundef zeroext i1 @_ZNK13pmpaddr_csr_t9access_okE11access_typem(ptr noca
 
 36:                                               ; preds = %35, %34
   %brmerge62.not74 = and i1 %14, %11
-  %brmerge66 = or i1 %.not45, %.not51
+  %brmerge66.not = and i1 %13, %11
   %spec.select = and i1 %12, %8
-  %spec.select69 = select i1 %brmerge66, i1 %brmerge62.not74, i1 %spec.select
+  %spec.select69 = select i1 %brmerge66.not, i1 %spec.select, i1 %brmerge62.not74
   br label %37
 
-37:                                               ; preds = %36, %27, %35
-  %38 = phi i1 [ true, %35 ], [ true, %27 ], [ %spec.select69, %36 ]
-  %39 = select i1 %29, i1 %38, i1 %32
+37:                                               ; preds = %36, %28, %35
+  %38 = phi i1 [ true, %35 ], [ true, %28 ], [ %spec.select69, %36 ]
+  %39 = select i1 %30, i1 %38, i1 %33
   br label %44
 
 40:                                               ; preds = %3

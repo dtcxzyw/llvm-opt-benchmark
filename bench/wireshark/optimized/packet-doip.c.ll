@@ -623,10 +623,9 @@ define internal i32 @dissect_doip_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
 
 15:                                               ; preds = %4
   %16 = icmp eq i8 %9, -1
-  %17 = icmp ne i16 %10, 0
-  %or.cond11.i = select i1 %16, i1 %17, i1 false
-  %18 = icmp ult i16 %10, 4
-  %or.cond14.i = select i1 %or.cond11.i, i1 %18, i1 false
+  %17 = add i16 %10, -1
+  %18 = icmp ult i16 %17, 3
+  %or.cond14.i = select i1 %16, i1 %18, i1 false
   br i1 %or.cond14.i, label %19, label %24
 
 19:                                               ; preds = %15, %4

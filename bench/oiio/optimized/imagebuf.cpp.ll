@@ -48776,46 +48776,46 @@ entry:
   %7 = load i32, ptr %roi, align 8
   %cmp.i = icmp eq i32 %7, -2147483648
   %cmp.i1 = icmp eq i32 %1, -2147483648
-  %or.cond.not10 = select i1 %cmp.i, i1 true, i1 %cmp.i1
   %cmp.not = icmp slt i32 %7, %1
-  %or.cond3 = select i1 %or.cond.not10, i1 true, i1 %cmp.not
+  %8 = or i1 %cmp.i1, %cmp.not
+  %or.cond3 = select i1 %cmp.i, i1 true, i1 %8
   %xend = getelementptr inbounds i8, ptr %roi, i64 4
-  %8 = load i32, ptr %xend, align 4
-  %cmp7.not = icmp sgt i32 %8, %add.i.i
+  %9 = load i32, ptr %xend, align 4
+  %cmp7.not = icmp sgt i32 %9, %add.i.i
   %or.cond4 = select i1 %or.cond3, i1 true, i1 %cmp7.not
   %ybegin = getelementptr inbounds i8, ptr %roi, i64 8
-  %9 = load i32, ptr %ybegin, align 8
-  %cmp10.not = icmp slt i32 %9, %3
+  %10 = load i32, ptr %ybegin, align 8
+  %cmp10.not = icmp slt i32 %10, %3
   %or.cond5 = select i1 %or.cond4, i1 true, i1 %cmp10.not
   %yend = getelementptr inbounds i8, ptr %roi, i64 12
-  %10 = load i32, ptr %yend, align 4
-  %cmp13.not = icmp sgt i32 %10, %add3.i.i
+  %11 = load i32, ptr %yend, align 4
+  %cmp13.not = icmp sgt i32 %11, %add3.i.i
   %or.cond6 = select i1 %or.cond5, i1 true, i1 %cmp13.not
   %zbegin = getelementptr inbounds i8, ptr %roi, i64 16
-  %11 = load i32, ptr %zbegin, align 8
-  %cmp16.not = icmp slt i32 %11, %5
+  %12 = load i32, ptr %zbegin, align 8
+  %cmp16.not = icmp slt i32 %12, %5
   %or.cond7 = select i1 %or.cond6, i1 true, i1 %cmp16.not
   %zend = getelementptr inbounds i8, ptr %roi, i64 20
-  %12 = load i32, ptr %zend, align 4
-  %cmp19.not = icmp sgt i32 %12, %add5.i.i
+  %13 = load i32, ptr %zend, align 4
+  %cmp19.not = icmp sgt i32 %13, %add5.i.i
   %or.cond8 = select i1 %or.cond7, i1 true, i1 %cmp19.not
   %chbegin = getelementptr inbounds i8, ptr %roi, i64 24
-  %13 = load i32, ptr %chbegin, align 8
-  %cmp22.not = icmp slt i32 %13, 0
+  %14 = load i32, ptr %chbegin, align 8
+  %cmp22.not = icmp slt i32 %14, 0
   %or.cond9 = select i1 %or.cond8, i1 true, i1 %cmp22.not
   br i1 %or.cond9, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
   %nchannels.i.i = getelementptr inbounds i8, ptr %0, i64 108
-  %14 = load i32, ptr %nchannels.i.i, align 4, !noalias !307
+  %15 = load i32, ptr %nchannels.i.i, align 4, !noalias !307
   %chend = getelementptr inbounds i8, ptr %roi, i64 28
-  %15 = load i32, ptr %chend, align 4
-  %cmp24 = icmp sle i32 %15, %14
+  %16 = load i32, ptr %chend, align 4
+  %cmp24 = icmp sle i32 %16, %15
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %16 = phi i1 [ false, %entry ], [ %cmp24, %land.rhs ]
-  ret i1 %16
+  %17 = phi i1 [ false, %entry ], [ %cmp24, %land.rhs ]
+  ret i1 %17
 }
 
 ; Function Attrs: mustprogress uwtable

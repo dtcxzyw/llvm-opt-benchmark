@@ -541,10 +541,9 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   store ptr %.lcssa165, ptr %11, align 8
   %183 = load i32, ptr %166, align 4
   %184 = icmp eq i32 %183, 34
-  %185 = icmp eq i64 %168, 0
-  %or.cond9 = select i1 %184, i1 true, i1 %185
-  %186 = icmp ugt i64 %168, 4294967295
-  %or.cond11 = select i1 %or.cond9, i1 true, i1 %186
+  %185 = add i64 %168, -4294967296
+  %186 = icmp ult i64 %185, -4294967295
+  %or.cond11 = select i1 %184, i1 true, i1 %186
   br i1 %or.cond11, label %187, label %188
 
 187:                                              ; preds = %._crit_edge

@@ -1646,18 +1646,18 @@ define noundef i32 @hwloc_pcidisc_find_bridge_buses(i32 noundef %0, i32 noundef 
   %13 = zext i8 %12 to i32
   %.not29 = icmp ule i32 %10, %1
   %.not30 = icmp ule i32 %13, %1
-  %or.cond.not32 = select i1 %.not29, i1 true, i1 %.not30
   %14 = icmp ugt i8 %9, %12
-  %or.cond31 = select i1 %or.cond.not32, i1 true, i1 %14
-  br i1 %or.cond31, label %16, label %15
+  %15 = or i1 %14, %.not30
+  %or.cond31 = select i1 %.not29, i1 true, i1 %15
+  br i1 %or.cond31, label %17, label %16
 
-15:                                               ; preds = %7
+16:                                               ; preds = %7
   store i32 %10, ptr %4, align 4
   store i32 %13, ptr %5, align 4
-  br label %16
+  br label %17
 
-16:                                               ; preds = %7, %15
-  %.0 = phi i32 [ 0, %15 ], [ -1, %7 ]
+17:                                               ; preds = %7, %16
+  %.0 = phi i32 [ 0, %16 ], [ -1, %7 ]
   ret i32 %.0
 }
 

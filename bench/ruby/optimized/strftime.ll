@@ -5713,15 +5713,15 @@ define internal fastcc i32 @iso8601wknum(ptr nocapture noundef readonly %0) unna
   %3 = getelementptr i8, ptr %0, i64 24
   %.val = load i32, ptr %3, align 8
   %4 = getelementptr i8, ptr %0, i64 28
-  %.val34 = load i32, ptr %4, align 4
+  %.val33 = load i32, ptr %4, align 4
   %5 = icmp eq i32 %.val, 0
   %.neg = sub i32 1, %.val
-  %spec.select.i.neg35 = select i1 %5, i32 -6, i32 %.neg
-  %6 = add i32 %.val34, 7
-  %7 = add i32 %6, %spec.select.i.neg35
+  %spec.select.i.neg34 = select i1 %5, i32 -6, i32 %.neg
+  %6 = add i32 %.val33, 7
+  %7 = add i32 %6, %spec.select.i.neg34
   %8 = sdiv i32 %7, 7
   %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %8, i32 0)
-  %9 = srem i32 %.val34, 7
+  %9 = srem i32 %.val33, 7
   %10 = sub i32 %.val, %9
   %11 = icmp slt i32 %10, 0
   %12 = add nsw i32 %10, 7
@@ -5792,18 +5792,17 @@ isleap.exit:                                      ; preds = %17, %32
   %45 = getelementptr inbounds i8, ptr %0, i64 12
   %46 = load i32, ptr %45, align 4
   %47 = icmp eq i32 %.val, 1
-  %48 = icmp sgt i32 %46, 28
-  %or.cond = select i1 %47, i1 %48, i1 false
-  %49 = icmp slt i32 %46, 32
-  %or.cond3 = select i1 %or.cond, i1 %49, i1 false
+  %48 = add i32 %46, -29
+  %49 = icmp ult i32 %48, 3
+  %or.cond3 = select i1 %47, i1 %49, i1 false
   br i1 %or.cond3, label %56, label %50
 
 50:                                               ; preds = %44
   %51 = icmp eq i32 %.val, 2
   %52 = and i32 %46, -2
   %or.cond5 = icmp eq i32 %52, 30
-  %or.cond33 = select i1 %51, i1 %or.cond5, i1 false
-  br i1 %or.cond33, label %56, label %53
+  %or.cond = select i1 %51, i1 %or.cond5, i1 false
+  br i1 %or.cond, label %56, label %53
 
 53:                                               ; preds = %50
   %54 = icmp eq i32 %.val, 3

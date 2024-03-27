@@ -3393,9 +3393,9 @@ define internal fastcc noundef zeroext i1 @inet_bind_conflict(ptr noundef readon
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 0
   %14 = icmp eq i32 %10, 0
-  %15 = select i1 %13, i1 true, i1 %14
-  %16 = icmp eq i32 %12, %10
-  %17 = select i1 %15, i1 true, i1 %16
+  %15 = icmp eq i32 %12, %10
+  %16 = or i1 %14, %15
+  %17 = select i1 %13, i1 true, i1 %16
   br i1 %17, label %18, label %64
 
 18:                                               ; preds = %8

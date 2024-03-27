@@ -103,7 +103,7 @@ define i32 @intersection(double %0, double %1, double %2, double %3, double %4, 
   %16 = fsub double %1, %3
   %17 = tail call double @llvm.fmuladd.f64(double %4, double %16, double %15)
   %18 = fcmp oeq double %17, 0.000000e+00
-  br i1 %18, label %50, label %19
+  br i1 %18, label %51, label %19
 
 19:                                               ; preds = %9
   %20 = fsub double %1, %7
@@ -137,13 +137,13 @@ define i32 @intersection(double %0, double %1, double %2, double %3, double %4, 
   %or.cond = and i1 %44, %46
   %47 = extractelement <2 x double> %40, i64 0
   %48 = fcmp oge double %47, 0.000000e+00
-  %or.cond3 = select i1 %or.cond, i1 %48, i1 false
   %49 = extractelement <2 x i1> %45, i64 0
-  %or.cond5 = select i1 %or.cond3, i1 %49, i1 false
+  %50 = and i1 %48, %49
+  %or.cond5 = select i1 %or.cond, i1 %50, i1 false
   %. = zext i1 %or.cond5 to i32
-  br label %50
+  br label %51
 
-50:                                               ; preds = %19, %9
+51:                                               ; preds = %19, %9
   %.0 = phi i32 [ 0, %9 ], [ %., %19 ]
   ret i32 %.0
 }

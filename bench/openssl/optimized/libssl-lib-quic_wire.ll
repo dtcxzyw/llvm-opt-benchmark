@@ -2663,44 +2663,45 @@ lor.lhs.false6:                                   ; preds = %if.end.i18
   %15 = load i64, ptr %retire_prior_to, align 8
   %cmp = icmp ult i64 %14, %15
   %tobool.not.i.i = icmp eq i64 %13, %conv1.i.i21
-  %or.cond68 = select i1 %cmp, i1 true, i1 %tobool.not.i.i
-  br i1 %or.cond68, label %return, label %PACKET_get_1.exit
+  %or.cond65 = select i1 %cmp, i1 true, i1 %tobool.not.i.i
+  br i1 %or.cond65, label %return, label %PACKET_get_1.exit
 
 PACKET_get_1.exit:                                ; preds = %lor.lhs.false6
   %16 = load i8, ptr %add.ptr.i.i25, align 1
-  %conv.i.i = zext i8 %16 to i64
+  %conv.i.i = zext i8 %16 to i32
   %add.ptr.i.i30 = getelementptr inbounds i8, ptr %add.ptr.i.i25, i64 1
   store ptr %add.ptr.i.i30, ptr %pkt, align 8
   %sub.i.i31 = add i64 %sub.i.i26, -1
   store i64 %sub.i.i31, ptr %0, align 8
-  %17 = add i8 %16, -21
-  %or.cond1 = icmp ult i8 %17, -20
-  br i1 %or.cond1, label %return, label %if.end
+  %17 = add nsw i32 %conv.i.i, -21
+  %18 = icmp ult i32 %17, -20
+  br i1 %18, label %return, label %if.end
 
 if.end:                                           ; preds = %PACKET_get_1.exit
   %conn_id = getelementptr inbounds i8, ptr %f, i64 16
   store i8 %16, ptr %conn_id, align 8
   %id = getelementptr inbounds i8, ptr %f, i64 17
+  %conv17 = zext i8 %16 to i64
   %pkt.val.i.i33 = load i64, ptr %0, align 8
-  %cmp.i.i = icmp ult i64 %pkt.val.i.i33, %conv.i.i
+  %cmp.i.i = icmp ult i64 %pkt.val.i.i33, %conv17
   br i1 %cmp.i.i, label %return, label %if.end21
 
 if.end21:                                         ; preds = %if.end
-  %18 = load ptr, ptr %pkt, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %id, ptr align 1 %18, i64 %conv.i.i, i1 false)
   %19 = load ptr, ptr %pkt, align 8
-  %add.ptr.i.i35 = getelementptr inbounds i8, ptr %19, i64 %conv.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %id, ptr align 1 %19, i64 %conv17, i1 false)
+  %20 = load ptr, ptr %pkt, align 8
+  %add.ptr.i.i35 = getelementptr inbounds i8, ptr %20, i64 %conv17
   store ptr %add.ptr.i.i35, ptr %pkt, align 8
-  %20 = load i64, ptr %0, align 8
-  %sub.i.i36 = sub i64 %20, %conv.i.i
+  %21 = load i64, ptr %0, align 8
+  %sub.i.i36 = sub i64 %21, %conv17
   store i64 %sub.i.i36, ptr %0, align 8
   %cmp22 = icmp ult i8 %16, 20
   br i1 %cmp22, label %if.then24, label %if.end29
 
 if.then24:                                        ; preds = %if.end21
-  %add.ptr = getelementptr inbounds i8, ptr %id, i64 %conv.i.i
-  %sub = sub nsw i64 20, %conv.i.i
-  %conv28 = and i64 %sub, 4294967295
+  %add.ptr = getelementptr inbounds i8, ptr %id, i64 %conv17
+  %sub = sub nuw nsw i32 20, %conv.i.i
+  %conv28 = zext nneg i32 %sub to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr, i8 0, i64 %conv28, i1 false)
   %pkt.val.i.i38.pr = load i64, ptr %0, align 8
   br label %if.end29
@@ -2712,13 +2713,13 @@ if.end29:                                         ; preds = %if.then24, %if.end2
 
 PACKET_copy_bytes.exit44:                         ; preds = %if.end29
   %stateless_reset = getelementptr inbounds i8, ptr %f, i64 37
-  %21 = load ptr, ptr %pkt, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %stateless_reset, ptr noundef nonnull align 1 dereferenceable(16) %21, i64 16, i1 false)
   %22 = load ptr, ptr %pkt, align 8
-  %add.ptr.i.i41 = getelementptr inbounds i8, ptr %22, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %stateless_reset, ptr noundef nonnull align 1 dereferenceable(16) %22, i64 16, i1 false)
+  %23 = load ptr, ptr %pkt, align 8
+  %add.ptr.i.i41 = getelementptr inbounds i8, ptr %23, i64 16
   store ptr %add.ptr.i.i41, ptr %pkt, align 8
-  %23 = load i64, ptr %0, align 8
-  %sub.i.i42 = add i64 %23, -16
+  %24 = load i64, ptr %0, align 8
+  %sub.i.i42 = add i64 %24, -16
   store i64 %sub.i.i42, ptr %0, align 8
   br label %return
 
@@ -3540,45 +3541,45 @@ ossl_quic_wire_decode_transport_param_bytes.exit: ; preds = %lor.lhs.false3.i
   store ptr %add.ptr.i.i18.i, ptr %pkt, align 8
   %sub.i.i19.i = sub i64 %sub.i.i14.i, %call7.i12.i
   store i64 %sub.i.i19.i, ptr %0, align 8
-  %10 = icmp ne i64 %call7.i.i, 13
-  %11 = add i64 %call7.i12.i, -62
-  %12 = icmp ult i64 %11, -21
-  %or.cond2 = select i1 %12, i1 true, i1 %10
+  %10 = add i64 %call7.i12.i, -62
+  %11 = icmp ult i64 %10, -21
+  %cmp5 = icmp ne i64 %call7.i.i, 13
+  %or.cond2 = select i1 %11, i1 true, i1 %cmp5
   br i1 %or.cond2, label %return, label %lor.lhs.false11
 
 lor.lhs.false11:                                  ; preds = %ossl_quic_wire_decode_transport_param_bytes.exit
   %ipv4 = getelementptr inbounds i8, ptr %p, i64 4
-  %13 = load i32, ptr %add.ptr.i.i13.i, align 1
-  store i32 %13, ptr %ipv4, align 1
+  %12 = load i32, ptr %add.ptr.i.i13.i, align 1
+  store i32 %12, ptr %ipv4, align 1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i13.i, i64 4
-  %14 = load i8, ptr %add.ptr.i.i, align 1
-  %conv.i.i = zext i8 %14 to i16
+  %13 = load i8, ptr %add.ptr.i.i, align 1
+  %conv.i.i = zext i8 %13 to i16
   %shl.i.i = shl nuw i16 %conv.i.i, 8
   %add.ptr.i.i18 = getelementptr inbounds i8, ptr %add.ptr.i.i13.i, i64 5
-  %15 = load i8, ptr %add.ptr.i.i18, align 1
-  %conv2.i.i = zext i8 %15 to i16
+  %14 = load i8, ptr %add.ptr.i.i18, align 1
+  %conv2.i.i = zext i8 %14 to i16
   %or.i.i = or disjoint i16 %shl.i.i, %conv2.i.i
   %add.ptr.i2.i = getelementptr inbounds i8, ptr %add.ptr.i.i13.i, i64 6
   %ipv6 = getelementptr inbounds i8, ptr %p, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %ipv6, ptr noundef nonnull align 1 dereferenceable(16) %add.ptr.i2.i, i64 16, i1 false)
   %add.ptr.i.i24 = getelementptr inbounds i8, ptr %add.ptr.i.i13.i, i64 22
-  %16 = load i8, ptr %add.ptr.i.i24, align 1
-  %conv.i.i31 = zext i8 %16 to i16
+  %15 = load i8, ptr %add.ptr.i.i24, align 1
+  %conv.i.i31 = zext i8 %15 to i16
   %shl.i.i32 = shl nuw i16 %conv.i.i31, 8
   %add.ptr.i.i33 = getelementptr inbounds i8, ptr %add.ptr.i.i13.i, i64 23
-  %17 = load i8, ptr %add.ptr.i.i33, align 1
-  %conv2.i.i34 = zext i8 %17 to i16
+  %16 = load i8, ptr %add.ptr.i.i33, align 1
+  %conv2.i.i34 = zext i8 %16 to i16
   %or.i.i35 = or disjoint i16 %shl.i.i32, %conv2.i.i34
   %add.ptr.i2.i36 = getelementptr inbounds i8, ptr %add.ptr.i.i13.i, i64 24
-  %18 = load i8, ptr %add.ptr.i2.i36, align 1
+  %17 = load i8, ptr %add.ptr.i2.i36, align 1
   %add.ptr.i.i43 = getelementptr inbounds i8, ptr %add.ptr.i.i13.i, i64 25
   %sub.i.i44 = add nsw i64 %call7.i12.i, -25
-  %cmp25 = icmp ugt i8 %18, 20
+  %cmp25 = icmp ugt i8 %17, 20
   br i1 %cmp25, label %return, label %lor.lhs.false26
 
 lor.lhs.false26:                                  ; preds = %lor.lhs.false11
   %cid = getelementptr inbounds i8, ptr %p, i64 40
-  %conv = zext nneg i8 %18 to i64
+  %conv = zext nneg i8 %17 to i64
   %cmp.i.i47 = icmp ult i64 %sub.i.i44, %conv
   br i1 %cmp.i.i47, label %return, label %lor.lhs.false31
 
@@ -3596,11 +3597,11 @@ if.end36:                                         ; preds = %lor.lhs.false31
   store i16 %or.i.i, ptr %p, align 2
   %ipv6_port40 = getelementptr inbounds i8, ptr %p, i64 2
   store i16 %or.i.i35, ptr %ipv6_port40, align 2
-  store i8 %18, ptr %cid, align 2
+  store i8 %17, ptr %cid, align 2
   br label %return
 
-return:                                           ; preds = %lor.lhs.false3.i, %if.end.i6.i, %lor.lhs.false.i, %if.end.i.i, %entry, %lor.lhs.false31, %lor.lhs.false26, %lor.lhs.false11, %ossl_quic_wire_decode_transport_param_bytes.exit, %if.end36
-  %retval.0 = phi i32 [ 1, %if.end36 ], [ 0, %ossl_quic_wire_decode_transport_param_bytes.exit ], [ 0, %lor.lhs.false11 ], [ 0, %lor.lhs.false26 ], [ 0, %lor.lhs.false31 ], [ 0, %entry ], [ 0, %if.end.i.i ], [ 0, %lor.lhs.false.i ], [ 0, %if.end.i6.i ], [ 0, %lor.lhs.false3.i ]
+return:                                           ; preds = %lor.lhs.false31, %lor.lhs.false26, %lor.lhs.false3.i, %if.end.i6.i, %lor.lhs.false.i, %if.end.i.i, %entry, %lor.lhs.false11, %ossl_quic_wire_decode_transport_param_bytes.exit, %if.end36
+  %retval.0 = phi i32 [ 1, %if.end36 ], [ 0, %ossl_quic_wire_decode_transport_param_bytes.exit ], [ 0, %lor.lhs.false11 ], [ 0, %entry ], [ 0, %if.end.i.i ], [ 0, %lor.lhs.false.i ], [ 0, %if.end.i6.i ], [ 0, %lor.lhs.false3.i ], [ 0, %lor.lhs.false26 ], [ 0, %lor.lhs.false31 ]
   ret i32 %retval.0
 }
 

@@ -207,10 +207,10 @@ define dso_local i32 @snd_hdac_device_init(ptr noundef %0, ptr noundef %1, ptr n
   %60 = icmp sgt i32 %58, -1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
   %61 = icmp ne i32 %59, -1
-  %62 = select i1 %60, i1 %61, i1 false
-  %63 = and i32 %59, 32767
-  %64 = icmp ne i32 %63, 0
-  %65 = select i1 %62, i1 %64, i1 false
+  %62 = and i32 %59, 32767
+  %63 = icmp ne i32 %62, 0
+  %64 = and i1 %61, %63
+  %65 = select i1 %60, i1 %64, i1 false
   br i1 %65, label %66, label %.loopexit
 
 66:                                               ; preds = %47
@@ -273,7 +273,7 @@ define dso_local i32 @snd_hdac_device_init(ptr noundef %0, ptr noundef %1, ptr n
 102:                                              ; preds = %100, %74
   %103 = add nuw nsw i32 %76, 1
   %104 = add nuw nsw i32 %75, 1
-  %105 = icmp eq i32 %103, %63
+  %105 = icmp eq i32 %103, %62
   br i1 %105, label %.loopexit, label %74, !llvm.loop !7
 
 .loopexit:                                        ; preds = %102, %47
@@ -483,38 +483,37 @@ define dso_local i32 @snd_hdac_refresh_widgets(ptr noundef %0) #0 align 16 {
   %18 = select i1 %13, i16 0, i16 %16
   %19 = select i1 %13, i32 0, i32 %17
   %20 = icmp eq i16 %18, 0
-  %21 = icmp eq i32 %19, 0
-  %22 = select i1 %20, i1 true, i1 %21
-  %23 = icmp ugt i32 %19, 254
-  %24 = select i1 %22, i1 true, i1 %23
-  br i1 %24, label %25, label %28
+  %21 = add nsw i32 %19, -255
+  %22 = icmp ult i32 %21, -254
+  %23 = select i1 %20, i1 true, i1 %22
+  br i1 %23, label %24, label %27
 
-25:                                               ; preds = %1
-  %26 = load i16, ptr %4, align 8
-  %27 = zext i16 %26 to i32
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %27) #10
-  br label %37
+24:                                               ; preds = %1
+  %25 = load i16, ptr %4, align 8
+  %26 = zext i16 %25 to i32
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %26) #10
+  br label %36
 
-28:                                               ; preds = %1
-  %29 = call i32 @hda_widget_sysfs_reinit(ptr noundef %0, i16 noundef zeroext %18, i32 noundef %19) #9
-  %30 = icmp slt i32 %29, 0
-  br i1 %30, label %37, label %31
+27:                                               ; preds = %1
+  %28 = call i32 @hda_widget_sysfs_reinit(ptr noundef %0, i16 noundef zeroext %18, i32 noundef %19) #9
+  %29 = icmp slt i32 %28, 0
+  br i1 %29, label %36, label %30
 
-31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %0, i64 824
-  store i32 %19, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 828
-  store i16 %18, ptr %33, align 4
-  %34 = trunc i32 %19 to i16
-  %35 = add nuw i16 %18, %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 830
-  store i16 %35, ptr %36, align 2
-  br label %37
+30:                                               ; preds = %27
+  %31 = getelementptr inbounds i8, ptr %0, i64 824
+  store i32 %19, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 828
+  store i16 %18, ptr %32, align 4
+  %33 = trunc i32 %19 to i16
+  %34 = add nuw i16 %18, %33
+  %35 = getelementptr inbounds i8, ptr %0, i64 830
+  store i16 %34, ptr %35, align 2
+  br label %36
 
-37:                                               ; preds = %31, %28, %25
-  %38 = phi i32 [ -22, %25 ], [ %29, %28 ], [ %29, %31 ]
+36:                                               ; preds = %30, %27, %24
+  %37 = phi i32 [ -22, %24 ], [ %28, %27 ], [ %28, %30 ]
   call void @mutex_unlock(ptr noundef %3) #9
-  ret i32 %38
+  ret i32 %37
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

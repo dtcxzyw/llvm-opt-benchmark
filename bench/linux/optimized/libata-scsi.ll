@@ -3539,7 +3539,7 @@ define internal noundef i32 @ata_scsiop_inq_b1(ptr nocapture noundef readonly %0
 .thread:                                          ; preds = %2
   %10 = getelementptr i8, ptr %4, i64 434
   %11 = load i16, ptr %10, align 2
-  br label %40
+  br label %38
 
 12:                                               ; preds = %2
   %13 = zext i16 %8 to i32
@@ -3560,74 +3560,73 @@ define internal noundef i32 @ata_scsiop_inq_b1(ptr nocapture noundef readonly %0
 22:                                               ; preds = %19, %14
   %23 = phi i32 [ 0, %19 ], [ %15, %14 ]
   %24 = icmp ult i32 %23, 7
-  %25 = icmp eq i16 %6, 0
-  %26 = select i1 %24, i1 true, i1 %25
-  %27 = getelementptr i8, ptr %4, i64 434
-  %28 = load i16, ptr %27, align 2
-  br label %29
+  %25 = getelementptr i8, ptr %4, i64 434
+  %26 = load i16, ptr %25, align 2
+  br label %27
 
-29:                                               ; preds = %34, %22
-  %30 = phi i32 [ 14, %22 ], [ %35, %34 ]
-  %31 = shl nuw i32 1, %30
-  %32 = and i32 %31, %13
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %37
+27:                                               ; preds = %32, %22
+  %28 = phi i32 [ 14, %22 ], [ %33, %32 ]
+  %29 = shl nuw i32 1, %28
+  %30 = and i32 %29, %13
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %32, label %35
 
-34:                                               ; preds = %29
-  %35 = add nsw i32 %30, -1
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %29, !llvm.loop !15
+32:                                               ; preds = %27
+  %33 = add nsw i32 %28, -1
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %35, label %27, !llvm.loop !15
 
-37:                                               ; preds = %34, %29
-  %38 = phi i32 [ 0, %34 ], [ %30, %29 ]
-  %39 = icmp ult i32 %38, 7
-  br label %40
+35:                                               ; preds = %32, %27
+  %36 = phi i32 [ 0, %32 ], [ %28, %27 ]
+  %37 = icmp ult i32 %36, 7
+  br label %38
 
-40:                                               ; preds = %.thread, %37
-  %41 = phi i16 [ %28, %37 ], [ %11, %.thread ]
-  %42 = phi i1 [ %26, %37 ], [ true, %.thread ]
-  %43 = phi i1 [ %39, %37 ], [ true, %.thread ]
+38:                                               ; preds = %.thread, %35
+  %39 = phi i16 [ %26, %35 ], [ %11, %.thread ]
+  %40 = phi i1 [ %24, %35 ], [ true, %.thread ]
+  %41 = phi i1 [ %37, %35 ], [ true, %.thread ]
+  %42 = icmp eq i16 %6, 0
   %.in = and i16 %6, 15
-  %44 = icmp ugt i16 %.in, 5
-  %45 = trunc i16 %.in to i8
-  %46 = icmp eq i16 %41, 0
-  %47 = select i1 %43, i1 true, i1 %46
-  %48 = icmp eq i16 %41, -1
-  %49 = select i1 %47, i1 true, i1 %48
-  %50 = add i16 %41, -2
-  %51 = icmp ult i16 %50, 1023
-  %52 = select i1 %51, i16 0, i16 %41
-  %53 = zext i16 %52 to i32
-  %54 = select i1 %49, i32 0, i32 %53
-  %55 = getelementptr i8, ptr %4, i64 138
-  %56 = load i16, ptr %55, align 2
-  %57 = trunc i16 %56 to i8
-  %58 = and i8 %57, 3
-  %59 = getelementptr i8, ptr %1, i64 1
-  store i8 -79, ptr %59, align 1
-  %60 = getelementptr i8, ptr %1, i64 3
-  store i8 60, ptr %60, align 1
-  %61 = lshr i32 %54, 8
-  %62 = trunc i32 %61 to i8
-  %63 = getelementptr i8, ptr %1, i64 4
+  %43 = icmp ugt i16 %.in, 5
+  %44 = trunc i16 %.in to i8
+  %45 = add i16 %39, 1
+  %46 = icmp ult i16 %45, 2
+  %47 = select i1 %41, i1 true, i1 %46
+  %48 = add i16 %39, -2
+  %49 = icmp ult i16 %48, 1023
+  %50 = select i1 %49, i16 0, i16 %39
+  %51 = zext i16 %50 to i32
+  %52 = select i1 %47, i32 0, i32 %51
+  %53 = getelementptr i8, ptr %4, i64 138
+  %54 = load i16, ptr %53, align 2
+  %55 = trunc i16 %54 to i8
+  %56 = and i8 %55, 3
+  %57 = getelementptr i8, ptr %1, i64 1
+  store i8 -79, ptr %57, align 1
+  %58 = getelementptr i8, ptr %1, i64 3
+  store i8 60, ptr %58, align 1
+  %59 = lshr i32 %52, 8
+  %60 = trunc i32 %59 to i8
+  %61 = getelementptr i8, ptr %1, i64 4
+  store i8 %60, ptr %61, align 1
+  %62 = trunc i32 %52 to i8
+  %63 = getelementptr i8, ptr %1, i64 5
   store i8 %62, ptr %63, align 1
-  %64 = trunc i32 %54 to i8
-  %65 = getelementptr i8, ptr %1, i64 5
-  store i8 %64, ptr %65, align 1
-  %66 = select i1 %42, i1 true, i1 %44
-  %67 = select i1 %66, i8 0, i8 %45
-  %68 = getelementptr i8, ptr %1, i64 7
-  store i8 %67, ptr %68, align 1
-  %69 = icmp eq i8 %58, 0
-  br i1 %69, label %73, label %70
+  %64 = or i1 %42, %43
+  %65 = select i1 %40, i1 true, i1 %64
+  %66 = select i1 %65, i8 0, i8 %44
+  %67 = getelementptr i8, ptr %1, i64 7
+  store i8 %66, ptr %67, align 1
+  %68 = icmp eq i8 %56, 0
+  br i1 %68, label %72, label %69
 
-70:                                               ; preds = %40
-  %71 = shl nuw nsw i8 %58, 4
-  %72 = getelementptr i8, ptr %1, i64 8
-  store i8 %71, ptr %72, align 1
-  br label %73
+69:                                               ; preds = %38
+  %70 = shl nuw nsw i8 %56, 4
+  %71 = getelementptr i8, ptr %1, i64 8
+  store i8 %70, ptr %71, align 1
+  br label %72
 
-73:                                               ; preds = %70, %40
+72:                                               ; preds = %69, %38
   ret i32 0
 }
 

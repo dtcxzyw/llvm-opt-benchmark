@@ -2840,10 +2840,9 @@ define internal i32 @dissect_someip_udp(ptr noundef %0, ptr noundef %1, ptr noun
   %12 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 11, i32 noundef 0) #14
   %13 = add i8 %10, -20
   %or.cond.i = icmp ult i8 %13, 44
-  %14 = icmp ugt i16 %11, -261
-  %or.cond5.i = select i1 %or.cond.i, i1 %14, i1 false
-  %15 = icmp ult i16 %11, -256
-  %or.cond8.i = select i1 %or.cond5.i, i1 %15, i1 false
+  %14 = and i16 %11, -4
+  %15 = icmp eq i16 %14, -260
+  %or.cond8.i = select i1 %or.cond.i, i1 %15, i1 false
   br i1 %or.cond8.i, label %16, label %.thread.i
 
 16:                                               ; preds = %9
@@ -2859,10 +2858,9 @@ define internal i32 @dissect_someip_udp(ptr noundef %0, ptr noundef %1, ptr noun
   %22 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef 4, i32 noundef 0) #14
   %23 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 12) #14
   %24 = icmp eq i8 %23, 1
-  %25 = icmp ugt i32 %22, 7
-  %or.cond12.i = select i1 %24, i1 %25, i1 false
-  %26 = icmp ult i32 %22, 65536
-  %or.cond14.i = select i1 %or.cond12.i, i1 %26, i1 false
+  %25 = add i32 %22, -8
+  %26 = icmp ult i32 %25, 65528
+  %or.cond14.i = select i1 %24, i1 %26, i1 false
   br i1 %or.cond14.i, label %27, label %could_this_be_dtls.exit
 
 27:                                               ; preds = %.thread.i
@@ -5453,10 +5451,10 @@ reset_someip_parameter_base_type_list_cb.exit:    ; preds = %0, %2
   %4 = icmp ne ptr %3, null
   %5 = load ptr, ptr @someip_parameter_base_type_list, align 8
   %6 = icmp ne ptr %5, null
-  %or.cond.not = select i1 %4, i1 %6, i1 false
+  %or.cond.not13 = select i1 %4, i1 %6, i1 false
   %7 = load i32, ptr @someip_parameter_base_type_list_num, align 4
   %8 = icmp ne i32 %7, 0
-  %or.cond = select i1 %or.cond.not, i1 %8, i1 false
+  %or.cond = select i1 %or.cond.not13, i1 %8, i1 false
   br i1 %or.cond, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %reset_someip_parameter_base_type_list_cb.exit, %.lr.ph
@@ -5638,10 +5636,10 @@ define internal void @post_update_someip_parameter_string_list_cb() #0 {
   %5 = icmp ne ptr %4, null
   %6 = load ptr, ptr @someip_parameter_strings, align 8
   %7 = icmp ne ptr %6, null
-  %or.cond.not = select i1 %5, i1 %7, i1 false
+  %or.cond.not15 = select i1 %5, i1 %7, i1 false
   %8 = load i32, ptr @someip_parameter_strings_num, align 4
   %9 = icmp ne i32 %8, 0
-  %or.cond = select i1 %or.cond.not, i1 %9, i1 false
+  %or.cond = select i1 %or.cond.not15, i1 %9, i1 false
   br i1 %or.cond, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
@@ -5765,10 +5763,10 @@ reset_someip_parameter_typedef_list_cb.exit:      ; preds = %0, %2
   %4 = icmp ne ptr %3, null
   %5 = load ptr, ptr @someip_parameter_typedefs, align 8
   %6 = icmp ne ptr %5, null
-  %or.cond.not = select i1 %4, i1 %6, i1 false
+  %or.cond.not13 = select i1 %4, i1 %6, i1 false
   %7 = load i32, ptr @someip_parameter_typedefs_num, align 4
   %8 = icmp ne i32 %7, 0
-  %or.cond = select i1 %or.cond.not, i1 %8, i1 false
+  %or.cond = select i1 %or.cond.not13, i1 %8, i1 false
   br i1 %or.cond, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %reset_someip_parameter_typedef_list_cb.exit, %.lr.ph

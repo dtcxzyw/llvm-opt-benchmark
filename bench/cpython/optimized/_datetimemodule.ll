@@ -2938,10 +2938,8 @@ entry:
   %0 = getelementptr i8, ptr %args, i64 16
   %args.val = load i64, ptr %0, align 8
   %cmp = icmp eq ptr %kwargs, null
-  %cmp1 = icmp sgt i64 %args.val, 2
-  %or.cond = select i1 %cmp, i1 %cmp1, i1 false
-  %cmp3 = icmp slt i64 %args.val, 4
-  %or.cond1 = select i1 %or.cond, i1 %cmp3, i1 false
+  %1 = icmp eq i64 %args.val, 3
+  %or.cond1 = select i1 %cmp, i1 %1, i1 false
   %ob_item = getelementptr inbounds i8, ptr %args, i64 24
   br i1 %or.cond1, label %if.end, label %cond.end
 
@@ -2952,8 +2950,8 @@ cond.end:                                         ; preds = %entry
 
 if.end:                                           ; preds = %entry, %cond.end
   %cond32 = phi ptr [ %call11, %cond.end ], [ %ob_item, %entry ]
-  %1 = load ptr, ptr %cond32, align 8
-  %call12 = call i32 @PyLong_AsInt(ptr noundef %1) #15
+  %2 = load ptr, ptr %cond32, align 8
+  %call12 = call i32 @PyLong_AsInt(ptr noundef %2) #15
   %cmp13 = icmp eq i32 %call12, -1
   br i1 %cmp13, label %land.lhs.true14, label %if.end18
 
@@ -2964,8 +2962,8 @@ land.lhs.true14:                                  ; preds = %if.end
 
 if.end18:                                         ; preds = %land.lhs.true14, %if.end
   %arrayidx19 = getelementptr i8, ptr %cond32, i64 8
-  %2 = load ptr, ptr %arrayidx19, align 8
-  %call20 = call i32 @PyLong_AsInt(ptr noundef %2) #15
+  %3 = load ptr, ptr %arrayidx19, align 8
+  %call20 = call i32 @PyLong_AsInt(ptr noundef %3) #15
   %cmp21 = icmp eq i32 %call20, -1
   br i1 %cmp21, label %land.lhs.true22, label %if.end26
 
@@ -2976,15 +2974,15 @@ land.lhs.true22:                                  ; preds = %if.end18
 
 if.end26:                                         ; preds = %land.lhs.true22, %if.end18
   %arrayidx27 = getelementptr i8, ptr %cond32, i64 16
-  %3 = load ptr, ptr %arrayidx27, align 8
-  %call28 = call i32 @PyLong_AsInt(ptr noundef %3) #15
+  %4 = load ptr, ptr %arrayidx27, align 8
+  %call28 = call i32 @PyLong_AsInt(ptr noundef %4) #15
   %cmp29 = icmp eq i32 %call28, -1
   br i1 %cmp29, label %land.lhs.true30, label %if.end26.split
 
 if.end26.split:                                   ; preds = %if.end26
   %tp_alloc.i = getelementptr inbounds i8, ptr %type, i64 304
-  %4 = load ptr, ptr %tp_alloc.i, align 8
-  %call.i = call ptr %4(ptr noundef %type, i64 noundef 3) #15
+  %5 = load ptr, ptr %tp_alloc.i, align 8
+  %call.i = call ptr %5(ptr noundef %type, i64 noundef 3) #15
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %exit, label %if.end.i
 
@@ -3007,8 +3005,8 @@ land.lhs.true30:                                  ; preds = %if.end26
 
 land.lhs.true30.split:                            ; preds = %land.lhs.true30
   %tp_alloc.i17 = getelementptr inbounds i8, ptr %type, i64 304
-  %5 = load ptr, ptr %tp_alloc.i17, align 8
-  %call.i18 = call ptr %5(ptr noundef %type, i64 noundef 3) #15
+  %6 = load ptr, ptr %tp_alloc.i17, align 8
+  %call.i18 = call ptr %6(ptr noundef %type, i64 noundef 3) #15
   %cmp.i19 = icmp eq ptr %call.i18, null
   br i1 %cmp.i19, label %exit, label %if.end.i20
 

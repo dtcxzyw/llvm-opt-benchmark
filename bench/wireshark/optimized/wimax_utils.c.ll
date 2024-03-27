@@ -960,10 +960,9 @@ define hidden void @wimax_error_parameter_set_decoder(ptr noundef %0, ptr nocapt
   %14 = call i32 @get_tlv_type(ptr noundef nonnull %4) #3
   %15 = call i32 @get_tlv_length(ptr noundef nonnull %4) #3
   %16 = icmp eq i32 %14, -1
-  %17 = icmp ugt i32 %15, 64000
-  %or.cond = select i1 %16, i1 true, i1 %17
-  %18 = icmp eq i32 %15, 0
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %18
+  %17 = add i32 %15, -64001
+  %18 = icmp ult i32 %17, -64000
+  %or.cond3 = select i1 %16, i1 true, i1 %18
   br i1 %or.cond3, label %19, label %25
 
 19:                                               ; preds = %.lr.ph
@@ -1056,10 +1055,9 @@ switch.edge.thread:                               ; preds = %4, %4, %4, %switch.
   %16 = call i32 @get_tlv_type(ptr noundef nonnull %5) #3
   %17 = call i32 @get_tlv_length(ptr noundef nonnull %5) #3
   %18 = icmp eq i32 %16, -1
-  %19 = icmp ugt i32 %17, 64000
-  %or.cond5.us = select i1 %18, i1 true, i1 %19
-  %20 = icmp eq i32 %17, 0
-  %or.cond7.us = select i1 %or.cond5.us, i1 true, i1 %20
+  %19 = add i32 %17, -64001
+  %20 = icmp ult i32 %19, -64000
+  %or.cond7.us = select i1 %18, i1 true, i1 %20
   br i1 %or.cond7.us, label %.split.us, label %21
 
 21:                                               ; preds = %.lr.ph362.split.us
@@ -1106,10 +1104,9 @@ switch.edge.thread:                               ; preds = %4, %4, %4, %switch.
   %46 = call i32 @get_tlv_type(ptr noundef nonnull %5) #3
   %47 = call i32 @get_tlv_length(ptr noundef nonnull %5) #3
   %48 = icmp eq i32 %46, -1
-  %49 = icmp ugt i32 %47, 64000
-  %or.cond9.us = select i1 %48, i1 true, i1 %49
-  %50 = icmp eq i32 %47, 0
-  %or.cond11.us = select i1 %or.cond9.us, i1 true, i1 %50
+  %49 = add i32 %47, -64001
+  %50 = icmp ult i32 %49, -64000
+  %or.cond11.us = select i1 %48, i1 true, i1 %50
   br i1 %or.cond11.us, label %61, label %51
 
 51:                                               ; preds = %.lr.ph360.us
@@ -1171,10 +1168,9 @@ switch.lookup:                                    ; preds = %51
   %82 = call i32 @get_tlv_type(ptr noundef nonnull %5) #3
   %83 = call i32 @get_tlv_length(ptr noundef nonnull %5) #3
   %84 = icmp eq i32 %82, -1
-  %85 = icmp ugt i32 %83, 64000
-  %or.cond5 = select i1 %84, i1 true, i1 %85
-  %86 = icmp eq i32 %83, 0
-  %or.cond7 = select i1 %or.cond5, i1 true, i1 %86
+  %85 = add i32 %83, -64001
+  %86 = icmp ult i32 %85, -64000
+  %or.cond7 = select i1 %84, i1 true, i1 %86
   br i1 %or.cond7, label %.split.us, label %91
 
 .split.us:                                        ; preds = %.lr.ph362.split, %.lr.ph362.split.us
@@ -1232,10 +1228,9 @@ switch.lookup:                                    ; preds = %51
   %116 = call i32 @get_tlv_type(ptr noundef nonnull %5) #3
   %117 = call i32 @get_tlv_length(ptr noundef nonnull %5) #3
   %118 = icmp eq i32 %116, -1
-  %119 = icmp ugt i32 %117, 64000
-  %or.cond13 = select i1 %118, i1 true, i1 %119
-  %120 = icmp eq i32 %117, 0
-  %or.cond15 = select i1 %or.cond13, i1 true, i1 %120
+  %119 = add i32 %117, -64001
+  %120 = icmp ult i32 %119, -64000
+  %or.cond15 = select i1 %118, i1 true, i1 %120
   br i1 %or.cond15, label %121, label %126
 
 121:                                              ; preds = %.lr.ph358
@@ -1537,10 +1532,9 @@ switch.lookup:                                    ; preds = %51
   %338 = call i32 @get_tlv_type(ptr noundef nonnull %5) #3
   %339 = call i32 @get_tlv_length(ptr noundef nonnull %5) #3
   %340 = icmp eq i32 %338, -1
-  %341 = icmp ugt i32 %339, 64000
-  %or.cond17 = select i1 %340, i1 true, i1 %341
-  %342 = icmp eq i32 %339, 0
-  %or.cond19 = select i1 %or.cond17, i1 true, i1 %342
+  %341 = add i32 %339, -64001
+  %342 = icmp ult i32 %341, -64000
+  %or.cond19 = select i1 %340, i1 true, i1 %342
   br i1 %or.cond19, label %343, label %348
 
 343:                                              ; preds = %.lr.ph
@@ -1630,10 +1624,9 @@ define hidden void @wimax_service_flow_encodings_decoder(ptr noundef %0, ptr noc
   %10 = call i32 @get_tlv_type(ptr noundef nonnull %4) #3
   %11 = call i32 @get_tlv_length(ptr noundef nonnull %4) #3
   %12 = icmp eq i32 %10, -1
-  %13 = icmp ugt i32 %11, 64000
-  %or.cond = select i1 %12, i1 true, i1 %13
-  %14 = icmp eq i32 %11, 0
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %14
+  %13 = add i32 %11, -64001
+  %14 = icmp ult i32 %13, -64000
+  %or.cond3 = select i1 %12, i1 true, i1 %14
   br i1 %or.cond3, label %15, label %21
 
 15:                                               ; preds = %.lr.ph342
@@ -2194,10 +2187,9 @@ define hidden void @wimax_security_negotiation_parameters_decoder(ptr noundef %0
   %10 = call i32 @get_tlv_type(ptr noundef nonnull %4) #3
   %11 = call i32 @get_tlv_length(ptr noundef nonnull %4) #3
   %12 = icmp eq i32 %10, -1
-  %13 = icmp ugt i32 %11, 64000
-  %or.cond = select i1 %12, i1 true, i1 %13
-  %14 = icmp eq i32 %11, 0
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %14
+  %13 = add i32 %11, -64001
+  %14 = icmp ult i32 %13, -64000
+  %or.cond3 = select i1 %12, i1 true, i1 %14
   br i1 %or.cond3, label %15, label %21
 
 15:                                               ; preds = %.lr.ph
@@ -2342,10 +2334,9 @@ define hidden void @wimax_cryptographic_suite_list_decoder(ptr noundef %0, ptr n
   %10 = call i32 @get_tlv_type(ptr noundef nonnull %4) #3
   %11 = call i32 @get_tlv_length(ptr noundef nonnull %4) #3
   %12 = icmp eq i32 %10, -1
-  %13 = icmp ugt i32 %11, 64000
-  %or.cond = select i1 %12, i1 true, i1 %13
-  %14 = icmp eq i32 %11, 0
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %14
+  %13 = add i32 %11, -64001
+  %14 = icmp ult i32 %13, -64000
+  %or.cond3 = select i1 %12, i1 true, i1 %14
   br i1 %or.cond3, label %15, label %21
 
 15:                                               ; preds = %.lr.ph
@@ -2413,10 +2404,9 @@ define hidden void @wimax_pkm_tlv_encoded_attributes_decoder(ptr noundef %0, ptr
   %10 = call i32 @get_tlv_type(ptr noundef nonnull %4) #3
   %11 = call i32 @get_tlv_length(ptr noundef nonnull %4) #3
   %12 = icmp eq i32 %10, -1
-  %13 = icmp ugt i32 %11, 64000
-  %or.cond = select i1 %12, i1 true, i1 %13
-  %14 = icmp eq i32 %11, 0
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %14
+  %13 = add i32 %11, -64001
+  %14 = icmp ult i32 %13, -64000
+  %or.cond3 = select i1 %12, i1 true, i1 %14
   br i1 %or.cond3, label %15, label %21
 
 15:                                               ; preds = %.lr.ph
@@ -2729,10 +2719,9 @@ define hidden void @wimax_tek_parameters_decoder(ptr noundef %0, ptr nocapture n
   %10 = call i32 @get_tlv_type(ptr noundef nonnull %4) #3
   %11 = call i32 @get_tlv_length(ptr noundef nonnull %4) #3
   %12 = icmp eq i32 %10, -1
-  %13 = icmp ugt i32 %11, 64000
-  %or.cond = select i1 %12, i1 true, i1 %13
-  %14 = icmp eq i32 %11, 0
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %14
+  %13 = add i32 %11, -64001
+  %14 = icmp ult i32 %13, -64000
+  %or.cond3 = select i1 %12, i1 true, i1 %14
   br i1 %or.cond3, label %15, label %21
 
 15:                                               ; preds = %.lr.ph
@@ -2803,10 +2792,9 @@ define hidden void @wimax_security_capabilities_decoder(ptr noundef %0, ptr noca
   %10 = call i32 @get_tlv_type(ptr noundef nonnull %4) #3
   %11 = call i32 @get_tlv_length(ptr noundef nonnull %4) #3
   %12 = icmp eq i32 %10, -1
-  %13 = icmp ugt i32 %11, 64000
-  %or.cond = select i1 %12, i1 true, i1 %13
-  %14 = icmp eq i32 %11, 0
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %14
+  %13 = add i32 %11, -64001
+  %14 = icmp ult i32 %13, -64000
+  %or.cond3 = select i1 %12, i1 true, i1 %14
   br i1 %or.cond3, label %15, label %21
 
 15:                                               ; preds = %.lr.ph
@@ -2867,10 +2855,9 @@ define hidden void @wimax_sa_descriptor_decoder(ptr noundef %0, ptr nocapture no
   %10 = call i32 @get_tlv_type(ptr noundef nonnull %4) #3
   %11 = call i32 @get_tlv_length(ptr noundef nonnull %4) #3
   %12 = icmp eq i32 %10, -1
-  %13 = icmp ugt i32 %11, 64000
-  %or.cond = select i1 %12, i1 true, i1 %13
-  %14 = icmp eq i32 %11, 0
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %14
+  %13 = add i32 %11, -64001
+  %14 = icmp ult i32 %13, -64000
+  %or.cond3 = select i1 %12, i1 true, i1 %14
   br i1 %or.cond3, label %15, label %21
 
 15:                                               ; preds = %.lr.ph
@@ -2957,10 +2944,9 @@ define hidden void @wimax_pkm_configuration_settings_decoder(ptr noundef %0, ptr
   %10 = call i32 @get_tlv_type(ptr noundef nonnull %4) #3
   %11 = call i32 @get_tlv_length(ptr noundef nonnull %4) #3
   %12 = icmp eq i32 %10, -1
-  %13 = icmp ugt i32 %11, 64000
-  %or.cond = select i1 %12, i1 true, i1 %13
-  %14 = icmp eq i32 %11, 0
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %14
+  %13 = add i32 %11, -64001
+  %14 = icmp ult i32 %13, -64000
+  %or.cond3 = select i1 %12, i1 true, i1 %14
   br i1 %or.cond3, label %15, label %21
 
 15:                                               ; preds = %.lr.ph
@@ -3020,10 +3006,9 @@ define hidden void @wimax_vendor_specific_information_decoder(ptr noundef %0, pt
   %12 = call i32 @get_tlv_type(ptr noundef nonnull %4) #3
   %13 = call i32 @get_tlv_length(ptr noundef nonnull %4) #3
   %14 = icmp eq i32 %12, -1
-  %15 = icmp ugt i32 %13, 64000
-  %or.cond = select i1 %14, i1 true, i1 %15
-  %16 = icmp eq i32 %13, 0
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %16
+  %15 = add i32 %13, -64001
+  %16 = icmp ult i32 %15, -64000
+  %or.cond3 = select i1 %14, i1 true, i1 %16
   br i1 %or.cond3, label %17, label %23
 
 17:                                               ; preds = %10
@@ -3125,10 +3110,9 @@ define hidden i32 @wimax_common_tlv_encoding_decoder(ptr noundef %0, ptr noundef
   %12 = call i32 @get_tlv_type(ptr noundef nonnull %4) #3
   %13 = call i32 @get_tlv_length(ptr noundef nonnull %4) #3
   %14 = icmp eq i32 %12, -1
-  %15 = icmp ugt i32 %13, 64000
-  %or.cond = select i1 %14, i1 true, i1 %15
-  %16 = icmp eq i32 %13, 0
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %16
+  %15 = add i32 %13, -64001
+  %16 = icmp ult i32 %15, -64000
+  %or.cond3 = select i1 %14, i1 true, i1 %16
   br i1 %or.cond3, label %17, label %23
 
 17:                                               ; preds = %.lr.ph

@@ -2500,9 +2500,9 @@ if.then62:                                        ; preds = %if.then56, %if.then
   %24 = load i8, ptr %23, align 1
   %cmp66 = icmp eq i8 %24, 0
   %cmp68 = fcmp oge double %call65, 0.000000e+00
-  %or.cond5 = select i1 %cmp66, i1 %cmp68, i1 false
   %cmp70 = fcmp ole double %call65, 2.550000e+02
-  %or.cond6 = select i1 %or.cond5, i1 %cmp70, i1 false
+  %25 = and i1 %cmp68, %cmp70
+  %or.cond6 = select i1 %cmp66, i1 %25, i1 false
   br i1 %or.cond6, label %lor.lhs.false71, label %cleanup.sink.split
 
 lor.lhs.false71:                                  ; preds = %if.then62
@@ -2520,12 +2520,12 @@ if.else85:                                        ; preds = %if.end36
   ]
 
 sw.bb:                                            ; preds = %if.else85
-  %25 = load ptr, ptr %vname, align 8
-  %call90 = call double @strtod(ptr noundef %25, ptr noundef nonnull %end86) #15
+  %26 = load ptr, ptr %vname, align 8
+  %call90 = call double @strtod(ptr noundef %26, ptr noundef nonnull %end86) #15
   store double %call90, ptr %val87, align 8
-  %26 = load ptr, ptr %end86, align 8
-  %27 = load i8, ptr %26, align 1
-  %cmp92.not = icmp eq i8 %27, 0
+  %27 = load ptr, ptr %end86, align 8
+  %28 = load i8, ptr %27, align 1
+  %cmp92.not = icmp eq i8 %28, 0
   br i1 %cmp92.not, label %if.end97, label %cleanup.sink.split
 
 if.end97:                                         ; preds = %sw.bb
@@ -2533,8 +2533,8 @@ if.end97:                                         ; preds = %sw.bb
           to label %invoke.cont148.invoke unwind label %lpad15
 
 sw.bb101:                                         ; preds = %if.else85
-  %28 = load ptr, ptr %vname, align 8
-  %call105 = call fastcc noundef signext i8 @_ZN6icu_7512_GLOBAL__N_113mungeCharNameEPcPKci(ptr noundef nonnull %buf, ptr noundef %28)
+  %29 = load ptr, ptr %vname, align 8
+  %call105 = call fastcc noundef signext i8 @_ZN6icu_7512_GLOBAL__N_113mungeCharNameEPcPKci(ptr noundef nonnull %buf, ptr noundef %29)
   %tobool106.not = icmp eq i8 %call105, 0
   br i1 %tobool106.not, label %cleanup.sink.split, label %if.end111
 
@@ -2543,8 +2543,8 @@ if.end111:                                        ; preds = %sw.bb101
           to label %invoke.cont113 unwind label %lpad15
 
 invoke.cont113:                                   ; preds = %if.end111
-  %29 = load i32, ptr %ec, align 4
-  %cmp.i93 = icmp sgt i32 %29, 0
+  %30 = load i32, ptr %ec, align 4
+  %cmp.i93 = icmp sgt i32 %30, 0
   br i1 %cmp.i93, label %cleanup.sink.split, label %if.then118
 
 if.then118:                                       ; preds = %invoke.cont113
@@ -2556,8 +2556,8 @@ invoke.cont119:                                   ; preds = %if.then118
           to label %cleanup unwind label %lpad15
 
 sw.bb132:                                         ; preds = %if.else85
-  %30 = load ptr, ptr %vname, align 8
-  %call138 = call fastcc noundef signext i8 @_ZN6icu_7512_GLOBAL__N_113mungeCharNameEPcPKci(ptr noundef nonnull %buf133, ptr noundef %30)
+  %31 = load ptr, ptr %vname, align 8
+  %call138 = call fastcc noundef signext i8 @_ZN6icu_7512_GLOBAL__N_113mungeCharNameEPcPKci(ptr noundef nonnull %buf133, ptr noundef %31)
   %tobool139.not = icmp eq i8 %call138, 0
   br i1 %tobool139.not, label %cleanup.sink.split, label %if.end144
 
@@ -2570,15 +2570,15 @@ invoke.cont147:                                   ; preds = %if.end144
           to label %invoke.cont148.invoke unwind label %lpad15
 
 invoke.cont148.invoke:                            ; preds = %invoke.cont147, %if.end97
-  %31 = phi ptr [ @_ZN6icu_7512_GLOBAL__N_118numericValueFilterEiPv, %if.end97 ], [ @_ZN6icu_7512_GLOBAL__N_113versionFilterEiPv, %invoke.cont147 ]
-  %32 = phi ptr [ %val87, %if.end97 ], [ %version, %invoke.cont147 ]
-  %33 = phi ptr [ %call99, %if.end97 ], [ %call149, %invoke.cont147 ]
-  invoke void @_ZN6icu_7510UnicodeSet11applyFilterEPFaiPvES1_PKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull %31, ptr noundef nonnull %32, ptr noundef %33, ptr noundef nonnull align 4 dereferenceable(4) %ec)
+  %32 = phi ptr [ @_ZN6icu_7512_GLOBAL__N_118numericValueFilterEiPv, %if.end97 ], [ @_ZN6icu_7512_GLOBAL__N_113versionFilterEiPv, %invoke.cont147 ]
+  %33 = phi ptr [ %val87, %if.end97 ], [ %version, %invoke.cont147 ]
+  %34 = phi ptr [ %call99, %if.end97 ], [ %call149, %invoke.cont147 ]
+  invoke void @_ZN6icu_7510UnicodeSet11applyFilterEPFaiPvES1_PKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull %32, ptr noundef nonnull %33, ptr noundef %34, ptr noundef nonnull align 4 dereferenceable(4) %ec)
           to label %cleanup unwind label %lpad15
 
 sw.bb151:                                         ; preds = %if.else85
-  %34 = load ptr, ptr %vname, align 8
-  %call155 = invoke i32 @u_getPropertyValueEnum_75(i32 noundef 4106, ptr noundef %34)
+  %35 = load ptr, ptr %vname, align 8
+  %call155 = invoke i32 @u_getPropertyValueEnum_75(i32 noundef 4106, ptr noundef %35)
           to label %invoke.cont154 unwind label %lpad15
 
 invoke.cont154:                                   ; preds = %sw.bb151
@@ -2594,8 +2594,8 @@ invoke.cont169:                                   ; preds = %if.else166
   br i1 %cmp171, label %if.then172, label %if.end222
 
 if.then172:                                       ; preds = %invoke.cont169
-  %35 = load ptr, ptr %pname, align 8
-  %call176 = invoke i32 @u_getPropertyValueEnum_75(i32 noundef 4106, ptr noundef %35)
+  %36 = load ptr, ptr %pname, align 8
+  %call176 = invoke i32 @u_getPropertyValueEnum_75(i32 noundef 4106, ptr noundef %36)
           to label %invoke.cont175 unwind label %lpad15
 
 invoke.cont175:                                   ; preds = %if.then172
@@ -2603,8 +2603,8 @@ invoke.cont175:                                   ; preds = %if.then172
   br i1 %cmp177, label %if.then178, label %if.end222
 
 if.then178:                                       ; preds = %invoke.cont175
-  %36 = load ptr, ptr %pname, align 8
-  %call182 = invoke i32 @u_getPropertyEnum_75(ptr noundef %36)
+  %37 = load ptr, ptr %pname, align 8
+  %call182 = invoke i32 @u_getPropertyEnum_75(ptr noundef %37)
           to label %invoke.cont181 unwind label %lpad15
 
 invoke.cont181:                                   ; preds = %if.then178
@@ -2612,8 +2612,8 @@ invoke.cont181:                                   ; preds = %if.then178
   br i1 %or.cond7, label %if.end222, label %if.else187
 
 if.else187:                                       ; preds = %invoke.cont181
-  %37 = load ptr, ptr %pname, align 8
-  %call191 = invoke i32 @uprv_compareASCIIPropertyNames_75(ptr noundef nonnull @_ZL3ANY, ptr noundef %37)
+  %38 = load ptr, ptr %pname, align 8
+  %call191 = invoke i32 @uprv_compareASCIIPropertyNames_75(ptr noundef nonnull @_ZL3ANY, ptr noundef %38)
           to label %invoke.cont190 unwind label %lpad15
 
 invoke.cont190:                                   ; preds = %if.else187
@@ -2621,8 +2621,8 @@ invoke.cont190:                                   ; preds = %if.else187
   br i1 %cmp192, label %if.then202.invoke, label %if.else196
 
 if.else196:                                       ; preds = %invoke.cont190
-  %38 = load ptr, ptr %pname, align 8
-  %call200 = invoke i32 @uprv_compareASCIIPropertyNames_75(ptr noundef nonnull @_ZL5ASCII, ptr noundef %38)
+  %39 = load ptr, ptr %pname, align 8
+  %call200 = invoke i32 @uprv_compareASCIIPropertyNames_75(ptr noundef nonnull @_ZL5ASCII, ptr noundef %39)
           to label %invoke.cont199 unwind label %lpad15
 
 invoke.cont199:                                   ; preds = %if.else196
@@ -2630,13 +2630,13 @@ invoke.cont199:                                   ; preds = %if.else196
   br i1 %cmp201, label %if.then202.invoke, label %if.else205
 
 if.then202.invoke:                                ; preds = %invoke.cont199, %invoke.cont190
-  %39 = phi i32 [ 1114111, %invoke.cont190 ], [ 127, %invoke.cont199 ]
-  %40 = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet3setEii(ptr noundef nonnull align 8 dereferenceable(200) %this, i32 noundef 0, i32 noundef %39)
+  %40 = phi i32 [ 1114111, %invoke.cont190 ], [ 127, %invoke.cont199 ]
+  %41 = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet3setEii(ptr noundef nonnull align 8 dereferenceable(200) %this, i32 noundef 0, i32 noundef %40)
           to label %cleanup unwind label %lpad15
 
 if.else205:                                       ; preds = %invoke.cont199
-  %41 = load ptr, ptr %pname, align 8
-  %call209 = invoke i32 @uprv_compareASCIIPropertyNames_75(ptr noundef nonnull @_ZL8ASSIGNED, ptr noundef %41)
+  %42 = load ptr, ptr %pname, align 8
+  %call209 = invoke i32 @uprv_compareASCIIPropertyNames_75(ptr noundef nonnull @_ZL8ASSIGNED, ptr noundef %42)
           to label %invoke.cont208 unwind label %lpad15
 
 invoke.cont208:                                   ; preds = %if.else205
@@ -2663,11 +2663,11 @@ invoke.cont227:                                   ; preds = %if.then226
 
 if.end231:                                        ; preds = %invoke.cont227, %invoke.cont223
   %fFlags.i = getelementptr inbounds i8, ptr %this, i64 32
-  %42 = load i8, ptr %fFlags.i, align 8
-  %43 = and i8 %42, 1
-  %tobool234.not = icmp eq i8 %43, 0
-  %44 = load i32, ptr %ec, align 4
-  %cmp.i95 = icmp sgt i32 %44, 0
+  %43 = load i8, ptr %fFlags.i, align 8
+  %44 = and i8 %43, 1
+  %tobool234.not = icmp eq i8 %44, 0
+  %45 = load i32, ptr %ec, align 4
+  %cmp.i95 = icmp sgt i32 %45, 0
   %or.cond97 = select i1 %tobool234.not, i1 true, i1 %cmp.i95
   br i1 %or.cond97, label %cleanup, label %cleanup.sink.split
 

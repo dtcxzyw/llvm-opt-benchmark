@@ -39476,9 +39476,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %7 = load i8, ptr %__begin3.029, align 1
   %tobool.not11 = icmp eq i8 %escaped.028, 0
   %cmp9 = icmp eq i8 %7, 37
-  %or.cond = select i1 %tobool.not11, i1 true, i1 %cmp9
   %cmp11 = icmp eq i8 %7, 95
-  %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp11
+  %8 = or i1 %cmp9, %cmp11
+  %or.cond1 = select i1 %tobool.not11, i1 true, i1 %8
   %cmp.i18 = icmp eq i8 %7, %escapeChar.sroa.0.0.extract.trunc
   br i1 %or.cond1, label %if.end, label %lor.lhs.false12
 
@@ -39505,8 +39505,8 @@ lpad:                                             ; preds = %lpad.loopexit.split
   resume { ptr, i32 } %lpad.phi
 
 if.end:                                           ; preds = %for.body
-  %or.cond67 = select i1 %tobool.not11, i1 %cmp.i18, i1 false
-  br i1 %or.cond67, label %for.inc, label %if.else
+  %or.cond65 = select i1 %tobool.not11, i1 %cmp.i18, i1 false
+  br i1 %or.cond65, label %for.inc, label %if.else
 
 if.else:                                          ; preds = %lor.lhs.false12, %if.then, %if.end
   switch i8 %7, label %sw.default [
@@ -39533,8 +39533,8 @@ sw.bb:                                            ; preds = %if.else
   br label %sw.bb.invoke
 
 sw.bb.invoke:                                     ; preds = %sw.bb22, %sw.bb
-  %8 = phi ptr [ %cond, %sw.bb ], [ %.str.30..str.31, %sw.bb22 ]
-  %9 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %8)
+  %9 = phi ptr [ %cond, %sw.bb ], [ %.str.30..str.31, %sw.bb22 ]
+  %10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %9)
           to label %for.inc unwind label %lpad.loopexit.split.split
 
 sw.bb22:                                          ; preds = %if.else
@@ -39550,14 +39550,14 @@ sw.default:                                       ; preds = %sw.bb26, %if.else
           to label %for.inc unwind label %lpad.loopexit.split.split
 
 for.inc:                                          ; preds = %sw.bb.invoke, %if.end, %sw.default
-  %10 = phi i1 [ true, %sw.default ], [ false, %if.end ], [ true, %sw.bb.invoke ]
+  %11 = phi i1 [ true, %sw.default ], [ false, %if.end ], [ true, %sw.bb.invoke ]
   %escaped.1 = phi i8 [ 0, %sw.default ], [ 1, %if.end ], [ 0, %sw.bb.invoke ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin3.029, i64 1
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc
-  br i1 %10, label %if.end34, label %if.then33
+  br i1 %11, label %if.end34, label %if.then33
 
 if.then33:                                        ; preds = %for.end
   store i8 0, ptr %validPattern, align 1

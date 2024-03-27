@@ -119,9 +119,9 @@ define void @dgemlq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %85 = icmp ugt i32 %46, %49
   %86 = or i1 %85, %84
   %87 = icmp slt i32 %49, %29
-  %88 = select i1 %86, i1 %87, i1 false
-  %89 = icmp sgt i32 %83, %29
-  %90 = select i1 %88, i1 %89, i1 false
+  %88 = icmp sgt i32 %83, %29
+  %89 = and i1 %88, %87
+  %90 = select i1 %86, i1 %89, i1 false
   br i1 %90, label %93, label %91
 
 91:                                               ; preds = %82, %79

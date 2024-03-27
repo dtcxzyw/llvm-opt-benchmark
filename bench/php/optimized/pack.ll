@@ -1530,10 +1530,9 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   %81 = call i64 @strtol(ptr nocapture noundef nonnull %74, ptr noundef null, i32 noundef 10) #12
   %82 = load i32, ptr %80, align 4
   %83 = icmp ne i32 %82, 0
-  %84 = icmp slt i64 %81, -2147483648
-  %or.cond4 = select i1 %83, i1 true, i1 %84
-  %85 = icmp sgt i64 %81, 2147483647
-  %or.cond6 = select i1 %or.cond4, i1 true, i1 %85
+  %84 = add i64 %81, -2147483648
+  %85 = icmp ult i64 %84, -4294967296
+  %or.cond6 = select i1 %83, i1 true, i1 %85
   br i1 %or.cond6, label %86, label %.lr.ph.preheader
 
 86:                                               ; preds = %79

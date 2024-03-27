@@ -4123,12 +4123,12 @@ define internal noundef i32 @dissect_aim_msg_client_err(ptr noundef %0, ptr noca
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef %12, i32 noundef 2, i32 noundef 0) #9
   %16 = add i32 %12, 2
   %17 = icmp eq i16 %13, 3
-  br i1 %17, label %18, label %120
+  br i1 %17, label %18, label %106
 
 18:                                               ; preds = %3
   %19 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %16) #9
   %20 = icmp sgt i32 %19, 0
-  br i1 %20, label %21, label %120
+  br i1 %20, label %21, label %106
 
 21:                                               ; preds = %18
   %cond = icmp eq i16 %9, 2
@@ -4141,7 +4141,7 @@ define internal noundef i32 @dissect_aim_msg_client_err(ptr noundef %0, ptr noca
   %26 = load i32, ptr @hf_aim_icbm_rendezvous_nak, align 4
   %27 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef %25, i32 noundef 2, i32 noundef 0) #9
   %28 = add i32 %12, 6
-  br label %120
+  br label %106
 
 29:                                               ; preds = %21
   %30 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %16) #9
@@ -4230,65 +4230,44 @@ dissect_aim_plugin.exit.i:                        ; preds = %56, %aim_find_plugi
   %80 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %77, ptr noundef %30, i32 noundef %76, i32 noundef %79, i32 noundef 0) #9
   %81 = add nuw nsw i32 %73, %78
   %or.cond7.i.i = icmp ne i64 %.sroa.0.0.copyload.i, 0
-  %82 = and i64 %.sroa.2.0.copyload.i, 255
-  %83 = icmp ne i64 %82, 0
-  %or.cond12.i.not.i = select i1 %or.cond7.i.i, i1 true, i1 %83
-  %84 = and i64 %.sroa.2.0.copyload.i, 65280
-  %85 = icmp ne i64 %84, 0
-  %or.cond17.i.i = select i1 %or.cond12.i.not.i, i1 true, i1 %85
-  %86 = and i64 %.sroa.2.0.copyload.i, 16711680
-  %87 = icmp ne i64 %86, 0
-  %or.cond22.i.i = select i1 %or.cond17.i.i, i1 true, i1 %87
-  %88 = and i64 %.sroa.2.0.copyload.i, 4278190080
-  %89 = icmp ne i64 %88, 0
-  %or.cond27.i.i = select i1 %or.cond22.i.i, i1 true, i1 %89
-  %90 = and i64 %.sroa.2.0.copyload.i, 1095216660480
-  %91 = icmp ne i64 %90, 0
-  %or.cond32.i.i = select i1 %or.cond27.i.i, i1 true, i1 %91
-  %92 = and i64 %.sroa.2.0.copyload.i, 280375465082880
-  %93 = icmp ne i64 %92, 0
-  %or.cond37.i.i = select i1 %or.cond32.i.i, i1 true, i1 %93
-  %94 = and i64 %.sroa.2.0.copyload.i, 71776119061217280
-  %95 = icmp ne i64 %94, 0
-  %or.cond42.i.i = select i1 %or.cond37.i.i, i1 true, i1 %95
-  %96 = icmp ugt i64 %.sroa.2.0.copyload.i, 72057594037927935
-  %narrow.i.i = select i1 %or.cond42.i.i, i1 true, i1 %96
-  br i1 %narrow.i.i, label %116, label %97
+  %82 = icmp ne i64 %.sroa.2.0.copyload.i, 0
+  %narrow.i.not.i = select i1 %or.cond7.i.i, i1 true, i1 %82
+  br i1 %narrow.i.not.i, label %102, label %83
 
-97:                                               ; preds = %dissect_aim_plugin.exit.i
-  %98 = call ptr @tvb_new_subset_remaining(ptr noundef %30, i32 noundef %81) #9
+83:                                               ; preds = %dissect_aim_plugin.exit.i
+  %84 = call ptr @tvb_new_subset_remaining(ptr noundef %30, i32 noundef %81) #9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %99 = load i32, ptr @hf_aim_rendezvous_extended_data_message_type, align 4
-  %100 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %99, ptr noundef %98, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %101 = load i32, ptr @hf_aim_rendezvous_extended_data_message_flags, align 4
-  %102 = load i32, ptr @ett_aim_extended_data_message_flags, align 4
-  %103 = call ptr @proto_tree_add_bitmask(ptr noundef %32, ptr noundef %98, i32 noundef 1, i32 noundef %101, i32 noundef %102, ptr noundef nonnull @dissect_aim_rendezvous_extended_message.flags, i32 noundef 0) #9
-  %104 = load i32, ptr @hf_aim_rendezvous_extended_data_message_status_code, align 4
-  %105 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %104, ptr noundef %98, i32 noundef 2, i32 noundef 2, i32 noundef 0) #9
-  %106 = load i32, ptr @hf_aim_rendezvous_extended_data_message_priority_code, align 4
-  %107 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %106, ptr noundef %98, i32 noundef 4, i32 noundef 2, i32 noundef 0) #9
-  %108 = call zeroext i16 @tvb_get_letohs(ptr noundef %98, i32 noundef 6) #9
-  %109 = zext i16 %108 to i32
-  store i32 %109, ptr %4, align 4
-  %110 = load i32, ptr @hf_aim_rendezvous_extended_data_message_text_length, align 4
-  %111 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %32, i32 noundef %110, ptr noundef %98, i32 noundef 6, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %4) #9
-  %112 = load i32, ptr @hf_aim_rendezvous_extended_data_message_text, align 4
-  %113 = load i32, ptr %4, align 4
-  %114 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %112, ptr noundef %98, i32 noundef 8, i32 noundef %113, i32 noundef 0) #9
-  %115 = call i32 @tvb_reported_length(ptr noundef %98) #9
+  %85 = load i32, ptr @hf_aim_rendezvous_extended_data_message_type, align 4
+  %86 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %85, ptr noundef %84, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %87 = load i32, ptr @hf_aim_rendezvous_extended_data_message_flags, align 4
+  %88 = load i32, ptr @ett_aim_extended_data_message_flags, align 4
+  %89 = call ptr @proto_tree_add_bitmask(ptr noundef %32, ptr noundef %84, i32 noundef 1, i32 noundef %87, i32 noundef %88, ptr noundef nonnull @dissect_aim_rendezvous_extended_message.flags, i32 noundef 0) #9
+  %90 = load i32, ptr @hf_aim_rendezvous_extended_data_message_status_code, align 4
+  %91 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %90, ptr noundef %84, i32 noundef 2, i32 noundef 2, i32 noundef 0) #9
+  %92 = load i32, ptr @hf_aim_rendezvous_extended_data_message_priority_code, align 4
+  %93 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %92, ptr noundef %84, i32 noundef 4, i32 noundef 2, i32 noundef 0) #9
+  %94 = call zeroext i16 @tvb_get_letohs(ptr noundef %84, i32 noundef 6) #9
+  %95 = zext i16 %94 to i32
+  store i32 %95, ptr %4, align 4
+  %96 = load i32, ptr @hf_aim_rendezvous_extended_data_message_text_length, align 4
+  %97 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %32, i32 noundef %96, ptr noundef %84, i32 noundef 6, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %4) #9
+  %98 = load i32, ptr @hf_aim_rendezvous_extended_data_message_text, align 4
+  %99 = load i32, ptr %4, align 4
+  %100 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %98, ptr noundef %84, i32 noundef 8, i32 noundef %99, i32 noundef 0) #9
+  %101 = call i32 @tvb_reported_length(ptr noundef %84) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br label %dissect_aim_tlv_value_extended_data.exit
 
-116:                                              ; preds = %dissect_aim_plugin.exit.i
-  %117 = load i32, ptr @hf_aim_messaging_plugin_specific_data, align 4
-  %118 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %117, ptr noundef %30, i32 noundef %81, i32 noundef -1, i32 noundef 0) #9
+102:                                              ; preds = %dissect_aim_plugin.exit.i
+  %103 = load i32, ptr @hf_aim_messaging_plugin_specific_data, align 4
+  %104 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %103, ptr noundef %30, i32 noundef %81, i32 noundef -1, i32 noundef 0) #9
   br label %dissect_aim_tlv_value_extended_data.exit
 
-dissect_aim_tlv_value_extended_data.exit:         ; preds = %97, %116
-  %119 = call i32 @tvb_reported_length(ptr noundef %30) #9
-  br label %120
+dissect_aim_tlv_value_extended_data.exit:         ; preds = %83, %102
+  %105 = call i32 @tvb_reported_length(ptr noundef %30) #9
+  br label %106
 
-120:                                              ; preds = %22, %dissect_aim_tlv_value_extended_data.exit, %18, %3
+106:                                              ; preds = %22, %dissect_aim_tlv_value_extended_data.exit, %18, %3
   %.0 = phi i32 [ %28, %22 ], [ %16, %dissect_aim_tlv_value_extended_data.exit ], [ %16, %18 ], [ %16, %3 ]
   ret i32 %.0
 }

@@ -296,10 +296,9 @@ define internal noundef i32 @dissect_credssp_heur(ptr noundef %0, ptr noundef %1
   %37 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %36) #5
   %38 = load i32, ptr %9, align 4
   %39 = icmp eq i32 %38, 1
-  %40 = icmp sgt i8 %37, 1
-  %or.cond8 = select i1 %39, i1 %40, i1 false
-  %41 = icmp slt i8 %37, 99
-  %or.cond11 = select i1 %or.cond8, i1 %41, i1 false
+  %40 = add i8 %37, -2
+  %41 = icmp ult i8 %40, 97
+  %or.cond11 = select i1 %39, i1 %41, i1 false
   br i1 %or.cond11, label %42, label %55
 
 42:                                               ; preds = %35

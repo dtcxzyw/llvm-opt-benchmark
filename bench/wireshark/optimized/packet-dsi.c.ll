@@ -196,10 +196,9 @@ define internal i32 @get_dsi_pdu_len(ptr nocapture readnone %0, ptr noundef %1, 
   %6 = add i32 %2, 1
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %6) #2
   %8 = icmp ugt i8 %5, 1
-  %9 = icmp eq i8 %7, 0
-  %or.cond.not17 = select i1 %8, i1 true, i1 %9
-  %10 = icmp ugt i8 %7, 8
-  %or.cond4 = select i1 %or.cond.not17, i1 true, i1 %10
+  %9 = add i8 %7, -9
+  %10 = icmp ult i8 %9, -8
+  %or.cond4 = select i1 %8, i1 true, i1 %10
   br i1 %or.cond4, label %11, label %13
 
 11:                                               ; preds = %4

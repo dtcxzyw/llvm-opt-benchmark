@@ -16534,7 +16534,7 @@ define hidden void @zif_hebrev(ptr noundef %0, ptr nocapture noundef writeonly %
   %.0307465 = phi ptr [ %10, %15 ], [ null, %8 ], [ %24, %29 ]
   %.0308464 = phi i32 [ 1, %15 ], [ 0, %8 ], [ 2, %29 ]
   call void @zend_wrong_parameter_error(i32 noundef %.0300467, i32 noundef %.0308464, ptr noundef null, i32 noundef %.0306466, ptr noundef %.0307465) #28
-  br label %161
+  br label %162
 
 .thread445:                                       ; preds = %29, %.thread440, %17
   %31 = icmp eq i64 %20, 0
@@ -16545,7 +16545,7 @@ define hidden void @zif_hebrev(ptr noundef %0, ptr nocapture noundef writeonly %
   store ptr %33, ptr %1, align 8
   %34 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 6, ptr %34, align 8
-  br label %161
+  br label %162
 
 select.unfold.preheader:                          ; preds = %.thread445
   %35 = add i64 %20, 1
@@ -16781,7 +16781,7 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   br label %113
 
 113:                                              ; preds = %.critedge12, %105
-  %.0325 = phi i64 [ %41, %105 ], [ %158, %.critedge12 ]
+  %.0325 = phi i64 [ %41, %105 ], [ %159, %.critedge12 ]
   %.4 = phi ptr [ %112, %105 ], [ %.6.lcssa, %.critedge12 ]
   %114 = load i64, ptr %4, align 8
   %.not408 = icmp eq i64 %114, 0
@@ -16858,116 +16858,116 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   %.2324 = phi i64 [ %.us-phi509, %.split508.us ], [ %126, %130 ], [ %.1323529, %.lr.ph530 ], [ %.0325, %.split.us ], [ %umin582, %.split.split.us ]
   %132 = icmp slt i64 %114, 0
   %133 = icmp ne i64 %.2324, %114
-  %or.cond427.not568 = select i1 %132, i1 true, i1 %133
   %.not410536 = icmp eq i64 %.2324, 0
-  %or.cond = select i1 %or.cond427.not568, i1 true, i1 %.not410536
+  %134 = or i1 %133, %.not410536
+  %or.cond = select i1 %132, i1 true, i1 %134
   br i1 %or.cond, label %.critedge8.thread, label %.lr.ph539
 
-.lr.ph539:                                        ; preds = %.critedge8, %136
-  %.0296538 = phi i64 [ %137, %136 ], [ %.3328, %.critedge8 ]
-  %.0297537 = phi i64 [ %138, %136 ], [ %114, %.critedge8 ]
-  %134 = getelementptr inbounds i8, ptr %36, i64 %.0296538
-  %135 = load i8, ptr %134, align 1
-  switch i8 %135, label %136 [
+.lr.ph539:                                        ; preds = %.critedge8, %137
+  %.0296538 = phi i64 [ %138, %137 ], [ %.3328, %.critedge8 ]
+  %.0297537 = phi i64 [ %139, %137 ], [ %114, %.critedge8 ]
+  %135 = getelementptr inbounds i8, ptr %36, i64 %.0296538
+  %136 = load i8, ptr %135, align 1
+  switch i8 %136, label %137 [
     i8 32, label %.critedge8.thread
     i8 9, label %.critedge8.thread
     i8 10, label %.critedge8.thread
     i8 13, label %.critedge8.thread
   ]
 
-136:                                              ; preds = %.lr.ph539
-  %137 = add i64 %.0296538, 1
-  %138 = add i64 %.0297537, -1
-  %.not410 = icmp eq i64 %138, 0
+137:                                              ; preds = %.lr.ph539
+  %138 = add i64 %.0296538, 1
+  %139 = add i64 %.0297537, -1
+  %.not410 = icmp eq i64 %139, 0
   br i1 %.not410, label %.critedge8.thread, label %.lr.ph539
 
-.critedge8.thread:                                ; preds = %.lr.ph539, %.lr.ph539, %.lr.ph539, %.lr.ph539, %136, %.split, %.critedge8
-  %.4329 = phi i64 [ %.3328, %.critedge8 ], [ %.0325, %.split ], [ %.0296538, %.lr.ph539 ], [ %.0296538, %.lr.ph539 ], [ %.0296538, %.lr.ph539 ], [ %.0296538, %.lr.ph539 ], [ %.3328, %136 ]
-  %139 = getelementptr inbounds i8, ptr %36, i64 %.4329
-  %140 = load i8, ptr %139, align 1
-  switch i8 %140, label %142 [
-    i8 32, label %141
-    i8 9, label %141
+.critedge8.thread:                                ; preds = %.lr.ph539, %.lr.ph539, %.lr.ph539, %.lr.ph539, %137, %.split, %.critedge8
+  %.4329 = phi i64 [ %.3328, %.critedge8 ], [ %.0325, %.split ], [ %.0296538, %.lr.ph539 ], [ %.0296538, %.lr.ph539 ], [ %.0296538, %.lr.ph539 ], [ %.0296538, %.lr.ph539 ], [ %.3328, %137 ]
+  %140 = getelementptr inbounds i8, ptr %36, i64 %.4329
+  %141 = load i8, ptr %140, align 1
+  switch i8 %141, label %143 [
+    i8 32, label %142
+    i8 9, label %142
   ]
 
-141:                                              ; preds = %.critedge8.thread, %.critedge8.thread
-  store i8 10, ptr %139, align 1
-  br label %142
+142:                                              ; preds = %.critedge8.thread, %.critedge8.thread
+  store i8 10, ptr %140, align 1
+  br label %143
 
-142:                                              ; preds = %.critedge8.thread, %141
+143:                                              ; preds = %.critedge8.thread, %142
   %.not411549 = icmp ugt i64 %.4329, %.0325
   br i1 %.not411549, label %.critedge10, label %.lr.ph551.preheader
 
-.lr.ph551.preheader:                              ; preds = %142
-  %143 = add i64 %.0325, 1
+.lr.ph551.preheader:                              ; preds = %143
+  %144 = add i64 %.0325, 1
   br label %.lr.ph551
 
-.lr.ph551:                                        ; preds = %.lr.ph551.preheader, %146
-  %.5330550 = phi i64 [ %147, %146 ], [ %.4329, %.lr.ph551.preheader ]
-  %144 = getelementptr inbounds i8, ptr %36, i64 %.5330550
-  %145 = load i8, ptr %144, align 1
-  switch i8 %145, label %.critedge10 [
-    i8 13, label %146
-    i8 10, label %146
+.lr.ph551:                                        ; preds = %.lr.ph551.preheader, %147
+  %.5330550 = phi i64 [ %148, %147 ], [ %.4329, %.lr.ph551.preheader ]
+  %145 = getelementptr inbounds i8, ptr %36, i64 %.5330550
+  %146 = load i8, ptr %145, align 1
+  switch i8 %146, label %.critedge10 [
+    i8 13, label %147
+    i8 10, label %147
   ]
 
-146:                                              ; preds = %.lr.ph551, %.lr.ph551
-  %147 = add i64 %.5330550, 1
+147:                                              ; preds = %.lr.ph551, %.lr.ph551
+  %148 = add i64 %.5330550, 1
   %exitcond583.not = icmp eq i64 %.5330550, %.0325
   br i1 %exitcond583.not, label %.critedge10, label %.lr.ph551
 
-.critedge10:                                      ; preds = %146, %.lr.ph551, %142
-  %.5330.lcssa = phi i64 [ %.4329, %142 ], [ %.5330550, %.lr.ph551 ], [ %143, %146 ]
+.critedge10:                                      ; preds = %147, %.lr.ph551, %143
+  %.5330.lcssa = phi i64 [ %.4329, %143 ], [ %.5330550, %.lr.ph551 ], [ %144, %147 ]
   %.not412555 = icmp ugt i64 %.5330.lcssa, %.0325
   br i1 %.not412555, label %.preheader, label %.lr.ph558
 
 .preheader:                                       ; preds = %.lr.ph558, %.critedge10
-  %.5.lcssa = phi ptr [ %.4, %.critedge10 ], [ %150, %.lr.ph558 ]
+  %.5.lcssa = phi ptr [ %.4, %.critedge10 ], [ %151, %.lr.ph558 ]
   br i1 %.not411549, label %.critedge12, label %.lr.ph563
 
 .lr.ph558:                                        ; preds = %.critedge10, %.lr.ph558
-  %.5557 = phi ptr [ %150, %.lr.ph558 ], [ %.4, %.critedge10 ]
-  %.2320556 = phi i64 [ %151, %.lr.ph558 ], [ %.5330.lcssa, %.critedge10 ]
-  %148 = getelementptr inbounds i8, ptr %36, i64 %.2320556
-  %149 = load i8, ptr %148, align 1
-  store i8 %149, ptr %.5557, align 1
-  %150 = getelementptr inbounds i8, ptr %.5557, i64 1
-  %151 = add i64 %.2320556, 1
+  %.5557 = phi ptr [ %151, %.lr.ph558 ], [ %.4, %.critedge10 ]
+  %.2320556 = phi i64 [ %152, %.lr.ph558 ], [ %.5330.lcssa, %.critedge10 ]
+  %149 = getelementptr inbounds i8, ptr %36, i64 %.2320556
+  %150 = load i8, ptr %149, align 1
+  store i8 %150, ptr %.5557, align 1
+  %151 = getelementptr inbounds i8, ptr %.5557, i64 1
+  %152 = add i64 %.2320556, 1
   %exitcond584.not = icmp eq i64 %.2320556, %.0325
   br i1 %exitcond584.not, label %.preheader, label %.lr.ph558
 
-.lr.ph563:                                        ; preds = %.preheader, %154
-  %.6562 = phi ptr [ %155, %154 ], [ %.5.lcssa, %.preheader ]
-  %.3321561 = phi i64 [ %156, %154 ], [ %.4329, %.preheader ]
-  %152 = getelementptr inbounds i8, ptr %36, i64 %.3321561
-  %153 = load i8, ptr %152, align 1
-  switch i8 %153, label %.critedge12 [
-    i8 13, label %154
-    i8 10, label %154
+.lr.ph563:                                        ; preds = %.preheader, %155
+  %.6562 = phi ptr [ %156, %155 ], [ %.5.lcssa, %.preheader ]
+  %.3321561 = phi i64 [ %157, %155 ], [ %.4329, %.preheader ]
+  %153 = getelementptr inbounds i8, ptr %36, i64 %.3321561
+  %154 = load i8, ptr %153, align 1
+  switch i8 %154, label %.critedge12 [
+    i8 13, label %155
+    i8 10, label %155
   ]
 
-154:                                              ; preds = %.lr.ph563, %.lr.ph563
-  store i8 %153, ptr %.6562, align 1
-  %155 = getelementptr inbounds i8, ptr %.6562, i64 1
-  %156 = add i64 %.3321561, 1
+155:                                              ; preds = %.lr.ph563, %.lr.ph563
+  store i8 %154, ptr %.6562, align 1
+  %156 = getelementptr inbounds i8, ptr %.6562, i64 1
+  %157 = add i64 %.3321561, 1
   %exitcond585.not = icmp eq i64 %.3321561, %.0325
   br i1 %exitcond585.not, label %.critedge12, label %.lr.ph563
 
-.critedge12:                                      ; preds = %154, %.lr.ph563, %.preheader
-  %.6.lcssa = phi ptr [ %.5.lcssa, %.preheader ], [ %.6562, %.lr.ph563 ], [ %155, %154 ]
-  %157 = icmp eq i64 %.4329, 0
-  %158 = add i64 %.4329, -1
-  br i1 %157, label %159, label %113
+.critedge12:                                      ; preds = %155, %.lr.ph563, %.preheader
+  %.6.lcssa = phi ptr [ %.5.lcssa, %.preheader ], [ %.6562, %.lr.ph563 ], [ %156, %155 ]
+  %158 = icmp eq i64 %.4329, 0
+  %159 = add i64 %.4329, -1
+  br i1 %158, label %160, label %113
 
-159:                                              ; preds = %.critedge12
+160:                                              ; preds = %.critedge12
   store i8 0, ptr %.6.lcssa, align 1
   call void @_efree(ptr noundef nonnull %36) #28
   store ptr %108, ptr %1, align 8
-  %160 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 262, ptr %160, align 8
-  br label %161
+  %161 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 262, ptr %161, align 8
+  br label %162
 
-161:                                              ; preds = %159, %32, %.thread456
+162:                                              ; preds = %160, %32, %.thread456
   ret void
 }
 

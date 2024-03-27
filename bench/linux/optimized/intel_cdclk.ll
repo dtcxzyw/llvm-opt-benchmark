@@ -2163,9 +2163,9 @@ define dso_local i32 @intel_modeset_calc_cdclk(ptr noundef %0) local_unnamed_add
   %242 = udiv i32 %241, %239
   %243 = icmp ne i32 %200, 0
   %244 = icmp ne i32 %238, 0
-  %245 = select i1 %243, i1 %244, i1 false
-  %246 = icmp ne i32 %200, %238
-  %247 = select i1 %245, i1 %246, i1 false
+  %245 = icmp ne i32 %200, %238
+  %246 = and i1 %244, %245
+  %247 = select i1 %243, i1 %246, i1 false
   %248 = icmp eq i32 %236, %242
   %249 = select i1 %247, i1 %248, i1 false
   br i1 %249, label %intel_cdclk_can_crawl.exit, label %intel_cdclk_can_crawl.exit.thread

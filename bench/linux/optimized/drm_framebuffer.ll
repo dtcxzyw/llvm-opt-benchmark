@@ -90,10 +90,10 @@ define dso_local noundef i32 @drm_framebuffer_check_src_coords(i32 noundef %0, i
   %14 = icmp ult i32 %13, %0
   %15 = or i1 %12, %14
   %16 = icmp ult i32 %11, %3
-  %17 = select i1 %15, i1 true, i1 %16
-  %18 = sub i32 %11, %3
-  %19 = icmp ult i32 %18, %1
-  %20 = select i1 %17, i1 true, i1 %19
+  %17 = sub i32 %11, %3
+  %18 = icmp ult i32 %17, %1
+  %19 = or i1 %16, %18
+  %20 = select i1 %15, i1 true, i1 %19
   br i1 %20, label %21, label %45
 
 21:                                               ; preds = %5

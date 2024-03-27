@@ -200,10 +200,9 @@ define internal i32 @dissect_t125(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %18 = load i8, ptr %6, align 1
   %19 = icmp eq i8 %18, 1
   %20 = load i32, ptr %8, align 4
-  %21 = icmp sgt i32 %20, 100
-  %or.cond = select i1 %19, i1 %21, i1 false
-  %22 = icmp slt i32 %20, 105
-  %or.cond3 = select i1 %or.cond, i1 %22, i1 false
+  %21 = add i32 %20, -101
+  %22 = icmp ult i32 %21, 4
+  %or.cond3 = select i1 %19, i1 %22, i1 false
   br i1 %or.cond3, label %23, label %27
 
 23:                                               ; preds = %4
@@ -375,10 +374,9 @@ define internal noundef i32 @dissect_t125_heur(ptr noundef %0, ptr noundef %1, p
   %64 = load i8, ptr %5, align 1
   %65 = icmp eq i8 %64, 1
   %66 = load i32, ptr %7, align 4
-  %67 = icmp sgt i32 %66, 100
-  %or.cond = select i1 %65, i1 %67, i1 false
-  %68 = icmp slt i32 %66, 105
-  %or.cond3 = select i1 %or.cond, i1 %68, i1 false
+  %67 = add i32 %66, -101
+  %68 = icmp ult i32 %67, 4
+  %or.cond3 = select i1 %65, i1 %68, i1 false
   br i1 %or.cond3, label %.sink.split, label %69
 
 69:                                               ; preds = %63

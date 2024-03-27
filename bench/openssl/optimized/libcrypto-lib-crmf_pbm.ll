@@ -204,13 +204,12 @@ if.end42:                                         ; preds = %if.end37
   %call43 = call i32 @ASN1_INTEGER_get_int64(ptr noundef nonnull %iterations, ptr noundef %7) #2
   %tobool44 = icmp eq i32 %call43, 0
   %8 = load i64, ptr %iterations, align 8
-  %cmp46 = icmp slt i64 %8, 100
-  %or.cond3 = select i1 %tobool44, i1 true, i1 %cmp46
-  %cmp49 = icmp sgt i64 %8, 100000
-  %or.cond4 = select i1 %or.cond3, i1 true, i1 %cmp49
-  br i1 %or.cond4, label %if.then51, label %while.cond.preheader
+  %9 = add i64 %8, -100001
+  %10 = icmp ult i64 %9, -99901
+  %or.cond4 = select i1 %tobool44, i1 true, i1 %10
+  br i1 %or.cond4, label %if.then51, label %while.body.preheader
 
-while.cond.preheader:                             ; preds = %if.end42
+while.body.preheader:                             ; preds = %if.end42
   %dec32 = add nsw i64 %8, -1
   store i64 %dec32, ptr %iterations, align 8
   br label %while.body
@@ -228,14 +227,14 @@ while.condthread-pre-split:                       ; preds = %if.end64
   %cmp53 = icmp sgt i64 %.pr, 1
   br i1 %cmp53, label %while.body, label %while.end
 
-while.body:                                       ; preds = %while.cond.preheader, %while.condthread-pre-split
+while.body:                                       ; preds = %while.body.preheader, %while.condthread-pre-split
   %call55 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %call22, ptr noundef nonnull %call18, ptr noundef null) #2
   %tobool56.not = icmp eq i32 %call55, 0
   br i1 %tobool56.not, label %err, label %if.end58
 
 if.end58:                                         ; preds = %while.body
-  %9 = load i32, ptr %bklen, align 4
-  %conv60 = zext i32 %9 to i64
+  %11 = load i32, ptr %bklen, align 4
+  %conv60 = zext i32 %11 to i64
   %call61 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call22, ptr noundef nonnull %basekey, i64 noundef %conv60) #2
   %tobool62.not = icmp eq i32 %call61, 0
   br i1 %tobool62.not, label %err, label %if.end64
@@ -246,16 +245,16 @@ if.end64:                                         ; preds = %if.end58
   br i1 %tobool67.not, label %err, label %while.condthread-pre-split, !llvm.loop !4
 
 while.end:                                        ; preds = %while.condthread-pre-split
-  %10 = load ptr, ptr %mac, align 8
-  %11 = load ptr, ptr %10, align 8
-  %call72 = call i32 @OBJ_obj2nid(ptr noundef %11) #2
+  %12 = load ptr, ptr %mac, align 8
+  %13 = load ptr, ptr %12, align 8
+  %call72 = call i32 @OBJ_obj2nid(ptr noundef %13) #2
   %call73 = call i32 @EVP_PBE_find(i32 noundef 1, i32 noundef %call72, ptr noundef null, ptr noundef nonnull %hmac_md_nid, ptr noundef null) #2
   %tobool74.not = icmp eq i32 %call73, 0
   br i1 %tobool74.not, label %if.then81, label %lor.lhs.false75
 
 lor.lhs.false75:                                  ; preds = %while.end
-  %12 = load i32, ptr %hmac_md_nid, align 4
-  %call77 = call ptr @OBJ_nid2obj(i32 noundef %12) #2
+  %14 = load i32, ptr %hmac_md_nid, align 4
+  %call77 = call ptr @OBJ_nid2obj(i32 noundef %14) #2
   %call78 = call i32 @OBJ_obj2txt(ptr noundef nonnull %hmac_mdname, i32 noundef 50, ptr noundef %call77, i32 noundef 0) #2
   %cmp79 = icmp slt i32 %call78, 1
   br i1 %cmp79, label %if.then81, label %if.end82
@@ -267,8 +266,8 @@ if.then81:                                        ; preds = %lor.lhs.false75, %w
   br label %err
 
 if.end82:                                         ; preds = %lor.lhs.false75
-  %13 = load i32, ptr %bklen, align 4
-  %conv85 = zext i32 %13 to i64
+  %15 = load i32, ptr %bklen, align 4
+  %conv85 = zext i32 %15 to i64
   %call86 = call ptr @EVP_Q_mac(ptr noundef %libctx, ptr noundef nonnull @.str.1, ptr noundef %propq, ptr noundef nonnull %hmac_mdname, ptr noundef null, ptr noundef nonnull %basekey, i64 noundef %conv85, ptr noundef %msg, i64 noundef %msglen, ptr noundef nonnull %call, i64 noundef 64, ptr noundef %outlen) #2
   %cmp87 = icmp ne ptr %call86, null
   br label %err
@@ -278,8 +277,8 @@ err:                                              ; preds = %if.end64, %if.end58
   %ctx.0 = phi ptr [ null, %if.then ], [ null, %if.end ], [ null, %if.then20 ], [ null, %if.end21 ], [ %call22, %if.then51 ], [ %call22, %if.then81 ], [ %call22, %if.end37 ], [ %call22, %if.end32 ], [ %call22, %if.end28 ], [ %call22, %if.end25 ], [ %call22, %if.end82 ], [ %call22, %while.body ], [ %call22, %if.end58 ], [ %call22, %if.end64 ]
   %mac_res.0 = phi ptr [ null, %if.then ], [ null, %if.end ], [ %call, %if.then20 ], [ %call, %if.end21 ], [ %call, %if.then51 ], [ %call, %if.then81 ], [ %call, %if.end37 ], [ %call, %if.end32 ], [ %call, %if.end28 ], [ %call, %if.end25 ], [ %call, %if.end82 ], [ %call, %while.body ], [ %call, %if.end58 ], [ %call, %if.end64 ]
   %cmp93 = phi i1 [ false, %if.then ], [ false, %if.end ], [ false, %if.then20 ], [ false, %if.end21 ], [ false, %if.then51 ], [ false, %if.then81 ], [ false, %if.end37 ], [ false, %if.end32 ], [ false, %if.end28 ], [ false, %if.end25 ], [ %cmp87, %if.end82 ], [ false, %while.body ], [ false, %if.end58 ], [ false, %if.end64 ]
-  %14 = load i32, ptr %bklen, align 4
-  %conv92 = zext i32 %14 to i64
+  %16 = load i32, ptr %bklen, align 4
+  %conv92 = zext i32 %16 to i64
   call void @OPENSSL_cleanse(ptr noundef nonnull %basekey, i64 noundef %conv92) #2
   call void @EVP_MD_free(ptr noundef %owf.0) #2
   call void @EVP_MD_CTX_free(ptr noundef %ctx.0) #2
@@ -295,13 +294,13 @@ if.end96:                                         ; preds = %err
 
 land.lhs.true:                                    ; preds = %if.end96
   %mac99 = getelementptr inbounds i8, ptr %pbmp, i64 24
-  %15 = load ptr, ptr %mac99, align 8
-  %cmp100.not = icmp eq ptr %15, null
+  %17 = load ptr, ptr %mac99, align 8
+  %cmp100.not = icmp eq ptr %17, null
   br i1 %cmp100.not, label %return, label %if.then102
 
 if.then102:                                       ; preds = %land.lhs.true
-  %16 = load ptr, ptr %15, align 8
-  %call106 = call i32 @OBJ_obj2txt(ptr noundef nonnull %buf, i32 noundef 128, ptr noundef %16, i32 noundef 0) #2
+  %18 = load ptr, ptr %17, align 8
+  %call106 = call i32 @OBJ_obj2txt(ptr noundef nonnull %buf, i32 noundef 128, ptr noundef %18, i32 noundef 0) #2
   %tobool107.not = icmp eq i32 %call106, 0
   br i1 %tobool107.not, label %return, label %if.then108
 

@@ -70,10 +70,10 @@ lor.lhs.false35:                                  ; preds = %lor.lhs.false28
   %and37 = and i32 %call19, 31
   %cmp38 = icmp eq i32 %and37, 0
   %cmp41 = icmp sgt i32 %call21, 31
-  %or.cond4.not61 = select i1 %cmp38, i1 %cmp41, i1 false
   %and44 = and i32 %call21, 3
   %cmp45.not = icmp eq i32 %and44, 0
-  %or.cond60 = select i1 %or.cond4.not61, i1 %cmp45.not, i1 false
+  %8 = and i1 %cmp41, %cmp45.not
+  %or.cond60 = select i1 %cmp38, i1 %8, i1 false
   br i1 %or.cond60, label %lor.lhs.false46, label %if.then53
 
 lor.lhs.false46:                                  ; preds = %lor.lhs.false35
@@ -91,10 +91,10 @@ if.end54:                                         ; preds = %lor.lhs.false46
   %and56 = and i32 %call17, 256
   %cmp57.not = icmp eq i32 %and56, 0
   %mul = shl nuw nsw i32 %call19, 1
-  %8 = or disjoint i32 %mul, 16
-  %9 = select i1 %cmp57.not, i32 1, i32 2
-  %mul63 = shl i32 %call21, %9
-  %add65 = add i32 %mul63, %8
+  %9 = or disjoint i32 %mul, 16
+  %10 = select i1 %cmp57.not, i32 1, i32 2
+  %mul63 = shl i32 %call21, %10
+  %add65 = add i32 %mul63, %9
   br i1 %cmp5, label %if.then68, label %return
 
 if.then68:                                        ; preds = %if.end54
@@ -107,29 +107,29 @@ if.then70:                                        ; preds = %if.then68
 
 if.end71:                                         ; preds = %if.then68
   %swapArray32 = getelementptr inbounds i8, ptr %ds, i64 56
-  %10 = load ptr, ptr %swapArray32, align 8
-  %call72 = tail call noundef i32 %10(ptr noundef nonnull %ds, ptr noundef nonnull %inData, i32 noundef 16, ptr noundef %outData, ptr noundef nonnull %pErrorCode)
+  %11 = load ptr, ptr %swapArray32, align 8
+  %call72 = tail call noundef i32 %11(ptr noundef nonnull %ds, ptr noundef nonnull %inData, i32 noundef 16, ptr noundef %outData, ptr noundef nonnull %pErrorCode)
   %swapArray1690 = getelementptr inbounds i8, ptr %ds, i64 48
-  %11 = load ptr, ptr %swapArray1690, align 8
+  %12 = load ptr, ptr %swapArray1690, align 8
   %add.ptr91 = getelementptr inbounds i8, ptr %inData, i64 16
   br i1 %cmp57.not, label %if.else, label %if.then74
 
 if.then74:                                        ; preds = %if.end71
   %add.ptr77 = getelementptr inbounds i8, ptr %outData, i64 16
-  %call78 = tail call noundef i32 %11(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr91, i32 noundef %mul, ptr noundef nonnull %add.ptr77, ptr noundef nonnull %pErrorCode)
-  %12 = load ptr, ptr %swapArray32, align 8
+  %call78 = tail call noundef i32 %12(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr91, i32 noundef %mul, ptr noundef nonnull %add.ptr77, ptr noundef nonnull %pErrorCode)
+  %13 = load ptr, ptr %swapArray32, align 8
   %idx.ext = zext nneg i32 %call19 to i64
   %add.ptr82 = getelementptr inbounds i16, ptr %add.ptr91, i64 %idx.ext
   %mul84 = shl nsw i32 %call21, 2
   %add.ptr88 = getelementptr inbounds i16, ptr %add.ptr77, i64 %idx.ext
-  %call89 = tail call noundef i32 %12(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr82, i32 noundef %mul84, ptr noundef nonnull %add.ptr88, ptr noundef nonnull %pErrorCode)
+  %call89 = tail call noundef i32 %13(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr82, i32 noundef %mul84, ptr noundef nonnull %add.ptr88, ptr noundef nonnull %pErrorCode)
   br label %return
 
 if.else:                                          ; preds = %if.end71
   %add94 = add nuw nsw i32 %call21, %call19
   %mul95 = shl nuw nsw i32 %add94, 1
   %add.ptr96 = getelementptr inbounds i8, ptr %outData, i64 16
-  %call97 = tail call noundef i32 %11(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr91, i32 noundef %mul95, ptr noundef nonnull %add.ptr96, ptr noundef nonnull %pErrorCode)
+  %call97 = tail call noundef i32 %12(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr91, i32 noundef %mul95, ptr noundef nonnull %add.ptr96, ptr noundef nonnull %pErrorCode)
   br label %return
 
 return:                                           ; preds = %if.end54, %if.else, %if.then74, %entry, %lor.lhs.false, %if.then70, %if.then53, %if.then12, %if.then7

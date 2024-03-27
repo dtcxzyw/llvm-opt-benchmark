@@ -2248,13 +2248,13 @@ define internal fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef 
   store i32 1, ptr %5, align 4
   %7 = tail call i32 @llvm.usub.sat.i32(i32 %2, i32 1)
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %9, label %.preheader69
+  br i1 %.not, label %9, label %.preheader73
 
-.preheader69:                                     ; preds = %6
-  %.not81 = icmp ult i32 %2, 2
-  br i1 %.not81, label %.loopexit, label %.lr.ph
+.preheader73:                                     ; preds = %6
+  %.not85 = icmp ult i32 %2, 2
+  br i1 %.not85, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader69
+.lr.ph:                                           ; preds = %.preheader73
   %8 = load ptr, ptr @g_ascii_table, align 8
   br label %10
 
@@ -2263,8 +2263,8 @@ define internal fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef 
   unreachable
 
 10:                                               ; preds = %.lr.ph, %29
-  %.072 = phi i32 [ 0, %.lr.ph ], [ %30, %29 ]
-  %11 = add i32 %.072, %1
+  %.076 = phi i32 [ 0, %.lr.ph ], [ %30, %29 ]
+  %11 = add i32 %.076, %1
   %12 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %11) #11
   %13 = add i32 %11, 1
   %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %13) #11
@@ -2274,8 +2274,8 @@ define internal fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef 
   br i1 %or.cond, label %17, label %19
 
 17:                                               ; preds = %10
-  %18 = add i32 %.072, 2
-  br label %.loopexit70
+  %18 = add i32 %.076, 2
+  br label %.loopexit74
 
 19:                                               ; preds = %10
   %20 = zext i8 %12 to i64
@@ -2284,11 +2284,11 @@ define internal fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef 
   %23 = and i16 %22, 64
   %24 = icmp eq i16 %23, 0
   %25 = icmp ne i8 %12, 10
-  %or.cond5.not = select i1 %24, i1 %25, i1 false
   %26 = icmp ne i8 %12, 13
-  %or.cond8 = select i1 %or.cond5.not, i1 %26, i1 false
+  %.not70 = and i1 %25, %26
+  %or.cond8.not67 = select i1 %24, i1 %.not70, i1 false
   %27 = icmp ne i8 %14, 0
-  %or.cond11 = select i1 %or.cond8, i1 true, i1 %27
+  %or.cond11 = select i1 %or.cond8.not67, i1 true, i1 %27
   br i1 %or.cond11, label %28, label %29
 
 28:                                               ; preds = %19
@@ -2296,11 +2296,11 @@ define internal fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef 
   br label %29
 
 29:                                               ; preds = %28, %19
-  %30 = add i32 %.072, 2
+  %30 = add i32 %.076, 2
   %31 = icmp ult i32 %30, %7
-  br i1 %31, label %10, label %.loopexit70, !llvm.loop !12
+  br i1 %31, label %10, label %.loopexit74, !llvm.loop !12
 
-.loopexit70:                                      ; preds = %29, %17
+.loopexit74:                                      ; preds = %29, %17
   %.1.ph = phi i32 [ %18, %17 ], [ %30, %29 ]
   %.pr = load i32, ptr %5, align 4
   %32 = icmp eq i32 %.pr, 1
@@ -2308,55 +2308,55 @@ define internal fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef 
   %34 = icmp ne i32 %.1.ph, 0
   %35 = icmp ne i32 %33, 0
   %36 = and i1 %34, %35
-  br i1 %32, label %.preheader, label %.preheader67
+  br i1 %32, label %.preheader, label %.preheader71
 
-.preheader67:                                     ; preds = %.loopexit70
-  br i1 %36, label %.lr.ph75, label %.loopexit
+.preheader71:                                     ; preds = %.loopexit74
+  br i1 %36, label %.lr.ph79, label %.loopexit
 
-.preheader:                                       ; preds = %.loopexit70
-  br i1 %36, label %.lr.ph79.preheader, label %.loopexit
+.preheader:                                       ; preds = %.loopexit74
+  br i1 %36, label %.lr.ph83.preheader, label %.loopexit
 
-.lr.ph79.preheader:                               ; preds = %.preheader
+.lr.ph83.preheader:                               ; preds = %.preheader
   %37 = zext i32 %33 to i64
-  br label %.lr.ph79
+  br label %.lr.ph83
 
-.lr.ph79:                                         ; preds = %.lr.ph79.preheader, %.lr.ph79
-  %indvars.iv = phi i64 [ 0, %.lr.ph79.preheader ], [ %indvars.iv.next, %.lr.ph79 ]
-  %.06277 = phi i32 [ 0, %.lr.ph79.preheader ], [ %41, %.lr.ph79 ]
-  %38 = add i32 %.06277, %1
+.lr.ph83:                                         ; preds = %.lr.ph83.preheader, %.lr.ph83
+  %indvars.iv = phi i64 [ 0, %.lr.ph83.preheader ], [ %indvars.iv.next, %.lr.ph83 ]
+  %.06281 = phi i32 [ 0, %.lr.ph83.preheader ], [ %41, %.lr.ph83 ]
+  %38 = add i32 %.06281, %1
   %39 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %38) #11
   %40 = getelementptr i8, ptr %3, i64 %indvars.iv
   store i8 %39, ptr %40, align 1
-  %41 = add nuw i32 %.06277, 2
+  %41 = add nuw i32 %.06281, 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %42 = icmp ult i32 %41, %.1.ph
   %43 = icmp ult i64 %indvars.iv.next, %37
   %44 = select i1 %42, i1 %43, i1 false
-  br i1 %44, label %.lr.ph79, label %.loopexit.loopexit, !llvm.loop !13
+  br i1 %44, label %.lr.ph83, label %.loopexit.loopexit, !llvm.loop !13
 
-.lr.ph75:                                         ; preds = %.preheader67, %.lr.ph75
-  %.16174 = phi i32 [ %52, %.lr.ph75 ], [ 0, %.preheader67 ]
-  %.16373 = phi i32 [ %51, %.lr.ph75 ], [ 0, %.preheader67 ]
-  %45 = zext i32 %.16174 to i64
+.lr.ph79:                                         ; preds = %.preheader71, %.lr.ph79
+  %.16178 = phi i32 [ %52, %.lr.ph79 ], [ 0, %.preheader71 ]
+  %.16377 = phi i32 [ %51, %.lr.ph79 ], [ 0, %.preheader71 ]
+  %45 = zext i32 %.16178 to i64
   %46 = getelementptr i8, ptr %3, i64 %45
-  %47 = add i32 %.16373, %1
+  %47 = add i32 %.16377, %1
   %48 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %47) #11
   %49 = zext i8 %48 to i32
   %50 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %46, i64 noundef 3, ptr noundef nonnull @.str.337, i32 noundef %49) #11
-  %51 = add nuw i32 %.16373, 1
-  %52 = add i32 %.16174, 2
+  %51 = add nuw i32 %.16377, 1
+  %52 = add i32 %.16178, 2
   %53 = icmp ult i32 %51, %.1.ph
   %54 = icmp ult i32 %52, %33
   %55 = select i1 %53, i1 %54, i1 false
-  br i1 %55, label %.lr.ph75, label %.loopexit, !llvm.loop !14
+  br i1 %55, label %.lr.ph79, label %.loopexit, !llvm.loop !14
 
-.loopexit.loopexit:                               ; preds = %.lr.ph79
+.loopexit.loopexit:                               ; preds = %.lr.ph83
   %56 = trunc i64 %indvars.iv.next to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph75, %.preheader69, %.loopexit.loopexit, %.preheader67, %.preheader
-  %.189 = phi i32 [ %.1.ph, %.preheader ], [ %.1.ph, %.preheader67 ], [ %.1.ph, %.loopexit.loopexit ], [ 0, %.preheader69 ], [ %.1.ph, %.lr.ph75 ]
-  %.2 = phi i32 [ 0, %.preheader ], [ 0, %.preheader67 ], [ %56, %.loopexit.loopexit ], [ 0, %.preheader69 ], [ %52, %.lr.ph75 ]
+.loopexit:                                        ; preds = %.lr.ph79, %.preheader73, %.loopexit.loopexit, %.preheader71, %.preheader
+  %.193 = phi i32 [ %.1.ph, %.preheader ], [ %.1.ph, %.preheader71 ], [ %.1.ph, %.loopexit.loopexit ], [ 0, %.preheader73 ], [ %.1.ph, %.lr.ph79 ]
+  %.2 = phi i32 [ 0, %.preheader ], [ 0, %.preheader71 ], [ %56, %.loopexit.loopexit ], [ 0, %.preheader73 ], [ %52, %.lr.ph79 ]
   %57 = icmp ult i32 %.2, %4
   br i1 %57, label %59, label %58
 
@@ -2368,7 +2368,7 @@ define internal fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef 
   %60 = zext i32 %.2 to i64
   %61 = getelementptr i8, ptr %3, i64 %60
   store i8 0, ptr %61, align 1
-  %62 = add i32 %.189, %1
+  %62 = add i32 %.193, %1
   ret i32 %62
 }
 

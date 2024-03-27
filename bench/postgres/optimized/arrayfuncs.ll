@@ -15720,10 +15720,9 @@ switch.early.test:                                ; preds = %3
   %15 = tail call i64 @strtol(ptr noundef nonnull %4, ptr noundef nonnull %0, i32 noundef 10) #17
   %16 = load i32, ptr %14, align 4
   %17 = icmp eq i32 %16, 34
-  %18 = icmp sgt i64 %15, 2147483647
-  %or.cond = select i1 %17, i1 true, i1 %18
-  %19 = icmp slt i64 %15, -2147483648
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %19
+  %18 = add i64 %15, -2147483648
+  %19 = icmp ult i64 %18, -4294967296
+  %or.cond3 = select i1 %17, i1 true, i1 %19
   br i1 %or.cond3, label %20, label %25
 
 20:                                               ; preds = %13

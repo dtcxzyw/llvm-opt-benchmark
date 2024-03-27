@@ -191,31 +191,28 @@ define dso_local noundef i32 @chv_plane_check_rotation(ptr nocapture noundef rea
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 16777216
   %9 = icmp eq i32 %8, 0
-  %10 = and i32 %5, 4
-  %11 = icmp eq i32 %10, 0
+  %10 = and i32 %5, 20
+  %11 = icmp ne i32 %10, 20
   %12 = select i1 %9, i1 true, i1 %11
-  %13 = and i32 %5, 16
-  %14 = icmp eq i32 %13, 0
-  %15 = select i1 %12, i1 true, i1 %14
-  br i1 %15, label %23, label %16
+  br i1 %12, label %20, label %13
 
-16:                                               ; preds = %1
-  %17 = icmp eq ptr %3, null
-  br i1 %17, label %21, label %18
+13:                                               ; preds = %1
+  %14 = icmp eq ptr %3, null
+  br i1 %14, label %18, label %15
 
-18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
-  %20 = load ptr, ptr %19, align 8
-  br label %21
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds i8, ptr %3, i64 8
+  %17 = load ptr, ptr %16, align 8
+  br label %18
 
-21:                                               ; preds = %18, %16
-  %22 = phi ptr [ %20, %18 ], [ null, %16 ]
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %22, i32 noundef 2, ptr noundef nonnull @.str) #10
-  br label %23
+18:                                               ; preds = %15, %13
+  %19 = phi ptr [ %17, %15 ], [ null, %13 ]
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %19, i32 noundef 2, ptr noundef nonnull @.str) #10
+  br label %20
 
-23:                                               ; preds = %21, %1
-  %24 = phi i32 [ -22, %21 ], [ 0, %1 ]
-  ret i32 %24
+20:                                               ; preds = %18, %1
+  %21 = phi i32 [ -22, %18 ], [ 0, %1 ]
+  ret i32 %21
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -2374,58 +2371,55 @@ define internal i32 @vlv_sprite_check(ptr noundef %0, ptr noundef %1) #2 align 1
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 16777216
   %10 = icmp eq i32 %9, 0
-  %11 = and i32 %6, 4
-  %12 = icmp eq i32 %11, 0
+  %11 = and i32 %6, 20
+  %12 = icmp ne i32 %11, 20
   %13 = select i1 %10, i1 true, i1 %12
-  %14 = and i32 %6, 16
-  %15 = icmp eq i32 %14, 0
-  %16 = select i1 %13, i1 true, i1 %15
-  br i1 %16, label %24, label %17
+  br i1 %13, label %21, label %14
 
-17:                                               ; preds = %2
-  %18 = icmp eq ptr %4, null
-  br i1 %18, label %22, label %19
+14:                                               ; preds = %2
+  %15 = icmp eq ptr %4, null
+  br i1 %15, label %19, label %16
 
-19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %4, i64 8
-  %21 = load ptr, ptr %20, align 8
-  br label %22
+16:                                               ; preds = %14
+  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  %18 = load ptr, ptr %17, align 8
+  br label %19
 
-22:                                               ; preds = %17, %19
-  %23 = phi ptr [ %21, %19 ], [ null, %17 ]
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %23, i32 noundef 2, ptr noundef nonnull @.str) #10
-  br label %40
+19:                                               ; preds = %14, %16
+  %20 = phi ptr [ %18, %16 ], [ null, %14 ]
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %20, i32 noundef 2, ptr noundef nonnull @.str) #10
+  br label %37
 
-24:                                               ; preds = %2
-  %25 = tail call i32 @intel_atomic_plane_check_clipping(ptr noundef %1, ptr noundef %0, i32 noundef 65536, i32 noundef 65536, i1 noundef zeroext true) #10
+21:                                               ; preds = %2
+  %22 = tail call i32 @intel_atomic_plane_check_clipping(ptr noundef %1, ptr noundef %0, i32 noundef 65536, i32 noundef 65536, i1 noundef zeroext true) #10
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %37
+
+24:                                               ; preds = %21
+  %25 = tail call i32 @i9xx_check_plane_surface(ptr noundef %1) #10
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %40
+  br i1 %26, label %27, label %37
 
 27:                                               ; preds = %24
-  %28 = tail call i32 @i9xx_check_plane_surface(ptr noundef %1) #10
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %40
+  %28 = getelementptr inbounds i8, ptr %1, i64 140
+  %29 = load i8, ptr %28, align 4, !range !17, !noundef !18
+  %30 = icmp eq i8 %29, 0
+  br i1 %30, label %37, label %31
 
-30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %1, i64 140
-  %32 = load i8, ptr %31, align 4, !range !17, !noundef !18
-  %33 = icmp eq i8 %32, 0
-  br i1 %33, label %40, label %34
+31:                                               ; preds = %27
+  %32 = tail call i32 @intel_plane_check_src_coordinates(ptr noundef %1) #10
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %34, label %37
 
-34:                                               ; preds = %30
-  %35 = tail call i32 @intel_plane_check_src_coordinates(ptr noundef %1) #10
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %40
+34:                                               ; preds = %31
+  %35 = tail call fastcc i32 @vlv_sprite_ctl(ptr noundef %1), !range !24
+  %36 = getelementptr inbounds i8, ptr %1, i64 380
+  store i32 %35, ptr %36, align 4
+  br label %37
 
-37:                                               ; preds = %34
-  %38 = tail call fastcc i32 @vlv_sprite_ctl(ptr noundef %1), !range !24
-  %39 = getelementptr inbounds i8, ptr %1, i64 380
-  store i32 %38, ptr %39, align 4
-  br label %40
-
-40:                                               ; preds = %22, %37, %34, %30, %27, %24
-  %41 = phi i32 [ 0, %37 ], [ -22, %22 ], [ %25, %24 ], [ %28, %27 ], [ 0, %30 ], [ %35, %34 ]
-  ret i32 %41
+37:                                               ; preds = %19, %34, %31, %27, %24, %21
+  %38 = phi i32 [ 0, %34 ], [ -22, %19 ], [ %22, %21 ], [ %25, %24 ], [ 0, %27 ], [ %32, %31 ]
+  ret i32 %38
 }
 
 ; Function Attrs: null_pointer_is_valid

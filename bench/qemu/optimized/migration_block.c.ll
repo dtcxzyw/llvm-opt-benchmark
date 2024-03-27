@@ -1246,10 +1246,9 @@ if.end21:                                         ; preds = %if.end18
   %call23 = call i32 @bdrv_get_info(ptr noundef %call22, ptr noundef nonnull %bdi) #13
   %cmp24 = icmp eq i32 %call23, 0
   %3 = load i32, ptr %bdi, align 8
-  %cmp27 = icmp sgt i32 %3, 0
-  %or.cond = select i1 %cmp24, i1 %cmp27, i1 false
-  %cmp32 = icmp ult i32 %3, 1048577
-  %or.cond1 = select i1 %or.cond, i1 %cmp32, i1 false
+  %4 = add i32 %3, -1
+  %5 = icmp ult i32 %4, 1048576
+  %or.cond1 = select i1 %cmp24, i1 %5, i1 false
   br i1 %or.cond1, label %land.lhs.true34, label %if.else
 
 land.lhs.true34:                                  ; preds = %if.end21
@@ -1289,13 +1288,13 @@ for.body.lr.ph:                                   ; preds = %if.else56
   %div50 = udiv i32 1048576, %cluster_size.1.fr
   %mul63 = and i64 %call, -512
   %cmp69.not = icmp eq i32 %cluster_size.1.fr, 1048576
-  %4 = zext nneg i32 %div50 to i64
+  %6 = zext nneg i32 %div50 to i64
   br i1 %cmp69.not, label %for.body, label %for.body.us
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %if.end81.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end81.us ], [ 0, %for.body.lr.ph ]
-  %5 = trunc i64 %indvars.iv to i32
-  %mul64.us = mul i32 %cluster_size.1.fr, %5
+  %7 = trunc i64 %indvars.iv to i32
+  %mul64.us = mul i32 %cluster_size.1.fr, %7
   %conv65.us = sext i32 %mul64.us to i64
   %add.us = add i64 %mul63, %conv65.us
   %add.ptr.us = getelementptr i8, ptr %call57, i64 %conv65.us
@@ -1314,20 +1313,20 @@ if.end81.us:                                      ; preds = %if.then75.us, %if.e
   %ret.3.us = phi i32 [ %call77.us, %if.then75.us ], [ %call80.us, %if.else78.us ]
   %cmp82.us = icmp sgt i32 %ret.3.us, -1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp61.us = icmp ult i64 %indvars.iv.next, %4
-  %or.cond61 = and i1 %cmp82.us, %cmp61.us
-  br i1 %or.cond61, label %for.body.us, label %for.end, !llvm.loop !21
+  %cmp61.us = icmp ult i64 %indvars.iv.next, %6
+  %or.cond = and i1 %cmp82.us, %cmp61.us
+  br i1 %or.cond, label %for.body.us, label %for.end, !llvm.loop !21
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end81
-  %indvars.iv70 = phi i64 [ %indvars.iv.next71, %if.end81 ], [ 0, %for.body.lr.ph ]
-  %6 = trunc i64 %indvars.iv70 to i32
-  %mul64 = shl i32 %6, 20
+  %indvars.iv69 = phi i64 [ %indvars.iv.next70, %if.end81 ], [ 0, %for.body.lr.ph ]
+  %8 = trunc i64 %indvars.iv69 to i32
+  %mul64 = shl i32 %8, 20
   %conv65 = sext i32 %mul64 to i64
   %add = add i64 %mul63, %conv65
   %add.ptr = getelementptr i8, ptr %call57, i64 %conv65
-  %7 = load i8, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 2), align 8
-  %8 = and i8 %7, 1
-  %tobool67.not49 = icmp eq i8 %8, 0
+  %9 = load i8, ptr getelementptr inbounds (%struct.BlkMigState, ptr @block_mig_state, i64 0, i32 2), align 8
+  %10 = and i8 %9, 1
+  %tobool67.not49 = icmp eq i8 %10, 0
   br i1 %tobool67.not49, label %land.lhs.true71, label %if.else78
 
 land.lhs.true71:                                  ; preds = %for.body
@@ -1345,10 +1344,10 @@ if.else78:                                        ; preds = %for.body, %land.lhs
 if.end81:                                         ; preds = %if.else78, %if.then75
   %ret.3 = phi i32 [ %call77, %if.then75 ], [ %call80, %if.else78 ]
   %cmp82 = icmp sgt i32 %ret.3, -1
-  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
-  %cmp61 = icmp ult i64 %indvars.iv.next71, %4
-  %or.cond62 = select i1 %cmp82, i1 %cmp61, i1 false
-  br i1 %or.cond62, label %for.body, label %for.end, !llvm.loop !21
+  %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
+  %cmp61 = icmp ult i64 %indvars.iv.next70, %6
+  %or.cond61 = select i1 %cmp82, i1 %cmp61, i1 false
+  br i1 %or.cond61, label %for.body, label %for.end, !llvm.loop !21
 
 for.end:                                          ; preds = %if.end81.us, %if.end81, %if.else56
   %ret.4 = phi i32 [ %ret.1, %if.else56 ], [ %ret.3, %if.end81 ], [ %ret.3.us, %if.end81.us ]
@@ -1379,8 +1378,8 @@ if.end98:                                         ; preds = %if.then96, %if.then
   %cmp100 = icmp eq i64 %shr, 100
   %cond = select i1 %cmp100, i32 10, i32 13
   %call102 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32, i32 noundef %conv99, i32 noundef %cond)
-  %9 = load ptr, ptr @stdout, align 8
-  %call103 = call i32 @fflush(ptr noundef %9)
+  %11 = load ptr, ptr @stdout, align 8
+  %call103 = call i32 @fflush(ptr noundef %11)
   br label %if.end111
 
 if.else104:                                       ; preds = %if.else91
@@ -1390,8 +1389,8 @@ if.else104:                                       ; preds = %if.else91
 
 if.then107:                                       ; preds = %if.else104
   %conv.le = and i32 %0, 504
-  %10 = load ptr, ptr @stderr, align 8
-  %call108 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.33, i32 noundef %conv.le) #18
+  %12 = load ptr, ptr @stderr, align 8
+  %call108 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.33, i32 noundef %conv.le) #18
   br label %return
 
 if.end111:                                        ; preds = %if.end98, %if.else104, %if.end86

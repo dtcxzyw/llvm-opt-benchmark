@@ -63,8 +63,8 @@ define dso_local void @dql_completed(ptr noundef %0, i32 noundef %1) #0 align 16
 33:                                               ; preds = %24
   %34 = icmp eq i32 %16, %5
   %35 = xor i1 %20, true
-  %36 = select i1 %35, i1 true, i1 %34
-  %37 = select i1 %36, i1 true, i1 %18
+  %36 = or i1 %34, %18
+  %37 = select i1 %35, i1 true, i1 %36
   br i1 %37, label %73, label %38
 
 38:                                               ; preds = %33

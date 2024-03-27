@@ -377,10 +377,8 @@ if.then8.i:                                       ; preds = %ivshmem_recv_msg.ex
   br label %ivshmem_recv_setup.exit
 
 if.end9.i:                                        ; preds = %ivshmem_recv_msg.exit43.i
-  %cmp11.i = icmp slt i64 %retval.0.i38.i, 0
-  %or.cond.i = select i1 %fd.1.i, i1 true, i1 %cmp11.i
-  %cmp13.i = icmp sgt i64 %retval.0.i38.i, 65535
-  %or.cond1.i = select i1 %or.cond.i, i1 true, i1 %cmp13.i
+  %19 = icmp ugt i64 %retval.0.i38.i, 65535
+  %or.cond1.i = select i1 %fd.1.i, i1 true, i1 %19
   br i1 %or.cond1.i, label %if.then14.i, label %if.end15.i
 
 if.then14.i:                                      ; preds = %if.end9.i
@@ -427,29 +425,29 @@ do.cond.i55.i:                                    ; preds = %if.end7.i53.i, %if.
 
 do.end.i58.i:                                     ; preds = %do.cond.i55.i
   %call12.i59.i = call i32 @qemu_chr_fe_get_msgfd(ptr noundef nonnull %server_chr) #11
-  %19 = load i64, ptr %msg.i44.i, align 8
+  %20 = load i64, ptr %msg.i44.i, align 8
   br label %ivshmem_recv_msg.exit65.i
 
 ivshmem_recv_msg.exit65.i:                        ; preds = %do.end.i58.i, %if.end.i63.i
   %fd.3.i = phi i32 [ %call12.i59.i, %do.end.i58.i ], [ %fd.2.i, %if.end.i63.i ]
-  %retval.0.i60.i = phi i64 [ %19, %do.end.i58.i ], [ -9223372036854775808, %if.end.i63.i ]
+  %retval.0.i60.i = phi i64 [ %20, %do.end.i58.i ], [ -9223372036854775808, %if.end.i63.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %msg.i44.i)
-  %20 = load ptr, ptr %err.i, align 8
-  %tobool17.not.i = icmp eq ptr %20, null
+  %21 = load ptr, ptr %err.i, align 8
+  %tobool17.not.i = icmp eq ptr %21, null
   br i1 %tobool17.not.i, label %if.end19.i, label %if.then18.i
 
 if.then18.i:                                      ; preds = %ivshmem_recv_msg.exit65.i
-  call void @error_propagate(ptr noundef nonnull %err, ptr noundef nonnull %20) #11
+  call void @error_propagate(ptr noundef nonnull %err, ptr noundef nonnull %21) #11
   br label %ivshmem_recv_setup.exit
 
 if.end19.i:                                       ; preds = %ivshmem_recv_msg.exit65.i
   call fastcc void @process_msg(ptr noundef %call.i, i64 noundef %retval.0.i60.i, i32 noundef %fd.3.i, ptr noundef nonnull %err.i)
-  %21 = load ptr, ptr %err.i, align 8
-  %tobool20.not.i = icmp eq ptr %21, null
+  %22 = load ptr, ptr %err.i, align 8
+  %tobool20.not.i = icmp eq ptr %22, null
   br i1 %tobool20.not.i, label %do.cond.i, label %if.then21.i
 
 if.then21.i:                                      ; preds = %if.end19.i
-  call void @error_propagate(ptr noundef nonnull %err, ptr noundef nonnull %21) #11
+  call void @error_propagate(ptr noundef nonnull %err, ptr noundef nonnull %22) #11
   br label %ivshmem_recv_setup.exit
 
 do.cond.i:                                        ; preds = %if.end19.i
@@ -458,8 +456,8 @@ do.cond.i:                                        ; preds = %if.end19.i
 
 do.end.i40:                                       ; preds = %do.cond.i
   %ivshmem_bar2.i = getelementptr inbounds i8, ptr %call.i, i64 2976
-  %22 = load ptr, ptr %ivshmem_bar2.i, align 16
-  %tobool25.not.i = icmp eq ptr %22, null
+  %23 = load ptr, ptr %ivshmem_bar2.i, align 16
+  %tobool25.not.i = icmp eq ptr %23, null
   br i1 %tobool25.not.i, label %if.else.i41, label %ivshmem_recv_setup.exit
 
 if.else.i41:                                      ; preds = %do.end.i40
@@ -468,24 +466,24 @@ if.else.i41:                                      ; preds = %do.end.i40
 
 ivshmem_recv_setup.exit:                          ; preds = %if.then.i, %if.then1.i, %if.then4.i, %if.then8.i, %if.then14.i, %if.then18.i, %if.then21.i, %do.end.i40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %err.i)
-  %23 = load ptr, ptr %err, align 8
-  %tobool16.not = icmp eq ptr %23, null
+  %24 = load ptr, ptr %err, align 8
+  %tobool16.not = icmp eq ptr %24, null
   br i1 %tobool16.not, label %if.end18, label %if.then17
 
 if.then17:                                        ; preds = %ivshmem_recv_setup.exit
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %23) #11
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %24) #11
   br label %return
 
 if.end18:                                         ; preds = %ivshmem_recv_setup.exit
   %master = getelementptr inbounds i8, ptr %call.i, i64 3300
-  %24 = load i32, ptr %master, align 4
-  %cmp19 = icmp eq i32 %24, 1
+  %25 = load i32, ptr %master, align 4
+  %cmp19 = icmp eq i32 %25, 1
   br i1 %cmp19, label %land.lhs.true20, label %if.end23
 
 land.lhs.true20:                                  ; preds = %if.end18
   %vm_id = getelementptr inbounds i8, ptr %call.i, i64 2688
-  %25 = load i32, ptr %vm_id, align 16
-  %cmp21.not = icmp eq i32 %25, 0
+  %26 = load i32, ptr %vm_id, align 16
+  %cmp21.not = icmp eq i32 %26, 0
   br i1 %cmp21.not, label %if.end23, label %if.then22
 
 if.then22:                                        ; preds = %land.lhs.true20
@@ -494,8 +492,8 @@ if.then22:                                        ; preds = %land.lhs.true20
 
 if.end23:                                         ; preds = %land.lhs.true20, %if.end18
   call void @qemu_chr_fe_set_handlers(ptr noundef nonnull %server_chr, ptr noundef nonnull @ivshmem_can_receive, ptr noundef nonnull @ivshmem_read, ptr noundef null, ptr noundef null, ptr noundef nonnull %call.i, ptr noundef null, i1 noundef zeroext true) #11
-  %26 = load i32, ptr %vectors.i, align 4
-  %conv.i43 = zext i32 %26 to i64
+  %27 = load i32, ptr %vectors.i, align 4
+  %conv.i43 = zext i32 %27 to i64
   %call.i44 = call noalias ptr @g_malloc0_n(i64 noundef %conv.i43, i64 noundef 16) #13
   %msi_vectors.i = getelementptr inbounds i8, ptr %call.i, i64 3280
   store ptr %call.i44, ptr %msi_vectors.i, align 16
@@ -506,24 +504,24 @@ if.end23:                                         ; preds = %land.lhs.true20, %i
 
 if.then.i46:                                      ; preds = %if.end23
   %call.i.i47 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #11
-  %27 = load i32, ptr %vectors.i, align 4
-  %conv4.i = trunc i32 %27 to i16
+  %28 = load i32, ptr %vectors.i, align 4
+  %conv4.i = trunc i32 %28 to i16
   %call5.i = call i32 @msix_init_exclusive_bar(ptr noundef %call.i.i47, i16 noundef zeroext %conv4.i, i8 noundef zeroext 1, ptr noundef %errp) #11
   %tobool6.not.i = icmp eq i32 %call5.i, 0
   br i1 %tobool6.not.i, label %do.end.i48, label %if.then27
 
 do.end.i48:                                       ; preds = %if.then.i46
   %call.i.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #11
-  %28 = load i32, ptr %vectors.i, align 4
-  %cmp4.not.i.i = icmp eq i32 %28, 0
+  %29 = load i32, ptr %vectors.i, align 4
+  %cmp4.not.i.i = icmp eq i32 %29, 0
   br i1 %cmp4.not.i.i, label %if.end29, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %do.end.i48, %for.body.i.i
   %i.05.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %do.end.i48 ]
   call void @msix_vector_use(ptr noundef %call.i.i.i, i32 noundef %i.05.i.i) #11
   %inc.i.i = add nuw i32 %i.05.i.i, 1
-  %29 = load i32, ptr %vectors.i, align 4
-  %cmp.i.i49 = icmp ult i32 %inc.i.i, %29
+  %30 = load i32, ptr %vectors.i, align 4
+  %cmp.i.i49 = icmp ult i32 %inc.i.i, %30
   br i1 %cmp.i.i49, label %for.body.i.i, label %if.end29, !llvm.loop !9
 
 if.then27:                                        ; preds = %if.then.i46
@@ -532,20 +530,20 @@ if.then27:                                        ; preds = %if.then.i46
 
 if.end29:                                         ; preds = %for.body.i.i, %do.end.i48, %if.end23, %do.end
   %master30 = getelementptr inbounds i8, ptr %call.i, i64 3300
-  %30 = load i32, ptr %master30, align 4
-  %cmp31 = icmp eq i32 %30, 0
+  %31 = load i32, ptr %master30, align 4
+  %cmp31 = icmp eq i32 %31, 0
   br i1 %cmp31, label %if.then32, label %ivshmem_is_master.exit
 
 if.then32:                                        ; preds = %if.end29
   %vm_id33 = getelementptr inbounds i8, ptr %call.i, i64 2688
-  %31 = load i32, ptr %vm_id33, align 16
-  %cmp34 = icmp eq i32 %31, 0
+  %32 = load i32, ptr %vm_id33, align 16
+  %cmp34 = icmp eq i32 %32, 0
   %cond = select i1 %cmp34, i32 1, i32 2
   store i32 %cond, ptr %master30, align 4
   br label %ivshmem_is_master.exit
 
 ivshmem_is_master.exit:                           ; preds = %if.end29, %if.then32
-  %call.val37 = phi i32 [ %cond, %if.then32 ], [ %30, %if.end29 ]
+  %call.val37 = phi i32 [ %cond, %if.then32 ], [ %31, %if.end29 ]
   %cmp2.i = icmp eq i32 %call.val37, 1
   br i1 %cmp2.i, label %if.end44, label %if.then38
 
@@ -558,12 +556,12 @@ if.then38:                                        ; preds = %ivshmem_is_master.e
 
 if.end44:                                         ; preds = %if.then38, %ivshmem_is_master.exit
   %ivshmem_bar245 = getelementptr inbounds i8, ptr %call.i, i64 2976
-  %32 = load ptr, ptr %ivshmem_bar245, align 16
-  %call.i53 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #11
-  call void @vmstate_register_ram(ptr noundef %32, ptr noundef %call.i53) #11
-  %call.i54 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #11
   %33 = load ptr, ptr %ivshmem_bar245, align 16
-  call void @pci_register_bar(ptr noundef %call.i54, i32 noundef 2, i8 noundef zeroext 12, ptr noundef %33) #11
+  %call.i53 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #11
+  call void @vmstate_register_ram(ptr noundef %33, ptr noundef %call.i53) #11
+  %call.i54 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #11
+  %34 = load ptr, ptr %ivshmem_bar245, align 16
+  call void @pci_register_bar(ptr noundef %call.i54, i32 noundef 2, i8 noundef zeroext 12, ptr noundef %34) #11
   br label %return
 
 return:                                           ; preds = %if.then38, %if.end44, %if.then27, %if.then22, %if.then17, %if.then

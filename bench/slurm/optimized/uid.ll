@@ -79,7 +79,7 @@ define noundef i32 @uid_from_string(ptr noundef %0, ptr nocapture noundef writeo
   %14 = alloca ptr, align 8
   store ptr null, ptr %14, align 8
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %51, label %15
+  br i1 %.not, label %50, label %15
 
 15:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
@@ -128,62 +128,60 @@ _getpwnam_r.exit:                                 ; preds = %17, %19
   %32 = add i64 %29, -9223372036854775807
   %or.cond3 = icmp ult i64 %32, 2
   %or.cond25 = select i1 %31, i1 %or.cond3, i1 false
-  br i1 %or.cond25, label %51, label %33
+  br i1 %or.cond25, label %50, label %33
 
 33:                                               ; preds = %27
   %34 = load ptr, ptr %14, align 8
   %35 = icmp eq ptr %34, %0
-  br i1 %35, label %51, label %36
+  br i1 %35, label %50, label %36
 
 36:                                               ; preds = %33
   %37 = load i8, ptr %34, align 1
   %38 = icmp ne i8 %37, 0
-  %39 = icmp slt i64 %29, 0
-  %or.cond5 = select i1 %38, i1 true, i1 %39
-  %40 = icmp sgt i64 %29, 2147483647
-  %or.cond7 = select i1 %or.cond5, i1 true, i1 %40
-  br i1 %or.cond7, label %51, label %41
+  %39 = icmp ugt i64 %29, 2147483647
+  %or.cond7 = select i1 %38, i1 true, i1 %39
+  br i1 %or.cond7, label %50, label %40
 
-41:                                               ; preds = %36
-  %42 = trunc i64 %29 to i32
+40:                                               ; preds = %36
+  %41 = trunc i64 %29 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %5, i8 0, i64 20, i1 false)
-  %43 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #11
-  br label %44
+  %42 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #11
+  br label %43
 
-44:                                               ; preds = %44, %41
-  %45 = call i32 @getpwuid_r(i32 noundef %42, ptr noundef nonnull %11, ptr noundef nonnull %13, i64 noundef 65536, ptr noundef nonnull %12) #11
-  switch i32 %45, label %46 [
-    i32 4, label %44
+43:                                               ; preds = %43, %40
+  %44 = call i32 @getpwuid_r(i32 noundef %41, ptr noundef nonnull %11, ptr noundef nonnull %13, i64 noundef 65536, ptr noundef nonnull %12) #11
+  switch i32 %44, label %45 [
+    i32 4, label %43
     i32 0, label %slurm_getpwuid_r.exit
   ]
 
-46:                                               ; preds = %44
+45:                                               ; preds = %43
   store ptr null, ptr %12, align 8
   br label %slurm_getpwuid_r.exit
 
-slurm_getpwuid_r.exit:                            ; preds = %44, %46
-  %47 = phi i1 [ true, %46 ], [ false, %44 ]
-  %48 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #11
+slurm_getpwuid_r.exit:                            ; preds = %43, %45
+  %46 = phi i1 [ true, %45 ], [ false, %43 ]
+  %47 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #11
   call void @slurm_diff_tv_str(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 20, ptr noundef nonnull @__func__.slurm_getpwuid_r, i64 noundef 0, ptr noundef nonnull %6) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %49 = load ptr, ptr %12, align 8
-  %50 = icmp eq ptr %49, null
-  %or.cond9 = select i1 %47, i1 true, i1 %50
-  br i1 %or.cond9, label %51, label %.sink.split
+  %48 = load ptr, ptr %12, align 8
+  %49 = icmp eq ptr %48, null
+  %or.cond9 = select i1 %46, i1 true, i1 %49
+  br i1 %or.cond9, label %50, label %.sink.split
 
 .sink.split:                                      ; preds = %slurm_getpwuid_r.exit, %24
-  %.sink = phi i32 [ %26, %24 ], [ %42, %slurm_getpwuid_r.exit ]
+  %.sink = phi i32 [ %26, %24 ], [ %41, %slurm_getpwuid_r.exit ]
   store i32 %.sink, ptr %1, align 4
-  br label %51
+  br label %50
 
-51:                                               ; preds = %.sink.split, %slurm_getpwuid_r.exit, %33, %36, %27, %2
+50:                                               ; preds = %.sink.split, %slurm_getpwuid_r.exit, %33, %36, %27, %2
   %.0 = phi i32 [ -1, %2 ], [ -1, %27 ], [ -1, %36 ], [ -1, %33 ], [ -1, %slurm_getpwuid_r.exit ], [ 0, %.sink.split ]
   ret i32 %.0
 }
@@ -599,7 +597,7 @@ define noundef i32 @gid_from_string(ptr noundef %0, ptr nocapture noundef writeo
   %14 = alloca ptr, align 8
   store ptr null, ptr %14, align 8
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %51, label %15
+  br i1 %.not, label %50, label %15
 
 15:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
@@ -648,62 +646,60 @@ _getgrnam_r.exit:                                 ; preds = %17, %19
   %32 = add i64 %29, -9223372036854775807
   %or.cond3 = icmp ult i64 %32, 2
   %or.cond25 = select i1 %31, i1 %or.cond3, i1 false
-  br i1 %or.cond25, label %51, label %33
+  br i1 %or.cond25, label %50, label %33
 
 33:                                               ; preds = %27
   %34 = load ptr, ptr %14, align 8
   %35 = icmp eq ptr %34, %0
-  br i1 %35, label %51, label %36
+  br i1 %35, label %50, label %36
 
 36:                                               ; preds = %33
   %37 = load i8, ptr %34, align 1
   %38 = icmp ne i8 %37, 0
-  %39 = icmp slt i64 %29, 0
-  %or.cond5 = select i1 %38, i1 true, i1 %39
-  %40 = icmp sgt i64 %29, 2147483647
-  %or.cond7 = select i1 %or.cond5, i1 true, i1 %40
-  br i1 %or.cond7, label %51, label %41
+  %39 = icmp ugt i64 %29, 2147483647
+  %or.cond7 = select i1 %38, i1 true, i1 %39
+  br i1 %or.cond7, label %50, label %40
 
-41:                                               ; preds = %36
-  %42 = trunc i64 %29 to i32
+40:                                               ; preds = %36
+  %41 = trunc i64 %29 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %5, i8 0, i64 20, i1 false)
-  %43 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #11
-  br label %44
+  %42 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #11
+  br label %43
 
-44:                                               ; preds = %44, %41
-  %45 = call i32 @getgrgid_r(i32 noundef %42, ptr noundef nonnull %11, ptr noundef nonnull %13, i64 noundef 65536, ptr noundef nonnull %12) #11
-  switch i32 %45, label %46 [
-    i32 4, label %44
+43:                                               ; preds = %43, %40
+  %44 = call i32 @getgrgid_r(i32 noundef %41, ptr noundef nonnull %11, ptr noundef nonnull %13, i64 noundef 65536, ptr noundef nonnull %12) #11
+  switch i32 %44, label %45 [
+    i32 4, label %43
     i32 0, label %_getgrgid_r.exit
   ]
 
-46:                                               ; preds = %44
+45:                                               ; preds = %43
   store ptr null, ptr %12, align 8
   br label %_getgrgid_r.exit
 
-_getgrgid_r.exit:                                 ; preds = %44, %46
-  %47 = phi i1 [ true, %46 ], [ false, %44 ]
-  %48 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #11
+_getgrgid_r.exit:                                 ; preds = %43, %45
+  %46 = phi i1 [ true, %45 ], [ false, %43 ]
+  %47 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #11
   call void @slurm_diff_tv_str(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 20, ptr noundef nonnull @__func__._getgrgid_r, i64 noundef 0, ptr noundef nonnull %6) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %49 = load ptr, ptr %12, align 8
-  %50 = icmp eq ptr %49, null
-  %or.cond9 = select i1 %47, i1 true, i1 %50
-  br i1 %or.cond9, label %51, label %.sink.split
+  %48 = load ptr, ptr %12, align 8
+  %49 = icmp eq ptr %48, null
+  %or.cond9 = select i1 %46, i1 true, i1 %49
+  br i1 %or.cond9, label %50, label %.sink.split
 
 .sink.split:                                      ; preds = %_getgrgid_r.exit, %24
-  %.sink = phi i32 [ %26, %24 ], [ %42, %_getgrgid_r.exit ]
+  %.sink = phi i32 [ %26, %24 ], [ %41, %_getgrgid_r.exit ]
   store i32 %.sink, ptr %1, align 4
-  br label %51
+  br label %50
 
-51:                                               ; preds = %.sink.split, %_getgrgid_r.exit, %33, %36, %27, %2
+50:                                               ; preds = %.sink.split, %_getgrgid_r.exit, %33, %36, %27, %2
   %.0 = phi i32 [ -1, %2 ], [ -1, %27 ], [ -1, %36 ], [ -1, %33 ], [ -1, %_getgrgid_r.exit ], [ 0, %.sink.split ]
   ret i32 %.0
 }

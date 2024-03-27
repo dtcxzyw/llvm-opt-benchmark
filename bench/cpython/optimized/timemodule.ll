@@ -1982,41 +1982,41 @@ entry:
   %spec.select.i = select i1 %tobool.not.i, ptr @.str.60, ptr %p.val
   %call.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %janname, ptr noundef nonnull dereferenceable(1) %spec.select.i, i64 noundef 9) #11
   %2 = getelementptr inbounds i8, ptr %p, i64 40
-  %p.val27 = load i64, ptr %2, align 8
+  %p.val26 = load i64, ptr %2, align 8
   %arrayidx = getelementptr inbounds i8, ptr %janname, i64 9
   store i8 0, ptr %arrayidx, align 1
   %add = add i64 %mul, 15778800
   %call3 = call i32 @_PyTime_localtime(i64 noundef %add, ptr noundef nonnull %p) #11
-  %p.val26 = load ptr, ptr %1, align 8
-  %tobool.not.i29 = icmp eq ptr %p.val26, null
-  %spec.select.i30 = select i1 %tobool.not.i29, ptr @.str.60, ptr %p.val26
-  %call.i31 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %julyname, ptr noundef nonnull dereferenceable(1) %spec.select.i30, i64 noundef 9) #11
-  %p.val28 = load i64, ptr %2, align 8
-  %sub6 = sub i64 0, %p.val28
+  %p.val25 = load ptr, ptr %1, align 8
+  %tobool.not.i28 = icmp eq ptr %p.val25, null
+  %spec.select.i29 = select i1 %tobool.not.i28, ptr @.str.60, ptr %p.val25
+  %call.i30 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %julyname, ptr noundef nonnull dereferenceable(1) %spec.select.i29, i64 noundef 9) #11
+  %p.val27 = load i64, ptr %2, align 8
   %arrayidx7 = getelementptr inbounds i8, ptr %julyname, i64 9
   store i8 0, ptr %arrayidx7, align 1
-  %3 = add i64 %p.val27, -172801
+  %3 = add i64 %p.val26, -172801
   %or.cond = icmp ult i64 %3, -345601
-  %cmp10 = icmp slt i64 %sub6, -172800
-  %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp10
-  %cmp12 = icmp sgt i64 %sub6, 172800
-  %or.cond2 = select i1 %or.cond1, i1 true, i1 %cmp12
+  %4 = add i64 %p.val27, -172801
+  %5 = icmp ult i64 %4, -345601
+  %or.cond2 = select i1 %or.cond, i1 true, i1 %5
   br i1 %or.cond2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr @PyExc_RuntimeError, align 8
-  call void @PyErr_SetString(ptr noundef %4, ptr noundef nonnull @.str.54) #11
+  %6 = load ptr, ptr @PyExc_RuntimeError, align 8
+  call void @PyErr_SetString(ptr noundef %6, ptr noundef nonnull @.str.54) #11
   br label %return
 
 if.end:                                           ; preds = %entry
-  %5 = trunc i64 %p.val27 to i32
-  %conv = sub nsw i32 0, %5
-  %conv13 = trunc i64 %sub6 to i32
-  %cmp14 = icmp slt i32 %conv, %conv13
+  %7 = trunc i64 %p.val26 to i32
+  %conv = sub nsw i32 0, %7
+  %8 = trunc i64 %p.val27 to i32
+  %conv13 = sub nsw i32 0, %8
+  %cmp14 = icmp slt i32 %8, %7
   br i1 %cmp14, label %do.body, label %do.body44
 
 do.body:                                          ; preds = %if.end
-  %call18 = call i32 @PyModule_AddIntConstant(ptr noundef %m, ptr noundef nonnull @.str.55, i64 noundef %sub6) #11
+  %conv17 = sext i32 %conv13 to i64
+  %call18 = call i32 @PyModule_AddIntConstant(ptr noundef %m, ptr noundef nonnull @.str.55, i64 noundef %conv17) #11
   %cmp19 = icmp slt i32 %call18, 0
   br i1 %cmp19, label %return, label %do.body23
 
@@ -2027,7 +2027,7 @@ do.body23:                                        ; preds = %do.body
   br i1 %cmp26, label %return, label %do.body31
 
 do.body31:                                        ; preds = %do.body23
-  %cmp32 = icmp ne i32 %conv, %conv13
+  %cmp32 = icmp ne i32 %8, %7
   %conv34 = zext i1 %cmp32 to i64
   %call35 = call i32 @PyModule_AddIntConstant(ptr noundef %m, ptr noundef nonnull @.str.57, i64 noundef %conv34) #11
   %cmp36 = icmp slt i32 %call35, 0
@@ -2044,12 +2044,13 @@ do.body44:                                        ; preds = %if.end
   br i1 %cmp47, label %return, label %do.body52
 
 do.body52:                                        ; preds = %do.body44
-  %call54 = call i32 @PyModule_AddIntConstant(ptr noundef %m, ptr noundef nonnull @.str.56, i64 noundef %sub6) #11
+  %conv53 = sext i32 %conv13 to i64
+  %call54 = call i32 @PyModule_AddIntConstant(ptr noundef %m, ptr noundef nonnull @.str.56, i64 noundef %conv53) #11
   %cmp55 = icmp slt i32 %call54, 0
   br i1 %cmp55, label %return, label %do.body60
 
 do.body60:                                        ; preds = %do.body52
-  %cmp61 = icmp ne i32 %conv, %conv13
+  %cmp61 = icmp ne i32 %8, %7
   %conv63 = zext i1 %cmp61 to i64
   %call64 = call i32 @PyModule_AddIntConstant(ptr noundef %m, ptr noundef nonnull @.str.57, i64 noundef %conv63) #11
   %cmp65 = icmp slt i32 %call64, 0

@@ -1507,10 +1507,9 @@ php_handle_jp2.exit.i:                            ; preds = %366, %.thread26.i.i
   %443 = icmp sgt i16 %435, 0
   %444 = icmp sgt i16 %441, 0
   %or.cond.i78.i = select i1 %443, i1 %444, i1 false
-  %445 = icmp ne i8 %442, 0
-  %or.cond5.i.i = select i1 %or.cond.i78.i, i1 %445, i1 false
-  %446 = icmp ult i8 %442, 33
-  %or.cond8.i.i = select i1 %or.cond5.i.i, i1 %446, i1 false
+  %445 = add i8 %442, -1
+  %446 = icmp ult i8 %445, 32
+  %or.cond8.i.i = select i1 %or.cond.i78.i, i1 %446, i1 false
   br i1 %or.cond8.i.i, label %447, label %458
 
 447:                                              ; preds = %429

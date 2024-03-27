@@ -1283,21 +1283,20 @@ define internal noundef i64 @up_threshold_store(ptr nocapture noundef writeonly 
   %5 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %4)
   %6 = icmp ne i32 %5, 1
   %7 = load i32, ptr %4, align 4
-  %8 = icmp ugt i32 %7, 100
-  %9 = select i1 %6, i1 true, i1 %8
-  %10 = icmp eq i32 %7, 0
-  %11 = select i1 %9, i1 true, i1 %10
-  br i1 %11, label %14, label %12
+  %8 = add i32 %7, -101
+  %9 = icmp ult i32 %8, -100
+  %10 = select i1 %6, i1 true, i1 %9
+  br i1 %10, label %13, label %11
 
-12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %0, i64 148
-  store i32 %7, ptr %13, align 4
-  br label %14
+11:                                               ; preds = %3
+  %12 = getelementptr inbounds i8, ptr %0, i64 148
+  store i32 %7, ptr %12, align 4
+  br label %13
 
-14:                                               ; preds = %12, %3
-  %15 = phi i64 [ %2, %12 ], [ -22, %3 ]
+13:                                               ; preds = %11, %3
+  %14 = phi i64 [ %2, %11 ], [ -22, %3 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
-  ret i64 %15
+  ret i64 %14
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
@@ -1320,35 +1319,34 @@ define internal noundef i64 @sampling_down_factor_store(ptr noundef %0, ptr noca
   %5 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %4)
   %6 = icmp ne i32 %5, 1
   %7 = load i32, ptr %4, align 4
-  %8 = icmp ugt i32 %7, 100000
-  %9 = select i1 %6, i1 true, i1 %8
-  %10 = icmp eq i32 %7, 0
-  %11 = select i1 %9, i1 true, i1 %10
-  br i1 %11, label %.loopexit, label %12
+  %8 = add i32 %7, -100001
+  %9 = icmp ult i32 %8, -100000
+  %10 = select i1 %6, i1 true, i1 %9
+  br i1 %10, label %.loopexit, label %11
 
-12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %0, i64 144
-  store i32 %7, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
-  %15 = load ptr, ptr %14, align 8
-  %16 = icmp eq ptr %15, %14
-  br i1 %16, label %.loopexit, label %.preheader
+11:                                               ; preds = %3
+  %12 = getelementptr inbounds i8, ptr %0, i64 144
+  store i32 %7, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %14 = load ptr, ptr %13, align 8
+  %15 = icmp eq ptr %14, %13
+  br i1 %15, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %12, %.preheader
-  %17 = phi ptr [ %20, %.preheader ], [ %15, %12 ]
-  %18 = getelementptr i8, ptr %17, i64 -128
-  call void @mutex_lock(ptr noundef %18) #13
-  %19 = getelementptr i8, ptr %17, i64 16
-  store i32 1, ptr %19, align 8
-  call void @mutex_unlock(ptr noundef %18) #13
-  %20 = load ptr, ptr %17, align 8
-  %21 = icmp eq ptr %20, %14
-  br i1 %21, label %.loopexit, label %.preheader, !llvm.loop !32
+.preheader:                                       ; preds = %11, %.preheader
+  %16 = phi ptr [ %19, %.preheader ], [ %14, %11 ]
+  %17 = getelementptr i8, ptr %16, i64 -128
+  call void @mutex_lock(ptr noundef %17) #13
+  %18 = getelementptr i8, ptr %16, i64 16
+  store i32 1, ptr %18, align 8
+  call void @mutex_unlock(ptr noundef %17) #13
+  %19 = load ptr, ptr %16, align 8
+  %20 = icmp eq ptr %19, %13
+  br i1 %20, label %.loopexit, label %.preheader, !llvm.loop !32
 
-.loopexit:                                        ; preds = %.preheader, %12, %3
-  %22 = phi i64 [ -22, %3 ], [ %2, %12 ], [ %2, %.preheader ]
+.loopexit:                                        ; preds = %.preheader, %11, %3
+  %21 = phi i64 [ -22, %3 ], [ %2, %11 ], [ %2, %.preheader ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
-  ret i64 %22
+  ret i64 %21
 }
 
 ; Function Attrs: null_pointer_is_valid

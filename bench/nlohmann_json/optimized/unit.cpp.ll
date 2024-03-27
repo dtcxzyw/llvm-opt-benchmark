@@ -23496,15 +23496,15 @@ for.body62.i:                                     ; preds = %for.body62.i, %_ZN7
 for.end.i:                                        ; preds = %for.body62.i
   %cmp76.i = icmp ult i32 %or.i, 128
   %not.and7060.i = xor i1 %and7060.i, true
-  %or.cond3.not.i = select i1 %not.and7060.i, i1 true, i1 %cmp76.i
   %cmp78.i = icmp ult i32 %or.i, 2048
   %or.cond4.i = and i1 %cmp.i.i, %cmp78.i
-  %or.cond120.i = select i1 %or.cond3.not.i, i1 true, i1 %or.cond4.i
+  %12 = or i1 %cmp76.i, %or.cond4.i
+  %or.cond120.i = select i1 %not.and7060.i, i1 true, i1 %12
   br i1 %or.cond120.i, label %if.then89.i, label %lor.lhs.false81.i
 
 lor.lhs.false81.i:                                ; preds = %for.end.i
-  %12 = add i32 %or.i, -2049
-  %or.cond5.i = icmp ult i32 %12, 63487
+  %13 = add i32 %or.i, -2049
+  %or.cond5.i = icmp ult i32 %13, 63487
   %or.cond6.i = and i1 %cmp86.i, %or.cond5.i
   %cmp88.i = icmp ugt i32 %or.i, 1114111
   %or.cond7.i = select i1 %or.cond6.i, i1 true, i1 %cmp88.i
@@ -23515,7 +23515,7 @@ if.then89.i:                                      ; preds = %lor.lhs.false81.i, 
   %vbase.offset.ptr.i104.i = getelementptr i8, ptr %vtable.i103.i, i64 -24
   %vbase.offset.i105.i = load i64, ptr %vbase.offset.ptr.i104.i, align 8
   %gep128.i = getelementptr i8, ptr %invariant.gep.i, i64 %vbase.offset.i105.i
-  %13 = load i32, ptr %gep128.i, align 8
+  %14 = load i32, ptr %gep128.i, align 8
   %call1.i108.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.254)
   %call2.i109.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %call1.i108.i, ptr noundef nonnull @_ZSt9uppercaseRSt8ios_base)
   %call3.i110.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %call2.i109.i, ptr noundef nonnull @_ZSt3hexRSt8ios_base)
@@ -23526,15 +23526,15 @@ if.then89.i:                                      ; preds = %lor.lhs.false81.i, 
   %vbase.offset.ptr14.i116.i = getelementptr i8, ptr %vtable13.i115.i, i64 -24
   %vbase.offset15.i117.i = load i64, ptr %vbase.offset.ptr14.i116.i, align 8
   %gep130.i = getelementptr i8, ptr %invariant.gep.i, i64 %vbase.offset15.i117.i
-  store i32 %13, ptr %gep130.i, align 8
+  store i32 %14, ptr %gep130.i, align 8
   br label %for.inc104.i
 
 for.body94.i:                                     ; preds = %lor.lhs.false81.i, %for.body94.i
   %n91.0124.i = phi i64 [ %inc100.i, %for.body94.i ], [ 0, %lor.lhs.false81.i ]
   %add96.i = add i64 %n91.0124.i, %idx.0141.i
   %call97.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %xmlEncode, i64 noundef %add96.i) #41
-  %14 = load i8, ptr %call97.i, align 1
-  %call98.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %os, i8 noundef signext %14)
+  %15 = load i8, ptr %call97.i, align 1
+  %call98.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %os, i8 noundef signext %15)
   %inc100.i = add nuw nsw i64 %n91.0124.i, 1
   %exitcond142.not.i = icmp eq i64 %inc100.i, %retval.0.i.i
   br i1 %exitcond142.not.i, label %for.inc104.i, label %for.body94.i, !llvm.loop !183

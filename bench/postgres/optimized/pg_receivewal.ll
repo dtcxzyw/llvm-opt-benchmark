@@ -1274,42 +1274,42 @@ define internal noundef zeroext i1 @stop_streaming(i64 noundef %0, i32 noundef %
 
 19:                                               ; preds = %15, %14
   store volatile i32 1, ptr @time_to_stop, align 4
-  br label %33
+  br label %34
 
 20:                                               ; preds = %9
   %21 = load i32, ptr @stop_streaming.prevtimeline, align 4
   %22 = icmp eq i32 %21, 0
-  %or.cond.not26 = select i1 %.not17, i1 true, i1 %22
   %.not18 = icmp eq i32 %21, %1
-  %or.cond23 = select i1 %or.cond.not26, i1 true, i1 %.not18
-  br i1 %or.cond23, label %28, label %23
+  %23 = or i1 %22, %.not18
+  %or.cond23 = select i1 %.not17, i1 true, i1 %23
+  br i1 %or.cond23, label %29, label %24
 
-23:                                               ; preds = %20
-  %24 = load i64, ptr @stop_streaming.prevpos, align 8
-  %25 = lshr i64 %24, 32
-  %26 = trunc i64 %25 to i32
-  %27 = trunc i64 %24 to i32
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.103, i32 noundef %1, i32 noundef %26, i32 noundef %27) #12
-  br label %28
+24:                                               ; preds = %20
+  %25 = load i64, ptr @stop_streaming.prevpos, align 8
+  %26 = lshr i64 %25, 32
+  %27 = trunc i64 %26 to i32
+  %28 = trunc i64 %25 to i32
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.103, i32 noundef %1, i32 noundef %27, i32 noundef %28) #12
+  br label %29
 
-28:                                               ; preds = %23, %20
+29:                                               ; preds = %24, %20
   store i32 %1, ptr @stop_streaming.prevtimeline, align 4
   store i64 %0, ptr @stop_streaming.prevpos, align 8
-  %29 = load volatile i32, ptr @time_to_stop, align 4
-  %.not19 = icmp eq i32 %29, 0
-  br i1 %.not19, label %33, label %30
+  %30 = load volatile i32, ptr @time_to_stop, align 4
+  %.not19 = icmp eq i32 %30, 0
+  br i1 %.not19, label %34, label %31
 
-30:                                               ; preds = %28
-  %31 = load i32, ptr @verbose, align 4
-  %.not20 = icmp eq i32 %31, 0
-  br i1 %.not20, label %33, label %32
+31:                                               ; preds = %29
+  %32 = load i32, ptr @verbose, align 4
+  %.not20 = icmp eq i32 %32, 0
+  br i1 %.not20, label %34, label %33
 
-32:                                               ; preds = %30
+33:                                               ; preds = %31
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.104) #12
-  br label %33
+  br label %34
 
-33:                                               ; preds = %28, %30, %32, %19
-  %.0 = phi i1 [ true, %19 ], [ true, %32 ], [ true, %30 ], [ false, %28 ]
+34:                                               ; preds = %29, %31, %33, %19
+  %.0 = phi i1 [ true, %19 ], [ true, %33 ], [ true, %31 ], [ false, %29 ]
   ret i1 %.0
 }
 

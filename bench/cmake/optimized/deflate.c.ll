@@ -91,10 +91,9 @@ define dso_local noundef i32 @cm_zlib_deflateInit2_(ptr noundef %0, i32 noundef 
   %or.cond4 = icmp ult i32 %42, -9
   %43 = icmp ne i32 %2, 8
   %or.cond6 = or i1 %43, %or.cond4
-  %44 = icmp ult i32 %.0117, 8
-  %or.cond8 = select i1 %or.cond6, i1 true, i1 %44
-  %45 = icmp ugt i32 %.0117, 15
-  %or.cond10 = select i1 %or.cond8, i1 true, i1 %45
+  %44 = add nsw i32 %.0117, -16
+  %45 = icmp ult i32 %44, -8
+  %or.cond10 = select i1 %or.cond6, i1 true, i1 %45
   %46 = icmp ugt i32 %spec.store.select, 9
   %or.cond14 = or i1 %46, %or.cond10
   %47 = icmp ugt i32 %5, 4

@@ -23,15 +23,13 @@ land.lhs.true:                                    ; preds = %entry
   %1 = load ptr, ptr %last_char, align 8
   %2 = load i8, ptr %1, align 1
   %cmp3 = icmp eq i8 %2, 0
-  %cmp6 = icmp sgt i64 %call1, -1
-  %or.cond = select i1 %cmp3, i1 %cmp6, i1 false
-  %cmp9 = icmp slt i64 %call1, 16777216
-  %or.cond1 = select i1 %or.cond, i1 %cmp9, i1 false
+  %3 = icmp ult i64 %call1, 16777216
+  %or.cond1 = select i1 %cmp3, i1 %3, i1 false
   br i1 %or.cond1, label %if.then, label %for.body.preheader
 
 if.then:                                          ; preds = %land.lhs.true
-  %and = lshr i64 %call1, 16
-  %conv11 = trunc i64 %and to i8
+  %shr = lshr i64 %call1, 16
+  %conv11 = trunc i64 %shr to i8
   %arrayidx = getelementptr i8, ptr %macaddr, i64 3
   store i8 %conv11, ptr %arrayidx, align 1
   %and12 = lshr i64 %call1, 8
@@ -44,30 +42,30 @@ if.then:                                          ; preds = %land.lhs.true
   br label %return
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %3 = phi ptr [ %incdec.ptr, %for.inc ], [ %p, %for.body.preheader ]
+  %4 = phi ptr [ %incdec.ptr, %for.inc ], [ %p, %for.body.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.body.preheader ]
-  %call21 = call i64 @strtol(ptr noundef %3, ptr noundef nonnull %p.addr, i32 noundef 16) #4
+  %call21 = call i64 @strtol(ptr noundef %4, ptr noundef nonnull %p.addr, i32 noundef 16) #4
   %conv22 = trunc i64 %call21 to i8
   %arrayidx23 = getelementptr i8, ptr %macaddr, i64 %indvars.iv
   store i8 %conv22, ptr %arrayidx23, align 1
   %cmp24 = icmp eq i64 %indvars.iv, 5
-  %4 = load ptr, ptr %p.addr, align 8
-  %5 = load i8, ptr %4, align 1
+  %5 = load ptr, ptr %p.addr, align 8
+  %6 = load i8, ptr %5, align 1
   br i1 %cmp24, label %if.then26, label %if.else
 
 if.then26:                                        ; preds = %for.body
-  %cmp28.not = icmp ne i8 %5, 0
+  %cmp28.not = icmp ne i8 %6, 0
   %spec.select = sext i1 %cmp28.not to i32
   br label %return
 
 if.else:                                          ; preds = %for.body
-  switch i8 %5, label %return [
+  switch i8 %6, label %return [
     i8 58, label %for.inc
     i8 45, label %for.inc
   ]
 
 for.inc:                                          ; preds = %if.else, %if.else
-  %incdec.ptr = getelementptr i8, ptr %4, i64 1
+  %incdec.ptr = getelementptr i8, ptr %5, i64 1
   store ptr %incdec.ptr, ptr %p.addr, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6

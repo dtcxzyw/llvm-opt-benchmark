@@ -281,9 +281,9 @@ define void @dgeqp3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .loopexit23:                                      ; preds = %163, %152
   %176 = icmp sge i32 %154, %153
   %177 = icmp slt i32 %154, %127
-  %178 = select i1 %176, i1 %177, i1 false
-  %179 = icmp slt i32 %155, %127
-  %180 = select i1 %178, i1 %179, i1 false
+  %178 = icmp slt i32 %155, %127
+  %179 = and i1 %177, %178
+  %180 = select i1 %176, i1 %179, i1 false
   br i1 %180, label %181, label %.loopexit
 
 181:                                              ; preds = %.loopexit23

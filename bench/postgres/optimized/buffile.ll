@@ -502,34 +502,34 @@ BufFileLoadBuffer.exit._crit_edge:                ; preds = %70, %76, %BufFileLo
   %.039.lcssa = phi i64 [ 0, %BufFileFlush.exit ], [ %.03959, %70 ], [ %.03959, %BufFileLoadBuffer.exit ], [ %88, %76 ]
   %.not47 = icmp eq i64 %.039.lcssa, %2
   %not. = xor i1 %3, true
-  %or.cond.not = select i1 %not., i1 true, i1 %.not47
   %89 = icmp eq i64 %.039.lcssa, 0
   %brmerge.not = and i1 %89, %4
-  %or.cond = select i1 %or.cond.not, i1 true, i1 %brmerge.not
-  br i1 %or.cond, label %100, label %90
+  %90 = or i1 %.not47, %brmerge.not
+  %or.cond = select i1 %not., i1 true, i1 %90
+  br i1 %or.cond, label %101, label %91
 
-90:                                               ; preds = %BufFileLoadBuffer.exit._crit_edge
-  %91 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %91)
-  %92 = call i32 @errcode_for_file_access() #10
-  %93 = getelementptr inbounds i8, ptr %0, i64 32
-  %94 = load ptr, ptr %93, align 8
-  %.not48 = icmp eq ptr %94, null
-  br i1 %.not48, label %97, label %95
+91:                                               ; preds = %BufFileLoadBuffer.exit._crit_edge
+  %92 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %92)
+  %93 = call i32 @errcode_for_file_access() #10
+  %94 = getelementptr inbounds i8, ptr %0, i64 32
+  %95 = load ptr, ptr %94, align 8
+  %.not48 = icmp eq ptr %95, null
+  br i1 %.not48, label %98, label %96
 
-95:                                               ; preds = %90
-  %96 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull %94, i64 noundef %.039.lcssa, i64 noundef %2) #10
-  br label %99
+96:                                               ; preds = %91
+  %97 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull %95, i64 noundef %.039.lcssa, i64 noundef %2) #10
+  br label %100
 
-97:                                               ; preds = %90
-  %98 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, i64 noundef %.039.lcssa, i64 noundef %2) #10
-  br label %99
+98:                                               ; preds = %91
+  %99 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, i64 noundef %.039.lcssa, i64 noundef %2) #10
+  br label %100
 
-99:                                               ; preds = %97, %95
+100:                                              ; preds = %98, %96
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 635, ptr noundef nonnull @__func__.BufFileReadCommon) #10
   unreachable
 
-100:                                              ; preds = %BufFileLoadBuffer.exit._crit_edge
+101:                                              ; preds = %BufFileLoadBuffer.exit._crit_edge
   ret i64 %.039.lcssa
 }
 

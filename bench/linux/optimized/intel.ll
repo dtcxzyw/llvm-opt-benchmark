@@ -502,7 +502,7 @@ define internal fastcc void @sld_state_setup() unnamed_addr #1 section ".init.te
   %7 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 56), align 8
   %8 = and i64 %7, 16777216
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %40, label %10
+  br i1 %9, label %39, label %10
 
 10:                                               ; preds = %6, %0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %2, i8 0, i64 20, i1 false), !annotation !20
@@ -510,8 +510,8 @@ define internal fastcc void @sld_state_setup() unnamed_addr #1 section ".init.te
   %12 = icmp sgt i32 %11, -1
   br i1 %12, label %.preheader, label %.loopexit2
 
-.preheader:                                       ; preds = %10, %36
-  %13 = phi i64 [ %37, %36 ], [ 0, %10 ]
+.preheader:                                       ; preds = %10, %35
+  %13 = phi i64 [ %36, %35 ], [ 0, %10 ]
   %14 = getelementptr [4 x %struct.anon.18], ptr @sld_options, i64 0, i64 %13
   %15 = load ptr, ptr %14, align 16
   %16 = call i64 @strlen(ptr noundef %15) #14
@@ -522,19 +522,18 @@ define internal fastcc void @sld_state_setup() unnamed_addr #1 section ".init.te
   %19 = ashr exact i64 %18, 32
   %20 = call i32 @strncmp(ptr noundef nonnull %2, ptr noundef %15, i64 noundef %19) #14
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %35
+  br i1 %21, label %22, label %34
 
 22:                                               ; preds = %.preheader
   %23 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef nonnull %2, ptr noundef nonnull @.str.31, ptr noundef nonnull %1)
   %24 = icmp eq i32 %23, 1
   %25 = load i32, ptr %1, align 4
-  %26 = icmp sgt i32 %25, 0
-  %27 = select i1 %24, i1 %26, i1 false
-  %28 = icmp slt i32 %25, 1001
-  %29 = select i1 %27, i1 %28, i1 false
-  br i1 %29, label %30, label %31
+  %26 = add i32 %25, -1
+  %27 = icmp ult i32 %26, 1000
+  %28 = select i1 %24, i1 %27, i1 false
+  br i1 %28, label %29, label %30
 
-30:                                               ; preds = %22
+29:                                               ; preds = %22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) @bld_ratelimit, i8 0, i64 32, i1 false)
   store i32 1000, ptr getelementptr inbounds (%struct.ratelimit_state, ptr @bld_ratelimit, i64 0, i32 1), align 4
   store i32 %25, ptr getelementptr inbounds (%struct.ratelimit_state, ptr @bld_ratelimit, i64 0, i32 2), align 8
@@ -542,31 +541,31 @@ define internal fastcc void @sld_state_setup() unnamed_addr #1 section ".init.te
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #14
   br label %.loopexit
 
-31:                                               ; preds = %22
-  %32 = icmp eq i32 %11, %17
+30:                                               ; preds = %22
+  %31 = icmp eq i32 %11, %17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #14
-  br i1 %32, label %.loopexit, label %36
+  br i1 %31, label %.loopexit, label %35
 
-.loopexit:                                        ; preds = %31, %30
-  %33 = getelementptr inbounds i8, ptr %14, i64 8
-  %34 = load i32, ptr %33, align 8
+.loopexit:                                        ; preds = %30, %29
+  %32 = getelementptr inbounds i8, ptr %14, i64 8
+  %33 = load i32, ptr %32, align 8
   br label %.loopexit2
 
-35:                                               ; preds = %.preheader
+34:                                               ; preds = %.preheader
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #14
-  br label %36
+  br label %35
 
-36:                                               ; preds = %35, %31
-  %37 = add nuw nsw i64 %13, 1
-  %38 = icmp eq i64 %37, 4
-  br i1 %38, label %.loopexit2, label %.preheader, !llvm.loop !21
+35:                                               ; preds = %34, %30
+  %36 = add nuw nsw i64 %13, 1
+  %37 = icmp eq i64 %36, 4
+  br i1 %37, label %.loopexit2, label %.preheader, !llvm.loop !21
 
-.loopexit2:                                       ; preds = %36, %.loopexit, %10
-  %39 = phi i32 [ %34, %.loopexit ], [ 1, %10 ], [ 1, %36 ]
-  store i32 %39, ptr @sld_state, align 4
-  br label %40
+.loopexit2:                                       ; preds = %35, %.loopexit, %10
+  %38 = phi i32 [ %33, %.loopexit ], [ 1, %10 ], [ 1, %35 ]
+  store i32 %38, ptr @sld_state, align 4
+  br label %39
 
-40:                                               ; preds = %.loopexit2, %6
+39:                                               ; preds = %.loopexit2, %6
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #14
   ret void
 }

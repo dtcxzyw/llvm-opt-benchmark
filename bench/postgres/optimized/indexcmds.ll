@@ -271,7 +271,7 @@ list_length.exit:                                 ; preds = %5, %12
 
 70:                                               ; preds = %66, %64, %56
   tail call void @ReleaseSysCache(ptr noundef nonnull %52) #12
-  br label %196
+  br label %202
 
 71:                                               ; preds = %66
   %72 = getelementptr inbounds i8, ptr %62, i64 10
@@ -289,7 +289,7 @@ list_length.exit:                                 ; preds = %5, %12
 
 .thread:                                          ; preds = %71
   tail call void @ReleaseSysCache(ptr noundef nonnull %52) #12
-  br label %196
+  br label %202
 
 82:                                               ; preds = %71
   %83 = inttoptr i64 %75 to ptr
@@ -297,7 +297,7 @@ list_length.exit:                                 ; preds = %5, %12
   %bcmp169 = tail call i32 @bcmp(ptr nonnull %84, ptr %45, i64 %80)
   %.not186 = icmp eq i32 %bcmp169, 0
   tail call void @ReleaseSysCache(ptr noundef nonnull %52) #12
-  br i1 %.not186, label %85, label %196
+  br i1 %.not186, label %85, label %202
 
 85:                                               ; preds = %82
   %86 = tail call ptr @index_open(i32 noundef %0, i32 noundef 1) #12
@@ -490,54 +490,66 @@ list_length.exit:                                 ; preds = %5, %12
   %wide.trip.count215 = zext nneg i32 %74 to i64
   br label %.lr.ph198
 
-.lr.ph198:                                        ; preds = %.lr.ph198.preheader, %195
-  %indvars.iv212 = phi i64 [ 0, %.lr.ph198.preheader ], [ %indvars.iv.next213, %195 ]
+.lr.ph198:                                        ; preds = %.lr.ph198.preheader, %201
+  %indvars.iv212 = phi i64 [ 0, %.lr.ph198.preheader ], [ %indvars.iv.next213, %201 ]
   %170 = load ptr, ptr %163, align 8
   %171 = getelementptr i32, ptr %170, i64 %indvars.iv212
   %172 = load i32, ptr %171, align 4
   call void @op_input_types(i32 noundef %172, ptr noundef nonnull %9, ptr noundef nonnull %10) #12
   %173 = load i32, ptr %9, align 4
-  %174 = add i32 %173, -5077
-  %175 = icmp ult i32 %174, 2
-  %176 = load i32, ptr %10, align 4
-  %177 = insertelement <16 x i32> poison, i32 %173, i64 0
-  %178 = insertelement <16 x i32> %177, i32 %176, i64 1
-  %179 = shufflevector <16 x i32> %178, <16 x i32> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
-  %.fr = freeze <16 x i32> %179
-  %180 = icmp eq <16 x i32> %.fr, <i32 2277, i32 2283, i32 2776, i32 3500, i32 3831, i32 4537, i32 5079, i32 5080, i32 4538, i32 2283, i32 2277, i32 2776, i32 3500, i32 3831, i32 4537, i32 5077>
-  %181 = insertelement <4 x i32> poison, i32 %176, i64 0
-  %182 = shufflevector <4 x i32> %181, <4 x i32> poison, <4 x i32> zeroinitializer
-  %.fr227 = freeze <4 x i32> %182
-  %183 = icmp eq <4 x i32> %.fr227, <i32 5078, i32 5079, i32 5080, i32 4538>
-  %184 = bitcast <16 x i1> %180 to i16
-  %185 = icmp ne i16 %184, 0
-  %186 = bitcast <4 x i1> %183 to i4
-  %187 = icmp ne i4 %186, 0
-  %op.rdx = or i1 %185, %187
-  %op.rdx226 = select i1 %op.rdx, i1 true, i1 %175
-  br i1 %op.rdx226, label %188, label %195
+  %.fr233 = freeze i32 %173
+  %174 = insertelement <4 x i32> poison, i32 %.fr233, i64 0
+  %175 = shufflevector <4 x i32> %174, <4 x i32> poison, <4 x i32> zeroinitializer
+  %.fr232 = freeze <4 x i32> %175
+  %176 = icmp eq <4 x i32> %.fr232, <i32 2277, i32 2283, i32 2776, i32 3500>
+  %177 = icmp eq i32 %.fr233, 3831
+  %178 = icmp eq i32 %.fr233, 4537
+  %179 = load i32, ptr %10, align 4
+  %.fr235 = freeze i32 %179
+  %180 = add i32 %.fr235, -5077
+  %181 = icmp ult i32 %180, 2
+  %182 = add i32 %.fr235, -5079
+  %183 = icmp ult i32 %182, 2
+  %184 = insertelement <8 x i32> poison, i32 %.fr235, i64 0
+  %185 = insertelement <8 x i32> %184, i32 %.fr233, i64 1
+  %186 = shufflevector <8 x i32> %185, <8 x i32> poison, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1>
+  %.fr = freeze <8 x i32> %186
+  %187 = icmp eq <8 x i32> %.fr, <i32 4538, i32 2277, i32 2283, i32 2776, i32 3500, i32 3831, i32 4537, i32 4538>
+  %188 = bitcast <8 x i1> %187 to i8
+  %189 = icmp ne i8 %188, 0
+  %190 = bitcast <4 x i1> %176 to i4
+  %191 = icmp ne i4 %190, 0
+  %op.rdx = or i1 %189, %191
+  %op.rdx226 = or i1 %op.rdx, %177
+  %op.rdx227 = or i1 %178, %183
+  %op.rdx229 = or i1 %op.rdx226, %op.rdx227
+  %192 = add i32 %.fr233, -5077
+  %193 = icmp ult i32 %192, 4
+  %op.rdx230 = or i1 %181, %193
+  %op.rdx231 = or i1 %op.rdx229, %op.rdx230
+  br i1 %op.rdx231, label %194, label %201
 
-188:                                              ; preds = %.lr.ph198
-  %189 = load ptr, ptr %169, align 8
-  %190 = getelementptr inbounds i8, ptr %189, i64 24
-  %191 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %190, i64 0, i64 %indvars.iv212, i32 2
-  %192 = load i32, ptr %191, align 4
-  %193 = getelementptr i32, ptr %44, i64 %indvars.iv212
-  %194 = load i32, ptr %193, align 4
-  %.not175 = icmp eq i32 %192, %194
-  br i1 %.not175, label %195, label %.thread179
+194:                                              ; preds = %.lr.ph198
+  %195 = load ptr, ptr %169, align 8
+  %196 = getelementptr inbounds i8, ptr %195, i64 24
+  %197 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %196, i64 0, i64 %indvars.iv212, i32 2
+  %198 = load i32, ptr %197, align 4
+  %199 = getelementptr i32, ptr %44, i64 %indvars.iv212
+  %200 = load i32, ptr %199, align 4
+  %.not175 = icmp eq i32 %198, %200
+  br i1 %.not175, label %201, label %.thread179
 
-195:                                              ; preds = %188, %.lr.ph198
+201:                                              ; preds = %194, %.lr.ph198
   %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
   %exitcond216.not = icmp eq i64 %indvars.iv.next213, %wide.trip.count215
   br i1 %exitcond216.not, label %.thread179, label %.lr.ph198, !llvm.loop !9
 
-.thread179:                                       ; preds = %136, %195, %188, %.preheader, %.thread183, %165, %.loopexit
-  %.2162 = phi i1 [ false, %165 ], [ true, %.loopexit ], [ false, %.thread183 ], [ true, %.preheader ], [ true, %195 ], [ false, %188 ], [ false, %136 ]
+.thread179:                                       ; preds = %136, %201, %194, %.preheader, %.thread183, %165, %.loopexit
+  %.2162 = phi i1 [ false, %165 ], [ true, %.loopexit ], [ false, %.thread183 ], [ true, %.preheader ], [ true, %201 ], [ false, %194 ], [ false, %136 ]
   call void @index_close(ptr noundef %86, i32 noundef 0) #12
-  br label %196
+  br label %202
 
-196:                                              ; preds = %.thread, %82, %.thread179, %70
+202:                                              ; preds = %.thread, %82, %.thread179, %70
   %.0 = phi i1 [ %.2162, %.thread179 ], [ false, %70 ], [ false, %82 ], [ false, %.thread ]
   ret i1 %.0
 }

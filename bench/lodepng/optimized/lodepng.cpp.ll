@@ -17319,38 +17319,37 @@ lor.lhs.false92:                                  ; preds = %lor.lhs.false89
 lor.lhs.false95:                                  ; preds = %lor.lhs.false92
   %sbit_a96 = getelementptr inbounds i8, ptr %info, i64 276
   %28 = load i32, ptr %sbit_a96, align 4
-  %cmp97 = icmp eq i32 %28, 0
   %cmp100 = icmp ugt i32 %25, %2
-  %or.cond67 = or i1 %cmp97, %cmp100
   %cmp103 = icmp ugt i32 %26, %2
-  %or.cond68 = or i1 %or.cond67, %cmp103
+  %29 = or i1 %cmp100, %cmp103
   %cmp106 = icmp ugt i32 %27, %2
-  %or.cond69 = or i1 %or.cond68, %cmp106
-  %cmp109 = icmp ugt i32 %28, %2
-  %or.cond70 = or i1 %or.cond69, %cmp109
+  %30 = or i1 %29, %cmp106
+  %31 = add i32 %28, -1
+  %32 = icmp uge i32 %31, %2
+  %or.cond70 = or i1 %30, %32
   br i1 %or.cond70, label %return, label %if.end111
 
 if.end111:                                        ; preds = %lor.lhs.false95
   %size.i123 = getelementptr inbounds i8, ptr %out, i64 8
-  %29 = load i64, ptr %size.i123, align 8
-  %cmp.i.not.i125 = icmp ugt i64 %29, -5
+  %33 = load i64, ptr %size.i123, align 8
+  %cmp.i.not.i125 = icmp ugt i64 %33, -5
   br i1 %cmp.i.not.i125, label %return, label %if.end.i126
 
 if.end.i126:                                      ; preds = %if.end111
-  %add.i7.i127 = add i64 %29, 16
-  %cmp.i8.i128 = icmp ult i64 %29, -16
+  %add.i7.i127 = add i64 %33, 16
+  %cmp.i8.i128 = icmp ult i64 %33, -16
   br i1 %cmp.i8.i128, label %if.end4.i130, label %return
 
 if.end4.i130:                                     ; preds = %if.end.i126
   store i64 %add.i7.i127, ptr %size.i123, align 8
   %allocsize.i.i.i131 = getelementptr inbounds i8, ptr %out, i64 16
-  %30 = load i64, ptr %allocsize.i.i.i131, align 8
-  %cmp.i.i.i132 = icmp ult i64 %30, %add.i7.i127
+  %34 = load i64, ptr %allocsize.i.i.i131, align 8
+  %cmp.i.i.i132 = icmp ult i64 %34, %add.i7.i127
   %.pre.i133 = load ptr, ptr %out, align 8
   br i1 %cmp.i.i.i132, label %if.then.i.i.i142, label %if.end116
 
 if.then.i.i.i142:                                 ; preds = %if.end4.i130
-  %shr.i.i.i143 = lshr i64 %30, 1
+  %shr.i.i.i143 = lshr i64 %34, 1
   %add.i.i.i144 = add i64 %shr.i.i.i143, %add.i7.i127
   %call.i.i.i.i145 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i133, i64 noundef %add.i.i.i144) #32
   %tobool.not.i.i.i146 = icmp eq ptr %call.i.i.i.i145, null
@@ -17362,25 +17361,25 @@ if.then3.i.i.i147:                                ; preds = %if.then.i.i.i142
   br label %if.end116
 
 if.end116:                                        ; preds = %if.then3.i.i.i147, %if.end4.i130
-  %31 = phi ptr [ %call.i.i.i.i145, %if.then3.i.i.i147 ], [ %.pre.i133, %if.end4.i130 ]
-  %add.ptr10.i137 = getelementptr inbounds i8, ptr %31, i64 %29
+  %35 = phi ptr [ %call.i.i.i.i145, %if.then3.i.i.i147 ], [ %.pre.i133, %if.end4.i130 ]
+  %add.ptr10.i137 = getelementptr inbounds i8, ptr %35, i64 %33
   store <4 x i8> <i8 0, i8 0, i8 0, i8 4>, ptr %add.ptr10.i137, align 1
   %add.ptr11.i141 = getelementptr inbounds i8, ptr %add.ptr10.i137, i64 4
   store i32 1414087283, ptr %add.ptr11.i141, align 1, !alias.scope !439
-  %32 = load i32, ptr %sbit_r87, align 8
-  %conv118 = trunc i32 %32 to i8
+  %36 = load i32, ptr %sbit_r87, align 8
+  %conv118 = trunc i32 %36 to i8
   %arrayidx119 = getelementptr inbounds i8, ptr %add.ptr10.i137, i64 8
   store i8 %conv118, ptr %arrayidx119, align 1
-  %33 = load i32, ptr %sbit_g90, align 4
-  %conv121 = trunc i32 %33 to i8
+  %37 = load i32, ptr %sbit_g90, align 4
+  %conv121 = trunc i32 %37 to i8
   %arrayidx122 = getelementptr inbounds i8, ptr %add.ptr10.i137, i64 9
   store i8 %conv121, ptr %arrayidx122, align 1
-  %34 = load i32, ptr %sbit_b93, align 8
-  %conv124 = trunc i32 %34 to i8
+  %38 = load i32, ptr %sbit_b93, align 8
+  %conv124 = trunc i32 %38 to i8
   %arrayidx125 = getelementptr inbounds i8, ptr %add.ptr10.i137, i64 10
   store i8 %conv124, ptr %arrayidx125, align 1
-  %35 = load i32, ptr %sbit_a96, align 4
-  %conv127 = trunc i32 %35 to i8
+  %39 = load i32, ptr %sbit_a96, align 4
+  %conv127 = trunc i32 %39 to i8
   %arrayidx128 = getelementptr inbounds i8, ptr %add.ptr10.i137, i64 11
   store i8 %conv127, ptr %arrayidx128, align 1
   br label %if.then134

@@ -7261,10 +7261,9 @@ define internal noundef zeroext i1 @epl_uat_fld_cn_check_cb(ptr nocapture readno
   %7 = alloca i8, align 1
   %8 = call zeroext i1 @ws_strtou8(ptr noundef %1, ptr noundef null, ptr noundef nonnull %7) #18
   %9 = load i8, ptr %7, align 1
-  %10 = icmp ne i8 %9, 0
-  %or.cond = select i1 %8, i1 %10, i1 false
-  %11 = icmp ult i8 %9, -16
-  %or.cond5 = select i1 %or.cond, i1 %11, i1 false
+  %10 = add i8 %9, -1
+  %11 = icmp ult i8 %10, -17
+  %or.cond5 = select i1 %8, i1 %11, i1 false
   br i1 %or.cond5, label %24, label %12
 
 12:                                               ; preds = %6

@@ -578,16 +578,16 @@ if.then134:                                       ; preds = %if.end131
 if.end138:                                        ; preds = %if.then126, %if.end131, %if.end120
   %15 = tail call i1 @llvm.is.fpclass.f32(float %4, i32 759)
   %cmp140 = fcmp olt float %4, 0x3EB0C6F7A0000000
-  %or.cond17 = select i1 %15, i1 true, i1 %cmp140
   %cmp143 = fcmp ogt float %4, 1.000000e+06
-  %or.cond18 = select i1 %or.cond17, i1 true, i1 %cmp143
+  %16 = or i1 %cmp140, %cmp143
+  %or.cond18 = select i1 %15, i1 true, i1 %16
   br i1 %or.cond18, label %if.then145, label %if.end149
 
 if.then145:                                       ; preds = %if.end138
   %print_error146 = getelementptr inbounds i8, ptr %f, i64 72
-  %16 = load ptr, ptr %print_error146, align 8
+  %17 = load ptr, ptr %print_error146, align 8
   %conv147 = fpext float %4 to double
-  %call148 = tail call i32 (ptr, i32, ptr, ...) %16(ptr noundef nonnull %f, i32 noundef 14, ptr noundef nonnull @.str.25, double noundef %conv147) #4
+  %call148 = tail call i32 (ptr, i32, ptr, ...) %17(ptr noundef nonnull %f, i32 noundef 14, ptr noundef nonnull @.str.25, double noundef %conv147) #4
   br label %return
 
 if.end149:                                        ; preds = %if.end138
@@ -596,9 +596,9 @@ if.end149:                                        ; preds = %if.end138
 
 if.then152:                                       ; preds = %if.end149
   %print_error153 = getelementptr inbounds i8, ptr %f, i64 72
-  %17 = load ptr, ptr %print_error153, align 8
+  %18 = load ptr, ptr %print_error153, align 8
   %conv154 = fpext float %7 to double
-  %call155 = tail call i32 (ptr, i32, ptr, ...) %17(ptr noundef nonnull %f, i32 noundef 14, ptr noundef nonnull @.str.26, double noundef %conv154) #4
+  %call155 = tail call i32 (ptr, i32, ptr, ...) %18(ptr noundef nonnull %f, i32 noundef 14, ptr noundef nonnull @.str.26, double noundef %conv154) #4
   br label %return
 
 return:                                           ; preds = %if.end149, %if.then152, %if.then145, %if.then134, %if.then117, %if.then107, %if.then90, %if.then

@@ -97,8 +97,8 @@ for.body.i:                                       ; preds = %if.then14, %for.bod
   %or.cond9.i = icmp ult i8 %3, -26
   %incdec.ptr.i = getelementptr inbounds i8, ptr %i.010.i, i64 1
   %exitcond.not.i = icmp ne ptr %incdec.ptr.i, %1
-  %or.cond480.not = select i1 %or.cond9.i, i1 %exitcond.not.i, i1 false
-  br i1 %or.cond480.not, label %for.body.i, label %uriContainsUppercaseLettersA.exit, !llvm.loop !5
+  %or.cond.not = select i1 %or.cond9.i, i1 %exitcond.not.i, i1 false
+  br i1 %or.cond.not, label %for.body.i, label %uriContainsUppercaseLettersA.exit, !llvm.loop !5
 
 uriContainsUppercaseLettersA.exit:                ; preds = %for.body.i, %if.then14
   %tobool.not = phi i1 [ true, %if.then14 ], [ %or.cond9.i, %for.body.i ]
@@ -118,8 +118,8 @@ for.body.i150:                                    ; preds = %uriContainsUppercas
   %or.cond9.i152 = icmp ult i8 %7, -26
   %incdec.ptr.i154 = getelementptr inbounds i8, ptr %i.010.i151, i64 1
   %exitcond.not.i155 = icmp ne ptr %incdec.ptr.i154, %5
-  %or.cond481.not = select i1 %or.cond9.i152, i1 %exitcond.not.i155, i1 false
-  br i1 %or.cond481.not, label %for.body.i150, label %uriContainsUppercaseLettersA.exit156, !llvm.loop !5
+  %or.cond480.not = select i1 %or.cond9.i152, i1 %exitcond.not.i155, i1 false
+  br i1 %or.cond480.not, label %for.body.i150, label %uriContainsUppercaseLettersA.exit156, !llvm.loop !5
 
 uriContainsUppercaseLettersA.exit156:             ; preds = %for.body.i150, %uriContainsUppercaseLettersA.exit
   %tobool22.not = phi i1 [ true, %uriContainsUppercaseLettersA.exit ], [ %or.cond9.i152, %for.body.i150 ]
@@ -611,10 +611,8 @@ while.body:                                       ; preds = %if.then174, %if.end
   %afterLast180 = getelementptr inbounds i8, ptr %walker.0465, i64 8
   %71 = load ptr, ptr %afterLast180, align 8
   %cmp181 = icmp ne ptr %70, null
-  %cmp183 = icmp ne ptr %71, null
-  %or.cond = select i1 %cmp181, i1 %cmp183, i1 false
   %cmp185 = icmp ugt ptr %71, %70
-  %or.cond145 = select i1 %or.cond, i1 %cmp185, i1 false
+  %or.cond145 = select i1 %cmp181, i1 %cmp185, i1 false
   br i1 %or.cond145, label %land.lhs.true186, label %if.end211
 
 land.lhs.true186:                                 ; preds = %while.body
@@ -1539,8 +1537,8 @@ for.body.i:                                       ; preds = %if.then14, %for.bod
   %or.cond9.i = icmp ult i32 %3, -26
   %incdec.ptr.i = getelementptr inbounds i8, ptr %i.010.i, i64 4
   %cmp4.i = icmp ult ptr %incdec.ptr.i, %1
-  %or.cond487 = select i1 %or.cond9.i, i1 %cmp4.i, i1 false
-  br i1 %or.cond487, label %for.body.i, label %uriContainsUppercaseLettersW.exit, !llvm.loop !17
+  %or.cond = select i1 %or.cond9.i, i1 %cmp4.i, i1 false
+  br i1 %or.cond, label %for.body.i, label %uriContainsUppercaseLettersW.exit, !llvm.loop !17
 
 uriContainsUppercaseLettersW.exit:                ; preds = %for.body.i, %if.then14
   %tobool.not = phi i1 [ true, %if.then14 ], [ %or.cond9.i, %for.body.i ]
@@ -1560,8 +1558,8 @@ for.body.i150:                                    ; preds = %uriContainsUppercas
   %or.cond9.i152 = icmp ult i32 %7, -26
   %incdec.ptr.i154 = getelementptr inbounds i8, ptr %i.010.i151, i64 4
   %cmp4.i155 = icmp ult ptr %incdec.ptr.i154, %5
-  %or.cond488 = select i1 %or.cond9.i152, i1 %cmp4.i155, i1 false
-  br i1 %or.cond488, label %for.body.i150, label %uriContainsUppercaseLettersW.exit156, !llvm.loop !17
+  %or.cond487 = select i1 %or.cond9.i152, i1 %cmp4.i155, i1 false
+  br i1 %or.cond487, label %for.body.i150, label %uriContainsUppercaseLettersW.exit156, !llvm.loop !17
 
 uriContainsUppercaseLettersW.exit156:             ; preds = %for.body.i150, %uriContainsUppercaseLettersW.exit
   %tobool22.not = phi i1 [ true, %uriContainsUppercaseLettersW.exit ], [ %or.cond9.i152, %for.body.i150 ]
@@ -2058,10 +2056,8 @@ while.body:                                       ; preds = %if.then174, %if.end
   %afterLast180 = getelementptr inbounds i8, ptr %walker.0472, i64 8
   %71 = load ptr, ptr %afterLast180, align 8
   %cmp181 = icmp ne ptr %70, null
-  %cmp183 = icmp ne ptr %71, null
-  %or.cond = select i1 %cmp181, i1 %cmp183, i1 false
   %cmp185 = icmp ugt ptr %71, %70
-  %or.cond145 = select i1 %or.cond, i1 %cmp185, i1 false
+  %or.cond145 = select i1 %cmp181, i1 %cmp185, i1 false
   br i1 %or.cond145, label %land.lhs.true186, label %if.end206
 
 land.lhs.true186:                                 ; preds = %while.body

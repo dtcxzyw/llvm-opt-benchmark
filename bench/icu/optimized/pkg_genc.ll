@@ -1524,13 +1524,12 @@ if.end9.i:                                        ; preds = %if.end4.i
   %.fr = freeze <4 x i8> %2
   %arrayidx27.i = getelementptr inbounds i8, ptr %buffer.i, i64 4
   %3 = load i8, ptr %arrayidx27.i, align 4
-  %.fr67 = freeze i8 %3
+  %4 = add i8 %3, -3
+  %5 = icmp ult i8 %4, -2
   %.fr.scalar = bitcast <4 x i8> %.fr to i32
-  %4 = icmp ne i32 %.fr.scalar, 1179403647
-  %5 = add i8 %.fr67, -3
-  %6 = icmp ult i8 %5, -2
-  %op.rdx66 = or i1 %4, %6
-  br i1 %op.rdx66, label %if.then35.i, label %if.end37.i
+  %6 = icmp ne i32 %.fr.scalar, 1179403647
+  %op.rdx = select i1 %6, i1 true, i1 %5
+  br i1 %op.rdx, label %if.then35.i, label %if.end37.i
 
 if.then35.i:                                      ; preds = %if.end9.i
   %7 = load ptr, ptr @stderr, align 8
@@ -1551,7 +1550,7 @@ if.then57.i:                                      ; preds = %if.end37.i
   unreachable
 
 if.then:                                          ; preds = %if.end37.i
-  %cmp41.i = icmp eq i8 %.fr67, 1
+  %cmp41.i = icmp eq i8 %3, 1
   %e_machine.i = getelementptr inbounds i8, ptr %buffer.i, i64 18
   %11 = load i16, ptr %e_machine.i, align 2
   call void @T_FileStream_close(ptr noundef nonnull %call.i)

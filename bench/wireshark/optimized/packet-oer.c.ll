@@ -458,119 +458,119 @@ define i32 @dissect_oer_integer(ptr noundef %0, i32 noundef %1, ptr nocapture no
   %9 = call fastcc i32 @dissect_oer_length_determinant(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %8, ptr noundef nonnull %7)
   %10 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %36, label %11
+  br i1 %.not, label %37, label %11
 
 11:                                               ; preds = %6
   %12 = icmp ult i32 %10, 5
-  br i1 %12, label %13, label %30
+  br i1 %12, label %13, label %31
 
 13:                                               ; preds = %11
   %14 = icmp sgt i32 %4, 0
-  br i1 %14, label %15, label %19
+  br i1 %14, label %15, label %20
 
 15:                                               ; preds = %13
   %16 = call i32 @proto_registrar_get_ftype(i32 noundef %4) #8
   %17 = add i32 %16, -12
   %18 = icmp ult i32 %17, 8
-  br label %19
+  %19 = sext i1 %18 to i32
+  br label %20
 
-19:                                               ; preds = %15, %13
-  %.072 = phi i1 [ %18, %15 ], [ true, %13 ]
-  %20 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %9) #8
-  %.not78 = icmp slt i8 %20, 0
-  %or.cond = select i1 %.not78, i1 %.072, i1 false
-  %.070 = sext i1 %or.cond to i32
-  %21 = load i32, ptr %7, align 4
-  %.not85 = icmp eq i32 %21, 0
+20:                                               ; preds = %15, %13
+  %.072 = phi i32 [ %19, %15 ], [ -1, %13 ]
+  %21 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %9) #8
+  %.not78 = icmp sgt i8 %21, -1
+  %.070 = select i1 %.not78, i32 0, i32 %.072
+  %22 = load i32, ptr %7, align 4
+  %.not85 = icmp eq i32 %22, 0
   br i1 %.not85, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %19, %.lr.ph
-  %.083 = phi i32 [ %26, %.lr.ph ], [ %9, %19 ]
-  %.06982 = phi i32 [ %27, %.lr.ph ], [ 0, %19 ]
-  %.17181 = phi i32 [ %25, %.lr.ph ], [ %.070, %19 ]
-  %22 = shl i32 %.17181, 8
-  %23 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.083) #8
-  %24 = zext i8 %23 to i32
-  %25 = or disjoint i32 %22, %24
-  %26 = add i32 %.083, 1
-  %27 = add nuw i32 %.06982, 1
-  %28 = load i32, ptr %7, align 4
-  %29 = icmp ult i32 %27, %28
-  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !4
+.lr.ph:                                           ; preds = %20, %.lr.ph
+  %.083 = phi i32 [ %27, %.lr.ph ], [ %9, %20 ]
+  %.06982 = phi i32 [ %28, %.lr.ph ], [ 0, %20 ]
+  %.17181 = phi i32 [ %26, %.lr.ph ], [ %.070, %20 ]
+  %23 = shl i32 %.17181, 8
+  %24 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.083) #8
+  %25 = zext i8 %24 to i32
+  %26 = or disjoint i32 %23, %25
+  %27 = add i32 %.083, 1
+  %28 = add nuw i32 %.06982, 1
+  %29 = load i32, ptr %7, align 4
+  %30 = icmp ult i32 %28, %29
+  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
-30:                                               ; preds = %11
-  %31 = getelementptr inbounds i8, ptr %2, i64 16
-  %32 = load ptr, ptr %31, align 8
-  %33 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %3, ptr noundef %32, ptr noundef nonnull @ei_oer_undecoded, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.4) #8
-  %34 = getelementptr inbounds i8, ptr %32, i64 8
-  %35 = load ptr, ptr %34, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %35, i32 noundef 25, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.4) #8
+31:                                               ; preds = %11
+  %32 = getelementptr inbounds i8, ptr %2, i64 16
+  %33 = load ptr, ptr %32, align 8
+  %34 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %3, ptr noundef %33, ptr noundef nonnull @ei_oer_undecoded, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.4) #8
+  %35 = getelementptr inbounds i8, ptr %33, i64 8
+  %36 = load ptr, ptr %35, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %36, i32 noundef 25, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.4) #8
   call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #9
   unreachable
 
-36:                                               ; preds = %6
-  %37 = getelementptr inbounds i8, ptr %2, i64 16
-  %38 = load ptr, ptr %37, align 8
-  %39 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %3, ptr noundef %38, ptr noundef nonnull @ei_oer_undecoded, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.3) #8
-  %40 = getelementptr inbounds i8, ptr %38, i64 8
-  %41 = load ptr, ptr %40, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %41, i32 noundef 25, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.3) #8
+37:                                               ; preds = %6
+  %38 = getelementptr inbounds i8, ptr %2, i64 16
+  %39 = load ptr, ptr %38, align 8
+  %40 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %3, ptr noundef %39, ptr noundef nonnull @ei_oer_undecoded, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.3) #8
+  %41 = getelementptr inbounds i8, ptr %39, i64 8
+  %42 = load ptr, ptr %41, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %42, i32 noundef 25, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.3) #8
   call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #9
   unreachable
 
-._crit_edge:                                      ; preds = %.lr.ph, %19
-  %.171.lcssa = phi i32 [ %.070, %19 ], [ %25, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %9, %19 ], [ %26, %.lr.ph ]
-  br i1 %14, label %42, label %56
+._crit_edge:                                      ; preds = %.lr.ph, %20
+  %.171.lcssa = phi i32 [ %.070, %20 ], [ %26, %.lr.ph ]
+  %.0.lcssa = phi i32 [ %9, %20 ], [ %27, %.lr.ph ]
+  br i1 %14, label %43, label %57
 
-42:                                               ; preds = %._crit_edge
-  %43 = call ptr @proto_registrar_get_nth(i32 noundef %4) #8
-  %44 = getelementptr inbounds i8, ptr %43, i64 16
-  %45 = load i32, ptr %44, align 8
-  switch i32 %45, label %54 [
-    i32 3, label %46
-    i32 4, label %46
-    i32 5, label %46
-    i32 6, label %46
-    i32 7, label %46
-    i32 35, label %46
-    i32 12, label %50
-    i32 13, label %50
-    i32 14, label %50
-    i32 15, label %50
+43:                                               ; preds = %._crit_edge
+  %44 = call ptr @proto_registrar_get_nth(i32 noundef %4) #8
+  %45 = getelementptr inbounds i8, ptr %44, i64 16
+  %46 = load i32, ptr %45, align 8
+  switch i32 %46, label %55 [
+    i32 3, label %47
+    i32 4, label %47
+    i32 5, label %47
+    i32 6, label %47
+    i32 7, label %47
+    i32 35, label %47
+    i32 12, label %51
+    i32 13, label %51
+    i32 14, label %51
+    i32 15, label %51
   ]
 
-46:                                               ; preds = %42, %42, %42, %42, %42, %42
-  %47 = load i32, ptr %7, align 4
-  %48 = sub i32 %.0.lcssa, %47
-  %49 = call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %48, i32 noundef %47, i32 noundef %.171.lcssa) #8
+47:                                               ; preds = %43, %43, %43, %43, %43, %43
+  %48 = load i32, ptr %7, align 4
+  %49 = sub i32 %.0.lcssa, %48
+  %50 = call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %49, i32 noundef %48, i32 noundef %.171.lcssa) #8
   br label %.sink.split
 
-50:                                               ; preds = %42, %42, %42, %42
-  %51 = load i32, ptr %7, align 4
-  %52 = sub i32 %.0.lcssa, %51
-  %53 = call ptr @proto_tree_add_int(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %52, i32 noundef %51, i32 noundef %.171.lcssa) #8
+51:                                               ; preds = %43, %43, %43, %43
+  %52 = load i32, ptr %7, align 4
+  %53 = sub i32 %.0.lcssa, %52
+  %54 = call ptr @proto_tree_add_int(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %53, i32 noundef %52, i32 noundef %.171.lcssa) #8
   br label %.sink.split
 
-54:                                               ; preds = %42
+55:                                               ; preds = %43
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 385) #9
   unreachable
 
-.sink.split:                                      ; preds = %50, %46
-  %.sink = phi ptr [ %49, %46 ], [ %53, %50 ]
-  %55 = getelementptr inbounds i8, ptr %2, i64 24
-  store ptr %.sink, ptr %55, align 8
-  br label %56
+.sink.split:                                      ; preds = %51, %47
+  %.sink = phi ptr [ %50, %47 ], [ %54, %51 ]
+  %56 = getelementptr inbounds i8, ptr %2, i64 24
+  store ptr %.sink, ptr %56, align 8
+  br label %57
 
-56:                                               ; preds = %.sink.split, %._crit_edge
+57:                                               ; preds = %.sink.split, %._crit_edge
   %.not79 = icmp eq ptr %5, null
-  br i1 %.not79, label %58, label %57
+  br i1 %.not79, label %59, label %58
 
-57:                                               ; preds = %56
+58:                                               ; preds = %57
   store i32 %.171.lcssa, ptr %5, align 4
-  br label %58
+  br label %59
 
-58:                                               ; preds = %57, %56
+59:                                               ; preds = %58, %57
   ret i32 %.0.lcssa
 }
 

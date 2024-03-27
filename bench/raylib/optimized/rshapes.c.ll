@@ -3947,9 +3947,9 @@ define zeroext i1 @CheckCollisionPointTriangle(<2 x float> %0, <2 x float> %1, <
   %29 = fsub float %27, %28
   %30 = fcmp ogt float %26, 0.000000e+00
   %31 = fcmp ogt float %28, 0.000000e+00
-  %or.cond = select i1 %30, i1 %31, i1 false
   %32 = fcmp ogt float %29, 0.000000e+00
-  %or.cond3 = select i1 %or.cond, i1 %32, i1 false
+  %33 = and i1 %31, %32
+  %or.cond3 = select i1 %30, i1 %33, i1 false
   ret i1 %or.cond3
 }
 

@@ -342,9 +342,9 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %236 = load i32, ptr %234, align 4, !tbaa !3
   %237 = icmp sge i32 %227, %216
   %238 = icmp slt i32 %236, 1
-  %239 = select i1 %237, i1 true, i1 %238
-  %240 = icmp sgt i32 %236, %216
-  %241 = select i1 %239, i1 true, i1 %240
+  %239 = icmp sgt i32 %236, %216
+  %240 = or i1 %238, %239
+  %241 = select i1 %237, i1 true, i1 %240
   br i1 %241, label %242, label %250
 
 242:                                              ; preds = %231, %212

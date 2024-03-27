@@ -220,9 +220,9 @@ define dso_local i32 @g_verify_token_header(ptr nocapture noundef readonly %0, p
   %48 = phi i32 [ %40, %39 ], [ 0, %25 ], [ %35, %41 ]
   %49 = icmp slt i32 %48, 0
   %50 = icmp ne i32 %48, %46
-  %51 = select i1 %49, i1 true, i1 %50
-  %52 = icmp slt i32 %46, 1
-  %53 = select i1 %51, i1 true, i1 %52
+  %51 = icmp slt i32 %46, 1
+  %52 = or i1 %51, %50
+  %53 = select i1 %49, i1 true, i1 %52
   br i1 %53, label %.thread, label %54
 
 54:                                               ; preds = %45

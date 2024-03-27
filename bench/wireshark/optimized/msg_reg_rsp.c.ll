@@ -107,10 +107,9 @@ define internal i32 @dissect_mac_mgmt_msg_reg_rsp_decoder(ptr noundef %0, ptr no
   %18 = call i32 @get_tlv_type(ptr noundef nonnull %5) #2
   %19 = call i32 @get_tlv_length(ptr noundef nonnull %5) #2
   %20 = icmp eq i32 %18, -1
-  %21 = icmp ugt i32 %19, 64000
-  %or.cond = select i1 %20, i1 true, i1 %21
-  %22 = icmp eq i32 %19, 0
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %22
+  %21 = add i32 %19, -64001
+  %22 = icmp ult i32 %21, -64000
+  %or.cond3 = select i1 %20, i1 true, i1 %22
   br i1 %or.cond3, label %23, label %28
 
 23:                                               ; preds = %16
@@ -195,10 +194,9 @@ define internal i32 @dissect_mac_mgmt_msg_reg_rsp_decoder(ptr noundef %0, ptr no
   %45 = call i32 @get_tlv_type(ptr noundef nonnull %6) #2
   %46 = call i32 @get_tlv_length(ptr noundef nonnull %6) #2
   %47 = icmp eq i32 %45, -1
-  %48 = icmp sgt i32 %46, 64000
-  %or.cond5 = select i1 %47, i1 true, i1 %48
-  %49 = icmp slt i32 %46, 1
-  %or.cond7 = select i1 %or.cond5, i1 true, i1 %49
+  %48 = add i32 %46, -64001
+  %49 = icmp ult i32 %48, -64000
+  %or.cond7 = select i1 %47, i1 true, i1 %49
   br i1 %or.cond7, label %50, label %55
 
 50:                                               ; preds = %.lr.ph

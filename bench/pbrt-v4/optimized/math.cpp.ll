@@ -2823,9 +2823,9 @@ entry:
   %cmp2 = fcmp ole float %1, 1.000000e+00
   %or.cond = and i1 %cmp, %cmp2
   %cmp4 = fcmp oge float %0, 0.000000e+00
-  %or.cond1 = select i1 %or.cond, i1 %cmp4, i1 false
   %cmp7 = fcmp ole float %0, 1.000000e+00
-  %or.cond2 = select i1 %or.cond1, i1 %cmp7, i1 false
+  %2 = and i1 %cmp4, %cmp7
+  %or.cond2 = select i1 %or.cond, i1 %2, i1 false
   br i1 %or.cond2, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
@@ -2833,48 +2833,48 @@ land.rhs:                                         ; preds = %entry
   unreachable
 
 land.end:                                         ; preds = %entry
-  %2 = fmul <2 x float> %p.coerce, <float 2.000000e+00, float 2.000000e+00>
-  %3 = fadd <2 x float> %2, <float -1.000000e+00, float -1.000000e+00>
-  %4 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %3)
-  %5 = extractelement <2 x float> %4, i64 0
-  %6 = extractelement <2 x float> %4, i64 1
-  %add = fadd float %5, %6
+  %3 = fmul <2 x float> %p.coerce, <float 2.000000e+00, float 2.000000e+00>
+  %4 = fadd <2 x float> %3, <float -1.000000e+00, float -1.000000e+00>
+  %5 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %4)
+  %6 = extractelement <2 x float> %5, i64 0
+  %7 = extractelement <2 x float> %5, i64 1
+  %add = fadd float %6, %7
   %sub13 = fsub float 1.000000e+00, %add
-  %7 = tail call noundef float @llvm.fabs.f32(float %sub13)
-  %sub15 = fsub float 1.000000e+00, %7
+  %8 = tail call noundef float @llvm.fabs.f32(float %sub13)
+  %sub15 = fsub float 1.000000e+00, %8
   %cmp16 = fcmp oeq float %sub15, 0.000000e+00
   br i1 %cmp16, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %land.end
-  %sub17 = fsub float %6, %5
+  %sub17 = fsub float %7, %6
   %div = fdiv float %sub17, %sub15
   %add18 = fadd float %div, 1.000000e+00
-  %8 = fmul float %add18, 0x400921FB60000000
-  %9 = fmul float %8, 2.500000e-01
+  %9 = fmul float %add18, 0x400921FB60000000
+  %10 = fmul float %9, 2.500000e-01
   br label %cond.end
 
 cond.end:                                         ; preds = %land.end, %cond.false
-  %cond = phi float [ %9, %cond.false ], [ 0x3FE921FB60000000, %land.end ]
+  %cond = phi float [ %10, %cond.false ], [ 0x3FE921FB60000000, %land.end ]
   %mul.i = fmul float %sub15, %sub15
   %sub22 = fsub float 1.000000e+00, %mul.i
-  %10 = tail call noundef float @llvm.copysign.f32(float %sub22, float %sub13)
+  %11 = tail call noundef float @llvm.copysign.f32(float %sub22, float %sub13)
   %call.i = tail call noundef float @cosf(float noundef %cond) #21
   %call.i23 = tail call noundef float @sinf(float noundef %cond) #21
   %sub30 = fsub float 2.000000e+00, %mul.i
   %cmp.i.i = fcmp ogt float %sub30, 0.000000e+00
   %.sroa.speculated.i = select i1 %cmp.i.i, float %sub30, float 0.000000e+00
   %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %.sroa.speculated.i)
-  %11 = insertelement <2 x float> poison, float %call.i, i64 0
-  %12 = insertelement <2 x float> %11, float %call.i23, i64 1
-  %13 = tail call <2 x float> @llvm.copysign.v2f32(<2 x float> %12, <2 x float> %3)
-  %14 = insertelement <2 x float> poison, float %sub15, i64 0
-  %15 = shufflevector <2 x float> %14, <2 x float> poison, <2 x i32> zeroinitializer
-  %16 = fmul <2 x float> %15, %13
-  %17 = insertelement <2 x float> poison, float %sqrt.i, i64 0
-  %18 = shufflevector <2 x float> %17, <2 x float> poison, <2 x i32> zeroinitializer
-  %19 = fmul <2 x float> %18, %16
-  %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %19, 0
-  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %10, 1
+  %12 = insertelement <2 x float> poison, float %call.i, i64 0
+  %13 = insertelement <2 x float> %12, float %call.i23, i64 1
+  %14 = tail call <2 x float> @llvm.copysign.v2f32(<2 x float> %13, <2 x float> %4)
+  %15 = insertelement <2 x float> poison, float %sub15, i64 0
+  %16 = shufflevector <2 x float> %15, <2 x float> poison, <2 x i32> zeroinitializer
+  %17 = fmul <2 x float> %16, %14
+  %18 = insertelement <2 x float> poison, float %sqrt.i, i64 0
+  %19 = shufflevector <2 x float> %18, <2 x float> poison, <2 x i32> zeroinitializer
+  %20 = fmul <2 x float> %19, %17
+  %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %20, 0
+  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %11, 1
   ret { <2 x float>, float } %.fca.1.insert
 }
 

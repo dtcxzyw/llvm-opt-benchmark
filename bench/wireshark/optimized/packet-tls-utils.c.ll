@@ -2318,9 +2318,9 @@ define hidden void @ssl_debug_printf(ptr nocapture noundef readonly %0, ...) loc
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %1
-  call void @llvm.va_start(ptr nonnull %2)
+  call void @llvm.va_start.p0(ptr nonnull %2)
   %5 = call i32 @vfprintf(ptr noundef nonnull %3, ptr noundef %0, ptr noundef nonnull %2) #23
-  call void @llvm.va_end(ptr nonnull %2)
+  call void @llvm.va_end.p0(ptr nonnull %2)
   br label %6
 
 6:                                                ; preds = %1, %4
@@ -8069,14 +8069,8 @@ define hidden void @ssl_debug_flush() local_unnamed_addr #7 {
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #17
-
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #17
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
@@ -8085,7 +8079,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef zeroext i1 @ssldecrypt_uat_fld_ip_chk_cb(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #18 {
+define hidden noundef zeroext i1 @ssldecrypt_uat_fld_ip_chk_cb(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #17 {
   store ptr null, ptr %5, align 8
   ret i1 true
 }
@@ -9911,10 +9905,9 @@ define internal fastcc noundef i32 @ssl_dissect_hnd_hello_common(ptr nocapture n
 39:                                               ; preds = %37
   %40 = load i16, ptr %22, align 8
   %41 = icmp eq i16 %40, 772
-  %42 = icmp ne i8 %10, 0
-  %or.cond = select i1 %41, i1 %42, i1 false
-  %43 = icmp ult i8 %10, 22
-  %or.cond5 = select i1 %or.cond, i1 %43, i1 false
+  %42 = add i8 %10, -1
+  %43 = icmp ult i8 %42, 21
+  %or.cond5 = select i1 %41, i1 %43, i1 false
   br i1 %or.cond5, label %67, label %44
 
 44:                                               ; preds = %39, %37
@@ -12511,10 +12504,9 @@ ssl_set_cipher.exit:                              ; preds = %71, %66, %ssl_find_
   call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %18, ptr noundef nonnull @.str.741, i32 noundef %82) #23
   %83 = load i16, ptr %21, align 8
   %84 = icmp eq i16 %83, 772
-  %85 = icmp ne i8 %15, 0
-  %or.cond = select i1 %84, i1 %85, i1 false
-  %86 = icmp ult i8 %15, 22
-  %or.cond5 = select i1 %or.cond, i1 %86, i1 false
+  %85 = add i8 %15, -1
+  %86 = icmp ult i8 %85, 21
+  %or.cond5 = select i1 %84, i1 %86, i1 false
   br i1 %or.cond5, label %97, label %87
 
 87:                                               ; preds = %ssl_set_cipher.exit
@@ -13114,10 +13106,10 @@ define hidden void @ssl_dissect_hnd_cert_req(ptr noundef %0, ptr noundef %1, ptr
   br label %48
 
 48:                                               ; preds = %.lr.ph, %48
-  %.099 = phi i32 [ %35, %.lr.ph ], [ %51, %48 ]
+  %.098 = phi i32 [ %35, %.lr.ph ], [ %51, %48 ]
   %49 = load i32, ptr %47, align 4
-  %50 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %49, ptr noundef %1, i32 noundef %.099, i32 noundef 1, i32 noundef 0) #23
-  %51 = add nuw i32 %.099, 1
+  %50 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %49, ptr noundef %1, i32 noundef %.098, i32 noundef 1, i32 noundef 0) #23
+  %51 = add nuw i32 %.098, 1
   %exitcond.not = icmp eq i32 %51, %37
   br i1 %exitcond.not, label %.loopexit, label %48, !llvm.loop !50
 
@@ -13130,10 +13122,9 @@ define hidden void @ssl_dissect_hnd_cert_req(ptr noundef %0, ptr noundef %1, ptr
   ]
 
 53:                                               ; preds = %.loopexit
-  %54 = icmp ne i8 %16, 0
-  %or.cond = select i1 %14, i1 %54, i1 false
-  %55 = icmp ult i8 %16, 19
-  %or.cond5 = select i1 %or.cond, i1 %55, i1 false
+  %54 = add i8 %16, -1
+  %55 = icmp ult i8 %54, 18
+  %or.cond5 = select i1 %14, i1 %55, i1 false
   br i1 %or.cond5, label %56, label %58
 
 56:                                               ; preds = %.loopexit, %.loopexit, %53
@@ -13144,8 +13135,8 @@ define hidden void @ssl_dissect_hnd_cert_req(ptr noundef %0, ptr noundef %1, ptr
   %.2 = phi i32 [ %57, %56 ], [ %.1, %53 ]
   %59 = add i8 %16, -19
   %or.cond8 = icmp ult i8 %59, -18
-  %or.cond98 = select i1 %14, i1 %or.cond8, i1 false
-  br i1 %or.cond98, label %60, label %62
+  %or.cond = select i1 %14, i1 %or.cond8, i1 false
+  br i1 %or.cond, label %60, label %62
 
 60:                                               ; preds = %58
   %61 = call fastcc i32 @ssl_dissect_hnd_extension(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %3, ptr noundef %2, i32 noundef %.2, i32 noundef %5, i8 noundef zeroext 13, ptr noundef nonnull %6, ptr noundef null, i32 noundef %7, ptr noundef null, ptr noundef null)
@@ -15100,6 +15091,12 @@ define internal fastcc i32 @ssl_dissect_hnd_hello_ext_key_share_entry(ptr nounde
   ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #18
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #18
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #19
 
@@ -15144,8 +15141,8 @@ attributes #13 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem
 attributes #14 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #20 = { nofree nounwind }
 attributes #21 = { nofree nounwind willreturn memory(argmem: read) }

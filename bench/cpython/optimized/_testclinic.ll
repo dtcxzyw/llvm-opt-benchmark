@@ -8942,7 +8942,7 @@ cond.end:                                         ; preds = %entry
   br i1 %tobool2.not, label %return, label %if.end
 
 if.end:                                           ; preds = %cond.end
-  call void @llvm.va_start(ptr nonnull %vargs)
+  call void @llvm.va_start.p0(ptr nonnull %vargs)
   %cmp14 = icmp sgt i32 %argc, 0
   br i1 %cmp14, label %for.body.lr.ph, label %for.end
 
@@ -8986,7 +8986,7 @@ if.then9:                                         ; preds = %if.then6
   %5 = trunc i64 %indvars.iv to i32
   %6 = load ptr, ptr @PyExc_AssertionError, align 8
   %call10 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %6, ptr noundef nonnull @.str.78, i32 noundef %5, ptr noundef nonnull %4) #9
-  call void @llvm.va_end(ptr nonnull %vargs)
+  call void @llvm.va_end.p0(ptr nonnull %vargs)
   %7 = load i64, ptr %call1, align 8
   %8 = and i64 %7, 2147483648
   %cmp.i18.not = icmp eq i64 %8, 0
@@ -9020,7 +9020,7 @@ _Py_NewRef.exit:                                  ; preds = %if.end13, %if.end.i
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !49
 
 for.end:                                          ; preds = %_Py_NewRef.exit, %if.end
-  call void @llvm.va_end(ptr nonnull %vargs)
+  call void @llvm.va_end.p0(ptr nonnull %vargs)
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.then1.i, %if.then9, %cond.end, %for.end
@@ -9035,15 +9035,9 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 
 declare ptr @PyTuple_New(i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #4
-
 declare i32 @_PyObject_IsFreed(ptr noundef) local_unnamed_addr #1
 
 declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @PyTuple_SET_ITEM(ptr nocapture noundef %op, i64 noundef %index, ptr noundef %value) unnamed_addr #0 {
@@ -9239,7 +9233,7 @@ return:                                           ; preds = %Py_SIZE.exit, %if.t
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 declare ptr @PyLong_FromUnsignedLong(i64 noundef) local_unnamed_addr #1
 
@@ -9310,7 +9304,7 @@ declare ptr @_PyArg_UnpackKeywordsWithVararg(ptr noundef, i64 noundef, ptr nound
 declare ptr @PyUnicode_AsUTF8AndSize(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 
 declare i32 @PyErr_WarnEx(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -9380,15 +9374,13 @@ if.then:                                          ; preds = %cond.end
   br i1 %tobool3.not, label %if.end5, label %exit
 
 if.end5:                                          ; preds = %if.then, %cond.end
-  %cmp7 = icmp sgt i64 %3, -1
-  %or.cond = select i1 %tobool.not, i1 %cmp7, i1 false
-  %cmp9 = icmp slt i64 %3, 2
-  %or.cond1 = select i1 %or.cond, i1 %cmp9, i1 false
+  %8 = icmp ult i64 %3, 2
+  %or.cond1 = select i1 %tobool.not, i1 %8, i1 false
   %args.val17 = load ptr, ptr %0, align 8
-  %8 = getelementptr i8, ptr %args.val17, i64 168
-  %call11.val = load i64, ptr %8, align 8
-  %9 = and i64 %call11.val, 67108864
-  %tobool13.not = icmp eq i64 %9, 0
+  %9 = getelementptr i8, ptr %args.val17, i64 168
+  %call11.val = load i64, ptr %9, align 8
+  %10 = and i64 %call11.val, 67108864
+  %tobool13.not = icmp eq i64 %10, 0
   br i1 %or.cond1, label %land.lhs.true10, label %cond.false27
 
 land.lhs.true10:                                  ; preds = %if.end5
@@ -9413,8 +9405,8 @@ cond.end38:                                       ; preds = %cond.false27
 
 skip_optional_pos:                                ; preds = %cond.end38, %land.lhs.true10
   %tp_alloc.i = getelementptr inbounds i8, ptr %type, i64 304
-  %10 = load ptr, ptr %tp_alloc.i, align 8
-  %call.i = call ptr %10(ptr noundef %type, i64 noundef 0) #9
+  %11 = load ptr, ptr %tp_alloc.i, align 8
+  %call.i = call ptr %11(ptr noundef %type, i64 noundef 0) #9
   br label %exit
 
 exit:                                             ; preds = %cond.end38, %if.then, %skip_optional_pos
@@ -9550,15 +9542,13 @@ if.then:                                          ; preds = %cond.end
   br i1 %tobool3.not, label %if.end5, label %exit
 
 if.end5:                                          ; preds = %if.then, %cond.end
-  %cmp7 = icmp sgt i64 %3, -1
-  %or.cond = select i1 %tobool.not, i1 %cmp7, i1 false
-  %cmp9 = icmp slt i64 %3, 2
-  %or.cond1 = select i1 %or.cond, i1 %cmp9, i1 false
+  %8 = icmp ult i64 %3, 2
+  %or.cond1 = select i1 %tobool.not, i1 %8, i1 false
   %args.val17 = load ptr, ptr %0, align 8
-  %8 = getelementptr i8, ptr %args.val17, i64 168
-  %call11.val = load i64, ptr %8, align 8
-  %9 = and i64 %call11.val, 67108864
-  %tobool13.not = icmp eq i64 %9, 0
+  %9 = getelementptr i8, ptr %args.val17, i64 168
+  %call11.val = load i64, ptr %9, align 8
+  %10 = and i64 %call11.val, 67108864
+  %tobool13.not = icmp eq i64 %10, 0
   br i1 %or.cond1, label %land.lhs.true10, label %cond.false27
 
 land.lhs.true10:                                  ; preds = %if.end5
@@ -9766,15 +9756,15 @@ cond.true:                                        ; preds = %PyTuple_GET_SIZE.ex
   %call.val.i23 = load i64, ptr %5, align 8
   %6 = and i64 %call.val.i23, 536870912
   %tobool.not.i24 = icmp eq i64 %6, 0
-  br i1 %tobool.not.i24, label %cond.false.i26, label %cond.end33.thread55
+  br i1 %tobool.not.i24, label %cond.false.i26, label %cond.end33.thread52
 
 cond.false.i26:                                   ; preds = %cond.true
   tail call void @__assert_fail(ptr noundef nonnull @.str.187, ptr noundef nonnull @.str.188, i32 noundef 44, ptr noundef nonnull @__PRETTY_FUNCTION__.PyDict_GET_SIZE) #10
   unreachable
 
 cond.end:                                         ; preds = %PyTuple_GET_SIZE.exit
-  %or.cond1 = icmp ult i64 %3, 2
-  br i1 %or.cond1, label %skip_optional_pos, label %cond.end33
+  %7 = icmp ult i64 %3, 2
+  br i1 %7, label %skip_optional_pos, label %cond.end33
 
 cond.end33:                                       ; preds = %cond.end
   %ob_item29 = getelementptr inbounds i8, ptr %args, i64 24
@@ -9782,18 +9772,18 @@ cond.end33:                                       ; preds = %cond.end
   %tobool35.not = icmp eq ptr %call32, null
   br i1 %tobool35.not, label %exit, label %skip_optional_pos
 
-cond.end33.thread55:                              ; preds = %cond.true
-  %ob_item2957 = getelementptr inbounds i8, ptr %args, i64 24
-  %call3258 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %ob_item2957, i64 noundef %3, ptr noundef nonnull %kwargs, ptr noundef null, ptr noundef nonnull @depr_kwd_new._parser, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %argsbuf) #9
-  %tobool35.not59 = icmp eq ptr %call3258, null
-  br i1 %tobool35.not59, label %exit, label %land.lhs.true37
+cond.end33.thread52:                              ; preds = %cond.true
+  %ob_item2954 = getelementptr inbounds i8, ptr %args, i64 24
+  %call3255 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %ob_item2954, i64 noundef %3, ptr noundef nonnull %kwargs, ptr noundef null, ptr noundef nonnull @depr_kwd_new._parser, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %argsbuf) #9
+  %tobool35.not56 = icmp eq ptr %call3255, null
+  br i1 %tobool35.not56, label %exit, label %land.lhs.true37
 
-land.lhs.true37:                                  ; preds = %cond.end33.thread55
+land.lhs.true37:                                  ; preds = %cond.end33.thread52
   %op.val.i33 = load ptr, ptr %4, align 8
-  %7 = getelementptr i8, ptr %op.val.i33, i64 168
-  %call.val.i34 = load i64, ptr %7, align 8
-  %8 = and i64 %call.val.i34, 536870912
-  %tobool.not.i35 = icmp eq i64 %8, 0
+  %8 = getelementptr i8, ptr %op.val.i33, i64 168
+  %call.val.i34 = load i64, ptr %8, align 8
+  %9 = and i64 %call.val.i34, 536870912
+  %tobool.not.i35 = icmp eq i64 %9, 0
   br i1 %tobool.not.i35, label %cond.false.i38, label %PyDict_GET_SIZE.exit39
 
 cond.false.i38:                                   ; preds = %land.lhs.true37
@@ -9802,31 +9792,31 @@ cond.false.i38:                                   ; preds = %land.lhs.true37
 
 PyDict_GET_SIZE.exit39:                           ; preds = %land.lhs.true37
   %ma_used.i37 = getelementptr inbounds i8, ptr %kwargs, i64 16
-  %9 = load i64, ptr %ma_used.i37, align 8
-  %tobool39 = icmp ne i64 %9, 0
+  %10 = load i64, ptr %ma_used.i37, align 8
+  %tobool39 = icmp ne i64 %10, 0
   %cmp41 = icmp slt i64 %3, 1
   %or.cond2 = select i1 %tobool39, i1 %cmp41, i1 false
   br i1 %or.cond2, label %land.lhs.true42, label %skip_optional_pos
 
 land.lhs.true42:                                  ; preds = %PyDict_GET_SIZE.exit39
-  %10 = load ptr, ptr %call3258, align 8
-  %tobool43.not = icmp eq ptr %10, null
+  %11 = load ptr, ptr %call3255, align 8
+  %tobool43.not = icmp eq ptr %11, null
   br i1 %tobool43.not, label %skip_optional_pos, label %if.then44
 
 if.then44:                                        ; preds = %land.lhs.true42
-  %11 = load ptr, ptr @PyExc_DeprecationWarning, align 8
-  %call45 = call i32 @PyErr_WarnEx(ptr noundef %11, ptr noundef nonnull @.str.198, i64 noundef 1) #9
+  %12 = load ptr, ptr @PyExc_DeprecationWarning, align 8
+  %call45 = call i32 @PyErr_WarnEx(ptr noundef %12, ptr noundef nonnull @.str.198, i64 noundef 1) #9
   %tobool46.not = icmp eq i32 %call45, 0
   br i1 %tobool46.not, label %skip_optional_pos, label %exit
 
 skip_optional_pos:                                ; preds = %PyDict_GET_SIZE.exit39, %land.lhs.true42, %if.then44, %cond.end33, %cond.end
   %tp_alloc.i = getelementptr inbounds i8, ptr %type, i64 304
-  %12 = load ptr, ptr %tp_alloc.i, align 8
-  %call.i = call ptr %12(ptr noundef %type, i64 noundef 0) #9
+  %13 = load ptr, ptr %tp_alloc.i, align 8
+  %call.i = call ptr %13(ptr noundef %type, i64 noundef 0) #9
   br label %exit
 
-exit:                                             ; preds = %cond.end33.thread55, %if.then44, %cond.end33, %skip_optional_pos
-  %return_value.0 = phi ptr [ null, %if.then44 ], [ %call.i, %skip_optional_pos ], [ null, %cond.end33 ], [ null, %cond.end33.thread55 ]
+exit:                                             ; preds = %cond.end33.thread52, %if.then44, %cond.end33, %skip_optional_pos
+  %return_value.0 = phi ptr [ null, %if.then44 ], [ %call.i, %skip_optional_pos ], [ null, %cond.end33 ], [ null, %cond.end33.thread52 ]
   ret ptr %return_value.0
 }
 
@@ -9875,15 +9865,15 @@ cond.true:                                        ; preds = %PyTuple_GET_SIZE.ex
   %call.val.i23 = load i64, ptr %5, align 8
   %6 = and i64 %call.val.i23, 536870912
   %tobool.not.i24 = icmp eq i64 %6, 0
-  br i1 %tobool.not.i24, label %cond.false.i26, label %cond.end33.thread55
+  br i1 %tobool.not.i24, label %cond.false.i26, label %cond.end33.thread52
 
 cond.false.i26:                                   ; preds = %cond.true
   tail call void @__assert_fail(ptr noundef nonnull @.str.187, ptr noundef nonnull @.str.188, i32 noundef 44, ptr noundef nonnull @__PRETTY_FUNCTION__.PyDict_GET_SIZE) #10
   unreachable
 
 cond.end:                                         ; preds = %PyTuple_GET_SIZE.exit
-  %or.cond1 = icmp ult i64 %3, 2
-  br i1 %or.cond1, label %if.end49, label %cond.end33
+  %7 = icmp ult i64 %3, 2
+  br i1 %7, label %if.end49, label %cond.end33
 
 cond.end33:                                       ; preds = %cond.end
   %ob_item29 = getelementptr inbounds i8, ptr %args, i64 24
@@ -9891,18 +9881,18 @@ cond.end33:                                       ; preds = %cond.end
   %tobool35.not = icmp eq ptr %call32, null
   br i1 %tobool35.not, label %exit, label %if.end49
 
-cond.end33.thread55:                              ; preds = %cond.true
-  %ob_item2957 = getelementptr inbounds i8, ptr %args, i64 24
-  %call3258 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %ob_item2957, i64 noundef %3, ptr noundef nonnull %kwargs, ptr noundef null, ptr noundef nonnull @depr_kwd_init._parser, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %argsbuf) #9
-  %tobool35.not59 = icmp eq ptr %call3258, null
-  br i1 %tobool35.not59, label %exit, label %land.lhs.true37
+cond.end33.thread52:                              ; preds = %cond.true
+  %ob_item2954 = getelementptr inbounds i8, ptr %args, i64 24
+  %call3255 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %ob_item2954, i64 noundef %3, ptr noundef nonnull %kwargs, ptr noundef null, ptr noundef nonnull @depr_kwd_init._parser, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %argsbuf) #9
+  %tobool35.not56 = icmp eq ptr %call3255, null
+  br i1 %tobool35.not56, label %exit, label %land.lhs.true37
 
-land.lhs.true37:                                  ; preds = %cond.end33.thread55
+land.lhs.true37:                                  ; preds = %cond.end33.thread52
   %op.val.i33 = load ptr, ptr %4, align 8
-  %7 = getelementptr i8, ptr %op.val.i33, i64 168
-  %call.val.i34 = load i64, ptr %7, align 8
-  %8 = and i64 %call.val.i34, 536870912
-  %tobool.not.i35 = icmp eq i64 %8, 0
+  %8 = getelementptr i8, ptr %op.val.i33, i64 168
+  %call.val.i34 = load i64, ptr %8, align 8
+  %9 = and i64 %call.val.i34, 536870912
+  %tobool.not.i35 = icmp eq i64 %9, 0
   br i1 %tobool.not.i35, label %cond.false.i38, label %PyDict_GET_SIZE.exit39
 
 cond.false.i38:                                   ; preds = %land.lhs.true37
@@ -9911,28 +9901,28 @@ cond.false.i38:                                   ; preds = %land.lhs.true37
 
 PyDict_GET_SIZE.exit39:                           ; preds = %land.lhs.true37
   %ma_used.i37 = getelementptr inbounds i8, ptr %kwargs, i64 16
-  %9 = load i64, ptr %ma_used.i37, align 8
-  %tobool39 = icmp ne i64 %9, 0
+  %10 = load i64, ptr %ma_used.i37, align 8
+  %tobool39 = icmp ne i64 %10, 0
   %cmp41 = icmp slt i64 %3, 1
   %or.cond2 = select i1 %tobool39, i1 %cmp41, i1 false
   br i1 %or.cond2, label %land.lhs.true42, label %if.end49
 
 land.lhs.true42:                                  ; preds = %PyDict_GET_SIZE.exit39
-  %10 = load ptr, ptr %call3258, align 8
-  %tobool43.not = icmp eq ptr %10, null
+  %11 = load ptr, ptr %call3255, align 8
+  %tobool43.not = icmp eq ptr %11, null
   br i1 %tobool43.not, label %if.end49, label %if.then44
 
 if.then44:                                        ; preds = %land.lhs.true42
-  %11 = load ptr, ptr @PyExc_DeprecationWarning, align 8
-  %call45 = call i32 @PyErr_WarnEx(ptr noundef %11, ptr noundef nonnull @.str.201, i64 noundef 1) #9
+  %12 = load ptr, ptr @PyExc_DeprecationWarning, align 8
+  %call45 = call i32 @PyErr_WarnEx(ptr noundef %12, ptr noundef nonnull @.str.201, i64 noundef 1) #9
   %tobool46.not = icmp eq i32 %call45, 0
   br i1 %tobool46.not, label %if.end49, label %exit
 
 if.end49:                                         ; preds = %cond.end, %cond.end33, %if.then44, %land.lhs.true42, %PyDict_GET_SIZE.exit39
   br label %exit
 
-exit:                                             ; preds = %if.end49, %cond.end33.thread55, %if.then44, %cond.end33
-  %return_value.0 = phi i32 [ -1, %if.then44 ], [ -1, %cond.end33 ], [ -1, %cond.end33.thread55 ], [ 0, %if.end49 ]
+exit:                                             ; preds = %if.end49, %cond.end33.thread52, %if.then44, %cond.end33
+  %return_value.0 = phi i32 [ -1, %if.then44 ], [ -1, %cond.end33 ], [ -1, %cond.end33.thread52 ], [ 0, %if.end49 ]
   ret i32 %return_value.0
 }
 
@@ -10040,6 +10030,12 @@ declare i32 @PyDict_Contains(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #6
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #7
 
@@ -10053,9 +10049,9 @@ attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nounwind }

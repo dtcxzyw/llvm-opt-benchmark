@@ -1896,14 +1896,14 @@ if.end20:                                         ; preds = %if.else, %if.then15
   %cmp21 = icmp slt i64 %10, 0
   %11 = load i64, ptr %end, align 8
   %cmp23 = icmp slt i64 %11, 0
-  %or.cond = select i1 %cmp21, i1 %cmp23, i1 false
   %cmp26 = icmp sgt i64 %10, %11
-  %or.cond24 = select i1 %or.cond, i1 %cmp26, i1 false
+  %12 = and i1 %cmp23, %cmp26
+  %or.cond24 = select i1 %cmp21, i1 %12, i1 false
   br i1 %or.cond24, label %if.then28, label %if.end29
 
 if.then28:                                        ; preds = %if.end20
-  %12 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 2), align 8
-  call void @addReply(ptr noundef nonnull %c, ptr noundef %12) #10
+  %13 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 2), align 8
+  call void @addReply(ptr noundef nonnull %c, ptr noundef %13) #10
   br label %if.end60
 
 if.end29:                                         ; preds = %if.end20
@@ -1915,7 +1915,7 @@ if.then32:                                        ; preds = %if.end29
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then32, %if.end29
-  %13 = phi i64 [ %add, %if.then32 ], [ %10, %if.end29 ]
+  %14 = phi i64 [ %add, %if.then32 ], [ %10, %if.end29 ]
   br i1 %cmp23, label %if.then36, label %if.end38
 
 if.then36:                                        ; preds = %if.end33
@@ -1924,8 +1924,8 @@ if.then36:                                        ; preds = %if.end33
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then36, %if.end33
-  %14 = phi i64 [ %add37, %if.then36 ], [ %11, %if.end33 ]
-  %cmp39 = icmp slt i64 %13, 0
+  %15 = phi i64 [ %add37, %if.then36 ], [ %11, %if.end33 ]
+  %cmp39 = icmp slt i64 %14, 0
   br i1 %cmp39, label %if.then41, label %if.end42
 
 if.then41:                                        ; preds = %if.end38
@@ -1933,33 +1933,33 @@ if.then41:                                        ; preds = %if.end38
   br label %if.end42
 
 if.end42:                                         ; preds = %if.then41, %if.end38
-  %15 = phi i64 [ 0, %if.then41 ], [ %13, %if.end38 ]
-  %cmp43 = icmp slt i64 %14, 0
-  %16 = call i64 @llvm.smax.i64(i64 %14, i64 0)
-  %cmp47.not = icmp uge i64 %16, %strlen.0
+  %16 = phi i64 [ 0, %if.then41 ], [ %14, %if.end38 ]
+  %cmp43 = icmp slt i64 %15, 0
+  %17 = call i64 @llvm.smax.i64(i64 %15, i64 0)
+  %cmp47.not = icmp uge i64 %17, %strlen.0
   %sub = add nsw i64 %strlen.0, -1
-  %17 = select i1 %cmp47.not, i64 %sub, i64 %16
-  %18 = or i1 %cmp43, %cmp47.not
-  br i1 %18, label %19, label %20
+  %18 = select i1 %cmp47.not, i64 %sub, i64 %17
+  %19 = or i1 %cmp43, %cmp47.not
+  br i1 %19, label %20, label %21
 
-19:                                               ; preds = %if.end42
-  store i64 %17, ptr %end, align 8
-  br label %20
+20:                                               ; preds = %if.end42
+  store i64 %18, ptr %end, align 8
+  br label %21
 
-20:                                               ; preds = %if.end42, %19
-  %cmp51 = icmp sgt i64 %15, %17
+21:                                               ; preds = %if.end42, %20
+  %cmp51 = icmp sgt i64 %16, %18
   %cmp54 = icmp eq i64 %strlen.0, 0
   %or.cond1 = select i1 %cmp51, i1 true, i1 %cmp54
   br i1 %or.cond1, label %if.then56, label %if.else57
 
-if.then56:                                        ; preds = %20
-  %21 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 2), align 8
-  call void @addReply(ptr noundef nonnull %c, ptr noundef %21) #10
+if.then56:                                        ; preds = %21
+  %22 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 2), align 8
+  call void @addReply(ptr noundef nonnull %c, ptr noundef %22) #10
   br label %if.end60
 
-if.else57:                                        ; preds = %20
-  %add.ptr = getelementptr inbounds i8, ptr %str.0, i64 %15
-  %reass.sub = sub nsw i64 %17, %15
+if.else57:                                        ; preds = %21
+  %add.ptr = getelementptr inbounds i8, ptr %str.0, i64 %16
+  %reass.sub = sub nsw i64 %18, %16
   %add59 = add i64 %reass.sub, 1
   call void @addReplyBulkCBuffer(ptr noundef nonnull %c, ptr noundef %add.ptr, i64 noundef %add59) #10
   br label %if.end60
@@ -2235,10 +2235,10 @@ if.end4:                                          ; preds = %if.end
 lor.lhs.false:                                    ; preds = %if.end4
   %cmp9 = icmp sgt i64 %incr, 0
   %cmp11 = icmp sgt i64 %3, 0
-  %or.cond1 = select i1 %cmp9, i1 %cmp11, i1 false
   %sub13 = xor i64 %3, 9223372036854775807
   %cmp14 = icmp slt i64 %sub13, %incr
-  %or.cond35 = select i1 %or.cond1, i1 %cmp14, i1 false
+  %4 = and i1 %cmp11, %cmp14
+  %or.cond35 = select i1 %cmp9, i1 %4, i1 false
   br i1 %or.cond35, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %lor.lhs.false, %if.end4
@@ -2253,60 +2253,60 @@ if.end16:                                         ; preds = %lor.lhs.false
 
 land.lhs.true18:                                  ; preds = %if.end16
   %refcount = getelementptr inbounds i8, ptr %call, i64 4
-  %4 = load i32, ptr %refcount, align 4
-  %cmp19 = icmp eq i32 %4, 1
+  %5 = load i32, ptr %refcount, align 4
+  %cmp19 = icmp eq i32 %5, 1
   br i1 %cmp19, label %land.lhs.true20, label %if.then33
 
 land.lhs.true20:                                  ; preds = %land.lhs.true18
   %bf.load = load i32, ptr %call, align 8
-  %5 = and i32 %bf.load, 240
-  %cmp21 = icmp eq i32 %5, 16
+  %6 = and i32 %bf.load, 240
+  %cmp21 = icmp eq i32 %6, 16
   %or.cond2 = icmp ugt i64 %add, 9999
   %or.cond36 = select i1 %cmp21, i1 %or.cond2, i1 false
   br i1 %or.cond36, label %if.then30, label %if.then33
 
 if.then30:                                        ; preds = %land.lhs.true20
-  %6 = inttoptr i64 %add to ptr
+  %7 = inttoptr i64 %add to ptr
   %ptr = getelementptr inbounds i8, ptr %call, i64 8
-  store ptr %6, ptr %ptr, align 8
+  store ptr %7, ptr %ptr, align 8
   br label %if.end42
 
 if.then33:                                        ; preds = %land.lhs.true20, %land.lhs.true18
   %call3137 = call ptr @createStringObjectFromLongLongForValue(i64 noundef %add) #10
-  %7 = load ptr, ptr %db, align 8
-  %8 = load ptr, ptr %argv, align 8
-  %arrayidx36 = getelementptr inbounds i8, ptr %8, i64 8
-  %9 = load ptr, ptr %arrayidx36, align 8
-  call void @dbReplaceValue(ptr noundef %7, ptr noundef %9, ptr noundef %call3137) #10
+  %8 = load ptr, ptr %db, align 8
+  %9 = load ptr, ptr %argv, align 8
+  %arrayidx36 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = load ptr, ptr %arrayidx36, align 8
+  call void @dbReplaceValue(ptr noundef %8, ptr noundef %10, ptr noundef %call3137) #10
   br label %if.end42
 
 if.else37:                                        ; preds = %if.end16
   %call31 = call ptr @createStringObjectFromLongLongForValue(i64 noundef %add) #10
-  %10 = load ptr, ptr %db, align 8
-  %11 = load ptr, ptr %argv, align 8
-  %arrayidx40 = getelementptr inbounds i8, ptr %11, i64 8
-  %12 = load ptr, ptr %arrayidx40, align 8
-  call void @dbAdd(ptr noundef %10, ptr noundef %12, ptr noundef %call31) #10
+  %11 = load ptr, ptr %db, align 8
+  %12 = load ptr, ptr %argv, align 8
+  %arrayidx40 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = load ptr, ptr %arrayidx40, align 8
+  call void @dbAdd(ptr noundef %11, ptr noundef %13, ptr noundef %call31) #10
   br label %if.end42
 
 if.end42:                                         ; preds = %if.then33, %if.else37, %if.then30
-  %13 = load ptr, ptr %db, align 8
-  %14 = load ptr, ptr %argv, align 8
-  %arrayidx45 = getelementptr inbounds i8, ptr %14, i64 8
-  %15 = load ptr, ptr %arrayidx45, align 8
-  call void @signalModifiedKey(ptr noundef nonnull %c, ptr noundef %13, ptr noundef %15) #10
-  %16 = load ptr, ptr %argv, align 8
-  %arrayidx47 = getelementptr inbounds i8, ptr %16, i64 8
-  %17 = load ptr, ptr %arrayidx47, align 8
-  %18 = load ptr, ptr %db, align 8
-  %id = getelementptr inbounds i8, ptr %18, i64 48
-  %19 = load i32, ptr %id, align 8
-  call void @notifyKeyspaceEvent(i32 noundef 8, ptr noundef nonnull @.str.11, ptr noundef %17, i32 noundef %19) #10
-  %20 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
-  %inc = add nsw i64 %20, 1
+  %14 = load ptr, ptr %db, align 8
+  %15 = load ptr, ptr %argv, align 8
+  %arrayidx45 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = load ptr, ptr %arrayidx45, align 8
+  call void @signalModifiedKey(ptr noundef nonnull %c, ptr noundef %14, ptr noundef %16) #10
+  %17 = load ptr, ptr %argv, align 8
+  %arrayidx47 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = load ptr, ptr %arrayidx47, align 8
+  %19 = load ptr, ptr %db, align 8
+  %id = getelementptr inbounds i8, ptr %19, i64 48
+  %20 = load i32, ptr %id, align 8
+  call void @notifyKeyspaceEvent(i32 noundef 8, ptr noundef nonnull @.str.11, ptr noundef %18, i32 noundef %20) #10
+  %21 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
+  %inc = add nsw i64 %21, 1
   store i64 %inc, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
-  %21 = load i64, ptr %value, align 8
-  call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %21) #10
+  %22 = load i64, ptr %value, align 8
+  call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %22) #10
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end42, %if.then15

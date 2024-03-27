@@ -1045,10 +1045,8 @@ entry:
   %call1 = call i32 @qemu_strtoi(ptr noundef %value, ptr noundef null, i32 noundef 0, ptr noundef nonnull %result) #8
   %cmp = icmp slt i32 %call1, 0
   %0 = load i32, ptr %result, align 4
-  %cmp2 = icmp slt i32 %0, 0
-  %or.cond = select i1 %cmp, i1 true, i1 %cmp2
-  %cmp4 = icmp sgt i32 %0, 32767
-  %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp4
+  %1 = icmp ugt i32 %0, 32767
+  %or.cond1 = select i1 %cmp, i1 true, i1 %1
   br i1 %or.cond1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -1084,10 +1082,8 @@ entry:
   %call1 = call i32 @qemu_strtoi(ptr noundef %value, ptr noundef null, i32 noundef 0, ptr noundef nonnull %result) #8
   %cmp = icmp slt i32 %call1, 0
   %0 = load i32, ptr %result, align 4
-  %cmp2 = icmp slt i32 %0, 0
-  %or.cond = select i1 %cmp, i1 true, i1 %cmp2
-  %cmp4 = icmp sgt i32 %0, 32767
-  %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp4
+  %1 = icmp ugt i32 %0, 32767
+  %or.cond1 = select i1 %cmp, i1 true, i1 %1
   br i1 %or.cond1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -1123,10 +1119,8 @@ entry:
   %call1 = call i32 @qemu_strtoi(ptr noundef %value, ptr noundef null, i32 noundef 0, ptr noundef nonnull %result) #8
   %cmp = icmp slt i32 %call1, 0
   %0 = load i32, ptr %result, align 4
-  %cmp2 = icmp slt i32 %0, 0
-  %or.cond = select i1 %cmp, i1 true, i1 %cmp2
-  %cmp4 = icmp sgt i32 %0, 32767
-  %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp4
+  %1 = icmp ugt i32 %0, 32767
+  %or.cond1 = select i1 %cmp, i1 true, i1 %1
   br i1 %or.cond1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -1162,10 +1156,8 @@ entry:
   %call1 = call i32 @qemu_strtoi(ptr noundef %value, ptr noundef null, i32 noundef 0, ptr noundef nonnull %result) #8
   %cmp = icmp slt i32 %call1, 0
   %0 = load i32, ptr %result, align 4
-  %cmp2 = icmp slt i32 %0, 0
-  %or.cond = select i1 %cmp, i1 true, i1 %cmp2
-  %cmp4 = icmp sgt i32 %0, 32767
-  %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp4
+  %1 = icmp ugt i32 %0, 32767
+  %or.cond1 = select i1 %cmp, i1 true, i1 %1
   br i1 %or.cond1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry

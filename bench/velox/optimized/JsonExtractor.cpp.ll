@@ -1997,13 +1997,12 @@ invoke.cont:
   %res.val3 = load i8, ptr %0, align 8
   %1 = and i8 %res.val3, 1
   %tobool.i.i = icmp ne i8 %1, 0
-  %cmp.not.i.i.i.i = icmp ne i32 %res.val, 5
-  %or.cond.not.i = select i1 %tobool.i.i, i1 %cmp.not.i.i.i.i, i1 false
-  %cmp.not.i.i.i8.i = icmp ne i32 %res.val, 1
-  %or.cond1.i = select i1 %or.cond.not.i, i1 %cmp.not.i.i.i8.i, i1 false
+  %2 = and i32 %res.val, -5
+  %3 = icmp ne i32 %2, 1
   %cmp.not.i.i.i13.i = icmp ne i32 %res.val, 0
-  %2 = select i1 %or.cond1.i, i1 %cmp.not.i.i.i13.i, i1 false
-  br i1 %2, label %invoke.cont2, label %if.end
+  %4 = and i1 %cmp.not.i.i.i13.i, %3
+  %5 = select i1 %tobool.i.i, i1 %4, i1 false
+  br i1 %5, label %invoke.cont2, label %if.end
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %cmp.not.i.i.i = icmp eq i32 %res.val, 2
@@ -2011,9 +2010,9 @@ invoke.cont2:                                     ; preds = %invoke.cont
 
 invoke.cont9:                                     ; preds = %invoke.cont2
   %u_.i.i.i6.i.i = getelementptr inbounds i8, ptr %res, i64 8
-  %3 = load i8, ptr %u_.i.i.i6.i.i, align 8
-  %4 = and i8 %3, 1
-  %tobool.i.i.i.not = icmp eq i8 %4, 0
+  %6 = load i8, ptr %u_.i.i.i6.i.i, align 8
+  %7 = and i8 %6, 1
+  %tobool.i.i.i.not = icmp eq i8 %7, 0
   br i1 %tobool.i.i.i.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %invoke.cont9
@@ -2030,7 +2029,7 @@ call.i.noexc:                                     ; preds = %cond.true
           to label %cond.end unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc12
-  %5 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #1
   br label %cleanup.action25
@@ -2049,7 +2048,7 @@ call.i.noexc16:                                   ; preds = %cond.false
           to label %cond.end unwind label %lpad.i15
 
 lpad.i15:                                         ; preds = %.noexc18
-  %6 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #1
   br label %ehcleanup
@@ -2071,27 +2070,27 @@ cleanup.action22:                                 ; preds = %cond.end
   br label %cleanup
 
 lpad:                                             ; preds = %invoke.cont28
-  %7 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup31
 
 lpad12:                                           ; preds = %call.i.noexc, %cond.true
-  %8 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   br label %cleanup.action25
 
 lpad16:                                           ; preds = %call.i.noexc16, %cond.false
-  %9 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad16, %lpad.i15
-  %eh.lpad-body19 = phi { ptr, i32 } [ %9, %lpad16 ], [ %6, %lpad.i15 ]
+  %eh.lpad-body19 = phi { ptr, i32 } [ %12, %lpad16 ], [ %9, %lpad.i15 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #1
   br label %ehcleanup31
 
 cleanup.action25:                                 ; preds = %lpad12, %lpad.i
-  %.pn.ph = phi { ptr, i32 } [ %5, %lpad.i ], [ %8, %lpad12 ]
+  %.pn.ph = phi { ptr, i32 } [ %8, %lpad.i ], [ %11, %lpad12 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11) #1
   br label %ehcleanup31
 
@@ -2113,9 +2112,9 @@ if.end:                                           ; preds = %invoke.cont
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.action, %cleanup.action22, %if.end, %invoke.cont30
-  %10 = load i8, ptr %0, align 8
-  %11 = and i8 %10, 1
-  %tobool.not.i.i.i30 = icmp eq i8 %11, 0
+  %13 = load i8, ptr %0, align 8
+  %14 = and i8 %13, 1
+  %tobool.not.i.i.i30 = icmp eq i8 %14, 0
   br i1 %tobool.not.i.i.i30, label %_ZN5folly8OptionalINS_7dynamicEED2Ev.exit, label %if.then.i.i.i31
 
 if.then.i.i.i31:                                  ; preds = %cleanup
@@ -2127,10 +2126,10 @@ _ZN5folly8OptionalINS_7dynamicEED2Ev.exit:        ; preds = %cleanup, %if.then.i
   ret void
 
 ehcleanup31:                                      ; preds = %ehcleanup, %cleanup.action25, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %cleanup.action25 ], [ %eh.lpad-body19, %ehcleanup ], [ %7, %lpad ]
-  %12 = load i8, ptr %0, align 8
-  %13 = and i8 %12, 1
-  %tobool.not.i.i.i33 = icmp eq i8 %13, 0
+  %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %cleanup.action25 ], [ %eh.lpad-body19, %ehcleanup ], [ %10, %lpad ]
+  %15 = load i8, ptr %0, align 8
+  %16 = and i8 %15, 1
+  %tobool.not.i.i.i33 = icmp eq i8 %16, 0
   br i1 %tobool.not.i.i.i33, label %_ZN5folly8OptionalINS_7dynamicEED2Ev.exit35, label %if.then.i.i.i34
 
 if.then.i.i.i34:                                  ; preds = %ehcleanup31

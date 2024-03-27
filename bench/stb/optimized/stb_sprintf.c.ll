@@ -2930,9 +2930,7 @@ while.end1676:                                    ; preds = %if.end1675, %while.
   %and1677 = and i32 %fl.16, 1
   %tobool1678 = icmp ne i32 %and1677, 0
   %cmp1680 = icmp sgt i32 %fw.71195, 0
-  %or.cond15 = select i1 %tobool1678, i1 %cmp1680, i1 false
-  %tobool1684 = icmp ne i32 %fw.71195, 0
-  %or.cond17 = select i1 %or.cond15, i1 %tobool1684, i1 false
+  %or.cond17 = select i1 %tobool1678, i1 %cmp1680, i1 false
   br i1 %or.cond17, label %while.body1685, label %while.cond.backedge
 
 while.body1685:                                   ; preds = %while.end1676, %if.end1743
@@ -3366,17 +3364,11 @@ return:                                           ; preds = %for.end160, %if.the
 define i32 @stbsp_sprintf(ptr noundef %buf, ptr noundef %fmt, ...) local_unnamed_addr #3 {
 entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %va)
+  call void @llvm.va_start.p0(ptr nonnull %va)
   %call = call i32 @stbsp_vsprintfcb(ptr noundef null, ptr noundef null, ptr noundef %buf, ptr noundef %fmt, ptr noundef nonnull %va)
-  call void @llvm.va_end(ptr nonnull %va)
+  call void @llvm.va_end.p0(ptr nonnull %va)
   ret i32 %call
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define ptr @stbsp__clamp_callback(ptr noundef readonly %buf, ptr noundef %user, i32 noundef %len) #4 {
@@ -3452,7 +3444,7 @@ return:                                           ; preds = %cond.true, %cond.fa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define nonnull ptr @stbsp__count_clamp_callback(ptr nocapture readnone %buf, ptr noundef %user, i32 noundef %len) #6 {
+define nonnull ptr @stbsp__count_clamp_callback(ptr nocapture readnone %buf, ptr noundef %user, i32 noundef %len) #5 {
 entry:
   %length = getelementptr inbounds i8, ptr %user, i64 12
   %0 = load i32, ptr %length, align 4
@@ -3537,7 +3529,7 @@ define i32 @stbsp_snprintf(ptr noundef %buf, i32 noundef %count, ptr noundef %fm
 entry:
   %c.i = alloca %struct.stbsp__context, align 8
   %va = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %va)
+  call void @llvm.va_start.p0(ptr nonnull %va)
   call void @llvm.lifetime.start.p0(i64 528, ptr nonnull %c.i)
   %cmp.i = icmp ne i32 %count, 0
   %tobool.i = icmp ne ptr %buf, null
@@ -3603,7 +3595,7 @@ stbsp_vsnprintf.exit:                             ; preds = %if.then.i, %stbsp__
   %length11.i = getelementptr inbounds i8, ptr %c.i, i64 12
   %1 = load i32, ptr %length11.i, align 4
   call void @llvm.lifetime.end.p0(i64 528, ptr nonnull %c.i)
-  call void @llvm.va_end(ptr nonnull %va)
+  call void @llvm.va_end.p0(ptr nonnull %va)
   ret i32 %1
 }
 
@@ -3810,7 +3802,13 @@ if.end438:                                        ; preds = %if.then132, %if.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #7
+declare double @llvm.fmuladd.f64(double, double, double) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8
@@ -3853,9 +3851,9 @@ attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #2 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }

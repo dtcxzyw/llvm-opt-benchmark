@@ -102,31 +102,31 @@ define dso_local noundef zeroext i1 @option_parse_int(ptr noundef %0, ptr nounde
 
 .critedge:                                        ; preds = %11
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.5, ptr noundef %0, ptr noundef %1) #6
-  br label %29
+  br label %30
 
 ._crit_edge:                                      ; preds = %19, %5
   %22 = load i32, ptr %7, align 4
   %23 = icmp eq i32 %22, 34
   %24 = icmp slt i32 %8, %2
-  %or.cond = select i1 %23, i1 true, i1 %24
   %25 = icmp sgt i32 %8, %3
-  %or.cond18 = select i1 %or.cond, i1 true, i1 %25
-  br i1 %or.cond18, label %26, label %27
-
-26:                                               ; preds = %._crit_edge
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef %1, i32 noundef %2, i32 noundef %3) #6
-  br label %29
+  %26 = or i1 %24, %25
+  %or.cond18 = select i1 %23, i1 true, i1 %26
+  br i1 %or.cond18, label %27, label %28
 
 27:                                               ; preds = %._crit_edge
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef %1, i32 noundef %2, i32 noundef %3) #6
+  br label %30
+
+28:                                               ; preds = %._crit_edge
   %.not17 = icmp eq ptr %4, null
-  br i1 %.not17, label %29, label %28
+  br i1 %.not17, label %30, label %29
 
-28:                                               ; preds = %27
+29:                                               ; preds = %28
   store i32 %8, ptr %4, align 4
-  br label %29
+  br label %30
 
-29:                                               ; preds = %27, %28, %26, %.critedge
-  %.0 = phi i1 [ false, %.critedge ], [ false, %26 ], [ true, %28 ], [ true, %27 ]
+30:                                               ; preds = %28, %29, %27, %.critedge
+  %.0 = phi i1 [ false, %.critedge ], [ false, %27 ], [ true, %29 ], [ true, %28 ]
   ret i1 %.0
 }
 

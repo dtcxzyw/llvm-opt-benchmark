@@ -1445,11 +1445,9 @@ do.body.i:                                        ; preds = %do.body.i, %_ZN4pbr
 
 _ZN4pbrt18PermutationElementEjjj.exit:            ; preds = %do.body.i
   %cmp.i = icmp sgt i32 %0, -1
-  %5 = and i64 %agg.tmp.sroa.0.0.copyload, 2147483648
-  %cmp1.i = icmp eq i64 %5, 0
-  %or.cond.i = select i1 %cmp.i, i1 %cmp1.i, i1 false
-  %cmp3.i = icmp sgt i64 %agg.tmp.sroa.0.0.copyload, -1
-  %or.cond1.i = select i1 %or.cond.i, i1 %cmp3.i, i1 false
+  %5 = and i64 %agg.tmp.sroa.0.0.copyload, -9223372034707292160
+  %6 = icmp eq i64 %5, 0
+  %or.cond1.i = select i1 %cmp.i, i1 %6, i1 false
   br i1 %or.cond1.i, label %_ZN4pbrt9BlueNoiseEiNS_6Point2IiEE.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %_ZN4pbrt18PermutationElementEjjj.exit
@@ -1465,8 +1463,8 @@ _ZN4pbrt9BlueNoiseEiNS_6Point2IiEE.exit:          ; preds = %_ZN4pbrt18Permutati
   %rem9.i = and i64 %p.sroa.3.0.extract.shift.i, 127
   %idxprom.i = zext nneg i32 %rem.i1 to i64
   %arrayidx13.i = getelementptr inbounds [48 x [128 x [128 x i16]]], ptr @_ZN4pbrt17BlueNoiseTexturesE, i64 0, i64 %idxprom.i, i64 %rem6.i, i64 %rem9.i
-  %6 = load i16, ptr %arrayidx13.i, align 2
-  %conv14.i = uitofp i16 %6 to float
+  %7 = load i16, ptr %arrayidx13.i, align 2
+  %conv14.i = uitofp i16 %7 to float
   %div.i = fdiv float %conv14.i, 6.553500e+04
   %inc = add nuw nsw i32 %0, 1
   store i32 %inc, ptr %dimension, align 4
@@ -2006,20 +2004,18 @@ _ZN4pbrt18PermutationElementEjjj.exit:            ; preds = %do.body.i
 if.end:                                           ; preds = %entry, %_ZN4pbrt18PermutationElementEjjj.exit
   %index.0 = phi i32 [ %rem.i, %_ZN4pbrt18PermutationElementEjjj.exit ], [ %0, %entry ]
   %cmp.i = icmp sgt i32 %1, -1
-  %5 = and i64 %agg.tmp.sroa.0.0.copyload, 2147483648
-  %cmp1.i = icmp eq i64 %5, 0
-  %or.cond.i = select i1 %cmp.i, i1 %cmp1.i, i1 false
-  %cmp3.i = icmp sgt i64 %agg.tmp.sroa.0.0.copyload, -1
-  %or.cond1.i = select i1 %or.cond.i, i1 %cmp3.i, i1 false
-  br i1 %or.cond1.i, label %_ZN4pbrt9BlueNoiseEiNS_6Point2IiEE.exit21, label %land.rhs.i
+  %5 = and i64 %agg.tmp.sroa.0.0.copyload, -9223372034707292160
+  %6 = icmp eq i64 %5, 0
+  %or.cond1.i = select i1 %cmp.i, i1 %6, i1 false
+  br i1 %or.cond1.i, label %_ZN4pbrt9BlueNoiseEiNS_6Point2IiEE.exit18, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.end
   tail call void @_ZN4pbrt8LogFatalIJRA42_KcEEEvNS_8LogLevelEPS1_iS5_DpOT_(i32 noundef 2, ptr noundef nonnull @.str.8, i32 noundef 26, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(42) @.str.10) #19
   unreachable
 
-_ZN4pbrt9BlueNoiseEiNS_6Point2IiEE.exit21:        ; preds = %if.end
-  %div54 = lshr i32 %1, 1
-  %rem.i3 = urem i32 %div54, 5
+_ZN4pbrt9BlueNoiseEiNS_6Point2IiEE.exit18:        ; preds = %if.end
+  %div51 = lshr i32 %1, 1
+  %rem.i3 = urem i32 %div51, 5
   %idxprom.i = zext nneg i32 %rem.i3 to i64
   %rem1.i = srem i32 %index.0, 65536
   %idxprom2.i = sext i32 %rem1.i to i64
@@ -2030,36 +2026,36 @@ _ZN4pbrt9BlueNoiseEiNS_6Point2IiEE.exit21:        ; preds = %if.end
   %rem9.i = and i64 %p.sroa.3.0.extract.shift.i, 127
   %idxprom.i6 = zext nneg i32 %rem.i5 to i64
   %arrayidx13.i = getelementptr inbounds [48 x [128 x [128 x i16]]], ptr @_ZN4pbrt17BlueNoiseTexturesE, i64 0, i64 %idxprom.i6, i64 %rem6.i, i64 %rem9.i
-  %6 = load i16, ptr %arrayidx13.i, align 2
+  %7 = load i16, ptr %arrayidx13.i, align 2
   %add = add nuw nsw i32 %1, 1
-  %rem.i14 = urem i32 %add, 48
-  %idxprom.i17 = zext nneg i32 %rem.i14 to i64
-  %arrayidx13.i18 = getelementptr inbounds [48 x [128 x [128 x i16]]], ptr @_ZN4pbrt17BlueNoiseTexturesE, i64 0, i64 %idxprom.i17, i64 %rem6.i, i64 %rem9.i
-  %7 = load i16, ptr %arrayidx13.i18, align 2
-  %8 = load <2 x i32>, ptr %arrayidx3.i, align 8
-  %9 = uitofp <2 x i32> %8 to <2 x double>
-  %10 = fmul <2 x double> %9, <double 0x3DF0000000000000, double 0x3DF0000000000000>
-  %11 = fptrunc <2 x double> %10 to <2 x float>
-  %12 = insertelement <2 x i16> poison, i16 %6, i64 0
-  %13 = insertelement <2 x i16> %12, i16 %7, i64 1
-  %14 = uitofp <2 x i16> %13 to <2 x float>
-  %15 = fdiv <2 x float> %14, <float 6.553500e+04, float 6.553500e+04>
-  %16 = fadd <2 x float> %15, %11
-  %17 = extractelement <2 x float> %16, i64 0
-  %cmp20 = fcmp ult float %17, 1.000000e+00
-  %sub = fadd float %17, -1.000000e+00
-  %u.sroa.0.0.vec.insert = insertelement <2 x float> %16, float %sub, i64 0
-  %u.sroa.0.0 = select i1 %cmp20, <2 x float> %16, <2 x float> %u.sroa.0.0.vec.insert
-  %18 = extractelement <2 x float> %16, i64 1
-  %cmp24 = fcmp ult float %18, 1.000000e+00
-  %sub27 = fadd float %18, -1.000000e+00
-  %u.sroa.0.4.vec.insert52 = insertelement <2 x float> %u.sroa.0.0, float %sub27, i64 1
-  %u.sroa.0.1 = select i1 %cmp24, <2 x float> %u.sroa.0.0, <2 x float> %u.sroa.0.4.vec.insert52
+  %rem.i11 = urem i32 %add, 48
+  %idxprom.i14 = zext nneg i32 %rem.i11 to i64
+  %arrayidx13.i15 = getelementptr inbounds [48 x [128 x [128 x i16]]], ptr @_ZN4pbrt17BlueNoiseTexturesE, i64 0, i64 %idxprom.i14, i64 %rem6.i, i64 %rem9.i
+  %8 = load i16, ptr %arrayidx13.i15, align 2
+  %9 = load <2 x i32>, ptr %arrayidx3.i, align 8
+  %10 = uitofp <2 x i32> %9 to <2 x double>
+  %11 = fmul <2 x double> %10, <double 0x3DF0000000000000, double 0x3DF0000000000000>
+  %12 = fptrunc <2 x double> %11 to <2 x float>
+  %13 = insertelement <2 x i16> poison, i16 %7, i64 0
+  %14 = insertelement <2 x i16> %13, i16 %8, i64 1
+  %15 = uitofp <2 x i16> %14 to <2 x float>
+  %16 = fdiv <2 x float> %15, <float 6.553500e+04, float 6.553500e+04>
+  %17 = fadd <2 x float> %16, %12
+  %18 = extractelement <2 x float> %17, i64 0
+  %cmp20 = fcmp ult float %18, 1.000000e+00
+  %sub = fadd float %18, -1.000000e+00
+  %u.sroa.0.0.vec.insert = insertelement <2 x float> %17, float %sub, i64 0
+  %u.sroa.0.0 = select i1 %cmp20, <2 x float> %17, <2 x float> %u.sroa.0.0.vec.insert
+  %19 = extractelement <2 x float> %17, i64 1
+  %cmp24 = fcmp ult float %19, 1.000000e+00
+  %sub27 = fadd float %19, -1.000000e+00
+  %u.sroa.0.4.vec.insert49 = insertelement <2 x float> %u.sroa.0.0, float %sub27, i64 1
+  %u.sroa.0.1 = select i1 %cmp24, <2 x float> %u.sroa.0.0, <2 x float> %u.sroa.0.4.vec.insert49
   %add30 = add nuw nsw i32 %1, 2
   store i32 %add30, ptr %dimension, align 4
-  %19 = fcmp ogt <2 x float> %u.sroa.0.1, <float 0x3FEFFFFFE0000000, float 0x3FEFFFFFE0000000>
-  %20 = select <2 x i1> %19, <2 x float> <float 0x3FEFFFFFE0000000, float 0x3FEFFFFFE0000000>, <2 x float> %u.sroa.0.1
-  ret <2 x float> %20
+  %20 = fcmp ogt <2 x float> %u.sroa.0.1, <float 0x3FEFFFFFE0000000, float 0x3FEFFFFFE0000000>
+  %21 = select <2 x i1> %20, <2 x float> <float 0x3FEFFFFFE0000000, float 0x3FEFFFFFE0000000>, <2 x float> %u.sroa.0.1
+  ret <2 x float> %21
 }
 
 ; Function Attrs: mustprogress uwtable

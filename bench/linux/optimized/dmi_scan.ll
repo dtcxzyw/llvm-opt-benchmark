@@ -713,9 +713,9 @@ define dso_local noundef zeroext i1 @dmi_get_date(i32 noundef %0, ptr noundef wr
   %32 = load i8, ptr %29, align 1
   %33 = icmp ne i8 %32, 47
   %34 = icmp eq i32 %28, 0
-  %35 = select i1 %33, i1 true, i1 %34
-  %36 = icmp sgt i32 %28, 12
-  %37 = select i1 %35, i1 true, i1 %36
+  %35 = icmp sgt i32 %28, 12
+  %36 = or i1 %34, %35
+  %37 = select i1 %33, i1 true, i1 %36
   br i1 %37, label %52, label %38
 
 38:                                               ; preds = %31

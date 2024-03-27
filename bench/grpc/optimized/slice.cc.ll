@@ -1357,10 +1357,9 @@ entry:
   %bytes30 = getelementptr inbounds i8, ptr %needle, i64 9
   %cond33 = select i1 %tobool13.not, ptr %bytes30, ptr %5
   %cmp = icmp eq i64 %cond, 0
-  %cmp34 = icmp eq i64 %cond22, 0
-  %or.cond = select i1 %cmp, i1 true, i1 %cmp34
-  %cmp35 = icmp ult i64 %cond, %cond22
-  %or.cond15 = select i1 %or.cond, i1 true, i1 %cmp35
+  %6 = add i64 %cond22, -1
+  %7 = icmp uge i64 %6, %cond
+  %or.cond15 = select i1 %cmp, i1 true, i1 %7
   br i1 %or.cond15, label %return, label %if.end37
 
 if.end37:                                         ; preds = %entry
@@ -1370,18 +1369,18 @@ if.end37:                                         ; preds = %entry
 if.then39:                                        ; preds = %if.end37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %haystack, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp40, ptr noundef nonnull align 8 dereferenceable(32) %needle, i64 32, i1 false)
-  %6 = load ptr, ptr %agg.tmp, align 8
-  %tobool.not.i = icmp eq ptr %6, null
+  %8 = load ptr, ptr %agg.tmp, align 8
+  %tobool.not.i = icmp eq ptr %8, null
   %data.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %7 = load i64, ptr %data.i, align 8
-  %conv.i = and i64 %7, 255
-  %cond.i = select i1 %tobool.not.i, i64 %conv.i, i64 %7
-  %8 = load ptr, ptr %agg.tmp40, align 8
-  %tobool4.not.i = icmp eq ptr %8, null
+  %9 = load i64, ptr %data.i, align 8
+  %conv.i = and i64 %9, 255
+  %cond.i = select i1 %tobool.not.i, i64 %conv.i, i64 %9
+  %10 = load ptr, ptr %agg.tmp40, align 8
+  %tobool4.not.i = icmp eq ptr %10, null
   %data6.i = getelementptr inbounds i8, ptr %agg.tmp40, i64 8
-  %9 = load i64, ptr %data6.i, align 8
-  %conv11.i = and i64 %9, 255
-  %cond13.i = select i1 %tobool4.not.i, i64 %conv11.i, i64 %9
+  %11 = load i64, ptr %data6.i, align 8
+  %conv11.i = and i64 %11, 255
+  %cond13.i = select i1 %tobool4.not.i, i64 %conv11.i, i64 %11
   %cmp.not.i = icmp eq i64 %cond.i, %cond13.i
   br i1 %cmp.not.i, label %if.end.i, label %return
 
@@ -1391,16 +1390,16 @@ if.end.i:                                         ; preds = %if.then39
 
 if.end27.i:                                       ; preds = %if.end.i
   %bytes.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  %10 = load ptr, ptr %bytes.i, align 8
+  %12 = load ptr, ptr %bytes.i, align 8
   %bytes34.i = getelementptr inbounds i8, ptr %agg.tmp, i64 9
-  %cond36.i = select i1 %tobool.not.i, ptr %bytes34.i, ptr %10
+  %cond36.i = select i1 %tobool.not.i, ptr %bytes34.i, ptr %12
   %bytes41.i = getelementptr inbounds i8, ptr %agg.tmp40, i64 16
-  %11 = load ptr, ptr %bytes41.i, align 8
+  %13 = load ptr, ptr %bytes41.i, align 8
   %bytes44.i = getelementptr inbounds i8, ptr %agg.tmp40, i64 9
-  %cond47.i = select i1 %tobool4.not.i, ptr %bytes44.i, ptr %11
+  %cond47.i = select i1 %tobool4.not.i, ptr %bytes44.i, ptr %13
   %bcmp.i = call i32 @bcmp(ptr %cond36.i, ptr %cond47.i, i64 %cond.i)
   %cmp59.i = icmp ne i32 %bcmp.i, 0
-  %12 = sext i1 %cmp59.i to i32
+  %14 = sext i1 %cmp59.i to i32
   br label %return
 
 if.end43:                                         ; preds = %if.end37
@@ -1409,18 +1408,18 @@ if.end43:                                         ; preds = %if.end37
 
 if.then45:                                        ; preds = %if.end43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp46, ptr noundef nonnull align 8 dereferenceable(32) %haystack, i64 32, i1 false)
-  %13 = load i8, ptr %cond33, align 1
-  %14 = load ptr, ptr %agg.tmp46, align 8
-  %tobool.not.i16 = icmp eq ptr %14, null
+  %15 = load i8, ptr %cond33, align 1
+  %16 = load ptr, ptr %agg.tmp46, align 8
+  %tobool.not.i16 = icmp eq ptr %16, null
   %data.i17 = getelementptr inbounds i8, ptr %agg.tmp46, i64 8
   %bytes.i18 = getelementptr inbounds i8, ptr %agg.tmp46, i64 16
-  %15 = load ptr, ptr %bytes.i18, align 8
+  %17 = load ptr, ptr %bytes.i18, align 8
   %bytes2.i = getelementptr inbounds i8, ptr %agg.tmp46, i64 9
-  %cond.i19 = select i1 %tobool.not.i16, ptr %bytes2.i, ptr %15
-  %conv.i20 = sext i8 %13 to i32
-  %16 = load i64, ptr %data.i17, align 8
-  %conv10.i = and i64 %16, 255
-  %cond12.i = select i1 %tobool.not.i16, i64 %conv10.i, i64 %16
+  %cond.i19 = select i1 %tobool.not.i16, ptr %bytes2.i, ptr %17
+  %conv.i20 = sext i8 %15 to i32
+  %18 = load i64, ptr %data.i17, align 8
+  %conv10.i = and i64 %18, 255
+  %cond12.i = select i1 %tobool.not.i16, i64 %conv10.i, i64 %18
   %call.i = call noundef ptr @memchr(ptr noundef %cond.i19, i32 noundef %conv.i20, i64 noundef %cond12.i) #23
   %cmp.i = icmp eq ptr %call.i, null
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call.i to i64
@@ -1456,7 +1455,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %cmp50.not, label %return, label %for.body, !llvm.loop !69
 
 return:                                           ; preds = %for.inc, %if.end48, %if.end27.i, %if.end.i, %if.then39, %entry, %if.then53, %if.then45
-  %retval.0 = phi i32 [ %cond17.i, %if.then45 ], [ %conv54, %if.then53 ], [ -1, %entry ], [ %12, %if.end27.i ], [ -1, %if.then39 ], [ 0, %if.end.i ], [ -1, %if.end48 ], [ -1, %for.inc ]
+  %retval.0 = phi i32 [ %cond17.i, %if.then45 ], [ %conv54, %if.then53 ], [ -1, %entry ], [ %14, %if.end27.i ], [ -1, %if.then39 ], [ 0, %if.end.i ], [ -1, %if.end48 ], [ -1, %for.inc ]
   ret i32 %retval.0
 }
 

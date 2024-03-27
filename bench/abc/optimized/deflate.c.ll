@@ -85,10 +85,9 @@ define noundef i32 @deflateInit2_(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %or.cond4 = icmp ult i32 %38, -9
   %39 = icmp ne i32 %2, 8
   %or.cond6 = or i1 %39, %or.cond4
-  %40 = icmp ult i32 %.0111, 8
-  %or.cond8 = select i1 %or.cond6, i1 true, i1 %40
-  %41 = icmp ugt i32 %.0111, 15
-  %or.cond10 = select i1 %or.cond8, i1 true, i1 %41
+  %40 = add nsw i32 %.0111, -16
+  %41 = icmp ult i32 %40, -8
+  %or.cond10 = select i1 %or.cond6, i1 true, i1 %41
   %42 = icmp ugt i32 %spec.store.select, 9
   %or.cond14 = or i1 %42, %or.cond10
   %43 = icmp ugt i32 %5, 4

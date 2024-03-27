@@ -2286,7 +2286,7 @@ return:                                           ; preds = %entry, %do.end
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @sd_lock_command(ptr nocapture noundef %sd) unnamed_addr #0 {
 entry:
-  %_now.i.i68 = alloca %struct.timeval, align 8
+  %_now.i.i67 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
   %data = getelementptr inbounds i8, ptr %sd, i64 396
   %0 = load i8, ptr %data, align 4
@@ -2351,41 +2351,41 @@ trace_sdcard_lock.exit:                           ; preds = %if.then19, %land.lh
   br label %if.end21
 
 if.else20:                                        ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i68)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i67)
   %10 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i69 = icmp ne i32 %10, 0
+  %tobool.i.i68 = icmp ne i32 %10, 0
   %11 = load i16, ptr @_TRACE_SDCARD_UNLOCK_DSTATE, align 2
-  %tobool4.i.i70 = icmp ne i16 %11, 0
-  %or.cond.i.i71 = select i1 %tobool.i.i69, i1 %tobool4.i.i70, i1 false
-  br i1 %or.cond.i.i71, label %land.lhs.true5.i.i72, label %trace_sdcard_unlock.exit
+  %tobool4.i.i69 = icmp ne i16 %11, 0
+  %or.cond.i.i70 = select i1 %tobool.i.i68, i1 %tobool4.i.i69, i1 false
+  br i1 %or.cond.i.i70, label %land.lhs.true5.i.i71, label %trace_sdcard_unlock.exit
 
-land.lhs.true5.i.i72:                             ; preds = %if.else20
+land.lhs.true5.i.i71:                             ; preds = %if.else20
   %12 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i73 = and i32 %12, 32768
-  %cmp.i.not.i.i74 = icmp eq i32 %and.i.i.i73, 0
-  br i1 %cmp.i.not.i.i74, label %trace_sdcard_unlock.exit, label %if.then.i.i75
+  %and.i.i.i72 = and i32 %12, 32768
+  %cmp.i.not.i.i73 = icmp eq i32 %and.i.i.i72, 0
+  br i1 %cmp.i.not.i.i73, label %trace_sdcard_unlock.exit, label %if.then.i.i74
 
-if.then.i.i75:                                    ; preds = %land.lhs.true5.i.i72
+if.then.i.i74:                                    ; preds = %land.lhs.true5.i.i71
   %13 = load i8, ptr @message_with_timestamp, align 1
   %14 = and i8 %13, 1
-  %tobool7.not.i.i76 = icmp eq i8 %14, 0
-  br i1 %tobool7.not.i.i76, label %if.else.i.i81, label %if.then8.i.i77
+  %tobool7.not.i.i75 = icmp eq i8 %14, 0
+  br i1 %tobool7.not.i.i75, label %if.else.i.i80, label %if.then8.i.i76
 
-if.then8.i.i77:                                   ; preds = %if.then.i.i75
-  %call9.i.i78 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i68, ptr noundef null) #17
-  %call10.i.i79 = tail call i32 @qemu_get_thread_id() #17
-  %15 = load i64, ptr %_now.i.i68, align 8
-  %tv_usec.i.i80 = getelementptr inbounds i8, ptr %_now.i.i68, i64 8
-  %16 = load i64, ptr %tv_usec.i.i80, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.85, i32 noundef %call10.i.i79, i64 noundef %15, i64 noundef %16) #17
+if.then8.i.i76:                                   ; preds = %if.then.i.i74
+  %call9.i.i77 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i67, ptr noundef null) #17
+  %call10.i.i78 = tail call i32 @qemu_get_thread_id() #17
+  %15 = load i64, ptr %_now.i.i67, align 8
+  %tv_usec.i.i79 = getelementptr inbounds i8, ptr %_now.i.i67, i64 8
+  %16 = load i64, ptr %tv_usec.i.i79, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.85, i32 noundef %call10.i.i78, i64 noundef %15, i64 noundef %16) #17
   br label %trace_sdcard_unlock.exit
 
-if.else.i.i81:                                    ; preds = %if.then.i.i75
+if.else.i.i80:                                    ; preds = %if.then.i.i74
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.86) #17
   br label %trace_sdcard_unlock.exit
 
-trace_sdcard_unlock.exit:                         ; preds = %if.else20, %land.lhs.true5.i.i72, %if.then8.i.i77, %if.else.i.i81
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i68)
+trace_sdcard_unlock.exit:                         ; preds = %if.else20, %land.lhs.true5.i.i71, %if.then8.i.i76, %if.else.i.i80
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i67)
   br label %if.end21
 
 if.end21:                                         ; preds = %trace_sdcard_unlock.exit, %trace_sdcard_lock.exit
@@ -2401,11 +2401,9 @@ if.then23:                                        ; preds = %if.end21
 lor.lhs.false:                                    ; preds = %if.then23
   %18 = load i32, ptr %blk_len, align 8
   %cmp27 = icmp ugt i32 %18, 1
-  %tobool30 = icmp ne i32 %and13, 0
-  %or.cond = select i1 %cmp27, i1 true, i1 %tobool30
-  %19 = and i32 %conv, 6
+  %19 = and i32 %conv, 7
   %20 = icmp ne i32 %19, 0
-  %or.cond2 = select i1 %or.cond, i1 true, i1 %20
+  %or.cond2 = select i1 %cmp27, i1 true, i1 %20
   br i1 %or.cond2, label %if.then43, label %lor.lhs.false35
 
 lor.lhs.false35:                                  ; preds = %lor.lhs.false
@@ -2472,8 +2470,8 @@ lor.lhs.false59:                                  ; preds = %if.end55
   %cmp61.not = icmp ule i32 %pwd_len.0, %34
   %add65 = add nuw nsw i32 %34, 16
   %cmp66 = icmp ugt i32 %pwd_len.0, %add65
-  %or.cond65 = select i1 %cmp61.not, i1 true, i1 %cmp66
-  br i1 %or.cond65, label %if.then68, label %if.end71
+  %or.cond = select i1 %cmp61.not, i1 true, i1 %cmp66
+  br i1 %or.cond, label %if.then68, label %if.end71
 
 if.then68:                                        ; preds = %lor.lhs.false59, %if.end55
   %card_status69 = getelementptr inbounds i8, ptr %sd, i64 212
@@ -2510,8 +2508,8 @@ lor.lhs.false88:                                  ; preds = %if.end83
   %tobool89.not = icmp eq i32 %and9, 0
   %37 = and i32 %conv, 5
   %or.cond4.not = icmp eq i32 %37, 0
-  %or.cond66 = or i1 %tobool89.not, %or.cond4.not
-  br i1 %or.cond66, label %lor.lhs.false101, label %if.then117
+  %or.cond65 = or i1 %tobool89.not, %or.cond4.not
+  br i1 %or.cond65, label %lor.lhs.false101, label %if.then117
 
 lor.lhs.false101:                                 ; preds = %lor.lhs.false88
   %38 = and i32 %conv, 3
@@ -2526,8 +2524,8 @@ land.lhs.true105:                                 ; preds = %lor.lhs.false101
   %or.cond7 = and i1 %tobool18, %tobool108
   %40 = or disjoint i32 %and107, %and5
   %or.cond8.not = icmp eq i32 %40, 0
-  %or.cond67 = select i1 %or.cond7, i1 true, i1 %or.cond8.not
-  br i1 %or.cond67, label %if.then117, label %if.end132
+  %or.cond66 = select i1 %or.cond7, i1 true, i1 %or.cond8.not
+  br i1 %or.cond66, label %if.then117, label %if.end132
 
 if.then117:                                       ; preds = %lor.lhs.false88, %land.lhs.true105, %if.end83
   %card_status118 = getelementptr inbounds i8, ptr %sd, i64 212

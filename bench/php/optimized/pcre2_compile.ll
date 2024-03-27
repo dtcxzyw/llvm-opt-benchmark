@@ -1356,10 +1356,9 @@ read_number.exit.thread:                          ; preds = %303, %294, %296, %3
   br i1 %470, label %471, label %.thread393
 
 471:                                              ; preds = %467
-  %472 = icmp ugt i32 %.6.ph, 55295
-  %or.cond67 = select i1 %15, i1 %472, i1 false
-  %473 = icmp ult i32 %.6.ph, 57344
-  %or.cond69 = select i1 %or.cond67, i1 %473, i1 false
+  %472 = and i32 %.6.ph, -2048
+  %473 = icmp eq i32 %472, 55296
+  %or.cond69 = select i1 %15, i1 %473, i1 false
   %474 = and i32 %5, 1
   %475 = icmp eq i32 %474, 0
   %or.cond380 = and i1 %475, %or.cond69

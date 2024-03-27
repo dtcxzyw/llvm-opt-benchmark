@@ -10333,39 +10333,29 @@ if.else59:                                        ; preds = %while.end
 
 if.else65:                                        ; preds = %if.else59
   %cmp66 = icmp eq i32 %filetype, 1
-  br i1 %cmp66, label %land.lhs.true68, label %if.else79
+  %15 = and i64 %call47, 4294967295
+  %or.cond38 = icmp eq i64 %15, 75497580
+  %or.cond68 = select i1 %cmp66, i1 %or.cond38, i1 false
+  br i1 %or.cond68, label %if.end89.sink.split, label %if.else79
 
-land.lhs.true68:                                  ; preds = %if.else65
-  %and.i27 = and i64 %call47, 2147483648
-  %cmp.not.i28 = icmp eq i64 %and.i27, 0
-  %15 = trunc i64 %call47 to i32
-  %.mask36 = and i32 %15, -8388608
-  %cmp7135 = icmp eq i32 %.mask36, 75497472
-  %cmp71 = select i1 %cmp.not.i28, i1 %cmp7135, i1 false
-  %retval.0.i33 = and i32 %15, 8388607
-  %cmp76 = icmp eq i32 %retval.0.i33, 108
-  %or.cond38 = select i1 %cmp71, i1 %cmp76, i1 false
-  br i1 %or.cond38, label %if.end89.sink.split, label %if.else79
-
-if.else79:                                        ; preds = %land.lhs.true68, %if.else65
-  %16 = and i64 %call47, 4294967295
-  %cmp80.not = icmp eq i64 %16, 0
+if.else79:                                        ; preds = %if.else65
+  %cmp80.not = icmp eq i64 %15, 0
   br i1 %cmp80.not, label %if.end89, label %if.then82
 
 if.then82:                                        ; preds = %if.else79
   %state83 = getelementptr inbounds i8, ptr %self, i64 88
-  %17 = load ptr, ptr %state83, align 8
+  %16 = load ptr, ptr %state83, align 8
   %call.i = tail call i64 @ERR_peek_last_error() #11
   %conv.i = trunc i64 %call.i to i32
-  %PySSLErrorObject4.i = getelementptr inbounds i8, ptr %17, i64 40
-  %18 = load ptr, ptr %PySSLErrorObject4.i, align 8
+  %PySSLErrorObject4.i = getelementptr inbounds i8, ptr %16, i64 40
+  %17 = load ptr, ptr %PySSLErrorObject4.i, align 8
   %sext.i = shl i64 %call.i, 32
   %conv15.i = ashr exact i64 %sext.i, 32
-  tail call fastcc void @fill_and_set_sslerror(ptr noundef %17, ptr noundef null, ptr noundef %18, i32 noundef %conv.i, ptr noundef null, i32 noundef 4066, i64 noundef %conv15.i)
+  tail call fastcc void @fill_and_set_sslerror(ptr noundef %16, ptr noundef null, ptr noundef %17, i32 noundef %conv.i, ptr noundef null, i32 noundef 4066, i64 noundef %conv15.i)
   br label %if.end89.sink.split
 
-if.end89.sink.split:                              ; preds = %land.lhs.true68, %if.else59, %if.then51, %if.then82
-  %retval1.0.ph = phi i32 [ -1, %if.then82 ], [ -1, %if.then51 ], [ 0, %if.else59 ], [ 0, %land.lhs.true68 ]
+if.end89.sink.split:                              ; preds = %if.else65, %if.else59, %if.then51, %if.then82
+  %retval1.0.ph = phi i32 [ -1, %if.then82 ], [ -1, %if.then51 ], [ 0, %if.else59 ], [ 0, %if.else65 ]
   tail call void @ERR_clear_error() #11
   br label %if.end89
 
@@ -15064,15 +15054,8 @@ if.else24:                                        ; preds = %if.else
   br label %if.end56
 
 if.else27:                                        ; preds = %sw.bb8
-  %and.i = and i64 %call, 2147483648
-  %cmp.not.i = icmp eq i64 %and.i, 0
-  %16 = trunc i64 %call to i32
-  %.mask14 = and i32 %16, -8388608
-  %cmp2913 = icmp eq i32 %.mask14, 167772160
-  %cmp29 = select i1 %cmp.not.i, i1 %cmp2913, i1 false
-  %retval.0.i33 = and i32 %16, 8388607
-  %cmp32 = icmp eq i32 %retval.0.i33, 134
-  %or.cond = select i1 %cmp29, i1 %cmp32, i1 false
+  %16 = and i64 %call, 4294967295
+  %or.cond = icmp eq i64 %16, 167772294
   br i1 %or.cond, label %if.then33, label %if.end56
 
 if.then33:                                        ; preds = %if.else27
@@ -15082,53 +15065,41 @@ if.then33:                                        ; preds = %if.else27
 
 sw.bb36:                                          ; preds = %if.then
   %cmp37 = icmp eq i64 %call, 0
-  br i1 %cmp37, label %if.end47, label %sw.bb36.split
+  br i1 %cmp37, label %if.end56, label %sw.bb36.split
 
 sw.bb36.split:                                    ; preds = %sw.bb36
-  %18 = and i64 %call, 4294967295
-  %or.cond15 = icmp eq i64 %18, 167772294
-  br i1 %or.cond15, label %if.then45, label %if.end47
+  %trunc = trunc i64 %call to i32
+  switch i32 %trunc, label %if.end56 [
+    i32 167772294, label %if.then45
+    i32 167772454, label %if.then53
+  ]
 
 if.then45:                                        ; preds = %sw.bb36.split
   %PySSLCertVerificationErrorObject46 = getelementptr inbounds i8, ptr %1, i64 48
-  %19 = load ptr, ptr %PySSLCertVerificationErrorObject46, align 8
-  br label %if.end47
+  %18 = load ptr, ptr %PySSLCertVerificationErrorObject46, align 8
+  br label %if.end56
 
-if.end47:                                         ; preds = %sw.bb36, %sw.bb36.split, %if.then45
-  %errstr.08 = phi ptr [ null, %if.then45 ], [ @.str.241, %sw.bb36 ], [ null, %sw.bb36.split ]
-  %type.1 = phi ptr [ %19, %if.then45 ], [ %2, %sw.bb36 ], [ %2, %sw.bb36.split ]
-  %and.i41 = and i64 %call, 2147483648
-  %cmp.not.i42 = icmp eq i64 %and.i41, 0
-  %20 = trunc i64 %call to i32
-  %.mask = and i32 %20, -8388608
-  %cmp4912 = icmp eq i32 %.mask, 167772160
-  %cmp49 = select i1 %cmp.not.i42, i1 %cmp4912, i1 false
-  %retval.0.i47 = and i32 %20, 8388607
-  %cmp52 = icmp eq i32 %retval.0.i47, 294
-  %or.cond16 = select i1 %cmp49, i1 %cmp52, i1 false
-  br i1 %or.cond16, label %if.then53, label %if.end56
-
-if.then53:                                        ; preds = %if.end47
+if.then53:                                        ; preds = %sw.bb36.split
   %PySSLEOFErrorObject54 = getelementptr inbounds i8, ptr %1, i64 88
-  %21 = load ptr, ptr %PySSLEOFErrorObject54, align 8
+  %19 = load ptr, ptr %PySSLEOFErrorObject54, align 8
   br label %if.end56
 
 sw.default:                                       ; preds = %if.then
   br label %if.end56
 
-if.end56:                                         ; preds = %if.else27, %if.then33, %if.then, %sw.bb, %sw.bb4, %sw.bb5, %sw.bb7, %sw.default, %if.then14, %if.else24, %if.else22, %if.then53, %if.end47, %entry
-  %errstr.1 = phi ptr [ @.str.242, %sw.default ], [ @.str.239, %if.then53 ], [ %errstr.08, %if.end47 ], [ @.str.239, %if.then14 ], [ @.str.239, %if.else22 ], [ @.str.240, %if.else24 ], [ @.str.238, %sw.bb7 ], [ @.str.236, %sw.bb5 ], [ @.str.235, %sw.bb4 ], [ @.str.234, %sw.bb ], [ null, %entry ], [ @.str.237, %if.then ], [ null, %if.then33 ], [ null, %if.else27 ]
-  %p.0 = phi i32 [ 10, %sw.default ], [ 8, %if.then53 ], [ 1, %if.end47 ], [ 8, %if.then14 ], [ 8, %if.else22 ], [ 5, %if.else24 ], [ 7, %sw.bb7 ], [ 3, %sw.bb5 ], [ 2, %sw.bb4 ], [ 6, %sw.bb ], [ 0, %entry ], [ %err.sroa.0.0.copyload, %if.then ], [ 5, %if.then33 ], [ 5, %if.else27 ]
-  %type.2 = phi ptr [ %2, %sw.default ], [ %21, %if.then53 ], [ %type.1, %if.end47 ], [ %12, %if.then14 ], [ %14, %if.else22 ], [ %15, %if.else24 ], [ %2, %sw.bb7 ], [ %6, %sw.bb5 ], [ %5, %sw.bb4 ], [ %4, %sw.bb ], [ %2, %entry ], [ %2, %if.then ], [ %17, %if.then33 ], [ %2, %if.else27 ]
+if.end56:                                         ; preds = %sw.bb36.split, %sw.bb36, %if.then45, %if.else27, %if.then33, %if.then, %sw.bb, %sw.bb4, %sw.bb5, %sw.bb7, %sw.default, %if.then14, %if.else24, %if.else22, %if.then53, %entry
+  %errstr.1 = phi ptr [ @.str.242, %sw.default ], [ @.str.239, %if.then53 ], [ @.str.239, %if.then14 ], [ @.str.239, %if.else22 ], [ @.str.240, %if.else24 ], [ @.str.238, %sw.bb7 ], [ @.str.236, %sw.bb5 ], [ @.str.235, %sw.bb4 ], [ @.str.234, %sw.bb ], [ null, %entry ], [ @.str.237, %if.then ], [ null, %if.then33 ], [ null, %if.else27 ], [ @.str.241, %sw.bb36 ], [ null, %if.then45 ], [ null, %sw.bb36.split ]
+  %p.0 = phi i32 [ 10, %sw.default ], [ 8, %if.then53 ], [ 8, %if.then14 ], [ 8, %if.else22 ], [ 5, %if.else24 ], [ 7, %sw.bb7 ], [ 3, %sw.bb5 ], [ 2, %sw.bb4 ], [ 6, %sw.bb ], [ 0, %entry ], [ %err.sroa.0.0.copyload, %if.then ], [ 5, %if.then33 ], [ 5, %if.else27 ], [ 1, %sw.bb36 ], [ 1, %if.then45 ], [ 1, %sw.bb36.split ]
+  %type.2 = phi ptr [ %2, %sw.default ], [ %19, %if.then53 ], [ %12, %if.then14 ], [ %14, %if.else22 ], [ %15, %if.else24 ], [ %2, %sw.bb7 ], [ %6, %sw.bb5 ], [ %5, %sw.bb4 ], [ %4, %sw.bb ], [ %2, %entry ], [ %2, %if.then ], [ %17, %if.then33 ], [ %2, %if.else27 ], [ %2, %sw.bb36 ], [ %18, %if.then45 ], [ %2, %sw.bb36.split ]
   tail call fastcc void @fill_and_set_sslerror(ptr noundef nonnull %1, ptr noundef nonnull %sslsock, ptr noundef %type.2, i32 noundef %p.0, ptr noundef %errstr.1, i32 noundef %lineno, i64 noundef %call)
   tail call void @ERR_clear_error() #11
   %exc.i = getelementptr inbounds i8, ptr %sslsock, i64 72
-  %22 = load ptr, ptr %exc.i, align 8
-  %cmp.i = icmp eq ptr %22, null
+  %20 = load ptr, ptr %exc.i, align 8
+  %cmp.i = icmp eq ptr %20, null
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end56
-  tail call void @_PyErr_ChainExceptions1(ptr noundef nonnull %22) #11
+  tail call void @_PyErr_ChainExceptions1(ptr noundef nonnull %20) #11
   store ptr null, ptr %exc.i, align 8
   br label %return
 

@@ -7138,7 +7138,7 @@ define dso_local void @IssuePendingWritebacks(ptr noundef %0, i32 noundef %1) lo
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %48, label %6
+  br i1 %5, label %47, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 12
@@ -7153,7 +7153,7 @@ define dso_local void @IssuePendingWritebacks(ptr noundef %0, i32 noundef %1) lo
   br i1 %14, label %.lr.ph96, label %._crit_edge97
 
 .lr.ph96:                                         ; preds = %6, %._crit_edge
-  %15 = phi i32 [ %46, %._crit_edge ], [ %13, %6 ]
+  %15 = phi i32 [ %45, %._crit_edge ], [ %13, %6 ]
   %.094 = phi i32 [ %.lcssa, %._crit_edge ], [ 0, %6 ]
   %16 = sext i32 %.094 to i64
   %17 = getelementptr [256 x %struct.PendingWriteback], ptr %7, i64 0, i64 %16
@@ -7164,7 +7164,6 @@ define dso_local void @IssuePendingWritebacks(ptr noundef %0, i32 noundef %1) lo
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 16
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4
-  %.sroa.024.0.extract.trunc = trunc i64 %.sroa.0.0.copyload to i32
   %18 = add nsw i32 %.094, 1
   %19 = icmp slt i32 %18, %15
   br i1 %19, label %.lr.ph.preheader, label %._crit_edge
@@ -7174,10 +7173,10 @@ define dso_local void @IssuePendingWritebacks(ptr noundef %0, i32 noundef %1) lo
   %21 = add i32 %15, %20
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %43
-  %.05983 = phi ptr [ %.1, %43 ], [ %17, %.lr.ph.preheader ]
-  %.06082 = phi i32 [ %44, %43 ], [ 0, %.lr.ph.preheader ]
-  %.06181 = phi i32 [ %.162, %43 ], [ 1, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %42
+  %.05983 = phi ptr [ %.1, %42 ], [ %17, %.lr.ph.preheader ]
+  %.06082 = phi i32 [ %43, %42 ], [ 0, %.lr.ph.preheader ]
+  %.06181 = phi i32 [ %.162, %42 ], [ 1, %.lr.ph.preheader ]
   %22 = add i32 %.06082, %18
   %23 = sext i32 %22 to i64
   %24 = getelementptr [256 x %struct.PendingWriteback], ptr %7, i64 0, i64 %23
@@ -7185,62 +7184,58 @@ define dso_local void @IssuePendingWritebacks(ptr noundef %0, i32 noundef %1) lo
   %26 = getelementptr i8, ptr %24, i64 8
   %.val.i70 = load i32, ptr %26, align 4
   %27 = icmp eq i32 %.sroa.2.0.copyload, %.val.i70
-  %.unshifted = xor i64 %25, %.sroa.0.0.copyload
-  %28 = icmp ult i64 %.unshifted, 4294967296
-  %or.cond = select i1 %27, i1 %28, i1 false
-  %.sroa.03.0.extract.trunc = trunc i64 %25 to i32
-  %29 = icmp eq i32 %.sroa.024.0.extract.trunc, %.sroa.03.0.extract.trunc
-  %or.cond79 = select i1 %or.cond, i1 %29, i1 false
-  br i1 %or.cond79, label %30, label %._crit_edge
+  %28 = icmp eq i64 %.sroa.0.0.copyload, %25
+  %or.cond79 = select i1 %27, i1 %28, i1 false
+  br i1 %or.cond79, label %29, label %._crit_edge
 
-30:                                               ; preds = %.lr.ph
-  %31 = getelementptr i8, ptr %.05983, i64 12
-  %.059.val = load i32, ptr %31, align 4
-  %32 = getelementptr i8, ptr %24, i64 12
-  %.val69 = load i32, ptr %32, align 4
+29:                                               ; preds = %.lr.ph
+  %30 = getelementptr i8, ptr %.05983, i64 12
+  %.059.val = load i32, ptr %30, align 4
+  %31 = getelementptr i8, ptr %24, i64 12
+  %.val69 = load i32, ptr %31, align 4
   %.not = icmp eq i32 %.059.val, %.val69
-  br i1 %.not, label %33, label %._crit_edge
+  br i1 %.not, label %32, label %._crit_edge
 
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %.05983, i64 16
-  %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %24, i64 16
-  %37 = load i32, ptr %36, align 4
-  %38 = icmp eq i32 %35, %37
-  br i1 %38, label %43, label %39
+32:                                               ; preds = %29
+  %33 = getelementptr inbounds i8, ptr %.05983, i64 16
+  %34 = load i32, ptr %33, align 4
+  %35 = getelementptr inbounds i8, ptr %24, i64 16
+  %36 = load i32, ptr %35, align 4
+  %37 = icmp eq i32 %34, %36
+  br i1 %37, label %42, label %38
 
-39:                                               ; preds = %33
-  %40 = add i32 %35, 1
-  %.not68 = icmp eq i32 %40, %37
-  br i1 %.not68, label %41, label %._crit_edge
+38:                                               ; preds = %32
+  %39 = add i32 %34, 1
+  %.not68 = icmp eq i32 %39, %36
+  br i1 %.not68, label %40, label %._crit_edge
 
-41:                                               ; preds = %39
-  %42 = add i32 %.06181, 1
-  br label %43
+40:                                               ; preds = %38
+  %41 = add i32 %.06181, 1
+  br label %42
 
-43:                                               ; preds = %33, %41
-  %.162 = phi i32 [ %.06181, %33 ], [ %42, %41 ]
-  %.1 = phi ptr [ %.05983, %33 ], [ %24, %41 ]
-  %44 = add i32 %.06082, 1
-  %exitcond.not = icmp eq i32 %44, %21
+42:                                               ; preds = %32, %40
+  %.162 = phi i32 [ %.06181, %32 ], [ %41, %40 ]
+  %.1 = phi ptr [ %.05983, %32 ], [ %24, %40 ]
+  %43 = add i32 %.06082, 1
+  %exitcond.not = icmp eq i32 %43, %21
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
 
-._crit_edge:                                      ; preds = %43, %30, %.lr.ph, %39, %.lr.ph96
-  %.061.lcssa = phi i32 [ 1, %.lr.ph96 ], [ %.06181, %39 ], [ %.06181, %.lr.ph ], [ %.06181, %30 ], [ %.162, %43 ]
-  %.lcssa = phi i32 [ %18, %.lr.ph96 ], [ %22, %39 ], [ %22, %.lr.ph ], [ %22, %30 ], [ %15, %43 ]
-  %45 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload, i32 %.sroa.2.0.copyload, i32 noundef -1) #14
-  tail call void @smgrwriteback(ptr noundef %45, i32 noundef %.sroa.3.0.copyload, i32 noundef %.sroa.4.0.copyload, i32 noundef %.061.lcssa) #14
-  %46 = load i32, ptr %3, align 8
-  %47 = icmp slt i32 %.lcssa, %46
-  br i1 %47, label %.lr.ph96, label %._crit_edge97, !llvm.loop !49
+._crit_edge:                                      ; preds = %42, %29, %.lr.ph, %38, %.lr.ph96
+  %.061.lcssa = phi i32 [ 1, %.lr.ph96 ], [ %.06181, %38 ], [ %.06181, %.lr.ph ], [ %.06181, %29 ], [ %.162, %42 ]
+  %.lcssa = phi i32 [ %18, %.lr.ph96 ], [ %22, %38 ], [ %22, %.lr.ph ], [ %22, %29 ], [ %15, %42 ]
+  %44 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload, i32 %.sroa.2.0.copyload, i32 noundef -1) #14
+  tail call void @smgrwriteback(ptr noundef %44, i32 noundef %.sroa.3.0.copyload, i32 noundef %.sroa.4.0.copyload, i32 noundef %.061.lcssa) #14
+  %45 = load i32, ptr %3, align 8
+  %46 = icmp slt i32 %.lcssa, %45
+  br i1 %46, label %.lr.ph96, label %._crit_edge97, !llvm.loop !49
 
 ._crit_edge97:                                    ; preds = %._crit_edge, %6
-  %.lcssa80 = phi i32 [ %13, %6 ], [ %46, %._crit_edge ]
+  %.lcssa80 = phi i32 [ %13, %6 ], [ %45, %._crit_edge ]
   tail call void @pgstat_count_io_op_time(i32 noundef 0, i32 noundef %1, i32 noundef 7, i64 %12, i32 noundef %.lcssa80) #14
   store i32 0, ptr %3, align 8
-  br label %48
+  br label %47
 
-48:                                               ; preds = %2, %._crit_edge97
+47:                                               ; preds = %2, %._crit_edge97
   ret void
 }
 

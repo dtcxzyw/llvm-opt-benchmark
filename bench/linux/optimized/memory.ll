@@ -5413,10 +5413,10 @@ define internal fastcc noundef i32 @__vm_insert_mixed(ptr noundef %0, i64 nounde
   %11 = icmp ne i64 %10, 0
   %12 = and i64 %2, 3458764513820540928
   %13 = icmp eq i64 %12, 3458764513820540928
-  %14 = select i1 %11, i1 true, i1 %13
-  %15 = and i64 %2, 576460752303423488
-  %16 = icmp ne i64 %15, 0
-  %17 = select i1 %14, i1 true, i1 %16
+  %14 = and i64 %2, 576460752303423488
+  %15 = icmp ne i64 %14, 0
+  %16 = or i1 %13, %15
+  %17 = select i1 %11, i1 true, i1 %16
   br i1 %17, label %23, label %18
 
 18:                                               ; preds = %4

@@ -462,10 +462,9 @@ define internal i64 @fun_so_cp50220_encoder(ptr nocapture noundef %0, ptr nocapt
 
 38:                                               ; preds = %30
   %39 = icmp eq i8 %32, -33
-  %40 = icmp ugt i8 %11, 73
-  %or.cond = select i1 %39, i1 %40, i1 false
-  %41 = icmp ult i8 %11, 79
-  %or.cond3 = select i1 %or.cond, i1 %41, i1 false
+  %40 = add nsw i8 %11, -74
+  %41 = icmp ult i8 %40, 5
+  %or.cond3 = select i1 %39, i1 %41, i1 false
   br i1 %or.cond3, label %42, label %46
 
 42:                                               ; preds = %38
@@ -570,30 +569,30 @@ define internal i64 @fun_so_cp50220_encoder(ptr nocapture noundef %0, ptr nocapt
 
 .split67:                                         ; preds = %75
   %78 = load i8, ptr %0, align 1
-  %.not.i80 = icmp eq i8 %78, 2
-  br i1 %.not.i80, label %fun_so_cp5022x_encoder.exit91, label %79
+  %.not.i79 = icmp eq i8 %78, 2
+  br i1 %.not.i79, label %fun_so_cp5022x_encoder.exit90, label %79
 
 79:                                               ; preds = %.split67
   %80 = getelementptr inbounds i8, ptr %.1, i64 1
   store i8 27, ptr %.1, align 1
   %81 = getelementptr inbounds i8, ptr %.1, i64 2
-  %.03060.i81 = getelementptr inbounds i8, ptr %.1, i64 3
+  %.03060.i80 = getelementptr inbounds i8, ptr %.1, i64 3
   store i8 36, ptr %80, align 1
   store i8 66, ptr %81, align 1
   store i8 2, ptr %0, align 1
   %.pre = load i8, ptr %1, align 1
-  br label %fun_so_cp5022x_encoder.exit91
+  br label %fun_so_cp5022x_encoder.exit90
 
-fun_so_cp5022x_encoder.exit91:                    ; preds = %79, %.split67
+fun_so_cp5022x_encoder.exit90:                    ; preds = %79, %.split67
   %82 = phi i8 [ %.pre, %79 ], [ %76, %.split67 ]
-  %.159.i82 = phi ptr [ %.03060.i81, %79 ], [ %.1, %.split67 ]
+  %.159.i81 = phi ptr [ %.03060.i80, %79 ], [ %.1, %.split67 ]
   %83 = and i8 %82, 127
-  %84 = getelementptr inbounds i8, ptr %.159.i82, i64 1
-  store i8 %83, ptr %.159.i82, align 1
+  %84 = getelementptr inbounds i8, ptr %.159.i81, i64 1
+  store i8 %83, ptr %.159.i81, align 1
   %85 = getelementptr inbounds i8, ptr %1, i64 1
   %86 = load i8, ptr %85, align 1
   %87 = and i8 %86, 127
-  %88 = getelementptr inbounds i8, ptr %.159.i82, i64 2
+  %88 = getelementptr inbounds i8, ptr %.159.i81, i64 2
   store i8 %87, ptr %84, align 1
   br label %fun_so_cp5022x_encoder.exit
 
@@ -605,14 +604,14 @@ fun_so_cp5022x_encoder.exit91:                    ; preds = %79, %.split67
   %94 = getelementptr i8, ptr @.str.7, i64 %93
   %95 = getelementptr i8, ptr %94, i64 -322
   %96 = add i8 %91, 95
-  %or.cond74 = icmp ult i8 %96, 21
+  %or.cond = icmp ult i8 %96, 21
   %97 = add i8 %91, 59
-  %or.cond75 = icmp ult i8 %97, 5
-  %or.cond92 = or i1 %or.cond74, %or.cond75
+  %or.cond74 = icmp ult i8 %97, 5
+  %or.cond91 = or i1 %or.cond, %or.cond74
   %98 = add i8 %91, 49
-  %or.cond76 = icmp ult i8 %98, 17
-  %or.cond93 = or i1 %or.cond76, %or.cond92
-  br i1 %or.cond93, label %99, label %111
+  %or.cond75 = icmp ult i8 %98, 17
+  %or.cond92 = or i1 %or.cond75, %or.cond91
+  br i1 %or.cond92, label %99, label %111
 
 99:                                               ; preds = %89
   %100 = load i8, ptr %0, align 1
@@ -649,17 +648,17 @@ fun_so_cp5022x_encoder.exit91:                    ; preds = %79, %.split67
   store i8 3, ptr %0, align 1
   br label %119
 
-fun_so_cp5022x_encoder.exit:                      ; preds = %67, %.thread52.i, %fun_so_cp5022x_encoder.exit91
-  %.sink95 = phi ptr [ %88, %fun_so_cp5022x_encoder.exit91 ], [ %66, %.thread52.i ], [ %74, %67 ]
-  %115 = ptrtoint ptr %.sink95 to i64
+fun_so_cp5022x_encoder.exit:                      ; preds = %67, %.thread52.i, %fun_so_cp5022x_encoder.exit90
+  %.sink94 = phi ptr [ %88, %fun_so_cp5022x_encoder.exit90 ], [ %66, %.thread52.i ], [ %74, %67 ]
+  %115 = ptrtoint ptr %.sink94 to i64
   %116 = ptrtoint ptr %.1 to i64
   %117 = sub i64 %115, %116
   %118 = getelementptr inbounds i8, ptr %.1, i64 %117
   br label %119
 
 119:                                              ; preds = %fun_so_cp5022x_encoder.exit, %111, %105, %42, %34
-  %.sink97 = phi ptr [ %118, %fun_so_cp5022x_encoder.exit ], [ %.1, %111 ], [ %110, %105 ], [ %45, %42 ], [ %37, %34 ]
-  %120 = ptrtoint ptr %.sink97 to i64
+  %.sink96 = phi ptr [ %118, %fun_so_cp5022x_encoder.exit ], [ %.1, %111 ], [ %110, %105 ], [ %45, %42 ], [ %37, %34 ]
+  %120 = ptrtoint ptr %.sink96 to i64
   %121 = ptrtoint ptr %3 to i64
   %122 = sub i64 %120, %121
   ret i64 %122

@@ -1198,9 +1198,9 @@ sw.bb236:                                         ; preds = %sw.bb228, %if.end14
   %add238 = add nsw i32 %pc.0644, 1
   %add239 = add nsw i32 %add238, %b.0
   %cmp243 = icmp sge i32 %pc.0644, %add239
-  %or.cond572.not633 = select i1 %cmp369.not, i1 true, i1 %cmp243
   %cmp246.not = icmp sgt i32 %add239, %lastpc
-  %or.cond573 = select i1 %or.cond572.not633, i1 true, i1 %cmp246.not
+  %32 = or i1 %cmp243, %cmp246.not
+  %or.cond573 = select i1 %cmp369.not, i1 true, i1 %32
   %add249 = select i1 %or.cond573, i32 0, i32 %b.0
   %pc.1 = add nsw i32 %add249, %pc.0644
   br label %for.inc417
@@ -1218,8 +1218,8 @@ if.end264:                                        ; preds = %sw.bb252
 
 if.then267:                                       ; preds = %if.end264
   %arrayidx271 = getelementptr i8, ptr %arrayidx, i64 4
-  %32 = load i32, ptr %arrayidx271, align 4, !tbaa !40
-  %and.i603 = and i32 %32, 63
+  %33 = load i32, ptr %arrayidx271, align 4, !tbaa !40
+  %and.i603 = and i32 %33, 63
   switch i32 %and.i603, label %cleanup423 [
     i32 28, label %luaG_checkopenop.exit
     i32 29, label %luaG_checkopenop.exit
@@ -1228,7 +1228,7 @@ if.then267:                                       ; preds = %if.end264
   ]
 
 luaG_checkopenop.exit:                            ; preds = %if.then267, %if.then267, %if.then267, %if.then267
-  %cmp.i605 = icmp ugt i32 %32, 8388607
+  %cmp.i605 = icmp ugt i32 %33, 8388607
   br i1 %cmp.i605, label %cleanup423, label %if.end288
 
 if.else:                                          ; preds = %if.end264
@@ -1271,29 +1271,29 @@ if.then321:                                       ; preds = %if.end318
   br i1 %cmp325, label %for.inc417, label %cleanup423
 
 sw.bb330:                                         ; preds = %if.end141
-  %33 = load i32, ptr %sizep, align 8, !tbaa !60
-  %cmp332 = icmp slt i32 %b.0, %33
+  %34 = load i32, ptr %sizep, align 8, !tbaa !60
+  %cmp332 = icmp slt i32 %b.0, %34
   br i1 %cmp332, label %if.end335, label %cleanup423
 
 if.end335:                                        ; preds = %sw.bb330
-  %34 = load ptr, ptr %p, align 8, !tbaa !61
+  %35 = load ptr, ptr %p, align 8, !tbaa !61
   %idxprom336 = sext i32 %b.0 to i64
-  %arrayidx337 = getelementptr inbounds ptr, ptr %34, i64 %idxprom336
-  %35 = load ptr, ptr %arrayidx337, align 8, !tbaa !32
-  %nups338 = getelementptr inbounds i8, ptr %35, i64 112
-  %36 = load i8, ptr %nups338, align 8, !tbaa !56
-  %conv339 = zext i8 %36 to i32
+  %arrayidx337 = getelementptr inbounds ptr, ptr %35, i64 %idxprom336
+  %36 = load ptr, ptr %arrayidx337, align 8, !tbaa !32
+  %nups338 = getelementptr inbounds i8, ptr %36, i64 112
+  %37 = load i8, ptr %nups338, align 8, !tbaa !56
+  %conv339 = zext i8 %37 to i32
   %add340 = add nsw i32 %pc.0644, %conv339
   %cmp342 = icmp slt i32 %add340, %0
   br i1 %cmp342, label %for.cond346.preheader, label %cleanup423
 
 for.cond346.preheader:                            ; preds = %if.end335
-  %cmp347.not640 = icmp eq i8 %36, 0
+  %cmp347.not640 = icmp eq i8 %37, 0
   br i1 %cmp347.not640, label %cleanup374, label %for.body349.preheader
 
 for.body349.preheader:                            ; preds = %for.cond346.preheader
-  %37 = add nuw nsw i32 %conv339, 1
-  %wide.trip.count653 = zext nneg i32 %37 to i64
+  %38 = add nuw nsw i32 %conv339, 1
+  %wide.trip.count653 = zext nneg i32 %38 to i64
   br label %for.body349
 
 for.cond346:                                      ; preds = %for.body349
@@ -1304,9 +1304,9 @@ for.cond346:                                      ; preds = %for.body349
 for.body349:                                      ; preds = %for.cond346, %for.body349.preheader
   %indvars.iv649 = phi i64 [ 1, %for.body349.preheader ], [ %indvars.iv.next650, %for.cond346 ]
   %gep = getelementptr i32, ptr %arrayidx, i64 %indvars.iv649
-  %38 = load i32, ptr %gep, align 4, !tbaa !40
-  %39 = and i32 %38, 59
-  %or.cond = icmp eq i32 %39, 0
+  %39 = load i32, ptr %gep, align 4, !tbaa !40
+  %40 = and i32 %39, 59
+  %or.cond = icmp eq i32 %40, 0
   br i1 %or.cond, label %for.cond346, label %cleanup423
 
 cleanup374:                                       ; preds = %for.cond346, %for.cond346.preheader
@@ -1323,8 +1323,8 @@ if.end387:                                        ; preds = %sw.bb377
 
 if.then391:                                       ; preds = %if.end387
   %arrayidx395 = getelementptr i8, ptr %arrayidx, i64 4
-  %40 = load i32, ptr %arrayidx395, align 4, !tbaa !40
-  %and.i607 = and i32 %40, 63
+  %41 = load i32, ptr %arrayidx395, align 4, !tbaa !40
+  %and.i607 = and i32 %41, 63
   switch i32 %and.i607, label %cleanup423 [
     i32 28, label %luaG_checkopenop.exit612
     i32 29, label %luaG_checkopenop.exit612
@@ -1333,7 +1333,7 @@ if.then391:                                       ; preds = %if.end387
   ]
 
 luaG_checkopenop.exit612:                         ; preds = %if.then391, %if.then391, %if.then391, %if.then391
-  %cmp.i609 = icmp ugt i32 %40, 8388607
+  %cmp.i609 = icmp ugt i32 %41, 8388607
   %add401 = add nsw i32 %dec388, %and2
   %cmp405.not = icmp sgt i32 %add401, %conv.i
   %or.cond632 = select i1 %cmp.i609, i1 true, i1 %cmp405.not
@@ -1355,11 +1355,11 @@ for.end419:                                       ; preds = %for.inc417, %if.end
   %last.0.lcssa = phi i32 [ %sub, %if.end ], [ %last.2, %for.inc417 ]
   %idxprom421 = sext i32 %last.0.lcssa to i64
   %arrayidx422 = getelementptr inbounds i32, ptr %8, i64 %idxprom421
-  %41 = load i32, ptr %arrayidx422, align 4, !tbaa !40
+  %42 = load i32, ptr %arrayidx422, align 4, !tbaa !40
   br label %cleanup423
 
 cleanup423:                                       ; preds = %if.end400, %luaG_checkopenop.exit612, %if.then391, %sw.bb377, %if.end335, %sw.bb330, %if.then321, %sw.bb307, %if.then297, %if.else, %luaG_checkopenop.exit, %if.then267, %sw.bb252, %sw.bb228, %if.end214, %sw.bb210, %sw.bb205, %sw.bb192, %sw.bb185, %sw.bb179, %if.end151, %if.then145, %if.end130, %if.then124, %for.end, %if.then63, %if.then46, %cond.false.i596, %cond.true.i592, %sw.bb1.i583, %sw.bb.i600, %cond.false.i, %cond.true.i, %sw.bb1.i, %sw.bb.i, %for.body, %for.body349, %for.end419, %precheck.exit, %if.end23.i, %if.end18.i, %if.end.i, %entry
-  %retval.10 = phi i32 [ %41, %for.end419 ], [ 0, %precheck.exit ], [ 0, %entry ], [ 0, %if.end.i ], [ 0, %if.end18.i ], [ 0, %if.end23.i ], [ 0, %for.body349 ], [ 0, %for.body ], [ 0, %sw.bb.i ], [ 0, %sw.bb1.i ], [ 0, %cond.true.i ], [ 0, %cond.false.i ], [ 0, %sw.bb.i600 ], [ 0, %sw.bb1.i583 ], [ 0, %cond.true.i592 ], [ 0, %cond.false.i596 ], [ 0, %if.then46 ], [ 0, %if.then63 ], [ 0, %for.end ], [ 0, %if.then124 ], [ 0, %if.end130 ], [ 0, %if.then145 ], [ 0, %if.end151 ], [ 0, %sw.bb179 ], [ 0, %sw.bb185 ], [ 0, %sw.bb192 ], [ 0, %sw.bb205 ], [ 0, %sw.bb210 ], [ 0, %if.end214 ], [ 0, %sw.bb228 ], [ 0, %sw.bb252 ], [ 0, %if.then267 ], [ 0, %luaG_checkopenop.exit ], [ 0, %if.else ], [ 0, %if.then297 ], [ 0, %sw.bb307 ], [ 0, %if.then321 ], [ 0, %sw.bb330 ], [ 0, %if.end335 ], [ 0, %sw.bb377 ], [ 0, %if.then391 ], [ 0, %luaG_checkopenop.exit612 ], [ 0, %if.end400 ]
+  %retval.10 = phi i32 [ %42, %for.end419 ], [ 0, %precheck.exit ], [ 0, %entry ], [ 0, %if.end.i ], [ 0, %if.end18.i ], [ 0, %if.end23.i ], [ 0, %for.body349 ], [ 0, %for.body ], [ 0, %sw.bb.i ], [ 0, %sw.bb1.i ], [ 0, %cond.true.i ], [ 0, %cond.false.i ], [ 0, %sw.bb.i600 ], [ 0, %sw.bb1.i583 ], [ 0, %cond.true.i592 ], [ 0, %cond.false.i596 ], [ 0, %if.then46 ], [ 0, %if.then63 ], [ 0, %for.end ], [ 0, %if.then124 ], [ 0, %if.end130 ], [ 0, %if.then145 ], [ 0, %if.end151 ], [ 0, %sw.bb179 ], [ 0, %sw.bb185 ], [ 0, %sw.bb192 ], [ 0, %sw.bb205 ], [ 0, %sw.bb210 ], [ 0, %if.end214 ], [ 0, %sw.bb228 ], [ 0, %sw.bb252 ], [ 0, %if.then267 ], [ 0, %luaG_checkopenop.exit ], [ 0, %if.else ], [ 0, %if.then297 ], [ 0, %sw.bb307 ], [ 0, %if.then321 ], [ 0, %sw.bb330 ], [ 0, %if.end335 ], [ 0, %sw.bb377 ], [ 0, %if.then391 ], [ 0, %luaG_checkopenop.exit612 ], [ 0, %if.end400 ]
   ret i32 %retval.10
 }
 

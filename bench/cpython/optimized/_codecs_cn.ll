@@ -1273,14 +1273,12 @@ do.end29:                                         ; preds = %do.body24
   %cmp33 = icmp eq i8 %1, -128
   %cmp36 = icmp eq i8 %1, -1
   %or.cond1 = or i1 %cmp33, %cmp36
-  %cmp40 = icmp ult i8 %5, -127
-  %or.cond2 = select i1 %or.cond1, i1 true, i1 %cmp40
-  %cmp44 = icmp eq i8 %5, -1
-  %or.cond3 = select i1 %or.cond2, i1 true, i1 %cmp44
-  %cmp48 = icmp ult i8 %6, 48
-  %or.cond4 = select i1 %or.cond3, i1 true, i1 %cmp48
-  %cmp52 = icmp ugt i8 %6, 57
-  %or.cond5 = select i1 %or.cond4, i1 true, i1 %cmp52
+  %7 = add i8 %5, 1
+  %8 = icmp ult i8 %7, -126
+  %or.cond3 = select i1 %or.cond1, i1 true, i1 %8
+  %9 = add i8 %6, -58
+  %10 = icmp ult i8 %9, -10
+  %or.cond5 = select i1 %or.cond3, i1 true, i1 %10
   br i1 %or.cond5, label %return, label %if.end55
 
 if.end55:                                         ; preds = %do.end29
@@ -1305,23 +1303,23 @@ if.then71:                                        ; preds = %if.end55
   br i1 %cmp80, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %if.then71
-  %7 = trunc i32 %add79 to i16
+  %11 = trunc i32 %add79 to i16
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.preheader, %for.cond
   %utr.0 = phi ptr [ %add.ptr83, %for.cond ], [ @gb18030_to_unibmp_ranges, %for.cond.preheader ]
   %base = getelementptr i8, ptr %utr.0, i64 20
-  %8 = load i16, ptr %base, align 4
-  %cmp85.not = icmp ugt i16 %8, %7
+  %12 = load i16, ptr %base, align 4
+  %cmp85.not = icmp ugt i16 %12, %11
   %add.ptr83 = getelementptr i8, ptr %utr.0, i64 12
   br i1 %cmp85.not, label %do.body87, label %for.cond, !llvm.loop !15
 
 do.body87:                                        ; preds = %for.cond
-  %9 = load i32, ptr %utr.0, align 4
+  %13 = load i32, ptr %utr.0, align 4
   %base88 = getelementptr inbounds i8, ptr %utr.0, i64 8
-  %10 = load i16, ptr %base88, align 4
-  %conv89 = zext i16 %10 to i32
-  %sub90 = add i32 %9, %add79
+  %14 = load i16, ptr %base88, align 4
+  %conv89 = zext i16 %14 to i32
+  %sub90 = add i32 %13, %add79
   %add91 = sub i32 %sub90, %conv89
   %call92 = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %writer, i32 noundef %add91) #9
   %cmp93 = icmp slt i32 %call92, 0
@@ -1332,8 +1330,8 @@ if.else:                                          ; preds = %if.end55
   br i1 %cmp104, label %if.then106, label %return
 
 if.then106:                                       ; preds = %if.else
-  %11 = mul nuw nsw i32 %conv68, 10
-  %mul109 = add nsw i32 %11, -150
+  %15 = mul nuw nsw i32 %conv68, 10
+  %mul109 = add nsw i32 %15, -150
   %conv110 = zext nneg i8 %4 to i32
   %add111 = add nuw nsw i32 %mul109, %conv110
   %mul112 = mul nuw nsw i32 %add111, 1260
@@ -1387,35 +1385,35 @@ if.else184:                                       ; preds = %if.else168
   %xor = and i32 %conv, 127
   %idxprom = zext nneg i32 %xor to i64
   %arrayidx186 = getelementptr [256 x %struct.dbcs_index], ptr @gb2312_decmap, i64 0, i64 %idxprom
-  %12 = load ptr, ptr %arrayidx186, align 16
-  %cmp187.not = icmp eq ptr %12, null
+  %16 = load ptr, ptr %arrayidx186, align 16
+  %cmp187.not = icmp eq ptr %16, null
   br i1 %cmp187.not, label %if.else237, label %land.lhs.true189
 
 land.lhs.true189:                                 ; preds = %if.else184
   %xor191 = xor i32 %conv17, 128
   %bottom = getelementptr inbounds i8, ptr %arrayidx186, i64 8
-  %13 = load i8, ptr %bottom, align 8
-  %conv196 = zext i8 %13 to i32
+  %17 = load i8, ptr %bottom, align 8
+  %conv196 = zext i8 %17 to i32
   %cmp197.not = icmp ult i32 %xor191, %conv196
   br i1 %cmp197.not, label %if.else237, label %land.lhs.true199
 
 land.lhs.true199:                                 ; preds = %land.lhs.true189
   %top = getelementptr inbounds i8, ptr %arrayidx186, i64 9
-  %14 = load i8, ptr %top, align 1
-  %conv206 = zext i8 %14 to i32
+  %18 = load i8, ptr %top, align 1
+  %conv206 = zext i8 %18 to i32
   %cmp207.not = icmp ugt i32 %xor191, %conv206
   br i1 %cmp207.not, label %if.else237, label %land.lhs.true209
 
 land.lhs.true209:                                 ; preds = %land.lhs.true199
   %sub223 = sub nsw i32 %xor191, %conv196
   %idxprom224 = sext i32 %sub223 to i64
-  %arrayidx225 = getelementptr i16, ptr %12, i64 %idxprom224
-  %15 = load i16, ptr %arrayidx225, align 2
-  %cmp227.not = icmp eq i16 %15, -2
+  %arrayidx225 = getelementptr i16, ptr %16, i64 %idxprom224
+  %19 = load i16, ptr %arrayidx225, align 2
+  %cmp227.not = icmp eq i16 %19, -2
   br i1 %cmp227.not, label %if.else237, label %do.body230
 
 do.body230:                                       ; preds = %land.lhs.true209
-  %conv226 = zext i16 %15 to i32
+  %conv226 = zext i16 %19 to i32
   %call231 = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %writer, i32 noundef %conv226) #9
   %cmp232 = icmp slt i32 %call231, 0
   br i1 %cmp232, label %return, label %while.cond.backedge
@@ -1423,66 +1421,66 @@ do.body230:                                       ; preds = %land.lhs.true209
 if.else237:                                       ; preds = %land.lhs.true209, %land.lhs.true199, %land.lhs.true189, %if.else184
   %idxprom238 = zext i8 %1 to i64
   %arrayidx239 = getelementptr [256 x %struct.dbcs_index], ptr @gbkext_decmap, i64 0, i64 %idxprom238
-  %16 = load ptr, ptr %arrayidx239, align 16
-  %cmp241.not = icmp eq ptr %16, null
+  %20 = load ptr, ptr %arrayidx239, align 16
+  %cmp241.not = icmp eq ptr %20, null
   br i1 %cmp241.not, label %if.else282, label %land.lhs.true243
 
 land.lhs.true243:                                 ; preds = %if.else237
   %bottom247 = getelementptr inbounds i8, ptr %arrayidx239, i64 8
-  %17 = load i8, ptr %bottom247, align 8
-  %conv248 = zext i8 %17 to i32
-  %cmp249.not = icmp ult i8 %3, %17
+  %21 = load i8, ptr %bottom247, align 8
+  %conv248 = zext i8 %21 to i32
+  %cmp249.not = icmp ult i8 %3, %21
   br i1 %cmp249.not, label %if.else282, label %land.lhs.true251
 
 land.lhs.true251:                                 ; preds = %land.lhs.true243
   %top255 = getelementptr inbounds i8, ptr %arrayidx239, i64 9
-  %18 = load i8, ptr %top255, align 1
-  %cmp257.not = icmp ugt i8 %3, %18
+  %22 = load i8, ptr %top255, align 1
+  %cmp257.not = icmp ugt i8 %3, %22
   br i1 %cmp257.not, label %if.else282, label %land.lhs.true259
 
 land.lhs.true259:                                 ; preds = %land.lhs.true251
   %sub268 = sub nsw i32 %conv17, %conv248
   %idxprom269 = sext i32 %sub268 to i64
-  %arrayidx270 = getelementptr i16, ptr %16, i64 %idxprom269
-  %19 = load i16, ptr %arrayidx270, align 2
-  %cmp272.not = icmp eq i16 %19, -2
+  %arrayidx270 = getelementptr i16, ptr %20, i64 %idxprom269
+  %23 = load i16, ptr %arrayidx270, align 2
+  %cmp272.not = icmp eq i16 %23, -2
   br i1 %cmp272.not, label %if.else282, label %do.body275
 
 do.body275:                                       ; preds = %land.lhs.true259
-  %conv271 = zext i16 %19 to i32
+  %conv271 = zext i16 %23 to i32
   %call276 = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %writer, i32 noundef %conv271) #9
   %cmp277 = icmp slt i32 %call276, 0
   br i1 %cmp277, label %return, label %while.cond.backedge
 
 if.else282:                                       ; preds = %land.lhs.true259, %land.lhs.true251, %land.lhs.true243, %if.else237
   %arrayidx284 = getelementptr [256 x %struct.dbcs_index], ptr @gb18030ext_decmap, i64 0, i64 %idxprom238
-  %20 = load ptr, ptr %arrayidx284, align 16
-  %cmp286.not = icmp eq ptr %20, null
+  %24 = load ptr, ptr %arrayidx284, align 16
+  %cmp286.not = icmp eq ptr %24, null
   br i1 %cmp286.not, label %return, label %land.lhs.true288
 
 land.lhs.true288:                                 ; preds = %if.else282
   %bottom292 = getelementptr inbounds i8, ptr %arrayidx284, i64 8
-  %21 = load i8, ptr %bottom292, align 8
-  %conv293 = zext i8 %21 to i32
-  %cmp294.not = icmp ult i8 %3, %21
+  %25 = load i8, ptr %bottom292, align 8
+  %conv293 = zext i8 %25 to i32
+  %cmp294.not = icmp ult i8 %3, %25
   br i1 %cmp294.not, label %return, label %land.lhs.true296
 
 land.lhs.true296:                                 ; preds = %land.lhs.true288
   %top300 = getelementptr inbounds i8, ptr %arrayidx284, i64 9
-  %22 = load i8, ptr %top300, align 1
-  %cmp302.not = icmp ugt i8 %3, %22
+  %26 = load i8, ptr %top300, align 1
+  %cmp302.not = icmp ugt i8 %3, %26
   br i1 %cmp302.not, label %return, label %land.lhs.true304
 
 land.lhs.true304:                                 ; preds = %land.lhs.true296
   %sub313 = sub nsw i32 %conv17, %conv293
   %idxprom314 = sext i32 %sub313 to i64
-  %arrayidx315 = getelementptr i16, ptr %20, i64 %idxprom314
-  %23 = load i16, ptr %arrayidx315, align 2
-  %cmp317.not = icmp eq i16 %23, -2
+  %arrayidx315 = getelementptr i16, ptr %24, i64 %idxprom314
+  %27 = load i16, ptr %arrayidx315, align 2
+  %cmp317.not = icmp eq i16 %27, -2
   br i1 %cmp317.not, label %return, label %do.body320
 
 do.body320:                                       ; preds = %land.lhs.true304
-  %conv316 = zext i16 %23 to i32
+  %conv316 = zext i16 %27 to i32
   %call321 = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %writer, i32 noundef %conv316) #9
   %cmp322 = icmp slt i32 %call321, 0
   br i1 %cmp322, label %return, label %while.cond.backedge

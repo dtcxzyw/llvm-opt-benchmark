@@ -1590,10 +1590,8 @@ lor.lhs.false:                                    ; preds = %entry
 lor.lhs.false4:                                   ; preds = %lor.lhs.false
   %2 = load i8, ptr %0, align 1
   %cmp5 = icmp ne i8 %2, 0
-  %cmp8 = icmp slt i64 %call1, 0
-  %or.cond = select i1 %cmp5, i1 true, i1 %cmp8
-  %cmp11 = icmp sgt i64 %call1, 2147483647
-  %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp11
+  %3 = icmp ugt i64 %call1, 2147483647
+  %or.cond1 = select i1 %cmp5, i1 true, i1 %3
   %conv13 = trunc i64 %call1 to i32
   %spec.select = select i1 %or.cond1, i32 -1, i32 %conv13
   br label %return

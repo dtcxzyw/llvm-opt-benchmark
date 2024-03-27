@@ -31,10 +31,9 @@ define hidden i32 @ipfix_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
 8:                                                ; preds = %3
   %9 = call zeroext i1 @ws_strtoi32(ptr noundef nonnull %7, ptr noundef null, ptr noundef nonnull %4) #5
   %10 = load i32, ptr %4, align 4
-  %11 = icmp sgt i32 %10, 0
-  %or.cond = select i1 %9, i1 %11, i1 false
-  %12 = icmp slt i32 %10, 101
-  %or.cond3 = select i1 %or.cond, i1 %12, i1 false
+  %11 = add i32 %10, -1
+  %12 = icmp ult i32 %11, 100
+  %or.cond3 = select i1 %9, i1 %12, i1 false
   %spec.select = select i1 %or.cond3, i32 %10, i32 20
   br label %.lr.ph58
 

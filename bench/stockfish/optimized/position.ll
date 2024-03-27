@@ -829,10 +829,9 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread: ; preds = %3
   %166 = getelementptr inbounds i8, ptr %162, i64 %165
   %167 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %166) #18
   %168 = load i8, ptr %5, align 1
-  %169 = icmp ugt i8 %168, 96
-  %or.cond7 = select i1 %167, i1 %169, i1 false
-  %170 = icmp ult i8 %168, 105
-  %or.cond10 = select i1 %or.cond7, i1 %170, i1 false
+  %169 = add i8 %168, -97
+  %170 = icmp ult i8 %169, 8
+  %or.cond10 = select i1 %167, i1 %170, i1 false
   br i1 %or.cond10, label %171, label %.critedge35
 
 171:                                              ; preds = %.critedge2

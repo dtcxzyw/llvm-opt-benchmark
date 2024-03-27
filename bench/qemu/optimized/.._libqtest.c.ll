@@ -742,12 +742,12 @@ if.end9:                                          ; preds = %if.then6, %lor.lhs.
 define dso_local noundef ptr @qtest_qmp(ptr noundef %s, ptr noundef %fmt, ...) local_unnamed_addr #1 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %qmp_fd.i.i = getelementptr inbounds i8, ptr %s, i64 4
   %0 = load i32, ptr %qmp_fd.i.i, align 4
   call void @qmp_fd_vsend(i32 noundef %0, ptr noundef %fmt, ptr noundef nonnull %ap) #20
   %call.i = call noundef ptr @qtest_qmp_receive(ptr noundef %s)
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret ptr %call.i
 }
 
@@ -775,19 +775,13 @@ declare void @g_free(ptr noundef) local_unnamed_addr #2
 define dso_local noundef ptr @qtest_initf(ptr noundef %fmt, ...) local_unnamed_addr #1 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call.i = call noalias ptr @g_strdup_vprintf(ptr noundef %fmt, ptr noundef nonnull %ap) #20
   %call.i.i = call noundef ptr @qtest_init_with_env(ptr noundef null, ptr noundef %call.i)
   call void @g_free(ptr noundef %call.i) #20
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret ptr %call.i.i
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef ptr @qtest_init_with_serial(ptr noundef %extra_args, ptr nocapture noundef %sock_fd) local_unnamed_addr #1 {
@@ -876,10 +870,10 @@ return:                                           ; preds = %do.body, %if.then9,
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rmdir(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noundef i32 @rmdir(ptr nocapture noundef readonly) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qtest_quit(ptr noundef %s) local_unnamed_addr #1 {
@@ -1050,7 +1044,7 @@ declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 declare void @g_assertion_message_cmpnum(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, x86_fp80 noundef, ptr noundef, x86_fp80 noundef, i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
 declare i32 @bind(i32 noundef, ptr, i32 noundef) local_unnamed_addr #4
@@ -1104,12 +1098,12 @@ entry:
 define dso_local noundef ptr @qtest_qmp_fds(ptr noundef %s, ptr noundef %fds, i64 noundef %fds_num, ptr noundef %fmt, ...) local_unnamed_addr #1 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %qmp_fd.i.i = getelementptr inbounds i8, ptr %s, i64 4
   %0 = load i32, ptr %qmp_fd.i.i, align 4
   call void @qmp_fd_vsend_fds(i32 noundef %0, ptr noundef %fds, i64 noundef %fds_num, ptr noundef %fmt, ptr noundef nonnull %ap) #20
   %call.i = call noundef ptr @qtest_qmp_receive(ptr noundef %s)
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret ptr %call.i
 }
 
@@ -1117,11 +1111,11 @@ entry:
 define dso_local void @qtest_qmp_send(ptr nocapture noundef readonly %s, ptr noundef %fmt, ...) local_unnamed_addr #1 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %qmp_fd.i = getelementptr inbounds i8, ptr %s, i64 4
   %0 = load i32, ptr %qmp_fd.i, align 4
   call void @qmp_fd_vsend(i32 noundef %0, ptr noundef %fmt, ptr noundef nonnull %ap) #20
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
 
@@ -1129,11 +1123,11 @@ entry:
 define dso_local void @qtest_qmp_send_raw(ptr nocapture noundef readonly %s, ptr noundef %fmt, ...) local_unnamed_addr #1 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %qmp_fd = getelementptr inbounds i8, ptr %s, i64 4
   %0 = load i32, ptr %qmp_fd, align 4
   call void @qmp_fd_vsend_raw(i32 noundef %0, ptr noundef %fmt, ptr noundef nonnull %ap) #20
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
 
@@ -1204,7 +1198,7 @@ return:                                           ; preds = %while.body, %qobjec
 declare ptr @g_list_delete_link(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qtest_qmp_eventwait_ref(ptr nocapture noundef %s, ptr nocapture noundef readonly %event) local_unnamed_addr #1 {
@@ -1341,15 +1335,15 @@ qobject_unref_impl.exit:                          ; preds = %do.end, %land.lhs.t
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #10
+declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noalias ptr @qtest_hmp(ptr noundef %s, ptr noundef %fmt, ...) local_unnamed_addr #1 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call = call ptr @qtest_vhmp(ptr noundef %s, ptr noundef %fmt, ptr noundef nonnull %ap)
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret ptr %call
 }
 
@@ -1394,16 +1388,16 @@ if.end7:                                          ; preds = %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #9
+declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @qtest_has_accel(ptr noundef %accel_name) local_unnamed_addr #1 {
@@ -1456,16 +1450,16 @@ return:                                           ; preds = %for.inc, %if.then9,
 declare i32 @g_str_equal(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #8
+declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @qtest_get_irq(ptr noundef %s, i32 noundef %num) local_unnamed_addr #1 {
@@ -1541,9 +1535,9 @@ entry:
 define internal void @qtest_sendf(ptr noundef %s, ptr noundef %fmt, ...) unnamed_addr #1 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call = call noalias ptr @g_strdup_vprintf(ptr noundef %fmt, ptr noundef nonnull %ap) #20
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   %ops = getelementptr inbounds i8, ptr %s, i64 288
   %0 = load ptr, ptr %ops, align 8
   call void %0(ptr noundef %s, ptr noundef %call) #20
@@ -2194,10 +2188,10 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #12
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qtest_memset(ptr noundef %s, i64 noundef %addr, i8 noundef zeroext %pattern, i64 noundef %size) local_unnamed_addr #1 {
@@ -2503,9 +2497,9 @@ qobject_unref_impl.exit:                          ; preds = %entry, %land.lhs.tr
 define dso_local ptr @qtest_qmp_assert_failure_ref(ptr noundef %qts, ptr noundef %fmt, ...) local_unnamed_addr #1 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call = call ptr @qtest_vqmp_assert_failure_ref(ptr noundef %qts, ptr noundef %fmt, ptr noundef nonnull %ap)
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret ptr %call
 }
 
@@ -2513,9 +2507,9 @@ entry:
 define dso_local ptr @qtest_qmp_assert_success_ref(ptr noundef %qts, ptr noundef %fmt, ...) local_unnamed_addr #1 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call = call ptr @qtest_vqmp_assert_success_ref(ptr noundef %qts, ptr noundef %fmt, ptr noundef nonnull %ap)
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret ptr %call
 }
 
@@ -2523,7 +2517,7 @@ entry:
 define dso_local void @qtest_qmp_assert_success(ptr noundef %qts, ptr noundef %fmt, ...) local_unnamed_addr #1 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call.i = call ptr @qtest_vqmp_assert_success_ref(ptr noundef %qts, ptr noundef %fmt, ptr noundef nonnull %ap)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %qtest_vqmp_assert_success.exit, label %lor.lhs.false.i.i
@@ -2549,7 +2543,7 @@ if.then5.i.i:                                     ; preds = %land.lhs.true.i.i
   br label %qtest_vqmp_assert_success.exit
 
 qtest_vqmp_assert_success.exit:                   ; preds = %entry, %land.lhs.true.i.i, %if.then5.i.i
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
 
@@ -2557,9 +2551,9 @@ qtest_vqmp_assert_success.exit:                   ; preds = %entry, %land.lhs.tr
 define dso_local ptr @qtest_qmp_fds_assert_success_ref(ptr noundef %qts, ptr noundef %fds, i64 noundef %nfds, ptr noundef %fmt, ...) local_unnamed_addr #1 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call = call ptr @qtest_vqmp_fds_assert_success_ref(ptr noundef %qts, ptr noundef %fds, i64 noundef %nfds, ptr noundef %fmt, ptr noundef nonnull %ap)
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret ptr %call
 }
 
@@ -2567,7 +2561,7 @@ entry:
 define dso_local void @qtest_qmp_fds_assert_success(ptr noundef %qts, ptr noundef %fds, i64 noundef %nfds, ptr noundef %fmt, ...) local_unnamed_addr #1 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call.i = call ptr @qtest_vqmp_fds_assert_success_ref(ptr noundef %qts, ptr noundef %fds, i64 noundef %nfds, ptr noundef %fmt, ptr noundef nonnull %ap)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %qtest_vqmp_fds_assert_success.exit, label %lor.lhs.false.i.i
@@ -2593,7 +2587,7 @@ if.then5.i.i:                                     ; preds = %land.lhs.true.i.i
   br label %qtest_vqmp_fds_assert_success.exit
 
 qtest_vqmp_fds_assert_success.exit:               ; preds = %entry, %land.lhs.true.i.i, %if.then5.i.i
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
 
@@ -2642,10 +2636,8 @@ if.end.us:                                        ; preds = %lor.lhs.false10.us
   %call.i.us = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %3, i32 noundef 45) #24
   %call1.i.us = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %3, i32 noundef 46) #24
   %tobool.i.us = icmp ne ptr %call.i.us, null
-  %tobool2.i.us = icmp ne ptr %call1.i.us, null
-  %or.cond.i.us = select i1 %tobool.i.us, i1 %tobool2.i.us, i1 false
   %cmp.i.us = icmp ugt ptr %call1.i.us, %call.i.us
-  %or.cond18.i.us = select i1 %or.cond.i.us, i1 %cmp.i.us, i1 false
+  %or.cond18.i.us = select i1 %tobool.i.us, i1 %cmp.i.us, i1 false
   br i1 %or.cond18.i.us, label %for.cond.i.us, label %if.then22.us
 
 for.cond.i.us:                                    ; preds = %if.end.us, %for.body.i.us
@@ -3330,9 +3322,9 @@ declare ptr @qdict_clone_shallow(ptr noundef) local_unnamed_addr #2
 define dso_local void @qtest_qmp_device_add(ptr noundef %qts, ptr noundef %driver, ptr noundef %id, ptr noundef %fmt, ...) local_unnamed_addr #1 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call = call ptr @qdict_from_vjsonf_nofail(ptr noundef %fmt, ptr noundef nonnull %ap) #20
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   %call3 = call i32 @qdict_haskey(ptr noundef %call, ptr noundef nonnull @.str.83) #20
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %do.end, label %if.else
@@ -3606,7 +3598,7 @@ qtest_query_target_endianness.exit:               ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #13
+declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @qtest_client_inproc_recv_line(ptr nocapture noundef readonly %s) #1 {
@@ -3750,13 +3742,13 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #14
+declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @realpath(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #8
+declare noundef ptr @realpath(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #15
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @mkimg(ptr noundef %file, ptr noundef %fmt, i32 noundef %size_mb) local_unnamed_addr #1 {
@@ -3873,10 +3865,10 @@ cond.false:                                       ; preds = %entry
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi ptr [ %call2, %cond.true ], [ %call3, %cond.false ]
   %call4 = tail call ptr @g_string_new(ptr noundef nonnull @.str.103) #20
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call4, ptr noundef nonnull @.str.115, ptr noundef %qemu_bin, ptr noundef %cond) #20
   call void @g_string_append_vprintf(ptr noundef %call4, ptr noundef nonnull @.str.107, ptr noundef nonnull %ap) #20
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   %bf.load.i = load i32, ptr getelementptr inbounds (%struct._GHookList, ptr @abrt_hooks, i64 0, i32 1), align 8
   %0 = and i32 %bf.load.i, 65536
   %tobool.not.i = icmp eq i32 %0, 0
@@ -4044,16 +4036,16 @@ qtest_kill_qemu.exit:                             ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nofree nounwind
-declare i32 @fork() local_unnamed_addr #8
+declare i32 @fork() local_unnamed_addr #7
 
 ; Function Attrs: nounwind
 declare i32 @prctl(i32 noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare i32 @execlp(ptr noundef, ptr noundef, ...) local_unnamed_addr #8
+declare i32 @execlp(ptr noundef, ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #9
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 declare i64 @recv(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
@@ -4092,15 +4084,21 @@ declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @g_assertion_message_cmpstr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #13
+declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #12
 
 declare i64 @qlist_size(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__ctype_b_loc() local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #16
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #16
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #17
@@ -4121,16 +4119,16 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind sspstrong willre
 attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #17 = { nofree nounwind }
 attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #19 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

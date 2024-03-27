@@ -721,10 +721,8 @@ if.then13:                                        ; preds = %if.end10
   %call14 = call i32 @qemu_strtol(ptr noundef nonnull %call, ptr noundef null, i32 noundef 0, ptr noundef nonnull %time_shift) #8
   %cmp15 = icmp slt i32 %call14, 0
   %0 = load i64, ptr %time_shift, align 8
-  %cmp16 = icmp slt i64 %0, 0
-  %or.cond = select i1 %cmp15, i1 true, i1 %cmp16
-  %cmp18 = icmp sgt i64 %0, 10
-  %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp18
+  %1 = icmp ugt i64 %0, 10
+  %or.cond1 = select i1 %cmp15, i1 true, i1 %1
   br i1 %or.cond1, label %if.then19, label %if.end28
 
 if.then19:                                        ; preds = %if.then13
@@ -732,8 +730,8 @@ if.then19:                                        ; preds = %if.then13
   br label %return
 
 if.else:                                          ; preds = %if.end10
-  %1 = load i32, ptr @icount_align_option, align 4
-  %tobool21.not = icmp eq i32 %1, 0
+  %2 = load i32, ptr @icount_align_option, align 4
+  %tobool21.not = icmp eq i32 %2, 0
   br i1 %tobool21.not, label %if.else23, label %if.then22
 
 if.then22:                                        ; preds = %if.else
@@ -741,9 +739,9 @@ if.then22:                                        ; preds = %if.else
   br label %return
 
 if.else23:                                        ; preds = %if.else
-  %2 = load i8, ptr @icount_sleep, align 1
-  %3 = and i8 %2, 1
-  %tobool24.not = icmp eq i8 %3, 0
+  %3 = load i8, ptr @icount_sleep, align 1
+  %4 = and i8 %3, 1
+  %tobool24.not = icmp eq i8 %4, 0
   br i1 %tobool24.not, label %if.then25, label %if.end28
 
 if.then25:                                        ; preds = %if.else23
@@ -751,7 +749,7 @@ if.then25:                                        ; preds = %if.else23
   br label %return
 
 if.end28:                                         ; preds = %if.else23, %if.then13
-  %4 = phi i64 [ -1, %if.else23 ], [ %0, %if.then13 ]
+  %5 = phi i64 [ -1, %if.else23 ], [ %0, %if.then13 ]
   store i8 %frombool, ptr @icount_sleep, align 1
   br i1 %call1, label %if.then32, label %if.end34
 
@@ -763,14 +761,14 @@ if.then32:                                        ; preds = %if.end28
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then32, %if.end28
-  %5 = phi i64 [ %.pre, %if.then32 ], [ %4, %if.end28 ]
+  %6 = phi i64 [ %.pre, %if.then32 ], [ %5, %if.end28 ]
   %conv = zext i1 %call2 to i32
   store i32 %conv, ptr @icount_align_option, align 4
-  %cmp36 = icmp sgt i64 %5, -1
+  %cmp36 = icmp sgt i64 %6, -1
   br i1 %cmp36, label %if.then38, label %if.end40
 
 if.then38:                                        ; preds = %if.end34
-  %conv39 = trunc i64 %5 to i16
+  %conv39 = trunc i64 %6 to i16
   store i16 %conv39, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 5), align 2
   store i32 1, ptr @use_icount, align 4
   br label %return

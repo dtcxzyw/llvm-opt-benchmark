@@ -587,7 +587,7 @@ define dso_local i32 @e1000e_config_fc_after_link_up(ptr noundef %0) local_unnam
   %18 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %17) #6, !srcloc !6
   %19 = getelementptr inbounds i8, ptr %0, i64 808
   %20 = load i32, ptr %19, align 8
-  switch i32 %20, label %.thread6.thread [
+  switch i32 %20, label %.thread7.thread [
     i32 0, label %21
     i32 1, label %23
     i32 2, label %26
@@ -614,7 +614,7 @@ define dso_local i32 @e1000e_config_fc_after_link_up(ptr noundef %0) local_unnam
 
 31:                                               ; preds = %1
   %32 = icmp eq i32 %11, 1
-  br i1 %32, label %33, label %.thread6
+  br i1 %32, label %33, label %.thread7
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds i8, ptr %0, i64 8
@@ -622,7 +622,7 @@ define dso_local i32 @e1000e_config_fc_after_link_up(ptr noundef %0) local_unnam
   %36 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %35) #6, !srcloc !6
   %37 = getelementptr inbounds i8, ptr %0, i64 808
   %38 = load i32, ptr %37, align 8
-  switch i32 %38, label %.thread6.thread [
+  switch i32 %38, label %.thread7.thread [
     i32 0, label %39
     i32 1, label %41
     i32 2, label %44
@@ -656,44 +656,44 @@ define dso_local i32 @e1000e_config_fc_after_link_up(ptr noundef %0) local_unnam
 51:                                               ; preds = %12, %49
   %52 = phi i32 [ %11, %12 ], [ %.pr, %49 ]
   %53 = icmp eq i32 %52, 1
-  br i1 %53, label %54, label %.thread6
+  br i1 %53, label %54, label %.thread7
 
 54:                                               ; preds = %51
   %55 = getelementptr inbounds i8, ptr %0, i64 782
   %56 = load i8, ptr %55, align 2, !range !15, !noundef !16
   %57 = icmp eq i8 %56, 0
-  br i1 %57, label %.thread6.thread, label %58
+  br i1 %57, label %.thread7.thread, label %58
 
 58:                                               ; preds = %54
   %59 = getelementptr inbounds i8, ptr %0, i64 896
   %60 = load ptr, ptr %59, align 8
   %61 = call i32 %60(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2) #6
   %62 = icmp eq i32 %61, 0
-  br i1 %62, label %63, label %.thread6.thread
+  br i1 %62, label %63, label %.thread7.thread
 
 63:                                               ; preds = %58
   %64 = load ptr, ptr %59, align 8
   %65 = call i32 %64(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2) #6
   %66 = icmp eq i32 %65, 0
-  br i1 %66, label %67, label %.thread6.thread
+  br i1 %66, label %67, label %.thread7.thread
 
 67:                                               ; preds = %63
   %68 = load i16, ptr %2, align 2
   %69 = and i16 %68, 32
   %70 = icmp eq i16 %69, 0
-  br i1 %70, label %.thread6.thread, label %71
+  br i1 %70, label %.thread7.thread, label %71
 
 71:                                               ; preds = %67
   %72 = load ptr, ptr %59, align 8
   %73 = call i32 %72(ptr noundef %0, i32 noundef 4, ptr noundef nonnull %3) #6
   %74 = icmp eq i32 %73, 0
-  br i1 %74, label %75, label %.thread6.thread
+  br i1 %74, label %75, label %.thread7.thread
 
 75:                                               ; preds = %71
   %76 = load ptr, ptr %59, align 8
   %77 = call i32 %76(ptr noundef %0, i32 noundef 5, ptr noundef nonnull %4) #6
   %78 = icmp eq i32 %77, 0
-  br i1 %78, label %79, label %.thread6.thread
+  br i1 %78, label %79, label %.thread7.thread
 
 79:                                               ; preds = %75
   %80 = load i16, ptr %3, align 2
@@ -761,7 +761,7 @@ define dso_local i32 @e1000e_config_fc_after_link_up(ptr noundef %0) local_unnam
   %112 = load ptr, ptr %111, align 8
   %113 = call i32 %112(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6) #6
   %114 = icmp eq i32 %113, 0
-  br i1 %114, label %115, label %.thread6.thread
+  br i1 %114, label %115, label %.thread7.thread
 
 115:                                              ; preds = %110
   %116 = load i16, ptr %6, align 2
@@ -776,22 +776,22 @@ define dso_local i32 @e1000e_config_fc_after_link_up(ptr noundef %0) local_unnam
 120:                                              ; preds = %118, %115
   %121 = call i32 @e1000e_force_mac_fc(ptr noundef %0), !range !17
   %122 = icmp eq i32 %121, 0
-  br i1 %122, label %.thread-pre-split_crit_edge, label %.thread6.thread
+  br i1 %122, label %.thread-pre-split_crit_edge, label %.thread7.thread
 
 .thread-pre-split_crit_edge:                      ; preds = %120
-  %.pr7.pre = load i32, ptr %10, align 4
-  br label %.thread6
+  %.pr8.pre = load i32, ptr %10, align 4
+  br label %.thread7
 
-.thread6:                                         ; preds = %51, %.thread-pre-split_crit_edge, %31
-  %123 = phi i32 [ %11, %31 ], [ %.pr7.pre, %.thread-pre-split_crit_edge ], [ %52, %51 ]
+.thread7:                                         ; preds = %51, %.thread-pre-split_crit_edge, %31
+  %123 = phi i32 [ %11, %31 ], [ %.pr8.pre, %.thread-pre-split_crit_edge ], [ %52, %51 ]
   %124 = icmp eq i32 %123, 3
-  br i1 %124, label %125, label %.thread6.thread
+  br i1 %124, label %125, label %.thread7.thread
 
-125:                                              ; preds = %.thread6
+125:                                              ; preds = %.thread7
   %126 = getelementptr inbounds i8, ptr %0, i64 782
   %127 = load i8, ptr %126, align 2, !range !15, !noundef !16
   %128 = icmp eq i8 %127, 0
-  br i1 %128, label %.thread6.thread, label %129
+  br i1 %128, label %.thread7.thread, label %129
 
 129:                                              ; preds = %125
   %130 = getelementptr inbounds i8, ptr %0, i64 8
@@ -800,7 +800,7 @@ define dso_local i32 @e1000e_config_fc_after_link_up(ptr noundef %0) local_unnam
   %133 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %132) #6, !srcloc !6
   %134 = and i32 %133, 65536
   %135 = icmp eq i32 %134, 0
-  br i1 %135, label %.thread6.thread, label %136
+  br i1 %135, label %.thread7.thread, label %136
 
 136:                                              ; preds = %129
   %137 = load ptr, ptr %130, align 8
@@ -825,93 +825,91 @@ define dso_local i32 @e1000e_config_fc_after_link_up(ptr noundef %0) local_unnam
 
 153:                                              ; preds = %148
   store i32 3, ptr %152, align 8
-  br label %175
+  br label %172
 
 154:                                              ; preds = %148
   store i32 1, ptr %152, align 8
-  br label %175
+  br label %172
 
 155:                                              ; preds = %136
   %156 = xor i1 %144, true
   %157 = and i32 %139, 256
   %158 = icmp eq i32 %157, 0
   %159 = select i1 %156, i1 true, i1 %158
-  %160 = select i1 %159, i1 true, i1 %146
-  %161 = and i32 %142, 256
-  %162 = icmp eq i32 %161, 0
-  %163 = select i1 %160, i1 true, i1 %162
-  br i1 %163, label %166, label %164
+  %160 = and i32 %142, 384
+  %161 = icmp ne i32 %160, 384
+  %162 = select i1 %159, i1 true, i1 %161
+  br i1 %162, label %165, label %163
 
-164:                                              ; preds = %155
-  %165 = getelementptr inbounds i8, ptr %0, i64 808
-  store i32 2, ptr %165, align 8
-  br label %175
+163:                                              ; preds = %155
+  %164 = getelementptr inbounds i8, ptr %0, i64 808
+  store i32 2, ptr %164, align 8
+  br label %172
 
-166:                                              ; preds = %155
-  %167 = and i32 %139, 384
-  %168 = icmp eq i32 %167, 384
-  %169 = select i1 %168, i1 %146, i1 false
-  %170 = xor i1 %169, true
-  %171 = select i1 %170, i1 true, i1 %162
-  %172 = getelementptr inbounds i8, ptr %0, i64 808
-  br i1 %171, label %174, label %173
+165:                                              ; preds = %155
+  %166 = and i32 %139, 384
+  %167 = icmp eq i32 %166, 384
+  %168 = icmp eq i32 %160, 256
+  %.not6 = select i1 %167, i1 %168, i1 false
+  %169 = getelementptr inbounds i8, ptr %0, i64 808
+  br i1 %.not6, label %170, label %171
 
-173:                                              ; preds = %166
-  store i32 1, ptr %172, align 8
-  br label %175
+170:                                              ; preds = %165
+  store i32 1, ptr %169, align 8
+  br label %172
 
-174:                                              ; preds = %166
-  store i32 0, ptr %172, align 8
-  br label %175
+171:                                              ; preds = %165
+  store i32 0, ptr %169, align 8
+  br label %172
 
-175:                                              ; preds = %174, %173, %164, %154, %153
-  %176 = load ptr, ptr %130, align 8
-  %177 = getelementptr i8, ptr %176, i64 16904
+172:                                              ; preds = %171, %170, %163, %154, %153
+  %173 = load ptr, ptr %130, align 8
+  %174 = getelementptr i8, ptr %173, i64 16904
+  %175 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %174) #6, !srcloc !6
+  %176 = or i32 %175, 128
+  call void @__ew32(ptr noundef %0, i64 noundef 16904, i32 noundef %176) #6
+  %177 = load ptr, ptr %130, align 8
   %178 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %177) #6, !srcloc !6
-  %179 = or i32 %178, 128
-  call void @__ew32(ptr noundef %0, i64 noundef 16904, i32 noundef %179) #6
-  %180 = load ptr, ptr %130, align 8
-  %181 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %180) #6, !srcloc !6
-  %182 = getelementptr inbounds i8, ptr %0, i64 808
-  %183 = load i32, ptr %182, align 8
-  switch i32 %183, label %.thread6.thread [
-    i32 0, label %184
-    i32 1, label %186
-    i32 2, label %189
-    i32 3, label %192
+  %179 = getelementptr inbounds i8, ptr %0, i64 808
+  %180 = load i32, ptr %179, align 8
+  switch i32 %180, label %.thread7.thread [
+    i32 0, label %181
+    i32 1, label %183
+    i32 2, label %186
+    i32 3, label %189
   ]
 
-184:                                              ; preds = %175
-  %185 = and i32 %181, -402653185
-  br label %.thread8
+181:                                              ; preds = %172
+  %182 = and i32 %178, -402653185
+  br label %.thread9
 
-186:                                              ; preds = %175
-  %187 = and i32 %181, -402653185
-  %188 = or disjoint i32 %187, 134217728
-  br label %.thread8
+183:                                              ; preds = %172
+  %184 = and i32 %178, -402653185
+  %185 = or disjoint i32 %184, 134217728
+  br label %.thread9
 
-189:                                              ; preds = %175
-  %190 = and i32 %181, -402653185
-  %191 = or disjoint i32 %190, 268435456
-  br label %.thread8
+186:                                              ; preds = %172
+  %187 = and i32 %178, -402653185
+  %188 = or disjoint i32 %187, 268435456
+  br label %.thread9
 
-192:                                              ; preds = %175
-  %193 = or i32 %181, 402653184
-  br label %.thread8
+189:                                              ; preds = %172
+  %190 = or i32 %178, 402653184
+  br label %.thread9
 
-.thread8:                                         ; preds = %184, %186, %189, %192
-  %194 = phi i32 [ %193, %192 ], [ %191, %189 ], [ %188, %186 ], [ %185, %184 ]
-  call void @__ew32(ptr noundef %0, i64 noundef 0, i32 noundef %194) #6
-  br label %.thread6.thread
+.thread9:                                         ; preds = %181, %183, %186, %189
+  %191 = phi i32 [ %190, %189 ], [ %188, %186 ], [ %185, %183 ], [ %182, %181 ]
+  call void @__ew32(ptr noundef %0, i64 noundef 0, i32 noundef %191) #6
+  br label %.thread7.thread
 
-.thread6.thread:                                  ; preds = %54, %.thread6, %125, %.thread8, %175, %15, %33, %129, %120, %110, %75, %71, %67, %63, %58
-  %195 = phi i32 [ %61, %58 ], [ %65, %63 ], [ 0, %67 ], [ %73, %71 ], [ %77, %75 ], [ %113, %110 ], [ %121, %120 ], [ 0, %129 ], [ -3, %15 ], [ -3, %33 ], [ -3, %175 ], [ 0, %.thread8 ], [ 0, %125 ], [ 0, %.thread6 ], [ 0, %54 ]
+.thread7.thread:                                  ; preds = %54, %.thread7, %125, %.thread9, %172, %15, %33, %129, %120, %110, %75, %71, %67, %63, %58
+  %192 = phi i32 [ %61, %58 ], [ %65, %63 ], [ 0, %67 ], [ %73, %71 ], [ %77, %75 ], [ %113, %110 ], [ %121, %120 ], [ 0, %129 ], [ -3, %15 ], [ -3, %33 ], [ -3, %172 ], [ 0, %.thread9 ], [ 0, %125 ], [ 0, %.thread7 ], [ 0, %54 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #6
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #6
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #6
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #6
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #6
-  ret i32 %195
+  ret i32 %192
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

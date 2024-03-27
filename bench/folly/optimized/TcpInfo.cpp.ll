@@ -2166,10 +2166,8 @@ entry:
   %or.cond14.i.not88.i = select i1 %or.cond.not15.i.not89.i, i1 true, i1 %cmp.i.i.i
   %tcpCcInfoBytesRead.i.i.i = getelementptr inbounds i8, ptr %this, i64 312
   %3 = load i32, ptr %tcpCcInfoBytesRead.i.i.i, align 8, !noalias !143
-  %or.cond.i.i.i = icmp slt i32 %3, 4
-  %or.cond.i = select i1 %or.cond14.i.not88.i, i1 true, i1 %or.cond.i.i.i
   %or.cond.i.i22.i = icmp slt i32 %3, 8
-  %or.cond87.i = select i1 %or.cond.i, i1 true, i1 %or.cond.i.i22.i
+  %or.cond87.i = select i1 %or.cond14.i.not88.i, i1 true, i1 %or.cond.i.i22.i
   br i1 %or.cond87.i, label %if.end.i4, label %_ZNKR5folly8OptionalImE5valueEv.exit.i
 
 _ZNKR5folly8OptionalImE5valueEv.exit.i:           ; preds = %entry
@@ -2206,10 +2204,8 @@ entry:
   %or.cond14.i.not88 = select i1 %or.cond.not15.i.not89, i1 true, i1 %cmp.i.i
   %tcpCcInfoBytesRead.i.i = getelementptr inbounds i8, ptr %this, i64 312
   %3 = load i32, ptr %tcpCcInfoBytesRead.i.i, align 8
-  %or.cond.i.i = icmp slt i32 %3, 4
-  %or.cond = select i1 %or.cond14.i.not88, i1 true, i1 %or.cond.i.i
   %or.cond.i.i22 = icmp slt i32 %3, 8
-  %or.cond87 = select i1 %or.cond, i1 true, i1 %or.cond.i.i22
+  %or.cond87 = select i1 %or.cond14.i.not88, i1 true, i1 %or.cond.i.i22
   br i1 %or.cond87, label %if.end, label %_ZNR5folly8OptionalImEdeEv.exit35
 
 _ZNR5folly8OptionalImEdeEv.exit35:                ; preds = %entry

@@ -545,59 +545,58 @@ entry:
   %os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp33 = alloca %"class.std::__cxx11::basic_string", align 8
   %call = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %versionString) #25
-  %call131 = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %versionString) #25
-  %cmp.i.not32 = icmp eq ptr %call, %call131
-  br i1 %cmp.i.not32, label %while.end, label %while.body
+  %call130 = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %versionString) #25
+  %cmp.i.not31 = icmp eq ptr %call, %call130
+  br i1 %cmp.i.not31, label %while.end, label %while.body
 
 while.body:                                       ; preds = %entry, %if.end14
-  %canBeDot.036 = phi i1 [ %isdigit, %if.end14 ], [ false, %entry ]
-  %numInt.035 = phi i32 [ %numInt.1, %if.end14 ], [ 0, %entry ]
-  %numDot.034 = phi i32 [ %numDot.1, %if.end14 ], [ 0, %entry ]
-  %it.sroa.0.033 = phi ptr [ %it.sroa.0.1, %if.end14 ], [ %call, %entry ]
-  %0 = load i8, ptr %it.sroa.0.033, align 1
+  %canBeDot.035 = phi i1 [ %isdigit, %if.end14 ], [ false, %entry ]
+  %numInt.034 = phi i32 [ %numInt.1, %if.end14 ], [ 0, %entry ]
+  %numDot.033 = phi i32 [ %numDot.1, %if.end14 ], [ 0, %entry ]
+  %it.sroa.0.032 = phi ptr [ %it.sroa.0.1, %if.end14 ], [ %call, %entry ]
+  %0 = load i8, ptr %it.sroa.0.032, align 1
   %conv = sext i8 %0 to i32
   %isdigittmp = add nsw i32 %conv, -48
   %isdigit = icmp ult i32 %isdigittmp, 10
   br i1 %isdigit, label %if.then, label %if.else
 
 if.then:                                          ; preds = %while.body
-  %add = add i32 %numDot.034, 1
+  %add = add i32 %numDot.033, 1
   br label %if.end14
 
 if.else:                                          ; preds = %while.body
   %cmp = icmp eq i8 %0, 46
-  %brmerge.not = and i1 %canBeDot.036, %cmp
+  %brmerge.not = and i1 %canBeDot.035, %cmp
   br i1 %brmerge.not, label %if.then10, label %while.end
 
 if.then10:                                        ; preds = %if.else
-  %add11 = add i32 %numDot.034, 1
+  %add11 = add i32 %numDot.033, 1
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then10, %if.then
-  %numDot.1 = phi i32 [ %numDot.034, %if.then ], [ %add11, %if.then10 ]
-  %numInt.1 = phi i32 [ %add, %if.then ], [ %numInt.035, %if.then10 ]
-  %it.sroa.0.1 = getelementptr inbounds i8, ptr %it.sroa.0.033, i64 1
+  %numDot.1 = phi i32 [ %numDot.033, %if.then ], [ %add11, %if.then10 ]
+  %numInt.1 = phi i32 [ %add, %if.then ], [ %numInt.034, %if.then10 ]
+  %it.sroa.0.1 = getelementptr inbounds i8, ptr %it.sroa.0.032, i64 1
   %call1 = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %versionString) #25
   %cmp.i.not = icmp eq ptr %it.sroa.0.1, %call1
   br i1 %cmp.i.not, label %while.end, label %while.body, !llvm.loop !4
 
 while.end:                                        ; preds = %if.end14, %if.else, %entry
-  %it.sroa.0.0.lcssa = phi ptr [ %call, %entry ], [ %it.sroa.0.033, %if.else ], [ %it.sroa.0.1, %if.end14 ]
-  %numDot.0.lcssa = phi i32 [ 0, %entry ], [ %numDot.034, %if.else ], [ %numDot.1, %if.end14 ]
-  %numInt.0.lcssa = phi i32 [ 0, %entry ], [ %numInt.035, %if.else ], [ %numInt.1, %if.end14 ]
+  %it.sroa.0.0.lcssa = phi ptr [ %call, %entry ], [ %it.sroa.0.032, %if.else ], [ %it.sroa.0.1, %if.end14 ]
+  %numDot.0.lcssa = phi i32 [ 0, %entry ], [ %numDot.033, %if.else ], [ %numDot.1, %if.end14 ]
+  %numInt.0.lcssa = phi i32 [ 0, %entry ], [ %numInt.034, %if.else ], [ %numInt.1, %if.end14 ]
   %call15 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %versionString) #25
   br i1 %call15, label %if.then25, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %while.end
   %call17 = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %versionString) #25
-  %cmp.i20 = icmp ne ptr %it.sroa.0.0.lcssa, %call17
-  %cmp21 = icmp eq i32 %numInt.0.lcssa, 0
-  %or.cond = select i1 %cmp.i20, i1 true, i1 %cmp21
-  %cmp23 = icmp ugt i32 %numInt.0.lcssa, 3
-  %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp23
+  %cmp.i19 = icmp ne ptr %it.sroa.0.0.lcssa, %call17
+  %1 = add i32 %numInt.0.lcssa, -4
+  %2 = icmp ult i32 %1, -3
+  %or.cond1 = select i1 %cmp.i19, i1 true, i1 %2
   %cmp24 = icmp eq i32 %numInt.0.lcssa, %numDot.0.lcssa
-  %or.cond18 = select i1 %or.cond1, i1 true, i1 %cmp24
-  br i1 %or.cond18, label %if.then25, label %if.end40
+  %or.cond = select i1 %or.cond1, i1 true, i1 %cmp24
+  br i1 %or.cond, label %if.then25, label %if.end40
 
 if.then25:                                        ; preds = %lor.lhs.false, %while.end
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %os)
@@ -624,10 +623,10 @@ invoke.cont31:                                    ; preds = %invoke.cont29
 invoke.cont35:                                    ; preds = %invoke.cont31
   %call36 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33) #25
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef %call36)
-          to label %invoke.cont38 unwind label %ehcleanup.thread29
+          to label %invoke.cont38 unwind label %ehcleanup.thread28
 
-ehcleanup.thread29:                               ; preds = %invoke.cont35
-  %1 = landingpad { ptr, i32 }
+ehcleanup.thread28:                               ; preds = %invoke.cont35
+  %3 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33) #25
   br label %cleanup.action
@@ -637,28 +636,28 @@ invoke.cont38:                                    ; preds = %invoke.cont35
           to label %unreachable unwind label %ehcleanup
 
 lpad:                                             ; preds = %invoke.cont29, %invoke.cont27, %invoke.cont, %if.then25
-  %2 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup39
 
 ehcleanup.thread:                                 ; preds = %invoke.cont31
-  %3 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   br label %cleanup.action
 
 ehcleanup:                                        ; preds = %invoke.cont38
-  %4 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33) #25
   br label %ehcleanup39
 
-cleanup.action:                                   ; preds = %ehcleanup.thread29, %ehcleanup.thread
-  %.pn28 = phi { ptr, i32 } [ %3, %ehcleanup.thread ], [ %1, %ehcleanup.thread29 ]
+cleanup.action:                                   ; preds = %ehcleanup.thread28, %ehcleanup.thread
+  %.pn27 = phi { ptr, i32 } [ %5, %ehcleanup.thread ], [ %3, %ehcleanup.thread28 ]
   call void @__cxa_free_exception(ptr %exception) #25
   br label %ehcleanup39
 
 ehcleanup39:                                      ; preds = %ehcleanup, %cleanup.action, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %.pn28, %cleanup.action ], [ %4, %ehcleanup ], [ %2, %lpad ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn27, %cleanup.action ], [ %6, %ehcleanup ], [ %4, %lpad ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %os) #25
   resume { ptr, i32 } %.pn.pn
 

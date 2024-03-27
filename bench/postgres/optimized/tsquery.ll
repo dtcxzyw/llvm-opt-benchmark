@@ -780,9 +780,9 @@ define internal i32 @gettoken_query_standard(ptr noundef %0, ptr nocapture nound
   %10 = getelementptr inbounds i8, ptr %0, i64 72
   br label %11
 
-11:                                               ; preds = %143, %6
+11:                                               ; preds = %142, %6
   %12 = load i32, ptr %8, align 4
-  switch i32 %12, label %143 [
+  switch i32 %12, label %142 [
     i32 3, label %13
     i32 1, label %13
     i32 2, label %74
@@ -817,7 +817,7 @@ define internal i32 @gettoken_query_standard(ptr noundef %0, ptr nocapture nound
 23:                                               ; preds = %13
   %24 = tail call i32 @t_isspace(ptr noundef nonnull %14) #12
   %.not63 = icmp eq i32 %24, 0
-  br i1 %.not63, label %25, label %143
+  br i1 %.not63, label %25, label %142
 
 25:                                               ; preds = %23
   %26 = getelementptr inbounds i8, ptr %0, i64 64
@@ -964,7 +964,7 @@ get_modifiers.exit:                               ; preds = %.lr.ph.i, %38, %53,
   br i1 %.not4851.i, label %.loopexit, label %.lr.ph.i66
 
 .lr.ph.i66:                                       ; preds = %81, %.outer.i
-  %82 = phi i8 [ %116, %.outer.i ], [ %76, %81 ]
+  %82 = phi i8 [ %115, %.outer.i ], [ %76, %81 ]
   %.024.ph54.i = phi i64 [ %.1.i, %.outer.i ], [ 1, %81 ]
   %.025.ph53.i = phi ptr [ %.126.i, %.outer.i ], [ %75, %81 ]
   %.027.ph52.i = phi i32 [ %.128.i, %.outer.i ], [ 0, %81 ]
@@ -977,8 +977,8 @@ get_modifiers.exit:                               ; preds = %.lr.ph.i, %38, %53,
   switch i32 %.02749.i, label %default.unreachable.i [
     i32 0, label %85
     i32 1, label %89
-    i32 2, label %112
-    i32 3, label %117
+    i32 2, label %111
+    i32 3, label %116
   ]
 
 85:                                               ; preds = %83
@@ -1015,111 +1015,109 @@ get_modifiers.exit:                               ; preds = %.lr.ph.i, %38, %53,
 101:                                              ; preds = %96
   %102 = load i32, ptr %97, align 4
   %103 = icmp eq i32 %102, 34
-  %104 = icmp slt i64 %98, 0
-  %or.cond.i = select i1 %103, i1 true, i1 %104
-  %105 = icmp sgt i64 %98, 16384
-  %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %105
-  br i1 %or.cond3.i, label %106, label %.outer.i
+  %104 = icmp ugt i64 %98, 16384
+  %or.cond3.i = select i1 %103, i1 true, i1 %104
+  br i1 %or.cond3.i, label %105, label %.outer.i
 
-106:                                              ; preds = %101
-  %107 = load ptr, ptr %10, align 8
-  %108 = tail call zeroext i1 @errsave_start(ptr noundef %107, ptr noundef null) #12
-  br i1 %108, label %109, label %.loopexit
+105:                                              ; preds = %101
+  %106 = load ptr, ptr %10, align 8
+  %107 = tail call zeroext i1 @errsave_start(ptr noundef %106, ptr noundef null) #12
+  br i1 %107, label %108, label %.loopexit
 
-109:                                              ; preds = %106
-  %110 = tail call i32 @errcode(i32 noundef 50856066) #12
-  %111 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, i32 noundef 16384) #12
-  tail call void @errsave_finish(ptr noundef %107, ptr noundef nonnull @.str.1, i32 noundef 211, ptr noundef nonnull @__func__.parse_phrase_operator) #12
+108:                                              ; preds = %105
+  %109 = tail call i32 @errcode(i32 noundef 50856066) #12
+  %110 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, i32 noundef 16384) #12
+  tail call void @errsave_finish(ptr noundef %106, ptr noundef nonnull @.str.1, i32 noundef 211, ptr noundef nonnull @__func__.parse_phrase_operator) #12
   br label %.loopexit
 
-112:                                              ; preds = %83
-  %113 = icmp eq i8 %84, 62
-  br i1 %113, label %114, label %.loopexit
+111:                                              ; preds = %83
+  %112 = icmp eq i8 %84, 62
+  br i1 %112, label %113, label %.loopexit
 
-114:                                              ; preds = %112
-  %115 = getelementptr i8, ptr %.02550.i, i64 1
+113:                                              ; preds = %111
+  %114 = getelementptr i8, ptr %.02550.i, i64 1
   br label %.outer.i
 
 default.unreachable.i:                            ; preds = %83
   unreachable
 
-.outer.i:                                         ; preds = %114, %101, %87
-  %.128.i = phi i32 [ 3, %114 ], [ 1, %87 ], [ 2, %101 ]
-  %.126.i = phi ptr [ %115, %114 ], [ %88, %87 ], [ %99, %101 ]
-  %.1.i = phi i64 [ %.024.ph54.i, %114 ], [ %.024.ph54.i, %87 ], [ %98, %101 ]
-  %116 = load i8, ptr %.126.i, align 1
-  %.not48.i = icmp eq i8 %116, 0
+.outer.i:                                         ; preds = %113, %101, %87
+  %.128.i = phi i32 [ 3, %113 ], [ 1, %87 ], [ 2, %101 ]
+  %.126.i = phi ptr [ %114, %113 ], [ %88, %87 ], [ %99, %101 ]
+  %.1.i = phi i64 [ %.024.ph54.i, %113 ], [ %.024.ph54.i, %87 ], [ %98, %101 ]
+  %115 = load i8, ptr %.126.i, align 1
+  %.not48.i = icmp eq i8 %115, 0
   br i1 %.not48.i, label %.loopexit, label %.lr.ph.i66, !llvm.loop !10
 
-117:                                              ; preds = %83
-  %118 = trunc i64 %.024.ph54.i to i16
-  store i16 %118, ptr %4, align 2
+116:                                              ; preds = %83
+  %117 = trunc i64 %.024.ph54.i to i16
+  store i16 %117, ptr %4, align 2
   store ptr %.02550.i, ptr %9, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   store i32 1, ptr %8, align 4
   store i8 4, ptr %1, align 1
   br label %.loopexit71
 
-.loopexit:                                        ; preds = %85, %94, %96, %112, %.outer.i, %91, %106, %109, %81
+.loopexit:                                        ; preds = %85, %94, %96, %111, %.outer.i, %91, %105, %108, %81
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %119 = load ptr, ptr %10, align 8
-  %.not = icmp eq ptr %119, null
-  br i1 %.not, label %127, label %120
+  %118 = load ptr, ptr %10, align 8
+  %.not = icmp eq ptr %118, null
+  br i1 %.not, label %126, label %119
 
-120:                                              ; preds = %.loopexit
-  %121 = load i32, ptr %119, align 4
-  %122 = icmp eq i32 %121, 431
-  br i1 %122, label %123, label %127
+119:                                              ; preds = %.loopexit
+  %120 = load i32, ptr %118, align 4
+  %121 = icmp eq i32 %120, 431
+  br i1 %121, label %122, label %126
 
-123:                                              ; preds = %120
-  %124 = getelementptr inbounds i8, ptr %119, i64 4
-  %125 = load i8, ptr %124, align 4
-  %126 = and i8 %125, 1
-  %.not60 = icmp eq i8 %126, 0
-  br i1 %.not60, label %127, label %.loopexit71
+122:                                              ; preds = %119
+  %123 = getelementptr inbounds i8, ptr %118, i64 4
+  %124 = load i8, ptr %123, align 4
+  %125 = and i8 %124, 1
+  %.not60 = icmp eq i8 %125, 0
+  br i1 %.not60, label %126, label %.loopexit71
 
-127:                                              ; preds = %123, %120, %.loopexit
-  %128 = load ptr, ptr %9, align 8
-  %129 = load i8, ptr %128, align 1
-  switch i8 %129, label %141 [
-    i8 41, label %130
-    i8 0, label %137
+126:                                              ; preds = %122, %119, %.loopexit
+  %127 = load ptr, ptr %9, align 8
+  %128 = load i8, ptr %127, align 1
+  switch i8 %128, label %140 [
+    i8 41, label %129
+    i8 0, label %136
   ]
 
-130:                                              ; preds = %127
-  %131 = getelementptr i8, ptr %128, i64 1
-  store ptr %131, ptr %9, align 8
-  %132 = getelementptr inbounds i8, ptr %0, i64 24
-  %133 = load i32, ptr %132, align 8
-  %134 = add i32 %133, -1
-  store i32 %134, ptr %132, align 8
-  %135 = icmp slt i32 %134, 0
-  %136 = select i1 %135, i32 1, i32 5
+129:                                              ; preds = %126
+  %130 = getelementptr i8, ptr %127, i64 1
+  store ptr %130, ptr %9, align 8
+  %131 = getelementptr inbounds i8, ptr %0, i64 24
+  %132 = load i32, ptr %131, align 8
+  %133 = add i32 %132, -1
+  store i32 %133, ptr %131, align 8
+  %134 = icmp slt i32 %133, 0
+  %135 = select i1 %134, i32 1, i32 5
   br label %.loopexit71
 
-137:                                              ; preds = %127
-  %138 = getelementptr inbounds i8, ptr %0, i64 24
-  %139 = load i32, ptr %138, align 8
-  %.not62 = icmp ne i32 %139, 0
-  %140 = zext i1 %.not62 to i32
+136:                                              ; preds = %126
+  %137 = getelementptr inbounds i8, ptr %0, i64 24
+  %138 = load i32, ptr %137, align 8
+  %.not62 = icmp ne i32 %138, 0
+  %139 = zext i1 %.not62 to i32
   br label %.loopexit71
 
-141:                                              ; preds = %127
-  %142 = tail call i32 @t_isspace(ptr noundef nonnull %128) #12
-  %.not61 = icmp eq i32 %142, 0
-  br i1 %.not61, label %.loopexit71, label %143
+140:                                              ; preds = %126
+  %141 = tail call i32 @t_isspace(ptr noundef nonnull %127) #12
+  %.not61 = icmp eq i32 %141, 0
+  br i1 %.not61, label %.loopexit71, label %142
 
-143:                                              ; preds = %141, %23, %11
-  %144 = load ptr, ptr %9, align 8
-  %145 = tail call i32 @pg_mblen(ptr noundef %144) #12
-  %146 = load ptr, ptr %9, align 8
-  %147 = sext i32 %145 to i64
-  %148 = getelementptr i8, ptr %146, i64 %147
-  store ptr %148, ptr %9, align 8
+142:                                              ; preds = %140, %23, %11
+  %143 = load ptr, ptr %9, align 8
+  %144 = tail call i32 @pg_mblen(ptr noundef %143) #12
+  %145 = load ptr, ptr %9, align 8
+  %146 = sext i32 %144 to i64
+  %147 = getelementptr i8, ptr %145, i64 %146
+  store ptr %147, ptr %9, align 8
   br label %11
 
-.loopexit71:                                      ; preds = %141, %123, %13, %69, %67, %64, %60, %137, %130, %117, %79, %77, %get_modifiers.exit, %18, %16
-  %.0 = phi i32 [ 3, %77 ], [ 3, %79 ], [ 3, %117 ], [ %136, %130 ], [ %140, %137 ], [ 3, %16 ], [ 4, %18 ], [ 2, %get_modifiers.exit ], [ 1, %60 ], [ 0, %64 ], [ 1, %67 ], [ 1, %69 ], [ 1, %13 ], [ 1, %123 ], [ 1, %141 ]
+.loopexit71:                                      ; preds = %140, %122, %13, %69, %67, %64, %60, %136, %129, %116, %79, %77, %get_modifiers.exit, %18, %16
+  %.0 = phi i32 [ 3, %77 ], [ 3, %79 ], [ 3, %116 ], [ %135, %129 ], [ %139, %136 ], [ 3, %16 ], [ 4, %18 ], [ 2, %get_modifiers.exit ], [ 1, %60 ], [ 0, %64 ], [ 1, %67 ], [ 1, %69 ], [ 1, %13 ], [ 1, %122 ], [ 1, %140 ]
   ret i32 %.0
 }
 

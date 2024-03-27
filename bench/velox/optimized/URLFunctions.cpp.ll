@@ -28694,44 +28694,44 @@ if.then346:                                       ; preds = %_ZN5boost16re_detai
 if.else350:                                       ; preds = %sw.bb340
   %tobool351 = icmp ne ptr %recursion_start.0441, null
   %cmp352 = icmp ne i32 %recursion_sub.0438, 0
-  %or.cond1 = select i1 %tobool351, i1 %cmp352, i1 false
   %cmp355 = icmp eq i32 %recursion_sub.0438, %136
-  %or.cond171 = select i1 %or.cond1, i1 %cmp355, i1 false
+  %142 = and i1 %cmp352, %cmp355
+  %or.cond171 = select i1 %tobool351, i1 %142, i1 false
   br i1 %or.cond171, label %sw.epilog, label %if.end358
 
 if.end358:                                        ; preds = %if.else350
-  %142 = load ptr, ptr %this, align 8
-  %m_has_recursions = getelementptr inbounds i8, ptr %142, i64 400
-  %143 = load i8, ptr %m_has_recursions, align 8
-  %144 = and i8 %143, 1
-  %tobool360.not = icmp eq i8 %144, 0
+  %143 = load ptr, ptr %this, align 8
+  %m_has_recursions = getelementptr inbounds i8, ptr %143, i64 400
+  %144 = load i8, ptr %m_has_recursions, align 8
+  %145 = and i8 %144, 1
+  %tobool360.not = icmp eq i8 %145, 0
   %tobool363.not = icmp eq i32 %136, 0
   %or.cond350 = or i1 %tobool363.not, %tobool360.not
   br i1 %or.cond350, label %if.end403, label %if.then364
 
 if.then364:                                       ; preds = %if.end358
-  %m_first_state = getelementptr inbounds i8, ptr %142, i64 72
+  %m_first_state = getelementptr inbounds i8, ptr %143, i64 72
   %p.0434 = load ptr, ptr %m_first_state, align 8
   %tobool367.not.not435 = icmp eq ptr %p.0434, null
   br i1 %tobool367.not.not435, label %if.end403, label %while.body368
 
 while.body368:                                    ; preds = %if.then364, %if.end381
   %p.0436 = phi ptr [ %p.0, %if.end381 ], [ %p.0434, %if.then364 ]
-  %145 = load i32, ptr %p.0436, align 8
-  %cmp370 = icmp eq i32 %145, 29
+  %146 = load i32, ptr %p.0436, align 8
+  %cmp370 = icmp eq i32 %146, 29
   br i1 %cmp370, label %if.then371, label %if.end381
 
 if.then371:                                       ; preds = %while.body368
   %alt372 = getelementptr inbounds i8, ptr %p.0436, i64 16
-  %146 = load ptr, ptr %alt372, align 8
-  %147 = load i32, ptr %146, align 8
-  %cmp374 = icmp eq i32 %147, 0
+  %147 = load ptr, ptr %alt372, align 8
+  %148 = load i32, ptr %147, align 8
+  %cmp374 = icmp eq i32 %148, 0
   br i1 %cmp374, label %land.lhs.true375, label %if.end381
 
 land.lhs.true375:                                 ; preds = %if.then371
-  %index376 = getelementptr inbounds i8, ptr %146, i64 16
-  %148 = load i32, ptr %index376, align 8
-  %cmp378 = icmp eq i32 %148, %136
+  %index376 = getelementptr inbounds i8, ptr %147, i64 16
+  %149 = load i32, ptr %index376, align 8
+  %cmp378 = icmp eq i32 %149, %136
   br i1 %cmp378, label %land.lhs.true384, label %if.end381
 
 if.end381:                                        ; preds = %if.then371, %land.lhs.true375, %while.body368
@@ -28742,32 +28742,32 @@ if.end381:                                        ; preds = %if.then371, %land.l
 
 land.lhs.true384:                                 ; preds = %land.lhs.true375
   %conv387 = zext nneg i32 %136 to i64
-  %149 = load ptr, ptr %m_recursion_checks, align 8
-  %add.ptr.i300 = getelementptr inbounds i8, ptr %149, i64 %conv387
-  %150 = load i8, ptr %add.ptr.i300, align 1
-  %151 = and i8 %150, 2
-  %cmp391 = icmp eq i8 %151, 0
+  %150 = load ptr, ptr %m_recursion_checks, align 8
+  %add.ptr.i300 = getelementptr inbounds i8, ptr %150, i64 %conv387
+  %151 = load i8, ptr %add.ptr.i300, align 1
+  %152 = and i8 %151, 2
+  %cmp391 = icmp eq i8 %152, 0
   br i1 %cmp391, label %if.then392, label %if.end403
 
 if.then392:                                       ; preds = %land.lhs.true384
-  %152 = or disjoint i8 %150, 2
-  store i8 %152, ptr %add.ptr.i300, align 1
+  %153 = or disjoint i8 %151, 2
+  store i8 %153, ptr %add.ptr.i300, align 1
   %next400 = getelementptr inbounds i8, ptr %p.0436, i64 8
-  %153 = load ptr, ptr %next400, align 8
-  invoke void @_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE15create_startmapEPNS0_14re_syntax_baseEPhPjh(ptr noundef nonnull align 8 dereferenceable(156) %this, ptr noundef %153, ptr noundef %l_map, ptr noundef %pnull, i8 noundef zeroext %mask)
+  %154 = load ptr, ptr %next400, align 8
+  invoke void @_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE15create_startmapEPNS0_14re_syntax_baseEPhPjh(ptr noundef nonnull align 8 dereferenceable(156) %this, ptr noundef %154, ptr noundef %l_map, ptr noundef %pnull, i8 noundef zeroext %mask)
           to label %if.end403 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end403:                                        ; preds = %if.end381, %if.then364, %land.lhs.true384, %if.then392, %if.end358
   %next404 = getelementptr inbounds i8, ptr %state.addr.0443, i64 8
-  %154 = load ptr, ptr %next404, align 8
+  %155 = load ptr, ptr %next404, align 8
   br label %sw.epilog
 
 sw.bb405:                                         ; preds = %while.body
   br i1 %tobool.not.i302, label %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE13set_all_masksEPhh.exit315, label %if.then.i303
 
 if.then.i303:                                     ; preds = %sw.bb405
-  %155 = load i8, ptr %l_map, align 1
-  %cmp.i304 = icmp eq i8 %155, 0
+  %156 = load i8, ptr %l_map, align 1
+  %cmp.i304 = icmp eq i8 %156, 0
   br i1 %cmp.i304, label %if.then2.i314, label %for.body.i305
 
 if.then2.i314:                                    ; preds = %if.then.i303
@@ -28777,8 +28777,8 @@ if.then2.i314:                                    ; preds = %if.then.i303
 for.body.i305:                                    ; preds = %if.then.i303, %for.body.i305
   %indvars.iv.i306 = phi i64 [ %indvars.iv.next.i309, %for.body.i305 ], [ 0, %if.then.i303 ]
   %arrayidx6.i307 = getelementptr inbounds i8, ptr %l_map, i64 %indvars.iv.i306
-  %156 = load i8, ptr %arrayidx6.i307, align 1
-  %or8.i308 = or i8 %156, %mask
+  %157 = load i8, ptr %arrayidx6.i307, align 1
+  %or8.i308 = or i8 %157, %mask
   store i8 %or8.i308, ptr %arrayidx6.i307, align 1
   %indvars.iv.next.i309 = add nuw nsw i64 %indvars.iv.i306, 1
   %exitcond.not.i310 = icmp eq i64 %indvars.iv.next.i309, 256
@@ -28789,32 +28789,32 @@ if.end.loopexit.i311:                             ; preds = %for.body.i305
   br label %if.end.i313
 
 if.end.i313:                                      ; preds = %if.end.loopexit.i311, %if.then2.i314
-  %157 = phi i8 [ %.pre.i312, %if.end.loopexit.i311 ], [ %mask, %if.then2.i314 ]
-  %158 = or i8 %157, 4
-  store i8 %158, ptr %l_map, align 1
+  %158 = phi i8 [ %.pre.i312, %if.end.loopexit.i311 ], [ %mask, %if.then2.i314 ]
+  %159 = or i8 %158, 4
+  store i8 %159, ptr %l_map, align 1
   br label %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE13set_all_masksEPhh.exit315
 
 _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE13set_all_masksEPhh.exit315: ; preds = %sw.bb405, %if.end.i313
   %next407 = getelementptr inbounds i8, ptr %state.addr.0443, i64 8
-  %159 = load ptr, ptr %next407, align 8
+  %160 = load ptr, ptr %next407, align 8
   br label %sw.epilog
 
 sw.bb408:                                         ; preds = %while.body
   %index409 = getelementptr inbounds i8, ptr %state.addr.0443, i64 16
-  %160 = load i32, ptr %index409, align 8
-  %cmp410 = icmp eq i32 %160, -3
+  %161 = load i32, ptr %index409, align 8
+  %cmp410 = icmp eq i32 %161, -3
   br i1 %cmp410, label %if.then411, label %sw.default
 
 if.then411:                                       ; preds = %sw.bb408
   %next412 = getelementptr inbounds i8, ptr %state.addr.0443, i64 8
-  %161 = load ptr, ptr %next412, align 8
-  %next413 = getelementptr inbounds i8, ptr %161, i64 8
-  %162 = load ptr, ptr %next413, align 8
+  %162 = load ptr, ptr %next412, align 8
+  %next413 = getelementptr inbounds i8, ptr %162, i64 8
+  %163 = load ptr, ptr %next413, align 8
   br label %sw.epilog
 
 sw.default:                                       ; preds = %sw.bb408, %while.body
   %next415 = getelementptr inbounds i8, ptr %state.addr.0443, i64 8
-  %163 = load ptr, ptr %next415, align 8
+  %164 = load ptr, ptr %next415, align 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.else350, %sw.default, %if.then411, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE13set_all_masksEPhh.exit315, %if.end403, %sw.bb247, %if.then79, %sw.bb
@@ -28823,22 +28823,22 @@ sw.epilog:                                        ; preds = %if.else350, %sw.def
   %l_icase.1 = phi i8 [ %l_icase.0440, %sw.default ], [ %l_icase.0440, %if.then411 ], [ %l_icase.0440, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE13set_all_masksEPhh.exit315 ], [ %l_icase.0440, %if.end403 ], [ %l_icase.0440, %sw.bb247 ], [ %l_icase.0440, %if.then79 ], [ %5, %sw.bb ], [ %l_icase.0440, %if.else350 ]
   %recursion_start.1 = phi ptr [ %recursion_start.0441, %sw.default ], [ %recursion_start.0441, %if.then411 ], [ %recursion_start.0441, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE13set_all_masksEPhh.exit315 ], [ %recursion_start.0441, %if.end403 ], [ %recursion_start.0441, %sw.bb247 ], [ %state.addr.0443, %if.then79 ], [ %recursion_start.0441, %sw.bb ], [ null, %if.else350 ]
   %not_last_jump.1 = phi i32 [ %not_last_jump.0442, %sw.default ], [ %not_last_jump.0442, %if.then411 ], [ %not_last_jump.0442, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE13set_all_masksEPhh.exit315 ], [ %not_last_jump.0442, %if.end403 ], [ -1, %sw.bb247 ], [ %not_last_jump.0442, %if.then79 ], [ %not_last_jump.0442, %sw.bb ], [ %not_last_jump.0442, %if.else350 ]
-  %state.addr.1 = phi ptr [ %163, %sw.default ], [ %162, %if.then411 ], [ %159, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE13set_all_masksEPhh.exit315 ], [ %154, %if.end403 ], [ %110, %sw.bb247 ], [ %23, %if.then79 ], [ %6, %sw.bb ], [ %recursion_restart.0439, %if.else350 ]
+  %state.addr.1 = phi ptr [ %164, %sw.default ], [ %163, %if.then411 ], [ %160, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE13set_all_masksEPhh.exit315 ], [ %155, %if.end403 ], [ %110, %sw.bb247 ], [ %23, %if.then79 ], [ %6, %sw.bb ], [ %recursion_restart.0439, %if.else350 ]
   %inc416 = add nsw i32 %not_last_jump.1, 1
   %tobool2.not = icmp eq ptr %state.addr.1, null
   br i1 %tobool2.not, label %cleanup, label %while.body, !llvm.loop !248
 
 cleanup:                                          ; preds = %sw.epilog, %for.inc243, %for.inc209, %for.inc171, %for.inc138, %for.inc, %_ZN5boost16re_detail_10740015recursion_saverC2EPSt6vectorIhSaIhEE.exit, %if.end.i, %sw.bb102, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE13set_all_masksEPhh.exit299, %if.then346, %if.end334, %if.then336, %if.then285, %if.then288, %if.end283, %if.then312, %lor.lhs.false, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE13set_all_masksEPhh.exit278, %if.then299, %sw.bb216, %sw.bb181, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE13set_all_masksEPhh.exit251, %sw.bb175, %if.then177, %invoke.cont144, %invoke.cont113, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE13set_all_masksEPhh.exit188, %if.then107, %if.end47, %if.then49, %sw.bb5
-  %164 = load ptr, ptr %m_recursion_checks, align 8
+  %165 = load ptr, ptr %m_recursion_checks, align 8
   %_M_end_of_storage.i.i.i.i318 = getelementptr inbounds i8, ptr %this, i64 128
   store ptr %cond.i.i.i.i.i333, ptr %m_recursion_checks, align 8
   store ptr %add.ptr.i.i.i.i335, ptr %_M_finish.i.i.i, align 8
   store ptr %add.ptr.i.i.i.i335, ptr %_M_end_of_storage.i.i.i.i318, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %164, null
+  %tobool.not.i.i.i.i = icmp eq ptr %165, null
   br i1 %tobool.not.i.i.i.i, label %_ZN5boost16re_detail_10740015recursion_saverD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %cleanup
-  call void @_ZdlPv(ptr noundef nonnull %164) #24
+  call void @_ZdlPv(ptr noundef nonnull %165) #24
   br label %_ZN5boost16re_detail_10740015recursion_saverD2Ev.exit
 
 _ZN5boost16re_detail_10740015recursion_saverD2Ev.exit: ; preds = %cleanup, %if.then.i.i.i.i
@@ -28846,16 +28846,16 @@ _ZN5boost16re_detail_10740015recursion_saverD2Ev.exit: ; preds = %cleanup, %if.t
 
 ehcleanup418:                                     ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit, %ehcleanup, %lpad71
   %.pn168 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %34, %lpad71 ], [ %lpad.loopexit352, %lpad.loopexit ], [ %lpad.loopexit357, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit361, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit365, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp366, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %165 = load ptr, ptr %m_recursion_checks, align 8
+  %166 = load ptr, ptr %m_recursion_checks, align 8
   %_M_end_of_storage.i.i.i.i321 = getelementptr inbounds i8, ptr %this, i64 128
   store ptr %cond.i.i.i.i.i333, ptr %m_recursion_checks, align 8
   store ptr %add.ptr.i.i.i.i335, ptr %_M_finish.i.i.i, align 8
   store ptr %add.ptr.i.i.i.i335, ptr %_M_end_of_storage.i.i.i.i321, align 8
-  %tobool.not.i.i.i.i324 = icmp eq ptr %165, null
+  %tobool.not.i.i.i.i324 = icmp eq ptr %166, null
   br i1 %tobool.not.i.i.i.i324, label %_ZN5boost16re_detail_10740015recursion_saverD2Ev.exit326, label %if.then.i.i.i.i325
 
 if.then.i.i.i.i325:                               ; preds = %ehcleanup418
-  call void @_ZdlPv(ptr noundef nonnull %165) #24
+  call void @_ZdlPv(ptr noundef nonnull %166) #24
   br label %_ZN5boost16re_detail_10740015recursion_saverD2Ev.exit326
 
 _ZN5boost16re_detail_10740015recursion_saverD2Ev.exit326: ; preds = %ehcleanup418, %if.then.i.i.i.i325

@@ -2449,10 +2449,9 @@ proto_item_set_generated.exit:                    ; preds = %374, %380, %383
 
 401:                                              ; preds = %398
   %402 = icmp ne i32 %399, 2
-  %403 = icmp ult i8 %.0447.in, 64
-  %or.cond14.not = select i1 %402, i1 true, i1 %403
-  %404 = icmp ugt i8 %.0447.in, -65
-  %spec.select = select i1 %or.cond14.not, i1 true, i1 %404
+  %403 = add i8 %.0447.in, 64
+  %404 = icmp sgt i8 %403, -1
+  %spec.select = select i1 %402, i1 true, i1 %404
   br label %405
 
 405:                                              ; preds = %401, %398
