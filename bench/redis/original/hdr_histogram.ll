@@ -2935,7 +2935,7 @@ entry:
   call void @hdr_iter_percentile_init(ptr noundef %iter, ptr noundef %4, i32 noundef %5)
   %6 = load ptr, ptr %stream.addr, align 8
   %7 = load ptr, ptr %head_format, align 8
-  %call1 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef %7, ptr noundef @.str, ptr noundef @.str.1, ptr noundef @.str.2, ptr noundef @.str.3)
+  %call1 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef %7, ptr noundef @.str, ptr noundef @.str.1, ptr noundef @.str.2, ptr noundef @.str.3) #5
   %cmp = icmp slt i32 %call1, 0
   br i1 %cmp, label %if.then, label %if.end
 
@@ -2977,7 +2977,7 @@ while.body:                                       ; preds = %while.cond
   %16 = load double, ptr %percentile, align 8
   %17 = load i64, ptr %total_count, align 8
   %18 = load double, ptr %inverted_percentile, align 8
-  %call7 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef %arraydecay6, double noundef %15, double noundef %16, i64 noundef %17, double noundef %18)
+  %call7 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef %arraydecay6, double noundef %15, double noundef %16, i64 noundef %17, double noundef %18) #5
   %cmp8 = icmp slt i32 %call7, 0
   br i1 %cmp8, label %if.then10, label %if.end11
 
@@ -3023,7 +3023,7 @@ if.then14:                                        ; preds = %while.end
   %34 = load ptr, ptr %h.addr, align 8
   %sub_bucket_count = getelementptr inbounds %struct.hdr_histogram, ptr %34, i32 0, i32 7
   %35 = load i32, ptr %sub_bucket_count, align 8
-  %call23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef @CLASSIC_FOOTER, double noundef %27, double noundef %28, double noundef %29, i64 noundef %31, i32 noundef %33, i32 noundef %35)
+  %call23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef @CLASSIC_FOOTER, double noundef %27, double noundef %28, double noundef %29, i64 noundef %31, i32 noundef %33, i32 noundef %35) #5
   %cmp24 = icmp slt i32 %call23, 0
   br i1 %cmp24, label %if.then26, label %if.end27
 
@@ -3117,7 +3117,8 @@ return:                                           ; preds = %sw.default, %sw.bb
   ret ptr %1
 }
 
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #3
+; Function Attrs: nounwind
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @count_leading_zeros_64(i64 noundef %value) #0 {

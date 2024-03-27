@@ -338,7 +338,7 @@ for.body.i:                                       ; preds = %sw.epilog.i, %for.b
   %indvars.iv = phi i64 [ 0, %for.body.i.lr.ph ], [ %indvars.iv.next, %sw.epilog.i ]
   %64 = load ptr, ptr %k.i, align 8, !tbaa !29
   %arrayidx.i = getelementptr inbounds %struct.lua_TValue, ptr %64, i64 %indvars.iv
-  %tt.i = getelementptr inbounds %struct.lua_TValue, ptr %64, i64 %indvars.iv, i32 1
+  %tt.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %65 = load i32, ptr %tt.i, align 8, !tbaa !30
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %x.i145) #3
   %conv.i146 = trunc i32 %65 to i8

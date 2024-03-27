@@ -374,7 +374,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @RedisModule_RdbSave = common dso_local local_unnamed_addr global ptr null, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @RedisRegisterConnectionTypeTLS() local_unnamed_addr #0 {
+define dso_local noundef i32 @RedisRegisterConnectionTypeTLS() local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
   %cmp = icmp sgt i32 %0, 1

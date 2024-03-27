@@ -1554,8 +1554,8 @@ lor.lhs.false17:                                  ; preds = %lor.lhs.false8
   br i1 %cmp19, label %land.lhs.true, label %lor.lhs.false30
 
 land.lhs.true:                                    ; preds = %lor.lhs.false17
-  %or.cond14 = call i1 @llvm.is.fpclass.f80(x86_fp80 %call3, i32 612)
-  br i1 %or.cond14, label %return, label %lor.lhs.false30
+  %or.cond13 = call i1 @llvm.is.fpclass.f80(x86_fp80 %call3, i32 612)
+  br i1 %or.cond13, label %return, label %lor.lhs.false30
 
 lor.lhs.false30:                                  ; preds = %land.lhs.true, %lor.lhs.false17
   %cmp32 = icmp eq i32 %7, 22
@@ -3383,17 +3383,17 @@ for.end:                                          ; preds = %for.cond, %if.then
 define dso_local noundef i32 @snprintf_async_signal_safe(ptr noundef %to, i64 noundef %n, ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #26 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %args)
+  call void @llvm.va_start.p0(ptr nonnull %args)
   %call = call i32 @vsnprintf_async_signal_safe(ptr noundef %to, i64 noundef %n, ptr noundef %fmt, ptr noundef nonnull %args)
-  call void @llvm.va_end(ptr nonnull %args)
+  call void @llvm.va_end.p0(ptr nonnull %args)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #27
+declare void @llvm.va_start.p0(ptr) #27
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #27
+declare void @llvm.va_end.p0(ptr) #27
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare i32 @tolower(i32 noundef) local_unnamed_addr #6

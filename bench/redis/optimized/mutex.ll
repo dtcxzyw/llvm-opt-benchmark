@@ -49,7 +49,7 @@ if.then2:                                         ; preds = %land.lhs.true
   br label %if.end30
 
 do.cond:                                          ; preds = %do.body, %land.lhs.true
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %4 = load i64, ptr @opt_mutex_max_spin, align 8
   %cmp5 = icmp sgt i64 %4, %indvars.iv
   %cmp7 = icmp eq i64 %4, -1
@@ -308,6 +308,6 @@ attributes #8 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 2151155916}
+!5 = !{i64 2151166620}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}

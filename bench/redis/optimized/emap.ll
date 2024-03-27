@@ -1477,7 +1477,7 @@ if.then.i:                                        ; preds = %entry
   %edata.val7 = load ptr, ptr %0, align 8
   %1 = ptrtoint ptr %edata.val7 to i64
   %and.i = and i64 %1, -4096
-  call fastcc void @rtree_read(ptr noalias nonnull align 8 %contents, ptr noundef null, ptr noundef %emap, ptr noundef nonnull %rtree_ctx_fallback, i64 noundef %and.i)
+  call fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable align 8 %contents, ptr noundef null, ptr noundef %emap, ptr noundef nonnull %rtree_ctx_fallback, i64 noundef %and.i)
   br label %tsdn_rtree_ctx.exit
 
 if.end.i.split:                                   ; preds = %entry
@@ -1485,7 +1485,7 @@ if.end.i.split:                                   ; preds = %entry
   %edata.val = load ptr, ptr %0, align 8
   %2 = ptrtoint ptr %edata.val to i64
   %and.i8 = and i64 %2, -4096
-  call fastcc void @rtree_read(ptr noalias nonnull align 8 %contents, ptr noundef nonnull %tsdn, ptr noundef %emap, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i, i64 noundef %and.i8)
+  call fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable align 8 %contents, ptr noundef nonnull %tsdn, ptr noundef %emap, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i, i64 noundef %and.i8)
   br label %tsdn_rtree_ctx.exit
 
 tsdn_rtree_ctx.exit:                              ; preds = %if.end.i.split, %if.then.i
@@ -1493,7 +1493,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %if.end.i.split, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rtree_read(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef %tsdn, ptr noundef %rtree, ptr noundef %rtree_ctx, i64 noundef %key) unnamed_addr #0 {
+define internal fastcc void @rtree_read(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %agg.result, ptr noundef %tsdn, ptr noundef %rtree, ptr noundef %rtree_ctx, i64 noundef %key) unnamed_addr #0 {
 entry:
   %shr.i = lshr i64 %key, 30
   %and.i = and i64 %shr.i, 15

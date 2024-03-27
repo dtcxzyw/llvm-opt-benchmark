@@ -778,7 +778,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %2 = load ptr, ptr %emitter.addr, align 8
   %write_cb = getelementptr inbounds %struct.emitter_s, ptr %2, i32 0, i32 1
   %3 = load ptr, ptr %write_cb, align 8
@@ -789,7 +789,7 @@ if.then:                                          ; preds = %entry
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   call void @malloc_vcprintf(ptr noundef %3, ptr noundef %5, ptr noundef %6, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -4020,7 +4020,7 @@ entry:
   store ptr %emitter, ptr %emitter.addr, align 8
   store ptr %format, ptr %format.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %emitter.addr, align 8
   %write_cb = getelementptr inbounds %struct.emitter_s, ptr %0, i32 0, i32 1
   %1 = load ptr, ptr %write_cb, align 8
@@ -4031,7 +4031,7 @@ entry:
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   call void @malloc_vcprintf(ptr noundef %1, ptr noundef %3, ptr noundef %4, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   ret void
 }
 
@@ -4052,12 +4052,12 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
+declare void @llvm.va_start.p0(ptr) #5
 
 declare void @malloc_vcprintf(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
+declare void @llvm.va_end.p0(ptr) #5
 
 ; Function Attrs: nounwind uwtable
 define internal void @emitter_json_key(ptr noundef %emitter, ptr noundef %json_key) #0 {

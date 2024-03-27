@@ -191,7 +191,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp1, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %add = add nsw i64 %3, %observed_total_count.038
+  %add = add nuw nsw i64 %3, %observed_total_count.038
   %cmp2 = icmp eq i32 %min_non_zero_index.041, -1
   %cmp3 = icmp ne i64 %indvars.iv, 0
   %or.cond = and i1 %cmp3, %cmp2
@@ -2843,7 +2843,7 @@ format_line_string.exit:                          ; preds = %sw.bb.i, %sw.bb1.i,
   %percentile_to_iterate_to.i = getelementptr inbounds i8, ptr %iter, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %percentile_to_iterate_to.i, i8 0, i64 16, i1 false)
   store ptr @percentile_iter_next, ptr %_next_fp.i.i, align 8
-  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %stream, ptr noundef nonnull %.str.9..str.10.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3)
+  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %stream, ptr noundef nonnull %.str.9..str.10.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #21
   %cmp = icmp slt i32 %call1, 0
   br i1 %cmp, label %cleanup, label %while.cond.preheader
 
@@ -2867,7 +2867,7 @@ while.body:                                       ; preds = %while.cond
   %5 = load i64, ptr %cumulative_count, align 8
   %sub = fsub double 1.000000e+00, %div4
   %div5 = fdiv double 1.000000e+00, %sub
-  %call7 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %stream, ptr noundef nonnull %line_format, double noundef %div, double noundef %div4, i64 noundef %5, double noundef %div5)
+  %call7 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %stream, ptr noundef nonnull %line_format, double noundef %div, double noundef %div4, i64 noundef %5, double noundef %div5) #21
   %cmp8 = icmp slt i32 %call7, 0
   br i1 %cmp8, label %cleanup, label %while.cond
 
@@ -3044,7 +3044,7 @@ hdr_max.exit:                                     ; preds = %hdr_mean.exit.hdr_m
   %35 = load i64, ptr %total_count.i.i, align 8
   %bucket_count = getelementptr inbounds i8, ptr %h, i64 44
   %36 = load i32, ptr %bucket_count, align 4
-  %call23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %stream, ptr noundef nonnull @CLASSIC_FOOTER, double noundef %div16, double noundef %div18, double noundef %div21, i64 noundef %35, i32 noundef %36, i32 noundef %34)
+  %call23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %stream, ptr noundef nonnull @CLASSIC_FOOTER, double noundef %div16, double noundef %div18, double noundef %div21, i64 noundef %35, i32 noundef %36, i32 noundef %34) #21
   %cmp24 = icmp slt i32 %call23, 0
   %spec.select = select i1 %cmp24, i32 5, i32 0
   br label %cleanup

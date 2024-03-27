@@ -2271,7 +2271,7 @@ if.end4:                                          ; preds = %if.else, %if.end
 while.body:                                       ; preds = %if.end29, %if.end4
   %arraydecay5 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %cpy, i64 0, i64 0
   %4 = load ptr, ptr %ap.addr, align 8
-  call void @llvm.va_copy(ptr %arraydecay5, ptr %4)
+  call void @llvm.va_copy.p0(ptr %arraydecay5, ptr %4)
   %5 = load ptr, ptr %buf, align 8
   %6 = load i64, ptr %buflen, align 8
   %7 = load ptr, ptr %fmt.addr, align 8
@@ -2279,7 +2279,7 @@ while.body:                                       ; preds = %if.end29, %if.end4
   %call7 = call i32 @vsnprintf(ptr noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %arraydecay6) #13
   store i32 %call7, ptr %bufstrlen, align 4
   %arraydecay8 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %cpy, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay8)
+  call void @llvm.va_end.p0(ptr %arraydecay8)
   %8 = load i32, ptr %bufstrlen, align 4
   %cmp9 = icmp slt i32 %8, 0
   br i1 %cmp9, label %if.then10, label %if.end15
@@ -2367,13 +2367,13 @@ return:                                           ; preds = %if.end37, %if.then2
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #9
+declare void @llvm.va_copy.p0(ptr, ptr) #9
 
 ; Function Attrs: nounwind
 declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #9
+declare void @llvm.va_end.p0(ptr) #9
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @sdscatprintf(ptr noundef %s, ptr noundef %fmt, ...) #0 {
@@ -2385,20 +2385,20 @@ entry:
   store ptr %s, ptr %s.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %s.addr, align 8
   %1 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   %call = call ptr @sdscatvprintf(ptr noundef %0, ptr noundef %1, ptr noundef %arraydecay1)
   store ptr %call, ptr %t, align 8
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %2 = load ptr, ptr %t, align 8
   ret ptr %2
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #9
+declare void @llvm.va_start.p0(ptr) #9
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @sdscatfmt(ptr noundef %s, ptr noundef %fmt, ...) #0 {
@@ -2430,7 +2430,7 @@ entry:
   %call2 = call ptr @sdsMakeRoomFor(ptr noundef %2, i64 noundef %mul)
   store ptr %call2, ptr %s.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %4 = load ptr, ptr %fmt.addr, align 8
   store ptr %4, ptr %f, align 8
   %5 = load i64, ptr %initlen, align 8
@@ -2796,7 +2796,7 @@ sw.epilog116:                                     ; preds = %sw.default113, %sw.
 
 while.end:                                        ; preds = %while.cond
   %arraydecay118 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay118)
+  call void @llvm.va_end.p0(ptr %arraydecay118)
   %88 = load ptr, ptr %s.addr, align 8
   %89 = load i64, ptr %i, align 8
   %arrayidx119 = getelementptr inbounds i8, ptr %88, i64 %89

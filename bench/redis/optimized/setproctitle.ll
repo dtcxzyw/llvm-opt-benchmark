@@ -71,7 +71,7 @@ land.lhs.true:                                    ; preds = %for.body
 
 for.inc:                                          ; preds = %land.lhs.true, %for.body
   %end.1 = phi ptr [ %end.082, %for.body ], [ %spec.select, %land.lhs.true ]
-  %indvars.iv.next = add nuw i64 %indvars.iv81, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv81, 1
   %cmp = icmp sge i64 %indvars.iv.next, %2
   %arrayidx6.phi.trans.insert = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv.next
   %.pre = load ptr, ptr %arrayidx6.phi.trans.insert, align 8
@@ -182,7 +182,7 @@ if.then24.i:                                      ; preds = %cond.end.i
   br label %return
 
 for.inc.i:                                        ; preds = %cond.end.i, %cond.end.thread.i, %for.body.i
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %arrayidx.i = getelementptr inbounds ptr, ptr %call.i, i64 %indvars.iv.next.i
   %15 = load ptr, ptr %arrayidx.i, align 8
   %tobool10.not.i = icmp eq ptr %15, null
@@ -216,7 +216,7 @@ if.end10.i:                                       ; preds = %if.end.i56
   br label %for.inc.i59
 
 for.inc.i59:                                      ; preds = %if.end10.i, %for.body.i63
-  %indvars.iv.next.i60 = add nuw i64 %indvars.iv.i54, 1
+  %indvars.iv.next.i60 = add nuw nsw i64 %indvars.iv.i54, 1
   br label %for.cond.i, !llvm.loop !9
 
 spt_copyargs.exit:                                ; preds = %if.end.i56
@@ -258,9 +258,9 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %if.else, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call = call i32 @vsnprintf(ptr noundef nonnull %buf, i64 noundef 256, ptr noundef nonnull %fmt, ptr noundef nonnull %ap) #13
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   br label %if.end8
 
 if.else:                                          ; preds = %if.end
@@ -285,11 +285,11 @@ if.end11:                                         ; preds = %if.end8
 if.then13:                                        ; preds = %if.end11
   call void @llvm.memset.p0.i64(ptr align 1 %2, i8 0, i64 %sub.ptr.sub17, i1 false)
   store i1 true, ptr @SPT.4, align 8
-  %.pre = call i64 @llvm.umin.i64(i64 %sub.ptr.sub17, i64 256)
+  %.pre = call noundef i64 @llvm.umin.i64(i64 %sub.ptr.sub17, i64 256)
   br label %if.end19
 
 if.else14:                                        ; preds = %if.end11
-  %cond.i = call i64 @llvm.umin.i64(i64 %sub.ptr.sub17, i64 256)
+  %cond.i = call noundef i64 @llvm.umin.i64(i64 %sub.ptr.sub17, i64 256)
   call void @llvm.memset.p0.i64(ptr align 1 %2, i8 0, i64 %cond.i, i1 false)
   br label %if.end19
 
@@ -297,7 +297,7 @@ if.end19:                                         ; preds = %if.else14, %if.then
   %cond.i9.pre-phi = phi i64 [ %cond.i, %if.else14 ], [ %.pre, %if.then13 ]
   %conv = zext nneg i32 %len.0 to i64
   %sub = add nsw i64 %cond.i9.pre-phi, -1
-  %cond.i10 = call i64 @llvm.umin.i64(i64 %conv, i64 %sub)
+  %cond.i10 = call noundef i64 @llvm.umin.i64(i64 %conv, i64 %sub)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr nonnull align 16 %buf, i64 %cond.i10, i1 false)
   %arrayidx = getelementptr inbounds i8, ptr %2, i64 %cond.i10
   %4 = load ptr, ptr @SPT.3, align 8
@@ -327,13 +327,13 @@ return:                                           ; preds = %if.end8, %if.then30
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #6
+declare void @llvm.va_start.p0(ptr) #6
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #6
+declare void @llvm.va_end.p0(ptr) #6
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7

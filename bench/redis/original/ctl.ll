@@ -19045,7 +19045,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %if.end.i, %if.then.
   %25 = load ptr, ptr %rtree_ctx.i, align 8
   %26 = load ptr, ptr %ptr.addr.i, align 8
   %27 = ptrtoint ptr %26 to i64
-  call void @rtree_read(ptr sret(%struct.rtree_contents_s) align 8 %tmp.i, ptr noundef %23, ptr noundef %24, ptr noundef %25, i64 noundef %27)
+  call void @rtree_read(ptr dead_on_unwind writable sret(%struct.rtree_contents_s) align 8 %tmp.i, ptr noundef %23, ptr noundef %24, ptr noundef %25, i64 noundef %27)
   %28 = load ptr, ptr %tmp.i, align 8
   store ptr %28, ptr %edata, align 8
   %29 = load ptr, ptr %edata, align 8
@@ -20215,7 +20215,7 @@ atomic_load_p.exit:                               ; preds = %seqcst.i, %acquire.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rtree_read(ptr noalias sret(%struct.rtree_contents_s) align 8 %agg.result, ptr noundef %tsdn, ptr noundef %rtree, ptr noundef %rtree_ctx, i64 noundef %key) #0 {
+define internal void @rtree_read(ptr dead_on_unwind noalias writable sret(%struct.rtree_contents_s) align 8 %agg.result, ptr noundef %tsdn, ptr noundef %rtree, ptr noundef %rtree_ctx, i64 noundef %key) #0 {
 entry:
   %bits.addr.i = alloca i64, align 8
   %state_bits.i = alloca i64, align 8

@@ -742,13 +742,13 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %write_cb = getelementptr inbounds i8, ptr %emitter, i64 8
   %1 = load ptr, ptr %write_cb, align 8
   %cbopaque = getelementptr inbounds i8, ptr %emitter, i64 16
   %2 = load ptr, ptr %cbopaque, align 8
   call void @malloc_vcprintf(ptr noundef %1, ptr noundef %2, ptr noundef %format, ptr noundef nonnull %ap) #13
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -3508,23 +3508,23 @@ declare void @counter_postfork_child(ptr noundef, ptr noundef) local_unnamed_add
 define internal void @emitter_printf(ptr nocapture noundef readonly %emitter, ptr noundef %format, ...) unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %write_cb = getelementptr inbounds i8, ptr %emitter, i64 8
   %0 = load ptr, ptr %write_cb, align 8
   %cbopaque = getelementptr inbounds i8, ptr %emitter, i64 16
   %1 = load ptr, ptr %cbopaque, align 8
   call void @malloc_vcprintf(ptr noundef %0, ptr noundef %1, ptr noundef %format, ptr noundef nonnull %ap) #13
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
+declare void @llvm.va_start.p0(ptr) #7
 
 declare void @malloc_vcprintf(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
+declare void @llvm.va_end.p0(ptr) #7
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @emitter_json_key(ptr nocapture noundef %emitter, ptr noundef %json_key) unnamed_addr #0 {

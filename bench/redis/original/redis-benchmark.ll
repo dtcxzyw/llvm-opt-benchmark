@@ -16851,7 +16851,7 @@ lor.lhs.false72:                                  ; preds = %if.end65
 
 if.then75:                                        ; preds = %lor.lhs.false72, %if.end65
   %50 = load ptr, ptr @stderr, align 8
-  %call76 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef @.str.16392)
+  %call76 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef @.str.16392) #12
   call void @exit(i32 noundef 1) #11
   unreachable
 
@@ -16997,7 +16997,7 @@ lor.lhs.false135:                                 ; preds = %if.then129
 
 if.then138:                                       ; preds = %lor.lhs.false135, %if.then129
   %84 = load ptr, ptr @stderr, align 8
-  %call139 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %84, ptr noundef @.str.16392)
+  %call139 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %84, ptr noundef @.str.16392) #12
   call void @exit(i32 noundef 1) #11
   unreachable
 
@@ -17251,7 +17251,7 @@ if.else242:                                       ; preds = %if.else236
 
 if.then247:                                       ; preds = %if.else242
   %138 = load ptr, ptr @stderr, align 8
-  %call248 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %138, ptr noundef @.str.16408)
+  %call248 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %138, ptr noundef @.str.16408) #12
   br label %if.end371
 
 if.else249:                                       ; preds = %if.else242
@@ -17443,7 +17443,7 @@ if.end322:                                        ; preds = %if.then319
 
 if.then329:                                       ; preds = %if.end322
   %183 = load ptr, ptr @stderr, align 8
-  %call330 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %183, ptr noundef @.str.16415, i32 noundef 500)
+  %call330 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %183, ptr noundef @.str.16415, i32 noundef 500) #12
   store i32 500, ptr getelementptr inbounds (%struct.config, ptr @config, i32 0, i32 31), align 8
   br label %if.end336
 
@@ -17692,7 +17692,8 @@ declare void @exit(i32 noundef) #3
 
 declare ptr @hi_sdsnew(ptr noundef) #2
 
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #2
+; Function Attrs: nounwind
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #4
 
 ; Function Attrs: nounwind
 declare noalias ptr @strdup(ptr noundef) #4
@@ -17783,7 +17784,7 @@ land.lhs.true:                                    ; preds = %do.end6
 
 if.then:                                          ; preds = %land.lhs.true
   %10 = load ptr, ptr @stderr, align 8
-  %call8 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef @.str.16424)
+  %call8 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef @.str.16424) #12
   call void @exit(i32 noundef 1) #11
   unreachable
 
@@ -18098,13 +18099,13 @@ if.then19:                                        ; preds = %if.then17
   %10 = load ptr, ptr @stderr, align 8
   %11 = load ptr, ptr getelementptr inbounds (%struct.config, ptr @config, i32 0, i32 1), align 8
   %12 = load i32, ptr getelementptr inbounds (%struct.config, ptr @config, i32 0, i32 1, i32 1), align 8
-  %call20 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef @.str.16431, ptr noundef %11, i32 noundef %12)
+  %call20 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef @.str.16431, ptr noundef %11, i32 noundef %12) #12
   br label %if.end
 
 if.else:                                          ; preds = %if.then17
   %13 = load ptr, ptr @stderr, align 8
   %14 = load ptr, ptr getelementptr inbounds (%struct.config, ptr @config, i32 0, i32 2), align 8
-  %call21 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef @.str.16432, ptr noundef %14)
+  %call21 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef @.str.16432, ptr noundef %14) #12
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then19
@@ -18119,7 +18120,7 @@ if.end22:                                         ; preds = %lor.lhs.false
 if.then24:                                        ; preds = %if.end22
   %16 = load ptr, ptr @stderr, align 8
   %17 = load i32, ptr getelementptr inbounds (%struct.config, ptr @config, i32 0, i32 34), align 4
-  %call25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef @.str.16433, i32 noundef %17)
+  %call25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef @.str.16433, i32 noundef %17) #12
   call void @exit(i32 noundef 1) #11
   unreachable
 
@@ -18149,7 +18150,7 @@ for.body:                                         ; preds = %for.cond
 if.then32:                                        ; preds = %for.body
   %25 = load ptr, ptr @stderr, align 8
   %26 = load i32, ptr %i28, align 4
-  %call33 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef @.str.16435, i32 noundef %26)
+  %call33 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef @.str.16435, i32 noundef %26) #12
   call void @exit(i32 noundef 1) #11
   unreachable
 
@@ -18201,7 +18202,7 @@ if.then48:                                        ; preds = %if.end40
   %46 = load ptr, ptr %node, align 8
   %port50 = getelementptr inbounds %struct.clusterNode, ptr %46, i32 0, i32 1
   %47 = load i32, ptr %port50, align 8
-  %call51 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef @.str.16439, ptr noundef %45, i32 noundef %47)
+  %call51 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef @.str.16439, ptr noundef %45, i32 noundef %47) #12
   br label %if.end52
 
 if.end52:                                         ; preds = %if.then48, %if.end40
@@ -18239,7 +18240,7 @@ if.else58:                                        ; preds = %entry
 
 if.then62:                                        ; preds = %if.else58
   %55 = load ptr, ptr @stderr, align 8
-  %call63 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef @.str.16441)
+  %call63 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef @.str.16441) #12
   br label %if.end64
 
 if.end64:                                         ; preds = %if.then62, %if.else58
@@ -18262,7 +18263,7 @@ if.end71:                                         ; preds = %if.then68, %if.end6
 
 if.then74:                                        ; preds = %if.end71
   %58 = load ptr, ptr @stderr, align 8
-  %call75 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef @.str.16442)
+  %call75 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef @.str.16442) #12
   br label %if.end76
 
 if.end76:                                         ; preds = %if.then74, %if.end71
@@ -18277,7 +18278,7 @@ land.lhs.true:                                    ; preds = %if.end76
 
 if.then81:                                        ; preds = %land.lhs.true
   %61 = load ptr, ptr @stderr, align 8
-  %call82 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef @.str.16443)
+  %call82 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef @.str.16443) #12
   br label %if.end83
 
 if.end83:                                         ; preds = %if.then81, %land.lhs.true, %if.end76
@@ -18390,7 +18391,7 @@ for.end119:                                       ; preds = %for.cond106
 
 if.then122:                                       ; preds = %for.end119
   %88 = load ptr, ptr @stderr, align 8
-  %call123 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef @.str.16446)
+  %call123 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef @.str.16446) #12
   store i32 1, ptr %retval, align 4
   br label %return
 
@@ -19126,7 +19127,7 @@ if.then15:                                        ; preds = %if.then12
   %17 = load ptr, ptr %reply, align 8
   %str = getelementptr inbounds %struct.redisReply, ptr %17, i32 0, i32 4
   %18 = load ptr, ptr %str, align 8
-  %call16 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef @.str.16518, ptr noundef %15, i32 noundef %16, ptr noundef %18)
+  %call16 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef @.str.16518, ptr noundef %15, i32 noundef %16, ptr noundef %18) #12
   br label %if.end19
 
 if.else:                                          ; preds = %if.then12
@@ -19135,7 +19136,7 @@ if.else:                                          ; preds = %if.then12
   %21 = load ptr, ptr %reply, align 8
   %str17 = getelementptr inbounds %struct.redisReply, ptr %21, i32 0, i32 4
   %22 = load ptr, ptr %str17, align 8
-  %call18 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef @.str.16519, ptr noundef %20, ptr noundef %22)
+  %call18 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef @.str.16519, ptr noundef %20, ptr noundef %22) #12
   br label %if.end19
 
 if.end19:                                         ; preds = %if.else, %if.then15
@@ -19233,7 +19234,7 @@ while.end:                                        ; preds = %if.then36, %while.c
 
 if.then39:                                        ; preds = %while.end
   %40 = load ptr, ptr @stderr, align 8
-  %call40 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef @.str.16520)
+  %call40 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef @.str.16520) #12
   store i32 0, ptr %success, align 4
   br label %cleanup
 
@@ -19283,7 +19284,7 @@ if.end55:                                         ; preds = %lor.end
 
 if.then58:                                        ; preds = %if.end55
   %50 = load ptr, ptr @stderr, align 8
-  %call59 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef @.str.16523)
+  %call59 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef @.str.16523) #12
   store i32 0, ptr %success, align 4
   br label %cleanup
 
@@ -19719,7 +19720,7 @@ if.then218:                                       ; preds = %if.end214
   %170 = load ptr, ptr %node, align 8
   %port220 = getelementptr inbounds %struct.clusterNode, ptr %170, i32 0, i32 1
   %171 = load i32, ptr %port220, align 8
-  %call221 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %167, ptr noundef @.str.16526, ptr noundef %169, i32 noundef %171)
+  %call221 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %167, ptr noundef @.str.16526, ptr noundef %169, i32 noundef %171) #12
   br label %while.cond, !llvm.loop !14
 
 if.end222:                                        ; preds = %if.end214
@@ -20002,7 +20003,7 @@ if.then40:                                        ; preds = %if.then38
   %46 = load ptr, ptr %reply, align 8
   %str41 = getelementptr inbounds %struct.redisReply, ptr %46, i32 0, i32 4
   %47 = load ptr, ptr %str41, align 8
-  %call42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef @.str.16533, ptr noundef %44, i32 noundef %45, ptr noundef %47)
+  %call42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef @.str.16533, ptr noundef %44, i32 noundef %45, ptr noundef %47) #12
   br label %if.end45
 
 if.else:                                          ; preds = %if.then38
@@ -20011,7 +20012,7 @@ if.else:                                          ; preds = %if.then38
   %50 = load ptr, ptr %reply, align 8
   %str43 = getelementptr inbounds %struct.redisReply, ptr %50, i32 0, i32 4
   %51 = load ptr, ptr %str43, align 8
-  %call44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef @.str.16534, ptr noundef %49, ptr noundef %51)
+  %call44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef @.str.16534, ptr noundef %49, ptr noundef %51) #12
   br label %if.end45
 
 if.end45:                                         ; preds = %if.else, %if.then40
@@ -20238,7 +20239,7 @@ if.end17:                                         ; preds = %if.else14, %if.end1
 
 if.then20:                                        ; preds = %if.end17
   %31 = load ptr, ptr @stderr, align 8
-  %call21 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef @.str.16527)
+  %call21 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef @.str.16527) #12
   %32 = load ptr, ptr getelementptr inbounds (%struct.config, ptr @config, i32 0, i32 2), align 8
   %cmp22 = icmp eq ptr %32, null
   br i1 %cmp22, label %if.then25, label %lor.lhs.false23
@@ -20257,7 +20258,7 @@ if.then25:                                        ; preds = %lor.lhs.false23, %i
   %38 = load ptr, ptr %context26, align 8
   %errstr = getelementptr inbounds %struct.redisContext, ptr %38, i32 0, i32 2
   %arraydecay = getelementptr inbounds [128 x i8], ptr %errstr, i64 0, i64 0
-  %call27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef @.str.16528, ptr noundef %35, i32 noundef %36, ptr noundef %arraydecay)
+  %call27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef @.str.16528, ptr noundef %35, i32 noundef %36, ptr noundef %arraydecay) #12
   br label %if.end33
 
 if.else28:                                        ; preds = %lor.lhs.false23
@@ -20268,7 +20269,7 @@ if.else28:                                        ; preds = %lor.lhs.false23
   %42 = load ptr, ptr %context29, align 8
   %errstr30 = getelementptr inbounds %struct.redisContext, ptr %42, i32 0, i32 2
   %arraydecay31 = getelementptr inbounds [128 x i8], ptr %errstr30, i64 0, i64 0
-  %call32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef @.str.16529, ptr noundef %40, ptr noundef %arraydecay31)
+  %call32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef @.str.16529, ptr noundef %40, ptr noundef %arraydecay31) #12
   br label %if.end33
 
 if.end33:                                         ; preds = %if.else28, %if.then25
@@ -20297,7 +20298,7 @@ land.lhs.true:                                    ; preds = %if.then36
 if.then42:                                        ; preds = %land.lhs.true
   %47 = load ptr, ptr @stderr, align 8
   %48 = load ptr, ptr %err37, align 8
-  %call43 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef @.str.16530, ptr noundef %48)
+  %call43 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef @.str.16530, ptr noundef %48) #12
   call void @exit(i32 noundef 1) #11
   unreachable
 
@@ -21060,7 +21061,7 @@ for.body:                                         ; preds = %for.cond
 if.then:                                          ; preds = %for.body
   %7 = load ptr, ptr @stderr, align 8
   %8 = load i32, ptr %i, align 4
-  %call1 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef @.str.16559, i32 noundef %8)
+  %call1 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef @.str.16559, i32 noundef %8) #12
   call void @exit(i32 noundef 1) #11
   unreachable
 
@@ -21440,7 +21441,7 @@ lor.lhs.false:                                    ; preds = %if.end
 
 if.then3:                                         ; preds = %lor.lhs.false, %if.end
   %7 = load ptr, ptr @stderr, align 8
-  %call4 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef @.str.16527)
+  %call4 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef @.str.16527) #12
   %8 = load ptr, ptr %ctx, align 8
   %cmp6 = icmp ne ptr %8, null
   br i1 %cmp6, label %cond.true, label %cond.false
@@ -21466,14 +21467,14 @@ if.then8:                                         ; preds = %cond.end
   %12 = load ptr, ptr %ip.addr, align 8
   %13 = load i32, ptr %port.addr, align 4
   %14 = load ptr, ptr %err5, align 8
-  %call9 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef @.str.16528, ptr noundef %12, i32 noundef %13, ptr noundef %14)
+  %call9 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef @.str.16528, ptr noundef %12, i32 noundef %13, ptr noundef %14) #12
   br label %if.end12
 
 if.else10:                                        ; preds = %cond.end
   %15 = load ptr, ptr @stderr, align 8
   %16 = load ptr, ptr %hostsocket.addr, align 8
   %17 = load ptr, ptr %err5, align 8
-  %call11 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef @.str.16529, ptr noundef %16, ptr noundef %17)
+  %call11 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef @.str.16529, ptr noundef %16, ptr noundef %17) #12
   br label %if.end12
 
 if.end12:                                         ; preds = %if.else10, %if.then8
@@ -21499,7 +21500,7 @@ land.lhs.true:                                    ; preds = %if.then15
 if.then20:                                        ; preds = %land.lhs.true
   %21 = load ptr, ptr @stderr, align 8
   %22 = load ptr, ptr %err16, align 8
-  %call21 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef @.str.16530, ptr noundef %22)
+  %call21 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef @.str.16530, ptr noundef %22) #12
   br label %cleanup
 
 if.end22:                                         ; preds = %land.lhs.true, %if.then15
@@ -21559,7 +21560,7 @@ if.then38:                                        ; preds = %if.then36
   %38 = load ptr, ptr %reply, align 8
   %str = getelementptr inbounds %struct.redisReply, ptr %38, i32 0, i32 4
   %39 = load ptr, ptr %str, align 8
-  %call39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef @.str.16533, ptr noundef %36, i32 noundef %37, ptr noundef %39)
+  %call39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef @.str.16533, ptr noundef %36, i32 noundef %37, ptr noundef %39) #12
   br label %if.end43
 
 if.else40:                                        ; preds = %if.then36
@@ -21568,7 +21569,7 @@ if.else40:                                        ; preds = %if.then36
   %42 = load ptr, ptr %reply, align 8
   %str41 = getelementptr inbounds %struct.redisReply, ptr %42, i32 0, i32 4
   %43 = load ptr, ptr %str41, align 8
-  %call42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef @.str.16534, ptr noundef %41, ptr noundef %43)
+  %call42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef @.str.16534, ptr noundef %41, ptr noundef %43) #12
   br label %if.end43
 
 if.end43:                                         ; preds = %if.else40, %if.then38
@@ -21588,7 +21589,7 @@ if.end44:                                         ; preds = %if.then34
 
 if.end45:                                         ; preds = %if.end32
   %48 = load ptr, ptr @stderr, align 8
-  %call46 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef @.str.16535)
+  %call46 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef @.str.16535) #12
   %49 = load ptr, ptr %hostsocket.addr, align 8
   %cmp47 = icmp eq ptr %49, null
   br i1 %cmp47, label %if.then48, label %if.else50
@@ -21597,13 +21598,13 @@ if.then48:                                        ; preds = %if.end45
   %50 = load ptr, ptr @stderr, align 8
   %51 = load ptr, ptr %ip.addr, align 8
   %52 = load i32, ptr %port.addr, align 4
-  %call49 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef @.str.16438, ptr noundef %51, i32 noundef %52)
+  %call49 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef @.str.16438, ptr noundef %51, i32 noundef %52) #12
   br label %if.end52
 
 if.else50:                                        ; preds = %if.end45
   %53 = load ptr, ptr @stderr, align 8
   %54 = load ptr, ptr %hostsocket.addr, align 8
-  %call51 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef @.str.16536, ptr noundef %54)
+  %call51 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef @.str.16536, ptr noundef %54) #12
   br label %if.end52
 
 if.end52:                                         ; preds = %if.else50, %if.then48
@@ -22267,7 +22268,7 @@ if.then29:                                        ; preds = %if.then26
   %call30 = call ptr @__errno_location() #15
   %40 = load i32, ptr %call30, align 4
   %call31 = call ptr @strerror(i32 noundef %40) #12
-  %call32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef @.str.16545, ptr noundef %call31)
+  %call32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef @.str.16545, ptr noundef %call31) #12
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then29, %if.then26
@@ -22375,7 +22376,7 @@ if.then4:                                         ; preds = %if.end
   %10 = load ptr, ptr %context5, align 8
   %errstr = getelementptr inbounds %struct.redisContext, ptr %10, i32 0, i32 2
   %arraydecay = getelementptr inbounds [128 x i8], ptr %errstr, i64 0, i64 0
-  %call6 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef @.str.16546, ptr noundef %arraydecay)
+  %call6 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef @.str.16546, ptr noundef %arraydecay) #12
   call void @exit(i32 noundef 1) #11
   unreachable
 
@@ -22404,7 +22405,7 @@ if.then10:                                        ; preds = %while.body
   %17 = load ptr, ptr %context11, align 8
   %errstr12 = getelementptr inbounds %struct.redisContext, ptr %17, i32 0, i32 2
   %arraydecay13 = getelementptr inbounds [128 x i8], ptr %errstr12, i64 0, i64 0
-  %call14 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef @.str.16546, ptr noundef %arraydecay13)
+  %call14 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef @.str.16546, ptr noundef %arraydecay13) #12
   call void @exit(i32 noundef 1) #11
   unreachable
 
@@ -22420,7 +22421,7 @@ if.then17:                                        ; preds = %if.end15
 
 if.then19:                                        ; preds = %if.then17
   %20 = load ptr, ptr @stderr, align 8
-  %call20 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef @.str.16547)
+  %call20 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef @.str.16547) #12
   call void @exit(i32 noundef 1) #11
   unreachable
 
@@ -22494,7 +22495,7 @@ if.then37:                                        ; preds = %if.else33
   %41 = load ptr, ptr %r, align 8
   %str40 = getelementptr inbounds %struct.redisReply, ptr %41, i32 0, i32 4
   %42 = load ptr, ptr %str40, align 8
-  %call41 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef @.str.16551, ptr noundef %37, i32 noundef %40, ptr noundef %42)
+  %call41 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef @.str.16551, ptr noundef %37, i32 noundef %40, ptr noundef %42) #12
   br label %if.end42
 
 if.end42:                                         ; preds = %if.then37, %if.else33
@@ -22549,7 +22550,7 @@ if.then57:                                        ; preds = %if.else54
   %55 = load ptr, ptr %r, align 8
   %str62 = getelementptr inbounds %struct.redisReply, ptr %55, i32 0, i32 4
   %56 = load ptr, ptr %str62, align 8
-  %call63 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef @.str.16552, ptr noundef %51, i32 noundef %54, ptr noundef %56)
+  %call63 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef @.str.16552, ptr noundef %51, i32 noundef %54, ptr noundef %56) #12
   br label %if.end67
 
 if.else64:                                        ; preds = %if.else54
@@ -22557,7 +22558,7 @@ if.else64:                                        ; preds = %if.else54
   %58 = load ptr, ptr %r, align 8
   %str65 = getelementptr inbounds %struct.redisReply, ptr %58, i32 0, i32 4
   %59 = load ptr, ptr %str65, align 8
-  %call66 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef @.str.16553, ptr noundef %59)
+  %call66 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef @.str.16553, ptr noundef %59) #12
   br label %if.end67
 
 if.end67:                                         ; preds = %if.else64, %if.then57
@@ -23365,7 +23366,7 @@ if.end6:                                          ; preds = %do.end4
   %11 = load i32, ptr %.atomictmp7, align 4
   store atomic i32 %11, ptr getelementptr inbounds (%struct.config, ptr @config, i32 0, i32 39) monotonic, align 8
   %12 = load ptr, ptr @stderr, align 8
-  %call = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef @.str.16554)
+  %call = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef @.str.16554) #12
   store ptr @.str.16555, ptr %errmsg, align 8
   %call8 = call ptr @dictCreate(ptr noundef @fetchClusterSlotsConfiguration.dtype)
   store ptr %call8, ptr %masters, align 8
@@ -23472,7 +23473,7 @@ if.then33:                                        ; preds = %if.then31
   %42 = load ptr, ptr %reply, align 8
   %str = getelementptr inbounds %struct.redisReply, ptr %42, i32 0, i32 4
   %43 = load ptr, ptr %str, align 8
-  %call34 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef @.str.16557, ptr noundef %41, ptr noundef %43)
+  %call34 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef @.str.16557, ptr noundef %41, ptr noundef %43) #12
   br label %if.end35
 
 if.end35:                                         ; preds = %if.then33, %if.then31
@@ -23544,7 +23545,7 @@ if.then60:                                        ; preds = %for.body40
   %69 = load ptr, ptr @stderr, align 8
   %70 = load ptr, ptr %errmsg, align 8
   %71 = load ptr, ptr %name51, align 8
-  %call61 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef @.str.16558, ptr noundef %70, ptr noundef %71)
+  %call61 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef @.str.16558, ptr noundef %70, ptr noundef %71) #12
   %72 = load ptr, ptr %name51, align 8
   %tobool62 = icmp ne ptr %72, null
   br i1 %tobool62, label %if.then63, label %if.end64

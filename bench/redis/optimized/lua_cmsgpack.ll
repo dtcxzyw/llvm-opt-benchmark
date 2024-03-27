@@ -1536,7 +1536,7 @@ if.end5:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ud.i.i) #9
   %call.i.i = call ptr @lua_getallocf(ptr noundef %L, ptr noundef nonnull %ud.i.i) #9
   %0 = load ptr, ptr %ud.i.i, align 8, !tbaa !11
-  %call1.i.i = call ptr %call.i.i(ptr noundef %0, ptr noundef null, i64 noundef 0, i64 noundef 24) #9
+  %call1.i.i = call noundef ptr %call.i.i(ptr noundef %0, ptr noundef null, i64 noundef 0, i64 noundef 24) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ud.i.i) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i, i8 0, i64 24, i1 false)
   %cmp7.not36 = icmp slt i32 %call, 1

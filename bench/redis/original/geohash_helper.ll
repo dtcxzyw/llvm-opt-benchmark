@@ -317,7 +317,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @geohashCalculateAreasByShapeWGS84(ptr noalias sret(%struct.GeoHashRadius) align 8 %agg.result, ptr noundef %shape) #0 {
+define dso_local void @geohashCalculateAreasByShapeWGS84(ptr dead_on_unwind noalias writable sret(%struct.GeoHashRadius) align 8 %agg.result, ptr noundef %shape) #0 {
 entry:
   %shape.addr = alloca ptr, align 8
   %long_range = alloca %struct.GeoHashRange, align 8

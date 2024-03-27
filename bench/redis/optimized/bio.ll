@@ -436,7 +436,7 @@ entry:
   %call = tail call noalias ptr @zmalloc(i64 noundef %add) #11
   %free_fn1 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %free_fn, ptr %free_fn1, align 8
-  call void @llvm.va_start(ptr nonnull %valist)
+  call void @llvm.va_start.p0(ptr nonnull %valist)
   %cmp8 = icmp sgt i32 %arg_count, 0
   br i1 %cmp8, label %for.body.lr.ph, label %for.end
 
@@ -481,7 +481,7 @@ vaarg.end:                                        ; preds = %vaarg.in_mem, %vaar
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
 for.end:                                          ; preds = %vaarg.end, %entry
-  call void @llvm.va_end(ptr nonnull %valist)
+  call void @llvm.va_end.p0(ptr nonnull %valist)
   store i32 2, ptr %call, align 8
   %call.i = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds ([3 x %union.pthread_mutex_t], ptr @bio_mutex, i64 0, i64 2)) #8
   %5 = load ptr, ptr getelementptr inbounds ([3 x ptr], ptr @bio_jobs, i64 0, i64 2), align 16
@@ -498,10 +498,10 @@ for.end:                                          ; preds = %vaarg.end, %entry
 declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
+declare void @llvm.va_start.p0(ptr) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
+declare void @llvm.va_end.p0(ptr) #7
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @bioCreateCloseJob(i32 noundef %fd, i32 noundef %need_fsync, i32 noundef %need_reclaim_cache) local_unnamed_addr #0 {

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @syncWrite(i32 noundef %fd, ptr nocapture noundef readonly %ptr, i64 noundef %size, i64 noundef %timeout) local_unnamed_addr #0 {
+define dso_local noundef i64 @syncWrite(i32 noundef %fd, ptr nocapture noundef readonly %ptr, i64 noundef %size, i64 noundef %timeout) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @mstime() #5
   br label %while.body

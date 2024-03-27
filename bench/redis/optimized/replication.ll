@@ -6555,7 +6555,7 @@ entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %call = tail call ptr @sdsempty() #21
   %call1 = tail call ptr @sdsempty() #21
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %overflow_arg_area_p = getelementptr inbounds i8, ptr %ap, i64 8
   %0 = getelementptr inbounds i8, ptr %ap, i64 16
   br label %while.body
@@ -6597,7 +6597,7 @@ while.end:                                        ; preds = %vaarg.end
   %call5 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call, ptr noundef nonnull @.str.137, i64 noundef %argslen.0) #21
   %call6 = call ptr @sdscatsds(ptr noundef %call5, ptr noundef %cmdargs.0) #21
   call void @sdsfree(ptr noundef %cmdargs.0) #21
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   %arrayidx.i.i = getelementptr inbounds i8, ptr %call6, i64 -1
   %5 = load i8, ptr %arrayidx.i.i, align 1
   %conv.i.i = zext i8 %5 to i32
@@ -6666,10 +6666,10 @@ sendCommandRaw.exit:                              ; preds = %sdslen.exit.i, %if.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #16
+declare void @llvm.va_start.p0(ptr) #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #16
+declare void @llvm.va_end.p0(ptr) #16
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @sendCommandArgv(ptr noundef %conn, i32 noundef %argc, ptr nocapture noundef readonly %argv, ptr noundef readonly %argv_lens) local_unnamed_addr #0 {
@@ -8866,13 +8866,13 @@ entry:
   %tobool = icmp ne ptr %0, null
   %1 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 273), align 4
   %tobool1 = icmp eq i32 %1, 0
-  %or.cond.not = select i1 %tobool, i1 true, i1 %tobool1
+  %or.cond.not2 = select i1 %tobool, i1 true, i1 %tobool1
   %2 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 272), align 8
   %tobool3 = icmp eq i32 %2, 0
-  %or.cond1 = select i1 %or.cond.not, i1 true, i1 %tobool3
+  %or.cond1.not = select i1 %or.cond.not2, i1 true, i1 %tobool3
   %3 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 274), align 8
   %cmp = icmp sge i32 %3, %2
-  %narrow = select i1 %or.cond1, i1 true, i1 %cmp
+  %narrow = select i1 %or.cond1.not, i1 true, i1 %cmp
   %lor.ext = zext i1 %narrow to i32
   ret i32 %lor.ext
 }

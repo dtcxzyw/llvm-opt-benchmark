@@ -1133,12 +1133,12 @@ if.end27:                                         ; preds = %if.else25, %if.end
   br i1 %cmp30.not, label %if.end43, label %if.then32
 
 if.then32:                                        ; preds = %if.end27
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call36 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %msg) #32
   %add.ptr37 = getelementptr inbounds i8, ptr %msg, i64 %call36
   %sub = sub i64 1024, %call36
   %call41 = call i32 @vsnprintf(ptr noundef nonnull %add.ptr37, i64 noundef %sub, ptr noundef nonnull %fmt.addr.0, ptr noundef nonnull %ap) #28
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   br label %if.end43
 
 if.end43:                                         ; preds = %if.then32, %if.end27
@@ -1225,7 +1225,7 @@ return:                                           ; preds = %if.else5, %if.else,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #14
+declare void @llvm.va_start.p0(ptr) #14
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
@@ -1234,7 +1234,7 @@ declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #14
+declare void @llvm.va_end.p0(ptr) #14
 
 declare ptr @createStringObject(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1248,7 +1248,7 @@ entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %argv = alloca [17 x ptr], align 16
   %li = alloca %struct.listIter, align 8
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %overflow_arg_area_p = getelementptr inbounds i8, ptr %ap, i64 8
   %0 = getelementptr inbounds i8, ptr %ap, i64 16
   br label %while.body
@@ -1290,7 +1290,7 @@ if.end:                                           ; preds = %vaarg.end
 
 while.end:                                        ; preds = %vaarg.end, %if.end
   %argc.0.lcssa = phi i64 [ %indvars.iv, %vaarg.end ], [ 16, %if.end ]
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   %call9 = call ptr @sdsnew(ptr noundef %path) #28
   store ptr %call9, ptr %argv, align 16
   %call11 = call noalias dereferenceable_or_null(32) ptr @zmalloc(i64 noundef 32) #31
@@ -14123,7 +14123,7 @@ attributes #29 = { noreturn nounwind }
 attributes #30 = { nounwind willreturn memory(none) }
 attributes #31 = { nounwind allocsize(0) }
 attributes #32 = { nounwind willreturn memory(read) }
-attributes #33 = { cold }
+attributes #33 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

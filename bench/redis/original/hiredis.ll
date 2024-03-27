@@ -556,7 +556,7 @@ while.end125:                                     ; preds = %land.end122
 if.end126:                                        ; preds = %while.end125, %while.end104
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %_cpy, i64 0, i64 0
   %80 = load ptr, ptr %ap.addr, align 8
-  call void @llvm.va_copy(ptr %arraydecay, ptr %80)
+  call void @llvm.va_copy.p0(ptr %arraydecay, ptr %80)
   %81 = load ptr, ptr %_p, align 8
   %82 = load i8, ptr %81, align 1
   %conv127 = sext i8 %82 to i32
@@ -851,7 +851,7 @@ if.end283:                                        ; preds = %if.end255
 
 fmt_invalid:                                      ; preds = %if.end283, %if.end282, %if.end254, %if.end221, %if.end193, %if.then130
   %arraydecay284 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %_cpy, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay284)
+  call void @llvm.va_end.p0(ptr %arraydecay284)
   br label %format_err
 
 fmt_valid:                                        ; preds = %vaarg.end280, %vaarg.end252, %vaarg.end219, %vaarg.end191, %vaarg.end160, %vaarg.end146
@@ -886,7 +886,7 @@ if.then288:                                       ; preds = %fmt_valid
 
 if.end295:                                        ; preds = %if.then288, %fmt_valid
   %arraydecay296 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %_cpy, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay296)
+  call void @llvm.va_end.p0(ptr %arraydecay296)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end295, %sw.bb79, %if.end78, %if.end50
@@ -1260,10 +1260,10 @@ declare ptr @strchr(ptr noundef, i32 noundef) #2
 declare ptr @__ctype_b_loc() #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #4
+declare void @llvm.va_copy.p0(ptr, ptr) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #4
+declare void @llvm.va_end.p0(ptr) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
@@ -1363,14 +1363,14 @@ entry:
   store ptr %target, ptr %target.addr, align 8
   store ptr %format, ptr %format.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %target.addr, align 8
   %1 = load ptr, ptr %format.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   %call = call i32 @redisvFormatCommand(ptr noundef %0, ptr noundef %1, ptr noundef %arraydecay1)
   store i32 %call, ptr %len, align 4
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %2 = load i32, ptr %len, align 4
   %cmp = icmp slt i32 %2, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -1385,7 +1385,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #4
+declare void @llvm.va_start.p0(ptr) #4
 
 ; Function Attrs: nounwind uwtable
 define i64 @redisFormatSdsCommandArgv(ptr noundef %target, i32 noundef %argc, ptr noundef %argv, ptr noundef %argvlen) #0 {
@@ -3557,14 +3557,14 @@ entry:
   store ptr %c, ptr %c.addr, align 8
   store ptr %format, ptr %format.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %c.addr, align 8
   %1 = load ptr, ptr %format.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   %call = call i32 @redisvAppendCommand(ptr noundef %0, ptr noundef %1, ptr noundef %arraydecay1)
   store i32 %call, ptr %ret, align 4
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %2 = load i32, ptr %ret, align 4
   ret i32 %2
 }
@@ -3703,14 +3703,14 @@ entry:
   store ptr %c, ptr %c.addr, align 8
   store ptr %format, ptr %format.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %c.addr, align 8
   %1 = load ptr, ptr %format.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   %call = call ptr @redisvCommand(ptr noundef %0, ptr noundef %1, ptr noundef %arraydecay1)
   store ptr %call, ptr %reply, align 8
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %2 = load ptr, ptr %reply, align 8
   ret ptr %2
 }

@@ -8211,12 +8211,12 @@ do.end:                                           ; preds = %malloc_mutex_lock.e
 
 if.then.i:                                        ; preds = %do.end
   call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i) #14
-  call fastcc void @rtree_read(ptr noalias nonnull align 8 %tmp.i, ptr noundef null, ptr noundef nonnull %rtree_ctx_fallback.i, i64 noundef %ptr.0)
+  call fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable align 8 %tmp.i, ptr noundef null, ptr noundef nonnull %rtree_ctx_fallback.i, i64 noundef %ptr.0)
   br label %tsdn_rtree_ctx.exit
 
 if.end.i.split:                                   ; preds = %do.end
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i = getelementptr inbounds i8, ptr %tsd, i64 448
-  call fastcc void @rtree_read(ptr noalias nonnull align 8 %tmp.i, ptr noundef nonnull %tsd, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i, i64 noundef %ptr.0)
+  call fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable align 8 %tmp.i, ptr noundef nonnull %tsd, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i, i64 noundef %ptr.0)
   br label %tsdn_rtree_ctx.exit
 
 tsdn_rtree_ctx.exit:                              ; preds = %if.end.i.split, %if.then.i
@@ -8634,7 +8634,7 @@ return:                                           ; preds = %if.then.i, %if.end6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rtree_read(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef %tsdn, ptr noundef %rtree_ctx, i64 noundef %key) unnamed_addr #0 {
+define internal fastcc void @rtree_read(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %agg.result, ptr noundef %tsdn, ptr noundef %rtree_ctx, i64 noundef %key) unnamed_addr #0 {
 entry:
   %shr.i = lshr i64 %key, 30
   %and.i = and i64 %shr.i, 15

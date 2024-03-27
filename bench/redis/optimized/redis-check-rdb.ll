@@ -121,9 +121,9 @@ define dso_local void @rdbCheckError(ptr nocapture noundef readonly %fmt, ...) l
 entry:
   %msg = alloca [1024 x i8], align 16
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call = call i32 @vsnprintf(ptr noundef nonnull %msg, i64 noundef 1024, ptr noundef %fmt, ptr noundef nonnull %ap) #15
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %0 = load ptr, ptr @rdbstate, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -183,22 +183,22 @@ if.end20:                                         ; preds = %cond.end17, %if.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #2
+declare void @llvm.va_start.p0(ptr) #2
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #2
+declare void @llvm.va_end.p0(ptr) #2
 
 ; Function Attrs: nofree nounwind uwtable
 define dso_local void @rdbCheckInfo(ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #0 {
 entry:
   %msg = alloca [1024 x i8], align 16
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call = call i32 @vsnprintf(ptr noundef nonnull %msg, i64 noundef 1024, ptr noundef %fmt, ptr noundef nonnull %ap) #15
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   %0 = load ptr, ptr @rdbstate, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -218,9 +218,9 @@ cond.end:                                         ; preds = %entry, %cond.true
 define dso_local void @rdbCheckSetError(ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call = call i32 @vsnprintf(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @rdbstate, i64 0, i32 8), i64 noundef 1024, ptr noundef %fmt, ptr noundef nonnull %ap) #15
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   store i32 1, ptr getelementptr inbounds (%struct.anon, ptr @rdbstate, i64 0, i32 7), align 4
   ret void
 }
@@ -983,7 +983,7 @@ attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: r
 attributes #15 = { nounwind }
 attributes #16 = { noreturn nounwind }
 attributes #17 = { nounwind willreturn memory(read) }
-attributes #18 = { cold }
+attributes #18 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

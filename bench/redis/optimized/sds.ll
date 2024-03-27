@@ -2028,9 +2028,9 @@ while.body.preheader:                             ; preds = %entry, %if.then
 while.body:                                       ; preds = %while.body.preheader, %if.end23
   %buf.1 = phi ptr [ %call25, %if.end23 ], [ %buf.1.ph, %while.body.preheader ]
   %buflen.1 = phi i64 [ %add, %if.end23 ], [ %buflen.1.ph, %while.body.preheader ]
-  call void @llvm.va_copy(ptr nonnull %cpy, ptr %ap)
+  call void @llvm.va_copy.p0(ptr nonnull %cpy, ptr %ap)
   %call7 = call i32 @vsnprintf(ptr noundef nonnull %buf.1, i64 noundef %buflen.1, ptr noundef %fmt, ptr noundef nonnull %cpy) #25
-  call void @llvm.va_end(ptr nonnull %cpy)
+  call void @llvm.va_end.p0(ptr nonnull %cpy)
   %cmp9 = icmp slt i32 %call7, 0
   br i1 %cmp9, label %if.then10, label %if.end15
 
@@ -2168,26 +2168,26 @@ return:                                           ; preds = %if.end23, %return.s
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #13
+declare void @llvm.va_copy.p0(ptr, ptr) #13
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #13
+declare void @llvm.va_end.p0(ptr) #13
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @sdscatprintf(ptr noundef %s, ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call = call ptr @sdscatvprintf(ptr noundef %s, ptr noundef %fmt, ptr noundef nonnull %ap)
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #13
+declare void @llvm.va_start.p0(ptr) #13
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @sdscatfmt(ptr noundef %s, ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #0 {
@@ -2240,7 +2240,7 @@ sdslen.exit:                                      ; preds = %entry, %sw.bb.i, %s
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %fmt) #27
   %mul = shl i64 %call1, 1
   %call.i = tail call ptr @_sdsMakeRoomFor(ptr noundef nonnull %s, i64 noundef %mul, i32 noundef 1)
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %5 = load i8, ptr %fmt, align 1
   %tobool.not234 = icmp eq i8 %5, 0
   br i1 %tobool.not234, label %while.end, label %while.body.lr.ph
@@ -2959,7 +2959,7 @@ sw.epilog116:                                     ; preds = %sw.bb23.i216, %sw.b
 while.end:                                        ; preds = %sw.epilog116, %sdslen.exit
   %i.0.lcssa = phi i64 [ %retval.0.i, %sdslen.exit ], [ %i.1, %sw.epilog116 ]
   %s.addr.0.lcssa = phi ptr [ %call.i, %sdslen.exit ], [ %s.addr.5, %sw.epilog116 ]
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   %arrayidx119 = getelementptr inbounds i8, ptr %s.addr.0.lcssa, i64 %i.0.lcssa
   store i8 0, ptr %arrayidx119, align 1
   ret ptr %s.addr.0.lcssa

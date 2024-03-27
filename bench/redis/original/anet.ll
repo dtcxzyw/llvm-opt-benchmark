@@ -178,13 +178,13 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %1 = load ptr, ptr %err.addr, align 8
   %2 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   %call = call i32 @vsnprintf(ptr noundef %1, i64 noundef 256, ptr noundef %2, ptr noundef %arraydecay1) #7
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -2286,13 +2286,13 @@ return:                                           ; preds = %if.end, %if.then
 declare i32 @stat64(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #6
+declare void @llvm.va_start.p0(ptr) #6
 
 ; Function Attrs: nounwind
 declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #6
+declare void @llvm.va_end.p0(ptr) #6
 
 ; Function Attrs: nounwind
 declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) #1

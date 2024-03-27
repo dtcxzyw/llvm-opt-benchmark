@@ -557,8 +557,8 @@ if.end:                                           ; preds = %entry
   %cmp.not = icmp ne i32 %1, -1
   %2 = and i32 %flags, 6
   %or.cond65 = icmp eq i32 %2, 2
-  %or.cond103 = or i1 %or.cond65, %cmp.not
-  br i1 %or.cond103, label %if.then8, label %if.end105
+  %or.cond105 = or i1 %or.cond65, %cmp.not
+  br i1 %or.cond105, label %if.then8, label %if.end105
 
 if.then8:                                         ; preds = %if.end
   %beforesleep = getelementptr inbounds i8, ptr %eventLoop, i64 56
@@ -651,8 +651,8 @@ cond.end.i:                                       ; preds = %if.then25, %if.else
   %.pn.in = getelementptr inbounds i8, ptr %eventLoop, i64 48
   %.pn = load ptr, ptr %.pn.in, align 8
   %18 = load i32, ptr %.pn, align 8
-  %events.i87 = getelementptr inbounds i8, ptr %.pn, i64 8
-  %19 = load ptr, ptr %events.i87, align 8
+  %events.i89 = getelementptr inbounds i8, ptr %.pn, i64 8
+  %19 = load ptr, ptr %events.i89, align 8
   %.in = getelementptr inbounds i8, ptr %eventLoop, i64 4
   %20 = load i32, ptr %.in, align 4
   %call.i69 = tail call i32 @epoll_wait(i32 noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %cond.i) #16
@@ -666,7 +666,7 @@ for.cond.preheader.i:                             ; preds = %cond.end.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.cond.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %21 = load ptr, ptr %events.i87, align 8
+  %21 = load ptr, ptr %events.i89, align 8
   %add.ptr.i = getelementptr inbounds %struct.epoll_event, ptr %21, i64 %indvars.iv.i
   %22 = load i32, ptr %add.ptr.i, align 1
   %and.i = and i32 %22, 1
@@ -720,9 +720,9 @@ if.then42:                                        ; preds = %aeApiPoll.exit
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then42, %aeApiPoll.exit
-  %cmp4564115 = icmp ne i32 %numevents.0.i, 0
-  %cmp45116 = and i1 %tobool35.not, %cmp4564115
-  br i1 %cmp45116, label %for.body.lr.ph, label %if.end105
+  %cmp4564117 = icmp ne i32 %numevents.0.i, 0
+  %cmp45118 = and i1 %tobool35.not, %cmp4564117
+  br i1 %cmp45118, label %for.body.lr.ph, label %if.end105
 
 for.body.lr.ph:                                   ; preds = %if.end44
   %fired = getelementptr inbounds i8, ptr %eventLoop, i64 24
@@ -771,10 +771,10 @@ if.end66.thread:                                  ; preds = %land.lhs.true57
   %39 = load ptr, ptr %events, align 8
   %arrayidx65 = getelementptr inbounds %struct.aeFileEvent, ptr %39, i64 %idxprom47
   %40 = load i32, ptr %arrayidx65, align 8
-  %and6891 = and i32 %35, 2
-  %and6992 = and i32 %and6891, %40
-  %tobool70.not93 = icmp eq i32 %and6992, 0
-  br i1 %tobool70.not93, label %if.end102, label %lor.lhs.false73
+  %and6893 = and i32 %35, 2
+  %and6994 = and i32 %and6893, %40
+  %tobool70.not95 = icmp eq i32 %and6994, 0
+  br i1 %tobool70.not95, label %if.end102, label %lor.lhs.false73
 
 lor.lhs.false73:                                  ; preds = %if.end66.thread
   %wfileProc = getelementptr inbounds i8, ptr %arrayidx65, i64 16
@@ -810,7 +810,7 @@ land.lhs.true91:                                  ; preds = %if.then83
 
 land.lhs.true91.if.then97_crit_edge:              ; preds = %land.lhs.true91
   %rfileProc98.phi.trans.insert = getelementptr inbounds i8, ptr %arrayidx86, i64 8
-  %.pre134 = load ptr, ptr %rfileProc98.phi.trans.insert, align 8
+  %.pre136 = load ptr, ptr %rfileProc98.phi.trans.insert, align 8
   br label %if.then97
 
 lor.lhs.false93:                                  ; preds = %land.lhs.true91
@@ -822,7 +822,7 @@ lor.lhs.false93:                                  ; preds = %land.lhs.true91
   br i1 %cmp96.not, label %if.end102, label %if.then97
 
 if.then97:                                        ; preds = %land.lhs.true91.if.then97_crit_edge, %lor.lhs.false93
-  %50 = phi ptr [ %.pre134, %land.lhs.true91.if.then97_crit_edge ], [ %49, %lor.lhs.false93 ]
+  %50 = phi ptr [ %.pre136, %land.lhs.true91.if.then97_crit_edge ], [ %49, %lor.lhs.false93 ]
   %clientData99 = getelementptr inbounds i8, ptr %arrayidx86, i64 24
   %51 = load ptr, ptr %clientData99, align 8
   tail call void %50(ptr noundef nonnull %eventLoop, i32 noundef %33, ptr noundef %51, i32 noundef %35) #16

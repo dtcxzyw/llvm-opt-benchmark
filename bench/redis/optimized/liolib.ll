@@ -870,7 +870,7 @@ if.then:                                          ; preds = %for.body
 
 land.rhs:                                         ; preds = %if.then
   %call3 = call double @lua_tonumber(ptr noundef %L, i32 noundef %arg.addr.027) #9
-  %call4 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %f, ptr noundef nonnull @.str.31, double noundef %call3)
+  %call4 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %f, ptr noundef nonnull @.str.31, double noundef %call3) #9
   %cmp5 = icmp sgt i32 %call4, 0
   br label %for.inc
 

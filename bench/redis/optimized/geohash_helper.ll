@@ -124,7 +124,7 @@ return:                                           ; preds = %entry, %cond.end14
 declare double @cos(double noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @geohashCalculateAreasByShapeWGS84(ptr noalias nocapture writeonly sret(%struct.GeoHashRadius) align 8 %agg.result, ptr nocapture noundef %shape) local_unnamed_addr #3 {
+define dso_local void @geohashCalculateAreasByShapeWGS84(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.GeoHashRadius) align 8 %agg.result, ptr nocapture noundef %shape) local_unnamed_addr #3 {
 entry:
   %long_range = alloca %struct.GeoHashRange, align 8
   %lat_range = alloca %struct.GeoHashRange, align 8

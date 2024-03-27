@@ -2656,7 +2656,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %if.end.i232, %if.th
   %253 = load ptr, ptr %rtree_ctx.i, align 8
   %254 = load ptr, ptr %ptr.addr.i223, align 8
   %255 = ptrtoint ptr %254 to i64
-  call void @rtree_read(ptr sret(%struct.rtree_contents_s) align 8 %tmp.i, ptr noundef %251, ptr noundef %252, ptr noundef %253, i64 noundef %255)
+  call void @rtree_read(ptr dead_on_unwind writable sret(%struct.rtree_contents_s) align 8 %tmp.i, ptr noundef %251, ptr noundef %252, ptr noundef %253, i64 noundef %255)
   %256 = load ptr, ptr %tmp.i, align 8
   store ptr %256, ptr %edata.i, align 8
   %257 = load ptr, ptr %edata.i, align 8
@@ -3203,7 +3203,7 @@ tsdn_rtree_ctx.exit.i:                            ; preds = %if.end.i43.i, %if.t
   %37 = load ptr, ptr %rtree_ctx.i.i, align 8
   %38 = load ptr, ptr %ptr.addr.i39.i, align 8
   %39 = ptrtoint ptr %38 to i64
-  call void @rtree_read(ptr sret(%struct.rtree_contents_s) align 8 %tmp.i.i, ptr noundef %35, ptr noundef %36, ptr noundef %37, i64 noundef %39)
+  call void @rtree_read(ptr dead_on_unwind writable sret(%struct.rtree_contents_s) align 8 %tmp.i.i, ptr noundef %35, ptr noundef %36, ptr noundef %37, i64 noundef %39)
   %40 = load ptr, ptr %tmp.i.i, align 8
   store ptr %40, ptr %edata.i.i, align 8
   %41 = load ptr, ptr %edata.i.i, align 8
@@ -3990,7 +3990,7 @@ tsdn_rtree_ctx.exit.i89:                          ; preds = %if.end.i.i86, %if.t
   %321 = load ptr, ptr %rtree_ctx.i.i72, align 8
   %322 = load ptr, ptr %ptr.addr.i.i70, align 8
   %323 = ptrtoint ptr %322 to i64
-  call void @rtree_read(ptr sret(%struct.rtree_contents_s) align 8 %tmp.i.i73, ptr noundef %319, ptr noundef %320, ptr noundef %321, i64 noundef %323)
+  call void @rtree_read(ptr dead_on_unwind writable sret(%struct.rtree_contents_s) align 8 %tmp.i.i73, ptr noundef %319, ptr noundef %320, ptr noundef %321, i64 noundef %323)
   %324 = load ptr, ptr %tmp.i.i73, align 8
   store ptr %324, ptr %edata.i, align 8
   %325 = load ptr, ptr %edata.i, align 8
@@ -6603,7 +6603,7 @@ do.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rtree_read(ptr noalias sret(%struct.rtree_contents_s) align 8 %agg.result, ptr noundef %tsdn, ptr noundef %rtree, ptr noundef %rtree_ctx, i64 noundef %key) #0 {
+define internal void @rtree_read(ptr dead_on_unwind noalias writable sret(%struct.rtree_contents_s) align 8 %agg.result, ptr noundef %tsdn, ptr noundef %rtree, ptr noundef %rtree_ctx, i64 noundef %key) #0 {
 entry:
   %bits.addr.i = alloca i64, align 8
   %state_bits.i = alloca i64, align 8
@@ -8149,7 +8149,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %if.end.i, %if.then.
   %18 = load ptr, ptr %rtree_ctx.i, align 8
   %19 = load ptr, ptr %ptr.addr.i, align 8
   %20 = ptrtoint ptr %19 to i64
-  call void @rtree_read(ptr sret(%struct.rtree_contents_s) align 8 %tmp.i, ptr noundef %16, ptr noundef %17, ptr noundef %18, i64 noundef %20)
+  call void @rtree_read(ptr dead_on_unwind writable sret(%struct.rtree_contents_s) align 8 %tmp.i, ptr noundef %16, ptr noundef %17, ptr noundef %18, i64 noundef %20)
   %21 = load ptr, ptr %tmp.i, align 8
   store ptr %21, ptr %edata, align 8
   %22 = load ptr, ptr %edata, align 8
@@ -8385,7 +8385,7 @@ entry:
   store ptr %emitter, ptr %emitter.addr, align 8
   store ptr %format, ptr %format.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %emitter.addr, align 8
   %write_cb = getelementptr inbounds %struct.emitter_s, ptr %0, i32 0, i32 1
   %1 = load ptr, ptr %write_cb, align 8
@@ -8396,7 +8396,7 @@ entry:
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   call void @malloc_vcprintf(ptr noundef %1, ptr noundef %3, ptr noundef %4, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   ret void
 }
 
@@ -8417,12 +8417,12 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
+declare void @llvm.va_start.p0(ptr) #7
 
 declare void @malloc_vcprintf(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
+declare void @llvm.va_end.p0(ptr) #7
 
 ; Function Attrs: nounwind uwtable
 define internal void @emitter_json_key(ptr noundef %emitter, ptr noundef %json_key) #0 {

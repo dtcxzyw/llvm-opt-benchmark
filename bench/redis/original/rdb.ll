@@ -259,7 +259,7 @@ entry:
   %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay, i64 noundef 1024, ptr noundef @.str, i64 noundef %0, i32 noundef %1) #11
   store i32 %call, ptr %len, align 4
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay1)
+  call void @llvm.va_start.p0(ptr %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1024 x i8], ptr %msg, i64 0, i64 0
   %2 = load i32, ptr %len, align 4
   %idx.ext = sext i32 %2 to i64
@@ -271,7 +271,7 @@ entry:
   %arraydecay3 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   %call4 = call i32 @vsnprintf(ptr noundef %add.ptr, i64 noundef %sub, ptr noundef %4, ptr noundef %arraydecay3) #11
   %arraydecay5 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay5)
+  call void @llvm.va_end.p0(ptr %arraydecay5)
   %5 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 61), align 8
   %cmp = icmp eq ptr %5, null
   br i1 %cmp, label %cond.true, label %lor.lhs.false
@@ -441,13 +441,13 @@ return:                                           ; preds = %do.end49, %if.then2
 declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #2
+declare void @llvm.va_start.p0(ptr) #2
 
 ; Function Attrs: nounwind
 declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #2
+declare void @llvm.va_end.p0(ptr) #2
 
 declare void @_serverLog(i32 noundef, ptr noundef, ...) #3
 

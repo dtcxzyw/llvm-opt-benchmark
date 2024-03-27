@@ -2556,14 +2556,14 @@ entry:
   store ptr %c, ptr %c.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %call = call ptr @sdsempty()
   %0 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   %call2 = call ptr @sdscatvprintf(ptr noundef %call, ptr noundef %0, ptr noundef %arraydecay1)
   store ptr %call2, ptr %info, align 8
   %arraydecay3 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay3)
+  call void @llvm.va_end.p0(ptr %arraydecay3)
   %call4 = call ptr @sdsempty()
   %1 = load ptr, ptr %c.addr, align 8
   %call5 = call ptr @catClientInfoString(ptr noundef %call4, ptr noundef %1)
@@ -3331,14 +3331,14 @@ entry:
   store ptr %ap, ptr %ap.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %cpy, i64 0, i64 0
   %0 = load ptr, ptr %ap.addr, align 8
-  call void @llvm.va_copy(ptr %arraydecay, ptr %0)
+  call void @llvm.va_copy.p0(ptr %arraydecay, ptr %0)
   %call = call ptr @sdsempty()
   %1 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %cpy, i64 0, i64 0
   %call2 = call ptr @sdscatvprintf(ptr noundef %call, ptr noundef %1, ptr noundef %arraydecay1)
   store ptr %call2, ptr %s, align 8
   %arraydecay3 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %cpy, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay3)
+  call void @llvm.va_end.p0(ptr %arraydecay3)
   %2 = load ptr, ptr %s, align 8
   %call4 = call ptr @sdstrim(ptr noundef %2, ptr noundef @.str.6)
   store ptr %call4, ptr %s, align 8
@@ -3362,12 +3362,12 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #7
+declare void @llvm.va_copy.p0(ptr, ptr) #7
 
 declare ptr @sdscatvprintf(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
+declare void @llvm.va_end.p0(ptr) #7
 
 declare ptr @sdstrim(ptr noundef, ptr noundef) #1
 
@@ -3382,19 +3382,19 @@ entry:
   store i32 %flags, ptr %flags.addr, align 4
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %c.addr, align 8
   %1 = load i32, ptr %flags.addr, align 4
   %2 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   call void @addReplyErrorFormatInternal(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
+declare void @llvm.va_start.p0(ptr) #7
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @addReplyErrorFormat(ptr noundef %c, ptr noundef %fmt, ...) #0 {
@@ -3405,13 +3405,13 @@ entry:
   store ptr %c, ptr %c.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %c.addr, align 8
   %1 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   call void @addReplyErrorFormatInternal(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   ret void
 }
 
@@ -3490,14 +3490,14 @@ entry:
   store ptr %c, ptr %c.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %call = call ptr @sdsempty()
   %0 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   %call2 = call ptr @sdscatvprintf(ptr noundef %call, ptr noundef %0, ptr noundef %arraydecay1)
   store ptr %call2, ptr %s, align 8
   %arraydecay3 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay3)
+  call void @llvm.va_end.p0(ptr %arraydecay3)
   %1 = load ptr, ptr %c.addr, align 8
   %2 = load ptr, ptr %s, align 8
   %3 = load ptr, ptr %s, align 8
@@ -15331,7 +15331,7 @@ entry:
   %call = call noalias ptr @zmalloc(i64 noundef %mul) #14
   store ptr %call, ptr %argv, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   store i32 0, ptr %j, align 4
   br label %for.cond
 
@@ -15389,7 +15389,7 @@ for.end:                                          ; preds = %for.cond
   %14 = load ptr, ptr %argv, align 8
   call void @replaceClientCommandVector(ptr noundef %12, i32 noundef %13, ptr noundef %14)
   %arraydecay3 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay3)
+  call void @llvm.va_end.p0(ptr %arraydecay3)
   ret void
 }
 

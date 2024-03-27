@@ -1379,13 +1379,13 @@ if.end607:                                        ; preds = %if.then602, %if.els
 
 cond.true609:                                     ; preds = %if.end607
   %conv610542 = zext i32 %getop.0.lcssa to i64
-  %sub611 = add i64 %end.2, 1
+  %sub611 = add nsw i64 %end.2, 1
   %add612 = sub i64 %sub611, %start.1
   %mul613 = mul i64 %add612, %conv610542
   br label %cond.end617
 
 cond.false614:                                    ; preds = %if.end607
-  %sub615 = add i64 %end.2, 1
+  %sub615 = add nsw i64 %end.2, 1
   %add616 = sub i64 %sub615, %start.1
   br label %cond.end617
 

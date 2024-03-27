@@ -682,7 +682,7 @@ if.end29:                                         ; preds = %if.else21, %if.else
   %arrayidx32 = getelementptr inbounds i8, ptr @.str, i64 %idxprom
   %11 = load i8, ptr %arrayidx32, align 1
   %conv33 = sext i8 %11 to i32
-  %call34 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %cond, ptr noundef nonnull @.str.5, i32 noundef %call30, i32 noundef %role_char.0, ptr noundef nonnull %buf, i32 noundef %conv33, ptr noundef %msg)
+  %call34 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %cond, ptr noundef nonnull @.str.5, i32 noundef %call30, i32 noundef %role_char.0, ptr noundef nonnull %buf, i32 noundef %conv33, ptr noundef %msg) #38
   br label %if.end35
 
 if.end35:                                         ; preds = %if.end29, %if.then9
@@ -745,21 +745,21 @@ define dso_local void @_serverLog(i32 noundef %level, ptr nocapture noundef read
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %msg = alloca [1024 x i8], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call = call i32 @vsnprintf(ptr noundef nonnull %msg, i64 noundef 1024, ptr noundef %fmt, ptr noundef nonnull %ap) #38
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   call void @serverLogRaw(i32 noundef %level, ptr noundef nonnull %msg)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
+declare void @llvm.va_start.p0(ptr) #5
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
+declare void @llvm.va_end.p0(ptr) #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @serverLogRawFromHandler(i32 noundef %level, ptr nocapture noundef readonly %msg) local_unnamed_addr #0 {
@@ -867,9 +867,9 @@ define dso_local void @serverLogFromHandler(i32 noundef %level, ptr noundef %fmt
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %msg = alloca [1024 x i8], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call = call i32 @vsnprintf_async_signal_safe(ptr noundef nonnull %msg, i64 noundef 1024, ptr noundef %fmt, ptr noundef nonnull %ap) #38
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   call void @serverLogRawFromHandler(i32 noundef %level, ptr noundef nonnull %msg)
   ret void
 }
@@ -9816,10 +9816,10 @@ declare void @addReplyErrorSds(ptr noundef, ptr noundef) local_unnamed_addr #4
 define dso_local void @rejectCommandFormat(ptr noundef %c, ptr noundef %fmt, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call = call ptr @sdsempty() #38
   %call2 = call ptr @sdscatvprintf(ptr noundef %call, ptr noundef %fmt, ptr noundef nonnull %ap) #38
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   %call4 = call ptr @sdsmapchars(ptr noundef %call2, ptr noundef nonnull @.str.170, ptr noundef nonnull @.str.171, i64 noundef 2) #38
   call void @flagTransaction(ptr noundef %c) #38
   %duration.i = getelementptr inbounds i8, ptr %c, i64 216
@@ -16119,7 +16119,7 @@ if.end:                                           ; preds = %if.then, %entry
 
 if.then3:                                         ; preds = %if.end
   %call4 = tail call i32 @getpid() #38
-  %call5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call1, ptr noundef nonnull @.str.132, i32 noundef %call4)
+  %call5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call1, ptr noundef nonnull @.str.132, i32 noundef %call4) #38
   %call6 = tail call i32 @fclose(ptr noundef nonnull %call1)
   br label %if.end11
 

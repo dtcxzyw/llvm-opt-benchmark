@@ -100,7 +100,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local ptr @geoArrayCreate() #0 {
 entry:
   %ga = alloca ptr, align 8
-  %call = call noalias ptr @zmalloc(i64 noundef 24) #8
+  %call = call noalias ptr @zmalloc(i64 noundef 24) #9
   store ptr %call, ptr %ga, align 8
   %0 = load ptr, ptr %ga, align 8
   %array = getelementptr inbounds %struct.geoArray, ptr %0, i32 0, i32 0
@@ -170,7 +170,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %buckets5 = getelementptr inbounds %struct.geoArray, ptr %11, i32 0, i32 1
   %12 = load i64, ptr %buckets5, align 8
   %mul6 = mul i64 40, %12
-  %call = call ptr @zrealloc(ptr noundef %10, i64 noundef %mul6) #9
+  %call = call ptr @zrealloc(ptr noundef %10, i64 noundef %mul6) #10
   %13 = load ptr, ptr %ga.addr, align 8
   %array7 = getelementptr inbounds %struct.geoArray, ptr %13, i32 0, i32 0
   store ptr %call, ptr %array7, align 8
@@ -454,7 +454,7 @@ entry:
   %1 = load ptr, ptr %ptr, align 8
   store ptr %1, ptr %u, align 8
   %2 = load ptr, ptr %u, align 8
-  %call = call i32 @strcasecmp(ptr noundef %2, ptr noundef @.str.1) #10
+  %call = call i32 @strcasecmp(ptr noundef %2, ptr noundef @.str.1) #11
   %tobool = icmp ne i32 %call, 0
   br i1 %tobool, label %if.else, label %if.then
 
@@ -464,7 +464,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %3 = load ptr, ptr %u, align 8
-  %call1 = call i32 @strcasecmp(ptr noundef %3, ptr noundef @.str.2) #10
+  %call1 = call i32 @strcasecmp(ptr noundef %3, ptr noundef @.str.2) #11
   %tobool2 = icmp ne i32 %call1, 0
   br i1 %tobool2, label %if.else4, label %if.then3
 
@@ -474,7 +474,7 @@ if.then3:                                         ; preds = %if.else
 
 if.else4:                                         ; preds = %if.else
   %4 = load ptr, ptr %u, align 8
-  %call5 = call i32 @strcasecmp(ptr noundef %4, ptr noundef @.str.3) #10
+  %call5 = call i32 @strcasecmp(ptr noundef %4, ptr noundef @.str.3) #11
   %tobool6 = icmp ne i32 %call5, 0
   br i1 %tobool6, label %if.else8, label %if.then7
 
@@ -484,7 +484,7 @@ if.then7:                                         ; preds = %if.else4
 
 if.else8:                                         ; preds = %if.else4
   %5 = load ptr, ptr %u, align 8
-  %call9 = call i32 @strcasecmp(ptr noundef %5, ptr noundef @.str.4) #10
+  %call9 = call i32 @strcasecmp(ptr noundef %5, ptr noundef @.str.4) #11
   %tobool10 = icmp ne i32 %call9, 0
   br i1 %tobool10, label %if.else12, label %if.then11
 
@@ -1353,12 +1353,12 @@ do.body:                                          ; preds = %if.then23
   %call = call noalias ptr @fopen64(ptr noundef @.str.11, ptr noundef @.str.12)
   store ptr %call, ptr %fp, align 8
   %15 = load ptr, ptr %fp, align 8
-  %call24 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef @.str.13, ptr noundef @.str.14, ptr noundef @__func__.membersOfAllNeighbors, i32 noundef 384)
+  %call24 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef @.str.13, ptr noundef @.str.14, ptr noundef @__func__.membersOfAllNeighbors, i32 noundef 384) #12
   %16 = load ptr, ptr %fp, align 8
   %17 = load i32, ptr %i, align 4
-  %call25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef @.str.15, i32 noundef %17)
+  %call25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef @.str.15, i32 noundef %17) #12
   %18 = load ptr, ptr %fp, align 8
-  %call26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef @.str.16)
+  %call26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef @.str.16) #12
   %19 = load ptr, ptr %fp, align 8
   %call27 = call i32 @fclose(ptr noundef %19)
   br label %do.end
@@ -1399,12 +1399,12 @@ do.body34:                                        ; preds = %if.then30
   %call36 = call noalias ptr @fopen64(ptr noundef @.str.11, ptr noundef @.str.12)
   store ptr %call36, ptr %fp35, align 8
   %34 = load ptr, ptr %fp35, align 8
-  %call37 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef @.str.13, ptr noundef @.str.14, ptr noundef @__func__.membersOfAllNeighbors, i32 noundef 396)
+  %call37 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef @.str.13, ptr noundef @.str.14, ptr noundef @__func__.membersOfAllNeighbors, i32 noundef 396) #12
   %35 = load ptr, ptr %fp35, align 8
   %36 = load i32, ptr %i, align 4
-  %call38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef @.str.17, i32 noundef %36)
+  %call38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef @.str.17, i32 noundef %36) #12
   %37 = load ptr, ptr %fp35, align 8
-  %call39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef @.str.16)
+  %call39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef @.str.16) #12
   %38 = load ptr, ptr %fp35, align 8
   %call40 = call i32 @fclose(ptr noundef %38)
   br label %do.end41
@@ -1416,14 +1416,14 @@ do.body42:                                        ; preds = %do.end41
   %call44 = call noalias ptr @fopen64(ptr noundef @.str.11, ptr noundef @.str.12)
   store ptr %call44, ptr %fp43, align 8
   %39 = load ptr, ptr %fp43, align 8
-  %call45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef @.str.13, ptr noundef @.str.14, ptr noundef @__func__.membersOfAllNeighbors, i32 noundef 397)
+  %call45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef @.str.13, ptr noundef @.str.14, ptr noundef @__func__.membersOfAllNeighbors, i32 noundef 397) #12
   %40 = load ptr, ptr %fp43, align 8
   %longitude = getelementptr inbounds %struct.GeoHashArea, ptr %myarea, i32 0, i32 1
   %min = getelementptr inbounds %struct.GeoHashRange, ptr %longitude, i32 0, i32 0
   %41 = load double, ptr %min, align 8
-  %call46 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef @.str.18, double noundef %41)
+  %call46 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef @.str.18, double noundef %41) #12
   %42 = load ptr, ptr %fp43, align 8
-  %call47 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef @.str.16)
+  %call47 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef @.str.16) #12
   %43 = load ptr, ptr %fp43, align 8
   %call48 = call i32 @fclose(ptr noundef %43)
   br label %do.end49
@@ -1435,14 +1435,14 @@ do.body50:                                        ; preds = %do.end49
   %call52 = call noalias ptr @fopen64(ptr noundef @.str.11, ptr noundef @.str.12)
   store ptr %call52, ptr %fp51, align 8
   %44 = load ptr, ptr %fp51, align 8
-  %call53 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef @.str.13, ptr noundef @.str.14, ptr noundef @__func__.membersOfAllNeighbors, i32 noundef 398)
+  %call53 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef @.str.13, ptr noundef @.str.14, ptr noundef @__func__.membersOfAllNeighbors, i32 noundef 398) #12
   %45 = load ptr, ptr %fp51, align 8
   %longitude54 = getelementptr inbounds %struct.GeoHashArea, ptr %myarea, i32 0, i32 1
   %max = getelementptr inbounds %struct.GeoHashRange, ptr %longitude54, i32 0, i32 1
   %46 = load double, ptr %max, align 8
-  %call55 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef @.str.19, double noundef %46)
+  %call55 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef @.str.19, double noundef %46) #12
   %47 = load ptr, ptr %fp51, align 8
-  %call56 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef @.str.16)
+  %call56 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef @.str.16) #12
   %48 = load ptr, ptr %fp51, align 8
   %call57 = call i32 @fclose(ptr noundef %48)
   br label %do.end58
@@ -1454,14 +1454,14 @@ do.body59:                                        ; preds = %do.end58
   %call61 = call noalias ptr @fopen64(ptr noundef @.str.11, ptr noundef @.str.12)
   store ptr %call61, ptr %fp60, align 8
   %49 = load ptr, ptr %fp60, align 8
-  %call62 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef @.str.13, ptr noundef @.str.14, ptr noundef @__func__.membersOfAllNeighbors, i32 noundef 399)
+  %call62 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef @.str.13, ptr noundef @.str.14, ptr noundef @__func__.membersOfAllNeighbors, i32 noundef 399) #12
   %50 = load ptr, ptr %fp60, align 8
   %latitude = getelementptr inbounds %struct.GeoHashArea, ptr %myarea, i32 0, i32 2
   %min63 = getelementptr inbounds %struct.GeoHashRange, ptr %latitude, i32 0, i32 0
   %51 = load double, ptr %min63, align 8
-  %call64 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef @.str.20, double noundef %51)
+  %call64 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef @.str.20, double noundef %51) #12
   %52 = load ptr, ptr %fp60, align 8
-  %call65 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef @.str.16)
+  %call65 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef @.str.16) #12
   %53 = load ptr, ptr %fp60, align 8
   %call66 = call i32 @fclose(ptr noundef %53)
   br label %do.end67
@@ -1473,14 +1473,14 @@ do.body68:                                        ; preds = %do.end67
   %call70 = call noalias ptr @fopen64(ptr noundef @.str.11, ptr noundef @.str.12)
   store ptr %call70, ptr %fp69, align 8
   %54 = load ptr, ptr %fp69, align 8
-  %call71 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef @.str.13, ptr noundef @.str.14, ptr noundef @__func__.membersOfAllNeighbors, i32 noundef 400)
+  %call71 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef @.str.13, ptr noundef @.str.14, ptr noundef @__func__.membersOfAllNeighbors, i32 noundef 400) #12
   %55 = load ptr, ptr %fp69, align 8
   %latitude72 = getelementptr inbounds %struct.GeoHashArea, ptr %myarea, i32 0, i32 2
   %max73 = getelementptr inbounds %struct.GeoHashRange, ptr %latitude72, i32 0, i32 1
   %56 = load double, ptr %max73, align 8
-  %call74 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef @.str.21, double noundef %56)
+  %call74 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef @.str.21, double noundef %56) #12
   %57 = load ptr, ptr %fp69, align 8
-  %call75 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef @.str.16)
+  %call75 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef @.str.16) #12
   %58 = load ptr, ptr %fp69, align 8
   %call76 = call i32 @fclose(ptr noundef %58)
   br label %do.end77
@@ -1492,11 +1492,11 @@ do.body78:                                        ; preds = %do.end77
   %call80 = call noalias ptr @fopen64(ptr noundef @.str.11, ptr noundef @.str.12)
   store ptr %call80, ptr %fp79, align 8
   %59 = load ptr, ptr %fp79, align 8
-  %call81 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef @.str.13, ptr noundef @.str.14, ptr noundef @__func__.membersOfAllNeighbors, i32 noundef 401)
+  %call81 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef @.str.13, ptr noundef @.str.14, ptr noundef @__func__.membersOfAllNeighbors, i32 noundef 401) #12
   %60 = load ptr, ptr %fp79, align 8
-  %call82 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef @.str.16)
+  %call82 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef @.str.16) #12
   %61 = load ptr, ptr %fp79, align 8
-  %call83 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef @.str.16)
+  %call83 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef @.str.16) #12
   %62 = load ptr, ptr %fp79, align 8
   %call84 = call i32 @fclose(ptr noundef %62)
   br label %do.end85
@@ -1551,12 +1551,12 @@ do.body111:                                       ; preds = %if.then110
   %call113 = call noalias ptr @fopen64(ptr noundef @.str.11, ptr noundef @.str.12)
   store ptr %call113, ptr %fp112, align 8
   %73 = load ptr, ptr %fp112, align 8
-  %call114 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef @.str.13, ptr noundef @.str.14, ptr noundef @__func__.membersOfAllNeighbors, i32 noundef 413)
+  %call114 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef @.str.13, ptr noundef @.str.14, ptr noundef @__func__.membersOfAllNeighbors, i32 noundef 413) #12
   %74 = load ptr, ptr %fp112, align 8
   %75 = load i32, ptr %i, align 4
-  %call115 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %74, ptr noundef @.str.22, i32 noundef %75)
+  %call115 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %74, ptr noundef @.str.22, i32 noundef %75) #12
   %76 = load ptr, ptr %fp112, align 8
-  %call116 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef @.str.16)
+  %call116 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef @.str.16) #12
   %77 = load ptr, ptr %fp112, align 8
   %call117 = call i32 @fclose(ptr noundef %77)
   br label %do.end118
@@ -1626,14 +1626,15 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 declare noalias ptr @fopen64(ptr noundef, ptr noundef) #3
 
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #3
+; Function Attrs: nounwind
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #6
 
 declare i32 @fclose(ptr noundef) #3
 
 declare void @geohashGetCoordRange(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 declare i32 @geohashDecode(double, double, double, double, i64, i8, ptr noundef) #3
 
@@ -1680,7 +1681,7 @@ while.body:                                       ; preds = %while.cond
   %7 = load ptr, ptr %ptr, align 8
   store ptr %7, ptr %opt, align 8
   %8 = load ptr, ptr %opt, align 8
-  %call = call i32 @strcasecmp(ptr noundef %8, ptr noundef @.str.23) #10
+  %call = call i32 @strcasecmp(ptr noundef %8, ptr noundef @.str.23) #11
   %tobool = icmp ne i32 %call, 0
   br i1 %tobool, label %if.else, label %if.then
 
@@ -1690,7 +1691,7 @@ if.then:                                          ; preds = %while.body
 
 if.else:                                          ; preds = %while.body
   %9 = load ptr, ptr %opt, align 8
-  %call1 = call i32 @strcasecmp(ptr noundef %9, ptr noundef @.str.24) #10
+  %call1 = call i32 @strcasecmp(ptr noundef %9, ptr noundef @.str.24) #11
   %tobool2 = icmp ne i32 %call1, 0
   br i1 %tobool2, label %if.else4, label %if.then3
 
@@ -1700,7 +1701,7 @@ if.then3:                                         ; preds = %if.else
 
 if.else4:                                         ; preds = %if.else
   %10 = load ptr, ptr %opt, align 8
-  %call5 = call i32 @strcasecmp(ptr noundef %10, ptr noundef @.str.25) #10
+  %call5 = call i32 @strcasecmp(ptr noundef %10, ptr noundef @.str.25) #11
   %tobool6 = icmp ne i32 %call5, 0
   br i1 %tobool6, label %if.else8, label %if.then7
 
@@ -1764,7 +1765,7 @@ if.end16:                                         ; preds = %land.lhs.true, %lor
   %24 = load i32, ptr %argc19, align 4
   %conv = sext i32 %24 to i64
   %mul21 = mul i64 %conv, 8
-  %call22 = call noalias ptr @zcalloc(i64 noundef %mul21) #8
+  %call22 = call noalias ptr @zcalloc(i64 noundef %mul21) #9
   store ptr %call22, ptr %argv20, align 8
   %call23 = call ptr @createRawStringObject(ptr noundef @.str.26, i64 noundef 4)
   %25 = load ptr, ptr %argv20, align 8
@@ -2230,7 +2231,7 @@ for.body:                                         ; preds = %for.cond
   %48 = load ptr, ptr %ptr, align 8
   store ptr %48, ptr %arg, align 8
   %49 = load ptr, ptr %arg, align 8
-  %call64 = call i32 @strcasecmp(ptr noundef %49, ptr noundef @.str.29) #10
+  %call64 = call i32 @strcasecmp(ptr noundef %49, ptr noundef @.str.29) #11
   %tobool65 = icmp ne i32 %call64, 0
   br i1 %tobool65, label %if.else67, label %if.then66
 
@@ -2240,7 +2241,7 @@ if.then66:                                        ; preds = %for.body
 
 if.else67:                                        ; preds = %for.body
   %50 = load ptr, ptr %arg, align 8
-  %call68 = call i32 @strcasecmp(ptr noundef %50, ptr noundef @.str.30) #10
+  %call68 = call i32 @strcasecmp(ptr noundef %50, ptr noundef @.str.30) #11
   %tobool69 = icmp ne i32 %call68, 0
   br i1 %tobool69, label %if.else71, label %if.then70
 
@@ -2250,7 +2251,7 @@ if.then70:                                        ; preds = %if.else67
 
 if.else71:                                        ; preds = %if.else67
   %51 = load ptr, ptr %arg, align 8
-  %call72 = call i32 @strcasecmp(ptr noundef %51, ptr noundef @.str.31) #10
+  %call72 = call i32 @strcasecmp(ptr noundef %51, ptr noundef @.str.31) #11
   %tobool73 = icmp ne i32 %call72, 0
   br i1 %tobool73, label %if.else75, label %if.then74
 
@@ -2260,7 +2261,7 @@ if.then74:                                        ; preds = %if.else71
 
 if.else75:                                        ; preds = %if.else71
   %52 = load ptr, ptr %arg, align 8
-  %call76 = call i32 @strcasecmp(ptr noundef %52, ptr noundef @.str.32) #10
+  %call76 = call i32 @strcasecmp(ptr noundef %52, ptr noundef @.str.32) #11
   %tobool77 = icmp ne i32 %call76, 0
   br i1 %tobool77, label %if.else79, label %if.then78
 
@@ -2270,7 +2271,7 @@ if.then78:                                        ; preds = %if.else75
 
 if.else79:                                        ; preds = %if.else75
   %53 = load ptr, ptr %arg, align 8
-  %call80 = call i32 @strcasecmp(ptr noundef %53, ptr noundef @.str.33) #10
+  %call80 = call i32 @strcasecmp(ptr noundef %53, ptr noundef @.str.33) #11
   %tobool81 = icmp ne i32 %call80, 0
   br i1 %tobool81, label %if.else83, label %if.then82
 
@@ -2280,7 +2281,7 @@ if.then82:                                        ; preds = %if.else79
 
 if.else83:                                        ; preds = %if.else79
   %54 = load ptr, ptr %arg, align 8
-  %call84 = call i32 @strcasecmp(ptr noundef %54, ptr noundef @.str.34) #10
+  %call84 = call i32 @strcasecmp(ptr noundef %54, ptr noundef @.str.34) #11
   %tobool85 = icmp ne i32 %call84, 0
   br i1 %tobool85, label %if.else87, label %if.then86
 
@@ -2290,7 +2291,7 @@ if.then86:                                        ; preds = %if.else83
 
 if.else87:                                        ; preds = %if.else83
   %55 = load ptr, ptr %arg, align 8
-  %call88 = call i32 @strcasecmp(ptr noundef %55, ptr noundef @.str.35) #10
+  %call88 = call i32 @strcasecmp(ptr noundef %55, ptr noundef @.str.35) #11
   %tobool89 = icmp ne i32 %call88, 0
   br i1 %tobool89, label %if.else106, label %land.lhs.true90
 
@@ -2338,7 +2339,7 @@ if.end105:                                        ; preds = %if.end102
 
 if.else106:                                       ; preds = %land.lhs.true90, %if.else87
   %67 = load ptr, ptr %arg, align 8
-  %call107 = call i32 @strcasecmp(ptr noundef %67, ptr noundef @.str.37) #10
+  %call107 = call i32 @strcasecmp(ptr noundef %67, ptr noundef @.str.37) #11
   %tobool108 = icmp ne i32 %call107, 0
   br i1 %tobool108, label %if.else125, label %land.lhs.true109
 
@@ -2381,7 +2382,7 @@ if.then118:                                       ; preds = %land.lhs.true115
 
 if.else125:                                       ; preds = %land.lhs.true115, %land.lhs.true112, %land.lhs.true109, %if.else106
   %78 = load ptr, ptr %arg, align 8
-  %call126 = call i32 @strcasecmp(ptr noundef %78, ptr noundef @.str.38) #10
+  %call126 = call i32 @strcasecmp(ptr noundef %78, ptr noundef @.str.38) #11
   %tobool127 = icmp ne i32 %call126, 0
   br i1 %tobool127, label %if.else144, label %land.lhs.true128
 
@@ -2424,7 +2425,7 @@ if.then137:                                       ; preds = %land.lhs.true134
 
 if.else144:                                       ; preds = %land.lhs.true134, %land.lhs.true131, %land.lhs.true128, %if.else125
   %89 = load ptr, ptr %arg, align 8
-  %call145 = call i32 @strcasecmp(ptr noundef %89, ptr noundef @.str.38) #10
+  %call145 = call i32 @strcasecmp(ptr noundef %89, ptr noundef @.str.38) #11
   %tobool146 = icmp ne i32 %call145, 0
   br i1 %tobool146, label %if.else154, label %land.lhs.true147
 
@@ -2446,7 +2447,7 @@ if.then153:                                       ; preds = %land.lhs.true150
 
 if.else154:                                       ; preds = %land.lhs.true150, %land.lhs.true147, %if.else144
   %92 = load ptr, ptr %arg, align 8
-  %call155 = call i32 @strcasecmp(ptr noundef %92, ptr noundef @.str.39) #10
+  %call155 = call i32 @strcasecmp(ptr noundef %92, ptr noundef @.str.39) #11
   %tobool156 = icmp ne i32 %call155, 0
   br i1 %tobool156, label %if.else182, label %land.lhs.true157
 
@@ -2512,7 +2513,7 @@ if.end180:                                        ; preds = %if.end169
 
 if.else182:                                       ; preds = %land.lhs.true163, %land.lhs.true160, %land.lhs.true157, %if.else154
   %107 = load ptr, ptr %arg, align 8
-  %call183 = call i32 @strcasecmp(ptr noundef %107, ptr noundef @.str.40) #10
+  %call183 = call i32 @strcasecmp(ptr noundef %107, ptr noundef @.str.40) #11
   %tobool184 = icmp ne i32 %call183, 0
   br i1 %tobool184, label %if.else207, label %land.lhs.true185
 
@@ -2564,7 +2565,7 @@ if.end205:                                        ; preds = %if.then193
 
 if.else207:                                       ; preds = %land.lhs.true191, %land.lhs.true188, %land.lhs.true185, %if.else182
   %118 = load ptr, ptr %arg, align 8
-  %call208 = call i32 @strcasecmp(ptr noundef %118, ptr noundef @.str.41) #10
+  %call208 = call i32 @strcasecmp(ptr noundef %118, ptr noundef @.str.41) #11
   %tobool209 = icmp ne i32 %call208, 0
   br i1 %tobool209, label %if.else233, label %land.lhs.true210
 
@@ -2618,7 +2619,7 @@ if.end230:                                        ; preds = %if.then218
 
 if.else233:                                       ; preds = %land.lhs.true216, %land.lhs.true213, %land.lhs.true210, %if.else207
   %129 = load ptr, ptr %arg, align 8
-  %call234 = call i32 @strcasecmp(ptr noundef %129, ptr noundef @.str.42) #10
+  %call234 = call i32 @strcasecmp(ptr noundef %129, ptr noundef @.str.42) #11
   %tobool235 = icmp ne i32 %call234, 0
   br i1 %tobool235, label %if.else260, label %land.lhs.true236
 
@@ -2903,7 +2904,7 @@ if.then334:                                       ; preds = %land.lhs.true332
   br label %if.end335
 
 if.end335:                                        ; preds = %if.then334, %land.lhs.true332, %land.lhs.true330, %if.end328
-  call void @geohashCalculateAreasByShapeWGS84(ptr sret(%struct.GeoHashRadius) align 8 %georadius, ptr noundef %shape)
+  call void @geohashCalculateAreasByShapeWGS84(ptr dead_on_unwind writable sret(%struct.GeoHashRadius) align 8 %georadius, ptr noundef %shape)
   %call336 = call ptr @geoArrayCreate()
   store ptr %call336, ptr %ga, align 8
   %189 = load ptr, ptr %zobj, align 8
@@ -3282,7 +3283,7 @@ cond.true459:                                     ; preds = %if.end447
 
 cond.false460:                                    ; preds = %if.end447
   call void @_serverAssert(ptr noundef @.str.50, ptr noundef @.str.14, i32 noundef 825)
-  call void @abort() #11
+  call void @abort() #13
   unreachable
 
 294:                                              ; No predecessors!
@@ -3396,7 +3397,7 @@ declare void @notifyKeyspaceEvent(i32 noundef, ptr noundef, ptr noundef, i32 nou
 
 declare void @addReply(ptr noundef, ptr noundef) #3
 
-declare void @geohashCalculateAreasByShapeWGS84(ptr sret(%struct.GeoHashRadius) align 8, ptr noundef) #3
+declare void @geohashCalculateAreasByShapeWGS84(ptr dead_on_unwind writable sret(%struct.GeoHashRadius) align 8, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @sort_gp_asc(ptr noundef %a, ptr noundef %b) #0 {
@@ -3557,7 +3558,7 @@ declare i32 @dictAdd(ptr noundef, ptr noundef, ptr noundef) #3
 declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) #3
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() #7
+declare void @abort() #8
 
 declare void @zsetConvertToListpackIfNeeded(ptr noundef, i64 noundef, i64 noundef) #3
 
@@ -4084,12 +4085,14 @@ attributes #2 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { allocsize(0) }
-attributes #9 = { allocsize(1) }
-attributes #10 = { nounwind willreturn memory(read) }
-attributes #11 = { noreturn nounwind }
+attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { allocsize(0) }
+attributes #10 = { allocsize(1) }
+attributes #11 = { nounwind willreturn memory(read) }
+attributes #12 = { nounwind }
+attributes #13 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -40,7 +40,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.33 = private unnamed_addr constant [26 x i8] c"wrong number of arguments\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @luaopen_math(ptr noundef %L) local_unnamed_addr #0 {
+define dso_local noundef i32 @luaopen_math(ptr noundef %L) local_unnamed_addr #0 {
 entry:
   tail call void @luaL_register(ptr noundef %L, ptr noundef nonnull @.str, ptr noundef nonnull @mathlib) #8
   tail call void @lua_pushnumber(ptr noundef %L, double noundef 0x400921FB54442D18) #8
@@ -61,7 +61,7 @@ declare void @lua_setfield(ptr noundef, i32 noundef, ptr noundef) local_unnamed_
 declare void @lua_getfield(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_abs(ptr noundef %L) #0 {
+define internal noundef i32 @math_abs(ptr noundef %L) #0 {
 entry:
   %call = tail call double @luaL_checknumber(ptr noundef %L, i32 noundef 1) #8
   %0 = tail call double @llvm.fabs.f64(double %call)
@@ -70,7 +70,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_acos(ptr noundef %L) #0 {
+define internal noundef i32 @math_acos(ptr noundef %L) #0 {
 entry:
   %call = tail call double @luaL_checknumber(ptr noundef %L, i32 noundef 1) #8
   %call1 = tail call double @acos(double noundef %call) #8
@@ -79,7 +79,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_asin(ptr noundef %L) #0 {
+define internal noundef i32 @math_asin(ptr noundef %L) #0 {
 entry:
   %call = tail call double @luaL_checknumber(ptr noundef %L, i32 noundef 1) #8
   %call1 = tail call double @asin(double noundef %call) #8
@@ -88,7 +88,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_atan2(ptr noundef %L) #0 {
+define internal noundef i32 @math_atan2(ptr noundef %L) #0 {
 entry:
   %call = tail call double @luaL_checknumber(ptr noundef %L, i32 noundef 1) #8
   %call1 = tail call double @luaL_checknumber(ptr noundef %L, i32 noundef 2) #8
@@ -98,7 +98,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_atan(ptr noundef %L) #0 {
+define internal noundef i32 @math_atan(ptr noundef %L) #0 {
 entry:
   %call = tail call double @luaL_checknumber(ptr noundef %L, i32 noundef 1) #8
   %call1 = tail call double @atan(double noundef %call) #8
@@ -107,7 +107,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_ceil(ptr noundef %L) #0 {
+define internal noundef i32 @math_ceil(ptr noundef %L) #0 {
 entry:
   %call = tail call double @luaL_checknumber(ptr noundef %L, i32 noundef 1) #8
   %0 = tail call double @llvm.ceil.f64(double %call)
@@ -116,7 +116,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_cosh(ptr noundef %L) #0 {
+define internal noundef i32 @math_cosh(ptr noundef %L) #0 {
 entry:
   %call = tail call double @luaL_checknumber(ptr noundef %L, i32 noundef 1) #8
   %call1 = tail call double @cosh(double noundef %call) #8
@@ -125,7 +125,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_cos(ptr noundef %L) #0 {
+define internal noundef i32 @math_cos(ptr noundef %L) #0 {
 entry:
   %call = tail call double @luaL_checknumber(ptr noundef %L, i32 noundef 1) #8
   %call1 = tail call double @cos(double noundef %call) #8
@@ -134,7 +134,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_deg(ptr noundef %L) #0 {
+define internal noundef i32 @math_deg(ptr noundef %L) #0 {
 entry:
   %call = tail call double @luaL_checknumber(ptr noundef %L, i32 noundef 1) #8
   %div = fdiv double %call, 0x3F91DF46A2529D39
@@ -143,7 +143,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_exp(ptr noundef %L) #0 {
+define internal noundef i32 @math_exp(ptr noundef %L) #0 {
 entry:
   %call = tail call double @luaL_checknumber(ptr noundef %L, i32 noundef 1) #8
   %call1 = tail call double @exp(double noundef %call) #8
@@ -152,7 +152,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_floor(ptr noundef %L) #0 {
+define internal noundef i32 @math_floor(ptr noundef %L) #0 {
 entry:
   %call = tail call double @luaL_checknumber(ptr noundef %L, i32 noundef 1) #8
   %0 = tail call double @llvm.floor.f64(double %call)
@@ -161,7 +161,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_fmod(ptr noundef %L) #0 {
+define internal noundef i32 @math_fmod(ptr noundef %L) #0 {
 entry:
   %call = tail call double @luaL_checknumber(ptr noundef %L, i32 noundef 1) #8
   %call1 = tail call double @luaL_checknumber(ptr noundef %L, i32 noundef 2) #8
@@ -171,7 +171,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_frexp(ptr noundef %L) #0 {
+define internal noundef i32 @math_frexp(ptr noundef %L) #0 {
 entry:
   %e = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %e) #8
@@ -186,7 +186,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_ldexp(ptr noundef %L) #0 {
+define internal noundef i32 @math_ldexp(ptr noundef %L) #0 {
 entry:
   %call = tail call double @luaL_checknumber(ptr noundef %L, i32 noundef 1) #8
   %call1 = tail call i64 @luaL_checkinteger(ptr noundef %L, i32 noundef 2) #8
@@ -197,7 +197,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_log10(ptr noundef %L) #0 {
+define internal noundef i32 @math_log10(ptr noundef %L) #0 {
 entry:
   %call = tail call double @luaL_checknumber(ptr noundef %L, i32 noundef 1) #8
   %call1 = tail call double @log10(double noundef %call) #8
@@ -206,7 +206,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_log(ptr noundef %L) #0 {
+define internal noundef i32 @math_log(ptr noundef %L) #0 {
 entry:
   %call = tail call double @luaL_checknumber(ptr noundef %L, i32 noundef 1) #8
   %call1 = tail call double @log(double noundef %call) #8
@@ -215,7 +215,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_max(ptr noundef %L) #0 {
+define internal noundef i32 @math_max(ptr noundef %L) #0 {
 entry:
   %call = tail call i32 @lua_gettop(ptr noundef %L) #8
   %call1 = tail call double @luaL_checknumber(ptr noundef %L, i32 noundef 1) #8
@@ -239,7 +239,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_min(ptr noundef %L) #0 {
+define internal noundef i32 @math_min(ptr noundef %L) #0 {
 entry:
   %call = tail call i32 @lua_gettop(ptr noundef %L) #8
   %call1 = tail call double @luaL_checknumber(ptr noundef %L, i32 noundef 1) #8
@@ -263,7 +263,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_modf(ptr noundef %L) #0 {
+define internal noundef i32 @math_modf(ptr noundef %L) #0 {
 entry:
   %ip = alloca double, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ip) #8
@@ -277,7 +277,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_pow(ptr noundef %L) #0 {
+define internal noundef i32 @math_pow(ptr noundef %L) #0 {
 entry:
   %call = tail call double @luaL_checknumber(ptr noundef %L, i32 noundef 1) #8
   %call1 = tail call double @luaL_checknumber(ptr noundef %L, i32 noundef 2) #8
@@ -287,7 +287,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_rad(ptr noundef %L) #0 {
+define internal noundef i32 @math_rad(ptr noundef %L) #0 {
 entry:
   %call = tail call double @luaL_checknumber(ptr noundef %L, i32 noundef 1) #8
   %mul = fmul double %call, 0x3F91DF46A2529D39
@@ -364,7 +364,7 @@ cleanup:                                          ; preds = %sw.default, %lor.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_randomseed(ptr noundef %L) #0 {
+define internal noundef i32 @math_randomseed(ptr noundef %L) #0 {
 entry:
   %call = tail call i64 @luaL_checkinteger(ptr noundef %L, i32 noundef 1) #8
   %conv = trunc i64 %call to i32
@@ -373,7 +373,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_sinh(ptr noundef %L) #0 {
+define internal noundef i32 @math_sinh(ptr noundef %L) #0 {
 entry:
   %call = tail call double @luaL_checknumber(ptr noundef %L, i32 noundef 1) #8
   %call1 = tail call double @sinh(double noundef %call) #8
@@ -382,7 +382,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_sin(ptr noundef %L) #0 {
+define internal noundef i32 @math_sin(ptr noundef %L) #0 {
 entry:
   %call = tail call double @luaL_checknumber(ptr noundef %L, i32 noundef 1) #8
   %call1 = tail call double @sin(double noundef %call) #8
@@ -391,7 +391,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_sqrt(ptr noundef %L) #0 {
+define internal noundef i32 @math_sqrt(ptr noundef %L) #0 {
 entry:
   %call = tail call double @luaL_checknumber(ptr noundef %L, i32 noundef 1) #8
   %call1 = tail call double @sqrt(double noundef %call) #8
@@ -400,7 +400,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_tanh(ptr noundef %L) #0 {
+define internal noundef i32 @math_tanh(ptr noundef %L) #0 {
 entry:
   %call = tail call double @luaL_checknumber(ptr noundef %L, i32 noundef 1) #8
   %call1 = tail call double @tanh(double noundef %call) #8
@@ -409,7 +409,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_tan(ptr noundef %L) #0 {
+define internal noundef i32 @math_tan(ptr noundef %L) #0 {
 entry:
   %call = tail call double @luaL_checknumber(ptr noundef %L, i32 noundef 1) #8
   %call1 = tail call double @tan(double noundef %call) #8

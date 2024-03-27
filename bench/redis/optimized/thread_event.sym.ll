@@ -255,7 +255,7 @@ if.end168:                                        ; preds = %if.then163, %if.els
 
 do.end176:                                        ; preds = %if.end141, %if.end168
   %is_peak_alloc_triggered.1153 = phi i8 [ %is_peak_alloc_triggered.1154, %if.end168 ], [ %is_peak_alloc_triggered.0, %if.end141 ]
-  %cmp93130135151 = phi i1 [ false, %if.end168 ], [ true, %if.end141 ]
+  %cmp93130135151.not = phi i1 [ false, %if.end168 ], [ true, %if.end141 ]
   %is_stats_interval_triggered.1129137149 = phi i8 [ %is_stats_interval_triggered.1129137150, %if.end168 ], [ %is_stats_interval_triggered.1129138, %if.end141 ]
   %is_tcache_gc_dalloc_triggered.1139147 = phi i1 [ %is_tcache_gc_dalloc_triggered.1139148, %if.end168 ], [ true, %if.end141 ]
   %is_peak_dalloc_triggered.1 = phi i1 [ %18, %if.end168 ], [ true, %if.end141 ]
@@ -338,8 +338,8 @@ do.end221:                                        ; preds = %if.end191
 if.end224:                                        ; preds = %do.end221, %if.end191
   %26 = load i64, ptr @opt_tcache_gc_incr_bytes, align 8
   %cmp230 = icmp eq i64 %26, 0
-  %or.cond5 = select i1 %cmp93130135151, i1 true, i1 %cmp230
-  %or.cond120 = or i1 %is_tcache_gc_dalloc_triggered.1139147, %or.cond5
+  %or.cond5.not157 = select i1 %cmp93130135151.not, i1 true, i1 %cmp230
+  %or.cond120 = or i1 %is_tcache_gc_dalloc_triggered.1139147, %or.cond5.not157
   br i1 %or.cond120, label %if.end240, label %do.end237
 
 do.end237:                                        ; preds = %if.end224
@@ -356,7 +356,7 @@ do.end250:                                        ; preds = %if.end240
   br label %if.end253
 
 if.end253:                                        ; preds = %do.end250, %if.end240
-  %or.cond122 = or i1 %cmp93130135151, %is_peak_dalloc_triggered.1
+  %or.cond122 = or i1 %cmp93130135151.not, %is_peak_dalloc_triggered.1
   br i1 %or.cond122, label %if.end266, label %do.end263
 
 do.end263:                                        ; preds = %if.end253

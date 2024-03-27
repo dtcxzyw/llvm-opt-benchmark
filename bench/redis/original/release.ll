@@ -3,7 +3,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 @.str = private unnamed_addr constant [9 x i8] c"adbb534f\00", align 1
 @.str.1 = private unnamed_addr constant [2 x i8] c"0\00", align 1
-@.str.2 = private unnamed_addr constant [39 x i8] c"255.255.255dtcxzyw-17027623390adbb534f\00", align 1
+@.str.2 = private unnamed_addr constant [39 x i8] c"255.255.255dtcxzyw-17115483290adbb534f\00", align 1
 @redisBuildIdString.buf = internal global [32 x i8] zeroinitializer, align 16
 @redisBuildIdString.cached = internal global i32 0, align 4
 @.str.3 = private unnamed_addr constant [5 x i8] c"%llx\00", align 1

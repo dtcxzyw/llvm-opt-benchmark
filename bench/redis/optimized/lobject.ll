@@ -657,18 +657,18 @@ define hidden nonnull ptr @luaO_pushfstring(ptr noundef %L, ptr noundef %fmt, ..
 entry:
   %argp = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %argp) #16
-  call void @llvm.va_start(ptr nonnull %argp)
+  call void @llvm.va_start.p0(ptr nonnull %argp)
   %call = call ptr @luaO_pushvfstring(ptr noundef %L, ptr noundef %fmt, ptr noundef nonnull %argp)
-  call void @llvm.va_end(ptr nonnull %argp)
+  call void @llvm.va_end.p0(ptr nonnull %argp)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %argp) #16
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #11
+declare void @llvm.va_start.p0(ptr) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #11
+declare void @llvm.va_end.p0(ptr) #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @luaO_chunkid(ptr noundef %out, ptr nocapture noundef readonly %source, i64 noundef %bufflen) local_unnamed_addr #12 {

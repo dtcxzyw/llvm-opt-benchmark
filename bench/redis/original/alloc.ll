@@ -21,7 +21,7 @@ declare noalias ptr @strdup(ptr noundef) #3
 declare void @free(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define void @hiredisSetAllocators(ptr noalias sret(%struct.hiredisAllocFuncs) align 8 %agg.result, ptr noundef %override) #4 {
+define void @hiredisSetAllocators(ptr dead_on_unwind noalias writable sret(%struct.hiredisAllocFuncs) align 8 %agg.result, ptr noundef %override) #4 {
 entry:
   %override.addr = alloca ptr, align 8
   store ptr %override, ptr %override.addr, align 8

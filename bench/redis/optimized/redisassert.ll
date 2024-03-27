@@ -16,8 +16,8 @@ entry:
   %0 = load ptr, ptr @stderr, align 8
   %1 = tail call i64 @fwrite(ptr nonnull @.str, i64 24, i64 1, ptr %0) #6
   %2 = load ptr, ptr @stderr, align 8
-  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.1, ptr noundef %file, i32 noundef %line, ptr noundef %estr) #6
-  %call2 = tail call i32 @raise(i32 noundef 11) #7
+  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.1, ptr noundef %file, i32 noundef %line, ptr noundef %estr) #7
+  %call2 = tail call i32 @raise(i32 noundef 11) #8
   ret void
 }
 
@@ -35,8 +35,8 @@ entry:
   %2 = load ptr, ptr @stderr, align 8
   %3 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 57, i64 1, ptr %2) #6
   %4 = load ptr, ptr @stderr, align 8
-  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.4, ptr noundef %msg, ptr noundef %file, i32 noundef %line) #6
-  tail call void @abort() #8
+  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.4, ptr noundef %msg, ptr noundef %file, i32 noundef %line) #7
+  tail call void @abort() #9
   unreachable
 }
 
@@ -53,8 +53,9 @@ attributes #3 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vec
 attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nounwind }
 attributes #6 = { cold }
-attributes #7 = { nounwind }
-attributes #8 = { noreturn nounwind }
+attributes #7 = { cold nounwind }
+attributes #8 = { nounwind }
+attributes #9 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

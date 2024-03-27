@@ -684,7 +684,7 @@ entry:
   %free_fn1 = getelementptr inbounds %struct.anon.3, ptr %2, i32 0, i32 1
   store ptr %1, ptr %free_fn1, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %valist, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   store i32 0, ptr %i, align 4
   br label %for.cond
 
@@ -735,7 +735,7 @@ for.inc:                                          ; preds = %vaarg.end
 
 for.end:                                          ; preds = %for.cond
   %arraydecay4 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %valist, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay4)
+  call void @llvm.va_end.p0(ptr %arraydecay4)
   %12 = load ptr, ptr %job, align 8
   call void @bioSubmitJob(i32 noundef 2, ptr noundef %12)
   ret void
@@ -745,10 +745,10 @@ for.end:                                          ; preds = %for.cond
 declare noalias ptr @zmalloc(i64 noundef) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #6
+declare void @llvm.va_start.p0(ptr) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #6
+declare void @llvm.va_end.p0(ptr) #6
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @bioCreateCloseJob(i32 noundef %fd, i32 noundef %need_fsync, i32 noundef %need_reclaim_cache) #0 {

@@ -222,12 +222,12 @@ entry:
   %argv = alloca [2 x ptr], align 16
   %0 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 85), align 8
   %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %msg, i64 noundef 1024, ptr noundef nonnull @.str, i64 noundef %0, i32 noundef %linenum) #21
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %idx.ext = sext i32 %call to i64
   %add.ptr = getelementptr inbounds i8, ptr %msg, i64 %idx.ext
   %sub = sub nsw i64 1024, %idx.ext
   %call4 = call i32 @vsnprintf(ptr noundef nonnull %add.ptr, i64 noundef %sub, ptr noundef %reason, ptr noundef nonnull %ap) #21
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   %1 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 61), align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.else, label %lor.lhs.false
@@ -328,13 +328,13 @@ return:                                           ; preds = %if.end47, %do.body4
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #2
+declare void @llvm.va_start.p0(ptr) #2
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #2
+declare void @llvm.va_end.p0(ptr) #2
 
 declare void @_serverLog(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
@@ -6987,8 +6987,8 @@ sdslen.exit.us:                                   ; preds = %sw.bb.i.us, %sw.bb3
   br i1 %cmp10.us, label %return, label %if.end13.us
 
 if.end13.us:                                      ; preds = %sdslen.exit.us
-  %add.us = add nsw i64 %written.016.us, 1
-  %add14.us = add nsw i64 %add.us, %call9.us
+  %add.us = add nuw nsw i64 %written.016.us, 1
+  %add14.us = add nuw nsw i64 %add.us, %call9.us
   %call3.us = tail call ptr @dictNext(ptr noundef %call1) #21
   %tobool.not.us = icmp eq ptr %call3.us, null
   br i1 %tobool.not.us, label %return, label %while.body.us, !llvm.loop !18
@@ -7095,8 +7095,8 @@ sdslen.exit:                                      ; preds = %if.end.loopexit, %s
   br i1 %cmp10, label %return, label %if.end13
 
 if.end13:                                         ; preds = %sdslen.exit
-  %add = add nsw i64 %written.016, 1
-  %add14 = add nsw i64 %add, %call9
+  %add = add nuw nsw i64 %written.016, 1
+  %add14 = add nuw nsw i64 %add, %call9
   %call3 = call ptr @dictNext(ptr noundef %call1) #21
   %tobool.not = icmp eq ptr %call3, null
   br i1 %tobool.not, label %return, label %while.body, !llvm.loop !18
@@ -7381,12 +7381,12 @@ if.end72:                                         ; preds = %if.end58
 
 if.end89:                                         ; preds = %if.end72
   %conv85 = zext nneg i32 %call84 to i64
-  %add51 = add nsw i64 %written.0132, 1
+  %add51 = add nuw nsw i64 %written.0132, 1
   %conv54 = zext nneg i32 %call53 to i64
-  %add59 = add nsw i64 %add51, %conv54
+  %add59 = add nuw nsw i64 %add51, %conv54
   %conv68 = zext nneg i32 %call67 to i64
-  %add73 = add nsw i64 %add59, %conv68
-  %add90 = add nsw i64 %add73, %conv85
+  %add73 = add nuw nsw i64 %add59, %conv68
+  %add90 = add nuw nsw i64 %add73, %conv85
   br label %if.end91
 
 if.end91:                                         ; preds = %if.end89, %while.body
@@ -7407,7 +7407,7 @@ if.end91:                                         ; preds = %if.end89, %while.bo
 
 if.end103:                                        ; preds = %if.end91
   %conv99 = zext nneg i32 %call98 to i64
-  %add104 = add nsw i64 %written.1, %conv99
+  %add104 = add nuw nsw i64 %written.1, %conv99
   %32 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 9), align 8
   %tobool106.not = icmp eq i32 %32, 0
   br i1 %tobool106.not, label %if.end108, label %if.then107
@@ -7577,7 +7577,7 @@ if.end13:                                         ; preds = %land.lhs.true, %if.
   br i1 %tobool15.not, label %land.lhs.true16, label %if.end20
 
 land.lhs.true16:                                  ; preds = %if.end13
-  %call17 = call i64 @rdbSaveFunctions(ptr noundef %rdb)
+  %call17 = call i64 @rdbSaveFunctions(ptr noundef %rdb), !range !21
   %cmp18 = icmp eq i64 %call17, -1
   br i1 %cmp18, label %werr, label %if.end20
 
@@ -7593,11 +7593,11 @@ for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i32 %j.033, 1
   %9 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 173), align 8
   %cmp24 = icmp slt i32 %inc, %9
-  br i1 %cmp24, label %for.body, label %land.lhs.true32, !llvm.loop !21
+  br i1 %cmp24, label %for.body, label %land.lhs.true32, !llvm.loop !22
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %j.033 = phi i32 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
-  %call25 = call i64 @rdbSaveDb(ptr noundef %rdb, i32 noundef %j.033, i32 noundef %rdbflags, ptr noundef nonnull %key_counter)
+  %call25 = call i64 @rdbSaveDb(ptr noundef %rdb, i32 noundef %j.033, i32 noundef %rdbflags, ptr noundef nonnull %key_counter), !range !21
   %cmp26 = icmp eq i64 %call25, -1
   br i1 %cmp26, label %werr, label %for.cond
 
@@ -8494,7 +8494,7 @@ if.end30:                                         ; preds = %if.end12.i.i30, %if
   %retval.0.i = select i1 %cmp.i, i64 -1, i64 %15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.i)
   %cmp.not = icmp eq i64 %retval.0.i, 0
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !22
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !23
 
 while.end:                                        ; preds = %if.end30, %entry
   %call31 = call ptr @createStringObject(ptr noundef nonnull @.str.53, i64 noundef 18) #21
@@ -8928,7 +8928,7 @@ sdslen.exit:                                      ; preds = %if.end49, %sw.bb.i,
   tail call void @decrRefCount(ptr noundef nonnull %call50) #21
   tail call void @decrRefCount(ptr noundef nonnull %call.i531) #21
   %tobool44.not = icmp eq i64 %dec43971, 0
-  br i1 %tobool44.not, label %while.end, label %while.body, !llvm.loop !23
+  br i1 %tobool44.not, label %while.end, label %while.body, !llvm.loop !24
 
 while.end:                                        ; preds = %sdslen.exit, %if.end41
   tail call void @listTypeTryConversion(ptr noundef nonnull %call42, i32 noundef 0, ptr noundef null, ptr noundef null) #21
@@ -9177,7 +9177,7 @@ for.inc:                                          ; preds = %if.else187, %if.the
   %inc = add i32 %i.0968, 1
   %conv90 = zext i32 %inc to i64
   %cmp91 = icmp ugt i64 %retval.0.i536, %conv90
-  br i1 %cmp91, label %for.body, label %if.end1109, !llvm.loop !24
+  br i1 %cmp91, label %for.body, label %if.end1109, !llvm.loop !25
 
 if.else189:                                       ; preds = %if.end21
   %cmp190 = icmp eq i32 %rdbtype, 5
@@ -9444,7 +9444,7 @@ sdslen.exit616:                                   ; preds = %if.end247.thread869
   %score252 = getelementptr inbounds i8, ptr %call250, i64 8
   %call253 = call i32 @dictAdd(ptr noundef %62, ptr noundef nonnull %call220, ptr noundef nonnull %score252) #21
   %cmp254.not = icmp eq i32 %call253, 0
-  br i1 %cmp254.not, label %while.cond215, label %if.then256, !llvm.loop !25
+  br i1 %cmp254.not, label %while.cond215, label %if.then256, !llvm.loop !26
 
 if.then256:                                       ; preds = %sdslen.exit616
   call void (i32, i32, ptr, ...) @rdbReportError(i32 noundef 1, i32 noundef 2037, ptr noundef nonnull @.str.57)
@@ -9859,7 +9859,7 @@ sdslen.exit734:                                   ; preds = %sdslen.exit715, %sw
   %cmp298 = icmp eq i32 %103, 176
   %cmp301 = icmp ne i64 %dec305, 0
   %104 = select i1 %cmp298, i1 %cmp301, i1 false
-  br i1 %104, label %while.body304, label %while.end366, !llvm.loop !26
+  br i1 %104, label %while.body304, label %while.end366, !llvm.loop !27
 
 while.end366:                                     ; preds = %sdslen.exit734, %if.end293, %if.then345
   %len274.1 = phi i64 [ %dec305, %if.then345 ], [ %65, %if.end293 ], [ %dec305, %sdslen.exit734 ]
@@ -9927,7 +9927,7 @@ if.end407:                                        ; preds = %if.end402
   %109 = load ptr, ptr %ptr408, align 8
   %call409 = tail call i32 @dictAdd(ptr noundef %109, ptr noundef nonnull %call398, ptr noundef nonnull %call403) #21
   %cmp410 = icmp eq i32 %call409, 1
-  br i1 %cmp410, label %if.then412, label %while.cond386, !llvm.loop !27
+  br i1 %cmp410, label %if.then412, label %while.cond386, !llvm.loop !28
 
 if.then412:                                       ; preds = %if.end407
   tail call void (i32, i32, ptr, ...) @rdbReportError(i32 noundef 1, i32 noundef 2162, ptr noundef nonnull @.str.59)
@@ -10046,7 +10046,7 @@ if.then471:                                       ; preds = %if.end468
 
 while.cond441.backedge:                           ; preds = %if.then471, %if.then496, %if.else497
   %tobool443.not = icmp eq i64 %dec442992, 0
-  br i1 %tobool443.not, label %while.end500, label %while.body444, !llvm.loop !28
+  br i1 %tobool443.not, label %while.end500, label %while.body444, !llvm.loop !29
 
 if.end473:                                        ; preds = %if.end468
   br i1 %cmp427, label %if.then476, label %if.else485
@@ -10221,7 +10221,7 @@ if.end579:                                        ; preds = %lor.lhs.false571
   %call581 = call ptr @lpAppend(ptr noundef %call580, ptr noundef %138, i32 noundef %139) #21
   %call551 = call ptr @zipmapNext(ptr noundef nonnull %call551986, ptr noundef nonnull %fstr, ptr noundef nonnull %flen, ptr noundef nonnull %vstr, ptr noundef nonnull %vlen) #21
   %cmp552.not = icmp eq ptr %call551, null
-  br i1 %cmp552.not, label %while.end582.loopexit, label %while.body554, !llvm.loop !29
+  br i1 %cmp552.not, label %while.end582.loopexit, label %while.body554, !llvm.loop !30
 
 while.end582.loopexit:                            ; preds = %if.end579
   %140 = zext i32 %maxlen.2 to i64
@@ -10744,7 +10744,7 @@ if.end830:                                        ; preds = %if.end825
   %call832 = call i32 @raxTryInsert(ptr noundef %187, ptr noundef nonnull %call802, i64 noundef 16, ptr noundef nonnull %call813, ptr noundef null) #21
   call void @sdsfree(ptr noundef nonnull %call802) #21
   %tobool833.not = icmp eq i32 %call832, 0
-  br i1 %tobool833.not, label %if.then834, label %while.cond798, !llvm.loop !30
+  br i1 %tobool833.not, label %if.then834, label %while.cond798, !llvm.loop !31
 
 if.then834:                                       ; preds = %if.end830
   call void (i32, i32, ptr, ...) @rdbReportError(i32 noundef 1, i32 noundef 2555, ptr noundef nonnull @.str.80)
@@ -10988,7 +10988,7 @@ while.cond920:                                    ; preds = %while.cond920.prehe
   br i1 %tobool922.not, label %while.end941, label %while.body923
 
 while.body923:                                    ; preds = %while.cond920
-  %call924 = call fastcc i64 @rioRead(ptr noundef nonnull %rdb, ptr noundef nonnull %rawid, i64 noundef 16), !range !31
+  %call924 = call fastcc i64 @rioRead(ptr noundef nonnull %rdb, ptr noundef nonnull %rawid, i64 noundef 16), !range !32
   %cmp925 = icmp eq i64 %call924, 0
   br i1 %cmp925, label %if.then927, label %if.end928
 
@@ -11024,7 +11024,7 @@ if.end935:                                        ; preds = %if.end928
   %206 = load ptr, ptr %pel, align 8
   %call937 = call i32 @raxTryInsert(ptr noundef %206, ptr noundef nonnull %rawid, i64 noundef 16, ptr noundef nonnull %call929, ptr noundef null) #21
   %tobool938.not = icmp eq i32 %call937, 0
-  br i1 %tobool938.not, label %if.then939, label %while.cond920, !llvm.loop !32
+  br i1 %tobool938.not, label %if.then939, label %while.cond920, !llvm.loop !33
 
 if.then939:                                       ; preds = %if.end935
   call void (i32, i32, ptr, ...) @rdbReportError(i32 noundef 1, i32 noundef 2686, ptr noundef nonnull @.str.91)
@@ -11053,7 +11053,7 @@ if.then945:                                       ; preds = %while.end941
 
 while.cond947.loopexit:                           ; preds = %while.cond982
   %tobool949.not = icmp eq i64 %dec948978, 0
-  br i1 %tobool949.not, label %while.end1008, label %while.body950, !llvm.loop !33
+  br i1 %tobool949.not, label %while.end1008, label %while.body950, !llvm.loop !34
 
 while.body950:                                    ; preds = %while.cond947.preheader, %while.cond947.loopexit
   %dec948978.in = phi i64 [ %dec948978, %while.cond947.loopexit ], [ %207, %while.cond947.preheader ]
@@ -11139,7 +11139,7 @@ while.cond982:                                    ; preds = %while.cond982.prehe
   br i1 %tobool984.not, label %while.cond947.loopexit, label %while.body985
 
 while.body985:                                    ; preds = %while.cond982
-  %call988 = call fastcc i64 @rioRead(ptr noundef %rdb, ptr noundef nonnull %rawid986, i64 noundef 16), !range !31
+  %call988 = call fastcc i64 @rioRead(ptr noundef %rdb, ptr noundef nonnull %rawid986, i64 noundef 16), !range !32
   %cmp989 = icmp eq i64 %call988, 0
   br i1 %cmp989, label %if.then991, label %if.end992
 
@@ -11166,7 +11166,7 @@ if.end998:                                        ; preds = %if.end992
   %211 = load ptr, ptr %pel1001, align 8
   %call1003 = call i32 @raxTryInsert(ptr noundef %211, ptr noundef nonnull %rawid986, i64 noundef 16, ptr noundef %210, ptr noundef null) #21
   %tobool1004.not = icmp eq i32 %call1003, 0
-  br i1 %tobool1004.not, label %if.then1005, label %while.cond982, !llvm.loop !34
+  br i1 %tobool1004.not, label %if.then1005, label %while.cond982, !llvm.loop !35
 
 if.then1005:                                      ; preds = %if.end998
   call void (i32, i32, ptr, ...) @rdbReportError(i32 noundef 1, i32 noundef 2770, ptr noundef nonnull @.str.100)
@@ -11193,7 +11193,7 @@ while.body1016:                                   ; preds = %while.cond1013
   %consumer1019 = getelementptr inbounds i8, ptr %213, i64 16
   %214 = load ptr, ptr %consumer1019, align 8
   %tobool1020.not = icmp eq ptr %214, null
-  br i1 %tobool1020.not, label %if.then1021, label %while.cond1013, !llvm.loop !35
+  br i1 %tobool1020.not, label %if.then1021, label %while.cond1013, !llvm.loop !36
 
 if.then1021:                                      ; preds = %while.body1016
   call void @raxStop(ptr noundef nonnull %ri_cg_pel) #21
@@ -11207,7 +11207,7 @@ while.end1023:                                    ; preds = %while.cond1013
 
 if.end1024:                                       ; preds = %while.end1023, %while.end1008
   %tobool883.not = icmp eq i64 %dec882981, 0
-  br i1 %tobool883.not, label %if.end1109, label %while.body884, !llvm.loop !36
+  br i1 %tobool883.not, label %if.end1109, label %while.body884, !llvm.loop !37
 
 if.then1029:                                      ; preds = %if.else423
   tail call void (i32, i32, ptr, ...) @rdbReportError(i32 noundef 1, i32 noundef 2796, ptr noundef nonnull @.str.102)
@@ -12877,7 +12877,7 @@ while.end:                                        ; preds = %rdbLoadType.exit
 if.then529:                                       ; preds = %while.end
   %cksum530 = getelementptr inbounds i8, ptr %rdb, i64 40
   %115 = load i64, ptr %cksum530, align 8
-  %call531 = call fastcc i64 @rioRead(ptr noundef nonnull %rdb, ptr noundef nonnull %cksum, i64 noundef 8), !range !31
+  %call531 = call fastcc i64 @rioRead(ptr noundef nonnull %rdb, ptr noundef nonnull %cksum, i64 noundef 8), !range !32
   %cmp532 = icmp eq i64 %call531, 0
   br i1 %cmp532, label %do.body579, label %if.end535
 
@@ -13376,7 +13376,7 @@ if.end24:                                         ; preds = %if.then21
 while.cond.backedge:                              ; preds = %while.body, %if.end24, %if.then21
   %call18 = call ptr @listNext(ptr noundef nonnull %li) #21
   %tobool19.not = icmp eq ptr %call18, null
-  br i1 %tobool19.not, label %while.end, label %while.body, !llvm.loop !37
+  br i1 %tobool19.not, label %while.end, label %while.body, !llvm.loop !38
 
 while.end:                                        ; preds = %while.cond.backedge, %if.end14
   %call29 = call i32 @redisFork(i32 noundef 1) #21
@@ -13454,7 +13454,7 @@ if.then68:                                        ; preds = %while.body62
 if.end70:                                         ; preds = %if.then68, %while.body62
   %call60 = call ptr @listNext(ptr noundef nonnull %li) #21
   %tobool61.not = icmp eq ptr %call60, null
-  br i1 %tobool61.not, label %while.end71, label %while.body62, !llvm.loop !38
+  br i1 %tobool61.not, label %while.end71, label %while.body62, !llvm.loop !39
 
 while.end71:                                      ; preds = %if.end70, %do.end
   %call72 = call i32 @close(i32 noundef %2) #21
@@ -13882,7 +13882,7 @@ attributes #25 = { nounwind willreturn memory(read) }
 !18 = distinct !{!18, !6}
 !19 = !{i32 -1, i32 2}
 !20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
+!21 = !{i64 -1, i64 -9223372036854775808}
 !22 = distinct !{!22, !6}
 !23 = distinct !{!23, !6}
 !24 = distinct !{!24, !6}
@@ -13892,11 +13892,12 @@ attributes #25 = { nounwind willreturn memory(read) }
 !28 = distinct !{!28, !6}
 !29 = distinct !{!29, !6}
 !30 = distinct !{!30, !6}
-!31 = !{i64 0, i64 2}
-!32 = distinct !{!32, !6}
+!31 = distinct !{!31, !6}
+!32 = !{i64 0, i64 2}
 !33 = distinct !{!33, !6}
 !34 = distinct !{!34, !6}
 !35 = distinct !{!35, !6}
 !36 = distinct !{!36, !6}
 !37 = distinct !{!37, !6}
 !38 = distinct !{!38, !6}
+!39 = distinct !{!39, !6}

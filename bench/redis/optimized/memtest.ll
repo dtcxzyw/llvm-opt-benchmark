@@ -1416,7 +1416,7 @@ attributes #13 = { noreturn nounwind }
 attributes #14 = { nounwind }
 attributes #15 = { nounwind allocsize(0) }
 attributes #16 = { nounwind willreturn memory(none) }
-attributes #17 = { cold }
+attributes #17 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

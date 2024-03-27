@@ -4799,9 +4799,9 @@ define dso_local ptr @RM_CreateStringPrintf(ptr noundef %ctx, ptr noundef %fmt, 
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %call = tail call ptr @sdsempty() #32
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call2 = call ptr @sdscatvprintf(ptr noundef %call, ptr noundef %fmt, ptr noundef nonnull %ap) #32
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   %call4 = call ptr @createObject(i32 noundef 0, ptr noundef %call2) #32
   %cmp.not = icmp eq ptr %ctx, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -4864,12 +4864,12 @@ if.end:                                           ; preds = %if.end11.i, %if.the
 declare ptr @sdsempty() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #18
+declare void @llvm.va_start.p0(ptr) #18
 
 declare ptr @sdscatvprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #18
+declare void @llvm.va_end.p0(ptr) #18
 
 declare ptr @createObject(i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -6132,9 +6132,9 @@ if.end:                                           ; preds = %moduleGetReplyClien
   %conv2 = ashr exact i64 %sext, 32
   %call3 = tail call noalias ptr @zmalloc(i64 noundef %conv2) #33
   %call5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %call3, i64 noundef %conv2, ptr noundef nonnull @.str.34, ptr noundef %fmt) #32
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   call void @addReplyErrorFormatInternal(ptr noundef nonnull %2, i32 noundef 0, ptr noundef %call3, ptr noundef nonnull %ap) #32
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   call void @zfree(ptr noundef %call3) #32
   br label %return
 
@@ -7360,9 +7360,9 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call2 = call ptr @moduleCreateArgvFromUserFormat(ptr noundef %cmdname, ptr noundef %fmt, ptr noundef nonnull %argc, ptr noundef nonnull %flags, ptr noundef nonnull %ap)
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   %cmp = icmp eq ptr %call2, null
   br i1 %cmp, label %return, label %if.end5
 
@@ -11424,7 +11424,7 @@ sw.epilog.sink.split.i.i:                         ; preds = %sw.bb.i.i, %if.end.
   br label %if.end17
 
 if.end17:                                         ; preds = %if.else6.thread, %sw.epilog.sink.split.i.i, %if.end.i
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %and19 = and i32 %flags, 4
   %tobool20.not.not = icmp eq i32 %and19, 0
   %overflow_arg_area_p = getelementptr inbounds i8, ptr %ap, i64 8
@@ -11906,7 +11906,7 @@ if.end87:                                         ; preds = %if.end77.split.spli
 
 while.end:                                        ; preds = %vaarg.end, %vaarg.end.us.us, %vaarg.end39.us.us84.us.us, %vaarg.end39.us.us84, %vaarg.end39.us.us84.us, %vaarg.end39.us.us.us.us
   %.us-phi = phi i32 [ %count.0.ph.us.us, %vaarg.end39.us.us.us.us ], [ %count.0.ph.us, %vaarg.end39.us.us84.us ], [ %count.0.ph.us, %vaarg.end39.us.us84 ], [ %count.0.ph.us, %vaarg.end39.us.us84.us.us ], [ %count.0.ph.us102, %vaarg.end.us.us ], [ %count.0.ph, %vaarg.end ]
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   %call107 = call i32 @moduleDelKeyIfEmpty(ptr noundef nonnull %key), !range !22
   %cmp108 = icmp eq i32 %.us-phi, 0
   br i1 %cmp108, label %return.sink.split, label %return
@@ -11948,7 +11948,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %and = and i32 %flags, 4
   %tobool2.not = icmp eq i32 %and, 0
   %overflow_arg_area_p = getelementptr inbounds i8, ptr %ap, i64 8
@@ -12255,7 +12255,7 @@ if.end75:                                         ; preds = %vaarg.end38, %if.th
   br label %while.body
 
 while.end:                                        ; preds = %vaarg.end, %vaarg.end19.us37, %vaarg.end.us, %vaarg.end19.us
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %while.end
@@ -13423,12 +13423,12 @@ entry:
   %error_code = alloca i32, align 4
   store i32 0, ptr %argc, align 4
   store i32 0, ptr %flags, align 4
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call = call ptr @moduleCreateArgvFromUserFormat(ptr noundef %cmdname, ptr noundef %fmt, ptr noundef nonnull %argc, ptr noundef nonnull %flags, ptr noundef nonnull %ap)
   %0 = load i32, ptr %flags, align 4
   %and = and i32 %0, 1
   %and2 = and i32 %0, 256
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   %1 = load i64, ptr @moduleTempClientCount, align 8
   %cmp.not.i = icmp eq i64 %1, 0
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -16375,9 +16375,9 @@ do.end:                                           ; preds = %do.body, %if.end4
   br label %return
 
 if.end7:                                          ; preds = %if.end
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call10 = call ptr @moduleCreateArgvFromUserFormat(ptr noundef %cmdname, ptr noundef %fmt, ptr noundef nonnull %argc, ptr noundef nonnull %flags, ptr noundef nonnull %ap)
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   %cmp12 = icmp eq ptr %call10, null
   br i1 %cmp12, label %do.body14, label %if.end24
 
@@ -16630,7 +16630,7 @@ declare void @serverLogRaw(i32 noundef, ptr noundef) local_unnamed_addr #1
 define dso_local void @RM_Log(ptr noundef readonly %ctx, ptr nocapture noundef readonly %levelstr, ptr nocapture noundef readonly %fmt, ...) #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %cond.end, label %cond.true
 
@@ -16642,7 +16642,7 @@ cond.true:                                        ; preds = %entry
 cond.end:                                         ; preds = %entry, %cond.true
   %cond = phi ptr [ %0, %cond.true ], [ null, %entry ]
   call void @moduleLogRaw(ptr noundef %cond, ptr noundef %levelstr, ptr noundef %fmt, ptr noundef nonnull %ap)
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
 
@@ -16650,13 +16650,13 @@ cond.end:                                         ; preds = %entry, %cond.true
 define dso_local void @RM_LogIOError(ptr nocapture noundef readonly %io, ptr nocapture noundef readonly %levelstr, ptr nocapture noundef readonly %fmt, ...) #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %type = getelementptr inbounds i8, ptr %io, i64 16
   %0 = load ptr, ptr %type, align 8
   %module = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %module, align 8
   call void @moduleLogRaw(ptr noundef %1, ptr noundef %levelstr, ptr noundef %fmt, ptr noundef nonnull %ap)
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
 

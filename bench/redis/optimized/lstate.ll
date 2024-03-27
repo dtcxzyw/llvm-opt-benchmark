@@ -73,8 +73,8 @@ entry:
   store ptr %add.ptr19.i, ptr %top21.i, align 8, !tbaa !36
   %l_gt = getelementptr inbounds i8, ptr %L, i64 120
   %l_gt1 = getelementptr inbounds i8, ptr %call, i64 120
-  %2 = load i64, ptr %l_gt, align 8
-  store i64 %2, ptr %l_gt1, align 8
+  %2 = load i64, ptr %l_gt, align 8, !tbaa !37
+  store i64 %2, ptr %l_gt1, align 8, !tbaa !37
   %tt = getelementptr inbounds i8, ptr %L, i64 128
   %3 = load i32, ptr %tt, align 8, !tbaa !33
   store i32 %3, ptr %tt.i, align 8, !tbaa !33
@@ -129,13 +129,13 @@ entry:
 
 if.end:                                           ; preds = %entry
   %g1 = getelementptr inbounds i8, ptr %call, i64 184
-  store ptr null, ptr %call, align 8, !tbaa !37
+  store ptr null, ptr %call, align 8, !tbaa !38
   %tt = getelementptr inbounds i8, ptr %call, i64 8
-  store i8 8, ptr %tt, align 8, !tbaa !38
+  store i8 8, ptr %tt, align 8, !tbaa !39
   %currentwhite = getelementptr inbounds i8, ptr %call, i64 216
-  store i8 33, ptr %currentwhite, align 8, !tbaa !39
+  store i8 33, ptr %currentwhite, align 8, !tbaa !40
   %marked = getelementptr inbounds i8, ptr %call, i64 9
-  store i8 97, ptr %marked, align 1, !tbaa !44
+  store i8 97, ptr %marked, align 1, !tbaa !45
   %l_G.i = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %g1, ptr %l_G.i, align 8, !tbaa !4
   %stack.i = getelementptr inbounds i8, ptr %call, i64 64
@@ -169,16 +169,16 @@ if.end:                                           ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ci.i, i8 0, i64 16, i1 false)
   store i64 0, ptr %size_ci.i, align 4
   %frealloc = getelementptr inbounds i8, ptr %call, i64 200
-  store ptr %f, ptr %frealloc, align 8, !tbaa !45
+  store ptr %f, ptr %frealloc, align 8, !tbaa !46
   %ud7 = getelementptr inbounds i8, ptr %call, i64 208
-  store ptr %ud, ptr %ud7, align 8, !tbaa !46
+  store ptr %ud, ptr %ud7, align 8, !tbaa !47
   %mainthread = getelementptr inbounds i8, ptr %call, i64 360
-  store ptr %call, ptr %mainthread, align 8, !tbaa !47
+  store ptr %call, ptr %mainthread, align 8, !tbaa !48
   %uvhead = getelementptr inbounds i8, ptr %call, i64 368
   %u = getelementptr inbounds i8, ptr %call, i64 392
-  store ptr %uvhead, ptr %u, align 8, !tbaa !48
+  store ptr %uvhead, ptr %u, align 8, !tbaa !37
   %next12 = getelementptr inbounds i8, ptr %call, i64 400
-  store ptr %uvhead, ptr %next12, align 8, !tbaa !48
+  store ptr %uvhead, ptr %next12, align 8, !tbaa !37
   %tt15 = getelementptr inbounds i8, ptr %call, i64 352
   store i32 0, ptr %tt15, align 8, !tbaa !49
   %buff = getelementptr inbounds i8, ptr %call, i64 272
@@ -206,8 +206,8 @@ if.end:                                           ; preds = %entry
   store i32 200, ptr %gcstepmul, align 4, !tbaa !58
   %gcdept = getelementptr inbounds i8, ptr %call, i64 320
   store i64 0, ptr %gcdept, align 8, !tbaa !59
-  %scevgep = getelementptr i8, ptr %call, i64 408
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %scevgep, i8 0, i64 72, i1 false), !tbaa !60
+  %mt = getelementptr inbounds i8, ptr %call, i64 408
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %mt, i8 0, i64 72, i1 false), !tbaa !60
   %call20 = tail call i32 @luaD_rawrunprotected(ptr noundef nonnull %call, ptr noundef nonnull @f_luaopen, ptr noundef null) #3
   %cmp21.not = icmp eq i32 %call20, 0
   br i1 %cmp21.not, label %cleanup, label %if.then23
@@ -242,9 +242,9 @@ if.then23:                                        ; preds = %if.end
   %mul2.i.i = shl nsw i64 %conv1.i.i, 4
   %call3.i.i = tail call ptr @luaM_realloc_(ptr noundef nonnull %call, ptr noundef %9, i64 noundef %mul2.i.i, i64 noundef 0) #3
   %frealloc.i = getelementptr inbounds i8, ptr %0, i64 16
-  %11 = load ptr, ptr %frealloc.i, align 8, !tbaa !45
+  %11 = load ptr, ptr %frealloc.i, align 8, !tbaa !46
   %ud.i = getelementptr inbounds i8, ptr %0, i64 24
-  %12 = load ptr, ptr %ud.i, align 8, !tbaa !46
+  %12 = load ptr, ptr %ud.i, align 8, !tbaa !47
   %call11.i = tail call ptr %11(ptr noundef %12, ptr noundef nonnull %call, i64 noundef 616, i64 noundef 0) #3
   br label %cleanup
 
@@ -294,13 +294,13 @@ entry:
   store ptr %add.ptr19.i, ptr %top21.i, align 8, !tbaa !36
   %l_gt = getelementptr inbounds i8, ptr %L, i64 120
   %call = tail call ptr @luaH_new(ptr noundef %L, i32 noundef 0, i32 noundef 2) #3
-  store ptr %call, ptr %l_gt, align 8, !tbaa !48
+  store ptr %call, ptr %l_gt, align 8, !tbaa !37
   %tt = getelementptr inbounds i8, ptr %L, i64 128
   store i32 5, ptr %tt, align 8, !tbaa !33
   %2 = load ptr, ptr %l_G, align 8, !tbaa !4
   %l_registry = getelementptr inbounds i8, ptr %2, i64 160
   %call3 = tail call ptr @luaH_new(ptr noundef %L, i32 noundef 0, i32 noundef 2) #3
-  store ptr %call3, ptr %l_registry, align 8, !tbaa !48
+  store ptr %call3, ptr %l_registry, align 8, !tbaa !37
   %tt5 = getelementptr inbounds i8, ptr %2, i64 168
   store i32 5, ptr %tt5, align 8, !tbaa !33
   tail call void @luaS_resize(ptr noundef %L, i32 noundef 32) #3
@@ -308,9 +308,9 @@ entry:
   tail call void @luaX_init(ptr noundef %L) #3
   %call6 = tail call ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull @.str, i64 noundef 17) #3
   %marked = getelementptr inbounds i8, ptr %call6, i64 9
-  %3 = load i8, ptr %marked, align 1, !tbaa !48
+  %3 = load i8, ptr %marked, align 1, !tbaa !37
   %4 = or i8 %3, 32
-  store i8 %4, ptr %marked, align 1, !tbaa !48
+  store i8 %4, ptr %marked, align 1, !tbaa !37
   %totalbytes = getelementptr inbounds i8, ptr %0, i64 120
   %5 = load i64, ptr %totalbytes, align 8, !tbaa !56
   %mul = shl i64 %5, 2
@@ -325,7 +325,7 @@ entry:
   %l_G = getelementptr inbounds i8, ptr %L, i64 32
   %0 = load ptr, ptr %l_G, align 8, !tbaa !4
   %mainthread = getelementptr inbounds i8, ptr %0, i64 176
-  %1 = load ptr, ptr %mainthread, align 8, !tbaa !47
+  %1 = load ptr, ptr %mainthread, align 8, !tbaa !48
   %stack = getelementptr inbounds i8, ptr %1, i64 64
   %2 = load ptr, ptr %stack, align 8, !tbaa !13
   tail call void @luaF_close(ptr noundef %1, ptr noundef %2) #3
@@ -385,9 +385,9 @@ do.end:                                           ; preds = %do.body
   %mul2.i.i = shl nsw i64 %conv1.i.i, 4
   %call3.i.i = tail call ptr @luaM_realloc_(ptr noundef nonnull %1, ptr noundef %14, i64 noundef %mul2.i.i, i64 noundef 0) #3
   %frealloc.i = getelementptr inbounds i8, ptr %5, i64 16
-  %16 = load ptr, ptr %frealloc.i, align 8, !tbaa !45
+  %16 = load ptr, ptr %frealloc.i, align 8, !tbaa !46
   %ud.i = getelementptr inbounds i8, ptr %5, i64 24
-  %17 = load ptr, ptr %ud.i, align 8, !tbaa !46
+  %17 = load ptr, ptr %ud.i, align 8, !tbaa !47
   %call11.i = tail call ptr %16(ptr noundef %17, ptr noundef nonnull %1, i64 noundef 616, i64 noundef 0) #3
   ret void
 }
@@ -462,34 +462,34 @@ attributes #3 = { nounwind }
 !34 = !{!31, !6, i64 0}
 !35 = !{!5, !6, i64 24}
 !36 = !{!31, !6, i64 16}
-!37 = !{!5, !6, i64 0}
-!38 = !{!5, !7, i64 8}
-!39 = !{!40, !7, i64 32}
-!40 = !{!"global_State", !41, i64 0, !6, i64 16, !6, i64 24, !7, i64 32, !7, i64 33, !9, i64 36, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !42, i64 88, !12, i64 112, !12, i64 120, !12, i64 128, !12, i64 136, !9, i64 144, !9, i64 148, !6, i64 152, !11, i64 160, !6, i64 176, !43, i64 184, !7, i64 224, !7, i64 296}
-!41 = !{!"stringtable", !6, i64 0, !9, i64 8, !9, i64 12}
-!42 = !{!"Mbuffer", !6, i64 0, !12, i64 8, !12, i64 16}
-!43 = !{!"UpVal", !6, i64 0, !7, i64 8, !7, i64 9, !6, i64 16, !7, i64 24}
-!44 = !{!5, !7, i64 9}
-!45 = !{!40, !6, i64 16}
-!46 = !{!40, !6, i64 24}
-!47 = !{!40, !6, i64 176}
-!48 = !{!7, !7, i64 0}
-!49 = !{!40, !9, i64 168}
-!50 = !{!40, !6, i64 88}
-!51 = !{!40, !6, i64 152}
-!52 = !{!40, !7, i64 33}
-!53 = !{!40, !6, i64 40}
-!54 = !{!40, !9, i64 36}
-!55 = !{!40, !6, i64 48}
-!56 = !{!40, !12, i64 120}
-!57 = !{!40, !9, i64 144}
-!58 = !{!40, !9, i64 148}
-!59 = !{!40, !12, i64 136}
+!37 = !{!7, !7, i64 0}
+!38 = !{!5, !6, i64 0}
+!39 = !{!5, !7, i64 8}
+!40 = !{!41, !7, i64 32}
+!41 = !{!"global_State", !42, i64 0, !6, i64 16, !6, i64 24, !7, i64 32, !7, i64 33, !9, i64 36, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !43, i64 88, !12, i64 112, !12, i64 120, !12, i64 128, !12, i64 136, !9, i64 144, !9, i64 148, !6, i64 152, !11, i64 160, !6, i64 176, !44, i64 184, !7, i64 224, !7, i64 296}
+!42 = !{!"stringtable", !6, i64 0, !9, i64 8, !9, i64 12}
+!43 = !{!"Mbuffer", !6, i64 0, !12, i64 8, !12, i64 16}
+!44 = !{!"UpVal", !6, i64 0, !7, i64 8, !7, i64 9, !6, i64 16, !7, i64 24}
+!45 = !{!5, !7, i64 9}
+!46 = !{!41, !6, i64 16}
+!47 = !{!41, !6, i64 24}
+!48 = !{!41, !6, i64 176}
+!49 = !{!41, !9, i64 168}
+!50 = !{!41, !6, i64 88}
+!51 = !{!41, !6, i64 152}
+!52 = !{!41, !7, i64 33}
+!53 = !{!41, !6, i64 40}
+!54 = !{!41, !9, i64 36}
+!55 = !{!41, !6, i64 48}
+!56 = !{!41, !12, i64 120}
+!57 = !{!41, !9, i64 144}
+!58 = !{!41, !9, i64 148}
+!59 = !{!41, !12, i64 136}
 !60 = !{!6, !6, i64 0}
-!61 = !{!40, !6, i64 0}
-!62 = !{!40, !9, i64 12}
-!63 = !{!40, !12, i64 104}
-!64 = !{!40, !12, i64 112}
+!61 = !{!41, !6, i64 0}
+!62 = !{!41, !9, i64 12}
+!63 = !{!41, !12, i64 104}
+!64 = !{!41, !12, i64 112}
 !65 = !{!5, !10, i64 98}
 !66 = !{!5, !10, i64 96}
 !67 = distinct !{!67, !68}

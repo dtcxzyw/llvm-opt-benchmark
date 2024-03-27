@@ -426,7 +426,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr @stderr, align 8
-  %call3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %tool_name) #13
+  %call3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %tool_name) #16
   tail call void @exit(i32 noundef 1) #14
   unreachable
 
@@ -820,6 +820,7 @@ attributes #12 = { nounwind willreturn memory(none) }
 attributes #13 = { cold }
 attributes #14 = { noreturn nounwind }
 attributes #15 = { nounwind willreturn memory(read) }
+attributes #16 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

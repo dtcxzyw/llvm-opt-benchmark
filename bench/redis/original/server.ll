@@ -696,7 +696,7 @@ if.end7:                                          ; preds = %cond.end
 if.then9:                                         ; preds = %if.end7
   %11 = load ptr, ptr %fp, align 8
   %12 = load ptr, ptr %msg.addr, align 8
-  %call10 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef @.str.2, ptr noundef %12)
+  %call10 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef @.str.2, ptr noundef %12) #13
   br label %if.end35
 
 if.else:                                          ; preds = %if.end7
@@ -764,7 +764,7 @@ if.end29:                                         ; preds = %if.end28, %if.then2
   %27 = load i8, ptr %arrayidx32, align 1
   %conv33 = sext i8 %27 to i32
   %28 = load ptr, ptr %msg.addr, align 8
-  %call34 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef @.str.5, i32 noundef %call30, i32 noundef %24, ptr noundef %arraydecay31, i32 noundef %conv33, ptr noundef %28)
+  %call34 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef @.str.5, i32 noundef %call30, i32 noundef %24, ptr noundef %arraydecay31, i32 noundef %conv33, ptr noundef %28) #13
   br label %if.end35
 
 if.end35:                                         ; preds = %if.end29, %if.then9
@@ -802,7 +802,8 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 declare noalias ptr @fopen64(ptr noundef, ptr noundef) #2
 
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #2
+; Function Attrs: nounwind
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #3
 
 ; Function Attrs: nounwind
 declare i32 @getpid() #3
@@ -834,13 +835,13 @@ entry:
   store i32 %level, ptr %level.addr, align 4
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %arraydecay1 = getelementptr inbounds [1024 x i8], ptr %msg, i64 0, i64 0
   %0 = load ptr, ptr %fmt.addr, align 8
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   %call = call i32 @vsnprintf(ptr noundef %arraydecay1, i64 noundef 1024, ptr noundef %0, ptr noundef %arraydecay2) #13
   %arraydecay3 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay3)
+  call void @llvm.va_end.p0(ptr %arraydecay3)
   %1 = load i32, ptr %level.addr, align 4
   %arraydecay4 = getelementptr inbounds [1024 x i8], ptr %msg, i64 0, i64 0
   call void @serverLogRaw(i32 noundef %1, ptr noundef %arraydecay4)
@@ -848,13 +849,13 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #4
+declare void @llvm.va_start.p0(ptr) #4
 
 ; Function Attrs: nounwind
 declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #4
+declare void @llvm.va_end.p0(ptr) #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @serverLogRawFromHandler(i32 noundef %level, ptr noundef %msg) #0 {
@@ -1050,13 +1051,13 @@ entry:
   store i32 %level, ptr %level.addr, align 4
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %arraydecay1 = getelementptr inbounds [1024 x i8], ptr %msg, i64 0, i64 0
   %0 = load ptr, ptr %fmt.addr, align 8
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   %call = call i32 @vsnprintf_async_signal_safe(ptr noundef %arraydecay1, i64 noundef 1024, ptr noundef %0, ptr noundef %arraydecay2)
   %arraydecay3 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay3)
+  call void @llvm.va_end.p0(ptr %arraydecay3)
   %1 = load i32, ptr %level.addr, align 4
   %arraydecay4 = getelementptr inbounds [1024 x i8], ptr %msg, i64 0, i64 0
   call void @serverLogRawFromHandler(i32 noundef %1, ptr noundef %arraydecay4)
@@ -12549,14 +12550,14 @@ entry:
   store ptr %c, ptr %c.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %call = call ptr @sdsempty()
   %0 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   %call2 = call ptr @sdscatvprintf(ptr noundef %call, ptr noundef %0, ptr noundef %arraydecay1)
   store ptr %call2, ptr %s, align 8
   %arraydecay3 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay3)
+  call void @llvm.va_end.p0(ptr %arraydecay3)
   %1 = load ptr, ptr %s, align 8
   %call4 = call ptr @sdsmapchars(ptr noundef %1, ptr noundef @.str.170, ptr noundef @.str.171, i64 noundef 2)
   %2 = load ptr, ptr %c.addr, align 8
@@ -20715,7 +20716,7 @@ if.end:                                           ; preds = %if.then, %entry
 if.then3:                                         ; preds = %if.end
   %3 = load ptr, ptr %fp, align 8
   %call4 = call i32 @getpid() #13
-  %call5 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef @.str.132, i32 noundef %call4)
+  %call5 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef @.str.132, i32 noundef %call4) #13
   %4 = load ptr, ptr %fp, align 8
   %call6 = call i32 @fclose(ptr noundef %4)
   br label %if.end11
@@ -20818,39 +20819,39 @@ declare i64 @redisBuildId() #2
 define dso_local void @usage() #0 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
-  %call = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef @.str.405)
+  %call = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef @.str.405) #13
   %1 = load ptr, ptr @stderr, align 8
-  %call1 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef @.str.406)
+  %call1 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef @.str.406) #13
   %2 = load ptr, ptr @stderr, align 8
-  %call2 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef @.str.407)
+  %call2 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef @.str.407) #13
   %3 = load ptr, ptr @stderr, align 8
-  %call3 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef @.str.408)
+  %call3 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef @.str.408) #13
   %4 = load ptr, ptr @stderr, align 8
-  %call4 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef @.str.409)
+  %call4 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef @.str.409) #13
   %5 = load ptr, ptr @stderr, align 8
-  %call5 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef @.str.410)
+  %call5 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef @.str.410) #13
   %6 = load ptr, ptr @stderr, align 8
-  %call6 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef @.str.8)
+  %call6 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef @.str.8) #13
   %7 = load ptr, ptr @stderr, align 8
-  %call7 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef @.str.411)
+  %call7 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef @.str.411) #13
   %8 = load ptr, ptr @stderr, align 8
-  %call8 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef @.str.412)
+  %call8 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef @.str.412) #13
   %9 = load ptr, ptr @stderr, align 8
-  %call9 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef @.str.413)
+  %call9 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef @.str.413) #13
   %10 = load ptr, ptr @stderr, align 8
-  %call10 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef @.str.414)
+  %call10 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef @.str.414) #13
   %11 = load ptr, ptr @stderr, align 8
-  %call11 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef @.str.415)
+  %call11 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef @.str.415) #13
   %12 = load ptr, ptr @stderr, align 8
-  %call12 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef @.str.416)
+  %call12 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef @.str.416) #13
   %13 = load ptr, ptr @stderr, align 8
-  %call13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef @.str.417)
+  %call13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef @.str.417) #13
   %14 = load ptr, ptr @stderr, align 8
-  %call14 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef @.str.418)
+  %call14 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef @.str.418) #13
   %15 = load ptr, ptr @stderr, align 8
-  %call15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef @.str.419)
+  %call15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef @.str.419) #13
   %16 = load ptr, ptr @stderr, align 8
-  %call16 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef @.str.420)
+  %call16 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef @.str.420) #13
   call void @exit(i32 noundef 1) #16
   unreachable
 }
@@ -22612,9 +22613,9 @@ if.then84:                                        ; preds = %if.then81
 
 if.else88:                                        ; preds = %if.then81
   %48 = load ptr, ptr @stderr, align 8
-  %call89 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef @.str.447)
+  %call89 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef @.str.447) #13
   %49 = load ptr, ptr @stderr, align 8
-  %call90 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef @.str.448)
+  %call90 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef @.str.448) #13
   call void @exit(i32 noundef 1) #16
   unreachable
 

@@ -102,7 +102,7 @@ entry:
   %ar.i = alloca %struct.lua_Debug, align 8
   %argp = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %argp) #16
-  call void @llvm.va_start(ptr nonnull %argp)
+  call void @llvm.va_start.p0(ptr nonnull %argp)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %ar.i) #16
   %call.i = call i32 @lua_getstack(ptr noundef %L, i32 noundef 1, ptr noundef nonnull %ar.i) #16
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -127,7 +127,7 @@ if.end5.i:                                        ; preds = %if.then.i, %entry
 luaL_where.exit:                                  ; preds = %if.end5.i, %if.then2.i
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ar.i) #16
   %call = call ptr @lua_pushvfstring(ptr noundef %L, ptr noundef %fmt, ptr noundef nonnull %argp) #16
-  call void @llvm.va_end(ptr nonnull %argp)
+  call void @llvm.va_end.p0(ptr nonnull %argp)
   call void @lua_concat(ptr noundef %L, i32 noundef 2) #16
   %call3 = call i32 @lua_error(ptr noundef %L) #16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %argp) #16
@@ -191,12 +191,12 @@ cleanup:                                          ; preds = %if.end5, %if.then2
 declare void @lua_pushlstring(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #4
+declare void @llvm.va_start.p0(ptr) #4
 
 declare ptr @lua_pushvfstring(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #4
+declare void @llvm.va_end.p0(ptr) #4
 
 declare void @lua_concat(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -240,7 +240,7 @@ for.body:                                         ; preds = %cond.end, %for.inc
   br i1 %cmp, label %cleanup.loopexit, label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds ptr, ptr %lst, i64 %indvars.iv.next
   %2 = load ptr, ptr %arrayidx, align 8, !tbaa !12
   %tobool2.not = icmp eq ptr %2, null
@@ -1697,7 +1697,7 @@ attributes #16 = { nounwind }
 attributes #17 = { nounwind willreturn memory(read) }
 attributes #18 = { nounwind willreturn memory(none) }
 attributes #19 = { nounwind allocsize(1) }
-attributes #20 = { cold }
+attributes #20 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

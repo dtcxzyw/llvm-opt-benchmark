@@ -1920,17 +1920,17 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define hidden i64 @malloc_snprintf(ptr nocapture noundef writeonly %str, i64 noundef %size, ptr noundef %format, ...) local_unnamed_addr #7 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call = call i64 @malloc_vsnprintf(ptr noundef %str, i64 noundef %size, ptr noundef %format, ptr noundef nonnull %ap) #15
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret i64 %call
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #8
+declare void @llvm.va_start.p0(ptr) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #8
+declare void @llvm.va_end.p0(ptr) #8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @malloc_vcprintf(ptr noundef readonly %write_cb, ptr noundef %cbopaque, ptr noundef %format, ptr noundef %ap) local_unnamed_addr #0 {
@@ -1951,7 +1951,7 @@ define hidden void @malloc_cprintf(ptr noundef readonly %write_cb, ptr noundef %
 entry:
   %buf.i = alloca [4096 x i8], align 16
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %buf.i)
   %cmp.i = icmp eq ptr %write_cb, null
   %0 = load ptr, ptr @je_malloc_message, align 8
@@ -1961,7 +1961,7 @@ entry:
   %call.i = call i64 @malloc_vsnprintf(ptr noundef nonnull %buf.i, i64 noundef 4096, ptr noundef %format, ptr noundef nonnull %ap) #15
   call void %write_cb.addr.0.i(ptr noundef %cbopaque, ptr noundef nonnull %buf.i) #13
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %buf.i)
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
 
@@ -1970,7 +1970,7 @@ define hidden void @malloc_printf(ptr noundef %format, ...) local_unnamed_addr #
 entry:
   %buf.i = alloca [4096 x i8], align 16
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %buf.i)
   %0 = load ptr, ptr @je_malloc_message, align 8
   %cmp1.not.i = icmp eq ptr %0, null
@@ -1978,7 +1978,7 @@ entry:
   %call.i = call i64 @malloc_vsnprintf(ptr noundef nonnull %buf.i, i64 noundef 4096, ptr noundef %format, ptr noundef nonnull %ap) #15
   call void %cond.i(ptr noundef null, ptr noundef nonnull %buf.i) #13
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %buf.i)
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
 

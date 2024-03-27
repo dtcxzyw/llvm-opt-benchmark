@@ -16,13 +16,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i64 @reqresAppendRequest(ptr nocapture noundef readnone %c) local_unnamed_addr #0 {
+define dso_local noundef i64 @reqresAppendRequest(ptr nocapture noundef readnone %c) local_unnamed_addr #0 {
 entry:
   ret i64 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i64 @reqresAppendResponse(ptr nocapture noundef readnone %c) local_unnamed_addr #0 {
+define dso_local noundef i64 @reqresAppendResponse(ptr nocapture noundef readnone %c) local_unnamed_addr #0 {
 entry:
   ret i64 0
 }

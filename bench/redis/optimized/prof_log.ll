@@ -25,31 +25,31 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none) uwtable
-define hidden i64 @prof_log_bt_count() local_unnamed_addr #1 {
+define hidden noundef i64 @prof_log_bt_count() local_unnamed_addr #1 {
 entry:
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none) uwtable
-define hidden i64 @prof_log_alloc_count() local_unnamed_addr #1 {
+define hidden noundef i64 @prof_log_alloc_count() local_unnamed_addr #1 {
 entry:
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none) uwtable
-define hidden i64 @prof_log_thr_count() local_unnamed_addr #1 {
+define hidden noundef i64 @prof_log_thr_count() local_unnamed_addr #1 {
 entry:
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none) uwtable
-define hidden zeroext i1 @prof_log_is_logging() local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @prof_log_is_logging() local_unnamed_addr #1 {
 entry:
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none) uwtable
-define hidden zeroext i1 @prof_log_rep_check() local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @prof_log_rep_check() local_unnamed_addr #1 {
 entry:
   unreachable
 }
@@ -61,19 +61,19 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none) uwtable
-define hidden zeroext i1 @prof_log_start(ptr nocapture noundef readnone %tsdn, ptr nocapture noundef readnone %filename) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @prof_log_start(ptr nocapture noundef readnone %tsdn, ptr nocapture noundef readnone %filename) local_unnamed_addr #0 {
 entry:
   unreachable
 }
 
 ; Function Attrs: cold mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none) uwtable
-define hidden zeroext i1 @prof_log_stop(ptr nocapture noundef readnone %tsdn) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @prof_log_stop(ptr nocapture noundef readnone %tsdn) local_unnamed_addr #0 {
 entry:
   unreachable
 }
 
 ; Function Attrs: cold mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none) uwtable
-define hidden zeroext i1 @prof_log_init(ptr nocapture noundef readnone %tsd) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @prof_log_init(ptr nocapture noundef readnone %tsd) local_unnamed_addr #0 {
 entry:
   unreachable
 }

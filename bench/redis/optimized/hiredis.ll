@@ -396,7 +396,7 @@ land.rhs114:                                      ; preds = %while.cond110
 
 if.end126:                                        ; preds = %while.body89, %while.body102, %land.rhs114, %while.cond110, %while.end, %while.end104
   %_p.3 = phi ptr [ %_p.1284, %while.end104 ], [ %_p.0281, %while.end ], [ %_p.2, %while.cond110 ], [ %_p.2, %land.rhs114 ], [ %incdec.ptr103, %while.body102 ], [ %incdec.ptr, %while.body89 ]
-  call void @llvm.va_copy(ptr nonnull %_cpy, ptr %ap)
+  call void @llvm.va_copy.p0(ptr nonnull %_cpy, ptr %ap)
   %37 = load i8, ptr %_p.3, align 1
   %conv127 = sext i8 %37 to i32
   %cmp128 = icmp eq i8 %37, 0
@@ -567,7 +567,7 @@ vaarg.in_mem276:                                  ; preds = %if.then270
   br label %fmt_valid
 
 fmt_invalid:                                      ; preds = %land.lhs.true227, %land.lhs.true, %if.end162, %land.lhs.true265, %if.then232, %land.lhs.true237, %land.lhs.true204, %if.then171, %land.lhs.true176, %if.end126
-  call void @llvm.va_end(ptr nonnull %_cpy)
+  call void @llvm.va_end.p0(ptr nonnull %_cpy)
   br label %cleanup
 
 fmt_valid:                                        ; preds = %vaarg.in_reg274, %vaarg.in_mem276, %vaarg.in_reg246, %vaarg.in_mem248, %vaarg.in_reg213, %vaarg.in_mem215, %vaarg.in_reg185, %vaarg.in_mem187, %vaarg.in_reg154, %vaarg.in_mem156, %vaarg.in_reg140, %vaarg.in_mem142
@@ -590,7 +590,7 @@ if.then288:                                       ; preds = %fmt_valid
 if.end295:                                        ; preds = %if.then288, %fmt_valid
   %c.1 = phi ptr [ %add.ptr294, %if.then288 ], [ %c.0, %fmt_valid ]
   %newarg.0 = phi ptr [ %call293, %if.then288 ], [ %curarg.0, %fmt_valid ]
-  call void @llvm.va_end(ptr nonnull %_cpy)
+  call void @llvm.va_end.p0(ptr nonnull %_cpy)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %vaarg.end72, %if.then76, %vaarg.end, %if.then48, %if.end295, %sw.bb79
@@ -1002,10 +1002,10 @@ declare ptr @hi_sdscat(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @__ctype_b_loc() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #4
+declare void @llvm.va_copy.p0(ptr, ptr) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #4
+declare void @llvm.va_end.p0(ptr) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
@@ -1021,15 +1021,15 @@ declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapt
 define i32 @redisFormatCommand(ptr noundef %target, ptr noundef %format, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call = call i32 @redisvFormatCommand(ptr noundef %target, ptr noundef %format, ptr noundef nonnull %ap)
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   %spec.store.select = call i32 @llvm.smax.i32(i32 %call, i32 -1)
   ret i32 %spec.store.select
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #4
+declare void @llvm.va_start.p0(ptr) #4
 
 ; Function Attrs: nounwind uwtable
 define i64 @redisFormatSdsCommandArgv(ptr noundef writeonly %target, i32 noundef %argc, ptr nocapture noundef readonly %argv, ptr noundef readonly %argvlen) local_unnamed_addr #0 {
@@ -2813,7 +2813,7 @@ define noundef i32 @redisAppendCommand(ptr nocapture noundef %c, ptr noundef %fo
 entry:
   %cmd.i = alloca ptr, align 8
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %cmd.i)
   %call.i = call i32 @redisvFormatCommand(ptr noundef nonnull %cmd.i, ptr noundef %format, ptr noundef nonnull %ap)
   switch i32 %call.i, label %if.end3.i [
@@ -2870,7 +2870,7 @@ if.end8.i:                                        ; preds = %if.end3.i
 redisvAppendCommand.exit:                         ; preds = %if.then.i, %if.then2.i, %if.then7.i, %if.end8.i
   %retval.0.i = phi i32 [ -1, %if.then.i ], [ -1, %if.then2.i ], [ -1, %if.then7.i ], [ 0, %if.end8.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cmd.i)
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret i32 %retval.0.i
 }
 
@@ -3010,9 +3010,9 @@ return:                                           ; preds = %redisvAppendCommand
 define ptr @redisCommand(ptr noundef %c, ptr noundef %format, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call = call ptr @redisvCommand(ptr noundef %c, ptr noundef %format, ptr noundef nonnull %ap)
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret ptr %call
 }
 

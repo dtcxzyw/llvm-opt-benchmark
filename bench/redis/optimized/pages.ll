@@ -274,14 +274,14 @@ os_pages_unmap.exit:                              ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @pages_commit(ptr noundef %addr, i64 noundef %size) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @pages_commit(ptr noundef %addr, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc zeroext i1 @pages_commit_impl(ptr noundef %addr, i64 noundef %size, i1 noundef zeroext true)
   ret i1 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @pages_commit_impl(ptr noundef %addr, i64 noundef %size, i1 noundef zeroext %commit) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @pages_commit_impl(ptr noundef %addr, i64 noundef %size, i1 noundef zeroext %commit) unnamed_addr #0 {
 entry:
   %buf.i.i = alloca [64 x i8], align 16
   %0 = load i8, ptr @os_overcommits, align 1
@@ -331,7 +331,7 @@ return:                                           ; preds = %os_pages_unmap.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @pages_decommit(ptr noundef %addr, i64 noundef %size) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @pages_decommit(ptr noundef %addr, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc zeroext i1 @pages_commit_impl(ptr noundef %addr, i64 noundef %size, i1 noundef zeroext false)
   ret i1 %call
@@ -499,7 +499,7 @@ if.end13:                                         ; preds = %if.end13.sink.split
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @pages_boot() local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @pages_boot() local_unnamed_addr #0 {
 entry:
   %buf.i30 = alloca [64 x i8], align 16
   %buf.i10 = alloca [24 x i8], align 16

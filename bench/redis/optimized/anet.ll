@@ -107,9 +107,9 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call = call i32 @vsnprintf(ptr noundef nonnull %err, i64 noundef 256, ptr noundef %fmt, ptr noundef nonnull %ap) #10
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -1353,13 +1353,13 @@ entry:
 declare noundef i32 @stat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #8
+declare void @llvm.va_start.p0(ptr) #8
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #8
+declare void @llvm.va_end.p0(ptr) #8
 
 ; Function Attrs: nounwind
 declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

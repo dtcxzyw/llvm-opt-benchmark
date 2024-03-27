@@ -2846,7 +2846,7 @@ if.end355.thread256:                              ; preds = %if.then346
 
 if.end355.thread:                                 ; preds = %if.end343
   %99 = load ptr, ptr @stderr, align 8
-  %100 = call i64 @fwrite(ptr nonnull @.str.179, i64 37, i64 1, ptr %99) #37
+  %100 = call i64 @fwrite(ptr nonnull @.str.179, i64 37, i64 1, ptr %99) #38
   br label %cleanup
 
 if.end355:                                        ; preds = %if.then346
@@ -3054,7 +3054,7 @@ if.end5:                                          ; preds = %if.end
 
 invalid_args:                                     ; preds = %if.end5.i, %if.end4.i.i
   %2 = load ptr, ptr @stderr, align 8
-  %3 = tail call i64 @fwrite(ptr nonnull @.str.347, i64 138, i64 1, ptr %2) #37
+  %3 = tail call i64 @fwrite(ptr nonnull @.str.347, i64 138, i64 1, ptr %2) #38
   br label %return
 
 return:                                           ; preds = %if.end, %invalid_args, %if.end5
@@ -3136,7 +3136,7 @@ if.end5:                                          ; preds = %if.end
 
 invalid_args:                                     ; preds = %if.end5.i, %if.end4.i.i
   %2 = load ptr, ptr @stderr, align 8
-  %3 = tail call i64 @fwrite(ptr nonnull @.str.347, i64 138, i64 1, ptr %2) #37
+  %3 = tail call i64 @fwrite(ptr nonnull @.str.347, i64 138, i64 1, ptr %2) #38
   br label %return
 
 return:                                           ; preds = %if.end, %invalid_args, %if.end5
@@ -3245,7 +3245,7 @@ if.then8:                                         ; preds = %land.lhs.true
   %4 = load ptr, ptr @stdout, align 8
   %call9 = tail call i32 @fflush(ptr noundef %4)
   %5 = load ptr, ptr @stderr, align 8
-  %6 = tail call i64 @fwrite(ptr nonnull @.str.361, i64 55, i64 1, ptr %5) #37
+  %6 = tail call i64 @fwrite(ptr nonnull @.str.361, i64 55, i64 1, ptr %5) #38
   br label %return
 
 if.end11:                                         ; preds = %land.lhs.true, %if.end5
@@ -3587,7 +3587,7 @@ if.end226:                                        ; preds = %if.end133, %while.c
 
 if.then230:                                       ; preds = %if.end226
   %39 = load ptr, ptr @stderr, align 8
-  %40 = call i64 @fwrite(ptr nonnull @.str.370, i64 46, i64 1, ptr %39) #37
+  %40 = call i64 @fwrite(ptr nonnull @.str.370, i64 46, i64 1, ptr %39) #38
   br label %cleanup.thread
 
 if.end232:                                        ; preds = %if.end226
@@ -3730,7 +3730,7 @@ clusterManagerReleaseReshardTable.exit:           ; preds = %cleanup.thread, %cl
 
 invalid_args:                                     ; preds = %if.end5.i, %if.end4.i.i
   %55 = load ptr, ptr @stderr, align 8
-  %56 = tail call i64 @fwrite(ptr nonnull @.str.347, i64 138, i64 1, ptr %55) #37
+  %56 = tail call i64 @fwrite(ptr nonnull @.str.347, i64 138, i64 1, ptr %55) #38
   br label %return
 
 return:                                           ; preds = %clusterNodeForResharding.exit.thread, %if.end, %invalid_args, %clusterManagerReleaseReshardTable.exit, %if.then8
@@ -4342,7 +4342,7 @@ if.then227:                                       ; preds = %if.end224
 
 invalid_args:                                     ; preds = %if.end5.i, %if.end4.i.i
   %62 = load ptr, ptr @stderr, align 8
-  %63 = tail call i64 @fwrite(ptr nonnull @.str.347, i64 138, i64 1, ptr %62) #37
+  %63 = tail call i64 @fwrite(ptr nonnull @.str.347, i64 138, i64 1, ptr %62) #38
   br label %return
 
 return:                                           ; preds = %if.then10, %if.then16, %if.end224, %if.then227, %if.end, %invalid_args
@@ -4856,7 +4856,7 @@ if.then153:                                       ; preds = %if.end151
 
 invalid_args:                                     ; preds = %if.end4.i.i68, %parseClusterNodeAddress.exit.i71, %if.end4.i.i, %if.end5.i
   %53 = load ptr, ptr @stderr, align 8
-  %54 = tail call i64 @fwrite(ptr nonnull @.str.347, i64 138, i64 1, ptr %53) #37
+  %54 = tail call i64 @fwrite(ptr nonnull @.str.347, i64 138, i64 1, ptr %53) #38
   br label %return
 
 return:                                           ; preds = %if.then144, %if.end151, %if.then153, %if.end9, %if.end4, %invalid_args, %if.then19
@@ -5106,7 +5106,7 @@ if.then53:                                        ; preds = %lor.lhs.false.i44, 
 
 invalid_args:                                     ; preds = %parseClusterNodeAddress.exit.i, %if.end4.i.i
   %32 = load ptr, ptr @stderr, align 8
-  %33 = tail call i64 @fwrite(ptr nonnull @.str.347, i64 138, i64 1, ptr %32) #37
+  %33 = tail call i64 @fwrite(ptr nonnull @.str.347, i64 138, i64 1, ptr %32) #38
   br label %return
 
 return:                                           ; preds = %if.end37, %clusterManagerNodeWithLeastReplicas.exit, %while.end, %if.end44.thread71, %if.end33.thread63, %if.then53, %if.end, %invalid_args, %if.then10, %if.then7
@@ -5290,7 +5290,7 @@ while.end:                                        ; preds = %while.cond.backedge
 
 invalid_args:                                     ; preds = %parseClusterNodeAddress.exit.i, %if.end4.i.i
   %16 = load ptr, ptr @stderr, align 8
-  %17 = tail call i64 @fwrite(ptr nonnull @.str.347, i64 138, i64 1, ptr %16) #37
+  %17 = tail call i64 @fwrite(ptr nonnull @.str.347, i64 138, i64 1, ptr %16) #38
   br label %return
 
 return:                                           ; preds = %if.end, %invalid_args, %while.end
@@ -5334,7 +5334,7 @@ if.end:                                           ; preds = %parseClusterNodeAdd
 
 if.then2:                                         ; preds = %if.end
   %2 = load ptr, ptr @stderr, align 8
-  %3 = tail call i64 @fwrite(ptr nonnull @.str.390, i64 68, i64 1, ptr %2) #37
+  %3 = tail call i64 @fwrite(ptr nonnull @.str.390, i64 68, i64 1, ptr %2) #38
   br label %return
 
 if.end4:                                          ; preds = %if.end
@@ -5464,7 +5464,7 @@ while.end:                                        ; preds = %if.end38, %if.end28
 
 invalid_args:                                     ; preds = %parseClusterNodeAddress.exit.i, %if.end4.i.i
   %19 = load ptr, ptr @stderr, align 8
-  %20 = tail call i64 @fwrite(ptr nonnull @.str.347, i64 138, i64 1, ptr %19) #37
+  %20 = tail call i64 @fwrite(ptr nonnull @.str.347, i64 138, i64 1, ptr %19) #38
   br label %return
 
 return:                                           ; preds = %if.end4, %invalid_args, %while.end, %if.then2
@@ -5612,7 +5612,7 @@ if.end4.i:                                        ; preds = %if.else.i93, %if.th
 
 cliAuth.exit.thread:                              ; preds = %if.end4.i
   %7 = load ptr, ptr @stderr, align 8
-  %8 = tail call i64 @fwrite(ptr nonnull @.str.76, i64 11, i64 1, ptr %7) #37
+  %8 = tail call i64 @fwrite(ptr nonnull @.str.76, i64 11, i64 1, ptr %7) #38
   br label %if.then186
 
 if.end8.i:                                        ; preds = %if.end4.i
@@ -5990,7 +5990,7 @@ if.then192:                                       ; preds = %if.end190
 invalid_args:                                     ; preds = %if.end4.i.i78, %parseClusterNodeAddress.exit.i81, %if.end4.i.i, %if.end5.i, %if.end
   %invalid_args_msg.0 = phi ptr [ @.str.400, %if.end ], [ @.str.347, %if.end5.i ], [ @.str.347, %if.end4.i.i ], [ @.str.401, %parseClusterNodeAddress.exit.i81 ], [ @.str.401, %if.end4.i.i78 ]
   %54 = load ptr, ptr @stderr, align 8
-  %fputs = tail call i32 @fputs(ptr nonnull %invalid_args_msg.0, ptr %54) #37
+  %fputs = tail call i32 @fputs(ptr nonnull %invalid_args_msg.0, ptr %54) #38
   br label %return
 
 return:                                           ; preds = %if.end190, %if.then192, %if.end11, %if.end6, %invalid_args
@@ -6622,7 +6622,7 @@ if.else47:                                        ; preds = %cleanup
 
 invalid_args:                                     ; preds = %parseClusterNodeAddress.exit.i, %if.end4.i.i
   %69 = load ptr, ptr @stderr, align 8
-  %70 = tail call i64 @fwrite(ptr nonnull @.str.347, i64 138, i64 1, ptr %69) #37
+  %70 = tail call i64 @fwrite(ptr nonnull @.str.347, i64 138, i64 1, ptr %69) #38
   br label %return
 
 return:                                           ; preds = %if.end46, %if.else47, %if.end, %invalid_args
@@ -6645,7 +6645,7 @@ for.body:                                         ; preds = %entry, %for.inc52
   %call1 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #32
   %conv = trunc i64 %call1 to i32
   %3 = load ptr, ptr @stdout, align 8
-  %call3 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.454, ptr noundef %2)
+  %call3 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.454, ptr noundef %2) #33
   %cmp539 = icmp slt i32 %conv, 15
   br i1 %cmp539, label %for.body7.preheader, label %for.end
 
@@ -6668,7 +6668,7 @@ for.end:                                          ; preds = %for.body7, %for.bod
   %6 = load ptr, ptr %args, align 8
   %tobool.not = icmp eq ptr %6, null
   %spec.select = select i1 %tobool.not, ptr @.str.26, ptr %6
-  %call10 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.115, ptr noundef nonnull %spec.select)
+  %call10 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.115, ptr noundef nonnull %spec.select) #33
   %options = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %7 = load ptr, ptr %options, align 8
   %cmp11.not = icmp eq ptr %7, null
@@ -6708,7 +6708,7 @@ for.body27:                                       ; preds = %while.body, %for.bo
 
 for.end31:                                        ; preds = %for.body27
   %9 = load ptr, ptr @stdout, align 8
-  %call33 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.455, ptr noundef nonnull %buf)
+  %call33 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.455, ptr noundef nonnull %buf) #33
   %add.ptr34 = getelementptr inbounds i8, ptr %call17, i64 1
   %cmp35.not = icmp ult ptr %add.ptr34, %add.ptr
   br i1 %cmp35.not, label %while.cond, label %while.end, !llvm.loop !72
@@ -6728,7 +6728,7 @@ for.body44:                                       ; preds = %while.end, %for.bod
 
 for.end48:                                        ; preds = %for.body44
   %11 = load ptr, ptr @stdout, align 8
-  %call49 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.455, ptr noundef %p.1)
+  %call49 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.455, ptr noundef %p.1) #33
   br label %for.inc52
 
 for.inc52:                                        ; preds = %for.end, %for.end48, %while.end
@@ -6745,7 +6745,7 @@ for.end54:                                        ; preds = %for.inc52
   %call66 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #32
   %conv67 = trunc i64 %call66 to i32
   %17 = load ptr, ptr @stdout, align 8
-  %call71 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.454, ptr noundef %16)
+  %call71 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.454, ptr noundef %16) #33
   %cmp7344 = icmp slt i32 %conv67, 15
   br i1 %cmp7344, label %for.body75.preheader, label %for.end79
 
@@ -6765,7 +6765,7 @@ for.body75:                                       ; preds = %for.body75.preheade
 for.end79:                                        ; preds = %for.body75, %for.end54
   %19 = load ptr, ptr @stdout, align 8
   %20 = load ptr, ptr getelementptr inbounds ([1 x %struct.clusterManagerOptionDef], ptr @clusterManagerOptions, i64 0, i64 0, i32 1), align 8
-  %call80 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.115, ptr noundef %20)
+  %call80 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.115, ptr noundef %20) #33
   %21 = load ptr, ptr @stdout, align 8
   %fputc = call i32 @fputc(i32 10, ptr %21)
   ret i32 0
@@ -6896,8 +6896,8 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr @stderr, align 8
-  %3 = tail call i64 @fwrite(ptr nonnull @.str.76, i64 11, i64 1, ptr %2) #37
-  tail call void @exit(i32 noundef 1) #38
+  %3 = tail call i64 @fwrite(ptr nonnull @.str.76, i64 11, i64 1, ptr %2) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 if.else:                                          ; preds = %entry
@@ -6967,8 +6967,8 @@ while.body.preheader:                             ; preds = %if.else, %if.then2
 
 if.then3:                                         ; preds = %if.then2
   %0 = load ptr, ptr @stderr, align 8
-  %1 = tail call i64 @fwrite(ptr nonnull @.str.83, i64 24, i64 1, ptr %0) #37
-  tail call void @exit(i32 noundef 1) #38
+  %1 = tail call i64 @fwrite(ptr nonnull @.str.83, i64 24, i64 1, ptr %0) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 if.else:                                          ; preds = %if.end
@@ -6978,8 +6978,8 @@ if.else:                                          ; preds = %if.end
 
 if.then8:                                         ; preds = %if.else
   %2 = load ptr, ptr @stderr, align 8
-  %3 = tail call i64 @fwrite(ptr nonnull @.str.83, i64 24, i64 1, ptr %2) #37
-  tail call void @exit(i32 noundef 1) #38
+  %3 = tail call i64 @fwrite(ptr nonnull @.str.83, i64 24, i64 1, ptr %2) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 while.body:                                       ; preds = %while.body.preheader, %if.end23
@@ -6994,8 +6994,8 @@ while.body:                                       ; preds = %while.body.preheade
 
 if.then14:                                        ; preds = %while.body
   %6 = load ptr, ptr @stderr, align 8
-  %7 = call i64 @fwrite(ptr nonnull @.str.84, i64 40, i64 1, ptr %6) #37
-  call void @exit(i32 noundef 1) #38
+  %7 = call i64 @fwrite(ptr nonnull @.str.84, i64 40, i64 1, ptr %6) #38
+  call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end16:                                         ; preds = %while.body
@@ -7026,7 +7026,7 @@ while.end:                                        ; preds = %if.end16, %while.en
 if.then38:                                        ; preds = %while.end
   %10 = load ptr, ptr @stderr, align 8
   %call40 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.85, ptr noundef nonnull %buf) #37
-  call void @exit(i32 noundef 1) #38
+  call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end41:                                         ; preds = %while.end
@@ -7058,8 +7058,8 @@ while.body55:                                     ; preds = %if.end70, %if.then4
 
 if.then59:                                        ; preds = %while.body55
   %14 = load ptr, ptr @stderr, align 8
-  %15 = call i64 @fwrite(ptr nonnull @.str.89, i64 41, i64 1, ptr %14) #37
-  call void @exit(i32 noundef 1) #38
+  %15 = call i64 @fwrite(ptr nonnull @.str.89, i64 41, i64 1, ptr %14) #38
+  call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end61:                                         ; preds = %while.body55
@@ -7312,7 +7312,7 @@ entry:
   tail call fastcc void @cliInitHelp()
   %call = tail call fastcc ptr @getHintForInput(ptr noundef %input)
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) %call)
-  tail call void @exit(i32 noundef 0) #38
+  tail call void @exit(i32 noundef 0) #39
   unreachable
 }
 
@@ -7880,7 +7880,7 @@ if.then:                                          ; preds = %entry
   %1 = load i32, ptr %call1, align 4
   %call2 = tail call ptr @strerror(i32 noundef %1) #33
   %call3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.117, ptr noundef %filename, ptr noundef %call2) #37
-  tail call void @exit(i32 noundef -1) #38
+  tail call void @exit(i32 noundef -1) #39
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -7928,7 +7928,7 @@ if.then12:                                        ; preds = %if.end6
   %4 = load ptr, ptr @stderr, align 8
   %5 = load ptr, ptr %call7, align 8
   %call13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.118, ptr noundef %5) #37
-  call void @exit(i32 noundef -1) #38
+  call void @exit(i32 noundef -1) #39
   unreachable
 
 if.end14:                                         ; preds = %if.end6
@@ -8178,7 +8178,7 @@ while.end44:                                      ; preds = %readHintSuiteLine.e
   %cond = select i1 %cmp46, ptr @.str.122, ptr @.str.123
   %add = add nsw i32 %pass.0.ph, %fail.0.ph
   %call48 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.121, ptr noundef nonnull %cond, i32 noundef %pass.0.ph, i32 noundef %add)
-  call void @exit(i32 noundef %fail.0.ph) #38
+  call void @exit(i32 noundef %fail.0.ph) #39
   unreachable
 }
 
@@ -8321,12 +8321,12 @@ if.else.i:                                        ; preds = %for.body.i
 if.then12.i:                                      ; preds = %if.else.i
   %call.i.i = tail call fastcc ptr @cliVersion()
   %7 = load ptr, ptr @stdout, align 8
-  %call1.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.564, ptr noundef %call.i.i, ptr noundef nonnull @.str.26)
-  %call2.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.565, i32 noundef 30)
+  %call1.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.564, ptr noundef %call.i.i, ptr noundef nonnull @.str.26) #33
+  %call2.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.565, i32 noundef 30) #33
   %8 = tail call i64 @fwrite(ptr nonnull @.str.566, i64 1753, i64 1, ptr %7)
   %9 = tail call i64 @fwrite(ptr nonnull @.str.567, i64 846, i64 1, ptr %7)
   tail call void @hi_sdsfree(ptr noundef %call.i.i) #33
-  tail call void @exit(i32 noundef 0) #38
+  tail call void @exit(i32 noundef 0) #39
   unreachable
 
 if.else13.i:                                      ; preds = %if.else.i
@@ -8337,12 +8337,12 @@ if.else13.i:                                      ; preds = %if.else.i
 if.then18.i:                                      ; preds = %if.else13.i
   %call.i414.i = tail call fastcc ptr @cliVersion()
   %10 = load ptr, ptr @stdout, align 8
-  %call1.i415.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.564, ptr noundef %call.i414.i, ptr noundef nonnull @.str.26)
-  %call2.i416.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.565, i32 noundef 30)
+  %call1.i415.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.564, ptr noundef %call.i414.i, ptr noundef nonnull @.str.26) #33
+  %call2.i416.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.565, i32 noundef 30) #33
   %11 = tail call i64 @fwrite(ptr nonnull @.str.566, i64 1753, i64 1, ptr %10)
   %12 = tail call i64 @fwrite(ptr nonnull @.str.567, i64 846, i64 1, ptr %10)
   tail call void @hi_sdsfree(ptr noundef %call.i414.i) #33
-  tail call void @exit(i32 noundef 0) #38
+  tail call void @exit(i32 noundef 0) #39
   unreachable
 
 if.else19.i:                                      ; preds = %if.else13.i
@@ -8387,8 +8387,8 @@ if.then43.i:                                      ; preds = %if.else36.i
 
 if.then52.i:                                      ; preds = %if.then43.i
   %15 = load ptr, ptr @stderr, align 8
-  %16 = tail call i64 @fwrite(ptr nonnull @.str.473, i64 21, i64 1, ptr %15) #37
-  tail call void @exit(i32 noundef 1) #38
+  %16 = tail call i64 @fwrite(ptr nonnull @.str.473, i64 21, i64 1, ptr %15) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 if.else54.i:                                      ; preds = %if.else36.i
@@ -8526,8 +8526,8 @@ if.then150.i:                                     ; preds = %if.else143.i
 
 if.then159.i:                                     ; preds = %if.then150.i
   %25 = load ptr, ptr @stderr, align 8
-  %26 = tail call i64 @fwrite(ptr nonnull @.str.473, i64 21, i64 1, ptr %25) #37
-  tail call void @exit(i32 noundef 1) #38
+  %26 = tail call i64 @fwrite(ptr nonnull @.str.473, i64 21, i64 1, ptr %25) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 if.else162.i:                                     ; preds = %if.else143.i, %land.lhs.true124.i
@@ -8745,8 +8745,8 @@ if.then297.i:                                     ; preds = %if.else290.i
 
 if.then303.i:                                     ; preds = %if.then297.i
   %36 = load ptr, ptr @stderr, align 8
-  %37 = tail call i64 @fwrite(ptr nonnull @.str.503, i64 54, i64 1, ptr %36) #37
-  tail call void @exit(i32 noundef 1) #38
+  %37 = tail call i64 @fwrite(ptr nonnull @.str.503, i64 54, i64 1, ptr %36) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 if.else306.i:                                     ; preds = %if.else290.i
@@ -9011,7 +9011,7 @@ while.end.i:                                      ; preds = %while.body.i, %whil
   br i1 %tobool484.not.i, label %for.inc929.i, label %if.then485.i
 
 if.then485.i:                                     ; preds = %while.end.i
-  tail call void @exit(i32 noundef %call483.i) #38
+  tail call void @exit(i32 noundef %call483.i) #39
   unreachable
 
 if.else487.i:                                     ; preds = %if.else453.i
@@ -9152,8 +9152,8 @@ if.then588.i:                                     ; preds = %if.else581.i
 
 if.then591.i:                                     ; preds = %if.then588.i
   %62 = load ptr, ptr @stderr, align 8
-  %63 = tail call i64 @fwrite(ptr nonnull @.str.532, i64 155, i64 1, ptr %62) #37
-  tail call void @exit(i32 noundef 1) #38
+  %63 = tail call i64 @fwrite(ptr nonnull @.str.532, i64 155, i64 1, ptr %62) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end593.i:                                      ; preds = %if.then588.i
@@ -9389,7 +9389,7 @@ if.then760.i:                                     ; preds = %lor.lhs.false755.i,
   %call761.i = tail call fastcc ptr @cliVersion()
   %call762.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.549, ptr noundef %call761.i)
   tail call void @hi_sdsfree(ptr noundef %call761.i) #33
-  tail call void @exit(i32 noundef 0) #38
+  tail call void @exit(i32 noundef 0) #39
   unreachable
 
 if.else763.i:                                     ; preds = %lor.lhs.false755.i
@@ -9498,7 +9498,7 @@ if.else836.i:                                     ; preds = %if.else797.i
 if.then843.i:                                     ; preds = %land.lhs.true800.i, %if.else836.i
   %90 = load ptr, ptr @stderr, align 8
   %call846.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %90, ptr noundef nonnull @.str.556, ptr noundef nonnull %4) #37
-  tail call void @exit(i32 noundef 1) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 for.inc929.i:                                     ; preds = %while.end826.i, %if.then807.i, %if.else793.i, %if.then792.i, %if.then788.i, %if.then774.i, %if.then768.i, %if.then746.i, %if.then735.i, %if.then726.i, %if.then719.i, %if.then712.i, %if.then705.i, %if.then698.i, %if.then691.i, %if.then684.i, %if.then677.i, %if.then666.i, %if.then654.i, %if.then642.i, %if.then630.i, %if.then620.i, %for.end.i, %if.end593.i, %if.then580.i, %if.then571.i, %if.then560.i, %if.then549.i, %if.then538.i, %if.then527.i, %if.then515.i, %if.then506.i, %if.then500.i, %while.end.i, %if.then452.i, %if.then446.i, %if.then436.i, %if.then424.i, %if.then416.i, %if.then410.i, %if.then404.i, %if.then395.i, %if.then387.i, %if.then377.i, %if.then369.i, %if.then363.i, %if.then353.i, %if.then345.i, %if.then336.i, %if.then325.i, %if.then313.i, %if.then297.i, %if.then285.i, %if.then273.i, %if.then265.i, %if.then259.i, %if.then253.i, %if.then247.i, %if.then237.i, %if.then229.i, %if.then223.i, %if.then217.i, %if.then211.i, %if.end205.i, %if.end195.i, %if.then185.i, %if.then179.i, %if.then173.i, %if.then167.i, %if.then150.i, %if.then138.i, %if.then126.i, %if.then113.i, %if.then107.i, %if.then97.i, %if.then84.i, %if.then72.i, %if.then61.i, %if.then43.i, %if.then32.i, %if.then24.i, %if.then.i
@@ -9518,8 +9518,8 @@ for.end931.i:                                     ; preds = %for.inc929.i, %if.e
 
 if.then935.i:                                     ; preds = %for.end931.i
   %93 = load ptr, ptr @stderr, align 8
-  %94 = tail call i64 @fwrite(ptr nonnull @.str.557, i64 42, i64 1, ptr %93) #37
-  tail call void @exit(i32 noundef 1) #38
+  %94 = tail call i64 @fwrite(ptr nonnull @.str.557, i64 42, i64 1, ptr %93) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end937.i:                                      ; preds = %for.end931.i
@@ -9532,8 +9532,8 @@ if.end937.i:                                      ; preds = %for.end931.i
 
 if.then942.i:                                     ; preds = %if.end937.i
   %97 = load ptr, ptr @stderr, align 8
-  %98 = tail call i64 @fwrite(ptr nonnull @.str.558, i64 42, i64 1, ptr %97) #37
-  tail call void @exit(i32 noundef 1) #38
+  %98 = tail call i64 @fwrite(ptr nonnull @.str.558, i64 42, i64 1, ptr %97) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end944.i:                                      ; preds = %if.end937.i
@@ -9546,11 +9546,11 @@ if.end944.i:                                      ; preds = %if.end937.i
 
 if.then949.i:                                     ; preds = %if.end944.i
   %101 = load ptr, ptr @stderr, align 8
-  %102 = tail call i64 @fwrite(ptr nonnull @.str.559, i64 50, i64 1, ptr %101) #37
+  %102 = tail call i64 @fwrite(ptr nonnull @.str.559, i64 50, i64 1, ptr %101) #38
   %103 = load ptr, ptr @stderr, align 8
   %104 = load ptr, ptr %argv, align 8
   %call952.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %103, ptr noundef nonnull @.str.560, ptr noundef %104) #37
-  tail call void @exit(i32 noundef 1) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end953.i:                                      ; preds = %if.end944.i
@@ -9563,7 +9563,7 @@ if.end953.i:                                      ; preds = %if.end944.i
 
 if.then958.i:                                     ; preds = %if.end953.i
   %107 = load ptr, ptr @stderr, align 8
-  %108 = tail call i64 @fwrite(ptr nonnull @.str.561, i64 98, i64 1, ptr %107) #37
+  %108 = tail call i64 @fwrite(ptr nonnull @.str.561, i64 98, i64 1, ptr %107) #38
   br label %if.end960.i
 
 if.end960.i:                                      ; preds = %if.then958.i, %if.end953.i
@@ -9576,8 +9576,8 @@ if.end960.i:                                      ; preds = %if.then958.i, %if.e
 
 if.then964.i:                                     ; preds = %if.end960.i
   %111 = load ptr, ptr @stderr, align 8
-  %112 = tail call i64 @fwrite(ptr nonnull @.str.562, i64 57, i64 1, ptr %111) #37
-  tail call void @exit(i32 noundef 1) #38
+  %112 = tail call i64 @fwrite(ptr nonnull @.str.562, i64 57, i64 1, ptr %111) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end966.i:                                      ; preds = %if.end960.i
@@ -9590,8 +9590,8 @@ if.end966.i:                                      ; preds = %if.end960.i
 
 if.then970.i:                                     ; preds = %if.end966.i
   %115 = load ptr, ptr @stderr, align 8
-  %116 = tail call i64 @fwrite(ptr nonnull @.str.563, i64 42, i64 1, ptr %115) #37
-  tail call void @exit(i32 noundef 1) #38
+  %116 = tail call i64 @fwrite(ptr nonnull @.str.563, i64 42, i64 1, ptr %115) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 parseOptions.exit:                                ; preds = %if.end966.i
@@ -9708,8 +9708,8 @@ if.then22:                                        ; preds = %if.then.i30, %lor.l
   %.sink = phi i64 [ 29, %for.end.i29 ], [ 68, %lor.lhs.false.i ], [ 68, %if.then.i30 ]
   %.str.575.sink = phi ptr [ @.str.576, %for.end.i29 ], [ @.str.575, %lor.lhs.false.i ], [ @.str.575, %if.then.i30 ]
   %125 = load ptr, ptr @stderr, align 8
-  %126 = tail call i64 @fwrite(ptr nonnull %.str.575.sink, i64 %.sink, i64 1, ptr %125) #37
-  tail call void @exit(i32 noundef 1) #38
+  %126 = tail call i64 @fwrite(ptr nonnull %.str.575.sink, i64 %.sink, i64 1, ptr %125) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end23:                                         ; preds = %for.end.i29
@@ -9739,7 +9739,7 @@ if.end3.i:                                        ; preds = %if.end3.sink.split.
   tail call fastcc void @freeClusterManager()
   %tobool4.not.i = icmp eq i32 %call.i36, 0
   %cond.i = zext i1 %tobool4.not.i to i32
-  tail call void @exit(i32 noundef %cond.i) #38
+  tail call void @exit(i32 noundef %cond.i) #39
   unreachable
 
 if.end24:                                         ; preds = %if.end14
@@ -9753,7 +9753,7 @@ if.then26:                                        ; preds = %if.end24
   br i1 %cmp28, label %if.then30, label %if.end31
 
 if.then30:                                        ; preds = %if.then26
-  tail call void @exit(i32 noundef 1) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end31:                                         ; preds = %if.then26
@@ -9789,7 +9789,7 @@ while.body.preheader.i:                           ; preds = %if.end31
   br label %while.body.i43
 
 if.then3.i:                                       ; preds = %if.end31
-  tail call void @exit(i32 noundef 1) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 while.body.i43:                                   ; preds = %if.end56.i, %while.body.preheader.i
@@ -9912,7 +9912,7 @@ if.else34.i:                                      ; preds = %if.else31.i
 
 if.then39.i:                                      ; preds = %if.else34.i
   tail call fastcc void @latencyModePrint(i64 noundef %min.2.i, i64 noundef %max.2.i, double noundef %avg.0.i, i64 noundef %inc.i45)
-  tail call void @exit(i32 noundef 0) #38
+  tail call void @exit(i32 noundef 0) #39
   unreachable
 
 if.end42.i:                                       ; preds = %if.else34.i, %if.then11.i37.i, %if.then7.i39.i, %if.then3.i41.i, %if.then11.i.i, %if.then7.i.i, %if.then3.i.i, %if.then.i.i, %if.then29.i
@@ -9977,7 +9977,7 @@ if.then34:                                        ; preds = %if.end32
   br i1 %cmp36, label %if.then38, label %if.end39
 
 if.then38:                                        ; preds = %if.then34
-  tail call void @exit(i32 noundef 1) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end39:                                         ; preds = %if.then34
@@ -10007,7 +10007,7 @@ while.body.preheader.i57:                         ; preds = %if.end39
   br label %while.body.i58
 
 if.then.i75:                                      ; preds = %if.end39
-  tail call void @exit(i32 noundef 1) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 while.body.i58:                                   ; preds = %if.end31.i, %while.body.preheader.i57
@@ -10162,7 +10162,7 @@ if.then42:                                        ; preds = %if.end40
   br i1 %cmp44, label %if.then46, label %if.end47
 
 if.then46:                                        ; preds = %if.then42
-  tail call void @exit(i32 noundef 1) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end47:                                         ; preds = %if.then42
@@ -10185,7 +10185,7 @@ if.then52:                                        ; preds = %if.end49
   br i1 %cmp54, label %if.then56, label %if.end57
 
 if.then56:                                        ; preds = %if.then52
-  tail call void @exit(i32 noundef 1) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end57:                                         ; preds = %if.then52
@@ -10202,8 +10202,8 @@ land.lhs.true59:                                  ; preds = %if.end57
 
 if.then62:                                        ; preds = %land.lhs.true59
   %189 = load ptr, ptr @stderr, align 8
-  %190 = tail call i64 @fwrite(ptr nonnull @.str.130, i64 59, i64 1, ptr %189) #37
-  tail call void @exit(i32 noundef 1) #38
+  %190 = tail call i64 @fwrite(ptr nonnull @.str.130, i64 59, i64 1, ptr %189) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end64:                                         ; preds = %land.lhs.true59, %if.end57
@@ -10221,7 +10221,7 @@ if.then67:                                        ; preds = %if.end65
   br i1 %cmp69, label %if.then71, label %if.end72
 
 if.then71:                                        ; preds = %if.then67
-  tail call void @exit(i32 noundef 1) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end72:                                         ; preds = %if.then67
@@ -10244,7 +10244,7 @@ if.end72:                                         ; preds = %if.then67
 if.then.i115:                                     ; preds = %if.end72
   %194 = load ptr, ptr @stderr, align 8
   %call5.i116 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %194, ptr noundef nonnull @.str.642, ptr noundef nonnull %aneterr.i) #37
-  call void @exit(i32 noundef 1) #38
+  call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end.i83:                                       ; preds = %if.end72
@@ -10307,8 +10307,8 @@ if.end21.i:                                       ; preds = %land.lhs.true.i114,
 
 if.then25.i113:                                   ; preds = %if.end21.i
   %201 = load ptr, ptr @stderr, align 8
-  %202 = call i64 @fwrite(ptr nonnull @.str.643, i64 34, i64 1, ptr %201) #37
-  call void @exit(i32 noundef 1) #38
+  %202 = call i64 @fwrite(ptr nonnull @.str.643, i64 34, i64 1, ptr %201) #38
+  call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end27.i:                                       ; preds = %if.end21.i
@@ -10373,7 +10373,7 @@ do.end.i:                                         ; preds = %do.cond.i, %if.end2
   br i1 %tobool57.not.i, label %if.end60.i, label %if.then58.i
 
 if.then58.i:                                      ; preds = %do.end.i
-  call void @exit(i32 noundef 1) #38
+  call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end60.i:                                       ; preds = %do.end.i, %while.body.i84
@@ -10412,7 +10412,7 @@ if.then81.i:                                      ; preds = %if.then73.i
   %212 = load ptr, ptr @stderr, align 8
   %call83.i = call ptr @strerror(i32 noundef %211) #33
   %call84.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %212, ptr noundef nonnull @.str.645, ptr noundef %call83.i) #37
-  call void @exit(i32 noundef 1) #38
+  call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end87.i:                                       ; preds = %if.then73.i, %if.then73.i, %if.then68.i
@@ -10440,7 +10440,7 @@ if.then95.i:                                      ; preds = %if.end93.i
   %215 = load ptr, ptr @stderr, align 8
   %errstr.i = getelementptr inbounds i8, ptr %213, i64 12
   %call97.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %215, ptr noundef nonnull @.str.646, ptr noundef nonnull %errstr.i) #37
-  call void @exit(i32 noundef 1) #38
+  call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end98.i:                                       ; preds = %if.end93.i
@@ -10480,7 +10480,7 @@ if.then124.i:                                     ; preds = %if.then103.i
   %217 = load i32, ptr %call125.i, align 4
   %call126.i = call ptr @strerror(i32 noundef %217) #33
   %call127.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %216, ptr noundef nonnull @.str.648, ptr noundef %call126.i) #37
-  call void @exit(i32 noundef 1) #38
+  call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end131.i:                                      ; preds = %for.end.i108, %if.then103.i, %if.end98.i
@@ -10529,11 +10529,11 @@ while.end156.i:                                   ; preds = %if.end155.i, %if.th
   br i1 %tobool158.not.i, label %if.else160.i, label %if.then159.i97
 
 if.then159.i97:                                   ; preds = %while.end156.i
-  call void @exit(i32 noundef 1) #38
+  call void @exit(i32 noundef 1) #39
   unreachable
 
 if.else160.i:                                     ; preds = %while.end156.i
-  call void @exit(i32 noundef 0) #38
+  call void @exit(i32 noundef 0) #39
   unreachable
 
 if.end73:                                         ; preds = %if.end65
@@ -10547,7 +10547,7 @@ if.then75:                                        ; preds = %if.end73
   br i1 %cmp77, label %if.then79, label %if.end80
 
 if.then79:                                        ; preds = %if.then75
-  tail call void @exit(i32 noundef 1) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end80:                                         ; preds = %if.then75
@@ -10565,7 +10565,7 @@ if.then83:                                        ; preds = %if.end81
   br i1 %cmp85, label %if.then87, label %if.end88
 
 if.then87:                                        ; preds = %if.then83
-  tail call void @exit(i32 noundef 1) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end88:                                         ; preds = %if.then83
@@ -10584,7 +10584,7 @@ if.then91:                                        ; preds = %if.end89
   br i1 %cmp93, label %if.then95, label %if.end96
 
 if.then95:                                        ; preds = %if.then91
-  tail call void @exit(i32 noundef 1) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end96:                                         ; preds = %if.then91
@@ -10638,8 +10638,8 @@ if.then.i158:                                     ; preds = %do.body.i122
 
 if.then13.i162:                                   ; preds = %if.then.i158
   %228 = load ptr, ptr @stderr, align 8
-  %229 = call i64 @fwrite(ptr nonnull @.str.654, i64 37, i64 1, ptr %228) #37
-  call void @exit(i32 noundef 1) #38
+  %229 = call i64 @fwrite(ptr nonnull @.str.654, i64 37, i64 1, ptr %228) #38
+  call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end.i161:                                      ; preds = %if.then.i158
@@ -10715,7 +10715,7 @@ if.then.i.i134:                                   ; preds = %for.body15.i.i
   %errstr.i.i = getelementptr inbounds i8, ptr %246, i64 12
   %call30.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %245, ptr noundef nonnull @.str.689, ptr noundef %call28.i.i, i32 noundef %247, ptr noundef nonnull %errstr.i.i) #37
   call void @hi_sdsfree(ptr noundef %call28.i.i) #33
-  call void @exit(i32 noundef 1) #38
+  call void @exit(i32 noundef 1) #39
   unreachable
 
 if.else.i.i:                                      ; preds = %for.body15.i.i
@@ -10731,7 +10731,7 @@ if.then37.i.i:                                    ; preds = %if.else.i.i
   %str38.i.i = getelementptr inbounds i8, ptr %248, i64 32
   %251 = load ptr, ptr %str38.i.i, align 8
   %call39.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %250, ptr noundef nonnull @.str.418, ptr noundef %251) #37
-  call void @exit(i32 noundef 1) #38
+  call void @exit(i32 noundef 1) #39
   unreachable
 
 if.else40.i.i:                                    ; preds = %if.else.i.i
@@ -10938,7 +10938,7 @@ for.inc119.i:                                     ; preds = %if.then110.i, %for.
   br i1 %exitcond91.not.i, label %for.end121.i, label %for.body105.i, !llvm.loop !101
 
 for.end121.i:                                     ; preds = %for.inc119.i
-  call void @exit(i32 noundef 0) #38
+  call void @exit(i32 noundef 0) #39
   unreachable
 
 if.end97:                                         ; preds = %if.end89
@@ -10952,7 +10952,7 @@ if.then99:                                        ; preds = %if.end97
   br i1 %cmp101, label %if.then103, label %if.end104
 
 if.then103:                                       ; preds = %if.then99
-  tail call void @exit(i32 noundef 1) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end104:                                        ; preds = %if.then99
@@ -10973,8 +10973,8 @@ if.end108:                                        ; preds = %if.then107, %if.end
 
 if.then.i.i203:                                   ; preds = %if.end108
   %284 = load ptr, ptr @stderr, align 8
-  %285 = tail call i64 @fwrite(ptr nonnull @.str.76, i64 11, i64 1, ptr %284) #37
-  tail call void @exit(i32 noundef 1) #38
+  %285 = tail call i64 @fwrite(ptr nonnull @.str.76, i64 11, i64 1, ptr %284) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 if.else.i.i165:                                   ; preds = %if.end108
@@ -11019,7 +11019,7 @@ if.then4.i:                                       ; preds = %sw.epilog.i, %getDa
   %str.i184 = getelementptr inbounds i8, ptr %call1.lcssa.i, i64 32
   %295 = load ptr, ptr %str.i184, align 8
   %call5.i185 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %294, ptr noundef nonnull @.str.691, ptr noundef %295) #37
-  call void @exit(i32 noundef 1) #38
+  call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end6.i:                                        ; preds = %sw.epilog.i, %if.end6.lr.ph.i
@@ -11403,7 +11403,7 @@ if.then111:                                       ; preds = %if.end109
   br i1 %cmp113, label %if.then115, label %if.end116
 
 if.then115:                                       ; preds = %if.then111
-  tail call void @exit(i32 noundef 1) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end116:                                        ; preds = %if.then111
@@ -11490,7 +11490,7 @@ do.cond.i222:                                     ; preds = %if.then24.i220, %fo
   br i1 %332, label %do.body.i205, label %do.end.i223, !llvm.loop !104
 
 do.end.i223:                                      ; preds = %do.cond.i222
-  tail call void @exit(i32 noundef 0) #38
+  tail call void @exit(i32 noundef 0) #39
   unreachable
 
 if.end117:                                        ; preds = %if.end109
@@ -11504,7 +11504,7 @@ if.then119:                                       ; preds = %if.end117
   br i1 %cmp121, label %if.then123, label %if.end124
 
 if.then123:                                       ; preds = %if.then119
-  tail call void @exit(i32 noundef 1) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end124:                                        ; preds = %if.then119
@@ -11661,8 +11661,8 @@ for.end54.i:                                      ; preds = %for.inc52.i
 
 if.then55.i:                                      ; preds = %for.end54.i
   %354 = load ptr, ptr @stderr, align 8
-  %355 = call i64 @fwrite(ptr nonnull @.str.717, i64 26, i64 1, ptr %354) #37
-  call void @exit(i32 noundef 1) #38
+  %355 = call i64 @fwrite(ptr nonnull @.str.717, i64 26, i64 1, ptr %354) #38
+  call void @exit(i32 noundef 1) #39
   unreachable
 
 while.end.i239:                                   ; preds = %while.cond4.i
@@ -11785,7 +11785,7 @@ if.then16.i:                                      ; preds = %if.end10.i276
   %conv18.i281 = sitofp i64 %max_latency.1.i to double
   %div19.i = fdiv double %conv18.i281, %div.i279
   %call20.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.721, double noundef %div19.i)
-  tail call void @exit(i32 noundef 0) #38
+  tail call void @exit(i32 noundef 0) #39
   unreachable
 
 if.end128:                                        ; preds = %if.end125
@@ -11797,7 +11797,7 @@ if.then130:                                       ; preds = %if.end128
   tail call fastcc void @cliInitHelp()
   %call.i283 = tail call fastcc ptr @getHintForInput(ptr noundef nonnull %368)
   %puts.i284 = tail call i32 @puts(ptr nonnull dereferenceable(1) %call.i283)
-  tail call void @exit(i32 noundef 0) #38
+  tail call void @exit(i32 noundef 0) #39
   unreachable
 
 if.end131:                                        ; preds = %if.end128
@@ -11835,7 +11835,7 @@ if.then145:                                       ; preds = %if.end143
   br i1 %cmp147.not, label %if.end150, label %if.then149
 
 if.then149:                                       ; preds = %if.then145
-  tail call void @exit(i32 noundef 1) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end150:                                        ; preds = %if.then145
@@ -11877,7 +11877,7 @@ if.then5.i:                                       ; preds = %if.end.i293
   %376 = load i32, ptr %call6.i324, align 4
   %call7.i325 = call ptr @strerror(i32 noundef %376) #33
   %call8.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %374, ptr noundef nonnull @.str.117, ptr noundef %375, ptr noundef %call7.i325) #37
-  call void @exit(i32 noundef 1) #38
+  call void @exit(i32 noundef 1) #39
   unreachable
 
 while.body12.i:                                   ; preds = %while.cond10.preheader.i, %while.body12.i
@@ -12057,7 +12057,7 @@ if.end16.i:                                       ; preds = %for.body.i347
 if.then24.i344:                                   ; preds = %for.cond.i352, %for.cond.preheader.i
   tail call void @hi_sdsfreesplitres(ptr noundef nonnull %call.i326, i32 noundef %sub) #33
   %391 = load ptr, ptr @stderr, align 8
-  %392 = tail call i64 @fwrite(ptr nonnull @.str.568, i64 41, i64 1, ptr %391) #37
+  %392 = tail call i64 @fwrite(ptr nonnull @.str.568, i64 41, i64 1, ptr %391) #38
   br label %return
 
 if.end28.i:                                       ; preds = %if.end16.i, %if.else.i343, %if.then4.i329
@@ -12077,7 +12077,7 @@ while.body.i338:                                  ; preds = %if.end28.i, %if.end
 
 if.then34.i:                                      ; preds = %while.body.i338
   tail call fastcc void @cliPrintContextError()
-  tail call void @exit(i32 noundef 1) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end35.i:                                       ; preds = %while.body.i338
@@ -12207,7 +12207,7 @@ if.then25:                                        ; preds = %if.end22
 
 if.then28:                                        ; preds = %if.then25
   %13 = load ptr, ptr @stderr, align 8
-  %14 = call i64 @fwrite(ptr nonnull @.str.181, i64 30, i64 1, ptr %13) #37
+  %14 = call i64 @fwrite(ptr nonnull @.str.181, i64 30, i64 1, ptr %13) #38
   %15 = load ptr, ptr getelementptr inbounds (%struct.config, ptr @config, i64 0, i32 1), align 8
   %cmp30 = icmp eq ptr %15, null
   br i1 %cmp30, label %if.then35, label %lor.lhs.false31
@@ -12272,7 +12272,7 @@ if.end4.i:                                        ; preds = %if.else.i, %if.then
 
 cliAuth.exit.thread21:                            ; preds = %if.end4.i
   %29 = load ptr, ptr @stderr, align 8
-  %30 = call i64 @fwrite(ptr nonnull @.str.76, i64 11, i64 1, ptr %29) #37
+  %30 = call i64 @fwrite(ptr nonnull @.str.76, i64 11, i64 1, ptr %29) #38
   br label %return
 
 if.end8.i:                                        ; preds = %if.end4.i
@@ -12313,7 +12313,7 @@ if.end.i9:                                        ; preds = %if.end52
 
 cliSwitchProto.exit.thread29:                     ; preds = %if.end.i9
   %37 = load ptr, ptr @stderr, align 8
-  %38 = call i64 @fwrite(ptr nonnull @.str.76, i64 11, i64 1, ptr %37) #37
+  %38 = call i64 @fwrite(ptr nonnull @.str.76, i64 11, i64 1, ptr %37) #38
   br label %return
 
 if.end4.i12:                                      ; preds = %if.end.i9
@@ -12457,7 +12457,7 @@ if.end23.preheader:                               ; preds = %while.body.preheade
 if.then21:                                        ; preds = %while.body.backedge, %while.body.preheader
   %10 = load ptr, ptr @stderr, align 8
   %call22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.623, ptr noundef nonnull %cond) #37
-  call void @exit(i32 noundef 1) #38
+  call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end23:                                         ; preds = %if.end23.preheader, %while.body.backedge
@@ -12656,7 +12656,7 @@ if.then14:                                        ; preds = %if.else11
   %17 = load i32, ptr %call15, align 4
   %call16 = tail call ptr @strerror(i32 noundef %17) #33
   %call17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.633, ptr noundef %filename.0, ptr noundef %call16) #37
-  tail call void @exit(i32 noundef 1) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end19:                                         ; preds = %if.end7, %if.else11
@@ -12672,8 +12672,8 @@ if.end19:                                         ; preds = %if.end7, %if.else11
 
 if.then24:                                        ; preds = %while.body.backedge, %if.end19
   %20 = load ptr, ptr @stderr, align 8
-  %21 = call i64 @fwrite(ptr nonnull @.str.634, i64 42, i64 1, ptr %20) #37
-  call void @exit(i32 noundef 1) #38
+  %21 = call i64 @fwrite(ptr nonnull @.str.634, i64 42, i64 1, ptr %20) #38
+  call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end26:                                         ; preds = %if.end19, %while.body.backedge
@@ -12697,7 +12697,7 @@ cond.true32:                                      ; preds = %if.then30
 cond.end36:                                       ; preds = %if.then30, %cond.true32
   %cond37 = phi ptr [ %call34, %cond.true32 ], [ @.str.636, %if.then30 ]
   %call38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.635, ptr noundef %cond37) #37
-  call void @exit(i32 noundef 1) #38
+  call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end39:                                         ; preds = %if.end26
@@ -12775,7 +12775,7 @@ if.end71:                                         ; preds = %if.then67, %land.lh
 
 if.else73:                                        ; preds = %if.end58.thread, %while.end
   %30 = load ptr, ptr @stderr, align 8
-  %31 = call i64 @fwrite(ptr nonnull @.str.639, i64 32, i64 1, ptr %30) #37
+  %31 = call i64 @fwrite(ptr nonnull @.str.639, i64 32, i64 1, ptr %30) #38
   br label %if.end75
 
 if.end75:                                         ; preds = %if.else73, %if.end71
@@ -12800,7 +12800,7 @@ if.then85:                                        ; preds = %land.lhs.true81
   %33 = load i32, ptr %call86, align 4
   %call87 = call ptr @strerror(i32 noundef %33) #33
   %call88 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.640, ptr noundef %filename.0, ptr noundef %call87) #37
-  call void @exit(i32 noundef 1) #38
+  call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end89:                                         ; preds = %land.lhs.true81, %if.end79
@@ -12812,7 +12812,7 @@ if.then92:                                        ; preds = %if.end89
   ret void
 
 if.end93:                                         ; preds = %if.end89
-  call void @exit(i32 noundef 0) #38
+  call void @exit(i32 noundef 0) #39
   unreachable
 }
 
@@ -12927,8 +12927,8 @@ if.then:                                          ; preds = %do.body
 
 if.then24:                                        ; preds = %if.then
   %4 = load ptr, ptr @stderr, align 8
-  %5 = call i64 @fwrite(ptr nonnull @.str.654, i64 37, i64 1, ptr %4) #37
-  call void @exit(i32 noundef 1) #38
+  %5 = call i64 @fwrite(ptr nonnull @.str.654, i64 37, i64 1, ptr %4) #38
+  call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end:                                           ; preds = %if.then
@@ -12998,7 +12998,7 @@ if.then.i:                                        ; preds = %for.body13.i
   %22 = load i32, ptr %err.i, align 8
   %errstr.i = getelementptr inbounds i8, ptr %21, i64 12
   %call22.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.674, ptr noundef %20, i32 noundef %22, ptr noundef nonnull %errstr.i) #37
-  call void @exit(i32 noundef 1) #38
+  call void @exit(i32 noundef 1) #39
   unreachable
 
 if.else.i:                                        ; preds = %for.body13.i
@@ -13027,7 +13027,7 @@ if.else32.i:                                      ; preds = %if.else.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else32.i, %if.then29.i
-  call void @exit(i32 noundef 1) #38
+  call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end40.i:                                       ; preds = %if.else.i
@@ -13310,7 +13310,7 @@ if.then97.i:                                      ; preds = %if.end93.i
   %79 = load i32, ptr %err.i117, align 8
   %errstr.i118 = getelementptr inbounds i8, ptr %78, i64 12
   %call103.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %74, ptr noundef nonnull @.str.681, ptr noundef %77, i32 noundef %79, ptr noundef nonnull %errstr.i118) #37
-  call void @exit(i32 noundef 1) #38
+  call void @exit(i32 noundef 1) #39
   unreachable
 
 if.else104.i:                                     ; preds = %if.end93.i
@@ -13443,8 +13443,8 @@ if.end53:                                         ; preds = %if.then51, %if.then
 
 if.then66:                                        ; preds = %if.end53
   %106 = load ptr, ptr @stderr, align 8
-  %107 = call i64 @fwrite(ptr nonnull @.str.655, i64 35, i64 1, ptr %106) #37
-  call void @exit(i32 noundef 1) #38
+  %107 = call i64 @fwrite(ptr nonnull @.str.655, i64 35, i64 1, ptr %106) #38
+  call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end68:                                         ; preds = %if.end53
@@ -13635,7 +13635,7 @@ cond.end151:                                      ; preds = %while.body141, %con
 while.end175:                                     ; preds = %cond.end151, %while.end
   call void @dictReleaseIterator(ptr noundef %call137) #33
   call void @dictRelease(ptr noundef %call) #33
-  call void @exit(i32 noundef 0) #38
+  call void @exit(i32 noundef 0) #39
   unreachable
 }
 
@@ -13664,7 +13664,7 @@ if.then:                                          ; preds = %entry
   ret void
 
 if.else:                                          ; preds = %entry
-  tail call void @exit(i32 noundef 1) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 }
 
@@ -14145,7 +14145,7 @@ lor.lhs.false85:                                  ; preds = %if.end80
   br i1 %cmp88, label %if.then90, label %if.else91
 
 if.then90:                                        ; preds = %lor.lhs.false85, %if.end80
-  call void @exit(i32 noundef 0) #38
+  call void @exit(i32 noundef 0) #39
   unreachable
 
 if.else91:                                        ; preds = %lor.lhs.false85
@@ -14384,7 +14384,7 @@ do.body.i:                                        ; preds = %cliPressAnyKeyTTY.e
 
 if.then.i81:                                      ; preds = %do.body.i
   call fastcc void @cliPrintContextError()
-  call void @exit(i32 noundef 1) #38
+  call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end.i82:                                       ; preds = %do.body.i
@@ -14429,7 +14429,7 @@ if.then16.i.i:                                    ; preds = %if.else13.i.i
 if.else20.i.i:                                    ; preds = %if.else13.i.i
   %68 = load ptr, ptr @stderr, align 8
   %call21.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str.587, i32 noundef %65) #37
-  call void @exit(i32 noundef 1) #38
+  call void @exit(i32 noundef 1) #39
   unreachable
 
 cliFormatReply.exit.i:                            ; preds = %if.then16.i.i, %if.then10.i.i, %if.then5.i.i, %if.then1.i.i
@@ -14552,7 +14552,7 @@ if.then53.i:                                      ; preds = %if.end51.i
 
 if.then57.i:                                      ; preds = %if.then53.i
   call fastcc void @cliPrintContextError()
-  call void @exit(i32 noundef 1) #38
+  call void @exit(i32 noundef 1) #39
   unreachable
 
 if.else.i86:                                      ; preds = %if.end51.i
@@ -14577,7 +14577,7 @@ if.then70.i:                                      ; preds = %if.else.i86
 
 if.then74.i:                                      ; preds = %if.then70.i
   call fastcc void @cliPrintContextError()
-  call void @exit(i32 noundef 1) #38
+  call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end75.i:                                       ; preds = %if.then70.i
@@ -14611,7 +14611,7 @@ cliWaitForMessagesOrStdin.exit:                   ; preds = %while.end.i, %if.th
   br label %while.body.backedge.sink.split
 
 while.end:                                        ; preds = %if.then15, %if.then17
-  call void @exit(i32 noundef 0) #38
+  call void @exit(i32 noundef 0) #39
   unreachable
 }
 
@@ -16310,7 +16310,7 @@ if.end17:                                         ; preds = %if.then6.if.end17_c
 
 if.then21:                                        ; preds = %if.end17
   %10 = load ptr, ptr @stderr, align 8
-  %11 = call i64 @fwrite(ptr nonnull @.str.181, i64 30, i64 1, ptr %10) #37
+  %11 = call i64 @fwrite(ptr nonnull @.str.181, i64 30, i64 1, ptr %10) #38
   %12 = load ptr, ptr @stderr, align 8
   %13 = load ptr, ptr %ip, align 8
   %14 = load i32, ptr %port, align 8
@@ -16701,7 +16701,7 @@ if.end4.i:                                        ; preds = %if.then.i, %lor.lhs
 
 if.then24:                                        ; preds = %if.end4.i, %if.end20
   %6 = load ptr, ptr @stderr, align 8
-  %7 = call i64 @fwrite(ptr nonnull @.str.190, i64 35, i64 1, ptr %6) #37
+  %7 = call i64 @fwrite(ptr nonnull @.str.190, i64 35, i64 1, ptr %6) #38
   br label %if.then270
 
 if.end26:                                         ; preds = %if.end4.i
@@ -17143,16 +17143,16 @@ if.then:                                          ; preds = %entry
   %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.clusterManagerLog, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call7 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %switch.load)
-  call void @llvm.va_start(ptr nonnull %ap)
-  %call10 = call i32 @vprintf(ptr noundef %fmt, ptr noundef nonnull %ap)
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
+  %call10 = call i32 @vprintf(ptr noundef %fmt, ptr noundef nonnull %ap) #33
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   %call14 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @str.14)
   br label %if.end15
 
 if.end15.critedge:                                ; preds = %entry
-  call void @llvm.va_start(ptr nonnull %ap)
-  %call10.c = call i32 @vprintf(ptr noundef %fmt, ptr noundef nonnull %ap)
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
+  %call10.c = call i32 @vprintf(ptr noundef %fmt, ptr noundef nonnull %ap) #33
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   br label %if.end15
 
 if.end15:                                         ; preds = %if.end15.critedge, %if.then
@@ -18442,7 +18442,7 @@ while.body88:                                     ; preds = %if.then83, %while.c
 
 if.then.i87:                                      ; preds = %while.body88
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 2, ptr noundef nonnull @.str.259, i32 noundef %37)
-  call void @exit(i32 noundef 1) #38
+  call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end.i:                                         ; preds = %while.body88
@@ -19612,7 +19612,7 @@ if.then108:                                       ; preds = %clusterManagerOnErr
 
 if.then.i117:                                     ; preds = %if.then108
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 2, ptr noundef nonnull @.str.313, i32 noundef %203)
-  call void @exit(i32 noundef 1) #38
+  call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end.i118:                                      ; preds = %if.then108
@@ -20598,13 +20598,13 @@ declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) lo
 declare i64 @atoll(ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #24
+declare void @llvm.va_start.p0(ptr) #24
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #24
+declare void @llvm.va_end.p0(ptr) #24
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @clusterManagerGetAntiAffinityScore(ptr nocapture noundef readonly %ipnodes, i32 noundef %ip_count, ptr noundef writeonly %offending, ptr noundef %offending_len) unnamed_addr #2 {
@@ -23497,7 +23497,7 @@ if.then:                                          ; preds = %while.body2
 if.then14:                                        ; preds = %if.then
   %7 = load ptr, ptr @stderr, align 8
   %call15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.180, ptr noundef nonnull %6) #37
-  call void @exit(i32 noundef 1) #38
+  call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end16:                                         ; preds = %if.then, %while.body2
@@ -23511,9 +23511,9 @@ while.end:                                        ; preds = %if.end16, %while.co
   %c.addr.1.lcssa21 = phi ptr [ %c.addr.029, %while.cond1.preheader ], [ %call5, %if.end16 ]
   %tries.1.lcssa = phi i32 [ %tries.030, %while.cond1.preheader ], [ %inc, %if.end16 ]
   %err.le = getelementptr inbounds i8, ptr %c.addr.1.lcssa21, i64 8
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call19 = call ptr @redisvCommand(ptr noundef nonnull %c.addr.1.lcssa21, ptr noundef %fmt, ptr noundef nonnull %ap) #33
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   %9 = load i32, ptr %err.le, align 8
   %tobool22.not = icmp ne i32 %9, 0
   %and25 = and i32 %9, 3
@@ -23525,7 +23525,7 @@ if.then27:                                        ; preds = %while.end
   %10 = load ptr, ptr @stderr, align 8
   %errstr = getelementptr inbounds i8, ptr %c.addr.1.lcssa21, i64 12
   %call29 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.418, ptr noundef nonnull %errstr) #37
-  call void @exit(i32 noundef 1) #38
+  call void @exit(i32 noundef 1) #39
   unreachable
 
 if.else:                                          ; preds = %while.end
@@ -23839,7 +23839,7 @@ hi_sdslen.exit86:                                 ; preds = %hi_sdslen.exit67, %
 sw.default:                                       ; preds = %entry
   %37 = load ptr, ptr @stderr, align 8
   %call61 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.425, i32 noundef %0) #37
-  tail call void @exit(i32 noundef 1) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 sw.epilog:                                        ; preds = %hi_sdslen.exit86, %hi_sdslen.exit, %for.cond38.preheader, %sw.bb28, %if.else14, %if.else, %if.then10, %entry, %sw.bb25, %sw.bb22, %sw.bb19, %sw.bb1
@@ -24099,12 +24099,12 @@ entry:
   %0 = load ptr, ptr @stderr, align 8
   %1 = load ptr, ptr @stdout, align 8
   %cond = select i1 %tobool.not, ptr %1, ptr %0
-  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %cond, ptr noundef nonnull @.str.564, ptr noundef %call, ptr noundef nonnull @.str.26)
-  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %cond, ptr noundef nonnull @.str.565, i32 noundef 30)
+  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %cond, ptr noundef nonnull @.str.564, ptr noundef %call, ptr noundef nonnull @.str.26) #33
+  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %cond, ptr noundef nonnull @.str.565, i32 noundef 30) #33
   %2 = tail call i64 @fwrite(ptr nonnull @.str.566, i64 1753, i64 1, ptr %cond)
   %3 = tail call i64 @fwrite(ptr nonnull @.str.567, i64 846, i64 1, ptr %cond)
   tail call void @hi_sdsfree(ptr noundef %call) #33
-  tail call void @exit(i32 noundef %err) #38
+  tail call void @exit(i32 noundef %err) #39
   unreachable
 }
 
@@ -24202,7 +24202,7 @@ if.end27:                                         ; preds = %for.body
 if.then34:                                        ; preds = %for.cond, %if.then17
   tail call void @hi_sdsfree(ptr noundef %call18) #33
   %9 = load ptr, ptr @stderr, align 8
-  %10 = tail call i64 @fwrite(ptr nonnull @.str.568, i64 41, i64 1, ptr %9) #37
+  %10 = tail call i64 @fwrite(ptr nonnull @.str.568, i64 41, i64 1, ptr %9) #38
   br label %return
 
 return:                                           ; preds = %if.end27, %if.then5, %if.else, %if.then34
@@ -24343,7 +24343,7 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   %3 = load ptr, ptr @stderr, align 8
-  %4 = tail call i64 @fwrite(ptr nonnull @.str.76, i64 11, i64 1, ptr %3) #37
+  %4 = tail call i64 @fwrite(ptr nonnull @.str.76, i64 11, i64 1, ptr %3) #38
   br label %return
 
 if.end4:                                          ; preds = %if.end
@@ -24572,7 +24572,7 @@ if.then16:                                        ; preds = %if.else13
 if.else20:                                        ; preds = %if.else13
   %2 = load ptr, ptr @stderr, align 8
   %call21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.587, i32 noundef %mode) #37
-  tail call void @exit(i32 noundef 1) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end25:                                         ; preds = %if.then1, %if.then10, %if.then16, %if.then5, %if.then
@@ -24923,7 +24923,7 @@ for.end:                                          ; preds = %for.inc, %do.end
 sw.default:                                       ; preds = %entry
   %36 = load ptr, ptr @stderr, align 8
   %call131 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.425, i32 noundef %0) #37
-  tail call void @exit(i32 noundef 1) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 sw.epilog:                                        ; preds = %for.end, %if.then35, %if.then45, %if.else47, %if.then40, %if.then30, %if.then, %if.else, %sw.bb22, %sw.bb20, %sw.bb8, %sw.bb6, %sw.bb2, %sw.bb
@@ -25081,7 +25081,7 @@ if.end:                                           ; preds = %if.then, %hi_sdslen
 sw.default:                                       ; preds = %entry
   %19 = load ptr, ptr @stderr, align 8
   %call33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.425, i32 noundef %0) #37
-  tail call void @exit(i32 noundef 1) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 sw.epilog:                                        ; preds = %if.end, %sw.bb22, %sw.bb19, %sw.bb17, %sw.bb13, %sw.bb10, %sw.bb8, %sw.bb5, %sw.bb
@@ -25286,7 +25286,7 @@ for.end88:                                        ; preds = %for.inc86, %sw.bb34
 sw.default:                                       ; preds = %entry
   %23 = load ptr, ptr @stderr, align 8
   %call91 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.425, i32 noundef %0) #37
-  tail call void @exit(i32 noundef 1) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 sw.epilog:                                        ; preds = %for.end88, %for.end, %sw.bb20, %sw.bb18, %sw.bb13, %sw.bb10, %sw.bb8, %sw.bb4, %sw.bb
@@ -25498,7 +25498,7 @@ land.lhs.true:                                    ; preds = %if.then10
 
 if.end22:                                         ; preds = %if.then10, %land.lhs.true, %if.end8
   call fastcc void @cliPrintContextError()
-  call void @exit(i32 noundef 1) #38
+  call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end23:                                         ; preds = %if.end
@@ -25594,7 +25594,7 @@ if.then66:                                        ; preds = %if.else, %if.else.t
   %str67 = getelementptr inbounds i8, ptr %9, i64 32
   %22 = load ptr, ptr %str67, align 8
   %call68 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.115, ptr noundef %22) #37
-  call void @exit(i32 noundef 1) #38
+  call void @exit(i32 noundef 1) #39
   unreachable
 
 if.then72.critedge:                               ; preds = %if.else.thread, %if.else
@@ -25707,8 +25707,8 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @stderr, align 8
-  %2 = tail call i64 @fwrite(ptr nonnull @.str.76, i64 11, i64 1, ptr %1) #37
-  tail call void @exit(i32 noundef 1) #38
+  %2 = tail call i64 @fwrite(ptr nonnull @.str.76, i64 11, i64 1, ptr %1) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 if.else:                                          ; preds = %entry
@@ -25723,13 +25723,13 @@ if.then3:                                         ; preds = %if.else
   %str = getelementptr inbounds i8, ptr %call, i64 32
   %5 = load ptr, ptr %str, align 8
   %call4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.664, ptr noundef %5) #37
-  tail call void @exit(i32 noundef 1) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 if.then8:                                         ; preds = %if.else
   %6 = load ptr, ptr @stderr, align 8
-  %7 = tail call i64 @fwrite(ptr nonnull @.str.665, i64 34, i64 1, ptr %6) #37
-  tail call void @exit(i32 noundef 1) #38
+  %7 = tail call i64 @fwrite(ptr nonnull @.str.665, i64 34, i64 1, ptr %6) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end11:                                         ; preds = %if.else
@@ -25750,8 +25750,8 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @stderr, align 8
-  %2 = tail call i64 @fwrite(ptr nonnull @.str.76, i64 11, i64 1, ptr %1) #37
-  tail call void @exit(i32 noundef 1) #38
+  %2 = tail call i64 @fwrite(ptr nonnull @.str.76, i64 11, i64 1, ptr %1) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 if.else:                                          ; preds = %entry
@@ -25769,7 +25769,7 @@ land.lhs.true:                                    ; preds = %if.else
 if.then5:                                         ; preds = %land.lhs.true
   %5 = load ptr, ptr @stderr, align 8
   %call7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.418, ptr noundef %4) #37
-  tail call void @exit(i32 noundef 1) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end8:                                          ; preds = %if.else, %land.lhs.true
@@ -25844,8 +25844,8 @@ if.end:                                           ; preds = %if.else, %hi_sdslen
 
 if.then3:                                         ; preds = %if.end
   %9 = load ptr, ptr @stderr, align 8
-  %10 = tail call i64 @fwrite(ptr nonnull @.str.76, i64 11, i64 1, ptr %9) #37
-  tail call void @exit(i32 noundef 1) #38
+  %10 = tail call i64 @fwrite(ptr nonnull @.str.76, i64 11, i64 1, ptr %9) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 if.else5:                                         ; preds = %if.end
@@ -25860,13 +25860,13 @@ if.then7:                                         ; preds = %if.else5
   %str = getelementptr inbounds i8, ptr %reply.0, i64 32
   %13 = load ptr, ptr %str, align 8
   %call8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.670, ptr noundef %13) #37
-  tail call void @exit(i32 noundef 1) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 if.then12:                                        ; preds = %if.else5
   %14 = load ptr, ptr @stderr, align 8
-  %15 = tail call i64 @fwrite(ptr nonnull @.str.671, i64 30, i64 1, ptr %14) #37
-  tail call void @exit(i32 noundef 1) #38
+  %15 = tail call i64 @fwrite(ptr nonnull @.str.671, i64 30, i64 1, ptr %14) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 if.else14:                                        ; preds = %if.else5
@@ -25877,8 +25877,8 @@ if.else14:                                        ; preds = %if.else5
 
 if.then16:                                        ; preds = %if.else14
   %17 = load ptr, ptr @stderr, align 8
-  %18 = tail call i64 @fwrite(ptr nonnull @.str.672, i64 33, i64 1, ptr %17) #37
-  tail call void @exit(i32 noundef 1) #38
+  %18 = tail call i64 @fwrite(ptr nonnull @.str.672, i64 33, i64 1, ptr %17) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end21:                                         ; preds = %if.else14
@@ -26303,7 +26303,7 @@ if.end.i9:                                        ; preds = %if.then19
 
 if.then2.i:                                       ; preds = %if.end.i9
   %38 = load ptr, ptr @stderr, align 8
-  %39 = tail call i64 @fwrite(ptr nonnull @.str.76, i64 11, i64 1, ptr %38) #37
+  %39 = tail call i64 @fwrite(ptr nonnull @.str.76, i64 11, i64 1, ptr %38) #38
   br label %if.then22
 
 if.end4.i:                                        ; preds = %if.end.i9
@@ -26663,7 +26663,7 @@ do.body.i:                                        ; preds = %while.body.i, %do.c
 
 if.then176.i:                                     ; preds = %do.body.i
   tail call fastcc void @cliPrintContextError()
-  tail call void @exit(i32 noundef 1) #38
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 if.end177.i:                                      ; preds = %do.body.i
@@ -27164,8 +27164,9 @@ attributes #33 = { nounwind }
 attributes #34 = { nounwind allocsize(1) }
 attributes #35 = { nounwind allocsize(0) }
 attributes #36 = { nounwind willreturn memory(none) }
-attributes #37 = { cold }
-attributes #38 = { noreturn nounwind }
+attributes #37 = { cold nounwind }
+attributes #38 = { cold }
+attributes #39 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

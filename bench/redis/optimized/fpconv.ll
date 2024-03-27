@@ -65,7 +65,7 @@ if.end4:                                          ; preds = %strtod_buffer_size.
   br i1 %cmp5, label %if.then7, label %if.end14
 
 if.then7:                                         ; preds = %if.end4
-  %add = add i64 %sub.ptr.sub.i, 1
+  %add = add nuw nsw i64 %sub.ptr.sub.i, 1
   %conv8 = and i64 %add, 4294967295
   %call9 = tail call noalias ptr @malloc(i64 noundef %conv8) #12
   %tobool10.not = icmp eq ptr %call9, null
@@ -149,7 +149,7 @@ entry:
   store i8 46, ptr %arrayidx1.i, align 1, !tbaa !4
   %precision.off.i = add i32 %precision, 9
   %tobool.not.i = icmp ult i32 %precision.off.i, 19
-  %i.0.i.sroa.gep1 = getelementptr inbounds i8, ptr %fmt, i64 2
+  %i.0.i.sroa.gep21 = getelementptr inbounds i8, ptr %fmt, i64 2
   br i1 %tobool.not.i, label %set_number_format.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -157,11 +157,11 @@ if.then.i:                                        ; preds = %entry
   %div.i = sdiv i32 %precision, 10
   %0 = trunc i32 %div.i to i8
   %conv.i = add i8 %0, 48
-  store i8 %conv.i, ptr %i.0.i.sroa.gep1, align 1, !tbaa !4
+  store i8 %conv.i, ptr %i.0.i.sroa.gep21, align 1, !tbaa !4
   br label %set_number_format.exit
 
 set_number_format.exit:                           ; preds = %if.then.i, %entry
-  %i.0.i.sroa.phi = phi ptr [ %i.0.i.sroa.gep, %if.then.i ], [ %i.0.i.sroa.gep1, %entry ]
+  %i.0.i.sroa.phi = phi ptr [ %i.0.i.sroa.gep, %if.then.i ], [ %i.0.i.sroa.gep21, %entry ]
   %rem.i = srem i32 %precision, 10
   %1 = trunc i32 %rem.i to i8
   %conv4.i = add nsw i8 %1, 48

@@ -3237,7 +3237,7 @@ entry:
   store ptr %privdata, ptr %privdata.addr, align 8
   store ptr %format, ptr %format.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %ac.addr, align 8
   %1 = load ptr, ptr %fn.addr, align 8
   %2 = load ptr, ptr %privdata.addr, align 8
@@ -3246,16 +3246,16 @@ entry:
   %call = call i32 @redisvAsyncCommand(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %arraydecay1)
   store i32 %call, ptr %status, align 4
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %4 = load i32, ptr %status, align 4
   ret i32 %4
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
+declare void @llvm.va_start.p0(ptr) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
+declare void @llvm.va_end.p0(ptr) #5
 
 ; Function Attrs: nounwind uwtable
 define i32 @redisAsyncCommandArgv(ptr noundef %ac, ptr noundef %fn, ptr noundef %privdata, i32 noundef %argc, ptr noundef %argv, ptr noundef %argvlen) #0 {

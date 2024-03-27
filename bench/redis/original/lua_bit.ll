@@ -25,7 +25,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.18 = private unnamed_addr constant [17 x i8] c"0123456789ABCDEF\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @luaopen_bit(ptr noundef %L) local_unnamed_addr #0 {
+define dso_local noundef i32 @luaopen_bit(ptr noundef %L) local_unnamed_addr #0 {
 entry:
   tail call void @lua_pushnumber(ptr noundef %L, double noundef 0x41D56A8CDDC00000) #4
   %call.i = tail call double @lua_tonumber(ptr noundef %L, i32 noundef -1) #4
@@ -76,7 +76,7 @@ declare i32 @lua_isnumber(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @luaL_typerror(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bit_tobit(ptr noundef %L) #0 {
+define internal noundef i32 @bit_tobit(ptr noundef %L) #0 {
 entry:
   %call.i = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 1) #4
   %add.i = fadd double %call.i, 0x4338000000000000
@@ -101,7 +101,7 @@ barg.exit:                                        ; preds = %if.then.i, %land.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bit_bnot(ptr noundef %L) #0 {
+define internal noundef i32 @bit_bnot(ptr noundef %L) #0 {
 entry:
   %call.i = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 1) #4
   %add.i = fadd double %call.i, 0x4338000000000000
@@ -127,7 +127,7 @@ barg.exit:                                        ; preds = %if.then.i, %land.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bit_band(ptr noundef %L) #0 {
+define internal noundef i32 @bit_band(ptr noundef %L) #0 {
 entry:
   %call.i = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 1) #4
   %add.i = fadd double %call.i, 0x4338000000000000
@@ -183,7 +183,7 @@ for.end:                                          ; preds = %barg.exit18, %barg.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bit_bor(ptr noundef %L) #0 {
+define internal noundef i32 @bit_bor(ptr noundef %L) #0 {
 entry:
   %call.i = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 1) #4
   %add.i = fadd double %call.i, 0x4338000000000000
@@ -239,7 +239,7 @@ for.end:                                          ; preds = %barg.exit18, %barg.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bit_bxor(ptr noundef %L) #0 {
+define internal noundef i32 @bit_bxor(ptr noundef %L) #0 {
 entry:
   %call.i = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 1) #4
   %add.i = fadd double %call.i, 0x4338000000000000
@@ -295,7 +295,7 @@ for.end:                                          ; preds = %barg.exit18, %barg.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bit_lshift(ptr noundef %L) #0 {
+define internal noundef i32 @bit_lshift(ptr noundef %L) #0 {
 entry:
   %call.i = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 1) #4
   %add.i = fadd double %call.i, 0x4338000000000000
@@ -339,7 +339,7 @@ barg.exit13:                                      ; preds = %if.then.i11, %land.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bit_rshift(ptr noundef %L) #0 {
+define internal noundef i32 @bit_rshift(ptr noundef %L) #0 {
 entry:
   %call.i = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 1) #4
   %add.i = fadd double %call.i, 0x4338000000000000
@@ -383,7 +383,7 @@ barg.exit13:                                      ; preds = %if.then.i11, %land.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bit_arshift(ptr noundef %L) #0 {
+define internal noundef i32 @bit_arshift(ptr noundef %L) #0 {
 entry:
   %call.i = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 1) #4
   %add.i = fadd double %call.i, 0x4338000000000000
@@ -427,7 +427,7 @@ barg.exit13:                                      ; preds = %if.then.i11, %land.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bit_rol(ptr noundef %L) #0 {
+define internal noundef i32 @bit_rol(ptr noundef %L) #0 {
 entry:
   %call.i = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 1) #4
   %add.i = fadd double %call.i, 0x4338000000000000
@@ -470,7 +470,7 @@ barg.exit15:                                      ; preds = %if.then.i13, %land.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bit_ror(ptr noundef %L) #0 {
+define internal noundef i32 @bit_ror(ptr noundef %L) #0 {
 entry:
   %call.i = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 1) #4
   %add.i = fadd double %call.i, 0x4338000000000000
@@ -513,7 +513,7 @@ barg.exit15:                                      ; preds = %if.then.i13, %land.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bit_bswap(ptr noundef %L) #0 {
+define internal noundef i32 @bit_bswap(ptr noundef %L) #0 {
 entry:
   %call.i = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 1) #4
   %add.i = fadd double %call.i, 0x4338000000000000
@@ -539,7 +539,7 @@ barg.exit:                                        ; preds = %if.then.i, %land.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bit_tohex(ptr noundef %L) #0 {
+define internal noundef i32 @bit_tohex(ptr noundef %L) #0 {
 entry:
   %buf = alloca [8 x i8], align 1
   %call.i = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 1) #4
@@ -709,8 +709,8 @@ for.body.7:                                       ; preds = %for.body.6
 for.end:                                          ; preds = %for.body.7, %for.body.6, %for.body.5, %for.body.4, %for.body.3, %for.body.2, %for.body.1, %for.body.preheader, %.thread43
   %cond3741 = phi i32 [ 0, %.thread43 ], [ %cond3740, %for.body.7 ], [ %cond3740, %for.body.6 ], [ %cond3740, %for.body.5 ], [ %cond3740, %for.body.4 ], [ %cond3740, %for.body.3 ], [ %cond3740, %for.body.2 ], [ %cond3740, %for.body.1 ], [ %cond3740, %for.body.preheader ]
   %spec.select = tail call i32 @llvm.abs.i32(i32 %cond3741, i1 true)
-  %spec.store.select = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 8)
-  %conv = zext nneg i32 %spec.store.select to i64
+  %19 = tail call i32 @llvm.umin.i32(i32 %spec.select, i32 8)
+  %conv = zext nneg i32 %19 to i64
   call void @lua_pushlstring(ptr noundef %L, ptr noundef nonnull %buf, i64 noundef %conv) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf) #4
   ret i32 1
@@ -736,6 +736,9 @@ declare i32 @llvm.smin.i32(i32, i32) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #3
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

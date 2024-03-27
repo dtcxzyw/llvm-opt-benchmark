@@ -91,7 +91,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.78 = private unnamed_addr constant [5 x i8] c"dead\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @luaopen_base(ptr noundef %L) local_unnamed_addr #0 {
+define dso_local noundef i32 @luaopen_base(ptr noundef %L) local_unnamed_addr #0 {
 entry:
   tail call void @lua_pushvalue(ptr noundef %L, i32 noundef -10002) #8
   tail call void @lua_setfield(ptr noundef %L, i32 noundef -10002, ptr noundef nonnull @.str.1) #8
@@ -124,7 +124,7 @@ declare void @lua_setfield(ptr noundef, i32 noundef, ptr noundef) local_unnamed_
 declare void @lua_pushlstring(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @luaB_ipairs(ptr noundef %L) #0 {
+define internal noundef i32 @luaB_ipairs(ptr noundef %L) #0 {
 entry:
   tail call void @luaL_checktype(ptr noundef %L, i32 noundef 1, i32 noundef 5) #8
   tail call void @lua_pushvalue(ptr noundef %L, i32 noundef -10003) #8
@@ -150,7 +150,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @luaB_pairs(ptr noundef %L) #0 {
+define internal noundef i32 @luaB_pairs(ptr noundef %L) #0 {
 entry:
   tail call void @luaL_checktype(ptr noundef %L, i32 noundef 1, i32 noundef 5) #8
   tail call void @lua_pushvalue(ptr noundef %L, i32 noundef -10003) #8
@@ -160,7 +160,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @luaB_next(ptr noundef %L) #0 {
+define internal noundef i32 @luaB_next(ptr noundef %L) #0 {
 entry:
   tail call void @luaL_checktype(ptr noundef %L, i32 noundef 1, i32 noundef 5) #8
   tail call void @lua_settop(ptr noundef %L, i32 noundef 2) #8
@@ -184,7 +184,7 @@ declare i32 @lua_setmetatable(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @lua_pushcclosure(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @luaB_newproxy(ptr noundef %L) #0 {
+define internal noundef i32 @luaB_newproxy(ptr noundef %L) #0 {
 entry:
   tail call void @lua_settop(ptr noundef %L, i32 noundef 1) #8
   %call = tail call ptr @lua_newuserdata(ptr noundef %L, i64 noundef 0) #8
@@ -255,7 +255,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @luaB_collectgarbage(ptr noundef %L) #0 {
+define internal noundef i32 @luaB_collectgarbage(ptr noundef %L) #0 {
 entry:
   %call = tail call i32 @luaL_checkoption(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.37, ptr noundef nonnull @luaB_collectgarbage.opts) #8
   %call1 = tail call i64 @luaL_optinteger(ptr noundef %L, i32 noundef 2, i64 noundef 0) #8
@@ -335,7 +335,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @luaB_gcinfo(ptr noundef %L) #0 {
+define internal noundef i32 @luaB_gcinfo(ptr noundef %L) #0 {
 entry:
   %call = tail call i32 @lua_gc(ptr noundef %L, i32 noundef 3, i32 noundef 0) #8
   %conv = sext i32 %call to i64
@@ -344,7 +344,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @luaB_getfenv(ptr noundef %L) #0 {
+define internal noundef i32 @luaB_getfenv(ptr noundef %L) #0 {
 entry:
   tail call fastcc void @getfunc(ptr noundef %L, i32 noundef 1)
   %call = tail call i32 @lua_iscfunction(ptr noundef %L, i32 noundef -1) #8
@@ -364,7 +364,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @luaB_getmetatable(ptr noundef %L) #0 {
+define internal noundef i32 @luaB_getmetatable(ptr noundef %L) #0 {
 entry:
   tail call void @luaL_checkany(ptr noundef %L, i32 noundef 1) #8
   %call = tail call i32 @lua_getmetatable(ptr noundef %L, i32 noundef 1) #8
@@ -384,7 +384,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @luaB_loadfile(ptr noundef %L) #0 {
+define internal noundef i32 @luaB_loadfile(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @luaL_optlstring(ptr noundef %L, i32 noundef 1, ptr noundef null, ptr noundef null) #8
   %call1 = tail call i32 @luaL_loadfile(ptr noundef %L, ptr noundef %call) #8
@@ -402,7 +402,7 @@ load_aux.exit:                                    ; preds = %if.else.i, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @luaB_load(ptr noundef %L) #0 {
+define internal noundef i32 @luaB_load(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @luaL_optlstring(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.47, ptr noundef null) #8
   tail call void @luaL_checktype(ptr noundef %L, i32 noundef 1, i32 noundef 6) #8
@@ -422,7 +422,7 @@ load_aux.exit:                                    ; preds = %if.else.i, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @luaB_loadstring(ptr noundef %L) #0 {
+define internal noundef i32 @luaB_loadstring(ptr noundef %L) #0 {
 entry:
   %l = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %l) #8
@@ -516,7 +516,7 @@ cleanup10:                                        ; preds = %for.end, %cleanup.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @luaB_rawequal(ptr noundef %L) #0 {
+define internal noundef i32 @luaB_rawequal(ptr noundef %L) #0 {
 entry:
   tail call void @luaL_checkany(ptr noundef %L, i32 noundef 1) #8
   tail call void @luaL_checkany(ptr noundef %L, i32 noundef 2) #8
@@ -526,7 +526,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @luaB_rawget(ptr noundef %L) #0 {
+define internal noundef i32 @luaB_rawget(ptr noundef %L) #0 {
 entry:
   tail call void @luaL_checktype(ptr noundef %L, i32 noundef 1, i32 noundef 5) #8
   tail call void @luaL_checkany(ptr noundef %L, i32 noundef 2) #8
@@ -536,7 +536,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @luaB_rawset(ptr noundef %L) #0 {
+define internal noundef i32 @luaB_rawset(ptr noundef %L) #0 {
 entry:
   tail call void @luaL_checktype(ptr noundef %L, i32 noundef 1, i32 noundef 5) #8
   tail call void @luaL_checkany(ptr noundef %L, i32 noundef 2) #8
@@ -590,7 +590,7 @@ cleanup:                                          ; preds = %lor.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @luaB_setfenv(ptr noundef %L) #0 {
+define internal noundef i32 @luaB_setfenv(ptr noundef %L) #0 {
 entry:
   tail call void @luaL_checktype(ptr noundef %L, i32 noundef 2, i32 noundef 5) #8
   tail call fastcc void @getfunc(ptr noundef %L, i32 noundef 0)
@@ -630,7 +630,7 @@ return:                                           ; preds = %if.then8, %lor.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @luaB_setmetatable(ptr noundef %L) #0 {
+define internal noundef i32 @luaB_setmetatable(ptr noundef %L) #0 {
 entry:
   %call = tail call i32 @lua_type(ptr noundef %L, i32 noundef 2) #8
   tail call void @luaL_checktype(ptr noundef %L, i32 noundef 1, i32 noundef 5) #8
@@ -659,7 +659,7 @@ if.end:                                           ; preds = %if.then, %lor.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @luaB_tonumber(ptr noundef %L) #0 {
+define internal noundef i32 @luaB_tonumber(ptr noundef %L) #0 {
 entry:
   %s2 = alloca ptr, align 8
   %call = tail call i64 @luaL_optinteger(ptr noundef %L, i32 noundef 2, i64 noundef 10) #8
@@ -734,7 +734,7 @@ cleanup30:                                        ; preds = %if.end29, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @luaB_tostring(ptr noundef %L) #0 {
+define internal noundef i32 @luaB_tostring(ptr noundef %L) #0 {
 entry:
   tail call void @luaL_checkany(ptr noundef %L, i32 noundef 1) #8
   %call = tail call i32 @luaL_callmeta(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.58) #8
@@ -782,7 +782,7 @@ return:                                           ; preds = %sw.default, %sw.bb7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @luaB_type(ptr noundef %L) #0 {
+define internal noundef i32 @luaB_type(ptr noundef %L) #0 {
 entry:
   tail call void @luaL_checkany(ptr noundef %L, i32 noundef 1) #8
   %call = tail call i32 @lua_type(ptr noundef %L, i32 noundef 1) #8
@@ -1083,7 +1083,7 @@ declare i32 @lua_next(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @lua_newuserdata(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @luaB_cocreate(ptr noundef %L) #0 {
+define internal noundef i32 @luaB_cocreate(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @lua_newthread(ptr noundef %L) #8
   %call1 = tail call i32 @lua_type(ptr noundef %L, i32 noundef 1) #8
@@ -1148,7 +1148,7 @@ cleanup:                                          ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @luaB_corunning(ptr noundef %L) #0 {
+define internal noundef i32 @luaB_corunning(ptr noundef %L) #0 {
 entry:
   %call = tail call i32 @lua_pushthread(ptr noundef %L) #8
   %tobool.not = icmp eq i32 %call, 0
@@ -1163,7 +1163,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @luaB_costatus(ptr noundef %L) #0 {
+define internal noundef i32 @luaB_costatus(ptr noundef %L) #0 {
 entry:
   %ar.i = alloca %struct.lua_Debug, align 8
   %call = tail call ptr @lua_tothread(ptr noundef %L, i32 noundef 1) #8
@@ -1214,7 +1214,7 @@ costatus.exit:                                    ; preds = %sw.default.i, %clea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @luaB_cowrap(ptr noundef %L) #0 {
+define internal noundef i32 @luaB_cowrap(ptr noundef %L) #0 {
 entry:
   %call.i = tail call ptr @lua_newthread(ptr noundef %L) #8
   %call1.i = tail call i32 @lua_type(ptr noundef %L, i32 noundef 1) #8

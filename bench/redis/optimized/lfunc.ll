@@ -43,9 +43,9 @@ entry:
   %nupvalues = getelementptr inbounds i8, ptr %call, i64 11
   store i8 %conv3, ptr %nupvalues, align 1, !tbaa !4
   %tobool.not13 = icmp eq i32 %nelems, 0
-  br i1 %tobool.not13, label %while.end, label %while.body.preheader
+  br i1 %tobool.not13, label %while.end, label %while.body.lr.ph
 
-while.body.preheader:                             ; preds = %entry
+while.body.lr.ph:                                 ; preds = %entry
   %0 = add i32 %nelems, -1
   %1 = sext i32 %0 to i64
   %2 = shl nsw i64 %1, 3
@@ -59,7 +59,7 @@ while.body.preheader:                             ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %8, i1 false), !tbaa !4
   br label %while.end
 
-while.end:                                        ; preds = %while.body.preheader, %entry
+while.end:                                        ; preds = %while.body.lr.ph, %entry
   ret ptr %call
 }
 
@@ -235,8 +235,8 @@ if.else:                                          ; preds = %while.body
   %next9.i = getelementptr inbounds i8, ptr %12, i64 32
   store ptr %14, ptr %next9.i, align 8, !tbaa !4
   %15 = load ptr, ptr %v, align 8, !tbaa !7
-  %16 = load i64, ptr %15, align 8
-  store i64 %16, ptr %u.i27, align 8
+  %16 = load i64, ptr %15, align 8, !tbaa !4
+  store i64 %16, ptr %u.i27, align 8, !tbaa !4
   %tt = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load i32, ptr %tt, align 8, !tbaa !10
   store i32 %17, ptr %next.i, align 8, !tbaa !10
@@ -323,10 +323,10 @@ entry:
   %0 = load i8, ptr %isC, align 2, !tbaa !4
   %tobool.not = icmp eq i8 %0, 0
   %nupvalues4 = getelementptr inbounds i8, ptr %c, i64 11
-  %.sink = select i1 %tobool.not, i64 3, i64 4
   %1 = load i8, ptr %nupvalues4, align 1, !tbaa !4
   %conv5 = zext i8 %1 to i64
-  %sub6 = shl nuw nsw i64 %conv5, %.sink
+  %. = select i1 %tobool.not, i64 3, i64 4
+  %sub6 = shl nuw nsw i64 %conv5, %.
   %cond = add nuw nsw i64 %sub6, 40
   %conv11 = and i64 %cond, 65528
   %call = tail call ptr @luaM_realloc_(ptr noundef %L, ptr noundef nonnull %c, i64 noundef %conv11, i64 noundef 0) #4
@@ -350,13 +350,14 @@ land.rhs.lr.ph:                                   ; preds = %entry
 land.rhs:                                         ; preds = %for.inc, %land.rhs.lr.ph
   %indvars.iv = phi i64 [ 0, %land.rhs.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %local_number.addr.022 = phi i32 [ %local_number, %land.rhs.lr.ph ], [ %local_number.addr.1, %for.inc ]
-  %startpc = getelementptr inbounds %struct.LocVar, ptr %1, i64 %indvars.iv, i32 1
+  %arrayidx = getelementptr inbounds %struct.LocVar, ptr %1, i64 %indvars.iv
+  %startpc = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %2 = load i32, ptr %startpc, align 8, !tbaa !42
   %cmp1.not = icmp sgt i32 %2, %pc
   br i1 %cmp1.not, label %cleanup, label %for.body
 
 for.body:                                         ; preds = %land.rhs
-  %endpc = getelementptr inbounds %struct.LocVar, ptr %1, i64 %indvars.iv, i32 2
+  %endpc = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %3 = load i32, ptr %endpc, align 4, !tbaa !44
   %cmp5 = icmp sgt i32 %3, %pc
   br i1 %cmp5, label %if.then, label %for.inc
@@ -367,8 +368,7 @@ if.then:                                          ; preds = %for.body
   br i1 %cmp6, label %if.then7, label %for.inc
 
 if.then7:                                         ; preds = %if.then
-  %arrayidx.le = getelementptr inbounds %struct.LocVar, ptr %1, i64 %indvars.iv
-  %4 = load ptr, ptr %arrayidx.le, align 8, !tbaa !45
+  %4 = load ptr, ptr %arrayidx, align 8, !tbaa !45
   %add.ptr = getelementptr inbounds i8, ptr %4, i64 24
   br label %cleanup
 

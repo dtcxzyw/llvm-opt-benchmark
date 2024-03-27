@@ -5134,7 +5134,7 @@ emap_edata_lookup.exit:                           ; preds = %if.end.i.i84, %if.t
   %125 = load ptr, ptr %rtree_ctx.i, align 8
   %126 = load ptr, ptr %ptr.addr.i79, align 8
   %127 = ptrtoint ptr %126 to i64
-  call void @rtree_read(ptr sret(%struct.rtree_contents_s) align 8 %tmp.i, ptr noundef %123, ptr noundef %124, ptr noundef %125, i64 noundef %127)
+  call void @rtree_read(ptr dead_on_unwind writable sret(%struct.rtree_contents_s) align 8 %tmp.i, ptr noundef %123, ptr noundef %124, ptr noundef %125, i64 noundef %127)
   %128 = load ptr, ptr %tmp.i, align 8
   store ptr %128, ptr %edata.i, align 8
   %129 = load ptr, ptr %edata.i, align 8
@@ -6237,7 +6237,7 @@ emap_edata_lookup.exit:                           ; preds = %if.end.i.i69, %if.t
   %122 = load ptr, ptr %rtree_ctx.i, align 8
   %123 = load ptr, ptr %ptr.addr.i64, align 8
   %124 = ptrtoint ptr %123 to i64
-  call void @rtree_read(ptr sret(%struct.rtree_contents_s) align 8 %tmp.i, ptr noundef %120, ptr noundef %121, ptr noundef %122, i64 noundef %124)
+  call void @rtree_read(ptr dead_on_unwind writable sret(%struct.rtree_contents_s) align 8 %tmp.i, ptr noundef %120, ptr noundef %121, ptr noundef %122, i64 noundef %124)
   %125 = load ptr, ptr %tmp.i, align 8
   store ptr %125, ptr %edata.i, align 8
   %126 = load ptr, ptr %edata.i, align 8
@@ -6993,7 +6993,7 @@ emap_edata_lookup.exit.i:                         ; preds = %if.end.i.i43.i, %if
   %53 = load ptr, ptr %rtree_ctx.i.i, align 8
   %54 = load ptr, ptr %ptr.addr.i38.i, align 8
   %55 = ptrtoint ptr %54 to i64
-  call void @rtree_read(ptr sret(%struct.rtree_contents_s) align 8 %tmp.i.i, ptr noundef %51, ptr noundef %52, ptr noundef %53, i64 noundef %55)
+  call void @rtree_read(ptr dead_on_unwind writable sret(%struct.rtree_contents_s) align 8 %tmp.i.i, ptr noundef %51, ptr noundef %52, ptr noundef %53, i64 noundef %55)
   %56 = load ptr, ptr %tmp.i.i, align 8
   store ptr %56, ptr %edata.i.i, align 8
   %57 = load ptr, ptr %edata.i.i, align 8
@@ -7692,7 +7692,7 @@ emap_edata_lookup.exit.i80:                       ; preds = %if.end.i.i.i77, %if
   %302 = load ptr, ptr %rtree_ctx.i.i62, align 8
   %303 = load ptr, ptr %ptr.addr.i6.i, align 8
   %304 = ptrtoint ptr %303 to i64
-  call void @rtree_read(ptr sret(%struct.rtree_contents_s) align 8 %tmp.i.i63, ptr noundef %300, ptr noundef %301, ptr noundef %302, i64 noundef %304)
+  call void @rtree_read(ptr dead_on_unwind writable sret(%struct.rtree_contents_s) align 8 %tmp.i.i63, ptr noundef %300, ptr noundef %301, ptr noundef %302, i64 noundef %304)
   %305 = load ptr, ptr %tmp.i.i63, align 8
   store ptr %305, ptr %edata.i, align 8
   %306 = load ptr, ptr %edata.i, align 8
@@ -11486,7 +11486,7 @@ atomic_fetch_add_zu.exit:                         ; preds = %seqcst.i, %acqrel.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rtree_read(ptr noalias sret(%struct.rtree_contents_s) align 8 %agg.result, ptr noundef %tsdn, ptr noundef %rtree, ptr noundef %rtree_ctx, i64 noundef %key) #0 {
+define internal void @rtree_read(ptr dead_on_unwind noalias writable sret(%struct.rtree_contents_s) align 8 %agg.result, ptr noundef %tsdn, ptr noundef %rtree, ptr noundef %rtree_ctx, i64 noundef %key) #0 {
 entry:
   %retval.i76 = alloca i32, align 4
   %mo.addr.i77 = alloca i32, align 4
@@ -12977,7 +12977,7 @@ emap_edata_lookup.exit:                           ; preds = %if.end.i.i, %if.the
   %18 = load ptr, ptr %rtree_ctx.i, align 8
   %19 = load ptr, ptr %ptr.addr.i2, align 8
   %20 = ptrtoint ptr %19 to i64
-  call void @rtree_read(ptr sret(%struct.rtree_contents_s) align 8 %tmp.i, ptr noundef %16, ptr noundef %17, ptr noundef %18, i64 noundef %20)
+  call void @rtree_read(ptr dead_on_unwind writable sret(%struct.rtree_contents_s) align 8 %tmp.i, ptr noundef %16, ptr noundef %17, ptr noundef %18, i64 noundef %20)
   %21 = load ptr, ptr %tmp.i, align 8
   store ptr %21, ptr %edata, align 8
   %22 = load ptr, ptr %edata, align 8

@@ -1407,7 +1407,7 @@ if.end27:                                         ; preds = %if.else25, %if.end
 
 if.then32:                                        ; preds = %if.end27
   %arraydecay33 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay33)
+  call void @llvm.va_start.p0(ptr %arraydecay33)
   %arraydecay34 = getelementptr inbounds [1024 x i8], ptr %msg, i64 0, i64 0
   %arraydecay35 = getelementptr inbounds [1024 x i8], ptr %msg, i64 0, i64 0
   %call36 = call i64 @strlen(ptr noundef %arraydecay35) #15
@@ -1419,7 +1419,7 @@ if.then32:                                        ; preds = %if.end27
   %arraydecay40 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   %call41 = call i32 @vsnprintf(ptr noundef %add.ptr37, i64 noundef %sub, ptr noundef %35, ptr noundef %arraydecay40) #12
   %arraydecay42 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay42)
+  call void @llvm.va_end.p0(ptr %arraydecay42)
   br label %if.end43
 
 if.end43:                                         ; preds = %if.then32, %if.end27
@@ -1588,7 +1588,7 @@ return:                                           ; preds = %if.else10, %if.then
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #8
+declare void @llvm.va_start.p0(ptr) #8
 
 ; Function Attrs: nounwind
 declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #4
@@ -1597,7 +1597,7 @@ declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #4
 declare i64 @strlen(ptr noundef) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #8
+declare void @llvm.va_end.p0(ptr) #8
 
 declare ptr @createStringObject(ptr noundef, i64 noundef) #1
 
@@ -1618,7 +1618,7 @@ entry:
   store ptr %path, ptr %path.addr, align 8
   store i32 1, ptr %argc, align 4
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end, %entry
@@ -1682,7 +1682,7 @@ if.end:                                           ; preds = %vaarg.end
 
 while.end:                                        ; preds = %if.then, %while.cond
   %arraydecay8 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay8)
+  call void @llvm.va_end.p0(ptr %arraydecay8)
   %12 = load ptr, ptr %path.addr, align 8
   %call9 = call ptr @sdsnew(ptr noundef %12)
   %arrayidx10 = getelementptr inbounds [17 x ptr], ptr %argv, i64 0, i64 0
@@ -5173,16 +5173,16 @@ for.end:                                          ; preds = %for.cond
 
 loaderr:                                          ; preds = %if.then7
   %22 = load ptr, ptr @stderr, align 8
-  %call11 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef @.str.64, ptr noundef @.str.65)
+  %call11 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef @.str.64, ptr noundef @.str.65) #12
   %23 = load ptr, ptr @stderr, align 8
   %24 = load i32, ptr %linenum, align 4
-  %call12 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef @.str.66, i32 noundef %24)
+  %call12 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef @.str.66, i32 noundef %24) #12
   %25 = load ptr, ptr @stderr, align 8
   %26 = load ptr, ptr %line, align 8
-  %call13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef @.str.67, ptr noundef %26)
+  %call13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef @.str.67, ptr noundef %26) #12
   %27 = load ptr, ptr @stderr, align 8
   %28 = load ptr, ptr %err, align 8
-  %call14 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef @.str.68, ptr noundef %28)
+  %call14 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef @.str.68, ptr noundef %28) #12
   call void @exit(i32 noundef 1) #11
   unreachable
 
@@ -6244,7 +6244,8 @@ return:                                           ; preds = %if.end428, %if.else
   ret ptr %227
 }
 
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: nounwind
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #4
 
 ; Function Attrs: nounwind willreturn memory(read)
 declare i32 @atoi(ptr noundef) #7

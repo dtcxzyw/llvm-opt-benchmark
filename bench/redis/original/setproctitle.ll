@@ -601,14 +601,14 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %arraydecay3 = getelementptr inbounds [256 x i8], ptr %buf, i64 0, i64 0
   %2 = load ptr, ptr %fmt.addr, align 8
   %arraydecay4 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   %call = call i32 @vsnprintf(ptr noundef %arraydecay3, i64 noundef 256, ptr noundef %2, ptr noundef %arraydecay4) #8
   store i32 %call, ptr %len, align 4
   %arraydecay5 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay5)
+  call void @llvm.va_end.p0(ptr %arraydecay5)
   br label %if.end8
 
 if.else:                                          ; preds = %if.end
@@ -727,13 +727,13 @@ return:                                           ; preds = %error40, %if.end39,
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #4
+declare void @llvm.va_start.p0(ptr) #4
 
 ; Function Attrs: nounwind
 declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #4
+declare void @llvm.va_end.p0(ptr) #4
 
 ; Function Attrs: nounwind
 declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #1

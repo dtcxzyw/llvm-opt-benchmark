@@ -492,7 +492,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %if.end.i46, %if.the
   %21 = load ptr, ptr %rtree_ctx.i, align 8
   %22 = load ptr, ptr %ptr.addr.i, align 8
   %23 = ptrtoint ptr %22 to i64
-  call void @rtree_read(ptr sret(%struct.rtree_contents_s) align 8 %tmp.i, ptr noundef %19, ptr noundef %20, ptr noundef %21, i64 noundef %23)
+  call void @rtree_read(ptr dead_on_unwind writable sret(%struct.rtree_contents_s) align 8 %tmp.i, ptr noundef %19, ptr noundef %20, ptr noundef %21, i64 noundef %23)
   %24 = load ptr, ptr %tmp.i, align 8
   store ptr %24, ptr %edata, align 8
   %25 = load ptr, ptr %tsd.addr, align 8
@@ -2829,7 +2829,7 @@ entry:
 declare i32 @pthread_mutex_trylock(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @rtree_read(ptr noalias sret(%struct.rtree_contents_s) align 8 %agg.result, ptr noundef %tsdn, ptr noundef %rtree, ptr noundef %rtree_ctx, i64 noundef %key) #0 {
+define internal void @rtree_read(ptr dead_on_unwind noalias writable sret(%struct.rtree_contents_s) align 8 %agg.result, ptr noundef %tsdn, ptr noundef %rtree, ptr noundef %rtree_ctx, i64 noundef %key) #0 {
 entry:
   %bits.addr.i = alloca i64, align 8
   %state_bits.i = alloca i64, align 8
@@ -3384,8 +3384,6 @@ rtree_leaf_elm_bits_read.exit:                    ; preds = %seqcst.i.i, %acquir
 declare void @rtree_ctx_data_init(ptr noundef) #1
 
 declare ptr @rtree_leaf_elm_lookup_hard(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) #1
-
-declare void @large_prof_info_set(ptr noundef, ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @sz_size2index_compute(i64 noundef %size) #0 {

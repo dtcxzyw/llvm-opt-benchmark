@@ -5061,7 +5061,7 @@ entry:
   store i64 %n, ptr %n.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %to.addr, align 8
   %1 = load i64, ptr %n.addr, align 8
   %2 = load ptr, ptr %fmt.addr, align 8
@@ -5069,16 +5069,16 @@ entry:
   %call = call i32 @vsnprintf_async_signal_safe(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %arraydecay1)
   store i32 %call, ptr %result, align 4
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %3 = load i32, ptr %result, align 4
   ret i32 %3
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #8
+declare void @llvm.va_start.p0(ptr) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #8
+declare void @llvm.va_end.p0(ptr) #8
 
 ; Function Attrs: nounwind willreturn memory(read)
 declare i32 @tolower(i32 noundef) #1

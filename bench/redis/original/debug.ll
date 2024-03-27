@@ -1290,13 +1290,13 @@ entry:
   store i32 %line, ptr %line.addr, align 4
   store ptr %msg, ptr %msg.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %arraydecay1 = getelementptr inbounds [256 x i8], ptr %fmtmsg, i64 0, i64 0
   %0 = load ptr, ptr %msg.addr, align 8
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   %call = call i32 @vsnprintf(ptr noundef %arraydecay1, i64 noundef 256, ptr noundef %0, ptr noundef %arraydecay2) #14
   %arraydecay3 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay3)
+  call void @llvm.va_end.p0(ptr %arraydecay3)
   call void @bugReportStart()
   br label %do.body
 
@@ -5647,13 +5647,13 @@ do.end:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #9
+declare void @llvm.va_start.p0(ptr) #9
 
 ; Function Attrs: nounwind
 declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #9
+declare void @llvm.va_end.p0(ptr) #9
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_lock(ptr noundef) #6

@@ -5,11 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.lua_TValue = type { %union.Value, i32 }
 %union.Value = type { ptr }
-%struct.global_State = type { %struct.stringtable, ptr, ptr, i8, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.Mbuffer, i64, i64, i64, i64, i32, i32, ptr, %struct.lua_TValue, ptr, %struct.UpVal, [9 x ptr], [17 x ptr] }
-%struct.stringtable = type { ptr, i32, i32 }
-%struct.Mbuffer = type { ptr, i64, i64 }
-%struct.UpVal = type { ptr, i8, i8, ptr, %union.anon }
-%union.anon = type { %struct.lua_TValue }
 
 @.str = private unnamed_addr constant [4 x i8] c"nil\00", align 1
 @.str.1 = private unnamed_addr constant [8 x i8] c"boolean\00", align 1
@@ -55,10 +50,12 @@ for.body:                                         ; preds = %for.body, %entry
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #3
   %call3 = tail call ptr @luaS_newlstr(ptr noundef %L, ptr noundef %0, i64 noundef %call) #4
   %1 = load ptr, ptr %l_G, align 8, !tbaa !8
-  %arrayidx5 = getelementptr inbounds %struct.global_State, ptr %1, i64 0, i32 24, i64 %indvars.iv
+  %tmname = getelementptr inbounds i8, ptr %1, i64 296
+  %arrayidx5 = getelementptr inbounds [17 x ptr], ptr %tmname, i64 0, i64 %indvars.iv
   store ptr %call3, ptr %arrayidx5, align 8, !tbaa !4
   %2 = load ptr, ptr %l_G, align 8, !tbaa !8
-  %arrayidx9 = getelementptr inbounds %struct.global_State, ptr %2, i64 0, i32 24, i64 %indvars.iv
+  %tmname7 = getelementptr inbounds i8, ptr %2, i64 296
+  %arrayidx9 = getelementptr inbounds [17 x ptr], ptr %tmname7, i64 0, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx9, align 8, !tbaa !4
   %marked = getelementptr inbounds i8, ptr %3, i64 9
   %4 = load i8, ptr %marked, align 1, !tbaa !14
@@ -125,8 +122,9 @@ sw.bb1:                                           ; preds = %entry
 sw.default:                                       ; preds = %entry
   %l_G = getelementptr inbounds i8, ptr %L, i64 32
   %3 = load ptr, ptr %l_G, align 8, !tbaa !8
+  %mt4 = getelementptr inbounds i8, ptr %3, i64 224
   %idxprom = sext i32 %0 to i64
-  %arrayidx = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 23, i64 %idxprom
+  %arrayidx = getelementptr inbounds [9 x ptr], ptr %mt4, i64 0, i64 %idxprom
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.default, %sw.bb1, %sw.bb
@@ -138,8 +136,9 @@ sw.epilog:                                        ; preds = %sw.default, %sw.bb1
 cond.true:                                        ; preds = %sw.epilog
   %l_G6 = getelementptr inbounds i8, ptr %L, i64 32
   %4 = load ptr, ptr %l_G6, align 8, !tbaa !8
+  %tmname = getelementptr inbounds i8, ptr %4, i64 296
   %idxprom7 = zext i32 %event to i64
-  %arrayidx8 = getelementptr inbounds %struct.global_State, ptr %4, i64 0, i32 24, i64 %idxprom7
+  %arrayidx8 = getelementptr inbounds [17 x ptr], ptr %tmname, i64 0, i64 %idxprom7
   %5 = load ptr, ptr %arrayidx8, align 8, !tbaa !4
   %call = tail call ptr @luaH_getstr(ptr noundef nonnull %mt.0, ptr noundef %5) #4
   br label %cond.end

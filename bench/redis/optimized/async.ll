@@ -3955,7 +3955,7 @@ define noundef i32 @redisAsyncCommand(ptr noundef %ac, ptr noundef %fn, ptr noun
 entry:
   %cmd.i = alloca ptr, align 8
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %cmd.i)
   %call.i = call i32 @redisvFormatCommand(ptr noundef nonnull %cmd.i, ptr noundef %format, ptr noundef nonnull %ap) #14
   %cmp.i = icmp slt i32 %call.i, 0
@@ -3973,15 +3973,15 @@ if.end.i:                                         ; preds = %entry
 redisvAsyncCommand.exit:                          ; preds = %entry, %if.end.i
   %retval.0.i = phi i32 [ %call1.i, %if.end.i ], [ -1, %entry ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cmd.i)
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret i32 %retval.0.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #6
+declare void @llvm.va_start.p0(ptr) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #6
+declare void @llvm.va_end.p0(ptr) #6
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @redisAsyncCommandArgv(ptr noundef %ac, ptr noundef %fn, ptr noundef %privdata, i32 noundef %argc, ptr noundef %argv, ptr noundef %argvlen) local_unnamed_addr #0 {

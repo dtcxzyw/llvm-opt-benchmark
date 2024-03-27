@@ -53,10 +53,10 @@ define internal void @die(ptr nocapture noundef readonly %fmt, ...) unnamed_addr
 entry:
   %arg = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %arg) #12
-  call void @llvm.va_start(ptr nonnull %arg)
+  call void @llvm.va_start.p0(ptr nonnull %arg)
   %0 = load ptr, ptr @stderr, align 8, !tbaa !13
   %call = call i32 @vfprintf(ptr noundef %0, ptr noundef %fmt, ptr noundef nonnull %arg) #13
-  call void @llvm.va_end(ptr nonnull %arg)
+  call void @llvm.va_end.p0(ptr nonnull %arg)
   %1 = load ptr, ptr @stderr, align 8, !tbaa !13
   %fputc = call i32 @fputc(i32 10, ptr %1)
   call void @abort() #14
@@ -334,13 +334,13 @@ for.end:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
+declare void @llvm.va_start.p0(ptr) #7
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
+declare void @llvm.va_end.p0(ptr) #7
 
 ; Function Attrs: noreturn nounwind
 declare void @abort() local_unnamed_addr #8
@@ -364,7 +364,7 @@ attributes #9 = { nofree nounwind }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { nounwind allocsize(0) }
 attributes #12 = { nounwind }
-attributes #13 = { cold }
+attributes #13 = { cold nounwind }
 attributes #14 = { noreturn nounwind }
 attributes #15 = { nounwind allocsize(1) }
 

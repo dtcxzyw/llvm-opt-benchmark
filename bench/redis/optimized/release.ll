@@ -5,25 +5,25 @@ target triple = "x86_64-unknown-linux-gnu"
 
 @.str = private unnamed_addr constant [9 x i8] c"adbb534f\00", align 1
 @.str.1 = private unnamed_addr constant [2 x i8] c"0\00", align 1
-@.str.2 = private unnamed_addr constant [39 x i8] c"255.255.255dtcxzyw-17027623390adbb534f\00", align 1
+@.str.2 = private unnamed_addr constant [39 x i8] c"255.255.255dtcxzyw-17115483290adbb534f\00", align 1
 @redisBuildIdString.buf = internal global [32 x i8] zeroinitializer, align 16
 @redisBuildIdString.cached = internal unnamed_addr global i1 false, align 4
 @.str.3 = private unnamed_addr constant [5 x i8] c"%llx\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @redisGitSHA1() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @redisGitSHA1() local_unnamed_addr #0 {
 entry:
   ret ptr @.str
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @redisGitDirty() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @redisGitDirty() local_unnamed_addr #0 {
 entry:
   ret ptr @.str.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @redisBuildIdRaw() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @redisBuildIdRaw() local_unnamed_addr #0 {
 entry:
   ret ptr @.str.2
 }
@@ -38,7 +38,7 @@ entry:
 declare i64 @crc64(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local nonnull ptr @redisBuildIdString() local_unnamed_addr #1 {
+define dso_local noundef nonnull ptr @redisBuildIdString() local_unnamed_addr #1 {
 entry:
   %.b = load i1, ptr @redisBuildIdString.cached, align 4
   br i1 %.b, label %if.end, label %if.then

@@ -122,13 +122,13 @@ entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %arraydecay1 = getelementptr inbounds [1024 x i8], ptr %msg, i64 0, i64 0
   %0 = load ptr, ptr %fmt.addr, align 8
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   %call = call i32 @vsnprintf(ptr noundef %arraydecay1, i64 noundef 1024, ptr noundef %0, ptr noundef %arraydecay2) #6
   %arraydecay3 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay3)
+  call void @llvm.va_end.p0(ptr %arraydecay3)
   %call4 = call i32 (ptr, ...) @printf(ptr noundef @.str.33)
   %1 = load ptr, ptr @rdbstate, align 8
   %tobool = icmp ne ptr %1, null
@@ -196,13 +196,13 @@ if.end20:                                         ; preds = %cond.end17, %if.end
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #2
+declare void @llvm.va_start.p0(ptr) #2
 
 ; Function Attrs: nounwind
 declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #2
+declare void @llvm.va_end.p0(ptr) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @rdbCheckInfo(ptr noundef %fmt, ...) #0 {
@@ -212,13 +212,13 @@ entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %arraydecay1 = getelementptr inbounds [1024 x i8], ptr %msg, i64 0, i64 0
   %0 = load ptr, ptr %fmt.addr, align 8
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   %call = call i32 @vsnprintf(ptr noundef %arraydecay1, i64 noundef 1024, ptr noundef %0, ptr noundef %arraydecay2) #6
   %arraydecay3 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay3)
+  call void @llvm.va_end.p0(ptr %arraydecay3)
   %1 = load ptr, ptr @rdbstate, align 8
   %tobool = icmp ne ptr %1, null
   br i1 %tobool, label %cond.true, label %cond.false
@@ -246,12 +246,12 @@ entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   %call = call i32 @vsnprintf(ptr noundef getelementptr inbounds (%struct.anon, ptr @rdbstate, i32 0, i32 8), i64 noundef 1024, ptr noundef %0, ptr noundef %arraydecay1) #6
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   store i32 1, ptr getelementptr inbounds (%struct.anon, ptr @rdbstate, i32 0, i32 7), align 4
   ret void
 }
@@ -1163,7 +1163,7 @@ if.then:                                          ; preds = %land.lhs.true
   %3 = load ptr, ptr %argv.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 0
   %4 = load ptr, ptr %arrayidx, align 8
-  %call = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef @.str.55, ptr noundef %4)
+  %call = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef @.str.55, ptr noundef %4) #6
   call void @exit(i32 noundef 1) #7
   unreachable
 
@@ -1257,7 +1257,8 @@ if.end29:                                         ; preds = %if.end24
   unreachable
 }
 
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: nounwind
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #3
 
 ; Function Attrs: nounwind willreturn memory(read)
 declare i32 @strcmp(ptr noundef, ptr noundef) #5

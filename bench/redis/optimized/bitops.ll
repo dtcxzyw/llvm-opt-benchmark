@@ -680,10 +680,10 @@ sdslen.exit:                                      ; preds = %entry, %sw.bb.i, %s
   %6 = load i8, ptr %0, align 1
   %cmp = icmp eq i8 %6, 35
   %tobool = icmp ne i32 %hash, 0
-  %or.cond = and i1 %tobool, %cmp
+  %or.cond.not10.not11 = and i1 %tobool, %cmp
   %cmp3 = icmp sgt i32 %bits, 0
-  %or.cond1 = and i1 %cmp3, %or.cond
-  %spec.select = zext i1 %or.cond1 to i64
+  %or.cond1.not.not = and i1 %cmp3, %or.cond.not10.not11
+  %spec.select = zext i1 %or.cond1.not.not to i64
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %spec.select
   %sub = sub i64 %retval.0.i, %spec.select
   %call6 = call i32 @string2ll(ptr noundef nonnull %add.ptr, i64 noundef %sub, ptr noundef nonnull %loffset) #17
@@ -695,7 +695,7 @@ if.then9:                                         ; preds = %sdslen.exit
   br label %return
 
 if.end10:                                         ; preds = %sdslen.exit
-  br i1 %or.cond1, label %if.then12, label %if.end14thread-pre-split
+  br i1 %or.cond1.not.not, label %if.then12, label %if.end14thread-pre-split
 
 if.then12:                                        ; preds = %if.end10
   %conv13 = zext nneg i32 %bits to i64

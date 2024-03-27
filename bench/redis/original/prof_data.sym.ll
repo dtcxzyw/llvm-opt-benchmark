@@ -1501,7 +1501,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %if.end.i382, %if.th
   %271 = load ptr, ptr %rtree_ctx.i357, align 8
   %272 = load ptr, ptr %ptr.addr.i355, align 8
   %273 = ptrtoint ptr %272 to i64
-  call void @rtree_read(ptr sret(%struct.rtree_contents_s) align 8 %tmp.i358, ptr noundef %269, ptr noundef %270, ptr noundef %271, i64 noundef %273)
+  call void @rtree_read(ptr dead_on_unwind writable sret(%struct.rtree_contents_s) align 8 %tmp.i358, ptr noundef %269, ptr noundef %270, ptr noundef %271, i64 noundef %273)
   %274 = load ptr, ptr %tmp.i358, align 8
   store ptr %274, ptr %edata.i, align 8
   %275 = load ptr, ptr %edata.i, align 8
@@ -1868,7 +1868,7 @@ tsdn_rtree_ctx.exit396:                           ; preds = %if.end.i393, %if.th
   %398 = load ptr, ptr %rtree_ctx.i, align 8
   %399 = load ptr, ptr %ptr.addr.i351, align 8
   %400 = ptrtoint ptr %399 to i64
-  call void @rtree_read(ptr sret(%struct.rtree_contents_s) align 8 %tmp.i, ptr noundef %396, ptr noundef %397, ptr noundef %398, i64 noundef %400)
+  call void @rtree_read(ptr dead_on_unwind writable sret(%struct.rtree_contents_s) align 8 %tmp.i, ptr noundef %396, ptr noundef %397, ptr noundef %398, i64 noundef %400)
   %401 = load ptr, ptr %tmp.i, align 8
   store ptr %401, ptr %edata.i343, align 8
   %402 = load ptr, ptr %edata.i343, align 8
@@ -2655,7 +2655,7 @@ tsdn_rtree_ctx.exit.i:                            ; preds = %if.end.i.i552, %if.
   %682 = load ptr, ptr %rtree_ctx.i.i538, align 8
   %683 = load ptr, ptr %ptr.addr.i.i536, align 8
   %684 = ptrtoint ptr %683 to i64
-  call void @rtree_read(ptr sret(%struct.rtree_contents_s) align 8 %tmp.i.i, ptr noundef %680, ptr noundef %681, ptr noundef %682, i64 noundef %684)
+  call void @rtree_read(ptr dead_on_unwind writable sret(%struct.rtree_contents_s) align 8 %tmp.i.i, ptr noundef %680, ptr noundef %681, ptr noundef %682, i64 noundef %684)
   %685 = load ptr, ptr %tmp.i.i, align 8
   store ptr %685, ptr %edata.i544, align 8
   %686 = load ptr, ptr %edata.i544, align 8
@@ -3571,7 +3571,7 @@ tsdn_rtree_ctx.exit166:                           ; preds = %if.end.i163, %if.th
   %57 = load ptr, ptr %rtree_ctx.i, align 8
   %58 = load ptr, ptr %ptr.addr.i124, align 8
   %59 = ptrtoint ptr %58 to i64
-  call void @rtree_read(ptr sret(%struct.rtree_contents_s) align 8 %tmp.i, ptr noundef %55, ptr noundef %56, ptr noundef %57, i64 noundef %59)
+  call void @rtree_read(ptr dead_on_unwind writable sret(%struct.rtree_contents_s) align 8 %tmp.i, ptr noundef %55, ptr noundef %56, ptr noundef %57, i64 noundef %59)
   %60 = load ptr, ptr %tmp.i, align 8
   store ptr %60, ptr %edata.i116, align 8
   %61 = load ptr, ptr %edata.i116, align 8
@@ -4358,7 +4358,7 @@ tsdn_rtree_ctx.exit.i473:                         ; preds = %if.end.i.i470, %if.
   %341 = load ptr, ptr %rtree_ctx.i.i454, align 8
   %342 = load ptr, ptr %ptr.addr.i.i452, align 8
   %343 = ptrtoint ptr %342 to i64
-  call void @rtree_read(ptr sret(%struct.rtree_contents_s) align 8 %tmp.i.i455, ptr noundef %339, ptr noundef %340, ptr noundef %341, i64 noundef %343)
+  call void @rtree_read(ptr dead_on_unwind writable sret(%struct.rtree_contents_s) align 8 %tmp.i.i455, ptr noundef %339, ptr noundef %340, ptr noundef %341, i64 noundef %343)
   %344 = load ptr, ptr %tmp.i.i455, align 8
   store ptr %344, ptr %edata.i462, align 8
   %345 = load ptr, ptr %edata.i462, align 8
@@ -4539,7 +4539,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %if.end.i152, %if.th
   %400 = load ptr, ptr %rtree_ctx.i130, align 8
   %401 = load ptr, ptr %ptr.addr.i128, align 8
   %402 = ptrtoint ptr %401 to i64
-  call void @rtree_read(ptr sret(%struct.rtree_contents_s) align 8 %tmp.i131, ptr noundef %398, ptr noundef %399, ptr noundef %400, i64 noundef %402)
+  call void @rtree_read(ptr dead_on_unwind writable sret(%struct.rtree_contents_s) align 8 %tmp.i131, ptr noundef %398, ptr noundef %399, ptr noundef %400, i64 noundef %402)
   %403 = load ptr, ptr %tmp.i131, align 8
   store ptr %403, ptr %edata.i, align 8
   %404 = load ptr, ptr %edata.i, align 8
@@ -5326,7 +5326,7 @@ tsdn_rtree_ctx.exit.i:                            ; preds = %if.end.i.i431, %if.
   %684 = load ptr, ptr %rtree_ctx.i.i417, align 8
   %685 = load ptr, ptr %ptr.addr.i.i415, align 8
   %686 = ptrtoint ptr %685 to i64
-  call void @rtree_read(ptr sret(%struct.rtree_contents_s) align 8 %tmp.i.i, ptr noundef %682, ptr noundef %683, ptr noundef %684, i64 noundef %686)
+  call void @rtree_read(ptr dead_on_unwind writable sret(%struct.rtree_contents_s) align 8 %tmp.i.i, ptr noundef %682, ptr noundef %683, ptr noundef %684, i64 noundef %686)
   %687 = load ptr, ptr %tmp.i.i, align 8
   store ptr %687, ptr %edata.i423, align 8
   %688 = load ptr, ptr %edata.i423, align 8
@@ -5755,7 +5755,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %if.end.i52, %if.the
   %55 = load ptr, ptr %rtree_ctx.i, align 8
   %56 = load ptr, ptr %ptr.addr.i47, align 8
   %57 = ptrtoint ptr %56 to i64
-  call void @rtree_read(ptr sret(%struct.rtree_contents_s) align 8 %tmp.i, ptr noundef %53, ptr noundef %54, ptr noundef %55, i64 noundef %57)
+  call void @rtree_read(ptr dead_on_unwind writable sret(%struct.rtree_contents_s) align 8 %tmp.i, ptr noundef %53, ptr noundef %54, ptr noundef %55, i64 noundef %57)
   %58 = load ptr, ptr %tmp.i, align 8
   store ptr %58, ptr %edata.i, align 8
   %59 = load ptr, ptr %edata.i, align 8
@@ -6542,7 +6542,7 @@ tsdn_rtree_ctx.exit.i:                            ; preds = %if.end.i.i140, %if.
   %339 = load ptr, ptr %rtree_ctx.i.i126, align 8
   %340 = load ptr, ptr %ptr.addr.i.i124, align 8
   %341 = ptrtoint ptr %340 to i64
-  call void @rtree_read(ptr sret(%struct.rtree_contents_s) align 8 %tmp.i.i, ptr noundef %337, ptr noundef %338, ptr noundef %339, i64 noundef %341)
+  call void @rtree_read(ptr dead_on_unwind writable sret(%struct.rtree_contents_s) align 8 %tmp.i.i, ptr noundef %337, ptr noundef %338, ptr noundef %339, i64 noundef %341)
   %342 = load ptr, ptr %tmp.i.i, align 8
   store ptr %342, ptr %edata.i132, align 8
   %343 = load ptr, ptr %edata.i132, align 8
@@ -8415,7 +8415,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %if.end.i254, %if.th
   %258 = load ptr, ptr %rtree_ctx.i, align 8
   %259 = load ptr, ptr %ptr.addr.i246, align 8
   %260 = ptrtoint ptr %259 to i64
-  call void @rtree_read(ptr sret(%struct.rtree_contents_s) align 8 %tmp.i, ptr noundef %256, ptr noundef %257, ptr noundef %258, i64 noundef %260)
+  call void @rtree_read(ptr dead_on_unwind writable sret(%struct.rtree_contents_s) align 8 %tmp.i, ptr noundef %256, ptr noundef %257, ptr noundef %258, i64 noundef %260)
   %261 = load ptr, ptr %tmp.i, align 8
   store ptr %261, ptr %edata.i, align 8
   %262 = load ptr, ptr %edata.i, align 8
@@ -9131,7 +9131,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %if.end.i74, %if.the
   %60 = load ptr, ptr %rtree_ctx.i, align 8
   %61 = load ptr, ptr %ptr.addr.i69, align 8
   %62 = ptrtoint ptr %61 to i64
-  call void @rtree_read(ptr sret(%struct.rtree_contents_s) align 8 %tmp.i, ptr noundef %58, ptr noundef %59, ptr noundef %60, i64 noundef %62)
+  call void @rtree_read(ptr dead_on_unwind writable sret(%struct.rtree_contents_s) align 8 %tmp.i, ptr noundef %58, ptr noundef %59, ptr noundef %60, i64 noundef %62)
   %63 = load ptr, ptr %tmp.i, align 8
   store ptr %63, ptr %edata.i, align 8
   %64 = load ptr, ptr %edata.i, align 8
@@ -9918,7 +9918,7 @@ tsdn_rtree_ctx.exit.i:                            ; preds = %if.end.i.i162, %if.
   %344 = load ptr, ptr %rtree_ctx.i.i148, align 8
   %345 = load ptr, ptr %ptr.addr.i.i146, align 8
   %346 = ptrtoint ptr %345 to i64
-  call void @rtree_read(ptr sret(%struct.rtree_contents_s) align 8 %tmp.i.i, ptr noundef %342, ptr noundef %343, ptr noundef %344, i64 noundef %346)
+  call void @rtree_read(ptr dead_on_unwind writable sret(%struct.rtree_contents_s) align 8 %tmp.i.i, ptr noundef %342, ptr noundef %343, ptr noundef %344, i64 noundef %346)
   %347 = load ptr, ptr %tmp.i.i, align 8
   store ptr %347, ptr %edata.i154, align 8
   %348 = load ptr, ptr %edata.i154, align 8
@@ -10649,7 +10649,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %if.end.i57, %if.the
   %55 = load ptr, ptr %rtree_ctx.i, align 8
   %56 = load ptr, ptr %ptr.addr.i52, align 8
   %57 = ptrtoint ptr %56 to i64
-  call void @rtree_read(ptr sret(%struct.rtree_contents_s) align 8 %tmp.i, ptr noundef %53, ptr noundef %54, ptr noundef %55, i64 noundef %57)
+  call void @rtree_read(ptr dead_on_unwind writable sret(%struct.rtree_contents_s) align 8 %tmp.i, ptr noundef %53, ptr noundef %54, ptr noundef %55, i64 noundef %57)
   %58 = load ptr, ptr %tmp.i, align 8
   store ptr %58, ptr %edata.i, align 8
   %59 = load ptr, ptr %edata.i, align 8
@@ -11436,7 +11436,7 @@ tsdn_rtree_ctx.exit.i:                            ; preds = %if.end.i.i145, %if.
   %339 = load ptr, ptr %rtree_ctx.i.i131, align 8
   %340 = load ptr, ptr %ptr.addr.i.i129, align 8
   %341 = ptrtoint ptr %340 to i64
-  call void @rtree_read(ptr sret(%struct.rtree_contents_s) align 8 %tmp.i.i, ptr noundef %337, ptr noundef %338, ptr noundef %339, i64 noundef %341)
+  call void @rtree_read(ptr dead_on_unwind writable sret(%struct.rtree_contents_s) align 8 %tmp.i.i, ptr noundef %337, ptr noundef %338, ptr noundef %339, i64 noundef %341)
   %342 = load ptr, ptr %tmp.i.i, align 8
   store ptr %342, ptr %edata.i137, align 8
   %343 = load ptr, ptr %edata.i137, align 8
@@ -12812,7 +12812,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %if.end.i349, %if.th
   %253 = load ptr, ptr %rtree_ctx.i324, align 8
   %254 = load ptr, ptr %ptr.addr.i322, align 8
   %255 = ptrtoint ptr %254 to i64
-  call void @rtree_read(ptr sret(%struct.rtree_contents_s) align 8 %tmp.i325, ptr noundef %251, ptr noundef %252, ptr noundef %253, i64 noundef %255)
+  call void @rtree_read(ptr dead_on_unwind writable sret(%struct.rtree_contents_s) align 8 %tmp.i325, ptr noundef %251, ptr noundef %252, ptr noundef %253, i64 noundef %255)
   %256 = load ptr, ptr %tmp.i325, align 8
   store ptr %256, ptr %edata.i, align 8
   %257 = load ptr, ptr %edata.i, align 8
@@ -13121,7 +13121,7 @@ tsdn_rtree_ctx.exit363:                           ; preds = %if.end.i360, %if.th
   %355 = load ptr, ptr %rtree_ctx.i, align 8
   %356 = load ptr, ptr %ptr.addr.i318, align 8
   %357 = ptrtoint ptr %356 to i64
-  call void @rtree_read(ptr sret(%struct.rtree_contents_s) align 8 %tmp.i, ptr noundef %353, ptr noundef %354, ptr noundef %355, i64 noundef %357)
+  call void @rtree_read(ptr dead_on_unwind writable sret(%struct.rtree_contents_s) align 8 %tmp.i, ptr noundef %353, ptr noundef %354, ptr noundef %355, i64 noundef %357)
   %358 = load ptr, ptr %tmp.i, align 8
   store ptr %358, ptr %edata.i310, align 8
   %359 = load ptr, ptr %edata.i310, align 8
@@ -13908,7 +13908,7 @@ tsdn_rtree_ctx.exit.i:                            ; preds = %if.end.i.i519, %if.
   %639 = load ptr, ptr %rtree_ctx.i.i505, align 8
   %640 = load ptr, ptr %ptr.addr.i.i503, align 8
   %641 = ptrtoint ptr %640 to i64
-  call void @rtree_read(ptr sret(%struct.rtree_contents_s) align 8 %tmp.i.i, ptr noundef %637, ptr noundef %638, ptr noundef %639, i64 noundef %641)
+  call void @rtree_read(ptr dead_on_unwind writable sret(%struct.rtree_contents_s) align 8 %tmp.i.i, ptr noundef %637, ptr noundef %638, ptr noundef %639, i64 noundef %641)
   %642 = load ptr, ptr %tmp.i.i, align 8
   store ptr %642, ptr %edata.i511, align 8
   %643 = load ptr, ptr %edata.i511, align 8
@@ -15459,7 +15459,7 @@ tsdn_rtree_ctx.exit146:                           ; preds = %if.end.i143, %if.th
   %48 = load ptr, ptr %rtree_ctx.i, align 8
   %49 = load ptr, ptr %ptr.addr.i104, align 8
   %50 = ptrtoint ptr %49 to i64
-  call void @rtree_read(ptr sret(%struct.rtree_contents_s) align 8 %tmp.i, ptr noundef %46, ptr noundef %47, ptr noundef %48, i64 noundef %50)
+  call void @rtree_read(ptr dead_on_unwind writable sret(%struct.rtree_contents_s) align 8 %tmp.i, ptr noundef %46, ptr noundef %47, ptr noundef %48, i64 noundef %50)
   %51 = load ptr, ptr %tmp.i, align 8
   store ptr %51, ptr %edata.i96, align 8
   %52 = load ptr, ptr %edata.i96, align 8
@@ -16246,7 +16246,7 @@ tsdn_rtree_ctx.exit.i453:                         ; preds = %if.end.i.i450, %if.
   %332 = load ptr, ptr %rtree_ctx.i.i434, align 8
   %333 = load ptr, ptr %ptr.addr.i.i432, align 8
   %334 = ptrtoint ptr %333 to i64
-  call void @rtree_read(ptr sret(%struct.rtree_contents_s) align 8 %tmp.i.i435, ptr noundef %330, ptr noundef %331, ptr noundef %332, i64 noundef %334)
+  call void @rtree_read(ptr dead_on_unwind writable sret(%struct.rtree_contents_s) align 8 %tmp.i.i435, ptr noundef %330, ptr noundef %331, ptr noundef %332, i64 noundef %334)
   %335 = load ptr, ptr %tmp.i.i435, align 8
   store ptr %335, ptr %edata.i442, align 8
   %336 = load ptr, ptr %edata.i442, align 8
@@ -16384,7 +16384,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %if.end.i132, %if.th
   %381 = load ptr, ptr %rtree_ctx.i110, align 8
   %382 = load ptr, ptr %ptr.addr.i108, align 8
   %383 = ptrtoint ptr %382 to i64
-  call void @rtree_read(ptr sret(%struct.rtree_contents_s) align 8 %tmp.i111, ptr noundef %379, ptr noundef %380, ptr noundef %381, i64 noundef %383)
+  call void @rtree_read(ptr dead_on_unwind writable sret(%struct.rtree_contents_s) align 8 %tmp.i111, ptr noundef %379, ptr noundef %380, ptr noundef %381, i64 noundef %383)
   %384 = load ptr, ptr %tmp.i111, align 8
   store ptr %384, ptr %edata.i, align 8
   %385 = load ptr, ptr %edata.i, align 8
@@ -17171,7 +17171,7 @@ tsdn_rtree_ctx.exit.i:                            ; preds = %if.end.i.i411, %if.
   %665 = load ptr, ptr %rtree_ctx.i.i397, align 8
   %666 = load ptr, ptr %ptr.addr.i.i395, align 8
   %667 = ptrtoint ptr %666 to i64
-  call void @rtree_read(ptr sret(%struct.rtree_contents_s) align 8 %tmp.i.i, ptr noundef %663, ptr noundef %664, ptr noundef %665, i64 noundef %667)
+  call void @rtree_read(ptr dead_on_unwind writable sret(%struct.rtree_contents_s) align 8 %tmp.i.i, ptr noundef %663, ptr noundef %664, ptr noundef %665, i64 noundef %667)
   %668 = load ptr, ptr %tmp.i.i, align 8
   store ptr %668, ptr %edata.i403, align 8
   %669 = load ptr, ptr %edata.i403, align 8
@@ -17799,7 +17799,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %if.end.i79, %if.the
   %82 = load ptr, ptr %rtree_ctx.i, align 8
   %83 = load ptr, ptr %ptr.addr.i74, align 8
   %84 = ptrtoint ptr %83 to i64
-  call void @rtree_read(ptr sret(%struct.rtree_contents_s) align 8 %tmp.i, ptr noundef %80, ptr noundef %81, ptr noundef %82, i64 noundef %84)
+  call void @rtree_read(ptr dead_on_unwind writable sret(%struct.rtree_contents_s) align 8 %tmp.i, ptr noundef %80, ptr noundef %81, ptr noundef %82, i64 noundef %84)
   %85 = load ptr, ptr %tmp.i, align 8
   store ptr %85, ptr %edata.i, align 8
   %86 = load ptr, ptr %edata.i, align 8
@@ -18586,7 +18586,7 @@ tsdn_rtree_ctx.exit.i:                            ; preds = %if.end.i.i167, %if.
   %366 = load ptr, ptr %rtree_ctx.i.i153, align 8
   %367 = load ptr, ptr %ptr.addr.i.i151, align 8
   %368 = ptrtoint ptr %367 to i64
-  call void @rtree_read(ptr sret(%struct.rtree_contents_s) align 8 %tmp.i.i, ptr noundef %364, ptr noundef %365, ptr noundef %366, i64 noundef %368)
+  call void @rtree_read(ptr dead_on_unwind writable sret(%struct.rtree_contents_s) align 8 %tmp.i.i, ptr noundef %364, ptr noundef %365, ptr noundef %366, i64 noundef %368)
   %369 = load ptr, ptr %tmp.i.i, align 8
   store ptr %369, ptr %edata.i159, align 8
   %370 = load ptr, ptr %edata.i159, align 8
@@ -18642,10 +18642,6 @@ do.end:                                           ; preds = %do.body
   %tobool = trunc i8 %3 to i1
   ret i1 %tobool
 }
-
-declare ptr @prof_tdata_init(ptr noundef) #1
-
-declare ptr @prof_tdata_reinit(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @witness_assert_not_owner(ptr noundef %witness_tsdn, ptr noundef %witness) #0 {
@@ -19840,7 +19836,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %if.end.i258, %if.th
   %256 = load ptr, ptr %rtree_ctx.i, align 8
   %257 = load ptr, ptr %ptr.addr.i250, align 8
   %258 = ptrtoint ptr %257 to i64
-  call void @rtree_read(ptr sret(%struct.rtree_contents_s) align 8 %tmp.i, ptr noundef %254, ptr noundef %255, ptr noundef %256, i64 noundef %258)
+  call void @rtree_read(ptr dead_on_unwind writable sret(%struct.rtree_contents_s) align 8 %tmp.i, ptr noundef %254, ptr noundef %255, ptr noundef %256, i64 noundef %258)
   %259 = load ptr, ptr %tmp.i, align 8
   store ptr %259, ptr %edata.i, align 8
   %260 = load ptr, ptr %edata.i, align 8
@@ -21028,7 +21024,7 @@ do.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rtree_read(ptr noalias sret(%struct.rtree_contents_s) align 8 %agg.result, ptr noundef %tsdn, ptr noundef %rtree, ptr noundef %rtree_ctx, i64 noundef %key) #0 {
+define internal void @rtree_read(ptr dead_on_unwind noalias writable sret(%struct.rtree_contents_s) align 8 %agg.result, ptr noundef %tsdn, ptr noundef %rtree, ptr noundef %rtree_ctx, i64 noundef %key) #0 {
 entry:
   %bits.addr.i = alloca i64, align 8
   %state_bits.i = alloca i64, align 8
@@ -22566,7 +22562,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %if.end.i, %if.then.
   %18 = load ptr, ptr %rtree_ctx.i, align 8
   %19 = load ptr, ptr %ptr.addr.i, align 8
   %20 = ptrtoint ptr %19 to i64
-  call void @rtree_read(ptr sret(%struct.rtree_contents_s) align 8 %tmp.i, ptr noundef %16, ptr noundef %17, ptr noundef %18, i64 noundef %20)
+  call void @rtree_read(ptr dead_on_unwind writable sret(%struct.rtree_contents_s) align 8 %tmp.i, ptr noundef %16, ptr noundef %17, ptr noundef %18, i64 noundef %20)
   %21 = load ptr, ptr %tmp.i, align 8
   store ptr %21, ptr %edata, align 8
   %22 = load ptr, ptr %edata, align 8
@@ -24724,13 +24720,13 @@ entry:
   store ptr %cbopaque, ptr %cbopaque.addr, align 8
   store ptr %format, ptr %format.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %arraydecay1 = getelementptr inbounds [128 x i8], ptr %buf, i64 0, i64 0
   %0 = load ptr, ptr %format.addr, align 8
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   %call = call i64 @malloc_vsnprintf(ptr noundef %arraydecay1, i64 noundef 128, ptr noundef %0, ptr noundef %arraydecay2)
   %arraydecay3 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay3)
+  call void @llvm.va_end.p0(ptr %arraydecay3)
   %1 = load ptr, ptr %prof_dump_write.addr, align 8
   %2 = load ptr, ptr %cbopaque.addr, align 8
   %arraydecay4 = getelementptr inbounds [128 x i8], ptr %buf, i64 0, i64 0
@@ -24888,12 +24884,12 @@ return:                                           ; preds = %if.end9, %if.then
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #8
+declare void @llvm.va_start.p0(ptr) #8
 
 declare i64 @malloc_vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #8
+declare void @llvm.va_end.p0(ptr) #8
 
 ; Function Attrs: nounwind uwtable
 define internal void @prof_do_unbias(i64 noundef %c_out_shifted_i, i64 noundef %s_out_i, ptr noundef %r_c_in, ptr noundef %r_s_in) #0 {

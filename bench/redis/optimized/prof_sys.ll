@@ -159,7 +159,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none) uwtable
-define hidden zeroext i1 @prof_prefix_set(ptr nocapture noundef readnone %tsdn, ptr nocapture noundef readnone %prefix) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @prof_prefix_set(ptr nocapture noundef readnone %tsdn, ptr nocapture noundef readnone %prefix) local_unnamed_addr #0 {
 entry:
   unreachable
 }
@@ -201,7 +201,7 @@ malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @prof_mdump_impl(ptr noundef %tsd, ptr noundef readnone %filename) local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @prof_mdump_impl(ptr noundef %tsd, ptr noundef readnone %filename) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %filename, null
   tail call void @llvm.assume(i1 %cmp)
@@ -286,7 +286,7 @@ declare i32 @creat(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none) uwtable
-define internal i32 @prof_dump_open_maps_impl() #0 {
+define internal noundef i32 @prof_dump_open_maps_impl() #0 {
 entry:
   unreachable
 }

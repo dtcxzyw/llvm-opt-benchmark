@@ -432,10 +432,10 @@ for.body.i23:                                     ; preds = %for.body.i23, %for.
   %arrayidx.i24 = getelementptr inbounds %struct.LocVar, ptr %43, i64 %indvars.iv.i
   %44 = load ptr, ptr %arrayidx.i24, align 8, !tbaa !33
   %add.ptr.i25 = getelementptr inbounds i8, ptr %44, i64 24
-  %startpc.i = getelementptr inbounds %struct.LocVar, ptr %43, i64 %indvars.iv.i, i32 1
+  %startpc.i = getelementptr inbounds i8, ptr %arrayidx.i24, i64 8
   %45 = load i32, ptr %startpc.i, align 8, !tbaa !35
   %add.i26 = add nsw i32 %45, 1
-  %endpc.i = getelementptr inbounds %struct.LocVar, ptr %43, i64 %indvars.iv.i, i32 2
+  %endpc.i = getelementptr inbounds i8, ptr %arrayidx.i24, i64 12
   %46 = load i32, ptr %endpc.i, align 4, !tbaa !36
   %add7.i = add nsw i32 %46, 1
   %47 = trunc i64 %indvars.iv.i to i32
@@ -502,7 +502,7 @@ define internal fastcc void @PrintConstant(ptr nocapture readonly %f.16.val, i32
 entry:
   %idxprom = sext i32 %i to i64
   %arrayidx = getelementptr inbounds %struct.lua_TValue, ptr %f.16.val, i64 %idxprom
-  %tt = getelementptr inbounds %struct.lua_TValue, ptr %f.16.val, i64 %idxprom, i32 1
+  %tt = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %0 = load i32, ptr %tt, align 8, !tbaa !40
   switch i32 %0, label %sw.default [
     i32 0, label %sw.bb

@@ -9,7 +9,10 @@ import tqdm
 bench_dir = sys.argv[1]
 opt_exec = sys.argv[2]
 diff_exec = opt_exec.removesuffix('opt') + 'llvm-diff'
-force_update = len(sys.argv) == 4 and sys.argv[3] == 'force'
+force_update = len(sys.argv) == 4
+bench_filter = None
+if force_update:
+    bench_filter = sys.argv[3].split(',')
 
 def run_opt(task):
     input_file, output_file = task
@@ -37,6 +40,8 @@ def run_opt(task):
 if __name__ == '__main__':
     work_list = []
     for dir_name in os.listdir(bench_dir):
+        if bench_filter and dir_name not in bench_filter:
+            continue
         original_dir = os.path.join(bench_dir, dir_name, 'original')
         if not os.path.exists(original_dir):
             continue

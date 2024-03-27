@@ -3,10 +3,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.lua_TValue = type { %union.Value, i32 }
 %union.Value = type { ptr }
-%struct.lua_State = type { ptr, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i8, i8, i32, i32, ptr, %struct.lua_TValue, %struct.lua_TValue, ptr, ptr, ptr, i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%union.TString = type { %struct.anon }
-%struct.anon = type { ptr, i8, i8, i8, i32, i64 }
 
 @luaO_nilobject_ = hidden local_unnamed_addr constant %struct.lua_TValue zeroinitializer, align 8
 @luaO_log2.log_2 = internal unnamed_addr constant [256 x i8] c"\00\01\02\02\03\03\03\03\04\04\04\04\04\04\04\04\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08", align 16
@@ -96,9 +93,9 @@ while.end:                                        ; preds = %while.body, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @luaO_rawequalObj(ptr nocapture noundef readonly %t1, ptr nocapture noundef readonly %t2) local_unnamed_addr #3 {
 entry:
-  %tt = getelementptr inbounds %struct.lua_TValue, ptr %t1, i64 0, i32 1
+  %tt = getelementptr inbounds i8, ptr %t1, i64 8
   %0 = load i32, ptr %tt, align 8, !tbaa !10
-  %tt1 = getelementptr inbounds %struct.lua_TValue, ptr %t2, i64 0, i32 1
+  %tt1 = getelementptr inbounds i8, ptr %t2, i64 8
   %1 = load i32, ptr %tt1, align 8, !tbaa !10
   %cmp.not = icmp eq i32 %0, %1
   br i1 %cmp.not, label %if.else, label %return
@@ -215,13 +212,13 @@ entry:
   %buff = alloca [2 x i8], align 1
   %buff83 = alloca [40 x i8], align 16
   %buff99 = alloca [3 x i8], align 1
-  %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 4
+  %top.i = getelementptr inbounds i8, ptr %L, i64 16
   %0 = load ptr, ptr %top.i, align 8, !tbaa !20
   %call1.i = tail call ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull @.str, i64 noundef 0) #16
   store ptr %call1.i, ptr %0, align 8, !tbaa !7
-  %tt.i = getelementptr inbounds %struct.lua_TValue, ptr %0, i64 0, i32 1
+  %tt.i = getelementptr inbounds i8, ptr %0, i64 8
   store i32 4, ptr %tt.i, align 8, !tbaa !10
-  %stack_last.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 9
+  %stack_last.i = getelementptr inbounds i8, ptr %L, i64 56
   %1 = load ptr, ptr %stack_last.i, align 8, !tbaa !23
   %2 = load ptr, ptr %top.i, align 8, !tbaa !20
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
@@ -237,19 +234,19 @@ if.then.i:                                        ; preds = %entry
 
 pushstr.exit:                                     ; preds = %if.then.i, %entry
   %3 = phi ptr [ %2, %entry ], [ %.pre.i, %if.then.i ]
-  %incdec.ptr.i = getelementptr inbounds %struct.lua_TValue, ptr %3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %incdec.ptr.i, ptr %top.i, align 8, !tbaa !20
   %call247 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %fmt, i32 noundef 37) #18
   %cmp248 = icmp eq ptr %call247, null
   br i1 %cmp248, label %for.end, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %pushstr.exit
-  %overflow_arg_area_p91 = getelementptr inbounds %struct.__va_list_tag, ptr %argp, i64 0, i32 2
-  %4 = getelementptr inbounds %struct.__va_list_tag, ptr %argp, i64 0, i32 3
-  %fp_offset_p = getelementptr inbounds %struct.__va_list_tag, ptr %argp, i64 0, i32 1
-  %arrayidx27 = getelementptr inbounds [2 x i8], ptr %buff, i64 0, i64 1
-  %arrayidx102 = getelementptr inbounds [3 x i8], ptr %buff99, i64 0, i64 1
-  %arrayidx103 = getelementptr inbounds [3 x i8], ptr %buff99, i64 0, i64 2
+  %overflow_arg_area_p91 = getelementptr inbounds i8, ptr %argp, i64 8
+  %4 = getelementptr inbounds i8, ptr %argp, i64 16
+  %fp_offset_p = getelementptr inbounds i8, ptr %argp, i64 4
+  %arrayidx27 = getelementptr inbounds i8, ptr %buff, i64 1
+  %arrayidx102 = getelementptr inbounds i8, ptr %buff99, i64 1
+  %arrayidx103 = getelementptr inbounds i8, ptr %buff99, i64 2
   br label %if.end
 
 if.end:                                           ; preds = %cleanup, %if.end.lr.ph
@@ -262,7 +259,7 @@ if.end:                                           ; preds = %cleanup, %if.end.lr
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %call1 = call ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef %fmt.addr.0250, i64 noundef %sub.ptr.sub) #16
   store ptr %call1, ptr %5, align 8, !tbaa !7
-  %tt = getelementptr inbounds %struct.lua_TValue, ptr %5, i64 0, i32 1
+  %tt = getelementptr inbounds i8, ptr %5, i64 8
   store i32 4, ptr %tt, align 8, !tbaa !10
   %6 = load ptr, ptr %stack_last.i, align 8, !tbaa !23
   %7 = load ptr, ptr %top.i, align 8, !tbaa !20
@@ -279,18 +276,17 @@ if.then7:                                         ; preds = %if.end
 
 if.end8:                                          ; preds = %if.then7, %if.end
   %8 = phi ptr [ %7, %if.end ], [ %.pre, %if.then7 ]
-  %incdec.ptr = getelementptr inbounds %struct.lua_TValue, ptr %8, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %8, i64 16
   store ptr %incdec.ptr, ptr %top.i, align 8, !tbaa !20
   %add.ptr = getelementptr inbounds i8, ptr %call251, i64 1
   %9 = load i8, ptr %add.ptr, align 1, !tbaa !7
-  %conv = sext i8 %9 to i32
-  switch i32 %conv, label %sw.default [
-    i32 115, label %sw.bb
-    i32 99, label %sw.bb14
-    i32 100, label %sw.bb28
-    i32 102, label %sw.bb57
-    i32 112, label %sw.bb82
-    i32 37, label %sw.bb98
+  switch i8 %9, label %sw.default [
+    i8 115, label %sw.bb
+    i8 99, label %sw.bb14
+    i8 100, label %sw.bb28
+    i8 102, label %sw.bb57
+    i8 112, label %sw.bb82
+    i8 37, label %sw.bb98
   ]
 
 sw.bb:                                            ; preds = %if.end8
@@ -321,7 +317,7 @@ vaarg.end:                                        ; preds = %vaarg.in_mem, %vaar
   %call.i164 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #18
   %call1.i165 = call ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull %spec.store.select, i64 noundef %call.i164) #16
   store ptr %call1.i165, ptr %14, align 8, !tbaa !7
-  %tt.i166 = getelementptr inbounds %struct.lua_TValue, ptr %14, i64 0, i32 1
+  %tt.i166 = getelementptr inbounds i8, ptr %14, i64 8
   store i32 4, ptr %tt.i166, align 8, !tbaa !10
   %15 = load ptr, ptr %stack_last.i, align 8, !tbaa !23
   %16 = load ptr, ptr %top.i, align 8, !tbaa !20
@@ -338,7 +334,7 @@ if.then.i173:                                     ; preds = %vaarg.end
 
 pushstr.exit175:                                  ; preds = %if.then.i173, %vaarg.end
   %17 = phi ptr [ %16, %vaarg.end ], [ %.pre.i174, %if.then.i173 ]
-  %incdec.ptr.i172 = getelementptr inbounds %struct.lua_TValue, ptr %17, i64 1
+  %incdec.ptr.i172 = getelementptr inbounds i8, ptr %17, i64 16
   store ptr %incdec.ptr.i172, ptr %top.i, align 8, !tbaa !20
   br label %cleanup
 
@@ -372,7 +368,7 @@ vaarg.end24:                                      ; preds = %vaarg.in_mem20, %va
   %call.i177 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buff) #18
   %call1.i178 = call ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull %buff, i64 noundef %call.i177) #16
   store ptr %call1.i178, ptr %22, align 8, !tbaa !7
-  %tt.i179 = getelementptr inbounds %struct.lua_TValue, ptr %22, i64 0, i32 1
+  %tt.i179 = getelementptr inbounds i8, ptr %22, i64 8
   store i32 4, ptr %tt.i179, align 8, !tbaa !10
   %23 = load ptr, ptr %stack_last.i, align 8, !tbaa !23
   %24 = load ptr, ptr %top.i, align 8, !tbaa !20
@@ -389,7 +385,7 @@ if.then.i186:                                     ; preds = %vaarg.end24
 
 pushstr.exit188:                                  ; preds = %if.then.i186, %vaarg.end24
   %25 = phi ptr [ %24, %vaarg.end24 ], [ %.pre.i187, %if.then.i186 ]
-  %incdec.ptr.i185 = getelementptr inbounds %struct.lua_TValue, ptr %25, i64 1
+  %incdec.ptr.i185 = getelementptr inbounds i8, ptr %25, i64 16
   store ptr %incdec.ptr.i185, ptr %top.i, align 8, !tbaa !20
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buff) #16
   br label %cleanup
@@ -418,7 +414,7 @@ vaarg.end40:                                      ; preds = %vaarg.in_mem36, %va
   %29 = load i32, ptr %vaarg.addr41, align 4
   %conv42 = sitofp i32 %29 to double
   store double %conv42, ptr %incdec.ptr, align 8, !tbaa !7
-  %tt44 = getelementptr inbounds %struct.lua_TValue, ptr %8, i64 1, i32 1
+  %tt44 = getelementptr inbounds i8, ptr %8, i64 24
   store i32 3, ptr %tt44, align 8, !tbaa !10
   %30 = load ptr, ptr %stack_last.i, align 8, !tbaa !23
   %31 = load ptr, ptr %top.i, align 8, !tbaa !20
@@ -435,7 +431,7 @@ if.then52:                                        ; preds = %vaarg.end40
 
 if.end54:                                         ; preds = %if.then52, %vaarg.end40
   %32 = phi ptr [ %31, %vaarg.end40 ], [ %.pre254, %if.then52 ]
-  %incdec.ptr56 = getelementptr inbounds %struct.lua_TValue, ptr %32, i64 1
+  %incdec.ptr56 = getelementptr inbounds i8, ptr %32, i64 16
   store ptr %incdec.ptr56, ptr %top.i, align 8, !tbaa !20
   br label %cleanup
 
@@ -462,7 +458,7 @@ vaarg.end66:                                      ; preds = %vaarg.in_mem62, %va
   %vaarg.addr67 = phi ptr [ %34, %vaarg.in_reg60 ], [ %overflow_arg_area64, %vaarg.in_mem62 ]
   %36 = load double, ptr %vaarg.addr67, align 8
   store double %36, ptr %incdec.ptr, align 8, !tbaa !7
-  %tt69 = getelementptr inbounds %struct.lua_TValue, ptr %8, i64 1, i32 1
+  %tt69 = getelementptr inbounds i8, ptr %8, i64 24
   store i32 3, ptr %tt69, align 8, !tbaa !10
   %37 = load ptr, ptr %stack_last.i, align 8, !tbaa !23
   %38 = load ptr, ptr %top.i, align 8, !tbaa !20
@@ -479,7 +475,7 @@ if.then77:                                        ; preds = %vaarg.end66
 
 if.end79:                                         ; preds = %if.then77, %vaarg.end66
   %39 = phi ptr [ %38, %vaarg.end66 ], [ %.pre253, %if.then77 ]
-  %incdec.ptr81 = getelementptr inbounds %struct.lua_TValue, ptr %39, i64 1
+  %incdec.ptr81 = getelementptr inbounds i8, ptr %39, i64 16
   store ptr %incdec.ptr81, ptr %top.i, align 8, !tbaa !20
   br label %cleanup
 
@@ -511,7 +507,7 @@ vaarg.end94:                                      ; preds = %vaarg.in_mem90, %va
   %call.i190 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buff83) #18
   %call1.i191 = call ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull %buff83, i64 noundef %call.i190) #16
   store ptr %call1.i191, ptr %44, align 8, !tbaa !7
-  %tt.i192 = getelementptr inbounds %struct.lua_TValue, ptr %44, i64 0, i32 1
+  %tt.i192 = getelementptr inbounds i8, ptr %44, i64 8
   store i32 4, ptr %tt.i192, align 8, !tbaa !10
   %45 = load ptr, ptr %stack_last.i, align 8, !tbaa !23
   %46 = load ptr, ptr %top.i, align 8, !tbaa !20
@@ -528,7 +524,7 @@ if.then.i199:                                     ; preds = %vaarg.end94
 
 pushstr.exit201:                                  ; preds = %if.then.i199, %vaarg.end94
   %47 = phi ptr [ %46, %vaarg.end94 ], [ %.pre.i200, %if.then.i199 ]
-  %incdec.ptr.i198 = getelementptr inbounds %struct.lua_TValue, ptr %47, i64 1
+  %incdec.ptr.i198 = getelementptr inbounds i8, ptr %47, i64 16
   store ptr %incdec.ptr.i198, ptr %top.i, align 8, !tbaa !20
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %buff83) #16
   br label %cleanup
@@ -536,7 +532,7 @@ pushstr.exit201:                                  ; preds = %if.then.i199, %vaar
 sw.bb98:                                          ; preds = %if.end8
   %call1.i204 = call ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.3, i64 noundef 1) #16
   store ptr %call1.i204, ptr %incdec.ptr, align 8, !tbaa !7
-  %tt.i205 = getelementptr inbounds %struct.lua_TValue, ptr %8, i64 1, i32 1
+  %tt.i205 = getelementptr inbounds i8, ptr %8, i64 24
   store i32 4, ptr %tt.i205, align 8, !tbaa !10
   %48 = load ptr, ptr %stack_last.i, align 8, !tbaa !23
   %49 = load ptr, ptr %top.i, align 8, !tbaa !20
@@ -553,7 +549,7 @@ if.then.i212:                                     ; preds = %sw.bb98
 
 pushstr.exit214:                                  ; preds = %if.then.i212, %sw.bb98
   %50 = phi ptr [ %49, %sw.bb98 ], [ %.pre.i213, %if.then.i212 ]
-  %incdec.ptr.i211 = getelementptr inbounds %struct.lua_TValue, ptr %50, i64 1
+  %incdec.ptr.i211 = getelementptr inbounds i8, ptr %50, i64 16
   store ptr %incdec.ptr.i211, ptr %top.i, align 8, !tbaa !20
   br label %cleanup
 
@@ -565,7 +561,7 @@ sw.default:                                       ; preds = %if.end8
   %call.i216 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buff99) #18
   %call1.i217 = call ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull %buff99, i64 noundef %call.i216) #16
   store ptr %call1.i217, ptr %incdec.ptr, align 8, !tbaa !7
-  %tt.i218 = getelementptr inbounds %struct.lua_TValue, ptr %8, i64 1, i32 1
+  %tt.i218 = getelementptr inbounds i8, ptr %8, i64 24
   store i32 4, ptr %tt.i218, align 8, !tbaa !10
   %51 = load ptr, ptr %stack_last.i, align 8, !tbaa !23
   %52 = load ptr, ptr %top.i, align 8, !tbaa !20
@@ -582,7 +578,7 @@ if.then.i225:                                     ; preds = %sw.default
 
 pushstr.exit227:                                  ; preds = %if.then.i225, %sw.default
   %53 = phi ptr [ %52, %sw.default ], [ %.pre.i226, %if.then.i225 ]
-  %incdec.ptr.i224 = getelementptr inbounds %struct.lua_TValue, ptr %53, i64 1
+  %incdec.ptr.i224 = getelementptr inbounds i8, ptr %53, i64 16
   store ptr %incdec.ptr.i224, ptr %top.i, align 8, !tbaa !20
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %buff99) #16
   br label %cleanup
@@ -602,7 +598,7 @@ for.end:                                          ; preds = %cleanup, %pushstr.e
   %call.i229 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %fmt.addr.0.lcssa) #18
   %call1.i230 = call ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef %fmt.addr.0.lcssa, i64 noundef %call.i229) #16
   store ptr %call1.i230, ptr %55, align 8, !tbaa !7
-  %tt.i231 = getelementptr inbounds %struct.lua_TValue, ptr %55, i64 0, i32 1
+  %tt.i231 = getelementptr inbounds i8, ptr %55, i64 8
   store i32 4, ptr %tt.i231, align 8, !tbaa !10
   %56 = load ptr, ptr %stack_last.i, align 8, !tbaa !23
   %57 = load ptr, ptr %top.i, align 8, !tbaa !20
@@ -619,10 +615,10 @@ if.then.i238:                                     ; preds = %for.end
 
 pushstr.exit240:                                  ; preds = %if.then.i238, %for.end
   %58 = phi ptr [ %57, %for.end ], [ %.pre.i239, %if.then.i238 ]
-  %incdec.ptr.i237 = getelementptr inbounds %struct.lua_TValue, ptr %58, i64 1
+  %incdec.ptr.i237 = getelementptr inbounds i8, ptr %58, i64 16
   store ptr %incdec.ptr.i237, ptr %top.i, align 8, !tbaa !20
   %add106 = add nuw nsw i32 %n.0.lcssa, 1
-  %base = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
+  %base = getelementptr inbounds i8, ptr %L, i64 24
   %59 = load ptr, ptr %base, align 8, !tbaa !24
   %sub.ptr.lhs.cast108 = ptrtoint ptr %incdec.ptr.i237 to i64
   %sub.ptr.rhs.cast109 = ptrtoint ptr %59 to i64
@@ -636,9 +632,9 @@ pushstr.exit240:                                  ; preds = %if.then.i238, %for.
   %idx.neg = sub nsw i64 0, %idx.ext
   %add.ptr113 = getelementptr inbounds %struct.lua_TValue, ptr %60, i64 %idx.neg
   store ptr %add.ptr113, ptr %top.i, align 8, !tbaa !20
-  %add.ptr115 = getelementptr inbounds %struct.lua_TValue, ptr %add.ptr113, i64 -1
+  %add.ptr115 = getelementptr inbounds i8, ptr %add.ptr113, i64 -16
   %61 = load ptr, ptr %add.ptr115, align 8, !tbaa !7
-  %add.ptr117 = getelementptr inbounds %union.TString, ptr %61, i64 1
+  %add.ptr117 = getelementptr inbounds i8, ptr %61, i64 24
   ret ptr %add.ptr117
 }
 
@@ -659,18 +655,18 @@ define hidden nonnull ptr @luaO_pushfstring(ptr noundef %L, ptr noundef %fmt, ..
 entry:
   %argp = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %argp) #16
-  call void @llvm.va_start(ptr nonnull %argp)
+  call void @llvm.va_start.p0(ptr nonnull %argp)
   %call = call ptr @luaO_pushvfstring(ptr noundef %L, ptr noundef %fmt, ptr noundef nonnull %argp)
-  call void @llvm.va_end(ptr nonnull %argp)
+  call void @llvm.va_end.p0(ptr nonnull %argp)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %argp) #16
   ret ptr %call
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #11
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #11
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #11
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @luaO_chunkid(ptr noundef %out, ptr nocapture noundef readonly %source, i64 noundef %bufflen) local_unnamed_addr #12 {
@@ -773,7 +769,7 @@ attributes #7 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-mat
 attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nosync nounwind willreturn }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #12 = { mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }

@@ -63,7 +63,7 @@ if.end4:                                          ; preds = %strtod_buffer_size.
   br i1 %cmp5, label %if.then7, label %if.end14
 
 if.then7:                                         ; preds = %if.end4
-  %add = add i64 %sub.ptr.sub.i, 1
+  %add = add nuw nsw i64 %sub.ptr.sub.i, 1
   %conv8 = and i64 %add, 4294967295
   %call9 = tail call noalias ptr @malloc(i64 noundef %conv8) #12
   %tobool10.not = icmp eq ptr %call9, null
@@ -136,7 +136,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local i32 @fpconv_g_fmt(ptr nocapture noundef writeonly %str, double noundef %num, i32 noundef %precision) local_unnamed_addr #8 {
+define dso_local noundef i32 @fpconv_g_fmt(ptr nocapture noundef writeonly %str, double noundef %num, i32 noundef %precision) local_unnamed_addr #8 {
 entry:
   %buf = alloca [32 x i8], align 16
   %fmt = alloca [6 x i8], align 1
@@ -147,31 +147,26 @@ entry:
   store i8 46, ptr %arrayidx1.i, align 1, !tbaa !4
   %precision.off.i = add i32 %precision, 9
   %tobool.not.i = icmp ult i32 %precision.off.i, 19
+  %i.0.i.sroa.gep21 = getelementptr inbounds i8, ptr %fmt, i64 2
   br i1 %tobool.not.i, label %set_number_format.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
+  %i.0.i.sroa.gep = getelementptr inbounds i8, ptr %fmt, i64 3
   %div.i = sdiv i32 %precision, 10
   %0 = trunc i32 %div.i to i8
   %conv.i = add i8 %0, 48
-  %arrayidx2.i = getelementptr inbounds i8, ptr %fmt, i64 2
-  store i8 %conv.i, ptr %arrayidx2.i, align 1, !tbaa !4
+  store i8 %conv.i, ptr %i.0.i.sroa.gep21, align 1, !tbaa !4
   br label %set_number_format.exit
 
 set_number_format.exit:                           ; preds = %if.then.i, %entry
-  %i.0.i = phi i32 [ 3, %if.then.i ], [ 2, %entry ]
+  %i.0.i.sroa.phi = phi ptr [ %i.0.i.sroa.gep, %if.then.i ], [ %i.0.i.sroa.gep21, %entry ]
   %rem.i = srem i32 %precision, 10
   %1 = trunc i32 %rem.i to i8
   %conv4.i = add nsw i8 %1, 48
-  %inc5.i = add nuw nsw i32 %i.0.i, 1
-  %idxprom6.i = zext nneg i32 %i.0.i to i64
-  %arrayidx7.i = getelementptr inbounds i8, ptr %fmt, i64 %idxprom6.i
-  store i8 %conv4.i, ptr %arrayidx7.i, align 1, !tbaa !4
-  %inc8.i = add nuw nsw i32 %i.0.i, 2
-  %idxprom9.i = zext nneg i32 %inc5.i to i64
-  %arrayidx10.i = getelementptr inbounds i8, ptr %fmt, i64 %idxprom9.i
+  store i8 %conv4.i, ptr %i.0.i.sroa.phi, align 1, !tbaa !4
+  %arrayidx10.i = getelementptr i8, ptr %i.0.i.sroa.phi, i64 1
   store i8 103, ptr %arrayidx10.i, align 1, !tbaa !4
-  %idxprom11.i = zext nneg i32 %inc8.i to i64
-  %arrayidx12.i = getelementptr inbounds i8, ptr %fmt, i64 %idxprom11.i
+  %arrayidx12.i = getelementptr i8, ptr %i.0.i.sroa.phi, i64 2
   store i8 0, ptr %arrayidx12.i, align 1, !tbaa !4
   %2 = load i8, ptr @locale_decimal_point, align 1, !tbaa !4
   %cmp = icmp eq i8 %2, 46
@@ -216,11 +211,11 @@ entry:
   %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i, i64 noundef 8, ptr noundef nonnull @.str.1, double noundef 5.000000e-01) #11
   %0 = load i8, ptr %buf.i, align 1, !tbaa !4
   %cmp.i = icmp ne i8 %0, 48
-  %arrayidx2.i = getelementptr inbounds [8 x i8], ptr %buf.i, i64 0, i64 2
+  %arrayidx2.i = getelementptr inbounds i8, ptr %buf.i, i64 2
   %1 = load i8, ptr %arrayidx2.i, align 1
   %cmp4.i = icmp ne i8 %1, 53
   %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp4.i
-  %arrayidx7.i = getelementptr inbounds [8 x i8], ptr %buf.i, i64 0, i64 3
+  %arrayidx7.i = getelementptr inbounds i8, ptr %buf.i, i64 3
   %2 = load i8, ptr %arrayidx7.i, align 1
   %cmp9.i = icmp ne i8 %2, 0
   %or.cond13.i = select i1 %or.cond.i, i1 true, i1 %cmp9.i
@@ -233,7 +228,7 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 fpconv_update_locale.exit:                        ; preds = %entry
-  %arrayidx12.i = getelementptr inbounds [8 x i8], ptr %buf.i, i64 0, i64 1
+  %arrayidx12.i = getelementptr inbounds i8, ptr %buf.i, i64 1
   %5 = load i8, ptr %arrayidx12.i, align 1, !tbaa !4
   store i8 %5, ptr @locale_decimal_point, align 1, !tbaa !4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i) #11

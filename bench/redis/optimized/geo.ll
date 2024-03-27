@@ -1627,7 +1627,7 @@ if.else326:                                       ; preds = %if.then315
 
 if.end328:                                        ; preds = %if.end313
   %tobool333 = icmp ne i32 %any.2, 0
-  call void @geohashCalculateAreasByShapeWGS84(ptr nonnull sret(%struct.GeoHashRadius) align 8 %georadius, ptr noundef nonnull %shape) #14
+  call void @geohashCalculateAreasByShapeWGS84(ptr dead_on_unwind nonnull writable sret(%struct.GeoHashRadius) align 8 %georadius, ptr noundef nonnull %shape) #14
   %call.i240 = call noalias noundef dereferenceable_or_null(24) ptr @zmalloc(i64 noundef 24) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i240, i8 0, i64 24, i1 false)
   %47 = load i64, ptr %count, align 8
@@ -1925,7 +1925,7 @@ declare void @notifyKeyspaceEvent(i32 noundef, ptr noundef, ptr noundef, i32 nou
 
 declare void @addReply(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @geohashCalculateAreasByShapeWGS84(ptr sret(%struct.GeoHashRadius) align 8, ptr noundef) local_unnamed_addr #3
+declare void @geohashCalculateAreasByShapeWGS84(ptr dead_on_unwind writable sret(%struct.GeoHashRadius) align 8, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @sort_gp_asc(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #7 {

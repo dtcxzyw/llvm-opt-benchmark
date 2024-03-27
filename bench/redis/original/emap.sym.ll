@@ -7447,7 +7447,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %if.end.i, %if.then.
   %17 = load ptr, ptr %edata.addr, align 8
   %call1 = call ptr @edata_base_get(ptr noundef %17)
   %18 = ptrtoint ptr %call1 to i64
-  call void @rtree_read(ptr sret(%struct.rtree_contents_s) align 8 %contents, ptr noundef %14, ptr noundef %rtree, ptr noundef %16, i64 noundef %18)
+  call void @rtree_read(ptr dead_on_unwind writable sret(%struct.rtree_contents_s) align 8 %contents, ptr noundef %14, ptr noundef %rtree, ptr noundef %16, i64 noundef %18)
   br label %do.body
 
 do.body:                                          ; preds = %tsdn_rtree_ctx.exit
@@ -7470,7 +7470,7 @@ do.end5:                                          ; preds = %do.body4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rtree_read(ptr noalias sret(%struct.rtree_contents_s) align 8 %agg.result, ptr noundef %tsdn, ptr noundef %rtree, ptr noundef %rtree_ctx, i64 noundef %key) #0 {
+define internal void @rtree_read(ptr dead_on_unwind noalias writable sret(%struct.rtree_contents_s) align 8 %agg.result, ptr noundef %tsdn, ptr noundef %rtree, ptr noundef %rtree_ctx, i64 noundef %key) #0 {
 entry:
   %bits.addr.i = alloca i64, align 8
   %state_bits.i = alloca i64, align 8

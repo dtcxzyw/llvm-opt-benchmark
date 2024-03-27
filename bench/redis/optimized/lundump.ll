@@ -374,7 +374,7 @@ LoadChar.exit170:                                 ; preds = %if.then.i.i165, %fo
   ]
 
 sw.bb.i:                                          ; preds = %LoadChar.exit170
-  %tt17.i = getelementptr inbounds %struct.lua_TValue, ptr %39, i64 %indvars.iv180, i32 1
+  %tt17.i = getelementptr inbounds i8, ptr %arrayidx15.i, i64 8
   store i32 0, ptr %tt17.i, align 8, !tbaa !20
   br label %sw.epilog.i
 
@@ -399,7 +399,7 @@ LoadChar.exit160:                                 ; preds = %if.then.i.i155, %sw
   %cmp20.i = icmp ne i8 %49, 0
   %conv21.i = zext i1 %cmp20.i to i32
   store i32 %conv21.i, ptr %arrayidx15.i, align 8, !tbaa !4
-  %tt22.i = getelementptr inbounds %struct.lua_TValue, ptr %39, i64 %indvars.iv180, i32 1
+  %tt22.i = getelementptr inbounds i8, ptr %arrayidx15.i, i64 8
   store i32 1, ptr %tt22.i, align 8, !tbaa !20
   br label %sw.epilog.i
 
@@ -422,14 +422,14 @@ LoadNumber.exit:                                  ; preds = %if.then.i.i147, %sw
   %54 = load double, ptr %x.i143, align 8, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %x.i143) #5
   store double %54, ptr %arrayidx15.i, align 8, !tbaa !4
-  %tt27.i = getelementptr inbounds %struct.lua_TValue, ptr %39, i64 %indvars.iv180, i32 1
+  %tt27.i = getelementptr inbounds i8, ptr %arrayidx15.i, i64 8
   store i32 3, ptr %tt27.i, align 8, !tbaa !20
   br label %sw.epilog.i
 
 sw.bb28.i:                                        ; preds = %LoadChar.exit170
   %call30.i = call fastcc ptr @LoadString(ptr noundef nonnull %S)
   store ptr %call30.i, ptr %arrayidx15.i, align 8, !tbaa !4
-  %tt32.i = getelementptr inbounds %struct.lua_TValue, ptr %39, i64 %indvars.iv180, i32 1
+  %tt32.i = getelementptr inbounds i8, ptr %arrayidx15.i, i64 8
   store i32 4, ptr %tt32.i, align 8, !tbaa !20
   br label %sw.epilog.i
 
@@ -524,7 +524,7 @@ for.body54.i:                                     ; preds = %for.body54.i, %for.
 for.body64.i:                                     ; preds = %for.body64.i.preheader, %for.body64.i
   %indvars.iv190 = phi i64 [ %indvars.iv.next191, %for.body64.i ], [ 0, %for.body64.i.preheader ]
   %65 = load ptr, ptr %source, align 8, !tbaa !22
-  %call65.i = call fastcc ptr @LoadFunction(ptr noundef %S, ptr noundef %65)
+  %call65.i = call fastcc ptr @LoadFunction(ptr noundef nonnull %S, ptr noundef %65)
   %66 = load ptr, ptr %p.i, align 8, !tbaa !41
   %arrayidx68.i = getelementptr inbounds ptr, ptr %66, i64 %indvars.iv190
   store ptr %call65.i, ptr %arrayidx68.i, align 8, !tbaa !43
@@ -533,7 +533,7 @@ for.body64.i:                                     ; preds = %for.body64.i.prehea
   br i1 %exitcond194.not, label %LoadConstants.exit, label %for.body64.i, !llvm.loop !46
 
 LoadConstants.exit:                               ; preds = %for.body64.i, %cond.end49.i, %cond.end49.i.thread
-  %call.i118 = call fastcc i32 @LoadInt(ptr noundef %S)
+  %call.i118 = call fastcc i32 @LoadInt(ptr noundef nonnull %S)
   %cmp.i119 = icmp sgt i32 %call.i118, -2
   %67 = load ptr, ptr %S, align 8, !tbaa !10
   br i1 %cmp.i119, label %cond.true.i135, label %cond.false.i120

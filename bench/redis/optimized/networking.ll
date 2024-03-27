@@ -2086,10 +2086,10 @@ return:                                           ; preds = %if.end8, %if.end, %
 define dso_local void @logInvalidUseAndFreeClientAsync(ptr noundef %c, ptr noundef %fmt, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call = call ptr @sdsempty() #26
   %call2 = call ptr @sdscatvprintf(ptr noundef %call, ptr noundef %fmt, ptr noundef nonnull %ap) #26
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   %call4 = call ptr @sdsempty() #26
   %call5 = call ptr @catClientInfoString(ptr noundef %call4, ptr noundef %c)
   %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
@@ -2846,10 +2846,10 @@ declare ptr @sdsmapchars(ptr noundef, ptr noundef, ptr noundef, i64 noundef) loc
 define dso_local void @addReplyErrorFormatInternal(ptr noundef %c, i32 noundef %flags, ptr noundef %fmt, ptr noundef %ap) local_unnamed_addr #0 {
 entry:
   %cpy = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_copy(ptr nonnull %cpy, ptr %ap)
+  call void @llvm.va_copy.p0(ptr nonnull %cpy, ptr %ap)
   %call = call ptr @sdsempty() #26
   %call2 = call ptr @sdscatvprintf(ptr noundef %call, ptr noundef %fmt, ptr noundef nonnull %cpy) #26
-  call void @llvm.va_end(ptr nonnull %cpy)
+  call void @llvm.va_end.p0(ptr nonnull %cpy)
   %call4 = call ptr @sdstrim(ptr noundef %call2, ptr noundef nonnull @.str.6) #26
   %call5 = call ptr @sdsmapchars(ptr noundef %call4, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.15, i64 noundef 2) #26
   %arrayidx.i = getelementptr inbounds i8, ptr %call5, i64 -1
@@ -2942,12 +2942,12 @@ sdslen.exit26:                                    ; preds = %sdslen.exit, %sw.bb
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #10
+declare void @llvm.va_copy.p0(ptr, ptr) #10
 
 declare ptr @sdscatvprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #10
+declare void @llvm.va_end.p0(ptr) #10
 
 declare ptr @sdstrim(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2955,22 +2955,22 @@ declare ptr @sdstrim(ptr noundef, ptr noundef) local_unnamed_addr #1
 define dso_local void @addReplyErrorFormatEx(ptr noundef %c, i32 noundef %flags, ptr noundef %fmt, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   call void @addReplyErrorFormatInternal(ptr noundef %c, i32 noundef %flags, ptr noundef %fmt, ptr noundef nonnull %ap)
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #10
+declare void @llvm.va_start.p0(ptr) #10
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @addReplyErrorFormat(ptr noundef %c, ptr noundef %fmt, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   call void @addReplyErrorFormatInternal(ptr noundef %c, i32 noundef 0, ptr noundef %fmt, ptr noundef nonnull %ap)
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
 
@@ -3067,10 +3067,10 @@ addReplyStatusLength.exit:                        ; preds = %addReplyProto.exit6
 define dso_local void @addReplyStatusFormat(ptr noundef %c, ptr noundef %fmt, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call = call ptr @sdsempty() #26
   %call2 = call ptr @sdscatvprintf(ptr noundef %call, ptr noundef %fmt, ptr noundef nonnull %ap) #26
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   %arrayidx.i = getelementptr inbounds i8, ptr %call2, i64 -1
   %0 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %0 to i32
@@ -13533,7 +13533,7 @@ entry:
   %conv = sext i32 %argc to i64
   %mul = shl nsw i64 %conv, 3
   %call = tail call noalias ptr @zmalloc(i64 noundef %mul) #28
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %cmp7 = icmp sgt i32 %argc, 0
   br i1 %cmp7, label %for.body.lr.ph, label %for.end
 
@@ -13575,7 +13575,7 @@ vaarg.end:                                        ; preds = %vaarg.in_mem, %vaar
 
 for.end:                                          ; preds = %vaarg.end, %entry
   call void @replaceClientCommandVector(ptr noundef %c, i32 noundef %argc, ptr noundef %call)
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
 

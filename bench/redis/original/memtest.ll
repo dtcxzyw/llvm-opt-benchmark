@@ -1200,7 +1200,7 @@ if.then:                                          ; preds = %entry
   %call2 = call ptr @__errno_location() #9
   %5 = load i32, ptr %call2, align 4
   %call3 = call ptr @strerror(i32 noundef %5) #10
-  %call4 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef @.str.16, i64 noundef %4, ptr noundef %call3)
+  %call4 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef @.str.16, i64 noundef %4, ptr noundef %call3) #10
   call void @exit(i32 noundef 1) #7
   unreachable
 
@@ -1217,7 +1217,8 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind allocsize(0)
 declare noalias ptr @malloc(i64 noundef) #4
 
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: nounwind
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #5
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) #5

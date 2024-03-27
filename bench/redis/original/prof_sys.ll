@@ -1332,13 +1332,13 @@ entry:
   %filename = alloca [4097 x i8], align 16
   store ptr %format, ptr %format.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %arraydecay1 = getelementptr inbounds [4097 x i8], ptr %filename, i64 0, i64 0
   %0 = load ptr, ptr %format.addr, align 8
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   %call = call i64 @malloc_vsnprintf(ptr noundef %arraydecay1, i64 noundef 4097, ptr noundef %0, ptr noundef %arraydecay2)
   %arraydecay3 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay3)
+  call void @llvm.va_end.p0(ptr %arraydecay3)
   %arraydecay4 = getelementptr inbounds [4097 x i8], ptr %filename, i64 0, i64 0
   %call5 = call i32 (ptr, i32, ...) @open(ptr noundef %arraydecay4, i32 noundef 524288)
   store i32 %call5, ptr %mfd, align 4
@@ -1347,12 +1347,12 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #4
+declare void @llvm.va_start.p0(ptr) #4
 
 declare i64 @malloc_vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #4
+declare void @llvm.va_end.p0(ptr) #4
 
 declare i32 @open(ptr noundef, i32 noundef, ...) #1
 
@@ -1670,10 +1670,6 @@ do.end:                                           ; preds = %do.body
   ret i1 %tobool
 }
 
-declare ptr @prof_tdata_init(ptr noundef) #1
-
-declare ptr @prof_tdata_reinit(ptr noundef, ptr noundef) #1
-
 ; Function Attrs: nounwind uwtable
 define internal void @prof_dump_check_possible_error(ptr noundef %arg, i1 noundef zeroext %err_cond, ptr noundef %format, ...) #0 {
 entry:
@@ -1714,13 +1710,13 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %arraydecay4 = getelementptr inbounds [128 x i8], ptr %buf, i64 0, i64 0
   %4 = load ptr, ptr %format.addr, align 8
   %arraydecay5 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   %call = call i64 @malloc_vsnprintf(ptr noundef %arraydecay4, i64 noundef 128, ptr noundef %4, ptr noundef %arraydecay5)
   %arraydecay6 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay6)
+  call void @llvm.va_end.p0(ptr %arraydecay6)
   %arraydecay7 = getelementptr inbounds [128 x i8], ptr %buf, i64 0, i64 0
   call void @malloc_write(ptr noundef %arraydecay7)
   %5 = load i8, ptr @opt_abort, align 1

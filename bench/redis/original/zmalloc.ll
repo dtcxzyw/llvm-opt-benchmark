@@ -1486,14 +1486,15 @@ entry:
   store i64 %size, ptr %size.addr, align 8
   %0 = load ptr, ptr @stderr, align 8
   %1 = load i64, ptr %size.addr, align 8
-  %call = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef @.str.12, i64 noundef %1)
+  %call = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef @.str.12, i64 noundef %1) #12
   %2 = load ptr, ptr @stderr, align 8
   %call1 = call i32 @fflush(ptr noundef %2)
   call void @abort() #19
   unreachable
 }
 
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #8
+; Function Attrs: nounwind
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #1
 
 declare i32 @fflush(ptr noundef) #8
 

@@ -2047,7 +2047,7 @@ if.then6:                                         ; preds = %for.body
   %idxprom7 = sext i32 %11 to i64
   %arrayidx8 = getelementptr inbounds ptr, ptr %10, i64 %idxprom7
   %12 = load ptr, ptr %arrayidx8, align 8
-  %call9 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef @.str.9, ptr noundef %12)
+  %call9 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef @.str.9, ptr noundef %12) #12
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then6, %for.body
@@ -2081,7 +2081,8 @@ declare i32 @fchmod(i32 noundef, i32 noundef) #6
 ; Function Attrs: nounwind
 declare i32 @fileno(ptr noundef) #6
 
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: nounwind
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #6
 
 declare i32 @fclose(ptr noundef) #1
 
@@ -3726,7 +3727,7 @@ declare i32 @__isoc99_sscanf(ptr noundef, ptr noundef, ...) #6
 define internal void @linenoiseBeep() #0 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
-  %call = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef @.str.28)
+  %call = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef @.str.28) #12
   %1 = load ptr, ptr @stderr, align 8
   %call1 = call i32 @fflush(ptr noundef %1)
   ret void

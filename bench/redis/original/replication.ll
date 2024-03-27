@@ -8284,7 +8284,7 @@ entry:
   store ptr %call1, ptr %cmdargs, align 8
   store i64 0, ptr %argslen, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   br label %while.body
 
 while.body:                                       ; preds = %if.end, %entry
@@ -8344,7 +8344,7 @@ while.end:                                        ; preds = %if.then
   %13 = load ptr, ptr %cmdargs, align 8
   call void @sdsfree(ptr noundef %13)
   %arraydecay7 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay7)
+  call void @llvm.va_end.p0(ptr %arraydecay7)
   %14 = load ptr, ptr %conn.addr, align 8
   %15 = load ptr, ptr %cmd, align 8
   %call8 = call ptr @sendCommandRaw(ptr noundef %14, ptr noundef %15)
@@ -8370,10 +8370,10 @@ return:                                           ; preds = %if.end10, %if.then9
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #9
+declare void @llvm.va_start.p0(ptr) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #9
+declare void @llvm.va_end.p0(ptr) #9
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @sendCommandArgv(ptr noundef %conn, i32 noundef %argc, ptr noundef %argv, ptr noundef %argv_lens) #0 {

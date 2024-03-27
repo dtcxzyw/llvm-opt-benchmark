@@ -529,7 +529,7 @@ entry:
 if.then:                                          ; preds = %entry
   %6 = load ptr, ptr @stderr, align 8
   %7 = load ptr, ptr %tool_name.addr, align 8
-  %call3 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef @.str.3, ptr noundef %7)
+  %call3 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef @.str.3, ptr noundef %7) #7
   call void @exit(i32 noundef 1) #8
   unreachable
 
@@ -552,7 +552,7 @@ if.then7:                                         ; preds = %if.else
 
 if.else10:                                        ; preds = %if.else
   %13 = load ptr, ptr @stderr, align 8
-  %call11 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef @.str.4)
+  %call11 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef @.str.4) #7
   call void @exit(i32 noundef 1) #8
   unreachable
 
@@ -781,7 +781,8 @@ declare i64 @strlen(ptr noundef) #5
 ; Function Attrs: nounwind willreturn memory(read)
 declare i32 @strncasecmp(ptr noundef, ptr noundef, i64 noundef) #5
 
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: nounwind
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #3
 
 ; Function Attrs: nounwind willreturn memory(read)
 declare ptr @strchr(ptr noundef, i32 noundef) #5
@@ -833,7 +834,7 @@ if.then:                                          ; preds = %while.body
 
 if.then5:                                         ; preds = %if.then
   %9 = load ptr, ptr @stderr, align 8
-  %call6 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef @.str.14)
+  %call6 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef @.str.14) #7
   call void @exit(i32 noundef 1) #8
   unreachable
 
@@ -905,7 +906,7 @@ land.lhs.true35:                                  ; preds = %lor.lhs.false31
 
 if.then39:                                        ; preds = %land.lhs.true35, %lor.lhs.false31, %land.lhs.true, %lor.lhs.false
   %24 = load ptr, ptr @stderr, align 8
-  %call40 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef @.str.15)
+  %call40 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef @.str.15) #7
   call void @exit(i32 noundef 1) #8
   unreachable
 

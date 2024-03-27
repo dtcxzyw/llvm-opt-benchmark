@@ -895,7 +895,7 @@ if.then72:                                        ; preds = %if.else67
 
 for.inc:                                          ; preds = %if.then48, %if.else67, %if.then72, %if.then62
   %19 = phi i32 [ %10, %if.else67 ], [ %10, %if.then72 ], [ %10, %if.then62 ], [ %.pre143, %if.then48 ]
-  %indvars.iv.next = add nuw i64 %indvars.iv, 2
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %20 = trunc i64 %indvars.iv.next to i32
   %cmp43 = icmp sgt i32 %19, %20
   br i1 %cmp43, label %for.body, label %for.end, !llvm.loop !8

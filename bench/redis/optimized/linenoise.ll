@@ -2587,7 +2587,7 @@ if.then6:                                         ; preds = %for.body
   %4 = load ptr, ptr @history, align 8
   %arrayidx8 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
   %5 = load ptr, ptr %arrayidx8, align 8
-  %call9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call1, ptr noundef nonnull @.str.9, ptr noundef %5)
+  %call9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call1, ptr noundef nonnull @.str.9, ptr noundef %5) #23
   %.pre = load ptr, ptr @history_sensitive, align 8
   %.pre11 = load i32, ptr @history_len, align 4
   br label %for.inc

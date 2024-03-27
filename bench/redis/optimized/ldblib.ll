@@ -754,10 +754,10 @@ if.else27:                                        ; preds = %if.then22
 
 while.cond28:                                     ; preds = %while.cond28, %if.else27
   %level.2 = phi i32 [ %inc121, %if.else27 ], [ %inc33, %while.cond28 ]
-  %add29 = add nsw i32 %level.2, 10
+  %add29 = add nuw nsw i32 %level.2, 10
   %call30 = call i32 @lua_getstack(ptr noundef %retval.0.i, i32 noundef %add29, ptr noundef nonnull %ar) #8
   %tobool31.not = icmp eq i32 %call30, 0
-  %inc33 = add nsw i32 %level.2, 1
+  %inc33 = add nuw nsw i32 %level.2, 1
   br i1 %tobool31.not, label %if.end34, label %while.cond28, !llvm.loop !19
 
 if.end34:                                         ; preds = %while.cond28, %if.then22

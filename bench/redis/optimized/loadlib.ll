@@ -61,7 +61,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.51 = private unnamed_addr constant [25 x i8] c"module '%s' not found:%s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @luaopen_package(ptr noundef %L) local_unnamed_addr #0 {
+define dso_local noundef i32 @luaopen_package(ptr noundef %L) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @luaL_newmetatable(ptr noundef %L, ptr noundef nonnull @.str) #6
   tail call void @lua_pushcclosure(ptr noundef %L, ptr noundef nonnull @gctm, i32 noundef 0) #6
@@ -131,7 +131,7 @@ declare i32 @luaL_newmetatable(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @lua_pushcclosure(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @gctm(ptr noundef %L) #0 {
+define internal noundef i32 @gctm(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str) #6
   store ptr null, ptr %call, align 8, !tbaa !4
@@ -162,7 +162,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 declare ptr @luaL_checkudata(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ll_loadlib(ptr noundef %L) #0 {
+define internal noundef i32 @ll_loadlib(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 1, ptr noundef null) #6
   %call1 = tail call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 2, ptr noundef null) #6
@@ -176,7 +176,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ll_seeall(ptr noundef %L) #0 {
+define internal noundef i32 @ll_seeall(ptr noundef %L) #0 {
 entry:
   tail call void @luaL_checktype(ptr noundef %L, i32 noundef 1, i32 noundef 5) #6
   %call = tail call i32 @lua_getmetatable(ptr noundef %L, i32 noundef 1) #6
@@ -198,7 +198,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare ptr @luaL_checklstring(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ll_loadfunc(ptr noundef %L, ptr noundef %path) unnamed_addr #0 {
+define internal fastcc noundef i32 @ll_loadfunc(ptr noundef %L, ptr noundef %path) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef %path) #6
   tail call void @lua_gettable(ptr noundef %L, i32 noundef -10000) #6
@@ -264,7 +264,7 @@ declare void @luaL_checktype(ptr noundef, i32 noundef, i32 noundef) local_unname
 declare i32 @lua_getmetatable(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @loader_preload(ptr noundef %L) #0 {
+define internal noundef i32 @loader_preload(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 1, ptr noundef null) #6
   tail call void @lua_getfield(ptr noundef %L, i32 noundef -10001, ptr noundef nonnull @.str.14) #6
@@ -291,7 +291,7 @@ if.end7:                                          ; preds = %if.then5, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @loader_Lua(ptr noundef %L) #0 {
+define internal noundef i32 @loader_Lua(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 1, ptr noundef null) #6
   %call1 = tail call fastcc ptr @findfile(ptr noundef %L, ptr noundef %call, ptr noundef nonnull @.str.4)
@@ -314,7 +314,7 @@ cleanup:                                          ; preds = %if.then4, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @loader_C(ptr noundef %L) #0 {
+define internal noundef i32 @loader_C(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 1, ptr noundef null) #6
   %call1 = tail call fastcc ptr @findfile(ptr noundef %L, ptr noundef %call, ptr noundef nonnull @.str.7)
@@ -340,7 +340,7 @@ cleanup:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @loader_Croot(ptr noundef %L) #0 {
+define internal noundef i32 @loader_Croot(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 1, ptr noundef null) #6
   %call1 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %call, i32 noundef 46) #7
@@ -581,7 +581,7 @@ cleanup:                                          ; preds = %for.body.i, %setfen
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ll_require(ptr noundef %L) #0 {
+define internal noundef i32 @ll_require(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 1, ptr noundef null) #6
   tail call void @lua_settop(ptr noundef %L, i32 noundef 1) #6

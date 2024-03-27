@@ -6694,14 +6694,14 @@ entry:
   %call = call ptr @sdsempty()
   store ptr %call, ptr %s, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %s, align 8
   %1 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   %call2 = call ptr @sdscatvprintf(ptr noundef %0, ptr noundef %1, ptr noundef %arraydecay1)
   store ptr %call2, ptr %s, align 8
   %arraydecay3 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay3)
+  call void @llvm.va_end.p0(ptr %arraydecay3)
   %2 = load ptr, ptr %s, align 8
   %call4 = call ptr @createObject(i32 noundef 0, ptr noundef %2)
   store ptr %call4, ptr %o, align 8
@@ -6723,12 +6723,12 @@ if.end:                                           ; preds = %if.then, %entry
 declare ptr @sdsempty() #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #9
+declare void @llvm.va_start.p0(ptr) #9
 
 declare ptr @sdscatvprintf(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #9
+declare void @llvm.va_end.p0(ptr) #9
 
 declare ptr @createObject(i32 noundef, ptr noundef) #1
 
@@ -7593,13 +7593,13 @@ if.end:                                           ; preds = %entry
   %6 = load ptr, ptr %fmt.addr, align 8
   %call5 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %4, i64 noundef %conv4, ptr noundef @.str.34, ptr noundef %6) #16
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %7 = load ptr, ptr %c, align 8
   %8 = load ptr, ptr %hyphenfmt, align 8
   %arraydecay6 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   call void @addReplyErrorFormatInternal(ptr noundef %7, i32 noundef 0, ptr noundef %8, ptr noundef %arraydecay6)
   %arraydecay7 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay7)
+  call void @llvm.va_end.p0(ptr %arraydecay7)
   %9 = load ptr, ptr %hyphenfmt, align 8
   call void @zfree(ptr noundef %9)
   store i32 0, ptr %retval, align 4
@@ -8667,14 +8667,14 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %2 = load ptr, ptr %cmdname.addr, align 8
   %3 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   %call2 = call ptr @moduleCreateArgvFromUserFormat(ptr noundef %2, ptr noundef %3, ptr noundef %argc, ptr noundef %flags, ptr noundef %arraydecay1)
   store ptr %call2, ptr %argv, align 8
   %arraydecay3 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay3)
+  call void @llvm.va_end.p0(ptr %arraydecay3)
   %4 = load ptr, ptr %argv, align 8
   %cmp = icmp eq ptr %4, null
   br i1 %cmp, label %if.then4, label %if.end5
@@ -14951,7 +14951,7 @@ if.then15:                                        ; preds = %if.end12
 if.end17:                                         ; preds = %if.then15, %if.end12
   store i32 0, ptr %count, align 4
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   br label %while.body
 
 while.body:                                       ; preds = %if.end105, %if.end86, %if.end75, %if.end17
@@ -15216,7 +15216,7 @@ if.end105:                                        ; preds = %if.then103, %cond.e
 
 while.end:                                        ; preds = %if.then42, %if.then24
   %arraydecay106 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay106)
+  call void @llvm.va_end.p0(ptr %arraydecay106)
   %66 = load ptr, ptr %key.addr, align 8
   %call107 = call i32 @moduleDelKeyIfEmpty(ptr noundef %66)
   %67 = load i32, ptr %count, align 4
@@ -15283,7 +15283,7 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.end:                                           ; preds = %land.lhs.true, %entry
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   br label %while.body
 
 while.body:                                       ; preds = %if.end79, %if.end
@@ -15529,7 +15529,7 @@ if.end79:                                         ; preds = %if.then78, %if.end7
 
 while.end:                                        ; preds = %if.then22, %if.then6
   %arraydecay80 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay80)
+  call void @llvm.va_end.p0(ptr %arraydecay80)
   store i32 0, ptr %retval, align 4
   br label %return
 
@@ -17289,7 +17289,7 @@ entry:
   store i32 0, ptr %replicate, align 4
   store i32 0, ptr %error_as_call_replies, align 4
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %cmdname.addr, align 8
   %1 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
@@ -17302,7 +17302,7 @@ entry:
   %and2 = and i32 %3, 256
   store i32 %and2, ptr %error_as_call_replies, align 4
   %arraydecay3 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay3)
+  call void @llvm.va_end.p0(ptr %arraydecay3)
   %call4 = call ptr @moduleAllocTempClient()
   store ptr %call4, ptr %c, align 8
   %4 = load i32, ptr %flags, align 4
@@ -21081,14 +21081,14 @@ do.end:                                           ; preds = %if.end4, %if.then3
 
 if.end7:                                          ; preds = %if.end
   %arraydecay8 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay8)
+  call void @llvm.va_start.p0(ptr %arraydecay8)
   %9 = load ptr, ptr %cmdname.addr, align 8
   %10 = load ptr, ptr %fmt.addr, align 8
   %arraydecay9 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   %call10 = call ptr @moduleCreateArgvFromUserFormat(ptr noundef %9, ptr noundef %10, ptr noundef %argc, ptr noundef %flags, ptr noundef %arraydecay9)
   store ptr %call10, ptr %argv, align 8
   %arraydecay11 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay11)
+  call void @llvm.va_end.p0(ptr %arraydecay11)
   %11 = load ptr, ptr %argv, align 8
   %cmp12 = icmp eq ptr %11, null
   br i1 %cmp12, label %if.then13, label %if.end24
@@ -21451,7 +21451,7 @@ entry:
   store ptr %levelstr, ptr %levelstr.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %ctx.addr, align 8
   %tobool = icmp ne ptr %0, null
   br i1 %tobool, label %cond.true, label %cond.false
@@ -21472,7 +21472,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   call void @moduleLogRaw(ptr noundef %cond, ptr noundef %3, ptr noundef %4, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   ret void
 }
 
@@ -21487,7 +21487,7 @@ entry:
   store ptr %levelstr, ptr %levelstr.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %io.addr, align 8
   %type = getelementptr inbounds %struct.RedisModuleIO, ptr %0, i32 0, i32 2
   %1 = load ptr, ptr %type, align 8
@@ -21498,7 +21498,7 @@ entry:
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   call void @moduleLogRaw(ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   ret void
 }
 

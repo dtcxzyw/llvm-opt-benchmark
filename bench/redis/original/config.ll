@@ -1651,7 +1651,7 @@ if.then253:                                       ; preds = %loaderr
 
 if.end254:                                        ; preds = %if.then253, %loaderr
   %164 = load ptr, ptr @stderr, align 8
-  %call255 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %164, ptr noundef @.str.75, ptr noundef @.str.76)
+  %call255 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %164, ptr noundef @.str.75, ptr noundef @.str.76) #14
   %165 = load i32, ptr %i, align 4
   %166 = load i32, ptr %totlines, align 4
   %cmp256 = icmp slt i32 %165, %166
@@ -1660,20 +1660,20 @@ if.end254:                                        ; preds = %if.then253, %loader
 if.then258:                                       ; preds = %if.end254
   %167 = load ptr, ptr @stderr, align 8
   %168 = load i32, ptr %linenum, align 4
-  %call259 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %167, ptr noundef @.str.77, i32 noundef %168)
+  %call259 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %167, ptr noundef @.str.77, i32 noundef %168) #14
   %169 = load ptr, ptr @stderr, align 8
   %170 = load ptr, ptr %lines, align 8
   %171 = load i32, ptr %i, align 4
   %idxprom260 = sext i32 %171 to i64
   %arrayidx261 = getelementptr inbounds ptr, ptr %170, i64 %idxprom260
   %172 = load ptr, ptr %arrayidx261, align 8
-  %call262 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %169, ptr noundef @.str.78, ptr noundef %172)
+  %call262 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %169, ptr noundef @.str.78, ptr noundef %172) #14
   br label %if.end263
 
 if.end263:                                        ; preds = %if.then258, %if.end254
   %173 = load ptr, ptr @stderr, align 8
   %174 = load ptr, ptr %err, align 8
-  %call264 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %173, ptr noundef @.str.79, ptr noundef %174)
+  %call264 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %173, ptr noundef @.str.79, ptr noundef %174) #14
   call void @exit(i32 noundef 1) #11
   unreachable
 }
@@ -2013,7 +2013,8 @@ declare i32 @fclose(ptr noundef) #2
 
 declare void @_serverLog(i32 noundef, ptr noundef, ...) #2
 
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #2
+; Function Attrs: nounwind
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #7
 
 ; Function Attrs: noreturn nounwind
 declare void @exit(i32 noundef) #3

@@ -1758,9 +1758,9 @@ entry:
   %act.i = alloca %struct.sigaction, align 8
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %fmtmsg = alloca [256 x i8], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call = call i32 @vsnprintf(ptr noundef nonnull %fmtmsg, i64 noundef 256, ptr noundef %msg, ptr noundef nonnull %ap) #22
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   %call.i = call i32 @pthread_mutex_lock(ptr noundef nonnull @bug_report_start_mutex) #22
   %.b.i = load i1, ptr @bug_report_start, align 4
   br i1 %.b.i, label %bugReportStart.exit, label %if.then.i
@@ -4761,13 +4761,13 @@ serverLogObjectDebugInfo.exit:                    ; preds = %bugReportStart.exit
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #14
+declare void @llvm.va_start.p0(ptr) #14
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #14
+declare void @llvm.va_end.p0(ptr) #14
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #8
