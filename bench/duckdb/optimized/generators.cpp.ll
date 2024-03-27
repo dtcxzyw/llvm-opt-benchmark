@@ -161,8 +161,8 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %11 = add nsw <2 x i64> %vec.ind, %.splat107
   %12 = add nsw <2 x i64> %step.add, %.splat107
   %13 = getelementptr inbounds i64, ptr %6, i64 %offset.idx
-  store <2 x i64> %11, ptr %13, align 8, !tbaa !27
   %14 = getelementptr inbounds i8, ptr %13, i64 16
+  store <2 x i64> %11, ptr %13, align 8, !tbaa !27
   store <2 x i64> %12, ptr %14, align 8, !tbaa !27
   %index.next = add nuw i64 %index, 4
   %vec.ind.next = add <2 x i64> %step.add, %.splat109
@@ -220,20 +220,20 @@ for.body.i67.preheader.new:                       ; preds = %for.body.i67.prehea
 
 for.body.i67:                                     ; preds = %for.body.i67, %for.body.i67.preheader.new
   %i.032.i = phi i64 [ 1, %for.body.i67.preheader.new ], [ %inc.i69.3, %for.body.i67 ]
-  %value.031.i = phi float [ %conv.i, %for.body.i67.preheader.new ], [ %value.1.i.3, %for.body.i67 ]
+  %value.031.i = phi float [ %conv.i, %for.body.i67.preheader.new ], [ %add.i.3, %for.body.i67 ]
   %niter118 = phi i64 [ 0, %for.body.i67.preheader.new ], [ %niter118.next.3, %for.body.i67 ]
-  %value.1.i = fadd float %value.031.i, %conv1.i
+  %add.i = fadd float %value.031.i, %conv1.i
   %arrayidx.i68 = getelementptr inbounds float, ptr %16, i64 %i.032.i
-  store float %value.1.i, ptr %arrayidx.i68, align 4, !tbaa !34
-  %value.1.i.1 = fadd float %value.1.i, %conv1.i
+  store float %add.i, ptr %arrayidx.i68, align 4, !tbaa !34
+  %add.i.1 = fadd float %add.i, %conv1.i
   %gep124 = getelementptr float, ptr %invariant.gep123, i64 %i.032.i
-  store float %value.1.i.1, ptr %gep124, align 4, !tbaa !34
-  %value.1.i.2 = fadd float %value.1.i.1, %conv1.i
+  store float %add.i.1, ptr %gep124, align 4, !tbaa !34
+  %add.i.2 = fadd float %add.i.1, %conv1.i
   %gep126 = getelementptr float, ptr %invariant.gep125, i64 %i.032.i
-  store float %value.1.i.2, ptr %gep126, align 4, !tbaa !34
-  %value.1.i.3 = fadd float %value.1.i.2, %conv1.i
+  store float %add.i.2, ptr %gep126, align 4, !tbaa !34
+  %add.i.3 = fadd float %add.i.2, %conv1.i
   %gep128 = getelementptr float, ptr %invariant.gep127, i64 %i.032.i
-  store float %value.1.i.3, ptr %gep128, align 4, !tbaa !34
+  store float %add.i.3, ptr %gep128, align 4, !tbaa !34
   %inc.i69.3 = add nuw i64 %i.032.i, 4
   %niter118.next.3 = add i64 %niter118, 4
   %niter118.ncmp.3 = icmp eq i64 %niter118.next.3, %unroll_iter117
@@ -269,20 +269,20 @@ for.body.i77.preheader.new:                       ; preds = %for.body.i77.prehea
 
 for.body.i77:                                     ; preds = %for.body.i77, %for.body.i77.preheader.new
   %i.032.i78 = phi i64 [ 1, %for.body.i77.preheader.new ], [ %inc.i82.3, %for.body.i77 ]
-  %value.031.i79 = phi double [ %conv.i75, %for.body.i77.preheader.new ], [ %value.1.i80.3, %for.body.i77 ]
+  %value.031.i79 = phi double [ %conv.i75, %for.body.i77.preheader.new ], [ %add.i80.3, %for.body.i77 ]
   %niter = phi i64 [ 0, %for.body.i77.preheader.new ], [ %niter.next.3, %for.body.i77 ]
-  %value.1.i80 = fadd double %value.031.i79, %conv1.i71
+  %add.i80 = fadd double %value.031.i79, %conv1.i71
   %arrayidx.i81 = getelementptr inbounds double, ptr %20, i64 %i.032.i78
-  store double %value.1.i80, ptr %arrayidx.i81, align 8, !tbaa !37
-  %value.1.i80.1 = fadd double %value.1.i80, %conv1.i71
+  store double %add.i80, ptr %arrayidx.i81, align 8, !tbaa !37
+  %add.i80.1 = fadd double %add.i80, %conv1.i71
   %gep = getelementptr double, ptr %invariant.gep, i64 %i.032.i78
-  store double %value.1.i80.1, ptr %gep, align 8, !tbaa !37
-  %value.1.i80.2 = fadd double %value.1.i80.1, %conv1.i71
+  store double %add.i80.1, ptr %gep, align 8, !tbaa !37
+  %add.i80.2 = fadd double %add.i80.1, %conv1.i71
   %gep120 = getelementptr double, ptr %invariant.gep119, i64 %i.032.i78
-  store double %value.1.i80.2, ptr %gep120, align 8, !tbaa !37
-  %value.1.i80.3 = fadd double %value.1.i80.2, %conv1.i71
+  store double %add.i80.2, ptr %gep120, align 8, !tbaa !37
+  %add.i80.3 = fadd double %add.i80.2, %conv1.i71
   %gep122 = getelementptr double, ptr %invariant.gep121, i64 %i.032.i78
-  store double %value.1.i80.3, ptr %gep122, align 8, !tbaa !37
+  store double %add.i80.3, ptr %gep122, align 8, !tbaa !37
   %inc.i82.3 = add nuw i64 %i.032.i78, 4
   %niter.next.3 = add i64 %niter, 4
   %niter.ncmp.3 = icmp eq i64 %niter.next.3, %unroll_iter
@@ -336,17 +336,17 @@ ehcleanup27:                                      ; preds = %lpad23
 
 sw.epilog.loopexit112.unr-lcssa:                  ; preds = %for.body.i67, %for.body.i67.preheader
   %i.032.i.unr = phi i64 [ 1, %for.body.i67.preheader ], [ %inc.i69.3, %for.body.i67 ]
-  %value.031.i.unr = phi float [ %conv.i, %for.body.i67.preheader ], [ %value.1.i.3, %for.body.i67 ]
+  %value.031.i.unr = phi float [ %conv.i, %for.body.i67.preheader ], [ %add.i.3, %for.body.i67 ]
   %lcmp.mod116.not = icmp eq i64 %xtraiter114, 0
   br i1 %lcmp.mod116.not, label %sw.epilog, label %for.body.i67.epil
 
 for.body.i67.epil:                                ; preds = %sw.epilog.loopexit112.unr-lcssa, %for.body.i67.epil
   %i.032.i.epil = phi i64 [ %inc.i69.epil, %for.body.i67.epil ], [ %i.032.i.unr, %sw.epilog.loopexit112.unr-lcssa ]
-  %value.031.i.epil = phi float [ %value.1.i.epil, %for.body.i67.epil ], [ %value.031.i.unr, %sw.epilog.loopexit112.unr-lcssa ]
+  %value.031.i.epil = phi float [ %add.i.epil, %for.body.i67.epil ], [ %value.031.i.unr, %sw.epilog.loopexit112.unr-lcssa ]
   %epil.iter115 = phi i64 [ %epil.iter115.next, %for.body.i67.epil ], [ 0, %sw.epilog.loopexit112.unr-lcssa ]
-  %value.1.i.epil = fadd float %value.031.i.epil, %conv1.i
+  %add.i.epil = fadd float %value.031.i.epil, %conv1.i
   %arrayidx.i68.epil = getelementptr inbounds float, ptr %16, i64 %i.032.i.epil
-  store float %value.1.i.epil, ptr %arrayidx.i68.epil, align 4, !tbaa !34
+  store float %add.i.epil, ptr %arrayidx.i68.epil, align 4, !tbaa !34
   %inc.i69.epil = add nuw i64 %i.032.i.epil, 1
   %epil.iter115.next = add nuw nsw i64 %epil.iter115, 1
   %epil.iter115.cmp.not = icmp eq i64 %epil.iter115.next, %xtraiter114
@@ -354,17 +354,17 @@ for.body.i67.epil:                                ; preds = %sw.epilog.loopexit1
 
 sw.epilog.loopexit113.unr-lcssa:                  ; preds = %for.body.i77, %for.body.i77.preheader
   %i.032.i78.unr = phi i64 [ 1, %for.body.i77.preheader ], [ %inc.i82.3, %for.body.i77 ]
-  %value.031.i79.unr = phi double [ %conv.i75, %for.body.i77.preheader ], [ %value.1.i80.3, %for.body.i77 ]
+  %value.031.i79.unr = phi double [ %conv.i75, %for.body.i77.preheader ], [ %add.i80.3, %for.body.i77 ]
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
   br i1 %lcmp.mod.not, label %sw.epilog, label %for.body.i77.epil
 
 for.body.i77.epil:                                ; preds = %sw.epilog.loopexit113.unr-lcssa, %for.body.i77.epil
   %i.032.i78.epil = phi i64 [ %inc.i82.epil, %for.body.i77.epil ], [ %i.032.i78.unr, %sw.epilog.loopexit113.unr-lcssa ]
-  %value.031.i79.epil = phi double [ %value.1.i80.epil, %for.body.i77.epil ], [ %value.031.i79.unr, %sw.epilog.loopexit113.unr-lcssa ]
+  %value.031.i79.epil = phi double [ %add.i80.epil, %for.body.i77.epil ], [ %value.031.i79.unr, %sw.epilog.loopexit113.unr-lcssa ]
   %epil.iter = phi i64 [ %epil.iter.next, %for.body.i77.epil ], [ 0, %sw.epilog.loopexit113.unr-lcssa ]
-  %value.1.i80.epil = fadd double %value.031.i79.epil, %conv1.i71
+  %add.i80.epil = fadd double %value.031.i79.epil, %conv1.i71
   %arrayidx.i81.epil = getelementptr inbounds double, ptr %20, i64 %i.032.i78.epil
-  store double %value.1.i80.epil, ptr %arrayidx.i81.epil, align 8, !tbaa !37
+  store double %add.i80.epil, ptr %arrayidx.i81.epil, align 8, !tbaa !37
   %inc.i82.epil = add nuw i64 %i.032.i78.epil, 1
   %epil.iter.next = add nuw nsw i64 %epil.iter, 1
   %epil.iter.cmp.not = icmp eq i64 %epil.iter.next, %xtraiter
@@ -520,8 +520,8 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %11 = add <16 x i8> %vec.ind, %.splat37
   %12 = add <16 x i8> %step.add, %.splat37
   %13 = getelementptr inbounds i8, ptr %5, i64 %offset.idx
-  store <16 x i8> %11, ptr %13, align 1, !tbaa !43
   %14 = getelementptr inbounds i8, ptr %13, i64 16
+  store <16 x i8> %11, ptr %13, align 1, !tbaa !43
   store <16 x i8> %12, ptr %14, align 1, !tbaa !43
   %index.next = add nuw i64 %index, 32
   %vec.ind.next = add <16 x i8> %step.add, %.splat39
@@ -703,8 +703,8 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %11 = add <8 x i16> %vec.ind, %.splat38
   %12 = add <8 x i16> %step.add, %.splat38
   %13 = getelementptr inbounds i16, ptr %5, i64 %offset.idx
-  store <8 x i16> %11, ptr %13, align 2, !tbaa !47
   %14 = getelementptr inbounds i8, ptr %13, i64 16
+  store <8 x i16> %11, ptr %13, align 2, !tbaa !47
   store <8 x i16> %12, ptr %14, align 2, !tbaa !47
   %index.next = add nuw i64 %index, 16
   %vec.ind.next = add <8 x i16> %step.add, %.splat40
@@ -846,8 +846,8 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %11 = add <4 x i32> %vec.ind, %.splat38
   %12 = add <4 x i32> %step.add, %.splat38
   %13 = getelementptr inbounds i32, ptr %5, i64 %offset.idx
-  store <4 x i32> %11, ptr %13, align 4, !tbaa !51
   %14 = getelementptr inbounds i8, ptr %13, i64 16
+  store <4 x i32> %11, ptr %13, align 4, !tbaa !51
   store <4 x i32> %12, ptr %14, align 4, !tbaa !51
   %index.next = add nuw i64 %index, 8
   %vec.ind.next = add <4 x i32> %step.add, %.splat40
@@ -1007,8 +1007,8 @@ vector.body168:                                   ; preds = %vector.body168, %ve
   %12 = add <2 x i64> %10, %broadcast.splat176
   %13 = add <2 x i64> %11, %broadcast.splat176
   %14 = getelementptr inbounds i64, ptr %6, i64 %index169
-  store <2 x i64> %12, ptr %14, align 8, !tbaa !27
   %15 = getelementptr inbounds i8, ptr %14, i64 16
+  store <2 x i64> %12, ptr %14, align 8, !tbaa !27
   store <2 x i64> %13, ptr %15, align 8, !tbaa !27
   %index.next177 = add nuw i64 %index169, 4
   %vec.ind.next172 = add <2 x i64> %vec.ind170, <i64 4, i64 4>
@@ -1926,7 +1926,7 @@ declare void @_ZN6duckdb9ExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_trait
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !78
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !78
   %raw_message_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %raw_message_, align 8, !tbaa !3
   %1 = getelementptr inbounds i8, ptr %this, i64 64

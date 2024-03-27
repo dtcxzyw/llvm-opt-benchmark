@@ -107,7 +107,7 @@ $_ZTIN6duckdb17InternalExceptionE = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6duckdb17StatementVerifierC2ENS_16VerificationTypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10unique_ptrINS_12SQLStatementESt14default_deleteIS9_ELb1EEE(ptr noundef nonnull align 8 dereferenceable(72) %this, i8 noundef zeroext %type, ptr noundef %name, ptr nocapture noundef %statement_p) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6duckdb17StatementVerifierE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN6duckdb17StatementVerifierE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !3
   %type2 = getelementptr inbounds i8, ptr %this, i64 8
   store i8 %type, ptr %type2, align 8, !tbaa !6
   %name3 = getelementptr inbounds i8, ptr %this, i64 16
@@ -358,7 +358,7 @@ _ZNSt10unique_ptrIN6duckdb12SQLStatementESt14default_deleteIS1_EED2Ev.exit.i:
   %1 = load i64, ptr %statement_p, align 8, !tbaa !32
   %2 = inttoptr i64 %1 to ptr
   store ptr null, ptr %statement_p, align 8, !tbaa !32
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6duckdb17StatementVerifierE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN6duckdb17StatementVerifierE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !3
   %type2.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %type2.i, align 8, !tbaa !6
   %name3.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -470,7 +470,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6duckdb17StatementVerifierD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6duckdb17StatementVerifierE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN6duckdb17StatementVerifierE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !3
   %materialized_result = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %materialized_result, align 8, !tbaa !32
   %cmp.not.i = icmp eq ptr %0, null
@@ -532,7 +532,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb17StatementVerifier6CreateENS_16VerificationTypeERKNS_12SQLStatementE(ptr noalias sret(%"class.duckdb::unique_ptr.57") align 8 %agg.result, i8 noundef zeroext %type, ptr noundef nonnull align 8 dereferenceable(128) %statement_p) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb17StatementVerifier6CreateENS_16VerificationTypeERKNS_12SQLStatementE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.57") align 8 %agg.result, i8 noundef zeroext %type, ptr noundef nonnull align 8 dereferenceable(128) %statement_p) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp8 = alloca %"class.std::allocator", align 1
@@ -547,31 +547,31 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  tail call void @_ZN6duckdb23CopiedStatementVerifier6CreateERKNS_12SQLStatementE(ptr sret(%"class.duckdb::unique_ptr.57") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %statement_p)
+  tail call void @_ZN6duckdb23CopiedStatementVerifier6CreateERKNS_12SQLStatementE(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.57") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %statement_p)
   br label %return
 
 sw.bb1:                                           ; preds = %entry
-  tail call void @_ZN6duckdb29DeserializedStatementVerifier6CreateERKNS_12SQLStatementE(ptr sret(%"class.duckdb::unique_ptr.57") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %statement_p)
+  tail call void @_ZN6duckdb29DeserializedStatementVerifier6CreateERKNS_12SQLStatementE(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.57") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %statement_p)
   br label %return
 
 sw.bb2:                                           ; preds = %entry
-  tail call void @_ZN6duckdb23ParsedStatementVerifier6CreateERKNS_12SQLStatementE(ptr sret(%"class.duckdb::unique_ptr.57") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %statement_p)
+  tail call void @_ZN6duckdb23ParsedStatementVerifier6CreateERKNS_12SQLStatementE(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.57") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %statement_p)
   br label %return
 
 sw.bb3:                                           ; preds = %entry
-  tail call void @_ZN6duckdb28UnoptimizedStatementVerifier6CreateERKNS_12SQLStatementE(ptr sret(%"class.duckdb::unique_ptr.57") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %statement_p)
+  tail call void @_ZN6duckdb28UnoptimizedStatementVerifier6CreateERKNS_12SQLStatementE(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.57") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %statement_p)
   br label %return
 
 sw.bb4:                                           ; preds = %entry
-  tail call void @_ZN6duckdb25NoOperatorCachingVerifier6CreateERKNS_12SQLStatementE(ptr sret(%"class.duckdb::unique_ptr.57") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %statement_p)
+  tail call void @_ZN6duckdb25NoOperatorCachingVerifier6CreateERKNS_12SQLStatementE(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.57") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %statement_p)
   br label %return
 
 sw.bb5:                                           ; preds = %entry
-  tail call void @_ZN6duckdb25PreparedStatementVerifier6CreateERKNS_12SQLStatementE(ptr sret(%"class.duckdb::unique_ptr.57") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %statement_p)
+  tail call void @_ZN6duckdb25PreparedStatementVerifier6CreateERKNS_12SQLStatementE(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.57") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %statement_p)
   br label %return
 
 sw.bb6:                                           ; preds = %entry
-  tail call void @_ZN6duckdb25ExternalStatementVerifier6CreateERKNS_12SQLStatementE(ptr sret(%"class.duckdb::unique_ptr.57") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %statement_p)
+  tail call void @_ZN6duckdb25ExternalStatementVerifier6CreateERKNS_12SQLStatementE(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.57") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %statement_p)
   br label %return
 
 sw.default:                                       ; preds = %entry
@@ -636,19 +636,19 @@ unreachable:                                      ; preds = %invoke.cont10
   unreachable
 }
 
-declare void @_ZN6duckdb23CopiedStatementVerifier6CreateERKNS_12SQLStatementE(ptr sret(%"class.duckdb::unique_ptr.57") align 8, ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #4
+declare void @_ZN6duckdb23CopiedStatementVerifier6CreateERKNS_12SQLStatementE(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.57") align 8, ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #4
 
-declare void @_ZN6duckdb29DeserializedStatementVerifier6CreateERKNS_12SQLStatementE(ptr sret(%"class.duckdb::unique_ptr.57") align 8, ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #4
+declare void @_ZN6duckdb29DeserializedStatementVerifier6CreateERKNS_12SQLStatementE(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.57") align 8, ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #4
 
-declare void @_ZN6duckdb23ParsedStatementVerifier6CreateERKNS_12SQLStatementE(ptr sret(%"class.duckdb::unique_ptr.57") align 8, ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #4
+declare void @_ZN6duckdb23ParsedStatementVerifier6CreateERKNS_12SQLStatementE(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.57") align 8, ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #4
 
-declare void @_ZN6duckdb28UnoptimizedStatementVerifier6CreateERKNS_12SQLStatementE(ptr sret(%"class.duckdb::unique_ptr.57") align 8, ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #4
+declare void @_ZN6duckdb28UnoptimizedStatementVerifier6CreateERKNS_12SQLStatementE(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.57") align 8, ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #4
 
-declare void @_ZN6duckdb25NoOperatorCachingVerifier6CreateERKNS_12SQLStatementE(ptr sret(%"class.duckdb::unique_ptr.57") align 8, ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #4
+declare void @_ZN6duckdb25NoOperatorCachingVerifier6CreateERKNS_12SQLStatementE(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.57") align 8, ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #4
 
-declare void @_ZN6duckdb25PreparedStatementVerifier6CreateERKNS_12SQLStatementE(ptr sret(%"class.duckdb::unique_ptr.57") align 8, ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #4
+declare void @_ZN6duckdb25PreparedStatementVerifier6CreateERKNS_12SQLStatementE(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.57") align 8, ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #4
 
-declare void @_ZN6duckdb25ExternalStatementVerifier6CreateERKNS_12SQLStatementE(ptr sret(%"class.duckdb::unique_ptr.57") align 8, ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #4
+declare void @_ZN6duckdb25ExternalStatementVerifier6CreateERKNS_12SQLStatementE(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.57") align 8, ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #4
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
@@ -657,7 +657,7 @@ declare void @_ZN6duckdb17InternalExceptionC1ERKNSt7__cxx1112basic_stringIcSt11c
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !3
   %raw_message_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %raw_message_, align 8, !tbaa !29
   %1 = getelementptr inbounds i8, ptr %this, i64 64
@@ -772,7 +772,7 @@ if.then.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %entry
   %_M_invoker.i = getelementptr inbounds i8, ptr %run, i64 24
   %5 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !105, !noalias !102
-  invoke void %5(ptr nonnull sret(%"class.duckdb::unique_ptr.141") align 8 %result, ptr noundef nonnull align 8 dereferenceable(16) %run, ptr noundef nonnull align 8 dereferenceable(32) %query, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp)
+  invoke void %5(ptr dead_on_unwind nonnull writable sret(%"class.duckdb::unique_ptr.141") align 8 %result, ptr noundef nonnull align 8 dereferenceable(16) %run, ptr noundef nonnull align 8 dereferenceable(32) %query, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end.i
@@ -879,7 +879,7 @@ catch39:                                          ; preds = %ehcleanup23
           to label %invoke.cont45 unwind label %lpad44
 
 invoke.cont45:                                    ; preds = %catch39
-  invoke void @_ZN6duckdb9make_uniqINS_23MaterializedQueryResultEJNS_14PreservedErrorEEEENS_11__unique_ifIT_Lb1EE15__unique_singleEDpOT0_(ptr nonnull sret(%"class.duckdb::unique_ptr.11") align 8 %ref.tmp42, ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp43)
+  invoke void @_ZN6duckdb9make_uniqINS_23MaterializedQueryResultEJNS_14PreservedErrorEEEENS_11__unique_ifIT_Lb1EE15__unique_singleEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.duckdb::unique_ptr.11") align 8 %ref.tmp42, ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp43)
           to label %invoke.cont47 unwind label %lpad46
 
 invoke.cont47:                                    ; preds = %invoke.cont45
@@ -933,7 +933,7 @@ catch:                                            ; preds = %catch.fallthrough
           to label %invoke.cont28 unwind label %lpad27
 
 invoke.cont28:                                    ; preds = %catch
-  invoke void @_ZN6duckdb9make_uniqINS_23MaterializedQueryResultEJNS_14PreservedErrorEEEENS_11__unique_ifIT_Lb1EE15__unique_singleEDpOT0_(ptr nonnull sret(%"class.duckdb::unique_ptr.11") align 8 %ref.tmp25, ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp26)
+  invoke void @_ZN6duckdb9make_uniqINS_23MaterializedQueryResultEJNS_14PreservedErrorEEEENS_11__unique_ifIT_Lb1EE15__unique_singleEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.duckdb::unique_ptr.11") align 8 %ref.tmp25, ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp26)
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %invoke.cont28
@@ -1096,7 +1096,7 @@ declare i32 @llvm.eh.typeid.for(ptr) #7
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr void @_ZN6duckdb9make_uniqINS_23MaterializedQueryResultEJNS_14PreservedErrorEEEENS_11__unique_ifIT_Lb1EE15__unique_singleEDpOT0_(ptr noalias sret(%"class.duckdb::unique_ptr.11") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %__args) local_unnamed_addr #8 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6duckdb9make_uniqINS_23MaterializedQueryResultEJNS_14PreservedErrorEEEENS_11__unique_ifIT_Lb1EE15__unique_singleEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.11") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %__args) local_unnamed_addr #8 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.duckdb::PreservedError", align 8
   %call = tail call noalias noundef nonnull dereferenceable(432) ptr @_Znwm(i64 noundef 432) #21
@@ -1479,7 +1479,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 declare void @_ZN6duckdb14PreservedErrorC1ERKNS_9ExceptionE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(80)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb17StatementVerifier14CompareResultsB5cxx11ERKS0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %other) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb17StatementVerifier14CompareResultsB5cxx11ERKS0_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %other) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i363 = alloca i64, align 8
   %__dnew.i.i.i298 = alloca i64, align 8
@@ -1614,7 +1614,7 @@ invoke.cont14:                                    ; preds = %invoke.cont10
   %vtable = load ptr, ptr %call15, align 8, !tbaa !3
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %15 = load ptr, ptr %vfn, align 8
-  invoke void %15(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(425) %call15)
+  invoke void %15(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(425) %call15)
           to label %invoke.cont16 unwind label %lpad13
 
 invoke.cont16:                                    ; preds = %invoke.cont14
@@ -1795,7 +1795,7 @@ invoke.cont32:                                    ; preds = %invoke.cont28
   %vtable34 = load ptr, ptr %call33, align 8, !tbaa !3
   %vfn35 = getelementptr inbounds i8, ptr %vtable34, i64 32
   %43 = load ptr, ptr %vfn35, align 8
-  invoke void %43(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp29, ptr noundef nonnull align 8 dereferenceable(425) %call33)
+  invoke void %43(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp29, ptr noundef nonnull align 8 dereferenceable(425) %call33)
           to label %invoke.cont36 unwind label %lpad31
 
 invoke.cont36:                                    ; preds = %invoke.cont32
@@ -2273,7 +2273,7 @@ invoke.cont81:                                    ; preds = %invoke.cont76
   %vtable83 = load ptr, ptr %call82, align 8, !tbaa !3
   %vfn84 = getelementptr inbounds i8, ptr %vtable83, i64 32
   %112 = load ptr, ptr %vfn84, align 8
-  invoke void %112(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp78, ptr noundef nonnull align 8 dereferenceable(425) %call82)
+  invoke void %112(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp78, ptr noundef nonnull align 8 dereferenceable(425) %call82)
           to label %invoke.cont85 unwind label %lpad80
 
 invoke.cont85:                                    ; preds = %invoke.cont81
@@ -2454,7 +2454,7 @@ invoke.cont103:                                   ; preds = %invoke.cont99
   %vtable105 = load ptr, ptr %call104, align 8, !tbaa !3
   %vfn106 = getelementptr inbounds i8, ptr %vtable105, i64 32
   %140 = load ptr, ptr %vfn106, align 8
-  invoke void %140(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp100, ptr noundef nonnull align 8 dereferenceable(425) %call104)
+  invoke void %140(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp100, ptr noundef nonnull align 8 dereferenceable(425) %call104)
           to label %invoke.cont107 unwind label %lpad102
 
 invoke.cont107:                                   ; preds = %invoke.cont103
@@ -2654,7 +2654,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit465: ; preds = %if
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp96) #17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp95) #17
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp119) #17
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp119, ptr noundef nonnull @.str.6, ptr noundef nonnull align 8 dereferenceable(32) %error)
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp119, ptr noundef nonnull @.str.6, ptr noundef nonnull align 8 dereferenceable(32) %error)
           to label %invoke.cont121 unwind label %lpad120
 
 invoke.cont121:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit465
@@ -2989,7 +2989,7 @@ declare noundef zeroext i1 @_ZN6duckdb20ColumnDataCollection12ResultEqualsERKS0_
 declare noundef nonnull align 8 dereferenceable(97) ptr @_ZN6duckdb23MaterializedQueryResult10CollectionEv(ptr noundef nonnull align 8 dereferenceable(425)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %__lhs, ptr noundef nonnull align 8 dereferenceable(32) %__rhs) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %__lhs, ptr noundef nonnull align 8 dereferenceable(32) %__rhs) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__lhs) #17
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 16

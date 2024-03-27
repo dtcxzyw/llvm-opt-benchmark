@@ -144,15 +144,15 @@ if.then.i.i33:                                    ; preds = %invoke.cont
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i33, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN6duckdb15DependencyEntryE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds inrange(-16, 120) ({ [17 x ptr] }, ptr @_ZTVN6duckdb15DependencyEntryE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !14
   %dependent_name = getelementptr inbounds i8, ptr %this, i64 104
-  invoke void @_ZN6duckdb17DependencyManager10MangleNameERKNS_16CatalogEntryInfoE(ptr nonnull sret(%"struct.duckdb::MangledEntryName") align 8 %dependent_name, ptr noundef nonnull align 8 dereferenceable(72) %info)
+  invoke void @_ZN6duckdb17DependencyManager10MangleNameERKNS_16CatalogEntryInfoE(ptr dead_on_unwind nonnull writable sret(%"struct.duckdb::MangledEntryName") align 8 %dependent_name, ptr noundef nonnull align 8 dereferenceable(72) %info)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %subject_name = getelementptr inbounds i8, ptr %this, i64 136
   %subject = getelementptr inbounds i8, ptr %info, i64 88
-  invoke void @_ZN6duckdb17DependencyManager10MangleNameERKNS_16CatalogEntryInfoE(ptr nonnull sret(%"struct.duckdb::MangledEntryName") align 8 %subject_name, ptr noundef nonnull align 8 dereferenceable(72) %subject)
+  invoke void @_ZN6duckdb17DependencyManager10MangleNameERKNS_16CatalogEntryInfoE(ptr dead_on_unwind nonnull writable sret(%"struct.duckdb::MangledEntryName") align 8 %subject_name, ptr noundef nonnull align 8 dereferenceable(72) %subject)
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %invoke.cont5
@@ -166,7 +166,7 @@ invoke.cont12:                                    ; preds = %invoke.cont8
   %value2.i.i.i = getelementptr inbounds i8, ptr %info, i64 80
   %10 = load i8, ptr %value2.i.i.i, align 8, !tbaa !16
   store i8 %10, ptr %value.i.i.i, align 8, !tbaa !16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN6duckdb24DependencyDependentFlagsE, i64 0, i32 0, i64 2), ptr %flags.i, align 8, !tbaa !14
+  store ptr getelementptr inbounds inrange(-16, 8) ({ [3 x ptr] }, ptr @_ZTVN6duckdb24DependencyDependentFlagsE, i64 0, i32 0, i64 2), ptr %flags.i, align 8, !tbaa !14
   %subject13 = getelementptr inbounds i8, ptr %this, i64 256
   invoke void @_ZN6duckdb16CatalogEntryInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %subject13, ptr noundef nonnull align 8 dereferenceable(72) %subject)
           to label %invoke.cont16 unwind label %lpad15
@@ -177,7 +177,7 @@ invoke.cont16:                                    ; preds = %invoke.cont12
   %value2.i.i.i36 = getelementptr inbounds i8, ptr %info, i64 168
   %11 = load i8, ptr %value2.i.i.i36, align 8, !tbaa !16
   store i8 %11, ptr %value.i.i.i35, align 8, !tbaa !16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN6duckdb22DependencySubjectFlagsE, i64 0, i32 0, i64 2), ptr %flags.i34, align 8, !tbaa !14
+  store ptr getelementptr inbounds inrange(-16, 8) ({ [3 x ptr] }, ptr @_ZTVN6duckdb22DependencySubjectFlagsE, i64 0, i32 0, i64 2), ptr %flags.i34, align 8, !tbaa !14
   %side17 = getelementptr inbounds i8, ptr %this, i64 344
   store i8 %side, ptr %side17, align 8, !tbaa !18
   %call = invoke noundef zeroext i1 @_ZNK6duckdb7Catalog18IsTemporaryCatalogEv(ptr noundef nonnull align 8 dereferenceable(16) %catalog)
@@ -292,7 +292,7 @@ declare void @_ZN6duckdb14InCatalogEntryC2ENS_11CatalogTypeERNS_7CatalogENSt7__c
 
 declare i32 @__gxx_personality_v0(...)
 
-declare void @_ZN6duckdb17DependencyManager10MangleNameERKNS_16CatalogEntryInfoE(ptr sret(%"struct.duckdb::MangledEntryName") align 8, ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #1
+declare void @_ZN6duckdb17DependencyManager10MangleNameERKNS_16CatalogEntryInfoE(ptr dead_on_unwind writable sret(%"struct.duckdb::MangledEntryName") align 8, ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #1
 
 declare noundef zeroext i1 @_ZNK6duckdb7Catalog18IsTemporaryCatalogEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
@@ -414,7 +414,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6duckdb15DependencyEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(345) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN6duckdb15DependencyEntryE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds inrange(-16, 120) ({ [17 x ptr] }, ptr @_ZTVN6duckdb15DependencyEntryE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !14
   %name.i.i = getelementptr inbounds i8, ptr %this, i64 296
   %0 = load ptr, ptr %name.i.i, align 8, !tbaa !8
   %1 = getelementptr inbounds i8, ptr %this, i64 312
@@ -553,10 +553,10 @@ entry:
   %ref.tmp4 = alloca %"struct.duckdb::MangledEntryName", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp2) #15
-  call void @_ZN6duckdb17DependencyManager10MangleNameERKNS_16CatalogEntryInfoE(ptr nonnull sret(%"struct.duckdb::MangledEntryName") align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(72) %info)
+  call void @_ZN6duckdb17DependencyManager10MangleNameERKNS_16CatalogEntryInfoE(ptr dead_on_unwind nonnull writable sret(%"struct.duckdb::MangledEntryName") align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(72) %info)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp4) #15
   %subject = getelementptr inbounds i8, ptr %info, i64 88
-  invoke void @_ZN6duckdb17DependencyManager10MangleNameERKNS_16CatalogEntryInfoE(ptr nonnull sret(%"struct.duckdb::MangledEntryName") align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(72) %subject)
+  invoke void @_ZN6duckdb17DependencyManager10MangleNameERKNS_16CatalogEntryInfoE(ptr dead_on_unwind nonnull writable sret(%"struct.duckdb::MangledEntryName") align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(72) %subject)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -622,7 +622,7 @@ if.then.i.i.i25:                                  ; preds = %_ZN6duckdb16Mangled
 _ZN6duckdb16MangledEntryNameD2Ev.exit29:          ; preds = %if.then.i.i.i25, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2) #15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #15
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN6duckdb22DependencySubjectEntryE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds inrange(-16, 120) ({ [17 x ptr] }, ptr @_ZTVN6duckdb22DependencySubjectEntryE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !14
   ret void
 
 lpad:                                             ; preds = %entry
@@ -753,9 +753,9 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp2) #15
   %subject = getelementptr inbounds i8, ptr %info, i64 88
-  call void @_ZN6duckdb17DependencyManager10MangleNameERKNS_16CatalogEntryInfoE(ptr nonnull sret(%"struct.duckdb::MangledEntryName") align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(72) %subject)
+  call void @_ZN6duckdb17DependencyManager10MangleNameERKNS_16CatalogEntryInfoE(ptr dead_on_unwind nonnull writable sret(%"struct.duckdb::MangledEntryName") align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(72) %subject)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp4) #15
-  invoke void @_ZN6duckdb17DependencyManager10MangleNameERKNS_16CatalogEntryInfoE(ptr nonnull sret(%"struct.duckdb::MangledEntryName") align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(72) %info)
+  invoke void @_ZN6duckdb17DependencyManager10MangleNameERKNS_16CatalogEntryInfoE(ptr dead_on_unwind nonnull writable sret(%"struct.duckdb::MangledEntryName") align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(72) %info)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -821,7 +821,7 @@ if.then.i.i.i25:                                  ; preds = %_ZN6duckdb16Mangled
 _ZN6duckdb16MangledEntryNameD2Ev.exit29:          ; preds = %if.then.i.i.i25, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2) #15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #15
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN6duckdb24DependencyDependentEntryE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds inrange(-16, 120) ({ [17 x ptr] }, ptr @_ZTVN6duckdb24DependencyDependentEntryE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !14
   ret void
 
 lpad:                                             ; preds = %entry
@@ -932,17 +932,17 @@ entry:
   ret void
 }
 
-declare void @_ZN6duckdb12CatalogEntry10AlterEntryERNS_13ClientContextERNS_9AlterInfoE(ptr sret(%"class.duckdb::unique_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 1, ptr noundef nonnull align 8 dereferenceable(113)) unnamed_addr #1
+declare void @_ZN6duckdb12CatalogEntry10AlterEntryERNS_13ClientContextERNS_9AlterInfoE(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 1, ptr noundef nonnull align 8 dereferenceable(113)) unnamed_addr #1
 
 declare void @_ZN6duckdb12CatalogEntry9UndoAlterERNS_13ClientContextERNS_9AlterInfoE(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 1, ptr noundef nonnull align 8 dereferenceable(113)) unnamed_addr #1
 
-declare void @_ZNK6duckdb12CatalogEntry4CopyERNS_13ClientContextE(ptr sret(%"class.duckdb::unique_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 1) unnamed_addr #1
+declare void @_ZNK6duckdb12CatalogEntry4CopyERNS_13ClientContextE(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 1) unnamed_addr #1
 
 declare void @_ZNK6duckdb12CatalogEntry7GetInfoEv() unnamed_addr
 
 declare void @_ZN6duckdb12CatalogEntry9SetAsRootEv(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
 
-declare void @_ZNK6duckdb12CatalogEntry5ToSQLB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
+declare void @_ZNK6duckdb12CatalogEntry5ToSQLB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb14InCatalogEntry13ParentCatalogEv(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #5 comdat align 2 {
@@ -1078,7 +1078,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNK6duckdb24DependencyDependentFlags8ToStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(9) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNK6duckdb24DependencyDependentFlags8ToStringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(9) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %0, ptr %agg.result, align 8, !tbaa !3
@@ -1157,7 +1157,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNK6duckdb22DependencySubjectFlags8ToStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(9) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNK6duckdb22DependencySubjectFlags8ToStringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(9) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %0, ptr %agg.result, align 8, !tbaa !3

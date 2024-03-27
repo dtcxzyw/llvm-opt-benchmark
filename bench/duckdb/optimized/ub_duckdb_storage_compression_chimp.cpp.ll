@@ -48,11 +48,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.duckdb::Chimp128DecompressionState" = type <{ %"struct.duckdb::BitReader", i8, i8, [2 x i8], i32, %"class.duckdb::RingBuffer", i8, [7 x i8] }>
 %"struct.duckdb::BitReader" = type <{ ptr, i32, [4 x i8] }>
 %"class.duckdb::RingBuffer" = type { [128 x i64], i64, [8192 x i64] }
-%"struct.duckdb::Chimp128CompressionState" = type <{ %"class.duckdb::OutputBitStream", %"class.duckdb::LeadingZeroBuffer", %"class.duckdb::FlagBuffer", %"struct.duckdb::PackedDataBuffer", %"class.duckdb::RingBuffer", i8, [3 x i8], i32, i8, [7 x i8] }>
-%"class.duckdb::OutputBitStream" = type { ptr, i8, i8, i64, i64 }
-%"class.duckdb::LeadingZeroBuffer" = type { i32, i32, ptr }
-%"class.duckdb::FlagBuffer" = type { i32, ptr }
-%"struct.duckdb::PackedDataBuffer" = type { i64, ptr }
 %"class.duckdb::unique_ptr.58" = type { %"class.std::unique_ptr.59" }
 %"class.std::unique_ptr.59" = type { %"struct.std::__uniq_ptr_data.60" }
 %"struct.std::__uniq_ptr_data.60" = type { %"class.std::__uniq_ptr_impl.61" }
@@ -60,11 +55,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.62" = type { %"struct.std::_Tuple_impl.63" }
 %"struct.std::_Tuple_impl.63" = type { %"struct.std::_Head_base.66" }
 %"struct.std::_Head_base.66" = type { ptr }
-%"struct.duckdb::Chimp128CompressionState.71" = type <{ %"class.duckdb::OutputBitStream.72", %"class.duckdb::LeadingZeroBuffer.73", %"class.duckdb::FlagBuffer.74", %"struct.duckdb::PackedDataBuffer.75", %"class.duckdb::RingBuffer", i8, [3 x i8], i32, i8, [7 x i8] }>
-%"class.duckdb::OutputBitStream.72" = type { ptr, i8, i8, i64, i64 }
-%"class.duckdb::LeadingZeroBuffer.73" = type { i32, i32, ptr }
-%"class.duckdb::FlagBuffer.74" = type { i32, ptr }
-%"struct.duckdb::PackedDataBuffer.75" = type { i64, ptr }
 %"class.std::vector.170" = type { %"struct.std::_Vector_base.171" }
 %"struct.std::_Vector_base.171" = type { %"struct.std::_Vector_base<duckdb::ExceptionFormatValue, std::allocator<duckdb::ExceptionFormatValue>>::_Vector_impl" }
 %"struct.std::_Vector_base<duckdb::ExceptionFormatValue, std::allocator<duckdb::ExceptionFormatValue>>::_Vector_impl" = type { %"struct.std::_Vector_base<duckdb::ExceptionFormatValue, std::allocator<duckdb::ExceptionFormatValue>>::_Vector_impl_data" }
@@ -74,8 +64,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.duckdb::ChimpGroupState.207" = type { i32, i32, [1025 x i8], [1025 x i8], [1024 x %"struct.duckdb::UnpackedData"], [1024 x i64], i64, i64, i64, i64, %"struct.duckdb::Chimp128DecompressionState.208" }
 %"struct.duckdb::Chimp128DecompressionState.208" = type <{ %"struct.duckdb::BitReader", i8, i8, [6 x i8], i64, %"class.duckdb::RingBuffer.187", i8, [7 x i8] }>
 %"class.duckdb::RingBuffer.187" = type { [128 x i64], i64, [16384 x i64] }
-%"struct.duckdb::Chimp128CompressionState.186" = type <{ %"class.duckdb::OutputBitStream", %"class.duckdb::LeadingZeroBuffer", %"class.duckdb::FlagBuffer", %"struct.duckdb::PackedDataBuffer", %"class.duckdb::RingBuffer.187", i8, [7 x i8], i64, i8, [7 x i8] }>
-%"struct.duckdb::Chimp128CompressionState.202" = type <{ %"class.duckdb::OutputBitStream.72", %"class.duckdb::LeadingZeroBuffer.73", %"class.duckdb::FlagBuffer.74", %"struct.duckdb::PackedDataBuffer.75", %"class.duckdb::RingBuffer.187", i8, [7 x i8], i64, i8, [7 x i8] }>
 
 $_ZN6duckdb9ExceptionD2Ev = comdat any
 
@@ -327,7 +315,7 @@ $_ZTIN6duckdb14ChimpScanStateIdEE = comdat any
 @_ZTIN6duckdb14ChimpScanStateIdEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6duckdb14ChimpScanStateIdEE, ptr @_ZTIN6duckdb16SegmentScanStateE }, comdat, align 8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb19ChimpCompressionFun11GetFunctionENS_12PhysicalTypeE(ptr noalias nocapture writeonly sret(%"class.duckdb::CompressionFunction") align 8 %agg.result, i8 noundef zeroext %type) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb19ChimpCompressionFun11GetFunctionENS_12PhysicalTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::CompressionFunction") align 8 %agg.result, i8 noundef zeroext %type) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
@@ -454,7 +442,7 @@ declare void @_ZN6duckdb17InternalExceptionC1ERKNSt7__cxx1112basic_stringIcSt11c
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !27
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !27
   %raw_message_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %raw_message_, align 8, !tbaa !3
   %1 = getelementptr inbounds i8, ptr %this, i64 64
@@ -520,10 +508,10 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6duckdb16ChimpInitAnalyzeIfEENS_10unique_ptrINS_12AnalyzeStateESt14default_deleteIS2_ELb1EEERNS_10ColumnDataENS_12PhysicalTypeE(ptr noalias sret(%"class.duckdb::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(224) %col_data, i8 noundef zeroext %type) #0 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6duckdb16ChimpInitAnalyzeIfEENS_10unique_ptrINS_12AnalyzeStateESt14default_deleteIS2_ELb1EEERNS_10ColumnDataENS_12PhysicalTypeE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(224) %col_data, i8 noundef zeroext %type) #0 comdat personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN6duckdb17ChimpAnalyzeStateIfEESt14default_deleteIS2_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(66696) ptr @_Znwm(i64 noundef 66696) #19, !noalias !29
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb17ChimpAnalyzeStateIfEE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !tbaa !27, !noalias !29
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN6duckdb17ChimpAnalyzeStateIfEE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !tbaa !27, !noalias !29
   %state.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %current.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %free_bits.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 17
@@ -821,7 +809,7 @@ _ZN6duckdb17ChimpAnalyzeStateIfE15StartNewSegmentEv.exit: ; preds = %if.end.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6duckdb20ChimpInitCompressionIfEENS_10unique_ptrINS_16CompressionStateESt14default_deleteIS2_ELb1EEERNS_22ColumnDataCheckpointerENS1_INS_12AnalyzeStateES3_IS8_ELb1EEE(ptr noalias sret(%"class.duckdb::unique_ptr.2") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(192) %checkpointer, ptr noundef %state) #0 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6duckdb20ChimpInitCompressionIfEENS_10unique_ptrINS_16CompressionStateESt14default_deleteIS2_ELb1EEERNS_22ColumnDataCheckpointerENS1_INS_12AnalyzeStateES3_IS8_ELb1EEE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.2") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(192) %checkpointer, ptr noundef %state) #0 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %state, align 8, !tbaa !86
   %call.i = tail call noalias noundef nonnull dereferenceable(69456) ptr @_Znwm(i64 noundef 69456) #19, !noalias !87
@@ -1041,7 +1029,7 @@ _ZN6duckdb21ChimpCompressionStateIfE8FinalizeEv.exit: ; preds = %_ZNKSt14default
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6duckdb13ChimpInitScanIfEENS_10unique_ptrINS_16SegmentScanStateESt14default_deleteIS2_ELb1EEERNS_13ColumnSegmentE(ptr noalias sret(%"class.duckdb::unique_ptr.11") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(224) %segment) #0 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6duckdb13ChimpInitScanIfEENS_10unique_ptrINS_16SegmentScanStateESt14default_deleteIS2_ELb1EEERNS_13ColumnSegmentE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.11") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(224) %segment) #0 comdat personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !93)
   %call.i = tail call noalias noundef nonnull dereferenceable(75928) ptr @_Znwm(i64 noundef 75928) #19, !noalias !93
@@ -1300,7 +1288,7 @@ if.end:                                           ; preds = %if.then, %invoke.co
   %12 = load i64, ptr %total_value_count.i.phi.trans.insert, align 8, !tbaa !105
   %inc = add i64 %12, 1
   store i64 %inc, ptr %total_value_count.i.phi.trans.insert, align 8, !tbaa !105
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb14ChimpScanStateIfEE, i64 0, i32 0, i64 2), ptr %scan_state, align 8, !tbaa !27
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN6duckdb14ChimpScanStateIfEE, i64 0, i32 0, i64 2), ptr %scan_state, align 8, !tbaa !27
   %handle.i = getelementptr inbounds i8, ptr %scan_state, i64 8
   call void @_ZN6duckdb12BufferHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle.i) #16
   call void @llvm.lifetime.end.p0(i64 75928, ptr nonnull %scan_state) #16
@@ -1308,7 +1296,7 @@ if.end:                                           ; preds = %if.then, %invoke.co
 
 ehcleanup:                                        ; preds = %lpad1, %lpad
   %.pn = phi { ptr, i32 } [ %8, %lpad1 ], [ %7, %lpad ]
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb14ChimpScanStateIfEE, i64 0, i32 0, i64 2), ptr %scan_state, align 8, !tbaa !27
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN6duckdb14ChimpScanStateIfEE, i64 0, i32 0, i64 2), ptr %scan_state, align 8, !tbaa !27
   %handle.i12 = getelementptr inbounds i8, ptr %scan_state, i64 8
   call void @_ZN6duckdb12BufferHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle.i12) #16
   call void @llvm.lifetime.end.p0(i64 75928, ptr nonnull %scan_state) #16
@@ -1511,7 +1499,7 @@ if.end3.thread:                                   ; preds = %if.end.i.i.i, %if.t
   store i8 8, ptr %free_bits.i.i.i, align 1, !tbaa !44
   %current.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %current.i.i, align 8, !tbaa !45
-  %first.i56 = getelementptr inbounds i8, ptr %this, i64 66664
+  %first.i55 = getelementptr inbounds i8, ptr %this, i64 66664
   br label %if.then.i
 
 if.end3:                                          ; preds = %if.end
@@ -1528,21 +1516,21 @@ if.end3.if.then.i_crit_edge:                      ; preds = %if.end3
 
 if.then.i:                                        ; preds = %if.end3.if.then.i_crit_edge, %if.end3.thread
   %13 = phi i64 [ 0, %if.end3.thread ], [ %.pre1, %if.end3.if.then.i_crit_edge ]
-  %first.i59 = phi ptr [ %first.i56, %if.end3.thread ], [ %first.i.phi.trans.insert, %if.end3.if.then.i_crit_edge ]
-  %add.i.i.i1757 = phi i64 [ 32, %if.end3.thread ], [ %12, %if.end3.if.then.i_crit_edge ]
-  %14 = getelementptr inbounds i8, ptr %this, i64 8
+  %first.i57 = phi ptr [ %first.i55, %if.end3.thread ], [ %first.i.phi.trans.insert, %if.end3.if.then.i_crit_edge ]
+  %add.i.i.i1756 = phi i64 [ 32, %if.end3.thread ], [ %12, %if.end3.if.then.i_crit_edge ]
   %ring_buffer.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %conv.i.i14 = zext i32 %value to i64
   %rem.i.i.i = and i64 %13, 127
   %arrayidx.i.i.i = getelementptr inbounds [128 x i64], ptr %ring_buffer.i.i, i64 0, i64 %rem.i.i.i
   store i64 %conv.i.i14, ptr %arrayidx.i.i.i, align 8, !tbaa !69
+  %indices.i.i.i = getelementptr inbounds i8, ptr %this, i64 1120
   %and.i.i.i.i15 = and i64 %conv.i.i14, 8191
-  %arrayidx3.i.i.i = getelementptr inbounds %"struct.duckdb::Chimp128CompressionState", ptr %14, i64 0, i32 4, i32 2, i64 %and.i.i.i.i15
+  %arrayidx3.i.i.i = getelementptr inbounds [8192 x i64], ptr %indices.i.i.i, i64 0, i64 %and.i.i.i.i15
   store i64 %13, ptr %arrayidx3.i.i.i, align 8, !tbaa !69
-  store i64 %add.i.i.i1757, ptr %bits_written.i.i.i, align 8, !tbaa !84
+  store i64 %add.i.i.i1756, ptr %bits_written.i.i.i, align 8, !tbaa !84
   %previous_value.i.i = getelementptr inbounds i8, ptr %this, i64 66660
   store i32 %value, ptr %previous_value.i.i, align 4, !tbaa !42
-  store i8 0, ptr %first.i59, align 8, !tbaa !41
+  store i8 0, ptr %first.i57, align 8, !tbaa !41
   br label %_ZN6duckdb19Chimp128CompressionIjLb1EE5StoreEjRNS_24Chimp128CompressionStateIjLb1EEE.exit
 
 if.else.i:                                        ; preds = %if.end3
@@ -1551,39 +1539,39 @@ if.else.i:                                        ; preds = %if.end3
   br label %_ZN6duckdb19Chimp128CompressionIjLb1EE5StoreEjRNS_24Chimp128CompressionStateIjLb1EEE.exit
 
 _ZN6duckdb19Chimp128CompressionIjLb1EE5StoreEjRNS_24Chimp128CompressionStateIjLb1EEE.exit: ; preds = %if.else.i, %if.then.i
-  %first.i60 = phi ptr [ %first.i59, %if.then.i ], [ %first.i.phi.trans.insert, %if.else.i ]
+  %first.i58 = phi ptr [ %first.i57, %if.then.i ], [ %first.i.phi.trans.insert, %if.else.i ]
   %group_idx = getelementptr inbounds i8, ptr %this, i64 66672
-  %15 = load i64, ptr %group_idx, align 8, !tbaa !80
-  %inc = add i64 %15, 1
+  %14 = load i64, ptr %group_idx, align 8, !tbaa !80
+  %inc = add i64 %14, 1
   store i64 %inc, ptr %group_idx, align 8, !tbaa !80
   %cmp = icmp eq i64 %inc, 1024
   br i1 %cmp, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %_ZN6duckdb19Chimp128CompressionIjLb1EE5StoreEjRNS_24Chimp128CompressionStateIjLb1EEE.exit
-  %16 = load i32, ptr %counter.i.i.i, align 4, !tbaa !73
-  %shr.i.i.i19 = lshr i32 %16, 3
-  %and.i.i.i20 = and i32 %16, 7
+  %15 = load i32, ptr %counter.i.i.i, align 4, !tbaa !73
+  %shr.i.i.i19 = lshr i32 %15, 3
+  %and.i.i.i20 = and i32 %15, 7
   %cmp.i.i.i21 = icmp ne i32 %and.i.i.i20, 0
   %conv.i.i.i22 = zext i1 %cmp.i.i.i21 to i32
   %add.i.i.i23 = add nuw nsw i32 %shr.i.i.i19, %conv.i.i.i22
   %narrow.i.i24 = mul nuw nsw i32 %add.i.i.i23, 3
   %mul.i.i25 = zext nneg i32 %narrow.i.i24 to i64
-  %17 = load i32, ptr %flag_buffer.i.i, align 8, !tbaa !74
-  %shr.i13.i.i27 = lshr i32 %17, 2
-  %and.i14.i.i28 = and i32 %17, 3
+  %16 = load i32, ptr %flag_buffer.i.i, align 8, !tbaa !74
+  %shr.i13.i.i27 = lshr i32 %16, 2
+  %and.i14.i.i28 = and i32 %16, 3
   %cmp.i15.i.i29 = icmp ne i32 %and.i14.i.i28, 0
   %conv.i16.i.i30 = zext i1 %cmp.i15.i.i29 to i32
   %add.i17.i.i31 = add nuw nsw i32 %shr.i13.i.i27, %conv.i16.i.i30
   %conv.i.i32 = zext nneg i32 %add.i17.i.i31 to i64
-  %18 = load i64, ptr %packed_data_buffer.i.i, align 8, !tbaa !75
-  %mul8.i.i34 = shl i64 %18, 1
-  %19 = load i64, ptr %metadata_byte_size.i, align 8, !tbaa !79
-  %add5.i.i36 = add i64 %19, %mul8.i.i34
+  %17 = load i64, ptr %packed_data_buffer.i.i, align 8, !tbaa !75
+  %mul8.i.i34 = shl i64 %17, 1
+  %18 = load i64, ptr %metadata_byte_size.i, align 8, !tbaa !79
+  %add5.i.i36 = add i64 %18, %mul8.i.i34
   %add9.i.i37 = add i64 %add5.i.i36, %conv.i.i32
   %add.i38 = add i64 %add9.i.i37, %mul.i.i25
   store i64 %add.i38, ptr %metadata_byte_size.i, align 8, !tbaa !79
   store i64 0, ptr %group_idx, align 8, !tbaa !80
-  store i8 1, ptr %first.i60, align 8, !tbaa !41
+  store i8 1, ptr %first.i58, align 8, !tbaa !41
   %index.i.i.i39 = getelementptr inbounds i8, ptr %this, i64 1112
   store i64 0, ptr %index.i.i.i39, align 8, !tbaa !81
   %previous_leading_zeros.i.i.i = getelementptr inbounds i8, ptr %this, i64 66656
@@ -1751,7 +1739,8 @@ entry:
   %ring_buffer = getelementptr inbounds i8, ptr %state, i64 80
   %conv = zext i32 %in to i64
   %and.i = and i64 %conv, 8191
-  %arrayidx.i = getelementptr inbounds %"struct.duckdb::Chimp128CompressionState", ptr %state, i64 0, i32 4, i32 2, i64 %and.i
+  %indices.i = getelementptr inbounds i8, ptr %state, i64 1112
+  %arrayidx.i = getelementptr inbounds [8192 x i64], ptr %indices.i, i64 0, i64 %and.i
   %0 = load i64, ptr %arrayidx.i, align 8, !tbaa !69
   %index.i = getelementptr inbounds i8, ptr %state, i64 1104
   %1 = load i64, ptr %index.i, align 8, !tbaa !69
@@ -1764,8 +1753,8 @@ if.then:                                          ; preds = %entry
   %cmp11 = icmp ugt i64 %0, %1
   %2 = and i64 %0, 127
   %idxprom.i = select i1 %cmp11, i64 0, i64 %2
-  %arrayidx.i147 = getelementptr inbounds [128 x i64], ptr %ring_buffer, i64 0, i64 %idxprom.i
-  %3 = load i64, ptr %arrayidx.i147, align 8, !tbaa !69
+  %arrayidx.i148 = getelementptr inbounds [128 x i64], ptr %ring_buffer, i64 0, i64 %idxprom.i
+  %3 = load i64, ptr %arrayidx.i148, align 8, !tbaa !69
   %4 = trunc i64 %3 to i32
   %conv18 = xor i32 %4, %in
   %5 = tail call noundef i32 @llvm.cttz.i32(i32 %conv18, i1 false), !range !118
@@ -1782,8 +1771,8 @@ if.end44:                                         ; preds = %if.then, %entry
   br i1 %cmp45, label %if.then46, label %if.else69
 
 if.end44.thread:                                  ; preds = %if.then
-  %cmp45179 = icmp eq i32 %conv18, 0
-  br i1 %cmp45179, label %if.then46, label %if.then52
+  %cmp45181 = icmp eq i32 %conv18, 0
+  br i1 %cmp45181, label %if.then46, label %if.then52
 
 if.then46:                                        ; preds = %if.end44.thread, %if.end44
   %flag_buffer = getelementptr inbounds i8, ptr %state, i64 48
@@ -1800,27 +1789,27 @@ if.then46:                                        ; preds = %if.end44.thread, %i
 
 if.then52:                                        ; preds = %if.end44.thread
   %8 = tail call noundef i32 @llvm.ctlz.i32(i32 %conv18, i1 true), !range !118
-  %idxprom186 = zext nneg i32 %8 to i64
-  %arrayidx187 = getelementptr inbounds [64 x i8], ptr @_ZN6duckdb14ChimpConstants11Compression13LEADING_ROUNDE, i64 0, i64 %idxprom186
-  %9 = load i8, ptr %arrayidx187, align 1, !tbaa !63
+  %idxprom188 = zext nneg i32 %8 to i64
+  %arrayidx189 = getelementptr inbounds [64 x i8], ptr @_ZN6duckdb14ChimpConstants11Compression13LEADING_ROUNDE, i64 0, i64 %idxprom188
+  %9 = load i8, ptr %arrayidx189, align 1, !tbaa !63
   %flag_buffer53 = getelementptr inbounds i8, ptr %state, i64 48
   %10 = load i32, ptr %flag_buffer53, align 8, !tbaa !74
-  %inc.i154 = add i32 %10, 1
-  store i32 %inc.i154, ptr %flag_buffer53, align 8, !tbaa !74
+  %inc.i155 = add i32 %10, 1
+  store i32 %inc.i155, ptr %flag_buffer53, align 8, !tbaa !74
   %11 = trunc i32 %5 to i8
   %12 = add i8 %9, %11
   %conv60 = sub i8 32, %12
   %packed_data_buffer = getelementptr inbounds i8, ptr %state, i64 64
   %13 = load i64, ptr %packed_data_buffer, align 8, !tbaa !83
-  %inc.i155 = add i64 %13, 1
-  store i64 %inc.i155, ptr %packed_data_buffer, align 8, !tbaa !83
-  %conv.i156 = zext i8 %conv60 to i64
-  %bits_written.i157 = getelementptr inbounds i8, ptr %state, i64 24
-  %14 = load i64, ptr %bits_written.i157, align 8, !tbaa !84
-  %add.i158 = add i64 %14, %conv.i156
-  store i64 %add.i158, ptr %bits_written.i157, align 8, !tbaa !84
-  %previous_leading_zeros.i159 = getelementptr inbounds i8, ptr %state, i64 66648
-  store i8 -1, ptr %previous_leading_zeros.i159, align 8, !tbaa !32
+  %inc.i156 = add i64 %13, 1
+  store i64 %inc.i156, ptr %packed_data_buffer, align 8, !tbaa !83
+  %conv.i157 = zext i8 %conv60 to i64
+  %bits_written.i158 = getelementptr inbounds i8, ptr %state, i64 24
+  %14 = load i64, ptr %bits_written.i158, align 8, !tbaa !84
+  %add.i159 = add i64 %14, %conv.i157
+  store i64 %add.i159, ptr %bits_written.i158, align 8, !tbaa !84
+  %previous_leading_zeros.i160 = getelementptr inbounds i8, ptr %state, i64 66648
+  store i8 -1, ptr %previous_leading_zeros.i160, align 8, !tbaa !32
   br label %if.end94
 
 if.else69:                                        ; preds = %if.end44
@@ -1833,41 +1822,41 @@ if.else69:                                        ; preds = %if.end44
   %cmp72 = icmp eq i8 %16, %17
   %flag_buffer74 = getelementptr inbounds i8, ptr %state, i64 48
   %18 = load i32, ptr %flag_buffer74, align 8, !tbaa !74
-  %inc.i160 = add i32 %18, 1
-  store i32 %inc.i160, ptr %flag_buffer74, align 8, !tbaa !74
+  %inc.i161 = add i32 %18, 1
+  store i32 %inc.i161, ptr %flag_buffer74, align 8, !tbaa !74
   %sub77 = sub i8 32, %16
   br i1 %cmp72, label %if.then73, label %if.else81
 
 if.then73:                                        ; preds = %if.else69
-  %conv.i161 = zext i8 %sub77 to i64
-  %bits_written.i162 = getelementptr inbounds i8, ptr %state, i64 24
-  %19 = load i64, ptr %bits_written.i162, align 8, !tbaa !84
-  %add.i163 = add i64 %19, %conv.i161
-  store i64 %add.i163, ptr %bits_written.i162, align 8, !tbaa !84
+  %conv.i162 = zext i8 %sub77 to i64
+  %bits_written.i163 = getelementptr inbounds i8, ptr %state, i64 24
+  %19 = load i64, ptr %bits_written.i163, align 8, !tbaa !84
+  %add.i164 = add i64 %19, %conv.i162
+  store i64 %add.i164, ptr %bits_written.i163, align 8, !tbaa !84
   br label %if.end94
 
 if.else81:                                        ; preds = %if.else69
   %counter.i = getelementptr inbounds i8, ptr %state, i64 36
   %20 = load i32, ptr %counter.i, align 4, !tbaa !73
-  %inc.i165 = add i32 %20, 1
-  store i32 %inc.i165, ptr %counter.i, align 4, !tbaa !73
-  %conv.i166 = zext i8 %sub77 to i64
-  %bits_written.i167 = getelementptr inbounds i8, ptr %state, i64 24
-  %21 = load i64, ptr %bits_written.i167, align 8, !tbaa !84
-  %add.i168 = add i64 %21, %conv.i166
-  store i64 %add.i168, ptr %bits_written.i167, align 8, !tbaa !84
+  %inc.i166 = add i32 %20, 1
+  store i32 %inc.i166, ptr %counter.i, align 4, !tbaa !73
+  %conv.i167 = zext i8 %sub77 to i64
+  %bits_written.i168 = getelementptr inbounds i8, ptr %state, i64 24
+  %21 = load i64, ptr %bits_written.i168, align 8, !tbaa !84
+  %add.i169 = add i64 %21, %conv.i167
+  store i64 %add.i169, ptr %bits_written.i168, align 8, !tbaa !84
   store i8 %16, ptr %previous_leading_zeros, align 8, !tbaa !32
   br label %if.end94
 
 if.end94:                                         ; preds = %if.else81, %if.then73, %if.then52, %if.then46
   %previous_value = getelementptr inbounds i8, ptr %state, i64 66652
   store i32 %in, ptr %previous_value, align 4, !tbaa !42
-  %inc.i171 = add i64 %1, 1
-  store i64 %inc.i171, ptr %index.i, align 8, !tbaa !81
-  %rem.i = and i64 %inc.i171, 127
-  %arrayidx.i172 = getelementptr inbounds [128 x i64], ptr %ring_buffer, i64 0, i64 %rem.i
-  store i64 %conv, ptr %arrayidx.i172, align 8, !tbaa !69
-  store i64 %inc.i171, ptr %arrayidx.i, align 8, !tbaa !69
+  %inc.i172 = add i64 %1, 1
+  store i64 %inc.i172, ptr %index.i, align 8, !tbaa !81
+  %rem.i = and i64 %inc.i172, 127
+  %arrayidx.i173 = getelementptr inbounds [128 x i64], ptr %ring_buffer, i64 0, i64 %rem.i
+  store i64 %conv, ptr %arrayidx.i173, align 8, !tbaa !69
+  store i64 %inc.i172, ptr %arrayidx.i, align 8, !tbaa !69
   ret void
 }
 
@@ -1880,7 +1869,7 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #10
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb21ChimpCompressionStateIfEC2ERNS_22ColumnDataCheckpointerEPNS_17ChimpAnalyzeStateIfEE(ptr noundef nonnull align 8 dereferenceable(69456) %this, ptr noundef nonnull align 8 dereferenceable(192) %checkpointer, ptr noundef %analyze_state) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb21ChimpCompressionStateIfEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !27
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN6duckdb21ChimpCompressionStateIfEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !27
   %checkpointer2 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %checkpointer, ptr %checkpointer2, align 8, !tbaa !86
   %call = tail call noundef nonnull align 8 dereferenceable(160) ptr @_ZN6duckdb22ColumnDataCheckpointer22GetCompressionFunctionENS_15CompressionTypeE(ptr noundef nonnull align 8 dereferenceable(192) %checkpointer, i8 noundef zeroext 8)
@@ -1972,7 +1961,7 @@ entry:
   %1 = load ptr, ptr %checkpointer, align 8, !tbaa !154
   %call3 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6duckdb22ColumnDataCheckpointer7GetTypeEv(ptr noundef nonnull align 8 dereferenceable(192) %1)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %compressed_segment) #16
-  call void @_ZN6duckdb13ColumnSegment22CreateTransientSegmentERNS_16DatabaseInstanceERKNS_11LogicalTypeEmm(ptr nonnull sret(%"class.duckdb::unique_ptr.58") align 8 %compressed_segment, ptr noundef nonnull align 1 %call, ptr noundef nonnull align 8 dereferenceable(24) %call3, i64 noundef %row_start, i64 noundef 262136)
+  call void @_ZN6duckdb13ColumnSegment22CreateTransientSegmentERNS_16DatabaseInstanceERKNS_11LogicalTypeEmm(ptr dead_on_unwind nonnull writable sret(%"class.duckdb::unique_ptr.58") align 8 %compressed_segment, ptr noundef nonnull align 1 %call, ptr noundef nonnull align 8 dereferenceable(24) %call3, i64 noundef %row_start, i64 noundef 262136)
   %function = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %function, align 8, !tbaa !155
   %call4 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_13ColumnSegmentESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %compressed_segment)
@@ -2011,7 +2000,7 @@ invoke.cont13:                                    ; preds = %invoke.cont8
   %vtable = load ptr, ptr %call9, align 8, !tbaa !27
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %6 = load ptr, ptr %vfn, align 8
-  invoke void %6(ptr nonnull sret(%"class.duckdb::BufferHandle") align 8 %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(8) %call9, ptr noundef nonnull align 8 dereferenceable(16) %block)
+  invoke void %6(ptr dead_on_unwind nonnull writable sret(%"class.duckdb::BufferHandle") align 8 %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(8) %call9, ptr noundef nonnull align 8 dereferenceable(16) %block)
           to label %invoke.cont15 unwind label %lpad12
 
 invoke.cont15:                                    ; preds = %invoke.cont13
@@ -2132,7 +2121,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb21ChimpCompressionStateIfED2Ev(ptr noundef nonnull align 8 dereferenceable(69456) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb21ChimpCompressionStateIfEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !27
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN6duckdb21ChimpCompressionStateIfEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !27
   %handle = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN6duckdb12BufferHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle) #16
   %current_segment = getelementptr inbounds i8, ptr %this, i64 24
@@ -2153,7 +2142,7 @@ _ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit: ; p
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb21ChimpCompressionStateIfED0Ev(ptr noundef nonnull align 8 dereferenceable(69456) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb21ChimpCompressionStateIfEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !27
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN6duckdb21ChimpCompressionStateIfEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !27
   %handle.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN6duckdb12BufferHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle.i) #16
   %current_segment.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -2178,7 +2167,7 @@ declare noundef nonnull align 1 ptr @_ZN6duckdb22ColumnDataCheckpointer11GetData
 
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6duckdb22ColumnDataCheckpointer7GetTypeEv(ptr noundef nonnull align 8 dereferenceable(192)) local_unnamed_addr #2
 
-declare void @_ZN6duckdb13ColumnSegment22CreateTransientSegmentERNS_16DatabaseInstanceERKNS_11LogicalTypeEmm(ptr sret(%"class.duckdb::unique_ptr.58") align 8, ptr noundef nonnull align 1, ptr noundef nonnull align 8 dereferenceable(24), i64 noundef, i64 noundef) local_unnamed_addr #2
+declare void @_ZN6duckdb13ColumnSegment22CreateTransientSegmentERNS_16DatabaseInstanceERKNS_11LogicalTypeEmm(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.58") align 8, ptr noundef nonnull align 1, ptr noundef nonnull align 8 dereferenceable(24), i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNK6duckdb10unique_ptrINS_13ColumnSegmentESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2375,8 +2364,9 @@ if.then.i:                                        ; preds = %if.end15
   %rem.i.i.i = and i64 %15, 127
   %arrayidx.i.i.i = getelementptr inbounds [128 x i64], ptr %ring_buffer.i.i, i64 0, i64 %rem.i.i.i
   store i64 %conv.i.i, ptr %arrayidx.i.i.i, align 8, !tbaa !69
+  %indices.i.i.i = getelementptr inbounds i8, ptr %this, i64 3904
   %and.i.i.i.i = and i64 %conv.i.i, 8191
-  %arrayidx3.i.i.i = getelementptr inbounds %"struct.duckdb::Chimp128CompressionState.71", ptr %state16, i64 0, i32 4, i32 2, i64 %and.i.i.i.i
+  %arrayidx3.i.i.i = getelementptr inbounds [8192 x i64], ptr %indices.i.i.i, i64 0, i64 %and.i.i.i.i
   store i64 %15, ptr %arrayidx3.i.i.i, align 8, !tbaa !69
   call void @_ZN6duckdb15OutputBitStreamILb0EE10WriteValueIjLh32EEEvT_(ptr noundef nonnull align 8 dereferenceable(32) %state16, i32 noundef %value.addr.0)
   %previous_value.i.i = getelementptr inbounds i8, ptr %this, i64 69444
@@ -2650,7 +2640,8 @@ entry:
   %ring_buffer = getelementptr inbounds i8, ptr %state, i64 80
   %conv = zext i32 %in to i64
   %and.i = and i64 %conv, 8191
-  %arrayidx.i = getelementptr inbounds %"struct.duckdb::Chimp128CompressionState.71", ptr %state, i64 0, i32 4, i32 2, i64 %and.i
+  %indices.i = getelementptr inbounds i8, ptr %state, i64 1112
+  %arrayidx.i = getelementptr inbounds [8192 x i64], ptr %indices.i, i64 0, i64 %and.i
   %0 = load i64, ptr %arrayidx.i, align 8, !tbaa !69
   %index.i = getelementptr inbounds i8, ptr %state, i64 1104
   %1 = load i64, ptr %index.i, align 8, !tbaa !69
@@ -2665,8 +2656,8 @@ if.then:                                          ; preds = %entry
   %3 = and i8 %2, 127
   %conv15 = select i1 %cmp11, i8 0, i8 %3
   %idxprom.i = zext nneg i8 %conv15 to i64
-  %arrayidx.i147 = getelementptr inbounds [128 x i64], ptr %ring_buffer, i64 0, i64 %idxprom.i
-  %4 = load i64, ptr %arrayidx.i147, align 8, !tbaa !69
+  %arrayidx.i148 = getelementptr inbounds [128 x i64], ptr %ring_buffer, i64 0, i64 %idxprom.i
+  %4 = load i64, ptr %arrayidx.i148, align 8, !tbaa !69
   %5 = trunc i64 %4 to i32
   %conv18 = xor i32 %5, %in
   %6 = tail call noundef i32 @llvm.cttz.i32(i32 %conv18, i1 false), !range !118
@@ -2674,8 +2665,8 @@ if.then:                                          ; preds = %entry
   br i1 %cmp20, label %if.end44.thread, label %if.end44
 
 if.end44:                                         ; preds = %if.then, %entry
-  %idxprom.i152.pn = and i64 %1, 127
-  %.pn.in.in = getelementptr inbounds [128 x i64], ptr %ring_buffer, i64 0, i64 %idxprom.i152.pn
+  %idxprom.i153.pn = and i64 %1, 127
+  %.pn.in.in = getelementptr inbounds [128 x i64], ptr %ring_buffer, i64 0, i64 %idxprom.i153.pn
   %.pn.in = load i64, ptr %.pn.in.in, align 8, !tbaa !69
   %.pn = trunc i64 %.pn.in to i32
   %xor_result.1 = xor i32 %.pn, %in
@@ -2685,24 +2676,24 @@ if.end44:                                         ; preds = %if.then, %entry
   br i1 %cmp45, label %if.then46, label %if.else69
 
 if.end44.thread:                                  ; preds = %if.then
-  %cmp45241 = icmp eq i32 %conv18, 0
-  br i1 %cmp45241, label %if.then46, label %if.then52
+  %cmp45243 = icmp eq i32 %conv18, 0
+  br i1 %cmp45243, label %if.then46, label %if.then52
 
 if.then46:                                        ; preds = %if.end44.thread, %if.end44
-  %previous_index.0242 = phi i8 [ %conv15, %if.end44.thread ], [ %previous_index.0, %if.end44 ]
+  %previous_index.0244 = phi i8 [ %conv15, %if.end44.thread ], [ %previous_index.0, %if.end44 ]
   %flag_buffer = getelementptr inbounds i8, ptr %state, i64 48
   %7 = load i32, ptr %flag_buffer, align 8, !tbaa !150
-  %and.i154 = and i32 %7, 3
-  %cmp.i = icmp eq i32 %and.i154, 0
+  %and.i155 = and i32 %7, 3
+  %cmp.i = icmp eq i32 %and.i155, 0
   br i1 %cmp.i, label %if.then.i, label %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit
 
 if.then.i:                                        ; preds = %if.then46
   %buffer.i = getelementptr inbounds i8, ptr %state, i64 56
   %8 = load ptr, ptr %buffer.i, align 8, !tbaa !149
   %shr.i = lshr exact i32 %7, 2
-  %idxprom.i155 = zext nneg i32 %shr.i to i64
-  %arrayidx.i156 = getelementptr inbounds i8, ptr %8, i64 %idxprom.i155
-  store i8 0, ptr %arrayidx.i156, align 1, !tbaa !63
+  %idxprom.i156 = zext nneg i32 %shr.i to i64
+  %arrayidx.i157 = getelementptr inbounds i8, ptr %8, i64 %idxprom.i156
+  store i8 0, ptr %arrayidx.i157, align 1, !tbaa !63
   %.pre = load i32, ptr %flag_buffer, align 8, !tbaa !150
   br label %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit
 
@@ -2710,53 +2701,53 @@ _ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit: ; preds = %
   %9 = phi i32 [ %7, %if.then46 ], [ %.pre, %if.then.i ]
   %inc.i = add i32 %9, 1
   store i32 %inc.i, ptr %flag_buffer, align 8, !tbaa !150
-  tail call void @_ZN6duckdb15OutputBitStreamILb0EE10WriteValueIhLh7EEEvT_(ptr noundef nonnull align 8 dereferenceable(32) %state, i8 noundef zeroext %previous_index.0242)
+  tail call void @_ZN6duckdb15OutputBitStreamILb0EE10WriteValueIhLh7EEEvT_(ptr noundef nonnull align 8 dereferenceable(32) %state, i8 noundef zeroext %previous_index.0244)
   %previous_leading_zeros.i = getelementptr inbounds i8, ptr %state, i64 66648
   store i8 -1, ptr %previous_leading_zeros.i, align 8, !tbaa !138
   br label %if.end94
 
 if.then52:                                        ; preds = %if.end44.thread
   %10 = tail call noundef i32 @llvm.ctlz.i32(i32 %conv18, i1 true), !range !118
-  %idxprom249 = zext nneg i32 %10 to i64
-  %arrayidx250 = getelementptr inbounds [64 x i8], ptr @_ZN6duckdb14ChimpConstants11Compression13LEADING_ROUNDE, i64 0, i64 %idxprom249
-  %11 = load i8, ptr %arrayidx250, align 1, !tbaa !63
+  %idxprom251 = zext nneg i32 %10 to i64
+  %arrayidx252 = getelementptr inbounds [64 x i8], ptr @_ZN6duckdb14ChimpConstants11Compression13LEADING_ROUNDE, i64 0, i64 %idxprom251
+  %11 = load i8, ptr %arrayidx252, align 1, !tbaa !63
   %flag_buffer53 = getelementptr inbounds i8, ptr %state, i64 48
   %12 = load i32, ptr %flag_buffer53, align 8, !tbaa !150
-  %and.i157 = and i32 %12, 3
-  %cmp.i158 = icmp eq i32 %and.i157, 0
-  br i1 %cmp.i158, label %if.then.i168, label %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit175
+  %and.i158 = and i32 %12, 3
+  %cmp.i159 = icmp eq i32 %and.i158, 0
+  br i1 %cmp.i159, label %if.then.i169, label %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit176
 
-if.then.i168:                                     ; preds = %if.then52
-  %buffer.i169 = getelementptr inbounds i8, ptr %state, i64 56
-  %13 = load ptr, ptr %buffer.i169, align 8, !tbaa !149
-  %shr.i170 = lshr exact i32 %12, 2
-  %idxprom.i171 = zext nneg i32 %shr.i170 to i64
-  %arrayidx.i172 = getelementptr inbounds i8, ptr %13, i64 %idxprom.i171
-  store i8 0, ptr %arrayidx.i172, align 1, !tbaa !63
-  %.pre.i173 = load i32, ptr %flag_buffer53, align 8, !tbaa !150
-  %.pre17.i174 = and i32 %.pre.i173, 3
-  br label %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit175
+if.then.i169:                                     ; preds = %if.then52
+  %buffer.i170 = getelementptr inbounds i8, ptr %state, i64 56
+  %13 = load ptr, ptr %buffer.i170, align 8, !tbaa !149
+  %shr.i171 = lshr exact i32 %12, 2
+  %idxprom.i172 = zext nneg i32 %shr.i171 to i64
+  %arrayidx.i173 = getelementptr inbounds i8, ptr %13, i64 %idxprom.i172
+  store i8 0, ptr %arrayidx.i173, align 1, !tbaa !63
+  %.pre.i174 = load i32, ptr %flag_buffer53, align 8, !tbaa !150
+  %.pre17.i175 = and i32 %.pre.i174, 3
+  br label %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit176
 
-_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit175: ; preds = %if.then.i168, %if.then52
-  %and5.pre-phi.i159 = phi i32 [ %.pre17.i174, %if.then.i168 ], [ %and.i157, %if.then52 ]
-  %14 = phi i32 [ %.pre.i173, %if.then.i168 ], [ %12, %if.then52 ]
-  %idxprom6.i160 = zext nneg i32 %and5.pre-phi.i159 to i64
-  %arrayidx7.i161 = getelementptr inbounds [4 x i8], ptr @_ZN6duckdb19FlagBufferConstants6SHIFTSE, i64 0, i64 %idxprom6.i160
-  %15 = load i8, ptr %arrayidx7.i161, align 1, !tbaa !63
-  %conv8.i162 = zext nneg i8 %15 to i32
-  %shl.i = shl nuw i32 1, %conv8.i162
-  %buffer9.i163 = getelementptr inbounds i8, ptr %state, i64 56
-  %16 = load ptr, ptr %buffer9.i163, align 8, !tbaa !149
-  %shr11.i164 = lshr i32 %14, 2
-  %idxprom12.i165 = zext nneg i32 %shr11.i164 to i64
-  %arrayidx13.i166 = getelementptr inbounds i8, ptr %16, i64 %idxprom12.i165
-  %17 = load i8, ptr %arrayidx13.i166, align 1, !tbaa !63
+_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit176: ; preds = %if.then.i169, %if.then52
+  %and5.pre-phi.i160 = phi i32 [ %.pre17.i175, %if.then.i169 ], [ %and.i158, %if.then52 ]
+  %14 = phi i32 [ %.pre.i174, %if.then.i169 ], [ %12, %if.then52 ]
+  %idxprom6.i161 = zext nneg i32 %and5.pre-phi.i160 to i64
+  %arrayidx7.i162 = getelementptr inbounds [4 x i8], ptr @_ZN6duckdb19FlagBufferConstants6SHIFTSE, i64 0, i64 %idxprom6.i161
+  %15 = load i8, ptr %arrayidx7.i162, align 1, !tbaa !63
+  %conv8.i163 = zext nneg i8 %15 to i32
+  %shl.i = shl nuw i32 1, %conv8.i163
+  %buffer9.i164 = getelementptr inbounds i8, ptr %state, i64 56
+  %16 = load ptr, ptr %buffer9.i164, align 8, !tbaa !149
+  %shr11.i165 = lshr i32 %14, 2
+  %idxprom12.i166 = zext nneg i32 %shr11.i165 to i64
+  %arrayidx13.i167 = getelementptr inbounds i8, ptr %16, i64 %idxprom12.i166
+  %17 = load i8, ptr %arrayidx13.i167, align 1, !tbaa !63
   %18 = trunc i32 %shl.i to i8
   %conv15.i = or i8 %17, %18
-  store i8 %conv15.i, ptr %arrayidx13.i166, align 1, !tbaa !63
+  store i8 %conv15.i, ptr %arrayidx13.i167, align 1, !tbaa !63
   %19 = load i32, ptr %flag_buffer53, align 8, !tbaa !150
-  %inc.i167 = add i32 %19, 1
-  store i32 %inc.i167, ptr %flag_buffer53, align 8, !tbaa !150
+  %inc.i168 = add i32 %19, 1
+  store i32 %inc.i168, ptr %flag_buffer53, align 8, !tbaa !150
   %conv57 = trunc i64 %0 to i16
   %idxprom58 = zext i8 %11 to i64
   %arrayidx59 = getelementptr inbounds [64 x i8], ptr @_ZN6duckdb14ChimpConstants11Compression22LEADING_REPRESENTATIONE, i64 0, i64 %idxprom58
@@ -2773,20 +2764,20 @@ _ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit175: ; preds 
   %conv13.i = or disjoint i16 %25, %24
   %add14.i = or disjoint i16 %conv13.i, %and12.i
   %packed_data_buffer = getelementptr inbounds i8, ptr %state, i64 64
-  %buffer.i176 = getelementptr inbounds i8, ptr %state, i64 72
-  %27 = load ptr, ptr %buffer.i176, align 8, !tbaa !151
+  %buffer.i177 = getelementptr inbounds i8, ptr %state, i64 72
+  %27 = load ptr, ptr %buffer.i177, align 8, !tbaa !151
   %28 = load i64, ptr %packed_data_buffer, align 8, !tbaa !152
-  %arrayidx.i177 = getelementptr inbounds i16, ptr %27, i64 %28
-  store i16 %add14.i, ptr %arrayidx.i177, align 2, !tbaa !196
-  %inc.i178 = add i64 %28, 1
-  store i64 %inc.i178, ptr %packed_data_buffer, align 8, !tbaa !152
+  %arrayidx.i178 = getelementptr inbounds i16, ptr %27, i64 %28
+  store i16 %add14.i, ptr %arrayidx.i178, align 2, !tbaa !196
+  %inc.i179 = add i64 %28, 1
+  store i64 %inc.i179, ptr %packed_data_buffer, align 8, !tbaa !152
   %shr = lshr i32 %conv18, %6
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp65) #16
   store i8 %conv60, ptr %ref.tmp65, align 1, !tbaa !63
   call void @_ZN6duckdb15OutputBitStreamILb0EE10WriteValueIjEEvT_RKh(ptr noundef nonnull align 8 dereferenceable(32) %state, i32 noundef %shr, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp65)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp65) #16
-  %previous_leading_zeros.i179 = getelementptr inbounds i8, ptr %state, i64 66648
-  store i8 -1, ptr %previous_leading_zeros.i179, align 8, !tbaa !138
+  %previous_leading_zeros.i180 = getelementptr inbounds i8, ptr %state, i64 66648
+  store i8 -1, ptr %previous_leading_zeros.i180, align 8, !tbaa !138
   br label %if.end94
 
 if.else69:                                        ; preds = %if.end44
@@ -2799,44 +2790,44 @@ if.else69:                                        ; preds = %if.end44
   %cmp72 = icmp eq i8 %30, %31
   %flag_buffer74 = getelementptr inbounds i8, ptr %state, i64 48
   %32 = load i32, ptr %flag_buffer74, align 8, !tbaa !150
-  %and.i180 = and i32 %32, 3
-  %cmp.i181 = icmp eq i32 %and.i180, 0
+  %and.i181 = and i32 %32, 3
+  %cmp.i182 = icmp eq i32 %and.i181, 0
   br i1 %cmp72, label %if.then73, label %if.else81
 
 if.then73:                                        ; preds = %if.else69
-  br i1 %cmp.i181, label %if.then.i193, label %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit200
+  br i1 %cmp.i182, label %if.then.i194, label %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit201
 
-if.then.i193:                                     ; preds = %if.then73
-  %buffer.i194 = getelementptr inbounds i8, ptr %state, i64 56
-  %33 = load ptr, ptr %buffer.i194, align 8, !tbaa !149
-  %shr.i195 = lshr exact i32 %32, 2
-  %idxprom.i196 = zext nneg i32 %shr.i195 to i64
-  %arrayidx.i197 = getelementptr inbounds i8, ptr %33, i64 %idxprom.i196
-  store i8 0, ptr %arrayidx.i197, align 1, !tbaa !63
-  %.pre.i198 = load i32, ptr %flag_buffer74, align 8, !tbaa !150
-  %.pre17.i199 = and i32 %.pre.i198, 3
-  br label %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit200
+if.then.i194:                                     ; preds = %if.then73
+  %buffer.i195 = getelementptr inbounds i8, ptr %state, i64 56
+  %33 = load ptr, ptr %buffer.i195, align 8, !tbaa !149
+  %shr.i196 = lshr exact i32 %32, 2
+  %idxprom.i197 = zext nneg i32 %shr.i196 to i64
+  %arrayidx.i198 = getelementptr inbounds i8, ptr %33, i64 %idxprom.i197
+  store i8 0, ptr %arrayidx.i198, align 1, !tbaa !63
+  %.pre.i199 = load i32, ptr %flag_buffer74, align 8, !tbaa !150
+  %.pre17.i200 = and i32 %.pre.i199, 3
+  br label %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit201
 
-_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit200: ; preds = %if.then.i193, %if.then73
-  %and5.pre-phi.i182 = phi i32 [ %.pre17.i199, %if.then.i193 ], [ %and.i180, %if.then73 ]
-  %34 = phi i32 [ %.pre.i198, %if.then.i193 ], [ %32, %if.then73 ]
-  %idxprom6.i183 = zext nneg i32 %and5.pre-phi.i182 to i64
-  %arrayidx7.i184 = getelementptr inbounds [4 x i8], ptr @_ZN6duckdb19FlagBufferConstants6SHIFTSE, i64 0, i64 %idxprom6.i183
-  %35 = load i8, ptr %arrayidx7.i184, align 1, !tbaa !63
-  %conv8.i185 = zext nneg i8 %35 to i32
-  %shl.i186 = shl i32 2, %conv8.i185
-  %buffer9.i187 = getelementptr inbounds i8, ptr %state, i64 56
-  %36 = load ptr, ptr %buffer9.i187, align 8, !tbaa !149
-  %shr11.i188 = lshr i32 %34, 2
-  %idxprom12.i189 = zext nneg i32 %shr11.i188 to i64
-  %arrayidx13.i190 = getelementptr inbounds i8, ptr %36, i64 %idxprom12.i189
-  %37 = load i8, ptr %arrayidx13.i190, align 1, !tbaa !63
-  %38 = trunc i32 %shl.i186 to i8
-  %conv15.i191 = or i8 %37, %38
-  store i8 %conv15.i191, ptr %arrayidx13.i190, align 1, !tbaa !63
+_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit201: ; preds = %if.then.i194, %if.then73
+  %and5.pre-phi.i183 = phi i32 [ %.pre17.i200, %if.then.i194 ], [ %and.i181, %if.then73 ]
+  %34 = phi i32 [ %.pre.i199, %if.then.i194 ], [ %32, %if.then73 ]
+  %idxprom6.i184 = zext nneg i32 %and5.pre-phi.i183 to i64
+  %arrayidx7.i185 = getelementptr inbounds [4 x i8], ptr @_ZN6duckdb19FlagBufferConstants6SHIFTSE, i64 0, i64 %idxprom6.i184
+  %35 = load i8, ptr %arrayidx7.i185, align 1, !tbaa !63
+  %conv8.i186 = zext nneg i8 %35 to i32
+  %shl.i187 = shl i32 2, %conv8.i186
+  %buffer9.i188 = getelementptr inbounds i8, ptr %state, i64 56
+  %36 = load ptr, ptr %buffer9.i188, align 8, !tbaa !149
+  %shr11.i189 = lshr i32 %34, 2
+  %idxprom12.i190 = zext nneg i32 %shr11.i189 to i64
+  %arrayidx13.i191 = getelementptr inbounds i8, ptr %36, i64 %idxprom12.i190
+  %37 = load i8, ptr %arrayidx13.i191, align 1, !tbaa !63
+  %38 = trunc i32 %shl.i187 to i8
+  %conv15.i192 = or i8 %37, %38
+  store i8 %conv15.i192, ptr %arrayidx13.i191, align 1, !tbaa !63
   %39 = load i32, ptr %flag_buffer74, align 8, !tbaa !150
-  %inc.i192 = add i32 %39, 1
-  store i32 %inc.i192, ptr %flag_buffer74, align 8, !tbaa !150
+  %inc.i193 = add i32 %39, 1
+  store i32 %inc.i193, ptr %flag_buffer74, align 8, !tbaa !150
   %sub77 = sub i8 32, %30
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp79) #16
   store i8 %sub77, ptr %ref.tmp79, align 1, !tbaa !63
@@ -2845,61 +2836,61 @@ _ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit200: ; preds 
   br label %if.end94
 
 if.else81:                                        ; preds = %if.else69
-  br i1 %cmp.i181, label %if.then.i214, label %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit221
+  br i1 %cmp.i182, label %if.then.i215, label %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit222
 
-if.then.i214:                                     ; preds = %if.else81
-  %buffer.i215 = getelementptr inbounds i8, ptr %state, i64 56
-  %40 = load ptr, ptr %buffer.i215, align 8, !tbaa !149
-  %shr.i216 = lshr exact i32 %32, 2
-  %idxprom.i217 = zext nneg i32 %shr.i216 to i64
-  %arrayidx.i218 = getelementptr inbounds i8, ptr %40, i64 %idxprom.i217
-  store i8 0, ptr %arrayidx.i218, align 1, !tbaa !63
-  %.pre.i219 = load i32, ptr %flag_buffer74, align 8, !tbaa !150
-  %.pre17.i220 = and i32 %.pre.i219, 3
-  br label %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit221
+if.then.i215:                                     ; preds = %if.else81
+  %buffer.i216 = getelementptr inbounds i8, ptr %state, i64 56
+  %40 = load ptr, ptr %buffer.i216, align 8, !tbaa !149
+  %shr.i217 = lshr exact i32 %32, 2
+  %idxprom.i218 = zext nneg i32 %shr.i217 to i64
+  %arrayidx.i219 = getelementptr inbounds i8, ptr %40, i64 %idxprom.i218
+  store i8 0, ptr %arrayidx.i219, align 1, !tbaa !63
+  %.pre.i220 = load i32, ptr %flag_buffer74, align 8, !tbaa !150
+  %.pre17.i221 = and i32 %.pre.i220, 3
+  br label %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit222
 
-_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit221: ; preds = %if.then.i214, %if.else81
-  %and5.pre-phi.i203 = phi i32 [ %.pre17.i220, %if.then.i214 ], [ %and.i180, %if.else81 ]
-  %41 = phi i32 [ %.pre.i219, %if.then.i214 ], [ %32, %if.else81 ]
-  %idxprom6.i204 = zext nneg i32 %and5.pre-phi.i203 to i64
-  %arrayidx7.i205 = getelementptr inbounds [4 x i8], ptr @_ZN6duckdb19FlagBufferConstants6SHIFTSE, i64 0, i64 %idxprom6.i204
-  %42 = load i8, ptr %arrayidx7.i205, align 1, !tbaa !63
-  %conv8.i206 = zext nneg i8 %42 to i32
-  %shl.i207 = shl i32 3, %conv8.i206
-  %buffer9.i208 = getelementptr inbounds i8, ptr %state, i64 56
-  %43 = load ptr, ptr %buffer9.i208, align 8, !tbaa !149
-  %shr11.i209 = lshr i32 %41, 2
-  %idxprom12.i210 = zext nneg i32 %shr11.i209 to i64
-  %arrayidx13.i211 = getelementptr inbounds i8, ptr %43, i64 %idxprom12.i210
-  %44 = load i8, ptr %arrayidx13.i211, align 1, !tbaa !63
-  %45 = trunc i32 %shl.i207 to i8
-  %conv15.i212 = or i8 %44, %45
-  store i8 %conv15.i212, ptr %arrayidx13.i211, align 1, !tbaa !63
+_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit222: ; preds = %if.then.i215, %if.else81
+  %and5.pre-phi.i204 = phi i32 [ %.pre17.i221, %if.then.i215 ], [ %and.i181, %if.else81 ]
+  %41 = phi i32 [ %.pre.i220, %if.then.i215 ], [ %32, %if.else81 ]
+  %idxprom6.i205 = zext nneg i32 %and5.pre-phi.i204 to i64
+  %arrayidx7.i206 = getelementptr inbounds [4 x i8], ptr @_ZN6duckdb19FlagBufferConstants6SHIFTSE, i64 0, i64 %idxprom6.i205
+  %42 = load i8, ptr %arrayidx7.i206, align 1, !tbaa !63
+  %conv8.i207 = zext nneg i8 %42 to i32
+  %shl.i208 = shl i32 3, %conv8.i207
+  %buffer9.i209 = getelementptr inbounds i8, ptr %state, i64 56
+  %43 = load ptr, ptr %buffer9.i209, align 8, !tbaa !149
+  %shr11.i210 = lshr i32 %41, 2
+  %idxprom12.i211 = zext nneg i32 %shr11.i210 to i64
+  %arrayidx13.i212 = getelementptr inbounds i8, ptr %43, i64 %idxprom12.i211
+  %44 = load i8, ptr %arrayidx13.i212, align 1, !tbaa !63
+  %45 = trunc i32 %shl.i208 to i8
+  %conv15.i213 = or i8 %44, %45
+  store i8 %conv15.i213, ptr %arrayidx13.i212, align 1, !tbaa !63
   %46 = load i32, ptr %flag_buffer74, align 8, !tbaa !150
-  %inc.i213 = add i32 %46, 1
-  store i32 %inc.i213, ptr %flag_buffer74, align 8, !tbaa !150
+  %inc.i214 = add i32 %46, 1
+  store i32 %inc.i214, ptr %flag_buffer74, align 8, !tbaa !150
   %sub85 = sub i8 32, %30
   %leading_zero_buffer = getelementptr inbounds i8, ptr %state, i64 32
   %idxprom86 = zext i8 %30 to i64
   %arrayidx87 = getelementptr inbounds [64 x i8], ptr @_ZN6duckdb14ChimpConstants11Compression22LEADING_REPRESENTATIONE, i64 0, i64 %idxprom86
   %47 = load i8, ptr %arrayidx87, align 1, !tbaa !63
   %48 = and i8 %47, 7
-  %and.i222 = zext nneg i8 %48 to i32
+  %and.i223 = zext nneg i8 %48 to i32
   %counter.i = getelementptr inbounds i8, ptr %state, i64 36
   %49 = load i32, ptr %counter.i, align 4, !tbaa !148
   %and2.i = and i32 %49, 7
-  %idxprom.i223 = zext nneg i32 %and2.i to i64
-  %arrayidx.i224 = getelementptr inbounds [8 x i8], ptr @_ZN6duckdb26LeadingZeroBufferConstants6SHIFTSE, i64 0, i64 %idxprom.i223
-  %50 = load i8, ptr %arrayidx.i224, align 1, !tbaa !63
+  %idxprom.i224 = zext nneg i32 %and2.i to i64
+  %arrayidx.i225 = getelementptr inbounds [8 x i8], ptr @_ZN6duckdb26LeadingZeroBufferConstants6SHIFTSE, i64 0, i64 %idxprom.i224
+  %50 = load i8, ptr %arrayidx.i225, align 1, !tbaa !63
   %conv3.i = zext nneg i8 %50 to i32
-  %shl.i225 = shl i32 %and.i222, %conv3.i
+  %shl.i226 = shl i32 %and.i223, %conv3.i
   %51 = load i32, ptr %leading_zero_buffer, align 8, !tbaa !187
-  %or.i = or i32 %shl.i225, %51
+  %or.i = or i32 %shl.i226, %51
   store i32 %or.i, ptr %leading_zero_buffer, align 8, !tbaa !187
-  %cmp.i226 = icmp eq i32 %and2.i, 7
-  br i1 %cmp.i226, label %if.then.i228, label %_ZN6duckdb17LeadingZeroBufferILb0EE6InsertERKh.exit
+  %cmp.i227 = icmp eq i32 %and2.i, 7
+  br i1 %cmp.i227, label %if.then.i229, label %_ZN6duckdb17LeadingZeroBufferILb0EE6InsertERKh.exit
 
-if.then.i228:                                     ; preds = %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit221
+if.then.i229:                                     ; preds = %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit222
   %shr.i.i.i = lshr i32 %49, 3
   %mul.i.i.i = mul nuw nsw i32 %shr.i.i.i, 3
   %conv.i.i.i = zext nneg i32 %mul.i.i.i to i64
@@ -2908,13 +2899,13 @@ if.then.i228:                                     ; preds = %_ZN6duckdb10FlagBuf
   %add.ptr.i.i = getelementptr inbounds i8, ptr %52, i64 %conv.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(3) %leading_zero_buffer, i64 3, i1 false)
   store i32 0, ptr %leading_zero_buffer, align 8, !tbaa !187
-  %.pre.i229 = load i32, ptr %counter.i, align 4, !tbaa !148
+  %.pre.i230 = load i32, ptr %counter.i, align 4, !tbaa !148
   br label %_ZN6duckdb17LeadingZeroBufferILb0EE6InsertERKh.exit
 
-_ZN6duckdb17LeadingZeroBufferILb0EE6InsertERKh.exit: ; preds = %if.then.i228, %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit221
-  %53 = phi i32 [ %.pre.i229, %if.then.i228 ], [ %49, %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit221 ]
-  %inc.i227 = add i32 %53, 1
-  store i32 %inc.i227, ptr %counter.i, align 4, !tbaa !148
+_ZN6duckdb17LeadingZeroBufferILb0EE6InsertERKh.exit: ; preds = %if.then.i229, %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit222
+  %53 = phi i32 [ %.pre.i230, %if.then.i229 ], [ %49, %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit222 ]
+  %inc.i228 = add i32 %53, 1
+  store i32 %inc.i228, ptr %counter.i, align 4, !tbaa !148
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp89) #16
   store i8 %sub85, ptr %ref.tmp89, align 1, !tbaa !63
   call void @_ZN6duckdb15OutputBitStreamILb0EE10WriteValueIjEEvT_RKh(ptr noundef nonnull align 8 dereferenceable(32) %state, i32 noundef %xor_result.1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp89)
@@ -2922,16 +2913,16 @@ _ZN6duckdb17LeadingZeroBufferILb0EE6InsertERKh.exit: ; preds = %if.then.i228, %_
   store i8 %30, ptr %previous_leading_zeros, align 8, !tbaa !138
   br label %if.end94
 
-if.end94:                                         ; preds = %_ZN6duckdb17LeadingZeroBufferILb0EE6InsertERKh.exit, %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit200, %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit175, %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit
+if.end94:                                         ; preds = %_ZN6duckdb17LeadingZeroBufferILb0EE6InsertERKh.exit, %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit201, %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit176, %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit
   %previous_value = getelementptr inbounds i8, ptr %state, i64 66652
   store i32 %in, ptr %previous_value, align 4, !tbaa !140
   %54 = load i64, ptr %index.i, align 8, !tbaa !81
-  %inc.i232 = add i64 %54, 1
-  store i64 %inc.i232, ptr %index.i, align 8, !tbaa !81
-  %rem.i = and i64 %inc.i232, 127
-  %arrayidx.i233 = getelementptr inbounds [128 x i64], ptr %ring_buffer, i64 0, i64 %rem.i
-  store i64 %conv, ptr %arrayidx.i233, align 8, !tbaa !69
-  store i64 %inc.i232, ptr %arrayidx.i, align 8, !tbaa !69
+  %inc.i233 = add i64 %54, 1
+  store i64 %inc.i233, ptr %index.i, align 8, !tbaa !81
+  %rem.i = and i64 %inc.i233, 127
+  %arrayidx.i234 = getelementptr inbounds [128 x i64], ptr %ring_buffer, i64 0, i64 %rem.i
+  store i64 %conv, ptr %arrayidx.i234, align 8, !tbaa !69
+  store i64 %inc.i233, ptr %arrayidx.i, align 8, !tbaa !69
   ret void
 }
 
@@ -3419,7 +3410,7 @@ return:                                           ; preds = %if.then19.i, %if.en
 define linkonce_odr void @_ZN6duckdb14ChimpScanStateIfEC2ERNS_13ColumnSegmentE(ptr noundef nonnull align 8 dereferenceable(75928) %this, ptr noundef nonnull align 8 dereferenceable(224) %segment) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.duckdb::BufferHandle", align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb14ChimpScanStateIfEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !27
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN6duckdb14ChimpScanStateIfEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !27
   %handle = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6duckdb12BufferHandleC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle)
   %total_value_count = getelementptr inbounds i8, ptr %this, i64 40
@@ -3453,7 +3444,7 @@ invoke.cont6:                                     ; preds = %entry
   %vtable = load ptr, ptr %call7, align 8, !tbaa !27
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %2 = load ptr, ptr %vfn, align 8
-  invoke void %2(ptr nonnull sret(%"class.duckdb::BufferHandle") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %call7, ptr noundef nonnull align 8 dereferenceable(16) %block)
+  invoke void %2(ptr dead_on_unwind nonnull writable sret(%"class.duckdb::BufferHandle") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %call7, ptr noundef nonnull align 8 dereferenceable(16) %block)
           to label %invoke.cont18 unwind label %lpad8
 
 invoke.cont18:                                    ; preds = %invoke.cont6
@@ -3505,7 +3496,7 @@ ehcleanup29:                                      ; preds = %lpad8, %lpad5
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb14ChimpScanStateIfED2Ev(ptr noundef nonnull align 8 dereferenceable(75928) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb14ChimpScanStateIfEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !27
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN6duckdb14ChimpScanStateIfEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !27
   %handle = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6duckdb12BufferHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle) #16
   ret void
@@ -3514,7 +3505,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb14ChimpScanStateIfED0Ev(ptr noundef nonnull align 8 dereferenceable(75928) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb14ChimpScanStateIfEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !27
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN6duckdb14ChimpScanStateIfEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !27
   %handle.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6duckdb12BufferHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle.i) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #18
@@ -3642,7 +3633,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %shr12.i.i = lshr i32 %and6.i.i, %conv11.i.i
   %conv13.i.i = trunc i32 %shr12.i.i to i8
   %add.i43 = add nuw i64 %i.011.i, 1
-  %arrayidx3.i = getelementptr inbounds %"struct.duckdb::ChimpScanState", ptr %this, i64 0, i32 4, i32 2, i64 %add.i43
+  %arrayidx3.i = getelementptr inbounds [1025 x i8], ptr %flags.i, i64 0, i64 %add.i43
   store i8 %conv13.i.i, ptr %arrayidx3.i, align 1, !tbaa !207
   %exitcond.not.i = icmp eq i64 %add.i43, %sub11
   br i1 %exitcond.not.i, label %_ZN6duckdb15ChimpGroupStateIjE9LoadFlagsEPhm.exit, label %for.body.i, !llvm.loop !209
@@ -3655,10 +3646,14 @@ _ZN6duckdb15ChimpGroupStateIjE9LoadFlagsEPhm.exit: ; preds = %for.body.i, %entry
   %mul24 = shl nuw nsw i32 %conv, 3
   %conv25 = zext nneg i32 %mul24 to i64
   %cmp6.not.i = icmp eq i8 %ret.0.copyload.i42, 0
-  br i1 %cmp6.not.i, label %_ZN6duckdb15ChimpGroupStateIjE16LoadLeadingZerosEPhm.exit, label %for.body.i44
+  br i1 %cmp6.not.i, label %_ZN6duckdb15ChimpGroupStateIjE16LoadLeadingZerosEPhm.exit, label %for.body.lr.ph.i
 
-for.body.i44:                                     ; preds = %_ZN6duckdb15ChimpGroupStateIjE9LoadFlagsEPhm.exit, %for.body.i44
-  %i.08.i = phi i64 [ %inc.i, %for.body.i44 ], [ 0, %_ZN6duckdb15ChimpGroupStateIjE9LoadFlagsEPhm.exit ]
+for.body.lr.ph.i:                                 ; preds = %_ZN6duckdb15ChimpGroupStateIjE9LoadFlagsEPhm.exit
+  %leading_zeros.i = getelementptr inbounds i8, ptr %this, i64 1081
+  br label %for.body.i44
+
+for.body.i44:                                     ; preds = %for.body.i44, %for.body.lr.ph.i
+  %i.08.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.body.i44 ]
   %indvars9.i = trunc i64 %i.08.i to i32
   %shr.i.i.i = lshr i32 %indvars9.i, 3
   %mul.i.i.i = mul nuw nsw i32 %shr.i.i.i, 3
@@ -3678,7 +3673,7 @@ for.body.i44:                                     ; preds = %_ZN6duckdb15ChimpGr
   %idxprom.i = zext nneg i32 %9 to i64
   %arrayidx.i = getelementptr inbounds [8 x i8], ptr @_ZN6duckdb14ChimpConstants13Decompression22LEADING_REPRESENTATIONE, i64 0, i64 %idxprom.i
   %10 = load i8, ptr %arrayidx.i, align 1, !tbaa !63
-  %arrayidx2.i = getelementptr inbounds %"struct.duckdb::ChimpScanState", ptr %this, i64 0, i32 4, i32 3, i64 %i.08.i
+  %arrayidx2.i = getelementptr inbounds [1025 x i8], ptr %leading_zeros.i, i64 0, i64 %i.08.i
   store i8 %10, ptr %arrayidx2.i, align 1, !tbaa !63
   %exitcond.not.i48 = icmp eq i64 %inc.i, %conv25
   br i1 %exitcond.not.i48, label %_ZN6duckdb15ChimpGroupStateIjE16LoadLeadingZerosEPhm.exit.loopexit, label %for.body.i44, !llvm.loop !211
@@ -3693,36 +3688,36 @@ _ZN6duckdb15ChimpGroupStateIjE16LoadLeadingZerosEPhm.exit: ; preds = %_ZN6duckdb
   store i64 %conv25, ptr %max_leading_zeros_to_read.i, align 8, !tbaa !212
   store i32 0, ptr %group_state, align 8, !tbaa !213
   %cmp7.not.i = icmp eq i64 %11, 0
-  br i1 %cmp7.not.i, label %_ZNK6duckdb15ChimpGroupStateIjE24CalculatePackedDataCountEv.exit.thread, label %for.body.i50.preheader
+  br i1 %cmp7.not.i, label %_ZNK6duckdb15ChimpGroupStateIjE24CalculatePackedDataCountEv.exit.thread, label %for.body.i52.preheader
 
-for.body.i50.preheader:                           ; preds = %_ZN6duckdb15ChimpGroupStateIjE16LoadLeadingZerosEPhm.exit
+for.body.i52.preheader:                           ; preds = %_ZN6duckdb15ChimpGroupStateIjE16LoadLeadingZerosEPhm.exit
   %min.iters.check = icmp ult i64 %11, 4
-  br i1 %min.iters.check, label %for.body.i50.preheader9, label %vector.ph
+  br i1 %min.iters.check, label %for.body.i52.preheader9, label %vector.ph
 
-for.body.i50.preheader9:                          ; preds = %middle.block, %for.body.i50.preheader
-  %i.09.i.ph = phi i64 [ %n.vec, %middle.block ], [ 0, %for.body.i50.preheader ]
-  %count.08.i.ph = phi i64 [ %22, %middle.block ], [ 0, %for.body.i50.preheader ]
-  br label %for.body.i50
+for.body.i52.preheader9:                          ; preds = %middle.block, %for.body.i52.preheader
+  %i.09.i.ph = phi i64 [ %n.vec, %middle.block ], [ 0, %for.body.i52.preheader ]
+  %count.08.i.ph = phi i64 [ %22, %middle.block ], [ 0, %for.body.i52.preheader ]
+  br label %for.body.i52
 
-vector.ph:                                        ; preds = %for.body.i50.preheader
+vector.ph:                                        ; preds = %for.body.i52.preheader
   %n.vec = and i64 %11, -4
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
   %vec.phi = phi <2 x i64> [ zeroinitializer, %vector.ph ], [ %19, %vector.body ]
-  %vec.phi77 = phi <2 x i64> [ zeroinitializer, %vector.ph ], [ %20, %vector.body ]
+  %vec.phi84 = phi <2 x i64> [ zeroinitializer, %vector.ph ], [ %20, %vector.body ]
   %12 = or disjoint i64 %index, 1
-  %13 = getelementptr inbounds %"struct.duckdb::ChimpScanState", ptr %this, i64 0, i32 4, i32 2, i64 %12
-  %wide.load = load <2 x i8>, ptr %13, align 1, !tbaa !207
+  %13 = getelementptr inbounds [1025 x i8], ptr %flags.i, i64 0, i64 %12
   %14 = getelementptr inbounds i8, ptr %13, i64 2
-  %wide.load78 = load <2 x i8>, ptr %14, align 1, !tbaa !207
+  %wide.load = load <2 x i8>, ptr %13, align 1, !tbaa !207
+  %wide.load85 = load <2 x i8>, ptr %14, align 1, !tbaa !207
   %15 = icmp eq <2 x i8> %wide.load, <i8 1, i8 1>
-  %16 = icmp eq <2 x i8> %wide.load78, <i8 1, i8 1>
+  %16 = icmp eq <2 x i8> %wide.load85, <i8 1, i8 1>
   %17 = zext <2 x i1> %15 to <2 x i64>
   %18 = zext <2 x i1> %16 to <2 x i64>
   %19 = add <2 x i64> %vec.phi, %17
-  %20 = add <2 x i64> %vec.phi77, %18
+  %20 = add <2 x i64> %vec.phi84, %18
   %index.next = add nuw i64 %index, 4
   %21 = icmp eq i64 %index.next, %n.vec
   br i1 %21, label %middle.block, label %vector.body, !llvm.loop !214
@@ -3731,30 +3726,30 @@ middle.block:                                     ; preds = %vector.body
   %bin.rdx = add <2 x i64> %20, %19
   %22 = tail call i64 @llvm.vector.reduce.add.v2i64(<2 x i64> %bin.rdx)
   %cmp.n = icmp eq i64 %11, %n.vec
-  br i1 %cmp.n, label %_ZNK6duckdb15ChimpGroupStateIjE24CalculatePackedDataCountEv.exit, label %for.body.i50.preheader9
+  br i1 %cmp.n, label %_ZNK6duckdb15ChimpGroupStateIjE24CalculatePackedDataCountEv.exit, label %for.body.i52.preheader9
 
 _ZNK6duckdb15ChimpGroupStateIjE24CalculatePackedDataCountEv.exit.thread: ; preds = %_ZN6duckdb15ChimpGroupStateIjE16LoadLeadingZerosEPhm.exit
   %23 = ptrtoint ptr %add.ptr20 to i64
   %24 = and i64 %23, 1
-  %sext73 = sub nsw i64 0, %24
-  %spec.select74 = getelementptr inbounds i8, ptr %add.ptr20, i64 %sext73
-  store ptr %spec.select74, ptr %metadata_ptr, align 8, !tbaa !206
+  %sext80 = sub nsw i64 0, %24
+  %spec.select81 = getelementptr inbounds i8, ptr %add.ptr20, i64 %sext80
+  store ptr %spec.select81, ptr %metadata_ptr, align 8, !tbaa !206
   br label %_ZN6duckdb15ChimpGroupStateIjE14LoadPackedDataEPtm.exit
 
-for.body.i50:                                     ; preds = %for.body.i50.preheader9, %for.body.i50
-  %i.09.i = phi i64 [ %add.i51, %for.body.i50 ], [ %i.09.i.ph, %for.body.i50.preheader9 ]
-  %count.08.i = phi i64 [ %add3.i, %for.body.i50 ], [ %count.08.i.ph, %for.body.i50.preheader9 ]
-  %add.i51 = add nuw i64 %i.09.i, 1
-  %arrayidx.i52 = getelementptr inbounds %"struct.duckdb::ChimpScanState", ptr %this, i64 0, i32 4, i32 2, i64 %add.i51
-  %25 = load i8, ptr %arrayidx.i52, align 1, !tbaa !207
+for.body.i52:                                     ; preds = %for.body.i52.preheader9, %for.body.i52
+  %i.09.i = phi i64 [ %add.i53, %for.body.i52 ], [ %i.09.i.ph, %for.body.i52.preheader9 ]
+  %count.08.i = phi i64 [ %add3.i, %for.body.i52 ], [ %count.08.i.ph, %for.body.i52.preheader9 ]
+  %add.i53 = add nuw i64 %i.09.i, 1
+  %arrayidx.i54 = getelementptr inbounds [1025 x i8], ptr %flags.i, i64 0, i64 %add.i53
+  %25 = load i8, ptr %arrayidx.i54, align 1, !tbaa !207
   %cmp2.i = icmp eq i8 %25, 1
   %conv.i = zext i1 %cmp2.i to i64
   %add3.i = add i64 %count.08.i, %conv.i
-  %exitcond.not.i53 = icmp eq i64 %add.i51, %11
-  br i1 %exitcond.not.i53, label %_ZNK6duckdb15ChimpGroupStateIjE24CalculatePackedDataCountEv.exit, label %for.body.i50, !llvm.loop !217
+  %exitcond.not.i55 = icmp eq i64 %add.i53, %11
+  br i1 %exitcond.not.i55, label %_ZNK6duckdb15ChimpGroupStateIjE24CalculatePackedDataCountEv.exit, label %for.body.i52, !llvm.loop !217
 
-_ZNK6duckdb15ChimpGroupStateIjE24CalculatePackedDataCountEv.exit: ; preds = %for.body.i50, %middle.block
-  %add3.i.lcssa = phi i64 [ %22, %middle.block ], [ %add3.i, %for.body.i50 ]
+_ZNK6duckdb15ChimpGroupStateIjE24CalculatePackedDataCountEv.exit: ; preds = %for.body.i52, %middle.block
+  %add3.i.lcssa = phi i64 [ %22, %middle.block ], [ %add3.i, %for.body.i52 ]
   %mul28.neg = mul i64 %add3.i.lcssa, -2
   %add.ptr31 = getelementptr inbounds i8, ptr %add.ptr20, i64 %mul28.neg
   %26 = ptrtoint ptr %add.ptr31 to i64
@@ -3763,39 +3758,43 @@ _ZNK6duckdb15ChimpGroupStateIjE24CalculatePackedDataCountEv.exit: ; preds = %for
   %spec.select = getelementptr inbounds i8, ptr %add.ptr31, i64 %sext
   store ptr %spec.select, ptr %metadata_ptr, align 8, !tbaa !206
   %cmp23.not.i = icmp eq i64 %add3.i.lcssa, 0
-  br i1 %cmp23.not.i, label %_ZN6duckdb15ChimpGroupStateIjE14LoadPackedDataEPtm.exit, label %for.body.i54
+  br i1 %cmp23.not.i, label %_ZN6duckdb15ChimpGroupStateIjE14LoadPackedDataEPtm.exit, label %for.body.lr.ph.i56
 
-for.body.i54:                                     ; preds = %_ZNK6duckdb15ChimpGroupStateIjE24CalculatePackedDataCountEv.exit, %for.body.i54
-  %i.024.i = phi i64 [ %inc.i58, %for.body.i54 ], [ 0, %_ZNK6duckdb15ChimpGroupStateIjE24CalculatePackedDataCountEv.exit ]
-  %arrayidx.i55 = getelementptr inbounds i16, ptr %spec.select, i64 %i.024.i
-  %28 = load i16, ptr %arrayidx.i55, align 2, !tbaa !196
-  %arrayidx2.i56 = getelementptr inbounds %"struct.duckdb::ChimpScanState", ptr %this, i64 0, i32 4, i32 4, i64 %i.024.i
-  %shr.i.i57 = lshr i16 %28, 9
-  %conv1.i.i = trunc i16 %shr.i.i57 to i8
-  %index.i.i = getelementptr inbounds %"struct.duckdb::ChimpScanState", ptr %this, i64 0, i32 4, i32 4, i64 %i.024.i, i32 2
+for.body.lr.ph.i56:                               ; preds = %_ZNK6duckdb15ChimpGroupStateIjE24CalculatePackedDataCountEv.exit
+  %unpacked_data_blocks.i = getelementptr inbounds i8, ptr %this, i64 2106
+  br label %for.body.i57
+
+for.body.i57:                                     ; preds = %for.body.i57, %for.body.lr.ph.i56
+  %i.024.i = phi i64 [ 0, %for.body.lr.ph.i56 ], [ %inc.i61, %for.body.i57 ]
+  %arrayidx.i58 = getelementptr inbounds i16, ptr %spec.select, i64 %i.024.i
+  %28 = load i16, ptr %arrayidx.i58, align 2, !tbaa !196
+  %arrayidx2.i59 = getelementptr inbounds [1024 x %"struct.duckdb::UnpackedData"], ptr %unpacked_data_blocks.i, i64 0, i64 %i.024.i
+  %shr.i.i60 = lshr i16 %28, 9
+  %conv1.i.i = trunc i16 %shr.i.i60 to i8
+  %index.i.i = getelementptr inbounds i8, ptr %arrayidx2.i59, i64 2
   store i8 %conv1.i.i, ptr %index.i.i, align 1, !tbaa !218
   %shr3.i.i = lshr i16 %28, 6
   %29 = and i16 %shr3.i.i, 7
   %conv5.i.i = zext nneg i16 %29 to i64
   %30 = trunc i16 %28 to i8
   %conv8.i.i = and i8 %30, 31
-  %significant_bits.i.i = getelementptr inbounds %"struct.duckdb::ChimpScanState", ptr %this, i64 0, i32 4, i32 4, i64 %i.024.i, i32 1
+  %significant_bits.i.i = getelementptr inbounds i8, ptr %arrayidx2.i59, i64 1
   %cmp5.i = icmp eq i8 %conv8.i.i, 0
-  %spec.select.i = select i1 %cmp5.i, i8 64, i8 %conv8.i.i
-  store i8 %spec.select.i, ptr %significant_bits.i.i, align 1, !tbaa !220
+  %spec.store.select.i = select i1 %cmp5.i, i8 64, i8 %conv8.i.i
+  store i8 %spec.store.select.i, ptr %significant_bits.i.i, align 1
   %arrayidx11.i = getelementptr inbounds [8 x i8], ptr @_ZN6duckdb14ChimpConstants13Decompression22LEADING_REPRESENTATIONE, i64 0, i64 %conv5.i.i
   %31 = load i8, ptr %arrayidx11.i, align 1, !tbaa !63
-  store i8 %31, ptr %arrayidx2.i56, align 1, !tbaa !221
-  %inc.i58 = add nuw i64 %i.024.i, 1
-  %exitcond.not.i59 = icmp eq i64 %inc.i58, %add3.i.lcssa
-  br i1 %exitcond.not.i59, label %_ZN6duckdb15ChimpGroupStateIjE14LoadPackedDataEPtm.exit, label %for.body.i54, !llvm.loop !222
+  store i8 %31, ptr %arrayidx2.i59, align 1, !tbaa !220
+  %inc.i61 = add nuw i64 %i.024.i, 1
+  %exitcond.not.i62 = icmp eq i64 %inc.i61, %add3.i.lcssa
+  br i1 %exitcond.not.i62, label %_ZN6duckdb15ChimpGroupStateIjE14LoadPackedDataEPtm.exit, label %for.body.i57, !llvm.loop !221
 
-_ZN6duckdb15ChimpGroupStateIjE14LoadPackedDataEPtm.exit: ; preds = %for.body.i54, %_ZNK6duckdb15ChimpGroupStateIjE24CalculatePackedDataCountEv.exit, %_ZNK6duckdb15ChimpGroupStateIjE24CalculatePackedDataCountEv.exit.thread
-  %count.0.lcssa.i76 = phi i64 [ 0, %_ZNK6duckdb15ChimpGroupStateIjE24CalculatePackedDataCountEv.exit.thread ], [ 0, %_ZNK6duckdb15ChimpGroupStateIjE24CalculatePackedDataCountEv.exit ], [ %add3.i.lcssa, %for.body.i54 ]
+_ZN6duckdb15ChimpGroupStateIjE14LoadPackedDataEPtm.exit: ; preds = %for.body.i57, %_ZNK6duckdb15ChimpGroupStateIjE24CalculatePackedDataCountEv.exit, %_ZNK6duckdb15ChimpGroupStateIjE24CalculatePackedDataCountEv.exit.thread
+  %count.0.lcssa.i83 = phi i64 [ 0, %_ZNK6duckdb15ChimpGroupStateIjE24CalculatePackedDataCountEv.exit.thread ], [ 0, %_ZNK6duckdb15ChimpGroupStateIjE24CalculatePackedDataCountEv.exit ], [ %add3.i.lcssa, %for.body.i57 ]
   %unpacked_index.i = getelementptr inbounds i8, ptr %this, i64 52
-  store i32 0, ptr %unpacked_index.i, align 4, !tbaa !223
+  store i32 0, ptr %unpacked_index.i, align 4, !tbaa !222
   %max_packed_data_to_read.i = getelementptr inbounds i8, ptr %this, i64 9304
-  store i64 %count.0.lcssa.i76, ptr %max_packed_data_to_read.i, align 8, !tbaa !224
+  store i64 %count.0.lcssa.i83, ptr %max_packed_data_to_read.i, align 8, !tbaa !223
   %leading_zeros.i.i.i = getelementptr inbounds i8, ptr %this, i64 9328
   store i8 -1, ptr %leading_zeros.i.i.i, align 8, !tbaa !201
   %trailing_zeros.i.i.i = getelementptr inbounds i8, ptr %this, i64 9329
@@ -3807,38 +3806,38 @@ _ZN6duckdb15ChimpGroupStateIjE14LoadPackedDataEPtm.exit: ; preds = %for.body.i54
   %first.i.i = getelementptr inbounds i8, ptr %this, i64 75904
   store i8 1, ptr %first.i.i, align 8, !tbaa !200
   store i64 0, ptr %index.i, align 8, !tbaa !114
-  %cmp7.not.i61 = icmp eq i64 %1, %2
-  br i1 %cmp7.not.i61, label %_ZN6duckdb15ChimpGroupStateIjE10LoadValuesEPjm.exit, label %for.body.lr.ph.i
+  %cmp7.not.i64 = icmp eq i64 %1, %2
+  br i1 %cmp7.not.i64, label %_ZN6duckdb15ChimpGroupStateIjE10LoadValuesEPjm.exit, label %for.body.lr.ph.i65
 
-for.body.lr.ph.i:                                 ; preds = %_ZN6duckdb15ChimpGroupStateIjE14LoadPackedDataEPtm.exit
+for.body.lr.ph.i65:                               ; preds = %_ZN6duckdb15ChimpGroupStateIjE14LoadPackedDataEPtm.exit
   %chimp_state.i = getelementptr inbounds i8, ptr %this, i64 9312
-  %unpacked_data_blocks.i = getelementptr inbounds i8, ptr %this, i64 2106
-  %leading_zeros.i = getelementptr inbounds i8, ptr %this, i64 1081
-  br label %for.body.i64
+  %unpacked_data_blocks.i68 = getelementptr inbounds i8, ptr %this, i64 2106
+  %leading_zeros.i69 = getelementptr inbounds i8, ptr %this, i64 1081
+  br label %for.body.i71
 
-for.body.i64:                                     ; preds = %_ZN6duckdb21Chimp128DecompressionIjE4LoadENS_14ChimpConstants5FlagsEPhRjPNS_12UnpackedDataES5_RNS_26Chimp128DecompressionStateIjEE.exit.i, %for.body.lr.ph.i
-  %i.08.i65 = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i67, %_ZN6duckdb21Chimp128DecompressionIjE4LoadENS_14ChimpConstants5FlagsEPhRjPNS_12UnpackedDataES5_RNS_26Chimp128DecompressionStateIjEE.exit.i ]
+for.body.i71:                                     ; preds = %_ZN6duckdb21Chimp128DecompressionIjE4LoadENS_14ChimpConstants5FlagsEPhRjPNS_12UnpackedDataES5_RNS_26Chimp128DecompressionStateIjEE.exit.i, %for.body.lr.ph.i65
+  %i.08.i72 = phi i64 [ 0, %for.body.lr.ph.i65 ], [ %inc.i74, %_ZN6duckdb21Chimp128DecompressionIjE4LoadENS_14ChimpConstants5FlagsEPhRjPNS_12UnpackedDataES5_RNS_26Chimp128DecompressionStateIjEE.exit.i ]
   %32 = load i8, ptr %first.i.i, align 8, !tbaa !200, !range !117, !noundef !194
   %tobool.not.i.i = icmp eq i8 %32, 0
-  br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i, !prof !225
+  br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i, !prof !224
 
-if.then.i.i:                                      ; preds = %for.body.i64
+if.then.i.i:                                      ; preds = %for.body.i71
   %call.i.i = tail call noundef i32 @_ZN6duckdb21Chimp128DecompressionIjE9LoadFirstERNS_26Chimp128DecompressionStateIjEE(ptr noundef nonnull align 8 dereferenceable(66593) %chimp_state.i)
   br label %_ZN6duckdb21Chimp128DecompressionIjE4LoadENS_14ChimpConstants5FlagsEPhRjPNS_12UnpackedDataES5_RNS_26Chimp128DecompressionStateIjEE.exit.i
 
-if.else.i.i:                                      ; preds = %for.body.i64
-  %arrayidx.i69 = getelementptr inbounds %"struct.duckdb::ChimpScanState", ptr %this, i64 0, i32 4, i32 2, i64 %i.08.i65
-  %33 = load i8, ptr %arrayidx.i69, align 1, !tbaa !207
-  %call2.i.i = tail call noundef i32 @_ZN6duckdb21Chimp128DecompressionIjE15DecompressValueENS_14ChimpConstants5FlagsEPhRjPNS_12UnpackedDataES5_RNS_26Chimp128DecompressionStateIjEE(i8 noundef zeroext %33, ptr noundef nonnull %leading_zeros.i, ptr noundef nonnull align 4 dereferenceable(4) %group_state, ptr noundef nonnull %unpacked_data_blocks.i, ptr noundef nonnull align 4 dereferenceable(4) %unpacked_index.i, ptr noundef nonnull align 8 dereferenceable(66593) %chimp_state.i)
+if.else.i.i:                                      ; preds = %for.body.i71
+  %arrayidx.i76 = getelementptr inbounds [1025 x i8], ptr %flags.i, i64 0, i64 %i.08.i72
+  %33 = load i8, ptr %arrayidx.i76, align 1, !tbaa !207
+  %call2.i.i = tail call noundef i32 @_ZN6duckdb21Chimp128DecompressionIjE15DecompressValueENS_14ChimpConstants5FlagsEPhRjPNS_12UnpackedDataES5_RNS_26Chimp128DecompressionStateIjEE(i8 noundef zeroext %33, ptr noundef nonnull %leading_zeros.i69, ptr noundef nonnull align 4 dereferenceable(4) %group_state, ptr noundef nonnull %unpacked_data_blocks.i68, ptr noundef nonnull align 4 dereferenceable(4) %unpacked_index.i, ptr noundef nonnull align 8 dereferenceable(66593) %chimp_state.i)
   br label %_ZN6duckdb21Chimp128DecompressionIjE4LoadENS_14ChimpConstants5FlagsEPhRjPNS_12UnpackedDataES5_RNS_26Chimp128DecompressionStateIjEE.exit.i
 
 _ZN6duckdb21Chimp128DecompressionIjE4LoadENS_14ChimpConstants5FlagsEPhRjPNS_12UnpackedDataES5_RNS_26Chimp128DecompressionStateIjEE.exit.i: ; preds = %if.else.i.i, %if.then.i.i
   %retval.0.i.i = phi i32 [ %call.i.i, %if.then.i.i ], [ %call2.i.i, %if.else.i.i ]
-  %arrayidx3.i66 = getelementptr inbounds i32, ptr %value_buffer, i64 %i.08.i65
-  store i32 %retval.0.i.i, ptr %arrayidx3.i66, align 4, !tbaa !64
-  %inc.i67 = add nuw i64 %i.08.i65, 1
-  %exitcond.not.i68 = icmp eq i64 %inc.i67, %cond.i
-  br i1 %exitcond.not.i68, label %_ZN6duckdb15ChimpGroupStateIjE10LoadValuesEPjm.exit, label %for.body.i64, !llvm.loop !226
+  %arrayidx3.i73 = getelementptr inbounds i32, ptr %value_buffer, i64 %i.08.i72
+  store i32 %retval.0.i.i, ptr %arrayidx3.i73, align 4, !tbaa !64
+  %inc.i74 = add nuw i64 %i.08.i72, 1
+  %exitcond.not.i75 = icmp eq i64 %inc.i74, %cond.i
+  br i1 %exitcond.not.i75, label %_ZN6duckdb15ChimpGroupStateIjE10LoadValuesEPjm.exit, label %for.body.i71, !llvm.loop !225
 
 _ZN6duckdb15ChimpGroupStateIjE10LoadValuesEPjm.exit: ; preds = %_ZN6duckdb21Chimp128DecompressionIjE4LoadENS_14ChimpConstants5FlagsEPhRjPNS_12UnpackedDataES5_RNS_26Chimp128DecompressionStateIjEE.exit.i, %_ZN6duckdb15ChimpGroupStateIjE14LoadPackedDataEPtm.exit
   ret void
@@ -3966,11 +3965,11 @@ sw.bb2:                                           ; preds = %entry
   store i32 %inc, ptr %unpacked_index, align 4, !tbaa !64
   %idxprom = zext i32 %8 to i64
   %arrayidx = getelementptr inbounds %"struct.duckdb::UnpackedData", ptr %unpacked_data, i64 %idxprom
-  %9 = load i8, ptr %arrayidx, align 1, !tbaa !221
+  %9 = load i8, ptr %arrayidx, align 1, !tbaa !220
   %leading_zeros3 = getelementptr inbounds i8, ptr %state, i64 16
   store i8 %9, ptr %leading_zeros3, align 8, !tbaa !201
-  %significant_bits = getelementptr inbounds %"struct.duckdb::UnpackedData", ptr %unpacked_data, i64 %idxprom, i32 1
-  %10 = load i8, ptr %significant_bits, align 1, !tbaa !220
+  %significant_bits = getelementptr inbounds i8, ptr %arrayidx, i64 1
+  %10 = load i8, ptr %significant_bits, align 1, !tbaa !226
   %11 = add i8 %9, %10
   %sub7 = sub i8 32, %11
   %trailing_zeros = getelementptr inbounds i8, ptr %state, i64 17
@@ -4109,7 +4108,7 @@ _ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit:     ; preds = %for.body.i.i.epil, 
   %conv13 = zext nneg i8 %sub7 to i32
   %shl = shl i32 %or8.i.i, %conv13
   %ring_buffer14 = getelementptr inbounds i8, ptr %state, i64 24
-  %index15 = getelementptr inbounds %"struct.duckdb::UnpackedData", ptr %unpacked_data, i64 %idxprom, i32 2
+  %index15 = getelementptr inbounds i8, ptr %arrayidx, i64 2
   %38 = load i8, ptr %index15, align 1, !tbaa !63
   %idxprom.i96 = zext i8 %38 to i64
   %arrayidx.i97 = getelementptr inbounds [128 x i64], ptr %ring_buffer14, i64 0, i64 %idxprom.i96
@@ -4482,7 +4481,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %values.i) #16, !noalias !228
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %values.i, i8 0, i64 24, i1 false), !noalias !228
-  invoke void @_ZN6duckdb9Exception25ConstructMessageRecursiveINS_14ChimpConstants5FlagsEJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS9_RSt6vectorINS_20ExceptionFormatValueESaISD_EET_DpT0_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %msg, ptr noundef nonnull align 8 dereferenceable(24) %values.i, i8 noundef zeroext %params)
+  invoke void @_ZN6duckdb9Exception25ConstructMessageRecursiveINS_14ChimpConstants5FlagsEJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS9_RSt6vectorINS_20ExceptionFormatValueESaISD_EET_DpT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %msg, ptr noundef nonnull align 8 dereferenceable(24) %values.i, i8 noundef zeroext %params)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -4593,7 +4592,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10: ; preds = %if.
 declare void @_ZN6duckdb17InternalExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6duckdb9Exception25ConstructMessageRecursiveINS_14ChimpConstants5FlagsEJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS9_RSt6vectorINS_20ExceptionFormatValueESaISD_EET_DpT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %msg, ptr noundef nonnull align 8 dereferenceable(24) %values, i8 noundef zeroext %param) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6duckdb9Exception25ConstructMessageRecursiveINS_14ChimpConstants5FlagsEJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS9_RSt6vectorINS_20ExceptionFormatValueESaISD_EET_DpT0_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %msg, ptr noundef nonnull align 8 dereferenceable(24) %values, i8 noundef zeroext %param) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.duckdb::ExceptionFormatValue", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp) #16
@@ -4671,7 +4670,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
 
 _ZN6duckdb20ExceptionFormatValueD2Ev.exit:        ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp) #16
-  call void @_ZN6duckdb9Exception25ConstructMessageRecursiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorINS_20ExceptionFormatValueESaISA_EE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %msg, ptr noundef nonnull align 8 dereferenceable(24) %values)
+  call void @_ZN6duckdb9Exception25ConstructMessageRecursiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorINS_20ExceptionFormatValueESaISA_EE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %msg, ptr noundef nonnull align 8 dereferenceable(24) %values)
   ret void
 
 lpad:                                             ; preds = %if.else.i.i
@@ -4749,7 +4748,7 @@ _ZNSt12_Vector_baseIN6duckdb20ExceptionFormatValueESaIS1_EED2Ev.exit: ; preds = 
   ret void
 }
 
-declare void @_ZN6duckdb9Exception25ConstructMessageRecursiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorINS_20ExceptionFormatValueESaISA_EE(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
+declare void @_ZN6duckdb9Exception25ConstructMessageRecursiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorINS_20ExceptionFormatValueESaISA_EE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN6duckdb20ExceptionFormatValueESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(56) %__args) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -4770,7 +4769,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN6duckdb20ExceptionFormatValueESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 56
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 164703072086692425)
   %cond.i = select i1 %cmp7.i, i64 164703072086692425, i64 %2
@@ -4778,20 +4777,20 @@ _ZNKSt6vectorIN6duckdb20ExceptionFormatValueESaIS1_EE12_M_check_lenEmPKc.exit: ;
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 56
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN6duckdb20ExceptionFormatValueESaIS1_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN6duckdb20ExceptionFormatValueEEE8allocateERS2_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN6duckdb20ExceptionFormatValueESaIS1_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIN6duckdb20ExceptionFormatValueEEE8allocateERS2_m.exit.i: ; preds = %_ZNKSt6vectorIN6duckdb20ExceptionFormatValueESaIS1_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN6duckdb20ExceptionFormatValueESaIS1_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 56
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #19
   br label %_ZNSt12_Vector_baseIN6duckdb20ExceptionFormatValueESaIS1_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN6duckdb20ExceptionFormatValueESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNSt16allocator_traitsISaIN6duckdb20ExceptionFormatValueEEE8allocateERS2_m.exit.i, %_ZNKSt6vectorIN6duckdb20ExceptionFormatValueESaIS1_EE12_M_check_lenEmPKc.exit
-  %cond.i31 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN6duckdb20ExceptionFormatValueEEE8allocateERS2_m.exit.i ], [ null, %_ZNKSt6vectorIN6duckdb20ExceptionFormatValueESaIS1_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseIN6duckdb20ExceptionFormatValueESaIS1_EE11_M_allocateEm.exit: ; preds = %cond.true.i, %_ZNKSt6vectorIN6duckdb20ExceptionFormatValueESaIS1_EE12_M_check_lenEmPKc.exit
+  %cond.i31 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN6duckdb20ExceptionFormatValueESaIS1_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"struct.duckdb::ExceptionFormatValue", ptr %cond.i31, i64 %sub.ptr.div.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr, ptr noundef nonnull align 8 dereferenceable(24) %__args, i64 24, i1 false)
-  %str_val.i.i.i = getelementptr inbounds %"struct.duckdb::ExceptionFormatValue", ptr %cond.i31, i64 %sub.ptr.div.i, i32 3
+  %str_val.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %str_val3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 24
-  %3 = getelementptr inbounds %"struct.duckdb::ExceptionFormatValue", ptr %cond.i31, i64 %sub.ptr.div.i, i32 3, i32 2
+  %3 = getelementptr inbounds i8, ptr %add.ptr, i64 40
   store ptr %3, ptr %str_val.i.i.i, align 8, !tbaa !236
   %4 = load ptr, ptr %str_val3.i.i.i, align 8, !tbaa !3
   %5 = getelementptr inbounds i8, ptr %__args, i64 40
@@ -4818,7 +4817,7 @@ if.else.i.i.i.i:                                  ; preds = %_ZNSt12_Vector_base
 _ZNSt16allocator_traitsISaIN6duckdb20ExceptionFormatValueEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit: ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
   %8 = phi i64 [ %6, %if.then.i.i.i.i ], [ %.pre, %if.else.i.i.i.i ]
   %_M_string_length.i23.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 32
-  %_M_string_length.i24.i.i.i.i = getelementptr inbounds %"struct.duckdb::ExceptionFormatValue", ptr %cond.i31, i64 %sub.ptr.div.i, i32 3, i32 1
+  %_M_string_length.i24.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 32
   store i64 %8, ptr %_M_string_length.i24.i.i.i.i, align 8, !tbaa !10
   store ptr %5, ptr %str_val3.i.i.i, align 8, !tbaa !3
   store i64 0, ptr %_M_string_length.i23.i.i.i.i, align 8, !tbaa !10
@@ -4946,10 +4945,10 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #13
 declare void @_ZN6duckdb20ExceptionFormatValueC1El(ptr noundef nonnull align 8 dereferenceable(56), i64 noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6duckdb16ChimpInitAnalyzeIdEENS_10unique_ptrINS_12AnalyzeStateESt14default_deleteIS2_ELb1EEERNS_10ColumnDataENS_12PhysicalTypeE(ptr noalias sret(%"class.duckdb::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(224) %col_data, i8 noundef zeroext %type) #0 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6duckdb16ChimpInitAnalyzeIdEENS_10unique_ptrINS_12AnalyzeStateESt14default_deleteIS2_ELb1EEERNS_10ColumnDataENS_12PhysicalTypeE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(224) %col_data, i8 noundef zeroext %type) #0 comdat personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN6duckdb17ChimpAnalyzeStateIdEESt14default_deleteIS2_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(132240) ptr @_Znwm(i64 noundef 132240) #19, !noalias !250
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb17ChimpAnalyzeStateIdEE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !tbaa !27, !noalias !250
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN6duckdb17ChimpAnalyzeStateIdEE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !tbaa !27, !noalias !250
   %state.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %current.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %free_bits.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 17
@@ -5247,7 +5246,7 @@ _ZN6duckdb17ChimpAnalyzeStateIdE15StartNewSegmentEv.exit: ; preds = %if.end.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6duckdb20ChimpInitCompressionIdEENS_10unique_ptrINS_16CompressionStateESt14default_deleteIS2_ELb1EEERNS_22ColumnDataCheckpointerENS1_INS_12AnalyzeStateES3_IS8_ELb1EEE(ptr noalias sret(%"class.duckdb::unique_ptr.2") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(192) %checkpointer, ptr noundef %state) #0 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6duckdb20ChimpInitCompressionIdEENS_10unique_ptrINS_16CompressionStateESt14default_deleteIS2_ELb1EEERNS_22ColumnDataCheckpointerENS1_INS_12AnalyzeStateES3_IS8_ELb1EEE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.2") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(192) %checkpointer, ptr noundef %state) #0 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %state, align 8, !tbaa !86
   %call.i = tail call noalias noundef nonnull dereferenceable(135000) ptr @_Znwm(i64 noundef 135000) #19, !noalias !266
@@ -5467,7 +5466,7 @@ _ZN6duckdb21ChimpCompressionStateIdE8FinalizeEv.exit: ; preds = %_ZNKSt14default
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6duckdb13ChimpInitScanIdEENS_10unique_ptrINS_16SegmentScanStateESt14default_deleteIS2_ELb1EEERNS_13ColumnSegmentE(ptr noalias sret(%"class.duckdb::unique_ptr.11") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(224) %segment) #0 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6duckdb13ChimpInitScanIdEENS_10unique_ptrINS_16SegmentScanStateESt14default_deleteIS2_ELb1EEERNS_13ColumnSegmentE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.11") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(224) %segment) #0 comdat personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !270)
   %call.i = tail call noalias noundef nonnull dereferenceable(145568) ptr @_Znwm(i64 noundef 145568) #19, !noalias !270
@@ -5726,7 +5725,7 @@ if.end:                                           ; preds = %if.then, %invoke.co
   %12 = load i64, ptr %total_value_count.i.phi.trans.insert, align 8, !tbaa !273
   %inc = add i64 %12, 1
   store i64 %inc, ptr %total_value_count.i.phi.trans.insert, align 8, !tbaa !273
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb14ChimpScanStateIdEE, i64 0, i32 0, i64 2), ptr %scan_state, align 8, !tbaa !27
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN6duckdb14ChimpScanStateIdEE, i64 0, i32 0, i64 2), ptr %scan_state, align 8, !tbaa !27
   %handle.i = getelementptr inbounds i8, ptr %scan_state, i64 8
   call void @_ZN6duckdb12BufferHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle.i) #16
   call void @llvm.lifetime.end.p0(i64 145568, ptr nonnull %scan_state) #16
@@ -5734,7 +5733,7 @@ if.end:                                           ; preds = %if.then, %invoke.co
 
 ehcleanup:                                        ; preds = %lpad1, %lpad
   %.pn = phi { ptr, i32 } [ %8, %lpad1 ], [ %7, %lpad ]
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb14ChimpScanStateIdEE, i64 0, i32 0, i64 2), ptr %scan_state, align 8, !tbaa !27
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN6duckdb14ChimpScanStateIdEE, i64 0, i32 0, i64 2), ptr %scan_state, align 8, !tbaa !27
   %handle.i12 = getelementptr inbounds i8, ptr %scan_state, i64 8
   call void @_ZN6duckdb12BufferHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle.i12) #16
   call void @llvm.lifetime.end.p0(i64 145568, ptr nonnull %scan_state) #16
@@ -5938,7 +5937,7 @@ if.end3.thread:                                   ; preds = %if.end.i.i.i, %if.t
   store i8 8, ptr %free_bits.i.i.i, align 1, !tbaa !44
   %current.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %current.i.i, align 8, !tbaa !45
-  %first.i55 = getelementptr inbounds i8, ptr %this, i64 132208
+  %first.i54 = getelementptr inbounds i8, ptr %this, i64 132208
   br label %if.then.i
 
 if.end3:                                          ; preds = %if.end
@@ -5955,20 +5954,20 @@ if.end3.if.then.i_crit_edge:                      ; preds = %if.end3
 
 if.then.i:                                        ; preds = %if.end3.if.then.i_crit_edge, %if.end3.thread
   %13 = phi i64 [ 0, %if.end3.thread ], [ %.pre1, %if.end3.if.then.i_crit_edge ]
-  %first.i58 = phi ptr [ %first.i55, %if.end3.thread ], [ %first.i.phi.trans.insert, %if.end3.if.then.i_crit_edge ]
-  %add.i.i.i1656 = phi i64 [ 64, %if.end3.thread ], [ %12, %if.end3.if.then.i_crit_edge ]
-  %14 = getelementptr inbounds i8, ptr %this, i64 8
+  %first.i56 = phi ptr [ %first.i54, %if.end3.thread ], [ %first.i.phi.trans.insert, %if.end3.if.then.i_crit_edge ]
+  %add.i.i.i1655 = phi i64 [ 64, %if.end3.thread ], [ %12, %if.end3.if.then.i_crit_edge ]
   %ring_buffer.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %rem.i.i.i = and i64 %13, 127
   %arrayidx.i.i.i = getelementptr inbounds [128 x i64], ptr %ring_buffer.i.i, i64 0, i64 %rem.i.i.i
   store i64 %value, ptr %arrayidx.i.i.i, align 8, !tbaa !69
+  %indices.i.i.i = getelementptr inbounds i8, ptr %this, i64 1120
   %and.i.i.i.i14 = and i64 %value, 16383
-  %arrayidx3.i.i.i = getelementptr inbounds %"struct.duckdb::Chimp128CompressionState.186", ptr %14, i64 0, i32 4, i32 2, i64 %and.i.i.i.i14
+  %arrayidx3.i.i.i = getelementptr inbounds [16384 x i64], ptr %indices.i.i.i, i64 0, i64 %and.i.i.i.i14
   store i64 %13, ptr %arrayidx3.i.i.i, align 8, !tbaa !69
-  store i64 %add.i.i.i1656, ptr %bits_written.i.i.i, align 8, !tbaa !84
+  store i64 %add.i.i.i1655, ptr %bits_written.i.i.i, align 8, !tbaa !84
   %previous_value.i.i = getelementptr inbounds i8, ptr %this, i64 132200
   store i64 %value, ptr %previous_value.i.i, align 8, !tbaa !257
-  store i8 0, ptr %first.i58, align 8, !tbaa !256
+  store i8 0, ptr %first.i56, align 8, !tbaa !256
   br label %_ZN6duckdb19Chimp128CompressionImLb1EE5StoreEmRNS_24Chimp128CompressionStateImLb1EEE.exit
 
 if.else.i:                                        ; preds = %if.end3
@@ -5977,39 +5976,39 @@ if.else.i:                                        ; preds = %if.end3
   br label %_ZN6duckdb19Chimp128CompressionImLb1EE5StoreEmRNS_24Chimp128CompressionStateImLb1EEE.exit
 
 _ZN6duckdb19Chimp128CompressionImLb1EE5StoreEmRNS_24Chimp128CompressionStateImLb1EEE.exit: ; preds = %if.else.i, %if.then.i
-  %first.i59 = phi ptr [ %first.i58, %if.then.i ], [ %first.i.phi.trans.insert, %if.else.i ]
+  %first.i57 = phi ptr [ %first.i56, %if.then.i ], [ %first.i.phi.trans.insert, %if.else.i ]
   %group_idx = getelementptr inbounds i8, ptr %this, i64 132216
-  %15 = load i64, ptr %group_idx, align 8, !tbaa !263
-  %inc = add i64 %15, 1
+  %14 = load i64, ptr %group_idx, align 8, !tbaa !263
+  %inc = add i64 %14, 1
   store i64 %inc, ptr %group_idx, align 8, !tbaa !263
   %cmp = icmp eq i64 %inc, 1024
   br i1 %cmp, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %_ZN6duckdb19Chimp128CompressionImLb1EE5StoreEmRNS_24Chimp128CompressionStateImLb1EEE.exit
-  %16 = load i32, ptr %counter.i.i.i, align 4, !tbaa !73
-  %shr.i.i.i18 = lshr i32 %16, 3
-  %and.i.i.i19 = and i32 %16, 7
+  %15 = load i32, ptr %counter.i.i.i, align 4, !tbaa !73
+  %shr.i.i.i18 = lshr i32 %15, 3
+  %and.i.i.i19 = and i32 %15, 7
   %cmp.i.i.i20 = icmp ne i32 %and.i.i.i19, 0
   %conv.i.i.i21 = zext i1 %cmp.i.i.i20 to i32
   %add.i.i.i22 = add nuw nsw i32 %shr.i.i.i18, %conv.i.i.i21
   %narrow.i.i23 = mul nuw nsw i32 %add.i.i.i22, 3
   %mul.i.i24 = zext nneg i32 %narrow.i.i23 to i64
-  %17 = load i32, ptr %flag_buffer.i.i, align 8, !tbaa !74
-  %shr.i13.i.i26 = lshr i32 %17, 2
-  %and.i14.i.i27 = and i32 %17, 3
+  %16 = load i32, ptr %flag_buffer.i.i, align 8, !tbaa !74
+  %shr.i13.i.i26 = lshr i32 %16, 2
+  %and.i14.i.i27 = and i32 %16, 3
   %cmp.i15.i.i28 = icmp ne i32 %and.i14.i.i27, 0
   %conv.i16.i.i29 = zext i1 %cmp.i15.i.i28 to i32
   %add.i17.i.i30 = add nuw nsw i32 %shr.i13.i.i26, %conv.i16.i.i29
   %conv.i.i31 = zext nneg i32 %add.i17.i.i30 to i64
-  %18 = load i64, ptr %packed_data_buffer.i.i, align 8, !tbaa !259
-  %mul8.i.i33 = shl i64 %18, 1
-  %19 = load i64, ptr %metadata_byte_size.i, align 8, !tbaa !262
-  %add5.i.i35 = add i64 %19, %mul8.i.i33
+  %17 = load i64, ptr %packed_data_buffer.i.i, align 8, !tbaa !259
+  %mul8.i.i33 = shl i64 %17, 1
+  %18 = load i64, ptr %metadata_byte_size.i, align 8, !tbaa !262
+  %add5.i.i35 = add i64 %18, %mul8.i.i33
   %add9.i.i36 = add i64 %add5.i.i35, %conv.i.i31
   %add.i37 = add i64 %add9.i.i36, %mul.i.i24
   store i64 %add.i37, ptr %metadata_byte_size.i, align 8, !tbaa !262
   store i64 0, ptr %group_idx, align 8, !tbaa !263
-  store i8 1, ptr %first.i59, align 8, !tbaa !256
+  store i8 1, ptr %first.i57, align 8, !tbaa !256
   %index.i.i.i38 = getelementptr inbounds i8, ptr %this, i64 1112
   store i64 0, ptr %index.i.i.i38, align 8, !tbaa !264
   %previous_leading_zeros.i.i.i = getelementptr inbounds i8, ptr %this, i64 132192
@@ -6032,7 +6031,8 @@ define linkonce_odr void @_ZN6duckdb19Chimp128CompressionImLb1EE13CompressValueE
 entry:
   %ring_buffer = getelementptr inbounds i8, ptr %state, i64 80
   %and.i = and i64 %in, 16383
-  %arrayidx.i = getelementptr inbounds %"struct.duckdb::Chimp128CompressionState.186", ptr %state, i64 0, i32 4, i32 2, i64 %and.i
+  %indices.i = getelementptr inbounds i8, ptr %state, i64 1112
+  %arrayidx.i = getelementptr inbounds [16384 x i64], ptr %indices.i, i64 0, i64 %and.i
   %0 = load i64, ptr %arrayidx.i, align 8, !tbaa !69
   %index.i = getelementptr inbounds i8, ptr %state, i64 1104
   %1 = load i64, ptr %index.i, align 8, !tbaa !69
@@ -6044,8 +6044,8 @@ if.then:                                          ; preds = %entry
   %cmp9 = icmp ugt i64 %0, %1
   %2 = and i64 %0, 127
   %idxprom.i = select i1 %cmp9, i64 0, i64 %2
-  %arrayidx.i131 = getelementptr inbounds [128 x i64], ptr %ring_buffer, i64 0, i64 %idxprom.i
-  %3 = load i64, ptr %arrayidx.i131, align 8, !tbaa !69
+  %arrayidx.i132 = getelementptr inbounds [128 x i64], ptr %ring_buffer, i64 0, i64 %idxprom.i
+  %3 = load i64, ptr %arrayidx.i132, align 8, !tbaa !69
   %xor = xor i64 %3, %in
   %4 = tail call i64 @llvm.cttz.i64(i64 %xor, i1 false), !range !280
   %cast.i = trunc i64 %4 to i32
@@ -6061,8 +6061,8 @@ if.end34:                                         ; preds = %if.then, %entry
   br i1 %cmp35, label %if.then36, label %if.else59
 
 if.end34.thread:                                  ; preds = %if.then
-  %cmp35170 = icmp eq i64 %xor, 0
-  br i1 %cmp35170, label %if.then36, label %if.then42
+  %cmp35172 = icmp eq i64 %xor, 0
+  br i1 %cmp35172, label %if.then36, label %if.then42
 
 if.then36:                                        ; preds = %if.end34.thread, %if.end34
   %flag_buffer = getelementptr inbounds i8, ptr %state, i64 48
@@ -6079,26 +6079,26 @@ if.then36:                                        ; preds = %if.end34.thread, %i
 
 if.then42:                                        ; preds = %if.end34.thread
   %7 = tail call i64 @llvm.ctlz.i64(i64 %xor, i1 true), !range !280
-  %arrayidx179 = getelementptr inbounds [64 x i8], ptr @_ZN6duckdb14ChimpConstants11Compression13LEADING_ROUNDE, i64 0, i64 %7
-  %8 = load i8, ptr %arrayidx179, align 1, !tbaa !63
+  %arrayidx181 = getelementptr inbounds [64 x i8], ptr @_ZN6duckdb14ChimpConstants11Compression13LEADING_ROUNDE, i64 0, i64 %7
+  %8 = load i8, ptr %arrayidx181, align 1, !tbaa !63
   %flag_buffer43 = getelementptr inbounds i8, ptr %state, i64 48
   %9 = load i32, ptr %flag_buffer43, align 8, !tbaa !74
-  %inc.i139 = add i32 %9, 1
-  store i32 %inc.i139, ptr %flag_buffer43, align 8, !tbaa !74
+  %inc.i140 = add i32 %9, 1
+  store i32 %inc.i140, ptr %flag_buffer43, align 8, !tbaa !74
   %10 = trunc i64 %4 to i8
   %11 = add i8 %8, %10
   %conv50 = sub i8 64, %11
   %packed_data_buffer = getelementptr inbounds i8, ptr %state, i64 64
   %12 = load i64, ptr %packed_data_buffer, align 8, !tbaa !83
-  %inc.i142 = add i64 %12, 1
-  store i64 %inc.i142, ptr %packed_data_buffer, align 8, !tbaa !83
-  %conv.i143 = zext i8 %conv50 to i64
-  %bits_written.i144 = getelementptr inbounds i8, ptr %state, i64 24
-  %13 = load i64, ptr %bits_written.i144, align 8, !tbaa !84
-  %add.i145 = add i64 %13, %conv.i143
-  store i64 %add.i145, ptr %bits_written.i144, align 8, !tbaa !84
-  %previous_leading_zeros.i146 = getelementptr inbounds i8, ptr %state, i64 132184
-  store i8 -1, ptr %previous_leading_zeros.i146, align 8, !tbaa !253
+  %inc.i143 = add i64 %12, 1
+  store i64 %inc.i143, ptr %packed_data_buffer, align 8, !tbaa !83
+  %conv.i144 = zext i8 %conv50 to i64
+  %bits_written.i145 = getelementptr inbounds i8, ptr %state, i64 24
+  %13 = load i64, ptr %bits_written.i145, align 8, !tbaa !84
+  %add.i146 = add i64 %13, %conv.i144
+  store i64 %add.i146, ptr %bits_written.i145, align 8, !tbaa !84
+  %previous_leading_zeros.i147 = getelementptr inbounds i8, ptr %state, i64 132184
+  store i8 -1, ptr %previous_leading_zeros.i147, align 8, !tbaa !253
   br label %if.end84
 
 if.else59:                                        ; preds = %if.end34
@@ -6110,41 +6110,41 @@ if.else59:                                        ; preds = %if.end34
   %cmp62 = icmp eq i8 %15, %16
   %flag_buffer64 = getelementptr inbounds i8, ptr %state, i64 48
   %17 = load i32, ptr %flag_buffer64, align 8, !tbaa !74
-  %inc.i147 = add i32 %17, 1
-  store i32 %inc.i147, ptr %flag_buffer64, align 8, !tbaa !74
+  %inc.i148 = add i32 %17, 1
+  store i32 %inc.i148, ptr %flag_buffer64, align 8, !tbaa !74
   %sub67 = sub i8 64, %15
   br i1 %cmp62, label %if.then63, label %if.else71
 
 if.then63:                                        ; preds = %if.else59
-  %conv.i148 = zext i8 %sub67 to i64
-  %bits_written.i149 = getelementptr inbounds i8, ptr %state, i64 24
-  %18 = load i64, ptr %bits_written.i149, align 8, !tbaa !84
-  %add.i150 = add i64 %18, %conv.i148
-  store i64 %add.i150, ptr %bits_written.i149, align 8, !tbaa !84
+  %conv.i149 = zext i8 %sub67 to i64
+  %bits_written.i150 = getelementptr inbounds i8, ptr %state, i64 24
+  %18 = load i64, ptr %bits_written.i150, align 8, !tbaa !84
+  %add.i151 = add i64 %18, %conv.i149
+  store i64 %add.i151, ptr %bits_written.i150, align 8, !tbaa !84
   br label %if.end84
 
 if.else71:                                        ; preds = %if.else59
   %counter.i = getelementptr inbounds i8, ptr %state, i64 36
   %19 = load i32, ptr %counter.i, align 4, !tbaa !73
-  %inc.i152 = add i32 %19, 1
-  store i32 %inc.i152, ptr %counter.i, align 4, !tbaa !73
-  %conv.i153 = zext i8 %sub67 to i64
-  %bits_written.i154 = getelementptr inbounds i8, ptr %state, i64 24
-  %20 = load i64, ptr %bits_written.i154, align 8, !tbaa !84
-  %add.i155 = add i64 %20, %conv.i153
-  store i64 %add.i155, ptr %bits_written.i154, align 8, !tbaa !84
+  %inc.i153 = add i32 %19, 1
+  store i32 %inc.i153, ptr %counter.i, align 4, !tbaa !73
+  %conv.i154 = zext i8 %sub67 to i64
+  %bits_written.i155 = getelementptr inbounds i8, ptr %state, i64 24
+  %20 = load i64, ptr %bits_written.i155, align 8, !tbaa !84
+  %add.i156 = add i64 %20, %conv.i154
+  store i64 %add.i156, ptr %bits_written.i155, align 8, !tbaa !84
   store i8 %15, ptr %previous_leading_zeros, align 8, !tbaa !253
   br label %if.end84
 
 if.end84:                                         ; preds = %if.else71, %if.then63, %if.then42, %if.then36
   %previous_value = getelementptr inbounds i8, ptr %state, i64 132192
   store i64 %in, ptr %previous_value, align 8, !tbaa !257
-  %inc.i158 = add i64 %1, 1
-  store i64 %inc.i158, ptr %index.i, align 8, !tbaa !264
-  %rem.i = and i64 %inc.i158, 127
-  %arrayidx.i159 = getelementptr inbounds [128 x i64], ptr %ring_buffer, i64 0, i64 %rem.i
-  store i64 %in, ptr %arrayidx.i159, align 8, !tbaa !69
-  store i64 %inc.i158, ptr %arrayidx.i, align 8, !tbaa !69
+  %inc.i159 = add i64 %1, 1
+  store i64 %inc.i159, ptr %index.i, align 8, !tbaa !264
+  %rem.i = and i64 %inc.i159, 127
+  %arrayidx.i160 = getelementptr inbounds [128 x i64], ptr %ring_buffer, i64 0, i64 %rem.i
+  store i64 %in, ptr %arrayidx.i160, align 8, !tbaa !69
+  store i64 %inc.i159, ptr %arrayidx.i, align 8, !tbaa !69
   ret void
 }
 
@@ -6157,7 +6157,7 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #10
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb21ChimpCompressionStateIdEC2ERNS_22ColumnDataCheckpointerEPNS_17ChimpAnalyzeStateIdEE(ptr noundef nonnull align 8 dereferenceable(135000) %this, ptr noundef nonnull align 8 dereferenceable(192) %checkpointer, ptr noundef %analyze_state) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb21ChimpCompressionStateIdEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !27
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN6duckdb21ChimpCompressionStateIdEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !27
   %checkpointer2 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %checkpointer, ptr %checkpointer2, align 8, !tbaa !86
   %call = tail call noundef nonnull align 8 dereferenceable(160) ptr @_ZN6duckdb22ColumnDataCheckpointer22GetCompressionFunctionENS_15CompressionTypeE(ptr noundef nonnull align 8 dereferenceable(192) %checkpointer, i8 noundef zeroext 8)
@@ -6245,7 +6245,7 @@ entry:
   %1 = load ptr, ptr %checkpointer, align 8, !tbaa !290
   %call3 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6duckdb22ColumnDataCheckpointer7GetTypeEv(ptr noundef nonnull align 8 dereferenceable(192) %1)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %compressed_segment) #16
-  call void @_ZN6duckdb13ColumnSegment22CreateTransientSegmentERNS_16DatabaseInstanceERKNS_11LogicalTypeEmm(ptr nonnull sret(%"class.duckdb::unique_ptr.58") align 8 %compressed_segment, ptr noundef nonnull align 1 %call, ptr noundef nonnull align 8 dereferenceable(24) %call3, i64 noundef %row_start, i64 noundef 262136)
+  call void @_ZN6duckdb13ColumnSegment22CreateTransientSegmentERNS_16DatabaseInstanceERKNS_11LogicalTypeEmm(ptr dead_on_unwind nonnull writable sret(%"class.duckdb::unique_ptr.58") align 8 %compressed_segment, ptr noundef nonnull align 1 %call, ptr noundef nonnull align 8 dereferenceable(24) %call3, i64 noundef %row_start, i64 noundef 262136)
   %function = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %function, align 8, !tbaa !291
   %call4 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_13ColumnSegmentESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %compressed_segment)
@@ -6284,7 +6284,7 @@ invoke.cont13:                                    ; preds = %invoke.cont8
   %vtable = load ptr, ptr %call9, align 8, !tbaa !27
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %6 = load ptr, ptr %vfn, align 8
-  invoke void %6(ptr nonnull sret(%"class.duckdb::BufferHandle") align 8 %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(8) %call9, ptr noundef nonnull align 8 dereferenceable(16) %block)
+  invoke void %6(ptr dead_on_unwind nonnull writable sret(%"class.duckdb::BufferHandle") align 8 %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(8) %call9, ptr noundef nonnull align 8 dereferenceable(16) %block)
           to label %invoke.cont15 unwind label %lpad12
 
 invoke.cont15:                                    ; preds = %invoke.cont13
@@ -6383,7 +6383,7 @@ ehcleanup36:                                      ; preds = %lpad12, %lpad7, %lp
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb21ChimpCompressionStateIdED2Ev(ptr noundef nonnull align 8 dereferenceable(135000) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb21ChimpCompressionStateIdEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !27
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN6duckdb21ChimpCompressionStateIdEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !27
   %handle = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN6duckdb12BufferHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle) #16
   %current_segment = getelementptr inbounds i8, ptr %this, i64 24
@@ -6404,7 +6404,7 @@ _ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit: ; p
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb21ChimpCompressionStateIdED0Ev(ptr noundef nonnull align 8 dereferenceable(135000) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb21ChimpCompressionStateIdEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !27
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN6duckdb21ChimpCompressionStateIdEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !27
   %handle.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN6duckdb12BufferHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle.i) #16
   %current_segment.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -6537,8 +6537,9 @@ if.then.i:                                        ; preds = %if.end15
   %rem.i.i.i = and i64 %15, 127
   %arrayidx.i.i.i = getelementptr inbounds [128 x i64], ptr %ring_buffer.i.i, i64 0, i64 %rem.i.i.i
   store i64 %value.addr.0, ptr %arrayidx.i.i.i, align 8, !tbaa !69
+  %indices.i.i.i = getelementptr inbounds i8, ptr %this, i64 3904
   %and.i.i.i.i = and i64 %value.addr.0, 16383
-  %arrayidx3.i.i.i = getelementptr inbounds %"struct.duckdb::Chimp128CompressionState.202", ptr %state16, i64 0, i32 4, i32 2, i64 %and.i.i.i.i
+  %arrayidx3.i.i.i = getelementptr inbounds [16384 x i64], ptr %indices.i.i.i, i64 0, i64 %and.i.i.i.i
   store i64 %15, ptr %arrayidx3.i.i.i, align 8, !tbaa !69
   call void @_ZN6duckdb15OutputBitStreamILb0EE10WriteValueImLh64EEEvT_(ptr noundef nonnull align 8 dereferenceable(32) %state16, i64 noundef %value.addr.0)
   %previous_value.i.i = getelementptr inbounds i8, ptr %this, i64 134984
@@ -6802,7 +6803,8 @@ entry:
   %ref.tmp79 = alloca i8, align 1
   %ring_buffer = getelementptr inbounds i8, ptr %state, i64 80
   %and.i = and i64 %in, 16383
-  %arrayidx.i = getelementptr inbounds %"struct.duckdb::Chimp128CompressionState.202", ptr %state, i64 0, i32 4, i32 2, i64 %and.i
+  %indices.i = getelementptr inbounds i8, ptr %state, i64 1112
+  %arrayidx.i = getelementptr inbounds [16384 x i64], ptr %indices.i, i64 0, i64 %and.i
   %0 = load i64, ptr %arrayidx.i, align 8, !tbaa !69
   %index.i = getelementptr inbounds i8, ptr %state, i64 1104
   %1 = load i64, ptr %index.i, align 8, !tbaa !69
@@ -6816,8 +6818,8 @@ if.then:                                          ; preds = %entry
   %3 = and i8 %2, 127
   %conv = select i1 %cmp9, i8 0, i8 %3
   %idxprom.i = zext nneg i8 %conv to i64
-  %arrayidx.i131 = getelementptr inbounds [128 x i64], ptr %ring_buffer, i64 0, i64 %idxprom.i
-  %4 = load i64, ptr %arrayidx.i131, align 8, !tbaa !69
+  %arrayidx.i132 = getelementptr inbounds [128 x i64], ptr %ring_buffer, i64 0, i64 %idxprom.i
+  %4 = load i64, ptr %arrayidx.i132, align 8, !tbaa !69
   %xor = xor i64 %4, %in
   %5 = tail call i64 @llvm.cttz.i64(i64 %xor, i1 false), !range !280
   %cast.i = trunc i64 %5 to i32
@@ -6825,8 +6827,8 @@ if.then:                                          ; preds = %entry
   br i1 %cmp14, label %if.end34.thread, label %if.end34
 
 if.end34:                                         ; preds = %if.then, %entry
-  %idxprom.i136.pn = and i64 %1, 127
-  %.pn.in = getelementptr inbounds [128 x i64], ptr %ring_buffer, i64 0, i64 %idxprom.i136.pn
+  %idxprom.i137.pn = and i64 %1, 127
+  %.pn.in = getelementptr inbounds [128 x i64], ptr %ring_buffer, i64 0, i64 %idxprom.i137.pn
   %.pn = load i64, ptr %.pn.in, align 8, !tbaa !69
   %xor_result.1 = xor i64 %.pn, %in
   %previous_index.0.in = trunc i64 %1 to i8
@@ -6835,24 +6837,24 @@ if.end34:                                         ; preds = %if.then, %entry
   br i1 %cmp35, label %if.then36, label %if.else59
 
 if.end34.thread:                                  ; preds = %if.then
-  %cmp35231 = icmp eq i64 %xor, 0
-  br i1 %cmp35231, label %if.then36, label %if.then42
+  %cmp35233 = icmp eq i64 %xor, 0
+  br i1 %cmp35233, label %if.then36, label %if.then42
 
 if.then36:                                        ; preds = %if.end34.thread, %if.end34
-  %previous_index.0232 = phi i8 [ %conv, %if.end34.thread ], [ %previous_index.0, %if.end34 ]
+  %previous_index.0234 = phi i8 [ %conv, %if.end34.thread ], [ %previous_index.0, %if.end34 ]
   %flag_buffer = getelementptr inbounds i8, ptr %state, i64 48
   %6 = load i32, ptr %flag_buffer, align 8, !tbaa !150
-  %and.i138 = and i32 %6, 3
-  %cmp.i = icmp eq i32 %and.i138, 0
+  %and.i139 = and i32 %6, 3
+  %cmp.i = icmp eq i32 %and.i139, 0
   br i1 %cmp.i, label %if.then.i, label %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit
 
 if.then.i:                                        ; preds = %if.then36
   %buffer.i = getelementptr inbounds i8, ptr %state, i64 56
   %7 = load ptr, ptr %buffer.i, align 8, !tbaa !149
   %shr.i = lshr exact i32 %6, 2
-  %idxprom.i139 = zext nneg i32 %shr.i to i64
-  %arrayidx.i140 = getelementptr inbounds i8, ptr %7, i64 %idxprom.i139
-  store i8 0, ptr %arrayidx.i140, align 1, !tbaa !63
+  %idxprom.i140 = zext nneg i32 %shr.i to i64
+  %arrayidx.i141 = getelementptr inbounds i8, ptr %7, i64 %idxprom.i140
+  store i8 0, ptr %arrayidx.i141, align 1, !tbaa !63
   %.pre = load i32, ptr %flag_buffer, align 8, !tbaa !150
   br label %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit
 
@@ -6860,52 +6862,52 @@ _ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit: ; preds = %
   %8 = phi i32 [ %6, %if.then36 ], [ %.pre, %if.then.i ]
   %inc.i = add i32 %8, 1
   store i32 %inc.i, ptr %flag_buffer, align 8, !tbaa !150
-  tail call void @_ZN6duckdb15OutputBitStreamILb0EE10WriteValueIhLh7EEEvT_(ptr noundef nonnull align 8 dereferenceable(32) %state, i8 noundef zeroext %previous_index.0232)
+  tail call void @_ZN6duckdb15OutputBitStreamILb0EE10WriteValueIhLh7EEEvT_(ptr noundef nonnull align 8 dereferenceable(32) %state, i8 noundef zeroext %previous_index.0234)
   %previous_leading_zeros.i = getelementptr inbounds i8, ptr %state, i64 132184
   store i8 -1, ptr %previous_leading_zeros.i, align 8, !tbaa !286
   br label %if.end84
 
 if.then42:                                        ; preds = %if.end34.thread
   %9 = tail call i64 @llvm.ctlz.i64(i64 %xor, i1 true), !range !280
-  %arrayidx241 = getelementptr inbounds [64 x i8], ptr @_ZN6duckdb14ChimpConstants11Compression13LEADING_ROUNDE, i64 0, i64 %9
-  %10 = load i8, ptr %arrayidx241, align 1, !tbaa !63
+  %arrayidx243 = getelementptr inbounds [64 x i8], ptr @_ZN6duckdb14ChimpConstants11Compression13LEADING_ROUNDE, i64 0, i64 %9
+  %10 = load i8, ptr %arrayidx243, align 1, !tbaa !63
   %flag_buffer43 = getelementptr inbounds i8, ptr %state, i64 48
   %11 = load i32, ptr %flag_buffer43, align 8, !tbaa !150
-  %and.i142 = and i32 %11, 3
-  %cmp.i143 = icmp eq i32 %and.i142, 0
-  br i1 %cmp.i143, label %if.then.i153, label %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit160
+  %and.i143 = and i32 %11, 3
+  %cmp.i144 = icmp eq i32 %and.i143, 0
+  br i1 %cmp.i144, label %if.then.i154, label %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit161
 
-if.then.i153:                                     ; preds = %if.then42
-  %buffer.i154 = getelementptr inbounds i8, ptr %state, i64 56
-  %12 = load ptr, ptr %buffer.i154, align 8, !tbaa !149
-  %shr.i155 = lshr exact i32 %11, 2
-  %idxprom.i156 = zext nneg i32 %shr.i155 to i64
-  %arrayidx.i157 = getelementptr inbounds i8, ptr %12, i64 %idxprom.i156
-  store i8 0, ptr %arrayidx.i157, align 1, !tbaa !63
-  %.pre.i158 = load i32, ptr %flag_buffer43, align 8, !tbaa !150
-  %.pre17.i159 = and i32 %.pre.i158, 3
-  br label %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit160
+if.then.i154:                                     ; preds = %if.then42
+  %buffer.i155 = getelementptr inbounds i8, ptr %state, i64 56
+  %12 = load ptr, ptr %buffer.i155, align 8, !tbaa !149
+  %shr.i156 = lshr exact i32 %11, 2
+  %idxprom.i157 = zext nneg i32 %shr.i156 to i64
+  %arrayidx.i158 = getelementptr inbounds i8, ptr %12, i64 %idxprom.i157
+  store i8 0, ptr %arrayidx.i158, align 1, !tbaa !63
+  %.pre.i159 = load i32, ptr %flag_buffer43, align 8, !tbaa !150
+  %.pre17.i160 = and i32 %.pre.i159, 3
+  br label %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit161
 
-_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit160: ; preds = %if.then.i153, %if.then42
-  %and5.pre-phi.i144 = phi i32 [ %.pre17.i159, %if.then.i153 ], [ %and.i142, %if.then42 ]
-  %13 = phi i32 [ %.pre.i158, %if.then.i153 ], [ %11, %if.then42 ]
-  %idxprom6.i145 = zext nneg i32 %and5.pre-phi.i144 to i64
-  %arrayidx7.i146 = getelementptr inbounds [4 x i8], ptr @_ZN6duckdb19FlagBufferConstants6SHIFTSE, i64 0, i64 %idxprom6.i145
-  %14 = load i8, ptr %arrayidx7.i146, align 1, !tbaa !63
-  %conv8.i147 = zext nneg i8 %14 to i32
-  %shl.i = shl nuw i32 1, %conv8.i147
-  %buffer9.i148 = getelementptr inbounds i8, ptr %state, i64 56
-  %15 = load ptr, ptr %buffer9.i148, align 8, !tbaa !149
-  %shr11.i149 = lshr i32 %13, 2
-  %idxprom12.i150 = zext nneg i32 %shr11.i149 to i64
-  %arrayidx13.i151 = getelementptr inbounds i8, ptr %15, i64 %idxprom12.i150
-  %16 = load i8, ptr %arrayidx13.i151, align 1, !tbaa !63
+_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit161: ; preds = %if.then.i154, %if.then42
+  %and5.pre-phi.i145 = phi i32 [ %.pre17.i160, %if.then.i154 ], [ %and.i143, %if.then42 ]
+  %13 = phi i32 [ %.pre.i159, %if.then.i154 ], [ %11, %if.then42 ]
+  %idxprom6.i146 = zext nneg i32 %and5.pre-phi.i145 to i64
+  %arrayidx7.i147 = getelementptr inbounds [4 x i8], ptr @_ZN6duckdb19FlagBufferConstants6SHIFTSE, i64 0, i64 %idxprom6.i146
+  %14 = load i8, ptr %arrayidx7.i147, align 1, !tbaa !63
+  %conv8.i148 = zext nneg i8 %14 to i32
+  %shl.i = shl nuw i32 1, %conv8.i148
+  %buffer9.i149 = getelementptr inbounds i8, ptr %state, i64 56
+  %15 = load ptr, ptr %buffer9.i149, align 8, !tbaa !149
+  %shr11.i150 = lshr i32 %13, 2
+  %idxprom12.i151 = zext nneg i32 %shr11.i150 to i64
+  %arrayidx13.i152 = getelementptr inbounds i8, ptr %15, i64 %idxprom12.i151
+  %16 = load i8, ptr %arrayidx13.i152, align 1, !tbaa !63
   %17 = trunc i32 %shl.i to i8
   %conv15.i = or i8 %16, %17
-  store i8 %conv15.i, ptr %arrayidx13.i151, align 1, !tbaa !63
+  store i8 %conv15.i, ptr %arrayidx13.i152, align 1, !tbaa !63
   %18 = load i32, ptr %flag_buffer43, align 8, !tbaa !150
-  %inc.i152 = add i32 %18, 1
-  store i32 %inc.i152, ptr %flag_buffer43, align 8, !tbaa !150
+  %inc.i153 = add i32 %18, 1
+  store i32 %inc.i153, ptr %flag_buffer43, align 8, !tbaa !150
   %conv47 = trunc i64 %0 to i16
   %idxprom48 = zext i8 %10 to i64
   %arrayidx49 = getelementptr inbounds [64 x i8], ptr @_ZN6duckdb14ChimpConstants11Compression22LEADING_REPRESENTATIONE, i64 0, i64 %idxprom48
@@ -6915,27 +6917,27 @@ _ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit160: ; preds 
   %conv50 = sub i8 64, %21
   %add.i = shl i16 %conv47, 9
   %22 = and i8 %19, 7
-  %and.i161 = zext nneg i8 %22 to i16
-  %mul5.i = shl nuw nsw i16 %and.i161, 6
+  %and.i162 = zext nneg i8 %22 to i16
+  %mul5.i = shl nuw nsw i16 %and.i162, 6
   %23 = and i8 %conv50, 63
   %and10.i = zext nneg i8 %23 to i16
   %conv11.i = or disjoint i16 %mul5.i, %add.i
   %add12.i = or disjoint i16 %conv11.i, %and10.i
   %packed_data_buffer = getelementptr inbounds i8, ptr %state, i64 64
-  %buffer.i162 = getelementptr inbounds i8, ptr %state, i64 72
-  %24 = load ptr, ptr %buffer.i162, align 8, !tbaa !151
+  %buffer.i163 = getelementptr inbounds i8, ptr %state, i64 72
+  %24 = load ptr, ptr %buffer.i163, align 8, !tbaa !151
   %25 = load i64, ptr %packed_data_buffer, align 8, !tbaa !152
-  %arrayidx.i163 = getelementptr inbounds i16, ptr %24, i64 %25
-  store i16 %add12.i, ptr %arrayidx.i163, align 2, !tbaa !196
-  %inc.i164 = add i64 %25, 1
-  store i64 %inc.i164, ptr %packed_data_buffer, align 8, !tbaa !152
+  %arrayidx.i164 = getelementptr inbounds i16, ptr %24, i64 %25
+  store i16 %add12.i, ptr %arrayidx.i164, align 2, !tbaa !196
+  %inc.i165 = add i64 %25, 1
+  store i64 %inc.i165, ptr %packed_data_buffer, align 8, !tbaa !152
   %shr = lshr i64 %xor, %5
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp55) #16
   store i8 %conv50, ptr %ref.tmp55, align 1, !tbaa !63
   call void @_ZN6duckdb15OutputBitStreamILb0EE10WriteValueImEEvT_RKh(ptr noundef nonnull align 8 dereferenceable(32) %state, i64 noundef %shr, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp55)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp55) #16
-  %previous_leading_zeros.i165 = getelementptr inbounds i8, ptr %state, i64 132184
-  store i8 -1, ptr %previous_leading_zeros.i165, align 8, !tbaa !286
+  %previous_leading_zeros.i166 = getelementptr inbounds i8, ptr %state, i64 132184
+  store i8 -1, ptr %previous_leading_zeros.i166, align 8, !tbaa !286
   br label %if.end84
 
 if.else59:                                        ; preds = %if.end34
@@ -6947,44 +6949,44 @@ if.else59:                                        ; preds = %if.end34
   %cmp62 = icmp eq i8 %27, %28
   %flag_buffer64 = getelementptr inbounds i8, ptr %state, i64 48
   %29 = load i32, ptr %flag_buffer64, align 8, !tbaa !150
-  %and.i166 = and i32 %29, 3
-  %cmp.i167 = icmp eq i32 %and.i166, 0
+  %and.i167 = and i32 %29, 3
+  %cmp.i168 = icmp eq i32 %and.i167, 0
   br i1 %cmp62, label %if.then63, label %if.else71
 
 if.then63:                                        ; preds = %if.else59
-  br i1 %cmp.i167, label %if.then.i179, label %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit186
+  br i1 %cmp.i168, label %if.then.i180, label %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit187
 
-if.then.i179:                                     ; preds = %if.then63
-  %buffer.i180 = getelementptr inbounds i8, ptr %state, i64 56
-  %30 = load ptr, ptr %buffer.i180, align 8, !tbaa !149
-  %shr.i181 = lshr exact i32 %29, 2
-  %idxprom.i182 = zext nneg i32 %shr.i181 to i64
-  %arrayidx.i183 = getelementptr inbounds i8, ptr %30, i64 %idxprom.i182
-  store i8 0, ptr %arrayidx.i183, align 1, !tbaa !63
-  %.pre.i184 = load i32, ptr %flag_buffer64, align 8, !tbaa !150
-  %.pre17.i185 = and i32 %.pre.i184, 3
-  br label %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit186
+if.then.i180:                                     ; preds = %if.then63
+  %buffer.i181 = getelementptr inbounds i8, ptr %state, i64 56
+  %30 = load ptr, ptr %buffer.i181, align 8, !tbaa !149
+  %shr.i182 = lshr exact i32 %29, 2
+  %idxprom.i183 = zext nneg i32 %shr.i182 to i64
+  %arrayidx.i184 = getelementptr inbounds i8, ptr %30, i64 %idxprom.i183
+  store i8 0, ptr %arrayidx.i184, align 1, !tbaa !63
+  %.pre.i185 = load i32, ptr %flag_buffer64, align 8, !tbaa !150
+  %.pre17.i186 = and i32 %.pre.i185, 3
+  br label %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit187
 
-_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit186: ; preds = %if.then.i179, %if.then63
-  %and5.pre-phi.i168 = phi i32 [ %.pre17.i185, %if.then.i179 ], [ %and.i166, %if.then63 ]
-  %31 = phi i32 [ %.pre.i184, %if.then.i179 ], [ %29, %if.then63 ]
-  %idxprom6.i169 = zext nneg i32 %and5.pre-phi.i168 to i64
-  %arrayidx7.i170 = getelementptr inbounds [4 x i8], ptr @_ZN6duckdb19FlagBufferConstants6SHIFTSE, i64 0, i64 %idxprom6.i169
-  %32 = load i8, ptr %arrayidx7.i170, align 1, !tbaa !63
-  %conv8.i171 = zext nneg i8 %32 to i32
-  %shl.i172 = shl i32 2, %conv8.i171
-  %buffer9.i173 = getelementptr inbounds i8, ptr %state, i64 56
-  %33 = load ptr, ptr %buffer9.i173, align 8, !tbaa !149
-  %shr11.i174 = lshr i32 %31, 2
-  %idxprom12.i175 = zext nneg i32 %shr11.i174 to i64
-  %arrayidx13.i176 = getelementptr inbounds i8, ptr %33, i64 %idxprom12.i175
-  %34 = load i8, ptr %arrayidx13.i176, align 1, !tbaa !63
-  %35 = trunc i32 %shl.i172 to i8
-  %conv15.i177 = or i8 %34, %35
-  store i8 %conv15.i177, ptr %arrayidx13.i176, align 1, !tbaa !63
+_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit187: ; preds = %if.then.i180, %if.then63
+  %and5.pre-phi.i169 = phi i32 [ %.pre17.i186, %if.then.i180 ], [ %and.i167, %if.then63 ]
+  %31 = phi i32 [ %.pre.i185, %if.then.i180 ], [ %29, %if.then63 ]
+  %idxprom6.i170 = zext nneg i32 %and5.pre-phi.i169 to i64
+  %arrayidx7.i171 = getelementptr inbounds [4 x i8], ptr @_ZN6duckdb19FlagBufferConstants6SHIFTSE, i64 0, i64 %idxprom6.i170
+  %32 = load i8, ptr %arrayidx7.i171, align 1, !tbaa !63
+  %conv8.i172 = zext nneg i8 %32 to i32
+  %shl.i173 = shl i32 2, %conv8.i172
+  %buffer9.i174 = getelementptr inbounds i8, ptr %state, i64 56
+  %33 = load ptr, ptr %buffer9.i174, align 8, !tbaa !149
+  %shr11.i175 = lshr i32 %31, 2
+  %idxprom12.i176 = zext nneg i32 %shr11.i175 to i64
+  %arrayidx13.i177 = getelementptr inbounds i8, ptr %33, i64 %idxprom12.i176
+  %34 = load i8, ptr %arrayidx13.i177, align 1, !tbaa !63
+  %35 = trunc i32 %shl.i173 to i8
+  %conv15.i178 = or i8 %34, %35
+  store i8 %conv15.i178, ptr %arrayidx13.i177, align 1, !tbaa !63
   %36 = load i32, ptr %flag_buffer64, align 8, !tbaa !150
-  %inc.i178 = add i32 %36, 1
-  store i32 %inc.i178, ptr %flag_buffer64, align 8, !tbaa !150
+  %inc.i179 = add i32 %36, 1
+  store i32 %inc.i179, ptr %flag_buffer64, align 8, !tbaa !150
   %sub67 = sub i8 64, %27
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp69) #16
   store i8 %sub67, ptr %ref.tmp69, align 1, !tbaa !63
@@ -6993,61 +6995,61 @@ _ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit186: ; preds 
   br label %if.end84
 
 if.else71:                                        ; preds = %if.else59
-  br i1 %cmp.i167, label %if.then.i200, label %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit207
+  br i1 %cmp.i168, label %if.then.i201, label %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit208
 
-if.then.i200:                                     ; preds = %if.else71
-  %buffer.i201 = getelementptr inbounds i8, ptr %state, i64 56
-  %37 = load ptr, ptr %buffer.i201, align 8, !tbaa !149
-  %shr.i202 = lshr exact i32 %29, 2
-  %idxprom.i203 = zext nneg i32 %shr.i202 to i64
-  %arrayidx.i204 = getelementptr inbounds i8, ptr %37, i64 %idxprom.i203
-  store i8 0, ptr %arrayidx.i204, align 1, !tbaa !63
-  %.pre.i205 = load i32, ptr %flag_buffer64, align 8, !tbaa !150
-  %.pre17.i206 = and i32 %.pre.i205, 3
-  br label %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit207
+if.then.i201:                                     ; preds = %if.else71
+  %buffer.i202 = getelementptr inbounds i8, ptr %state, i64 56
+  %37 = load ptr, ptr %buffer.i202, align 8, !tbaa !149
+  %shr.i203 = lshr exact i32 %29, 2
+  %idxprom.i204 = zext nneg i32 %shr.i203 to i64
+  %arrayidx.i205 = getelementptr inbounds i8, ptr %37, i64 %idxprom.i204
+  store i8 0, ptr %arrayidx.i205, align 1, !tbaa !63
+  %.pre.i206 = load i32, ptr %flag_buffer64, align 8, !tbaa !150
+  %.pre17.i207 = and i32 %.pre.i206, 3
+  br label %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit208
 
-_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit207: ; preds = %if.then.i200, %if.else71
-  %and5.pre-phi.i189 = phi i32 [ %.pre17.i206, %if.then.i200 ], [ %and.i166, %if.else71 ]
-  %38 = phi i32 [ %.pre.i205, %if.then.i200 ], [ %29, %if.else71 ]
-  %idxprom6.i190 = zext nneg i32 %and5.pre-phi.i189 to i64
-  %arrayidx7.i191 = getelementptr inbounds [4 x i8], ptr @_ZN6duckdb19FlagBufferConstants6SHIFTSE, i64 0, i64 %idxprom6.i190
-  %39 = load i8, ptr %arrayidx7.i191, align 1, !tbaa !63
-  %conv8.i192 = zext nneg i8 %39 to i32
-  %shl.i193 = shl i32 3, %conv8.i192
-  %buffer9.i194 = getelementptr inbounds i8, ptr %state, i64 56
-  %40 = load ptr, ptr %buffer9.i194, align 8, !tbaa !149
-  %shr11.i195 = lshr i32 %38, 2
-  %idxprom12.i196 = zext nneg i32 %shr11.i195 to i64
-  %arrayidx13.i197 = getelementptr inbounds i8, ptr %40, i64 %idxprom12.i196
-  %41 = load i8, ptr %arrayidx13.i197, align 1, !tbaa !63
-  %42 = trunc i32 %shl.i193 to i8
-  %conv15.i198 = or i8 %41, %42
-  store i8 %conv15.i198, ptr %arrayidx13.i197, align 1, !tbaa !63
+_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit208: ; preds = %if.then.i201, %if.else71
+  %and5.pre-phi.i190 = phi i32 [ %.pre17.i207, %if.then.i201 ], [ %and.i167, %if.else71 ]
+  %38 = phi i32 [ %.pre.i206, %if.then.i201 ], [ %29, %if.else71 ]
+  %idxprom6.i191 = zext nneg i32 %and5.pre-phi.i190 to i64
+  %arrayidx7.i192 = getelementptr inbounds [4 x i8], ptr @_ZN6duckdb19FlagBufferConstants6SHIFTSE, i64 0, i64 %idxprom6.i191
+  %39 = load i8, ptr %arrayidx7.i192, align 1, !tbaa !63
+  %conv8.i193 = zext nneg i8 %39 to i32
+  %shl.i194 = shl i32 3, %conv8.i193
+  %buffer9.i195 = getelementptr inbounds i8, ptr %state, i64 56
+  %40 = load ptr, ptr %buffer9.i195, align 8, !tbaa !149
+  %shr11.i196 = lshr i32 %38, 2
+  %idxprom12.i197 = zext nneg i32 %shr11.i196 to i64
+  %arrayidx13.i198 = getelementptr inbounds i8, ptr %40, i64 %idxprom12.i197
+  %41 = load i8, ptr %arrayidx13.i198, align 1, !tbaa !63
+  %42 = trunc i32 %shl.i194 to i8
+  %conv15.i199 = or i8 %41, %42
+  store i8 %conv15.i199, ptr %arrayidx13.i198, align 1, !tbaa !63
   %43 = load i32, ptr %flag_buffer64, align 8, !tbaa !150
-  %inc.i199 = add i32 %43, 1
-  store i32 %inc.i199, ptr %flag_buffer64, align 8, !tbaa !150
+  %inc.i200 = add i32 %43, 1
+  store i32 %inc.i200, ptr %flag_buffer64, align 8, !tbaa !150
   %sub75 = sub i8 64, %27
   %leading_zero_buffer = getelementptr inbounds i8, ptr %state, i64 32
   %idxprom76 = zext i8 %27 to i64
   %arrayidx77 = getelementptr inbounds [64 x i8], ptr @_ZN6duckdb14ChimpConstants11Compression22LEADING_REPRESENTATIONE, i64 0, i64 %idxprom76
   %44 = load i8, ptr %arrayidx77, align 1, !tbaa !63
   %45 = and i8 %44, 7
-  %and.i208 = zext nneg i8 %45 to i32
+  %and.i209 = zext nneg i8 %45 to i32
   %counter.i = getelementptr inbounds i8, ptr %state, i64 36
   %46 = load i32, ptr %counter.i, align 4, !tbaa !148
   %and2.i = and i32 %46, 7
-  %idxprom.i209 = zext nneg i32 %and2.i to i64
-  %arrayidx.i210 = getelementptr inbounds [8 x i8], ptr @_ZN6duckdb26LeadingZeroBufferConstants6SHIFTSE, i64 0, i64 %idxprom.i209
-  %47 = load i8, ptr %arrayidx.i210, align 1, !tbaa !63
+  %idxprom.i210 = zext nneg i32 %and2.i to i64
+  %arrayidx.i211 = getelementptr inbounds [8 x i8], ptr @_ZN6duckdb26LeadingZeroBufferConstants6SHIFTSE, i64 0, i64 %idxprom.i210
+  %47 = load i8, ptr %arrayidx.i211, align 1, !tbaa !63
   %conv3.i = zext nneg i8 %47 to i32
-  %shl.i211 = shl i32 %and.i208, %conv3.i
+  %shl.i212 = shl i32 %and.i209, %conv3.i
   %48 = load i32, ptr %leading_zero_buffer, align 8, !tbaa !187
-  %or.i = or i32 %shl.i211, %48
+  %or.i = or i32 %shl.i212, %48
   store i32 %or.i, ptr %leading_zero_buffer, align 8, !tbaa !187
-  %cmp.i212 = icmp eq i32 %and2.i, 7
-  br i1 %cmp.i212, label %if.then.i214, label %_ZN6duckdb17LeadingZeroBufferILb0EE6InsertERKh.exit
+  %cmp.i213 = icmp eq i32 %and2.i, 7
+  br i1 %cmp.i213, label %if.then.i215, label %_ZN6duckdb17LeadingZeroBufferILb0EE6InsertERKh.exit
 
-if.then.i214:                                     ; preds = %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit207
+if.then.i215:                                     ; preds = %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit208
   %shr.i.i.i = lshr i32 %46, 3
   %mul.i.i.i = mul nuw nsw i32 %shr.i.i.i, 3
   %conv.i.i.i = zext nneg i32 %mul.i.i.i to i64
@@ -7056,13 +7058,13 @@ if.then.i214:                                     ; preds = %_ZN6duckdb10FlagBuf
   %add.ptr.i.i = getelementptr inbounds i8, ptr %49, i64 %conv.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(3) %leading_zero_buffer, i64 3, i1 false)
   store i32 0, ptr %leading_zero_buffer, align 8, !tbaa !187
-  %.pre.i215 = load i32, ptr %counter.i, align 4, !tbaa !148
+  %.pre.i216 = load i32, ptr %counter.i, align 4, !tbaa !148
   br label %_ZN6duckdb17LeadingZeroBufferILb0EE6InsertERKh.exit
 
-_ZN6duckdb17LeadingZeroBufferILb0EE6InsertERKh.exit: ; preds = %if.then.i214, %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit207
-  %50 = phi i32 [ %.pre.i215, %if.then.i214 ], [ %46, %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit207 ]
-  %inc.i213 = add i32 %50, 1
-  store i32 %inc.i213, ptr %counter.i, align 4, !tbaa !148
+_ZN6duckdb17LeadingZeroBufferILb0EE6InsertERKh.exit: ; preds = %if.then.i215, %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit208
+  %50 = phi i32 [ %.pre.i216, %if.then.i215 ], [ %46, %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit208 ]
+  %inc.i214 = add i32 %50, 1
+  store i32 %inc.i214, ptr %counter.i, align 4, !tbaa !148
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp79) #16
   store i8 %sub75, ptr %ref.tmp79, align 1, !tbaa !63
   call void @_ZN6duckdb15OutputBitStreamILb0EE10WriteValueImEEvT_RKh(ptr noundef nonnull align 8 dereferenceable(32) %state, i64 noundef %xor_result.1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp79)
@@ -7070,16 +7072,16 @@ _ZN6duckdb17LeadingZeroBufferILb0EE6InsertERKh.exit: ; preds = %if.then.i214, %_
   store i8 %27, ptr %previous_leading_zeros, align 8, !tbaa !286
   br label %if.end84
 
-if.end84:                                         ; preds = %_ZN6duckdb17LeadingZeroBufferILb0EE6InsertERKh.exit, %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit186, %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit160, %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit
+if.end84:                                         ; preds = %_ZN6duckdb17LeadingZeroBufferILb0EE6InsertERKh.exit, %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit187, %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit161, %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit
   %previous_value = getelementptr inbounds i8, ptr %state, i64 132192
   store i64 %in, ptr %previous_value, align 8, !tbaa !288
   %51 = load i64, ptr %index.i, align 8, !tbaa !264
-  %inc.i218 = add i64 %51, 1
-  store i64 %inc.i218, ptr %index.i, align 8, !tbaa !264
-  %rem.i = and i64 %inc.i218, 127
-  %arrayidx.i219 = getelementptr inbounds [128 x i64], ptr %ring_buffer, i64 0, i64 %rem.i
-  store i64 %in, ptr %arrayidx.i219, align 8, !tbaa !69
-  store i64 %inc.i218, ptr %arrayidx.i, align 8, !tbaa !69
+  %inc.i219 = add i64 %51, 1
+  store i64 %inc.i219, ptr %index.i, align 8, !tbaa !264
+  %rem.i = and i64 %inc.i219, 127
+  %arrayidx.i220 = getelementptr inbounds [128 x i64], ptr %ring_buffer, i64 0, i64 %rem.i
+  store i64 %in, ptr %arrayidx.i220, align 8, !tbaa !69
+  store i64 %inc.i219, ptr %arrayidx.i, align 8, !tbaa !69
   ret void
 }
 
@@ -7477,7 +7479,7 @@ return:                                           ; preds = %if.end21, %if.then.
 define linkonce_odr void @_ZN6duckdb14ChimpScanStateIdEC2ERNS_13ColumnSegmentE(ptr noundef nonnull align 8 dereferenceable(145568) %this, ptr noundef nonnull align 8 dereferenceable(224) %segment) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.duckdb::BufferHandle", align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb14ChimpScanStateIdEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !27
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN6duckdb14ChimpScanStateIdEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !27
   %handle = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6duckdb12BufferHandleC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle)
   %total_value_count = getelementptr inbounds i8, ptr %this, i64 40
@@ -7511,7 +7513,7 @@ invoke.cont6:                                     ; preds = %entry
   %vtable = load ptr, ptr %call7, align 8, !tbaa !27
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %2 = load ptr, ptr %vfn, align 8
-  invoke void %2(ptr nonnull sret(%"class.duckdb::BufferHandle") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %call7, ptr noundef nonnull align 8 dereferenceable(16) %block)
+  invoke void %2(ptr dead_on_unwind nonnull writable sret(%"class.duckdb::BufferHandle") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %call7, ptr noundef nonnull align 8 dereferenceable(16) %block)
           to label %invoke.cont18 unwind label %lpad8
 
 invoke.cont18:                                    ; preds = %invoke.cont6
@@ -7563,7 +7565,7 @@ ehcleanup25:                                      ; preds = %lpad8, %lpad5
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb14ChimpScanStateIdED2Ev(ptr noundef nonnull align 8 dereferenceable(145568) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb14ChimpScanStateIdEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !27
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN6duckdb14ChimpScanStateIdEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !27
   %handle = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6duckdb12BufferHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle) #16
   ret void
@@ -7572,7 +7574,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb14ChimpScanStateIdED0Ev(ptr noundef nonnull align 8 dereferenceable(145568) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb14ChimpScanStateIdEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !27
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN6duckdb14ChimpScanStateIdEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !27
   %handle.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6duckdb12BufferHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle.i) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #18
@@ -7627,7 +7629,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %shr12.i.i = lshr i32 %and6.i.i, %conv11.i.i
   %conv13.i.i = trunc i32 %shr12.i.i to i8
   %add.i43 = add nuw i64 %i.011.i, 1
-  %arrayidx3.i = getelementptr inbounds %"struct.duckdb::ChimpScanState.206", ptr %this, i64 0, i32 4, i32 2, i64 %add.i43
+  %arrayidx3.i = getelementptr inbounds [1025 x i8], ptr %flags.i, i64 0, i64 %add.i43
   store i8 %conv13.i.i, ptr %arrayidx3.i, align 1, !tbaa !207
   %exitcond.not.i = icmp eq i64 %add.i43, %sub11
   br i1 %exitcond.not.i, label %_ZN6duckdb15ChimpGroupStateImE9LoadFlagsEPhm.exit, label %for.body.i, !llvm.loop !304
@@ -7640,10 +7642,14 @@ _ZN6duckdb15ChimpGroupStateImE9LoadFlagsEPhm.exit: ; preds = %for.body.i, %entry
   %mul24 = shl nuw nsw i32 %conv, 3
   %conv25 = zext nneg i32 %mul24 to i64
   %cmp6.not.i = icmp eq i8 %ret.0.copyload.i42, 0
-  br i1 %cmp6.not.i, label %_ZN6duckdb15ChimpGroupStateImE16LoadLeadingZerosEPhm.exit, label %for.body.i44
+  br i1 %cmp6.not.i, label %_ZN6duckdb15ChimpGroupStateImE16LoadLeadingZerosEPhm.exit, label %for.body.lr.ph.i
 
-for.body.i44:                                     ; preds = %_ZN6duckdb15ChimpGroupStateImE9LoadFlagsEPhm.exit, %for.body.i44
-  %i.08.i = phi i64 [ %inc.i, %for.body.i44 ], [ 0, %_ZN6duckdb15ChimpGroupStateImE9LoadFlagsEPhm.exit ]
+for.body.lr.ph.i:                                 ; preds = %_ZN6duckdb15ChimpGroupStateImE9LoadFlagsEPhm.exit
+  %leading_zeros.i = getelementptr inbounds i8, ptr %this, i64 1081
+  br label %for.body.i44
+
+for.body.i44:                                     ; preds = %for.body.i44, %for.body.lr.ph.i
+  %i.08.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.body.i44 ]
   %indvars9.i = trunc i64 %i.08.i to i32
   %shr.i.i.i = lshr i32 %indvars9.i, 3
   %mul.i.i.i = mul nuw nsw i32 %shr.i.i.i, 3
@@ -7663,7 +7669,7 @@ for.body.i44:                                     ; preds = %_ZN6duckdb15ChimpGr
   %idxprom.i = zext nneg i32 %9 to i64
   %arrayidx.i = getelementptr inbounds [8 x i8], ptr @_ZN6duckdb14ChimpConstants13Decompression22LEADING_REPRESENTATIONE, i64 0, i64 %idxprom.i
   %10 = load i8, ptr %arrayidx.i, align 1, !tbaa !63
-  %arrayidx2.i = getelementptr inbounds %"struct.duckdb::ChimpScanState.206", ptr %this, i64 0, i32 4, i32 3, i64 %i.08.i
+  %arrayidx2.i = getelementptr inbounds [1025 x i8], ptr %leading_zeros.i, i64 0, i64 %i.08.i
   store i8 %10, ptr %arrayidx2.i, align 1, !tbaa !63
   %exitcond.not.i48 = icmp eq i64 %inc.i, %conv25
   br i1 %exitcond.not.i48, label %_ZN6duckdb15ChimpGroupStateImE16LoadLeadingZerosEPhm.exit.loopexit, label %for.body.i44, !llvm.loop !306
@@ -7678,36 +7684,36 @@ _ZN6duckdb15ChimpGroupStateImE16LoadLeadingZerosEPhm.exit: ; preds = %_ZN6duckdb
   store i64 %conv25, ptr %max_leading_zeros_to_read.i, align 8, !tbaa !307
   store i32 0, ptr %group_state, align 8, !tbaa !308
   %cmp7.not.i = icmp eq i64 %11, 0
-  br i1 %cmp7.not.i, label %_ZNK6duckdb15ChimpGroupStateImE24CalculatePackedDataCountEv.exit.thread, label %for.body.i50.preheader
+  br i1 %cmp7.not.i, label %_ZNK6duckdb15ChimpGroupStateImE24CalculatePackedDataCountEv.exit.thread, label %for.body.i52.preheader
 
-for.body.i50.preheader:                           ; preds = %_ZN6duckdb15ChimpGroupStateImE16LoadLeadingZerosEPhm.exit
+for.body.i52.preheader:                           ; preds = %_ZN6duckdb15ChimpGroupStateImE16LoadLeadingZerosEPhm.exit
   %min.iters.check = icmp ult i64 %11, 4
-  br i1 %min.iters.check, label %for.body.i50.preheader9, label %vector.ph
+  br i1 %min.iters.check, label %for.body.i52.preheader9, label %vector.ph
 
-for.body.i50.preheader9:                          ; preds = %middle.block, %for.body.i50.preheader
-  %i.09.i.ph = phi i64 [ %n.vec, %middle.block ], [ 0, %for.body.i50.preheader ]
-  %count.08.i.ph = phi i64 [ %22, %middle.block ], [ 0, %for.body.i50.preheader ]
-  br label %for.body.i50
+for.body.i52.preheader9:                          ; preds = %middle.block, %for.body.i52.preheader
+  %i.09.i.ph = phi i64 [ %n.vec, %middle.block ], [ 0, %for.body.i52.preheader ]
+  %count.08.i.ph = phi i64 [ %22, %middle.block ], [ 0, %for.body.i52.preheader ]
+  br label %for.body.i52
 
-vector.ph:                                        ; preds = %for.body.i50.preheader
+vector.ph:                                        ; preds = %for.body.i52.preheader
   %n.vec = and i64 %11, -4
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
   %vec.phi = phi <2 x i64> [ zeroinitializer, %vector.ph ], [ %19, %vector.body ]
-  %vec.phi77 = phi <2 x i64> [ zeroinitializer, %vector.ph ], [ %20, %vector.body ]
+  %vec.phi84 = phi <2 x i64> [ zeroinitializer, %vector.ph ], [ %20, %vector.body ]
   %12 = or disjoint i64 %index, 1
-  %13 = getelementptr inbounds %"struct.duckdb::ChimpScanState.206", ptr %this, i64 0, i32 4, i32 2, i64 %12
-  %wide.load = load <2 x i8>, ptr %13, align 1, !tbaa !207
+  %13 = getelementptr inbounds [1025 x i8], ptr %flags.i, i64 0, i64 %12
   %14 = getelementptr inbounds i8, ptr %13, i64 2
-  %wide.load78 = load <2 x i8>, ptr %14, align 1, !tbaa !207
+  %wide.load = load <2 x i8>, ptr %13, align 1, !tbaa !207
+  %wide.load85 = load <2 x i8>, ptr %14, align 1, !tbaa !207
   %15 = icmp eq <2 x i8> %wide.load, <i8 1, i8 1>
-  %16 = icmp eq <2 x i8> %wide.load78, <i8 1, i8 1>
+  %16 = icmp eq <2 x i8> %wide.load85, <i8 1, i8 1>
   %17 = zext <2 x i1> %15 to <2 x i64>
   %18 = zext <2 x i1> %16 to <2 x i64>
   %19 = add <2 x i64> %vec.phi, %17
-  %20 = add <2 x i64> %vec.phi77, %18
+  %20 = add <2 x i64> %vec.phi84, %18
   %index.next = add nuw i64 %index, 4
   %21 = icmp eq i64 %index.next, %n.vec
   br i1 %21, label %middle.block, label %vector.body, !llvm.loop !309
@@ -7716,30 +7722,30 @@ middle.block:                                     ; preds = %vector.body
   %bin.rdx = add <2 x i64> %20, %19
   %22 = tail call i64 @llvm.vector.reduce.add.v2i64(<2 x i64> %bin.rdx)
   %cmp.n = icmp eq i64 %11, %n.vec
-  br i1 %cmp.n, label %_ZNK6duckdb15ChimpGroupStateImE24CalculatePackedDataCountEv.exit, label %for.body.i50.preheader9
+  br i1 %cmp.n, label %_ZNK6duckdb15ChimpGroupStateImE24CalculatePackedDataCountEv.exit, label %for.body.i52.preheader9
 
 _ZNK6duckdb15ChimpGroupStateImE24CalculatePackedDataCountEv.exit.thread: ; preds = %_ZN6duckdb15ChimpGroupStateImE16LoadLeadingZerosEPhm.exit
   %23 = ptrtoint ptr %add.ptr20 to i64
   %24 = and i64 %23, 1
-  %sext73 = sub nsw i64 0, %24
-  %spec.select74 = getelementptr inbounds i8, ptr %add.ptr20, i64 %sext73
-  store ptr %spec.select74, ptr %metadata_ptr, align 8, !tbaa !303
+  %sext80 = sub nsw i64 0, %24
+  %spec.select81 = getelementptr inbounds i8, ptr %add.ptr20, i64 %sext80
+  store ptr %spec.select81, ptr %metadata_ptr, align 8, !tbaa !303
   br label %_ZN6duckdb15ChimpGroupStateImE14LoadPackedDataEPtm.exit
 
-for.body.i50:                                     ; preds = %for.body.i50.preheader9, %for.body.i50
-  %i.09.i = phi i64 [ %add.i51, %for.body.i50 ], [ %i.09.i.ph, %for.body.i50.preheader9 ]
-  %count.08.i = phi i64 [ %add3.i, %for.body.i50 ], [ %count.08.i.ph, %for.body.i50.preheader9 ]
-  %add.i51 = add nuw i64 %i.09.i, 1
-  %arrayidx.i52 = getelementptr inbounds %"struct.duckdb::ChimpScanState.206", ptr %this, i64 0, i32 4, i32 2, i64 %add.i51
-  %25 = load i8, ptr %arrayidx.i52, align 1, !tbaa !207
+for.body.i52:                                     ; preds = %for.body.i52.preheader9, %for.body.i52
+  %i.09.i = phi i64 [ %add.i53, %for.body.i52 ], [ %i.09.i.ph, %for.body.i52.preheader9 ]
+  %count.08.i = phi i64 [ %add3.i, %for.body.i52 ], [ %count.08.i.ph, %for.body.i52.preheader9 ]
+  %add.i53 = add nuw i64 %i.09.i, 1
+  %arrayidx.i54 = getelementptr inbounds [1025 x i8], ptr %flags.i, i64 0, i64 %add.i53
+  %25 = load i8, ptr %arrayidx.i54, align 1, !tbaa !207
   %cmp2.i = icmp eq i8 %25, 1
   %conv.i = zext i1 %cmp2.i to i64
   %add3.i = add i64 %count.08.i, %conv.i
-  %exitcond.not.i53 = icmp eq i64 %add.i51, %11
-  br i1 %exitcond.not.i53, label %_ZNK6duckdb15ChimpGroupStateImE24CalculatePackedDataCountEv.exit, label %for.body.i50, !llvm.loop !310
+  %exitcond.not.i55 = icmp eq i64 %add.i53, %11
+  br i1 %exitcond.not.i55, label %_ZNK6duckdb15ChimpGroupStateImE24CalculatePackedDataCountEv.exit, label %for.body.i52, !llvm.loop !310
 
-_ZNK6duckdb15ChimpGroupStateImE24CalculatePackedDataCountEv.exit: ; preds = %for.body.i50, %middle.block
-  %add3.i.lcssa = phi i64 [ %22, %middle.block ], [ %add3.i, %for.body.i50 ]
+_ZNK6duckdb15ChimpGroupStateImE24CalculatePackedDataCountEv.exit: ; preds = %for.body.i52, %middle.block
+  %add3.i.lcssa = phi i64 [ %22, %middle.block ], [ %add3.i, %for.body.i52 ]
   %mul28.neg = mul i64 %add3.i.lcssa, -2
   %add.ptr31 = getelementptr inbounds i8, ptr %add.ptr20, i64 %mul28.neg
   %26 = ptrtoint ptr %add.ptr31 to i64
@@ -7748,39 +7754,43 @@ _ZNK6duckdb15ChimpGroupStateImE24CalculatePackedDataCountEv.exit: ; preds = %for
   %spec.select = getelementptr inbounds i8, ptr %add.ptr31, i64 %sext
   store ptr %spec.select, ptr %metadata_ptr, align 8, !tbaa !303
   %cmp23.not.i = icmp eq i64 %add3.i.lcssa, 0
-  br i1 %cmp23.not.i, label %_ZN6duckdb15ChimpGroupStateImE14LoadPackedDataEPtm.exit, label %for.body.i54
+  br i1 %cmp23.not.i, label %_ZN6duckdb15ChimpGroupStateImE14LoadPackedDataEPtm.exit, label %for.body.lr.ph.i56
 
-for.body.i54:                                     ; preds = %_ZNK6duckdb15ChimpGroupStateImE24CalculatePackedDataCountEv.exit, %for.body.i54
-  %i.024.i = phi i64 [ %inc.i58, %for.body.i54 ], [ 0, %_ZNK6duckdb15ChimpGroupStateImE24CalculatePackedDataCountEv.exit ]
-  %arrayidx.i55 = getelementptr inbounds i16, ptr %spec.select, i64 %i.024.i
-  %28 = load i16, ptr %arrayidx.i55, align 2, !tbaa !196
-  %arrayidx2.i56 = getelementptr inbounds %"struct.duckdb::ChimpScanState.206", ptr %this, i64 0, i32 4, i32 4, i64 %i.024.i
-  %shr.i.i57 = lshr i16 %28, 9
-  %conv1.i.i = trunc i16 %shr.i.i57 to i8
-  %index.i.i = getelementptr inbounds %"struct.duckdb::ChimpScanState.206", ptr %this, i64 0, i32 4, i32 4, i64 %i.024.i, i32 2
+for.body.lr.ph.i56:                               ; preds = %_ZNK6duckdb15ChimpGroupStateImE24CalculatePackedDataCountEv.exit
+  %unpacked_data_blocks.i = getelementptr inbounds i8, ptr %this, i64 2106
+  br label %for.body.i57
+
+for.body.i57:                                     ; preds = %for.body.i57, %for.body.lr.ph.i56
+  %i.024.i = phi i64 [ 0, %for.body.lr.ph.i56 ], [ %inc.i61, %for.body.i57 ]
+  %arrayidx.i58 = getelementptr inbounds i16, ptr %spec.select, i64 %i.024.i
+  %28 = load i16, ptr %arrayidx.i58, align 2, !tbaa !196
+  %arrayidx2.i59 = getelementptr inbounds [1024 x %"struct.duckdb::UnpackedData"], ptr %unpacked_data_blocks.i, i64 0, i64 %i.024.i
+  %shr.i.i60 = lshr i16 %28, 9
+  %conv1.i.i = trunc i16 %shr.i.i60 to i8
+  %index.i.i = getelementptr inbounds i8, ptr %arrayidx2.i59, i64 2
   store i8 %conv1.i.i, ptr %index.i.i, align 1, !tbaa !218
   %shr3.i.i = lshr i16 %28, 6
   %29 = and i16 %shr3.i.i, 7
   %conv5.i.i = zext nneg i16 %29 to i64
   %30 = trunc i16 %28 to i8
   %conv8.i.i = and i8 %30, 63
-  %significant_bits.i.i = getelementptr inbounds %"struct.duckdb::ChimpScanState.206", ptr %this, i64 0, i32 4, i32 4, i64 %i.024.i, i32 1
+  %significant_bits.i.i = getelementptr inbounds i8, ptr %arrayidx2.i59, i64 1
   %cmp5.i = icmp eq i8 %conv8.i.i, 0
-  %spec.select.i = select i1 %cmp5.i, i8 64, i8 %conv8.i.i
-  store i8 %spec.select.i, ptr %significant_bits.i.i, align 1, !tbaa !220
+  %spec.store.select.i = select i1 %cmp5.i, i8 64, i8 %conv8.i.i
+  store i8 %spec.store.select.i, ptr %significant_bits.i.i, align 1
   %arrayidx11.i = getelementptr inbounds [8 x i8], ptr @_ZN6duckdb14ChimpConstants13Decompression22LEADING_REPRESENTATIONE, i64 0, i64 %conv5.i.i
   %31 = load i8, ptr %arrayidx11.i, align 1, !tbaa !63
-  store i8 %31, ptr %arrayidx2.i56, align 1, !tbaa !221
-  %inc.i58 = add nuw i64 %i.024.i, 1
-  %exitcond.not.i59 = icmp eq i64 %inc.i58, %add3.i.lcssa
-  br i1 %exitcond.not.i59, label %_ZN6duckdb15ChimpGroupStateImE14LoadPackedDataEPtm.exit, label %for.body.i54, !llvm.loop !311
+  store i8 %31, ptr %arrayidx2.i59, align 1, !tbaa !220
+  %inc.i61 = add nuw i64 %i.024.i, 1
+  %exitcond.not.i62 = icmp eq i64 %inc.i61, %add3.i.lcssa
+  br i1 %exitcond.not.i62, label %_ZN6duckdb15ChimpGroupStateImE14LoadPackedDataEPtm.exit, label %for.body.i57, !llvm.loop !311
 
-_ZN6duckdb15ChimpGroupStateImE14LoadPackedDataEPtm.exit: ; preds = %for.body.i54, %_ZNK6duckdb15ChimpGroupStateImE24CalculatePackedDataCountEv.exit, %_ZNK6duckdb15ChimpGroupStateImE24CalculatePackedDataCountEv.exit.thread
-  %count.0.lcssa.i76 = phi i64 [ 0, %_ZNK6duckdb15ChimpGroupStateImE24CalculatePackedDataCountEv.exit.thread ], [ 0, %_ZNK6duckdb15ChimpGroupStateImE24CalculatePackedDataCountEv.exit ], [ %add3.i.lcssa, %for.body.i54 ]
+_ZN6duckdb15ChimpGroupStateImE14LoadPackedDataEPtm.exit: ; preds = %for.body.i57, %_ZNK6duckdb15ChimpGroupStateImE24CalculatePackedDataCountEv.exit, %_ZNK6duckdb15ChimpGroupStateImE24CalculatePackedDataCountEv.exit.thread
+  %count.0.lcssa.i83 = phi i64 [ 0, %_ZNK6duckdb15ChimpGroupStateImE24CalculatePackedDataCountEv.exit.thread ], [ 0, %_ZNK6duckdb15ChimpGroupStateImE24CalculatePackedDataCountEv.exit ], [ %add3.i.lcssa, %for.body.i57 ]
   %unpacked_index.i = getelementptr inbounds i8, ptr %this, i64 52
   store i32 0, ptr %unpacked_index.i, align 4, !tbaa !312
   %max_packed_data_to_read.i = getelementptr inbounds i8, ptr %this, i64 13400
-  store i64 %count.0.lcssa.i76, ptr %max_packed_data_to_read.i, align 8, !tbaa !313
+  store i64 %count.0.lcssa.i83, ptr %max_packed_data_to_read.i, align 8, !tbaa !313
   %leading_zeros.i.i.i = getelementptr inbounds i8, ptr %this, i64 13424
   store i8 -1, ptr %leading_zeros.i.i.i, align 8, !tbaa !299
   %trailing_zeros.i.i.i = getelementptr inbounds i8, ptr %this, i64 13425
@@ -7792,38 +7802,38 @@ _ZN6duckdb15ChimpGroupStateImE14LoadPackedDataEPtm.exit: ; preds = %for.body.i54
   %first.i.i = getelementptr inbounds i8, ptr %this, i64 145544
   store i8 1, ptr %first.i.i, align 8, !tbaa !298
   store i64 0, ptr %index.i, align 8, !tbaa !277
-  %cmp7.not.i61 = icmp eq i64 %1, %2
-  br i1 %cmp7.not.i61, label %_ZN6duckdb15ChimpGroupStateImE10LoadValuesEPmm.exit, label %for.body.lr.ph.i
+  %cmp7.not.i64 = icmp eq i64 %1, %2
+  br i1 %cmp7.not.i64, label %_ZN6duckdb15ChimpGroupStateImE10LoadValuesEPmm.exit, label %for.body.lr.ph.i65
 
-for.body.lr.ph.i:                                 ; preds = %_ZN6duckdb15ChimpGroupStateImE14LoadPackedDataEPtm.exit
+for.body.lr.ph.i65:                               ; preds = %_ZN6duckdb15ChimpGroupStateImE14LoadPackedDataEPtm.exit
   %chimp_state.i = getelementptr inbounds i8, ptr %this, i64 13408
-  %unpacked_data_blocks.i = getelementptr inbounds i8, ptr %this, i64 2106
-  %leading_zeros.i = getelementptr inbounds i8, ptr %this, i64 1081
-  br label %for.body.i64
+  %unpacked_data_blocks.i68 = getelementptr inbounds i8, ptr %this, i64 2106
+  %leading_zeros.i69 = getelementptr inbounds i8, ptr %this, i64 1081
+  br label %for.body.i71
 
-for.body.i64:                                     ; preds = %_ZN6duckdb21Chimp128DecompressionImE4LoadENS_14ChimpConstants5FlagsEPhRjPNS_12UnpackedDataES5_RNS_26Chimp128DecompressionStateImEE.exit.i, %for.body.lr.ph.i
-  %i.08.i65 = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i67, %_ZN6duckdb21Chimp128DecompressionImE4LoadENS_14ChimpConstants5FlagsEPhRjPNS_12UnpackedDataES5_RNS_26Chimp128DecompressionStateImEE.exit.i ]
+for.body.i71:                                     ; preds = %_ZN6duckdb21Chimp128DecompressionImE4LoadENS_14ChimpConstants5FlagsEPhRjPNS_12UnpackedDataES5_RNS_26Chimp128DecompressionStateImEE.exit.i, %for.body.lr.ph.i65
+  %i.08.i72 = phi i64 [ 0, %for.body.lr.ph.i65 ], [ %inc.i74, %_ZN6duckdb21Chimp128DecompressionImE4LoadENS_14ChimpConstants5FlagsEPhRjPNS_12UnpackedDataES5_RNS_26Chimp128DecompressionStateImEE.exit.i ]
   %32 = load i8, ptr %first.i.i, align 8, !tbaa !298, !range !117, !noundef !194
   %tobool.not.i.i = icmp eq i8 %32, 0
-  br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i, !prof !225
+  br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i, !prof !224
 
-if.then.i.i:                                      ; preds = %for.body.i64
+if.then.i.i:                                      ; preds = %for.body.i71
   %call.i.i = tail call noundef i64 @_ZN6duckdb21Chimp128DecompressionImE9LoadFirstERNS_26Chimp128DecompressionStateImEE(ptr noundef nonnull align 8 dereferenceable(132137) %chimp_state.i)
   br label %_ZN6duckdb21Chimp128DecompressionImE4LoadENS_14ChimpConstants5FlagsEPhRjPNS_12UnpackedDataES5_RNS_26Chimp128DecompressionStateImEE.exit.i
 
-if.else.i.i:                                      ; preds = %for.body.i64
-  %arrayidx.i69 = getelementptr inbounds %"struct.duckdb::ChimpScanState.206", ptr %this, i64 0, i32 4, i32 2, i64 %i.08.i65
-  %33 = load i8, ptr %arrayidx.i69, align 1, !tbaa !207
-  %call2.i.i = tail call noundef i64 @_ZN6duckdb21Chimp128DecompressionImE15DecompressValueENS_14ChimpConstants5FlagsEPhRjPNS_12UnpackedDataES5_RNS_26Chimp128DecompressionStateImEE(i8 noundef zeroext %33, ptr noundef nonnull %leading_zeros.i, ptr noundef nonnull align 4 dereferenceable(4) %group_state, ptr noundef nonnull %unpacked_data_blocks.i, ptr noundef nonnull align 4 dereferenceable(4) %unpacked_index.i, ptr noundef nonnull align 8 dereferenceable(132137) %chimp_state.i)
+if.else.i.i:                                      ; preds = %for.body.i71
+  %arrayidx.i76 = getelementptr inbounds [1025 x i8], ptr %flags.i, i64 0, i64 %i.08.i72
+  %33 = load i8, ptr %arrayidx.i76, align 1, !tbaa !207
+  %call2.i.i = tail call noundef i64 @_ZN6duckdb21Chimp128DecompressionImE15DecompressValueENS_14ChimpConstants5FlagsEPhRjPNS_12UnpackedDataES5_RNS_26Chimp128DecompressionStateImEE(i8 noundef zeroext %33, ptr noundef nonnull %leading_zeros.i69, ptr noundef nonnull align 4 dereferenceable(4) %group_state, ptr noundef nonnull %unpacked_data_blocks.i68, ptr noundef nonnull align 4 dereferenceable(4) %unpacked_index.i, ptr noundef nonnull align 8 dereferenceable(132137) %chimp_state.i)
   br label %_ZN6duckdb21Chimp128DecompressionImE4LoadENS_14ChimpConstants5FlagsEPhRjPNS_12UnpackedDataES5_RNS_26Chimp128DecompressionStateImEE.exit.i
 
 _ZN6duckdb21Chimp128DecompressionImE4LoadENS_14ChimpConstants5FlagsEPhRjPNS_12UnpackedDataES5_RNS_26Chimp128DecompressionStateImEE.exit.i: ; preds = %if.else.i.i, %if.then.i.i
   %retval.0.i.i = phi i64 [ %call.i.i, %if.then.i.i ], [ %call2.i.i, %if.else.i.i ]
-  %arrayidx3.i66 = getelementptr inbounds i64, ptr %value_buffer, i64 %i.08.i65
-  store i64 %retval.0.i.i, ptr %arrayidx3.i66, align 8, !tbaa !69
-  %inc.i67 = add nuw i64 %i.08.i65, 1
-  %exitcond.not.i68 = icmp eq i64 %inc.i67, %cond.i
-  br i1 %exitcond.not.i68, label %_ZN6duckdb15ChimpGroupStateImE10LoadValuesEPmm.exit, label %for.body.i64, !llvm.loop !314
+  %arrayidx3.i73 = getelementptr inbounds i64, ptr %value_buffer, i64 %i.08.i72
+  store i64 %retval.0.i.i, ptr %arrayidx3.i73, align 8, !tbaa !69
+  %inc.i74 = add nuw i64 %i.08.i72, 1
+  %exitcond.not.i75 = icmp eq i64 %inc.i74, %cond.i
+  br i1 %exitcond.not.i75, label %_ZN6duckdb15ChimpGroupStateImE10LoadValuesEPmm.exit, label %for.body.i71, !llvm.loop !314
 
 _ZN6duckdb15ChimpGroupStateImE10LoadValuesEPmm.exit: ; preds = %_ZN6duckdb21Chimp128DecompressionImE4LoadENS_14ChimpConstants5FlagsEPhRjPNS_12UnpackedDataES5_RNS_26Chimp128DecompressionStateImEE.exit.i, %_ZN6duckdb15ChimpGroupStateImE14LoadPackedDataEPtm.exit
   ret void
@@ -7978,11 +7988,11 @@ sw.bb2:                                           ; preds = %entry
   store i32 %inc, ptr %unpacked_index, align 4, !tbaa !64
   %idxprom = zext i32 %8 to i64
   %arrayidx = getelementptr inbounds %"struct.duckdb::UnpackedData", ptr %unpacked_data, i64 %idxprom
-  %9 = load i8, ptr %arrayidx, align 1, !tbaa !221
+  %9 = load i8, ptr %arrayidx, align 1, !tbaa !220
   %leading_zeros3 = getelementptr inbounds i8, ptr %state, i64 16
   store i8 %9, ptr %leading_zeros3, align 8, !tbaa !299
-  %significant_bits = getelementptr inbounds %"struct.duckdb::UnpackedData", ptr %unpacked_data, i64 %idxprom, i32 1
-  %10 = load i8, ptr %significant_bits, align 1, !tbaa !220
+  %significant_bits = getelementptr inbounds i8, ptr %arrayidx, i64 1
+  %10 = load i8, ptr %significant_bits, align 1, !tbaa !226
   %11 = add i8 %9, %10
   %sub6 = sub i8 64, %11
   %trailing_zeros = getelementptr inbounds i8, ptr %state, i64 17
@@ -8122,7 +8132,7 @@ _ZN6duckdb9BitReader9ReadValueImEET_RKh.exit:     ; preds = %for.body.i.i.epil, 
   %sh_prom = zext nneg i8 %sub6 to i64
   %shl = shl i64 %or8.i.i, %sh_prom
   %ring_buffer13 = getelementptr inbounds i8, ptr %state, i64 32
-  %index14 = getelementptr inbounds %"struct.duckdb::UnpackedData", ptr %unpacked_data, i64 %idxprom, i32 2
+  %index14 = getelementptr inbounds i8, ptr %arrayidx, i64 2
   %38 = load i8, ptr %index14, align 1, !tbaa !63
   %idxprom.i93 = zext i8 %38 to i64
   %arrayidx.i94 = getelementptr inbounds [128 x i64], ptr %ring_buffer13, i64 0, i64 %idxprom.i93
@@ -8748,13 +8758,13 @@ attributes #19 = { builtin allocsize(0) }
 !217 = distinct !{!217, !71, !216, !215}
 !218 = !{!219, !7, i64 2}
 !219 = !{!"_ZTSN6duckdb12UnpackedDataE", !7, i64 0, !7, i64 1, !7, i64 2}
-!220 = !{!219, !7, i64 1}
-!221 = !{!219, !7, i64 0}
-!222 = distinct !{!222, !71}
-!223 = !{!111, !36, i64 4}
-!224 = !{!111, !9, i64 9256}
-!225 = !{!"branch_weights", i32 2000, i32 1}
-!226 = distinct !{!226, !71}
+!220 = !{!219, !7, i64 0}
+!221 = distinct !{!221, !71}
+!222 = !{!111, !36, i64 4}
+!223 = !{!111, !9, i64 9256}
+!224 = !{!"branch_weights", i32 2000, i32 1}
+!225 = distinct !{!225, !71}
+!226 = !{!219, !7, i64 1}
 !227 = distinct !{!227, !71}
 !228 = !{!229}
 !229 = distinct !{!229, !230, !"_ZN6duckdb9Exception16ConstructMessageIJNS_14ChimpConstants5FlagsEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS9_DpT_: %agg.result"}

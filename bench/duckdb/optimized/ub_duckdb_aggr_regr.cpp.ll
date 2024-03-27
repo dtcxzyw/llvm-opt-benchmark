@@ -301,7 +301,7 @@ $_ZTIN6duckdb19OutOfRangeExceptionE = comdat any
 @.str.8 = private unnamed_addr constant [34 x i8] c"STDDEV_POP for Y is out of range!\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11RegrAvgxFun11GetFunctionEv(ptr noalias sret(%"class.duckdb::AggregateFunction") align 8 %agg.result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11RegrAvgxFun11GetFunctionEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::AggregateFunction") align 8 %agg.result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.duckdb::LogicalType", align 8
   %ref.tmp1 = alloca %"struct.duckdb::LogicalType", align 8
@@ -317,7 +317,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  invoke void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_9RegrStateEdddNS_16RegrAvgXFunctionEEES0_RKNS_11LogicalTypeES6_S4_(ptr sret(%"class.duckdb::AggregateFunction") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1, ptr noundef nonnull %agg.tmp)
+  invoke void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_9RegrStateEdddNS_16RegrAvgXFunctionEEES0_RKNS_11LogicalTypeES6_S4_(ptr dead_on_unwind writable sret(%"class.duckdb::AggregateFunction") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
@@ -358,7 +358,7 @@ ehcleanup6:                                       ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_9RegrStateEdddNS_16RegrAvgXFunctionEEES0_RKNS_11LogicalTypeES6_S4_(ptr noalias sret(%"class.duckdb::AggregateFunction") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %a_type, ptr noundef nonnull align 8 dereferenceable(24) %b_type, ptr noundef %return_type) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_9RegrStateEdddNS_16RegrAvgXFunctionEEES0_RKNS_11LogicalTypeES6_S4_(ptr dead_on_unwind noalias writable sret(%"class.duckdb::AggregateFunction") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %a_type, ptr noundef nonnull align 8 dereferenceable(24) %b_type, ptr noundef %return_type) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.duckdb::vector", align 8
@@ -552,7 +552,7 @@ declare void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenc
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11RegrAvgyFun11GetFunctionEv(ptr noalias sret(%"class.duckdb::AggregateFunction") align 8 %agg.result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11RegrAvgyFun11GetFunctionEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::AggregateFunction") align 8 %agg.result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.duckdb::LogicalType", align 8
   %ref.tmp1 = alloca %"struct.duckdb::LogicalType", align 8
@@ -568,7 +568,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  invoke void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_9RegrStateEdddNS_16RegrAvgYFunctionEEES0_RKNS_11LogicalTypeES6_S4_(ptr sret(%"class.duckdb::AggregateFunction") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1, ptr noundef nonnull %agg.tmp)
+  invoke void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_9RegrStateEdddNS_16RegrAvgYFunctionEEES0_RKNS_11LogicalTypeES6_S4_(ptr dead_on_unwind writable sret(%"class.duckdb::AggregateFunction") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
@@ -609,7 +609,7 @@ ehcleanup6:                                       ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_9RegrStateEdddNS_16RegrAvgYFunctionEEES0_RKNS_11LogicalTypeES6_S4_(ptr noalias sret(%"class.duckdb::AggregateFunction") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %a_type, ptr noundef nonnull align 8 dereferenceable(24) %b_type, ptr noundef %return_type) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_9RegrStateEdddNS_16RegrAvgYFunctionEEES0_RKNS_11LogicalTypeES6_S4_(ptr dead_on_unwind noalias writable sret(%"class.duckdb::AggregateFunction") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %a_type, ptr noundef nonnull align 8 dereferenceable(24) %b_type, ptr noundef %return_type) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.duckdb::vector", align 8
@@ -790,7 +790,7 @@ ehcleanup22:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb12RegrCountFun11GetFunctionEv(ptr noalias sret(%"class.duckdb::AggregateFunction") align 8 %agg.result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb12RegrCountFun11GetFunctionEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::AggregateFunction") align 8 %agg.result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.duckdb::LogicalType", align 8
   %ref.tmp1 = alloca %"struct.duckdb::LogicalType", align 8
@@ -806,7 +806,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  invoke void @_ZN6duckdb17AggregateFunction15BinaryAggregateImddjNS_17RegrCountFunctionEEES0_RKNS_11LogicalTypeES5_S3_(ptr sret(%"class.duckdb::AggregateFunction") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1, ptr noundef nonnull %agg.tmp)
+  invoke void @_ZN6duckdb17AggregateFunction15BinaryAggregateImddjNS_17RegrCountFunctionEEES0_RKNS_11LogicalTypeES5_S3_(ptr dead_on_unwind writable sret(%"class.duckdb::AggregateFunction") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
@@ -866,7 +866,7 @@ eh.resume:                                        ; preds = %lpad9, %ehcleanup6
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6duckdb17AggregateFunction15BinaryAggregateImddjNS_17RegrCountFunctionEEES0_RKNS_11LogicalTypeES5_S3_(ptr noalias sret(%"class.duckdb::AggregateFunction") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %a_type, ptr noundef nonnull align 8 dereferenceable(24) %b_type, ptr noundef %return_type) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6duckdb17AggregateFunction15BinaryAggregateImddjNS_17RegrCountFunctionEEES0_RKNS_11LogicalTypeES5_S3_(ptr dead_on_unwind noalias writable sret(%"class.duckdb::AggregateFunction") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %a_type, ptr noundef nonnull align 8 dereferenceable(24) %b_type, ptr noundef %return_type) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.duckdb::vector", align 8
@@ -1050,7 +1050,7 @@ ehcleanup22:                                      ; preds = %ehcleanup, %lpad
 declare void @_ZN6duckdb18BaseScalarFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(170)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb12RegrSlopeFun11GetFunctionEv(ptr noalias sret(%"class.duckdb::AggregateFunction") align 8 %agg.result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb12RegrSlopeFun11GetFunctionEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::AggregateFunction") align 8 %agg.result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.duckdb::LogicalType", align 8
   %ref.tmp1 = alloca %"struct.duckdb::LogicalType", align 8
@@ -1066,7 +1066,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  invoke void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_14RegrSlopeStateEdddNS_18RegrSlopeOperationEEES0_RKNS_11LogicalTypeES6_S4_(ptr sret(%"class.duckdb::AggregateFunction") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1, ptr noundef nonnull %agg.tmp)
+  invoke void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_14RegrSlopeStateEdddNS_18RegrSlopeOperationEEES0_RKNS_11LogicalTypeES6_S4_(ptr dead_on_unwind writable sret(%"class.duckdb::AggregateFunction") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
@@ -1107,7 +1107,7 @@ ehcleanup6:                                       ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_14RegrSlopeStateEdddNS_18RegrSlopeOperationEEES0_RKNS_11LogicalTypeES6_S4_(ptr noalias sret(%"class.duckdb::AggregateFunction") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %a_type, ptr noundef nonnull align 8 dereferenceable(24) %b_type, ptr noundef %return_type) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_14RegrSlopeStateEdddNS_18RegrSlopeOperationEEES0_RKNS_11LogicalTypeES6_S4_(ptr dead_on_unwind noalias writable sret(%"class.duckdb::AggregateFunction") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %a_type, ptr noundef nonnull align 8 dereferenceable(24) %b_type, ptr noundef %return_type) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.duckdb::vector", align 8
@@ -1288,7 +1288,7 @@ ehcleanup22:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb9RegrR2Fun11GetFunctionEv(ptr noalias sret(%"class.duckdb::AggregateFunction") align 8 %agg.result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb9RegrR2Fun11GetFunctionEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::AggregateFunction") align 8 %agg.result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.duckdb::LogicalType", align 8
   %ref.tmp1 = alloca %"struct.duckdb::LogicalType", align 8
@@ -1304,7 +1304,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  invoke void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_11RegrR2StateEdddNS_15RegrR2OperationEEES0_RKNS_11LogicalTypeES6_S4_(ptr sret(%"class.duckdb::AggregateFunction") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1, ptr noundef nonnull %agg.tmp)
+  invoke void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_11RegrR2StateEdddNS_15RegrR2OperationEEES0_RKNS_11LogicalTypeES6_S4_(ptr dead_on_unwind writable sret(%"class.duckdb::AggregateFunction") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
@@ -1345,7 +1345,7 @@ ehcleanup6:                                       ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_11RegrR2StateEdddNS_15RegrR2OperationEEES0_RKNS_11LogicalTypeES6_S4_(ptr noalias sret(%"class.duckdb::AggregateFunction") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %a_type, ptr noundef nonnull align 8 dereferenceable(24) %b_type, ptr noundef %return_type) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_11RegrR2StateEdddNS_15RegrR2OperationEEES0_RKNS_11LogicalTypeES6_S4_(ptr dead_on_unwind noalias writable sret(%"class.duckdb::AggregateFunction") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %a_type, ptr noundef nonnull align 8 dereferenceable(24) %b_type, ptr noundef %return_type) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.duckdb::vector", align 8
@@ -1526,7 +1526,7 @@ ehcleanup22:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb10RegrSXXFun11GetFunctionEv(ptr noalias sret(%"class.duckdb::AggregateFunction") align 8 %agg.result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb10RegrSXXFun11GetFunctionEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::AggregateFunction") align 8 %agg.result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.duckdb::LogicalType", align 8
   %ref.tmp1 = alloca %"struct.duckdb::LogicalType", align 8
@@ -1542,7 +1542,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  invoke void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_10RegrSStateEdddNS_16RegrSXXOperationEEES0_RKNS_11LogicalTypeES6_S4_(ptr sret(%"class.duckdb::AggregateFunction") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1, ptr noundef nonnull %agg.tmp)
+  invoke void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_10RegrSStateEdddNS_16RegrSXXOperationEEES0_RKNS_11LogicalTypeES6_S4_(ptr dead_on_unwind writable sret(%"class.duckdb::AggregateFunction") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
@@ -1583,7 +1583,7 @@ ehcleanup6:                                       ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_10RegrSStateEdddNS_16RegrSXXOperationEEES0_RKNS_11LogicalTypeES6_S4_(ptr noalias sret(%"class.duckdb::AggregateFunction") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %a_type, ptr noundef nonnull align 8 dereferenceable(24) %b_type, ptr noundef %return_type) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_10RegrSStateEdddNS_16RegrSXXOperationEEES0_RKNS_11LogicalTypeES6_S4_(ptr dead_on_unwind noalias writable sret(%"class.duckdb::AggregateFunction") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %a_type, ptr noundef nonnull align 8 dereferenceable(24) %b_type, ptr noundef %return_type) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.duckdb::vector", align 8
@@ -1764,7 +1764,7 @@ ehcleanup22:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb10RegrSYYFun11GetFunctionEv(ptr noalias sret(%"class.duckdb::AggregateFunction") align 8 %agg.result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb10RegrSYYFun11GetFunctionEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::AggregateFunction") align 8 %agg.result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.duckdb::LogicalType", align 8
   %ref.tmp1 = alloca %"struct.duckdb::LogicalType", align 8
@@ -1780,7 +1780,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  invoke void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_10RegrSStateEdddNS_16RegrSYYOperationEEES0_RKNS_11LogicalTypeES6_S4_(ptr sret(%"class.duckdb::AggregateFunction") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1, ptr noundef nonnull %agg.tmp)
+  invoke void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_10RegrSStateEdddNS_16RegrSYYOperationEEES0_RKNS_11LogicalTypeES6_S4_(ptr dead_on_unwind writable sret(%"class.duckdb::AggregateFunction") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
@@ -1821,7 +1821,7 @@ ehcleanup6:                                       ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_10RegrSStateEdddNS_16RegrSYYOperationEEES0_RKNS_11LogicalTypeES6_S4_(ptr noalias sret(%"class.duckdb::AggregateFunction") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %a_type, ptr noundef nonnull align 8 dereferenceable(24) %b_type, ptr noundef %return_type) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_10RegrSStateEdddNS_16RegrSYYOperationEEES0_RKNS_11LogicalTypeES6_S4_(ptr dead_on_unwind noalias writable sret(%"class.duckdb::AggregateFunction") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %a_type, ptr noundef nonnull align 8 dereferenceable(24) %b_type, ptr noundef %return_type) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.duckdb::vector", align 8
@@ -2002,7 +2002,7 @@ ehcleanup22:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb10RegrSXYFun11GetFunctionEv(ptr noalias sret(%"class.duckdb::AggregateFunction") align 8 %agg.result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb10RegrSXYFun11GetFunctionEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::AggregateFunction") align 8 %agg.result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.duckdb::LogicalType", align 8
   %ref.tmp1 = alloca %"struct.duckdb::LogicalType", align 8
@@ -2018,7 +2018,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  invoke void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_12RegrSXyStateEdddNS_16RegrSXYOperationEEES0_RKNS_11LogicalTypeES6_S4_(ptr sret(%"class.duckdb::AggregateFunction") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1, ptr noundef nonnull %agg.tmp)
+  invoke void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_12RegrSXyStateEdddNS_16RegrSXYOperationEEES0_RKNS_11LogicalTypeES6_S4_(ptr dead_on_unwind writable sret(%"class.duckdb::AggregateFunction") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
@@ -2059,7 +2059,7 @@ ehcleanup6:                                       ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_12RegrSXyStateEdddNS_16RegrSXYOperationEEES0_RKNS_11LogicalTypeES6_S4_(ptr noalias sret(%"class.duckdb::AggregateFunction") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %a_type, ptr noundef nonnull align 8 dereferenceable(24) %b_type, ptr noundef %return_type) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_12RegrSXyStateEdddNS_16RegrSXYOperationEEES0_RKNS_11LogicalTypeES6_S4_(ptr dead_on_unwind noalias writable sret(%"class.duckdb::AggregateFunction") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %a_type, ptr noundef nonnull align 8 dereferenceable(24) %b_type, ptr noundef %return_type) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.duckdb::vector", align 8
@@ -2240,7 +2240,7 @@ ehcleanup22:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb16RegrInterceptFun11GetFunctionEv(ptr noalias sret(%"class.duckdb::AggregateFunction") align 8 %agg.result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb16RegrInterceptFun11GetFunctionEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::AggregateFunction") align 8 %agg.result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.duckdb::LogicalType", align 8
   %ref.tmp1 = alloca %"struct.duckdb::LogicalType", align 8
@@ -2256,7 +2256,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  invoke void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_18RegrInterceptStateEdddNS_22RegrInterceptOperationEEES0_RKNS_11LogicalTypeES6_S4_(ptr sret(%"class.duckdb::AggregateFunction") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1, ptr noundef nonnull %agg.tmp)
+  invoke void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_18RegrInterceptStateEdddNS_22RegrInterceptOperationEEES0_RKNS_11LogicalTypeES6_S4_(ptr dead_on_unwind writable sret(%"class.duckdb::AggregateFunction") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
@@ -2297,7 +2297,7 @@ ehcleanup6:                                       ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_18RegrInterceptStateEdddNS_22RegrInterceptOperationEEES0_RKNS_11LogicalTypeES6_S4_(ptr noalias sret(%"class.duckdb::AggregateFunction") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %a_type, ptr noundef nonnull align 8 dereferenceable(24) %b_type, ptr noundef %return_type) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6duckdb17AggregateFunction15BinaryAggregateINS_18RegrInterceptStateEdddNS_22RegrInterceptOperationEEES0_RKNS_11LogicalTypeES6_S4_(ptr dead_on_unwind noalias writable sret(%"class.duckdb::AggregateFunction") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %a_type, ptr noundef nonnull align 8 dereferenceable(24) %b_type, ptr noundef %return_type) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.duckdb::vector", align 8
@@ -4645,7 +4645,7 @@ if.then.i.i29:                                    ; preds = %_ZNSt6vectorIN6duck
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i29, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !62
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !62
   %state_size13 = getelementptr inbounds i8, ptr %this, i64 176
   store ptr %state_size, ptr %state_size13, align 8, !tbaa !82
   %initialize14 = getelementptr inbounds i8, ptr %this, i64 184
@@ -4737,7 +4737,7 @@ entry:
   ret void
 }
 
-declare void @_ZNK6duckdb18BaseScalarFunction8ToStringB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(170)) unnamed_addr #2
+declare void @_ZNK6duckdb18BaseScalarFunction8ToStringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(170)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %__x) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -9201,7 +9201,7 @@ declare void @_ZN6duckdb19OutOfRangeExceptionC1ERKNSt7__cxx1112basic_stringIcSt1
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !62
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !62
   %raw_message_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %raw_message_, align 8, !tbaa !16
   %1 = getelementptr inbounds i8, ptr %this, i64 64
