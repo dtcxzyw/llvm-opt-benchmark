@@ -13759,7 +13759,7 @@ JS_DupAtomRT.exit:                                ; preds = %.thread, %55
 ; Function Attrs: nounwind uwtable
 define dso_local { i64, i64 } @JS_ThrowInternalError(ptr noundef %0, ptr nocapture noundef readonly %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 248
@@ -13803,7 +13803,7 @@ js_class_has_bytecode.exit.thread.i:              ; preds = %18, %18, %18, %18
 JS_ThrowError.exit:                               ; preds = %js_class_has_bytecode.exit.thread.i, %18, %11, %2, %10
   %25 = phi i32 [ 0, %2 ], [ 1, %10 ], [ %24, %js_class_has_bytecode.exit.thread.i ], [ 1, %11 ], [ 1, %18 ]
   call fastcc void @JS_ThrowError2(ptr noundef nonnull %0, i32 noundef 6, ptr noundef %1, ptr noundef nonnull %3, i32 noundef %25)
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   ret { i64, i64 } { i64 0, i64 6 }
 }
 
@@ -18152,7 +18152,7 @@ JS_NewObjectClass.exit:                           ; preds = %.loopexit.i, %41
 ; Function Attrs: nounwind uwtable
 define dso_local { i64, i64 } @JS_ThrowSyntaxError(ptr noundef %0, ptr nocapture noundef readonly %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 248
@@ -18196,20 +18196,14 @@ js_class_has_bytecode.exit.thread.i.i:            ; preds = %18, %18, %18, %18
 JS_ThrowError.exit:                               ; preds = %11, %18, %js_class_has_bytecode.exit.thread.i.i, %2, %10
   %25 = phi i32 [ 0, %2 ], [ 1, %10 ], [ %24, %js_class_has_bytecode.exit.thread.i.i ], [ 1, %11 ], [ 1, %18 ]
   call fastcc void @JS_ThrowError2(ptr noundef nonnull %0, i32 noundef 3, ptr noundef %1, ptr noundef nonnull %3, i32 noundef %25)
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   ret { i64, i64 } { i64 0, i64 6 }
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #17
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #17
 
 ; Function Attrs: nounwind uwtable
 define dso_local { i64, i64 } @JS_ThrowTypeError(ptr noundef %0, ptr nocapture noundef readonly %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 248
@@ -18253,14 +18247,14 @@ js_class_has_bytecode.exit.thread.i.i:            ; preds = %18, %18, %18, %18
 JS_ThrowError.exit:                               ; preds = %11, %18, %js_class_has_bytecode.exit.thread.i.i, %2, %10
   %25 = phi i32 [ 0, %2 ], [ 1, %10 ], [ %24, %js_class_has_bytecode.exit.thread.i.i ], [ 1, %11 ], [ 1, %18 ]
   call fastcc void @JS_ThrowError2(ptr noundef nonnull %0, i32 noundef 4, ptr noundef %1, ptr noundef nonnull %3, i32 noundef %25)
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   ret { i64, i64 } { i64 0, i64 6 }
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local { i64, i64 } @JS_ThrowReferenceError(ptr noundef %0, ptr nocapture noundef readonly %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 248
@@ -18304,14 +18298,14 @@ js_class_has_bytecode.exit.thread.i.i:            ; preds = %18, %18, %18, %18
 JS_ThrowError.exit:                               ; preds = %11, %18, %js_class_has_bytecode.exit.thread.i.i, %2, %10
   %25 = phi i32 [ 0, %2 ], [ 1, %10 ], [ %24, %js_class_has_bytecode.exit.thread.i.i ], [ 1, %11 ], [ 1, %18 ]
   call fastcc void @JS_ThrowError2(ptr noundef nonnull %0, i32 noundef 2, ptr noundef %1, ptr noundef nonnull %3, i32 noundef %25)
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   ret { i64, i64 } { i64 0, i64 6 }
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local { i64, i64 } @JS_ThrowRangeError(ptr noundef %0, ptr nocapture noundef readonly %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 248
@@ -18355,7 +18349,7 @@ js_class_has_bytecode.exit.thread.i.i:            ; preds = %18, %18, %18, %18
 JS_ThrowError.exit:                               ; preds = %11, %18, %js_class_has_bytecode.exit.thread.i.i, %2, %10
   %25 = phi i32 [ 0, %2 ], [ 1, %10 ], [ %24, %js_class_has_bytecode.exit.thread.i.i ], [ 1, %11 ], [ 1, %18 ]
   call fastcc void @JS_ThrowError2(ptr noundef nonnull %0, i32 noundef 1, ptr noundef %1, ptr noundef nonnull %3, i32 noundef %25)
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   ret { i64, i64 } { i64 0, i64 6 }
 }
 
@@ -26905,7 +26899,7 @@ is_strict_mode.exit:                              ; preds = %8
   br i1 %.not6, label %is_strict_mode.exit.thread, label %14
 
 14:                                               ; preds = %is_strict_mode.exit, %3
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   %15 = getelementptr inbounds i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 248
@@ -26949,7 +26943,7 @@ js_class_has_bytecode.exit.thread.i.i:            ; preds = %29, %29, %29, %29
 JS_ThrowError.exit:                               ; preds = %22, %29, %js_class_has_bytecode.exit.thread.i.i, %14, %21
   %36 = phi i32 [ 0, %14 ], [ 1, %21 ], [ %35, %js_class_has_bytecode.exit.thread.i.i ], [ 1, %22 ], [ 1, %29 ]
   call fastcc void @JS_ThrowError2(ptr noundef nonnull %0, i32 noundef 4, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %36)
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   br label %is_strict_mode.exit.thread
 
 is_strict_mode.exit.thread:                       ; preds = %8, %6, %is_strict_mode.exit, %JS_ThrowError.exit
@@ -48739,9 +48733,9 @@ JS_CallFree.exit:                                 ; preds = %12, %17, %22
 define dso_local noundef i32 @js_parse_error(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = load ptr, ptr %0, align 8
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   call fastcc void @JS_ThrowError2(ptr noundef %4, i32 noundef 3, ptr noundef %1, ptr noundef nonnull %3, i32 noundef 0)
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -51334,7 +51328,7 @@ JS_DupValue.exit:                                 ; preds = %js_build_module_ns.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @JS_GetScriptOrModuleName(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #18 {
+define dso_local i32 @JS_GetScriptOrModuleName(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #17 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 248
@@ -75258,13 +75252,13 @@ define internal i64 @js_def_malloc_usable_size(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #19
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #20
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #21
+declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: nounwind
 declare i64 @malloc_usable_size(ptr noundef) local_unnamed_addr #11
@@ -76129,7 +76123,7 @@ JS_FreeValue.exit113:                             ; preds = %JS_FreeValue.exit10
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare ptr @llvm.frameaddress.p0(i32 immarg) #22
+declare ptr @llvm.frameaddress.p0(i32 immarg) #21
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
@@ -78148,7 +78142,7 @@ JS_FreeValueRT.exit23:                            ; preds = %JS_FreeValueRT.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @gc_decref_child(ptr noundef %0, ptr noundef %1) #23 {
+define internal void @gc_decref_child(ptr noundef %0, ptr noundef %1) #22 {
   %3 = load i32, ptr %1, align 8
   %4 = add i32 %3, -1
   store i32 %4, ptr %1, align 8
@@ -78185,7 +78179,7 @@ define internal void @gc_decref_child(ptr noundef %0, ptr noundef %1) #23 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @gc_scan_incref_child(ptr noundef %0, ptr noundef %1) #23 {
+define internal void @gc_scan_incref_child(ptr noundef %0, ptr noundef %1) #22 {
   %3 = load i32, ptr %1, align 8
   %4 = add i32 %3, 1
   store i32 %4, ptr %1, align 8
@@ -78717,7 +78711,7 @@ JS_FreeValue.exit7:                               ; preds = %JS_FreeValue.exit6,
 declare void @rqsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @num_keys_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #24 {
+define internal i32 @num_keys_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #23 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 4
@@ -79576,7 +79570,7 @@ declare i32 @bf_rint(ptr noundef, i32 noundef) local_unnamed_addr #5
 declare i32 @bf_get_int32(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define internal fastcc i32 @js_string_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #25 {
+define internal fastcc i32 @js_string_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #24 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i64, ptr %3, align 4
   %5 = trunc i64 %4 to i32
@@ -81407,10 +81401,10 @@ js_malloc.exit:                                   ; preds = %1
 declare void @bf_set_inf(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @pow(double noundef, double noundef) local_unnamed_addr #26
+declare double @pow(double noundef, double noundef) local_unnamed_addr #25
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #27
+declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #26
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @__JS_ToFloat64Free(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 %2, i64 %3) unnamed_addr #0 {
@@ -81985,7 +81979,7 @@ declare void @pstrcpy(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr 
 declare i32 @fesetround(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #28
+declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #27
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @JS_ToBigIntFree(ptr noundef %0, ptr noundef %1, i64 %2, i64 %3) unnamed_addr #0 {
@@ -92566,10 +92560,10 @@ JS_ThrowOutOfMemory.exit:                         ; preds = %9, %4, %11
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @fmod(double noundef, double noundef) local_unnamed_addr #26
+declare double @fmod(double noundef, double noundef) local_unnamed_addr #25
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define internal double @js_pow(double noundef %0, double noundef %1) #29 {
+define internal double @js_pow(double noundef %0, double noundef %1) #28 {
   %3 = tail call double @llvm.fabs.f64(double %1)
   %4 = fcmp ueq double %3, 0x7FF0000000000000
   %5 = tail call double @llvm.fabs.f64(double %0)
@@ -93064,7 +93058,7 @@ declare i32 @lre_is_id_start(i32 noundef) local_unnamed_addr #5
 declare i32 @lre_is_id_continue(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @js_module_ns_has(ptr nocapture readnone %0, i64 %1, i64 %2, i32 noundef %3) #24 {
+define internal i32 @js_module_ns_has(ptr nocapture readnone %0, i64 %1, i64 %2, i32 noundef %3) #23 {
   %.sroa.0.0..sroa.0.0..cast = inttoptr i64 %1 to ptr
   %5 = getelementptr inbounds i8, ptr %.sroa.0.0..sroa.0.0..cast, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -98653,7 +98647,7 @@ bc_put_leb128.exit148:                            ; preds = %.lr.ph.i.i144, %bc_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @js_object_list_find(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #24 {
+define internal fastcc i32 @js_object_list_find(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #23 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
@@ -110521,7 +110515,7 @@ JS_FreeValue.exit:                                ; preds = %94, %89, %string_bu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc i32 @string_indexof_char(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #30 {
+define internal fastcc i32 @string_indexof_char(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #29 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i64, ptr %4, align 4
   %6 = trunc i64 %5 to i32
@@ -131782,7 +131776,7 @@ JS_FreeValue.exit:                                ; preds = %657, %653, %.thread
 declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @string_get_milliseconds(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #31 {
+define internal fastcc void @string_get_milliseconds(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #30 {
   %4 = load i32, ptr %1, align 4
   %5 = sext i32 %4 to i64
   %6 = getelementptr i8, ptr %0, i64 %5
@@ -131834,7 +131828,7 @@ define internal fastcc void @string_get_milliseconds(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @string_get_timezone(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) unnamed_addr #31 {
+define internal fastcc noundef i32 @string_get_timezone(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) unnamed_addr #30 {
   %5 = load i32, ptr %1, align 4
   %6 = add i32 %5, 1
   %7 = sext i32 %5 to i64
@@ -131978,7 +131972,7 @@ string_get_digits.exit.thread:                    ; preds = %switch.early.test, 
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @string_skip_until(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2) unnamed_addr #32 {
+define internal fastcc void @string_skip_until(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2) unnamed_addr #31 {
   %.promoted = load i32, ptr %1, align 4
   %4 = sext i32 %.promoted to i64
   %5 = getelementptr i8, ptr %0, i64 %4
@@ -132047,7 +132041,7 @@ define internal fastcc noundef i32 @string_match(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal { i64, i64 } @js_Date_now(ptr nocapture readnone %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #33 {
+define internal { i64, i64 } @js_Date_now(ptr nocapture readnone %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #32 {
   %6 = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %7 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #42
@@ -141709,7 +141703,7 @@ ident_realloc.exit.thread.thread:                 ; preds = %70, %65, %89, %iden
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @update_token_ident(ptr nocapture noundef %0) unnamed_addr #34 {
+define internal fastcc void @update_token_ident(ptr nocapture noundef %0) unnamed_addr #33 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
@@ -146131,7 +146125,7 @@ define internal fastcc void @js_parse_error_reserved_identifier(ptr nocapture no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @find_var(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #24 {
+define internal fastcc i32 @find_var(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #23 {
   %3 = getelementptr inbounds i8, ptr %0, i64 156
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -171464,10 +171458,10 @@ JS_DupAtom.exit547:                               ; preds = %773, %776
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal noundef i32 @code_match(ptr nocapture noundef %0, i32 noundef %1, ...) unnamed_addr #35 {
+define internal noundef i32 @code_match(ptr nocapture noundef %0, i32 noundef %1, ...) unnamed_addr #34 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = load ptr, ptr %0, align 8
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %.promoted = load i32, ptr %3, align 16
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = getelementptr inbounds i8, ptr %3, i64 16
@@ -171739,7 +171733,7 @@ define internal noundef i32 @code_match(ptr nocapture noundef %0, i32 noundef %1
 
 .loopexit:                                        ; preds = %52, %49, %101, %82, %.preheader, %45, %.lr.ph, %31
   %.087 = phi i32 [ 1, %31 ], [ 0, %.lr.ph ], [ 0, %45 ], [ 0, %.preheader ], [ 0, %82 ], [ 0, %101 ], [ 0, %49 ], [ 0, %52 ]
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   ret i32 %.087
 }
 
@@ -172669,7 +172663,7 @@ define internal fastcc void @put_short_code(ptr noundef %0, i32 noundef %1, i32 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @add_pc2line_info(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #23 {
+define internal fastcc void @add_pc2line_info(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #22 {
   %4 = getelementptr inbounds i8, ptr %0, i64 440
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -197320,7 +197314,7 @@ string_get_hex.exit:                              ; preds = %from_hex.exit.threa
 ; Function Attrs: nounwind uwtable
 define internal void @js_throw_URIError(ptr noundef %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 248
@@ -197364,7 +197358,7 @@ js_class_has_bytecode.exit.thread.i.i:            ; preds = %18, %18, %18, %18
 JS_ThrowError.exit:                               ; preds = %2, %10, %11, %18, %js_class_has_bytecode.exit.thread.i.i
   %25 = phi i32 [ 0, %2 ], [ 1, %10 ], [ %24, %js_class_has_bytecode.exit.thread.i.i ], [ 1, %11 ], [ 1, %18 ]
   call fastcc void @JS_ThrowError2(ptr noundef nonnull %0, i32 noundef 5, ptr noundef %1, ptr noundef nonnull %3, i32 noundef %25)
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -198313,7 +198307,7 @@ js_thisNumberValue.exit:                          ; preds = %5, %5, %19, %22
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @log2(double noundef) #26
+declare double @log2(double noundef) #25
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_number_isNaN(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
@@ -205166,7 +205160,7 @@ js_is_regexp.exit.thread48:                       ; preds = %js_is_regexp.exit.t
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc i32 @string_indexof(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #30 {
+define internal fastcc i32 @string_indexof(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #29 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i64, ptr %4, align 4
   %.fr100 = freeze i64 %5
@@ -206090,13 +206084,13 @@ js_fmax.exit:                                     ; preds = %108, %103, %97, %JS
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare double @fabs(double noundef) #36
+declare double @fabs(double noundef) #35
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare double @floor(double noundef) #36
+declare double @floor(double noundef) #35
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare double @ceil(double noundef) #36
+declare double @ceil(double noundef) #35
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal double @js_math_round(double noundef %0) #4 {
@@ -206146,37 +206140,37 @@ define internal double @js_math_round(double noundef %0) #4 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @sqrt(double noundef) #26
+declare double @sqrt(double noundef) #25
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @acos(double noundef) #26
+declare double @acos(double noundef) #25
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @asin(double noundef) #26
+declare double @asin(double noundef) #25
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @atan(double noundef) #26
+declare double @atan(double noundef) #25
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @atan2(double noundef, double noundef) #26
+declare double @atan2(double noundef, double noundef) #25
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @cos(double noundef) #26
+declare double @cos(double noundef) #25
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @exp(double noundef) #26
+declare double @exp(double noundef) #25
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @log(double noundef) #26
+declare double @log(double noundef) #25
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @sin(double noundef) #26
+declare double @sin(double noundef) #25
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @tan(double noundef) #26
+declare double @tan(double noundef) #25
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare double @trunc(double noundef) #36
+declare double @trunc(double noundef) #35
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal noundef double @js_math_sign(double noundef %0) #4 {
@@ -206188,34 +206182,34 @@ define internal noundef double @js_math_sign(double noundef %0) #4 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @cosh(double noundef) #26
+declare double @cosh(double noundef) #25
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @sinh(double noundef) #26
+declare double @sinh(double noundef) #25
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @tanh(double noundef) #26
+declare double @tanh(double noundef) #25
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @acosh(double noundef) #26
+declare double @acosh(double noundef) #25
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @asinh(double noundef) #26
+declare double @asinh(double noundef) #25
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @atanh(double noundef) #26
+declare double @atanh(double noundef) #25
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @expm1(double noundef) #26
+declare double @expm1(double noundef) #25
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @log1p(double noundef) #26
+declare double @log1p(double noundef) #25
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @log10(double noundef) #26
+declare double @log10(double noundef) #25
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare double @cbrt(double noundef) #36
+declare double @cbrt(double noundef) #35
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_math_hypot(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
@@ -216071,6 +216065,12 @@ JS_ToBool.exit:                                   ; preds = %83, %90
   ret { i64, i64 } %.fca.1.insert
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #36
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #36
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #37
 
@@ -216154,26 +216154,26 @@ attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #14 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #18 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #23 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { nofree nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #28 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #29 = { mustprogress nofree nounwind willreturn memory(write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #30 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #31 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #32 = { nofree nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #33 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #34 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #35 = { nofree norecurse nosync nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #36 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #22 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { nofree nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #28 = { mustprogress nofree nounwind willreturn memory(write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #29 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #30 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #31 = { nofree nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #32 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #33 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #34 = { nofree norecurse nosync nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #35 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #36 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #37 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #38 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #39 = { nofree nounwind }

@@ -23220,7 +23220,7 @@ define dso_local i64 @rb_funcall(i64 noundef %0, i64 noundef %1, i32 noundef %2,
   br i1 %5, label %rbimpl_size_mul_or_raise.exit, label %30
 
 rbimpl_size_mul_or_raise.exit:                    ; preds = %3
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   %6 = zext nneg i32 %2 to i64
   %7 = shl nuw nsw i64 %6, 3
   %8 = alloca i8, i64 %7, align 16
@@ -23262,7 +23262,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %3
   br i1 %exitcond.not, label %29, label %12, !llvm.loop !85
 
 29:                                               ; preds = %22
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   br label %30
 
 30:                                               ; preds = %3, %29
@@ -23270,12 +23270,6 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %3
   %31 = call i64 @rb_funcallv(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %.010)
   ret i64 %31
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #18
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #18
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden i64 @rb_check_funcall_basic_kw(i64 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #2 {
@@ -23705,7 +23699,7 @@ rb_yield_0.exit:                                  ; preds = %VM_CF_BLOCK_HANDLER
 .lr.ph:                                           ; preds = %18
   %22 = shl nuw nsw i64 %19, 3
   %23 = alloca i8, i64 %22, align 16
-  call void @llvm.va_start(ptr nonnull %2)
+  call void @llvm.va_start.p0(ptr nonnull %2)
   %.promoted = load i32, ptr %2, align 16
   %24 = getelementptr inbounds i8, ptr %2, i64 8
   %25 = getelementptr inbounds i8, ptr %2, i64 16
@@ -23745,7 +23739,7 @@ rb_yield_0.exit:                                  ; preds = %VM_CF_BLOCK_HANDLER
   br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !86
 
 ._crit_edge:                                      ; preds = %37
-  call void @llvm.va_end(ptr nonnull %2)
+  call void @llvm.va_end.p0(ptr nonnull %2)
   %43 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr i8, ptr %44, i64 16
@@ -25469,10 +25463,10 @@ rb_array_const_ptr.exit:                          ; preds = %rb_array_len.exit.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare ptr @llvm.frameaddress.p0(i32 immarg) #19
+declare ptr @llvm.frameaddress.p0(i32 immarg) #18
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare ptr @llvm.stacksave.p0() #18
+declare ptr @llvm.stacksave.p0() #19
 
 ; Function Attrs: nounwind
 declare i32 @llvm.eh.sjlj.setjmp(ptr) #20
@@ -59019,6 +59013,12 @@ define internal i64 @vm_ci_hash(i64 noundef %0) #2 {
 
 declare i64 @rb_hash_start(i64 noundef) local_unnamed_addr #3
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #19
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #19
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #41
 
@@ -59058,8 +59058,8 @@ attributes #14 = { mustprogress nofree norecurse nosync nounwind sspstrong willr
 attributes #15 = { nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #17 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #20 = { nounwind }
 attributes #21 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #22 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
