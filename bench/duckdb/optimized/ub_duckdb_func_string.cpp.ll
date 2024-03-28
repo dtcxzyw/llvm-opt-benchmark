@@ -93627,10 +93627,6 @@ _ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_w
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp4.i.i121)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %group.i.i123) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %digit_index.i.i122) #22
-  %cmp.i.i161 = icmp eq i64 %sub13, %div61
-  br i1 %cmp.i.i161, label %cleanup, label %if.then.i.i.i.i162
-
-if.then.i.i.i.i162:                               ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIiNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit160
   %sub24 = sub i64 %sub13, %div61
   call void @llvm.memset.p0.i64(ptr align 1 %__result.addr.0.lcssa.i.i.i.i.i159, i8 %39, i64 %sub24, i1 false)
   br label %cleanup
@@ -93811,7 +93807,7 @@ _ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_w
   call void @llvm.memset.p0.i64(ptr align 1 %__result.addr.0.lcssa.i.i.i.i.i205, i8 %39, i64 %sub13, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIiNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit206, %if.then.i.i.i.i162, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIiNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit160, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIiNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIiNS0_18basic_format_specsIcEEE10num_writerEEclIPcEEvOT_.exit
+cleanup:                                          ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIiNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit206, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIiNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit160, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIiNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIiNS0_18basic_format_specsIcEEE10num_writerEEclIPcEEvOT_.exit
   ret void
 }
 
@@ -94716,10 +94712,6 @@ for.body.i.i.preheader.i.i.i.i187:                ; preds = %_ZN10duckdb_fmt2v68
 _ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIiNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit206: ; preds = %for.body.i.i.preheader.i.i.i.i187, %_ZN10duckdb_fmt2v68internal14format_decimalIjcZNS1_14format_decimalIcPcjEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i182
   %__result.addr.0.lcssa.i.i.i.i.i.i189 = phi ptr [ %retval.0.i.i.i164, %_ZN10duckdb_fmt2v68internal14format_decimalIjcZNS1_14format_decimalIcPcjEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i182 ], [ %scevgep.i.i.i.i188, %for.body.i.i.preheader.i.i.i.i187 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %buffer.i.i.i.i143) #22
-  %cmp.i.i207 = icmp eq i64 %sub13, %div61
-  br i1 %cmp.i.i207, label %cleanup, label %if.then.i.i.i.i208
-
-if.then.i.i.i.i208:                               ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIiNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit206
   %sub24 = sub i64 %sub13, %div61
   tail call void @llvm.memset.p0.i64(ptr align 1 %__result.addr.0.lcssa.i.i.i.i.i.i189, i8 %41, i64 %sub24, i1 false)
   br label %cleanup
@@ -94929,7 +94921,7 @@ _ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_w
   tail call void @llvm.memset.p0.i64(ptr align 1 %__result.addr.0.lcssa.i.i.i.i.i.i258, i8 %41, i64 %sub13, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIiNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit275, %if.then.i.i.i.i208, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIiNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit206, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIiNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIiNS0_18basic_format_specsIcEEE10dec_writerEEclIPcEEvOT_.exit
+cleanup:                                          ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIiNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit275, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIiNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit206, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIiNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIiNS0_18basic_format_specsIcEEE10dec_writerEEclIPcEEvOT_.exit
   ret void
 }
 
@@ -95484,13 +95476,9 @@ do.body.i.i.i149:                                 ; preds = %do.body.i.i.i149, %
   store i8 %100, ptr %incdec.ptr.i.i14.i155, align 1, !tbaa !35
   %shr.i.i.i156 = lshr i32 %value.addr.0.i.i.i150, 4
   %cmp.not.i.i15.i157 = icmp ult i32 %value.addr.0.i.i.i150, 16
-  br i1 %cmp.not.i.i15.i157, label %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIiNS0_18basic_format_specsIcEEE10hex_writerEEclIRPcEEvOT_.exit158, label %do.body.i.i.i149, !llvm.loop !1913
+  br i1 %cmp.not.i.i15.i157, label %if.then.i.i.i.i160, label %do.body.i.i.i149, !llvm.loop !1913
 
-_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIiNS0_18basic_format_specsIcEEE10hex_writerEEclIRPcEEvOT_.exit158: ; preds = %do.body.i.i.i149
-  %cmp.i.i159 = icmp eq i64 %sub13, %div61
-  br i1 %cmp.i.i159, label %cleanup, label %if.then.i.i.i.i160
-
-if.then.i.i.i.i160:                               ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIiNS0_18basic_format_specsIcEEE10hex_writerEEclIRPcEEvOT_.exit158
+if.then.i.i.i.i160:                               ; preds = %do.body.i.i.i149
   %sub24 = sub i64 %sub13, %div61
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i13.i147, i8 %40, i64 %sub24, i1 false)
   br label %cleanup
@@ -95660,7 +95648,7 @@ if.then.i.i.i.i205:                               ; preds = %do.body.i.i.i194
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i13.i192, i8 %40, i64 %sub13, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %do.body.i.i.i, %do.body.i.i.i105, %if.then.i.i.i.i205, %if.then.i.i.i.i160, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIiNS0_18basic_format_specsIcEEE10hex_writerEEclIRPcEEvOT_.exit158
+cleanup:                                          ; preds = %do.body.i.i.i, %do.body.i.i.i105, %if.then.i.i.i.i205, %if.then.i.i.i.i160
   ret void
 }
 
@@ -96188,13 +96176,9 @@ do.body.i.i.i137:                                 ; preds = %do.body.i.i.i137, %
   store i8 %conv.i.i.i140, ptr %incdec.ptr.i.i14.i141, align 1, !tbaa !35
   %shr.i.i.i142 = lshr i32 %value.addr.0.i.i.i138, 1
   %cmp.not.i.i15.i143 = icmp ult i32 %value.addr.0.i.i.i138, 2
-  br i1 %cmp.not.i.i15.i143, label %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIiNS0_18basic_format_specsIcEEE10bin_writerILi1EEEEclIRPcEEvOT_.exit144, label %do.body.i.i.i137, !llvm.loop !1928
+  br i1 %cmp.not.i.i15.i143, label %if.then.i.i.i.i146, label %do.body.i.i.i137, !llvm.loop !1928
 
-_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIiNS0_18basic_format_specsIcEEE10bin_writerILi1EEEEclIRPcEEvOT_.exit144: ; preds = %do.body.i.i.i137
-  %cmp.i.i145 = icmp eq i64 %sub13, %div61
-  br i1 %cmp.i.i145, label %cleanup, label %if.then.i.i.i.i146
-
-if.then.i.i.i.i146:                               ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIiNS0_18basic_format_specsIcEEE10bin_writerILi1EEEEclIRPcEEvOT_.exit144
+if.then.i.i.i.i146:                               ; preds = %do.body.i.i.i137
   %sub24 = sub i64 %sub13, %div61
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i13.i136, i8 %38, i64 %sub24, i1 false)
   br label %cleanup
@@ -96355,7 +96339,7 @@ if.then.i.i.i.i184:                               ; preds = %do.body.i.i.i175
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i13.i174, i8 %38, i64 %sub13, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %do.body.i.i.i, %do.body.i.i.i100, %if.then.i.i.i.i184, %if.then.i.i.i.i146, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIiNS0_18basic_format_specsIcEEE10bin_writerILi1EEEEclIRPcEEvOT_.exit144
+cleanup:                                          ; preds = %do.body.i.i.i, %do.body.i.i.i100, %if.then.i.i.i.i184, %if.then.i.i.i.i146
   ret void
 }
 
@@ -96883,13 +96867,9 @@ do.body.i.i.i137:                                 ; preds = %do.body.i.i.i137, %
   store i8 %conv.i.i.i140, ptr %incdec.ptr.i.i14.i141, align 1, !tbaa !35
   %shr.i.i.i142 = lshr i32 %value.addr.0.i.i.i138, 3
   %cmp.not.i.i15.i143 = icmp ult i32 %value.addr.0.i.i.i138, 8
-  br i1 %cmp.not.i.i15.i143, label %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIiNS0_18basic_format_specsIcEEE10bin_writerILi3EEEEclIRPcEEvOT_.exit144, label %do.body.i.i.i137, !llvm.loop !1943
+  br i1 %cmp.not.i.i15.i143, label %if.then.i.i.i.i146, label %do.body.i.i.i137, !llvm.loop !1943
 
-_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIiNS0_18basic_format_specsIcEEE10bin_writerILi3EEEEclIRPcEEvOT_.exit144: ; preds = %do.body.i.i.i137
-  %cmp.i.i145 = icmp eq i64 %sub13, %div61
-  br i1 %cmp.i.i145, label %cleanup, label %if.then.i.i.i.i146
-
-if.then.i.i.i.i146:                               ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIiNS0_18basic_format_specsIcEEE10bin_writerILi3EEEEclIRPcEEvOT_.exit144
+if.then.i.i.i.i146:                               ; preds = %do.body.i.i.i137
   %sub24 = sub i64 %sub13, %div61
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i13.i136, i8 %38, i64 %sub24, i1 false)
   br label %cleanup
@@ -97050,7 +97030,7 @@ if.then.i.i.i.i184:                               ; preds = %do.body.i.i.i175
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i13.i174, i8 %38, i64 %sub13, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %do.body.i.i.i, %do.body.i.i.i100, %if.then.i.i.i.i184, %if.then.i.i.i.i146, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIiNS0_18basic_format_specsIcEEE10bin_writerILi3EEEEclIRPcEEvOT_.exit144
+cleanup:                                          ; preds = %do.body.i.i.i, %do.body.i.i.i100, %if.then.i.i.i.i184, %if.then.i.i.i.i146
   ret void
 }
 
@@ -98904,10 +98884,6 @@ _ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_w
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp4.i.i121)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %group.i.i123) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %digit_index.i.i122) #22
-  %cmp.i.i161 = icmp eq i64 %sub13, %div61
-  br i1 %cmp.i.i161, label %cleanup, label %if.then.i.i.i.i162
-
-if.then.i.i.i.i162:                               ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIjNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit160
   %sub24 = sub i64 %sub13, %div61
   call void @llvm.memset.p0.i64(ptr align 1 %__result.addr.0.lcssa.i.i.i.i.i159, i8 %39, i64 %sub24, i1 false)
   br label %cleanup
@@ -99088,7 +99064,7 @@ _ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_w
   call void @llvm.memset.p0.i64(ptr align 1 %__result.addr.0.lcssa.i.i.i.i.i205, i8 %39, i64 %sub13, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIjNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit206, %if.then.i.i.i.i162, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIjNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit160, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIjNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIjNS0_18basic_format_specsIcEEE10num_writerEEclIPcEEvOT_.exit
+cleanup:                                          ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIjNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit206, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIjNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit160, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIjNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIjNS0_18basic_format_specsIcEEE10num_writerEEclIPcEEvOT_.exit
   ret void
 }
 
@@ -99993,10 +99969,6 @@ for.body.i.i.preheader.i.i.i.i187:                ; preds = %_ZN10duckdb_fmt2v68
 _ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIjNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit206: ; preds = %for.body.i.i.preheader.i.i.i.i187, %_ZN10duckdb_fmt2v68internal14format_decimalIjcZNS1_14format_decimalIcPcjEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i182
   %__result.addr.0.lcssa.i.i.i.i.i.i189 = phi ptr [ %retval.0.i.i.i164, %_ZN10duckdb_fmt2v68internal14format_decimalIjcZNS1_14format_decimalIcPcjEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i182 ], [ %scevgep.i.i.i.i188, %for.body.i.i.preheader.i.i.i.i187 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %buffer.i.i.i.i143) #22
-  %cmp.i.i207 = icmp eq i64 %sub13, %div61
-  br i1 %cmp.i.i207, label %cleanup, label %if.then.i.i.i.i208
-
-if.then.i.i.i.i208:                               ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIjNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit206
   %sub24 = sub i64 %sub13, %div61
   tail call void @llvm.memset.p0.i64(ptr align 1 %__result.addr.0.lcssa.i.i.i.i.i.i189, i8 %41, i64 %sub24, i1 false)
   br label %cleanup
@@ -100206,7 +100178,7 @@ _ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_w
   tail call void @llvm.memset.p0.i64(ptr align 1 %__result.addr.0.lcssa.i.i.i.i.i.i258, i8 %41, i64 %sub13, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIjNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit275, %if.then.i.i.i.i208, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIjNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit206, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIjNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIjNS0_18basic_format_specsIcEEE10dec_writerEEclIPcEEvOT_.exit
+cleanup:                                          ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIjNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit275, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIjNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit206, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIjNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIjNS0_18basic_format_specsIcEEE10dec_writerEEclIPcEEvOT_.exit
   ret void
 }
 
@@ -100761,13 +100733,9 @@ do.body.i.i.i149:                                 ; preds = %do.body.i.i.i149, %
   store i8 %100, ptr %incdec.ptr.i.i14.i155, align 1, !tbaa !35
   %shr.i.i.i156 = lshr i32 %value.addr.0.i.i.i150, 4
   %cmp.not.i.i15.i157 = icmp ult i32 %value.addr.0.i.i.i150, 16
-  br i1 %cmp.not.i.i15.i157, label %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIjNS0_18basic_format_specsIcEEE10hex_writerEEclIRPcEEvOT_.exit158, label %do.body.i.i.i149, !llvm.loop !1913
+  br i1 %cmp.not.i.i15.i157, label %if.then.i.i.i.i160, label %do.body.i.i.i149, !llvm.loop !1913
 
-_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIjNS0_18basic_format_specsIcEEE10hex_writerEEclIRPcEEvOT_.exit158: ; preds = %do.body.i.i.i149
-  %cmp.i.i159 = icmp eq i64 %sub13, %div61
-  br i1 %cmp.i.i159, label %cleanup, label %if.then.i.i.i.i160
-
-if.then.i.i.i.i160:                               ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIjNS0_18basic_format_specsIcEEE10hex_writerEEclIRPcEEvOT_.exit158
+if.then.i.i.i.i160:                               ; preds = %do.body.i.i.i149
   %sub24 = sub i64 %sub13, %div61
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i13.i147, i8 %40, i64 %sub24, i1 false)
   br label %cleanup
@@ -100937,7 +100905,7 @@ if.then.i.i.i.i205:                               ; preds = %do.body.i.i.i194
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i13.i192, i8 %40, i64 %sub13, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %do.body.i.i.i, %do.body.i.i.i105, %if.then.i.i.i.i205, %if.then.i.i.i.i160, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIjNS0_18basic_format_specsIcEEE10hex_writerEEclIRPcEEvOT_.exit158
+cleanup:                                          ; preds = %do.body.i.i.i, %do.body.i.i.i105, %if.then.i.i.i.i205, %if.then.i.i.i.i160
   ret void
 }
 
@@ -101465,13 +101433,9 @@ do.body.i.i.i137:                                 ; preds = %do.body.i.i.i137, %
   store i8 %conv.i.i.i140, ptr %incdec.ptr.i.i14.i141, align 1, !tbaa !35
   %shr.i.i.i142 = lshr i32 %value.addr.0.i.i.i138, 1
   %cmp.not.i.i15.i143 = icmp ult i32 %value.addr.0.i.i.i138, 2
-  br i1 %cmp.not.i.i15.i143, label %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIjNS0_18basic_format_specsIcEEE10bin_writerILi1EEEEclIRPcEEvOT_.exit144, label %do.body.i.i.i137, !llvm.loop !1928
+  br i1 %cmp.not.i.i15.i143, label %if.then.i.i.i.i146, label %do.body.i.i.i137, !llvm.loop !1928
 
-_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIjNS0_18basic_format_specsIcEEE10bin_writerILi1EEEEclIRPcEEvOT_.exit144: ; preds = %do.body.i.i.i137
-  %cmp.i.i145 = icmp eq i64 %sub13, %div61
-  br i1 %cmp.i.i145, label %cleanup, label %if.then.i.i.i.i146
-
-if.then.i.i.i.i146:                               ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIjNS0_18basic_format_specsIcEEE10bin_writerILi1EEEEclIRPcEEvOT_.exit144
+if.then.i.i.i.i146:                               ; preds = %do.body.i.i.i137
   %sub24 = sub i64 %sub13, %div61
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i13.i136, i8 %38, i64 %sub24, i1 false)
   br label %cleanup
@@ -101632,7 +101596,7 @@ if.then.i.i.i.i184:                               ; preds = %do.body.i.i.i175
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i13.i174, i8 %38, i64 %sub13, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %do.body.i.i.i, %do.body.i.i.i100, %if.then.i.i.i.i184, %if.then.i.i.i.i146, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIjNS0_18basic_format_specsIcEEE10bin_writerILi1EEEEclIRPcEEvOT_.exit144
+cleanup:                                          ; preds = %do.body.i.i.i, %do.body.i.i.i100, %if.then.i.i.i.i184, %if.then.i.i.i.i146
   ret void
 }
 
@@ -102160,13 +102124,9 @@ do.body.i.i.i137:                                 ; preds = %do.body.i.i.i137, %
   store i8 %conv.i.i.i140, ptr %incdec.ptr.i.i14.i141, align 1, !tbaa !35
   %shr.i.i.i142 = lshr i32 %value.addr.0.i.i.i138, 3
   %cmp.not.i.i15.i143 = icmp ult i32 %value.addr.0.i.i.i138, 8
-  br i1 %cmp.not.i.i15.i143, label %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIjNS0_18basic_format_specsIcEEE10bin_writerILi3EEEEclIRPcEEvOT_.exit144, label %do.body.i.i.i137, !llvm.loop !1943
+  br i1 %cmp.not.i.i15.i143, label %if.then.i.i.i.i146, label %do.body.i.i.i137, !llvm.loop !1943
 
-_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIjNS0_18basic_format_specsIcEEE10bin_writerILi3EEEEclIRPcEEvOT_.exit144: ; preds = %do.body.i.i.i137
-  %cmp.i.i145 = icmp eq i64 %sub13, %div61
-  br i1 %cmp.i.i145, label %cleanup, label %if.then.i.i.i.i146
-
-if.then.i.i.i.i146:                               ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIjNS0_18basic_format_specsIcEEE10bin_writerILi3EEEEclIRPcEEvOT_.exit144
+if.then.i.i.i.i146:                               ; preds = %do.body.i.i.i137
   %sub24 = sub i64 %sub13, %div61
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i13.i136, i8 %38, i64 %sub24, i1 false)
   br label %cleanup
@@ -102327,7 +102287,7 @@ if.then.i.i.i.i184:                               ; preds = %do.body.i.i.i175
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i13.i174, i8 %38, i64 %sub13, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %do.body.i.i.i, %do.body.i.i.i100, %if.then.i.i.i.i184, %if.then.i.i.i.i146, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIjNS0_18basic_format_specsIcEEE10bin_writerILi3EEEEclIRPcEEvOT_.exit144
+cleanup:                                          ; preds = %do.body.i.i.i, %do.body.i.i.i100, %if.then.i.i.i.i184, %if.then.i.i.i.i146
   ret void
 }
 
@@ -103920,10 +103880,6 @@ _ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_w
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp4.i.i121)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %group.i.i123) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %digit_index.i.i122) #22
-  %cmp.i.i161 = icmp eq i64 %sub13, %div61
-  br i1 %cmp.i.i161, label %cleanup, label %if.then.i.i.i.i162
-
-if.then.i.i.i.i162:                               ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIxNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit160
   %sub24 = sub i64 %sub13, %div61
   call void @llvm.memset.p0.i64(ptr align 1 %__result.addr.0.lcssa.i.i.i.i.i159, i8 %39, i64 %sub24, i1 false)
   br label %cleanup
@@ -104104,7 +104060,7 @@ _ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_w
   call void @llvm.memset.p0.i64(ptr align 1 %__result.addr.0.lcssa.i.i.i.i.i205, i8 %39, i64 %sub13, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIxNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit206, %if.then.i.i.i.i162, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIxNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit160, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIxNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIxNS0_18basic_format_specsIcEEE10num_writerEEclIPcEEvOT_.exit
+cleanup:                                          ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIxNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit206, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIxNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit160, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIxNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIxNS0_18basic_format_specsIcEEE10num_writerEEclIPcEEvOT_.exit
   ret void
 }
 
@@ -105017,10 +104973,6 @@ for.body.i.i.preheader.i.i.i.i190:                ; preds = %_ZN10duckdb_fmt2v68
 _ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIxNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit210: ; preds = %for.body.i.i.preheader.i.i.i.i190, %_ZN10duckdb_fmt2v68internal14format_decimalImcZNS1_14format_decimalIcPcmEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i185
   %__result.addr.0.lcssa.i.i.i.i.i.i192 = phi ptr [ %retval.0.i.i.i166, %_ZN10duckdb_fmt2v68internal14format_decimalImcZNS1_14format_decimalIcPcmEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i185 ], [ %scevgep.i.i.i.i191, %for.body.i.i.preheader.i.i.i.i190 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %buffer.i.i.i.i145) #22
-  %cmp.i.i211 = icmp eq i64 %sub13, %div61
-  br i1 %cmp.i.i211, label %cleanup, label %if.then.i.i.i.i212
-
-if.then.i.i.i.i212:                               ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIxNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit210
   %sub24 = sub i64 %sub13, %div61
   tail call void @llvm.memset.p0.i64(ptr align 1 %__result.addr.0.lcssa.i.i.i.i.i.i192, i8 %41, i64 %sub24, i1 false)
   br label %cleanup
@@ -105232,7 +105184,7 @@ _ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_w
   tail call void @llvm.memset.p0.i64(ptr align 1 %__result.addr.0.lcssa.i.i.i.i.i.i263, i8 %41, i64 %sub13, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIxNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit281, %if.then.i.i.i.i212, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIxNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit210, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIxNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIxNS0_18basic_format_specsIcEEE10dec_writerEEclIPcEEvOT_.exit
+cleanup:                                          ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIxNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit281, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIxNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit210, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIxNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIxNS0_18basic_format_specsIcEEE10dec_writerEEclIPcEEvOT_.exit
   ret void
 }
 
@@ -105784,13 +105736,9 @@ do.body.i.i.i148:                                 ; preds = %do.body.i.i.i148, %
   store i8 %100, ptr %incdec.ptr.i.i14.i153, align 1, !tbaa !35
   %shr.i.i.i154 = lshr i64 %value.addr.0.i.i.i149, 4
   %cmp.not.i.i15.i155 = icmp ult i64 %value.addr.0.i.i.i149, 16
-  br i1 %cmp.not.i.i15.i155, label %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIxNS0_18basic_format_specsIcEEE10hex_writerEEclIRPcEEvOT_.exit156, label %do.body.i.i.i148, !llvm.loop !2132
+  br i1 %cmp.not.i.i15.i155, label %if.then.i.i.i.i158, label %do.body.i.i.i148, !llvm.loop !2132
 
-_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIxNS0_18basic_format_specsIcEEE10hex_writerEEclIRPcEEvOT_.exit156: ; preds = %do.body.i.i.i148
-  %cmp.i.i157 = icmp eq i64 %sub13, %div61
-  br i1 %cmp.i.i157, label %cleanup, label %if.then.i.i.i.i158
-
-if.then.i.i.i.i158:                               ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIxNS0_18basic_format_specsIcEEE10hex_writerEEclIRPcEEvOT_.exit156
+if.then.i.i.i.i158:                               ; preds = %do.body.i.i.i148
   %sub24 = sub i64 %sub13, %div61
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i13.i146, i8 %40, i64 %sub24, i1 false)
   br label %cleanup
@@ -105959,7 +105907,7 @@ if.then.i.i.i.i202:                               ; preds = %do.body.i.i.i192
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i13.i190, i8 %40, i64 %sub13, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %do.body.i.i.i, %do.body.i.i.i105, %if.then.i.i.i.i202, %if.then.i.i.i.i158, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIxNS0_18basic_format_specsIcEEE10hex_writerEEclIRPcEEvOT_.exit156
+cleanup:                                          ; preds = %do.body.i.i.i, %do.body.i.i.i105, %if.then.i.i.i.i202, %if.then.i.i.i.i158
   ret void
 }
 
@@ -106487,13 +106435,9 @@ do.body.i.i.i138:                                 ; preds = %do.body.i.i.i138, %
   store i8 %add.i.i.i142, ptr %incdec.ptr.i.i14.i143, align 1, !tbaa !35
   %shr.i.i.i144 = lshr i64 %value.addr.0.i.i.i139, 1
   %cmp.not.i.i15.i145 = icmp ult i64 %value.addr.0.i.i.i139, 2
-  br i1 %cmp.not.i.i15.i145, label %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIxNS0_18basic_format_specsIcEEE10bin_writerILi1EEEEclIRPcEEvOT_.exit146, label %do.body.i.i.i138, !llvm.loop !2147
+  br i1 %cmp.not.i.i15.i145, label %if.then.i.i.i.i148, label %do.body.i.i.i138, !llvm.loop !2147
 
-_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIxNS0_18basic_format_specsIcEEE10bin_writerILi1EEEEclIRPcEEvOT_.exit146: ; preds = %do.body.i.i.i138
-  %cmp.i.i147 = icmp eq i64 %sub13, %div61
-  br i1 %cmp.i.i147, label %cleanup, label %if.then.i.i.i.i148
-
-if.then.i.i.i.i148:                               ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIxNS0_18basic_format_specsIcEEE10bin_writerILi1EEEEclIRPcEEvOT_.exit146
+if.then.i.i.i.i148:                               ; preds = %do.body.i.i.i138
   %sub24 = sub i64 %sub13, %div61
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i13.i137, i8 %37, i64 %sub24, i1 false)
   br label %cleanup
@@ -106654,7 +106598,7 @@ if.then.i.i.i.i187:                               ; preds = %do.body.i.i.i177
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i13.i176, i8 %37, i64 %sub13, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %do.body.i.i.i, %do.body.i.i.i100, %if.then.i.i.i.i187, %if.then.i.i.i.i148, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIxNS0_18basic_format_specsIcEEE10bin_writerILi1EEEEclIRPcEEvOT_.exit146
+cleanup:                                          ; preds = %do.body.i.i.i, %do.body.i.i.i100, %if.then.i.i.i.i187, %if.then.i.i.i.i148
   ret void
 }
 
@@ -107182,13 +107126,9 @@ do.body.i.i.i138:                                 ; preds = %do.body.i.i.i138, %
   store i8 %add.i.i.i142, ptr %incdec.ptr.i.i14.i143, align 1, !tbaa !35
   %shr.i.i.i144 = lshr i64 %value.addr.0.i.i.i139, 3
   %cmp.not.i.i15.i145 = icmp ult i64 %value.addr.0.i.i.i139, 8
-  br i1 %cmp.not.i.i15.i145, label %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIxNS0_18basic_format_specsIcEEE10bin_writerILi3EEEEclIRPcEEvOT_.exit146, label %do.body.i.i.i138, !llvm.loop !2162
+  br i1 %cmp.not.i.i15.i145, label %if.then.i.i.i.i148, label %do.body.i.i.i138, !llvm.loop !2162
 
-_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIxNS0_18basic_format_specsIcEEE10bin_writerILi3EEEEclIRPcEEvOT_.exit146: ; preds = %do.body.i.i.i138
-  %cmp.i.i147 = icmp eq i64 %sub13, %div61
-  br i1 %cmp.i.i147, label %cleanup, label %if.then.i.i.i.i148
-
-if.then.i.i.i.i148:                               ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIxNS0_18basic_format_specsIcEEE10bin_writerILi3EEEEclIRPcEEvOT_.exit146
+if.then.i.i.i.i148:                               ; preds = %do.body.i.i.i138
   %sub24 = sub i64 %sub13, %div61
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i13.i137, i8 %37, i64 %sub24, i1 false)
   br label %cleanup
@@ -107349,7 +107289,7 @@ if.then.i.i.i.i187:                               ; preds = %do.body.i.i.i177
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i13.i176, i8 %37, i64 %sub13, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %do.body.i.i.i, %do.body.i.i.i100, %if.then.i.i.i.i187, %if.then.i.i.i.i148, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIxNS0_18basic_format_specsIcEEE10bin_writerILi3EEEEclIRPcEEvOT_.exit146
+cleanup:                                          ; preds = %do.body.i.i.i, %do.body.i.i.i100, %if.then.i.i.i.i187, %if.then.i.i.i.i148
   ret void
 }
 
@@ -109207,10 +109147,6 @@ _ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_w
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp4.i.i121)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %group.i.i123) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %digit_index.i.i122) #22
-  %cmp.i.i161 = icmp eq i64 %sub13, %div61
-  br i1 %cmp.i.i161, label %cleanup, label %if.then.i.i.i.i162
-
-if.then.i.i.i.i162:                               ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIyNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit160
   %sub24 = sub i64 %sub13, %div61
   call void @llvm.memset.p0.i64(ptr align 1 %__result.addr.0.lcssa.i.i.i.i.i159, i8 %39, i64 %sub24, i1 false)
   br label %cleanup
@@ -109391,7 +109327,7 @@ _ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_w
   call void @llvm.memset.p0.i64(ptr align 1 %__result.addr.0.lcssa.i.i.i.i.i205, i8 %39, i64 %sub13, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIyNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit206, %if.then.i.i.i.i162, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIyNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit160, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIyNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIyNS0_18basic_format_specsIcEEE10num_writerEEclIPcEEvOT_.exit
+cleanup:                                          ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIyNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit206, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIyNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit160, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIyNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIyNS0_18basic_format_specsIcEEE10num_writerEEclIPcEEvOT_.exit
   ret void
 }
 
@@ -110304,10 +110240,6 @@ for.body.i.i.preheader.i.i.i.i190:                ; preds = %_ZN10duckdb_fmt2v68
 _ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIyNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit210: ; preds = %for.body.i.i.preheader.i.i.i.i190, %_ZN10duckdb_fmt2v68internal14format_decimalImcZNS1_14format_decimalIcPcmEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i185
   %__result.addr.0.lcssa.i.i.i.i.i.i192 = phi ptr [ %retval.0.i.i.i166, %_ZN10duckdb_fmt2v68internal14format_decimalImcZNS1_14format_decimalIcPcmEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i185 ], [ %scevgep.i.i.i.i191, %for.body.i.i.preheader.i.i.i.i190 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %buffer.i.i.i.i145) #22
-  %cmp.i.i211 = icmp eq i64 %sub13, %div61
-  br i1 %cmp.i.i211, label %cleanup, label %if.then.i.i.i.i212
-
-if.then.i.i.i.i212:                               ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIyNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit210
   %sub24 = sub i64 %sub13, %div61
   tail call void @llvm.memset.p0.i64(ptr align 1 %__result.addr.0.lcssa.i.i.i.i.i.i192, i8 %41, i64 %sub24, i1 false)
   br label %cleanup
@@ -110519,7 +110451,7 @@ _ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_w
   tail call void @llvm.memset.p0.i64(ptr align 1 %__result.addr.0.lcssa.i.i.i.i.i.i263, i8 %41, i64 %sub13, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIyNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit281, %if.then.i.i.i.i212, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIyNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit210, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIyNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIyNS0_18basic_format_specsIcEEE10dec_writerEEclIPcEEvOT_.exit
+cleanup:                                          ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIyNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit281, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIyNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit210, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIyNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIyNS0_18basic_format_specsIcEEE10dec_writerEEclIPcEEvOT_.exit
   ret void
 }
 
@@ -111071,13 +111003,9 @@ do.body.i.i.i148:                                 ; preds = %do.body.i.i.i148, %
   store i8 %100, ptr %incdec.ptr.i.i14.i153, align 1, !tbaa !35
   %shr.i.i.i154 = lshr i64 %value.addr.0.i.i.i149, 4
   %cmp.not.i.i15.i155 = icmp ult i64 %value.addr.0.i.i.i149, 16
-  br i1 %cmp.not.i.i15.i155, label %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIyNS0_18basic_format_specsIcEEE10hex_writerEEclIRPcEEvOT_.exit156, label %do.body.i.i.i148, !llvm.loop !2132
+  br i1 %cmp.not.i.i15.i155, label %if.then.i.i.i.i158, label %do.body.i.i.i148, !llvm.loop !2132
 
-_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIyNS0_18basic_format_specsIcEEE10hex_writerEEclIRPcEEvOT_.exit156: ; preds = %do.body.i.i.i148
-  %cmp.i.i157 = icmp eq i64 %sub13, %div61
-  br i1 %cmp.i.i157, label %cleanup, label %if.then.i.i.i.i158
-
-if.then.i.i.i.i158:                               ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIyNS0_18basic_format_specsIcEEE10hex_writerEEclIRPcEEvOT_.exit156
+if.then.i.i.i.i158:                               ; preds = %do.body.i.i.i148
   %sub24 = sub i64 %sub13, %div61
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i13.i146, i8 %40, i64 %sub24, i1 false)
   br label %cleanup
@@ -111246,7 +111174,7 @@ if.then.i.i.i.i202:                               ; preds = %do.body.i.i.i192
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i13.i190, i8 %40, i64 %sub13, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %do.body.i.i.i, %do.body.i.i.i105, %if.then.i.i.i.i202, %if.then.i.i.i.i158, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIyNS0_18basic_format_specsIcEEE10hex_writerEEclIRPcEEvOT_.exit156
+cleanup:                                          ; preds = %do.body.i.i.i, %do.body.i.i.i105, %if.then.i.i.i.i202, %if.then.i.i.i.i158
   ret void
 }
 
@@ -111774,13 +111702,9 @@ do.body.i.i.i138:                                 ; preds = %do.body.i.i.i138, %
   store i8 %add.i.i.i142, ptr %incdec.ptr.i.i14.i143, align 1, !tbaa !35
   %shr.i.i.i144 = lshr i64 %value.addr.0.i.i.i139, 1
   %cmp.not.i.i15.i145 = icmp ult i64 %value.addr.0.i.i.i139, 2
-  br i1 %cmp.not.i.i15.i145, label %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIyNS0_18basic_format_specsIcEEE10bin_writerILi1EEEEclIRPcEEvOT_.exit146, label %do.body.i.i.i138, !llvm.loop !2147
+  br i1 %cmp.not.i.i15.i145, label %if.then.i.i.i.i148, label %do.body.i.i.i138, !llvm.loop !2147
 
-_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIyNS0_18basic_format_specsIcEEE10bin_writerILi1EEEEclIRPcEEvOT_.exit146: ; preds = %do.body.i.i.i138
-  %cmp.i.i147 = icmp eq i64 %sub13, %div61
-  br i1 %cmp.i.i147, label %cleanup, label %if.then.i.i.i.i148
-
-if.then.i.i.i.i148:                               ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIyNS0_18basic_format_specsIcEEE10bin_writerILi1EEEEclIRPcEEvOT_.exit146
+if.then.i.i.i.i148:                               ; preds = %do.body.i.i.i138
   %sub24 = sub i64 %sub13, %div61
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i13.i137, i8 %37, i64 %sub24, i1 false)
   br label %cleanup
@@ -111941,7 +111865,7 @@ if.then.i.i.i.i187:                               ; preds = %do.body.i.i.i177
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i13.i176, i8 %37, i64 %sub13, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %do.body.i.i.i, %do.body.i.i.i100, %if.then.i.i.i.i187, %if.then.i.i.i.i148, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIyNS0_18basic_format_specsIcEEE10bin_writerILi1EEEEclIRPcEEvOT_.exit146
+cleanup:                                          ; preds = %do.body.i.i.i, %do.body.i.i.i100, %if.then.i.i.i.i187, %if.then.i.i.i.i148
   ret void
 }
 
@@ -112469,13 +112393,9 @@ do.body.i.i.i138:                                 ; preds = %do.body.i.i.i138, %
   store i8 %add.i.i.i142, ptr %incdec.ptr.i.i14.i143, align 1, !tbaa !35
   %shr.i.i.i144 = lshr i64 %value.addr.0.i.i.i139, 3
   %cmp.not.i.i15.i145 = icmp ult i64 %value.addr.0.i.i.i139, 8
-  br i1 %cmp.not.i.i15.i145, label %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIyNS0_18basic_format_specsIcEEE10bin_writerILi3EEEEclIRPcEEvOT_.exit146, label %do.body.i.i.i138, !llvm.loop !2162
+  br i1 %cmp.not.i.i15.i145, label %if.then.i.i.i.i148, label %do.body.i.i.i138, !llvm.loop !2162
 
-_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIyNS0_18basic_format_specsIcEEE10bin_writerILi3EEEEclIRPcEEvOT_.exit146: ; preds = %do.body.i.i.i138
-  %cmp.i.i147 = icmp eq i64 %sub13, %div61
-  br i1 %cmp.i.i147, label %cleanup, label %if.then.i.i.i.i148
-
-if.then.i.i.i.i148:                               ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIyNS0_18basic_format_specsIcEEE10bin_writerILi3EEEEclIRPcEEvOT_.exit146
+if.then.i.i.i.i148:                               ; preds = %do.body.i.i.i138
   %sub24 = sub i64 %sub13, %div61
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i13.i137, i8 %37, i64 %sub24, i1 false)
   br label %cleanup
@@ -112636,7 +112556,7 @@ if.then.i.i.i.i187:                               ; preds = %do.body.i.i.i177
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i13.i176, i8 %37, i64 %sub13, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %do.body.i.i.i, %do.body.i.i.i100, %if.then.i.i.i.i187, %if.then.i.i.i.i148, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIyNS0_18basic_format_specsIcEEE10bin_writerILi3EEEEclIRPcEEvOT_.exit146
+cleanup:                                          ; preds = %do.body.i.i.i, %do.body.i.i.i100, %if.then.i.i.i.i187, %if.then.i.i.i.i148
   ret void
 }
 
@@ -114119,10 +114039,6 @@ _ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_w
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp4.i.i124)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %group.i.i126) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %digit_index.i.i125) #22
-  %cmp.i.i167 = icmp eq i64 %sub13, %div61
-  br i1 %cmp.i.i167, label %cleanup, label %if.then.i.i.i.i168
-
-if.then.i.i.i.i168:                               ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerInNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit166
   %sub24 = sub i64 %sub13, %div61
   call void @llvm.memset.p0.i64(ptr align 1 %__result.addr.0.lcssa.i.i.i.i.i165, i8 %39, i64 %sub24, i1 false)
   br label %cleanup
@@ -114306,7 +114222,7 @@ _ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_w
   call void @llvm.memset.p0.i64(ptr align 1 %__result.addr.0.lcssa.i.i.i.i.i214, i8 %39, i64 %sub13, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerInNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit215, %if.then.i.i.i.i168, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerInNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit166, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerInNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerInNS0_18basic_format_specsIcEEE10num_writerEEclIPcEEvOT_.exit
+cleanup:                                          ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerInNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit215, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerInNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit166, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerInNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerInNS0_18basic_format_specsIcEEE10num_writerEEclIPcEEvOT_.exit
   ret void
 }
 
@@ -115230,10 +115146,6 @@ for.body.i.i.preheader.i.i.i.i190:                ; preds = %_ZN10duckdb_fmt2v68
 _ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerInNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit210: ; preds = %for.body.i.i.preheader.i.i.i.i190, %_ZN10duckdb_fmt2v68internal14format_decimalIocZNS1_14format_decimalIcPcoEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i185
   %__result.addr.0.lcssa.i.i.i.i.i.i192 = phi ptr [ %retval.0.i.i.i166, %_ZN10duckdb_fmt2v68internal14format_decimalIocZNS1_14format_decimalIcPcoEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i185 ], [ %scevgep.i.i.i.i191, %for.body.i.i.preheader.i.i.i.i190 ]
   call void @llvm.lifetime.end.p0(i64 78, ptr nonnull %buffer.i.i.i.i145) #22
-  %cmp.i.i211 = icmp eq i64 %sub13, %div61
-  br i1 %cmp.i.i211, label %cleanup, label %if.then.i.i.i.i212
-
-if.then.i.i.i.i212:                               ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerInNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit210
   %sub24 = sub i64 %sub13, %div61
   tail call void @llvm.memset.p0.i64(ptr align 1 %__result.addr.0.lcssa.i.i.i.i.i.i192, i8 %41, i64 %sub24, i1 false)
   br label %cleanup
@@ -115447,7 +115359,7 @@ _ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_w
   tail call void @llvm.memset.p0.i64(ptr align 1 %__result.addr.0.lcssa.i.i.i.i.i.i263, i8 %41, i64 %sub13, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerInNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit281, %if.then.i.i.i.i212, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerInNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit210, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerInNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerInNS0_18basic_format_specsIcEEE10dec_writerEEclIPcEEvOT_.exit
+cleanup:                                          ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerInNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit281, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerInNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit210, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerInNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerInNS0_18basic_format_specsIcEEE10dec_writerEEclIPcEEvOT_.exit
   ret void
 }
 
@@ -116002,13 +115914,9 @@ do.body.i.i.i148:                                 ; preds = %do.body.i.i.i148, %
   store i8 %103, ptr %incdec.ptr.i.i14.i153, align 1, !tbaa !35
   %shr.i.i.i154 = lshr i128 %value.addr.0.i.i.i149, 4
   %cmp.not.i.i15.i155 = icmp ult i128 %value.addr.0.i.i.i149, 16
-  br i1 %cmp.not.i.i15.i155, label %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerInNS0_18basic_format_specsIcEEE10hex_writerEEclIRPcEEvOT_.exit156, label %do.body.i.i.i148, !llvm.loop !2352
+  br i1 %cmp.not.i.i15.i155, label %if.then.i.i.i.i158, label %do.body.i.i.i148, !llvm.loop !2352
 
-_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerInNS0_18basic_format_specsIcEEE10hex_writerEEclIRPcEEvOT_.exit156: ; preds = %do.body.i.i.i148
-  %cmp.i.i157 = icmp eq i64 %sub13, %div61
-  br i1 %cmp.i.i157, label %cleanup, label %if.then.i.i.i.i158
-
-if.then.i.i.i.i158:                               ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerInNS0_18basic_format_specsIcEEE10hex_writerEEclIRPcEEvOT_.exit156
+if.then.i.i.i.i158:                               ; preds = %do.body.i.i.i148
   %sub24 = sub i64 %sub13, %div61
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i13.i146, i8 %41, i64 %sub24, i1 false)
   br label %cleanup
@@ -116178,7 +116086,7 @@ if.then.i.i.i.i202:                               ; preds = %do.body.i.i.i192
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i13.i190, i8 %41, i64 %sub13, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %do.body.i.i.i, %do.body.i.i.i105, %if.then.i.i.i.i202, %if.then.i.i.i.i158, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerInNS0_18basic_format_specsIcEEE10hex_writerEEclIRPcEEvOT_.exit156
+cleanup:                                          ; preds = %do.body.i.i.i, %do.body.i.i.i105, %if.then.i.i.i.i202, %if.then.i.i.i.i158
   ret void
 }
 
@@ -116706,13 +116614,9 @@ do.body.i.i.i138:                                 ; preds = %do.body.i.i.i138, %
   store i8 %add.i.i.i142, ptr %incdec.ptr.i.i14.i143, align 1, !tbaa !35
   %shr.i.i.i144 = lshr i128 %value.addr.0.i.i.i139, 1
   %cmp.not.i.i15.i145 = icmp ult i128 %value.addr.0.i.i.i139, 2
-  br i1 %cmp.not.i.i15.i145, label %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerInNS0_18basic_format_specsIcEEE10bin_writerILi1EEEEclIRPcEEvOT_.exit146, label %do.body.i.i.i138, !llvm.loop !2367
+  br i1 %cmp.not.i.i15.i145, label %if.then.i.i.i.i148, label %do.body.i.i.i138, !llvm.loop !2367
 
-_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerInNS0_18basic_format_specsIcEEE10bin_writerILi1EEEEclIRPcEEvOT_.exit146: ; preds = %do.body.i.i.i138
-  %cmp.i.i147 = icmp eq i64 %sub13, %div61
-  br i1 %cmp.i.i147, label %cleanup, label %if.then.i.i.i.i148
-
-if.then.i.i.i.i148:                               ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerInNS0_18basic_format_specsIcEEE10bin_writerILi1EEEEclIRPcEEvOT_.exit146
+if.then.i.i.i.i148:                               ; preds = %do.body.i.i.i138
   %sub24 = sub i64 %sub13, %div61
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i13.i137, i8 %37, i64 %sub24, i1 false)
   br label %cleanup
@@ -116873,7 +116777,7 @@ if.then.i.i.i.i187:                               ; preds = %do.body.i.i.i177
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i13.i176, i8 %37, i64 %sub13, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %do.body.i.i.i, %do.body.i.i.i100, %if.then.i.i.i.i187, %if.then.i.i.i.i148, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerInNS0_18basic_format_specsIcEEE10bin_writerILi1EEEEclIRPcEEvOT_.exit146
+cleanup:                                          ; preds = %do.body.i.i.i, %do.body.i.i.i100, %if.then.i.i.i.i187, %if.then.i.i.i.i148
   ret void
 }
 
@@ -117401,13 +117305,9 @@ do.body.i.i.i138:                                 ; preds = %do.body.i.i.i138, %
   store i8 %add.i.i.i142, ptr %incdec.ptr.i.i14.i143, align 1, !tbaa !35
   %shr.i.i.i144 = lshr i128 %value.addr.0.i.i.i139, 3
   %cmp.not.i.i15.i145 = icmp ult i128 %value.addr.0.i.i.i139, 8
-  br i1 %cmp.not.i.i15.i145, label %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerInNS0_18basic_format_specsIcEEE10bin_writerILi3EEEEclIRPcEEvOT_.exit146, label %do.body.i.i.i138, !llvm.loop !2382
+  br i1 %cmp.not.i.i15.i145, label %if.then.i.i.i.i148, label %do.body.i.i.i138, !llvm.loop !2382
 
-_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerInNS0_18basic_format_specsIcEEE10bin_writerILi3EEEEclIRPcEEvOT_.exit146: ; preds = %do.body.i.i.i138
-  %cmp.i.i147 = icmp eq i64 %sub13, %div61
-  br i1 %cmp.i.i147, label %cleanup, label %if.then.i.i.i.i148
-
-if.then.i.i.i.i148:                               ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerInNS0_18basic_format_specsIcEEE10bin_writerILi3EEEEclIRPcEEvOT_.exit146
+if.then.i.i.i.i148:                               ; preds = %do.body.i.i.i138
   %sub24 = sub i64 %sub13, %div61
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i13.i137, i8 %37, i64 %sub24, i1 false)
   br label %cleanup
@@ -117568,7 +117468,7 @@ if.then.i.i.i.i187:                               ; preds = %do.body.i.i.i177
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i13.i176, i8 %37, i64 %sub13, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %do.body.i.i.i, %do.body.i.i.i100, %if.then.i.i.i.i187, %if.then.i.i.i.i148, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerInNS0_18basic_format_specsIcEEE10bin_writerILi3EEEEclIRPcEEvOT_.exit146
+cleanup:                                          ; preds = %do.body.i.i.i, %do.body.i.i.i100, %if.then.i.i.i.i187, %if.then.i.i.i.i148
   ret void
 }
 
@@ -119208,10 +119108,6 @@ _ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_w
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp4.i.i124)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %group.i.i126) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %digit_index.i.i125) #22
-  %cmp.i.i167 = icmp eq i64 %sub13, %div61
-  br i1 %cmp.i.i167, label %cleanup, label %if.then.i.i.i.i168
-
-if.then.i.i.i.i168:                               ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIoNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit166
   %sub24 = sub i64 %sub13, %div61
   call void @llvm.memset.p0.i64(ptr align 1 %__result.addr.0.lcssa.i.i.i.i.i165, i8 %39, i64 %sub24, i1 false)
   br label %cleanup
@@ -119395,7 +119291,7 @@ _ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_w
   call void @llvm.memset.p0.i64(ptr align 1 %__result.addr.0.lcssa.i.i.i.i.i214, i8 %39, i64 %sub13, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIoNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit215, %if.then.i.i.i.i168, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIoNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit166, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIoNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIoNS0_18basic_format_specsIcEEE10num_writerEEclIPcEEvOT_.exit
+cleanup:                                          ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIoNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit215, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIoNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit166, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIoNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIoNS0_18basic_format_specsIcEEE10num_writerEEclIPcEEvOT_.exit
   ret void
 }
 
@@ -120319,10 +120215,6 @@ for.body.i.i.preheader.i.i.i.i190:                ; preds = %_ZN10duckdb_fmt2v68
 _ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIoNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit210: ; preds = %for.body.i.i.preheader.i.i.i.i190, %_ZN10duckdb_fmt2v68internal14format_decimalIocZNS1_14format_decimalIcPcoEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i185
   %__result.addr.0.lcssa.i.i.i.i.i.i192 = phi ptr [ %retval.0.i.i.i166, %_ZN10duckdb_fmt2v68internal14format_decimalIocZNS1_14format_decimalIcPcoEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i185 ], [ %scevgep.i.i.i.i191, %for.body.i.i.preheader.i.i.i.i190 ]
   call void @llvm.lifetime.end.p0(i64 78, ptr nonnull %buffer.i.i.i.i145) #22
-  %cmp.i.i211 = icmp eq i64 %sub13, %div61
-  br i1 %cmp.i.i211, label %cleanup, label %if.then.i.i.i.i212
-
-if.then.i.i.i.i212:                               ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIoNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit210
   %sub24 = sub i64 %sub13, %div61
   tail call void @llvm.memset.p0.i64(ptr align 1 %__result.addr.0.lcssa.i.i.i.i.i.i192, i8 %41, i64 %sub24, i1 false)
   br label %cleanup
@@ -120536,7 +120428,7 @@ _ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_w
   tail call void @llvm.memset.p0.i64(ptr align 1 %__result.addr.0.lcssa.i.i.i.i.i.i263, i8 %41, i64 %sub13, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIoNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit281, %if.then.i.i.i.i212, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIoNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit210, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIoNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIoNS0_18basic_format_specsIcEEE10dec_writerEEclIPcEEvOT_.exit
+cleanup:                                          ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIoNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit281, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIoNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit210, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIoNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIoNS0_18basic_format_specsIcEEE10dec_writerEEclIPcEEvOT_.exit
   ret void
 }
 
@@ -121091,13 +120983,9 @@ do.body.i.i.i148:                                 ; preds = %do.body.i.i.i148, %
   store i8 %103, ptr %incdec.ptr.i.i14.i153, align 1, !tbaa !35
   %shr.i.i.i154 = lshr i128 %value.addr.0.i.i.i149, 4
   %cmp.not.i.i15.i155 = icmp ult i128 %value.addr.0.i.i.i149, 16
-  br i1 %cmp.not.i.i15.i155, label %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIoNS0_18basic_format_specsIcEEE10hex_writerEEclIRPcEEvOT_.exit156, label %do.body.i.i.i148, !llvm.loop !2352
+  br i1 %cmp.not.i.i15.i155, label %if.then.i.i.i.i158, label %do.body.i.i.i148, !llvm.loop !2352
 
-_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIoNS0_18basic_format_specsIcEEE10hex_writerEEclIRPcEEvOT_.exit156: ; preds = %do.body.i.i.i148
-  %cmp.i.i157 = icmp eq i64 %sub13, %div61
-  br i1 %cmp.i.i157, label %cleanup, label %if.then.i.i.i.i158
-
-if.then.i.i.i.i158:                               ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIoNS0_18basic_format_specsIcEEE10hex_writerEEclIRPcEEvOT_.exit156
+if.then.i.i.i.i158:                               ; preds = %do.body.i.i.i148
   %sub24 = sub i64 %sub13, %div61
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i13.i146, i8 %41, i64 %sub24, i1 false)
   br label %cleanup
@@ -121267,7 +121155,7 @@ if.then.i.i.i.i202:                               ; preds = %do.body.i.i.i192
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i13.i190, i8 %41, i64 %sub13, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %do.body.i.i.i, %do.body.i.i.i105, %if.then.i.i.i.i202, %if.then.i.i.i.i158, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIoNS0_18basic_format_specsIcEEE10hex_writerEEclIRPcEEvOT_.exit156
+cleanup:                                          ; preds = %do.body.i.i.i, %do.body.i.i.i105, %if.then.i.i.i.i202, %if.then.i.i.i.i158
   ret void
 }
 
@@ -121795,13 +121683,9 @@ do.body.i.i.i138:                                 ; preds = %do.body.i.i.i138, %
   store i8 %add.i.i.i142, ptr %incdec.ptr.i.i14.i143, align 1, !tbaa !35
   %shr.i.i.i144 = lshr i128 %value.addr.0.i.i.i139, 1
   %cmp.not.i.i15.i145 = icmp ult i128 %value.addr.0.i.i.i139, 2
-  br i1 %cmp.not.i.i15.i145, label %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIoNS0_18basic_format_specsIcEEE10bin_writerILi1EEEEclIRPcEEvOT_.exit146, label %do.body.i.i.i138, !llvm.loop !2367
+  br i1 %cmp.not.i.i15.i145, label %if.then.i.i.i.i148, label %do.body.i.i.i138, !llvm.loop !2367
 
-_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIoNS0_18basic_format_specsIcEEE10bin_writerILi1EEEEclIRPcEEvOT_.exit146: ; preds = %do.body.i.i.i138
-  %cmp.i.i147 = icmp eq i64 %sub13, %div61
-  br i1 %cmp.i.i147, label %cleanup, label %if.then.i.i.i.i148
-
-if.then.i.i.i.i148:                               ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIoNS0_18basic_format_specsIcEEE10bin_writerILi1EEEEclIRPcEEvOT_.exit146
+if.then.i.i.i.i148:                               ; preds = %do.body.i.i.i138
   %sub24 = sub i64 %sub13, %div61
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i13.i137, i8 %37, i64 %sub24, i1 false)
   br label %cleanup
@@ -121962,7 +121846,7 @@ if.then.i.i.i.i187:                               ; preds = %do.body.i.i.i177
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i13.i176, i8 %37, i64 %sub13, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %do.body.i.i.i, %do.body.i.i.i100, %if.then.i.i.i.i187, %if.then.i.i.i.i148, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIoNS0_18basic_format_specsIcEEE10bin_writerILi1EEEEclIRPcEEvOT_.exit146
+cleanup:                                          ; preds = %do.body.i.i.i, %do.body.i.i.i100, %if.then.i.i.i.i187, %if.then.i.i.i.i148
   ret void
 }
 
@@ -122490,13 +122374,9 @@ do.body.i.i.i138:                                 ; preds = %do.body.i.i.i138, %
   store i8 %add.i.i.i142, ptr %incdec.ptr.i.i14.i143, align 1, !tbaa !35
   %shr.i.i.i144 = lshr i128 %value.addr.0.i.i.i139, 3
   %cmp.not.i.i15.i145 = icmp ult i128 %value.addr.0.i.i.i139, 8
-  br i1 %cmp.not.i.i15.i145, label %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIoNS0_18basic_format_specsIcEEE10bin_writerILi3EEEEclIRPcEEvOT_.exit146, label %do.body.i.i.i138, !llvm.loop !2382
+  br i1 %cmp.not.i.i15.i145, label %if.then.i.i.i.i148, label %do.body.i.i.i138, !llvm.loop !2382
 
-_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIoNS0_18basic_format_specsIcEEE10bin_writerILi3EEEEclIRPcEEvOT_.exit146: ; preds = %do.body.i.i.i138
-  %cmp.i.i147 = icmp eq i64 %sub13, %div61
-  br i1 %cmp.i.i147, label %cleanup, label %if.then.i.i.i.i148
-
-if.then.i.i.i.i148:                               ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIoNS0_18basic_format_specsIcEEE10bin_writerILi3EEEEclIRPcEEvOT_.exit146
+if.then.i.i.i.i148:                               ; preds = %do.body.i.i.i138
   %sub24 = sub i64 %sub13, %div61
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i13.i137, i8 %37, i64 %sub24, i1 false)
   br label %cleanup
@@ -122657,7 +122537,7 @@ if.then.i.i.i.i187:                               ; preds = %do.body.i.i.i177
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i13.i176, i8 %37, i64 %sub13, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %do.body.i.i.i, %do.body.i.i.i100, %if.then.i.i.i.i187, %if.then.i.i.i.i148, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIoNS0_18basic_format_specsIcEEE10bin_writerILi3EEEEclIRPcEEvOT_.exit146
+cleanup:                                          ; preds = %do.body.i.i.i, %do.body.i.i.i100, %if.then.i.i.i.i187, %if.then.i.i.i.i148
   ret void
 }
 
@@ -123212,7 +123092,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit90:            ; preds = %if.then.i.i.i.i87, 
   %73 = load i64, ptr %size_.i, align 8, !tbaa !1837
   %add.ptr.i92 = getelementptr inbounds i8, ptr %72, i64 %73
   %cmp.not6.i.i.i93 = icmp eq i64 %73, 0
-  br i1 %cmp.not6.i.i.i93, label %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE10str_writerIcEclIRPcEEvOT_.exit101, label %for.body.i.i.i94.preheader
+  br i1 %cmp.not6.i.i.i93, label %if.then.i.i.i.i103, label %for.body.i.i.i94.preheader
 
 for.body.i.i.i94.preheader:                       ; preds = %_ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit90
   %74 = ptrtoint ptr %72 to i64
@@ -123245,7 +123125,7 @@ vector.body182:                                   ; preds = %vector.body182, %ve
 middle.block171:                                  ; preds = %vector.body182
   %ind.end179 = getelementptr i8, ptr %retval.0.i.i89, i64 %n.vec176
   %cmp.n181 = icmp eq i64 %73, %n.vec176
-  br i1 %cmp.n181, label %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE10str_writerIcEclIRPcEEvOT_.exit101, label %middle.block171.for.body.i.i.i94.preheader258_crit_edge
+  br i1 %cmp.n181, label %if.then.i.i.i.i103, label %middle.block171.for.body.i.i.i94.preheader258_crit_edge
 
 middle.block171.for.body.i.i.i94.preheader258_crit_edge: ; preds = %middle.block171
   %.pre23 = ptrtoint ptr %ind.end177 to i64
@@ -123279,7 +123159,7 @@ for.body.i.i.i94.prol.loopexit:                   ; preds = %for.body.i.i.i94.pr
   %__result.addr.07.i.i.i96.unr = phi ptr [ %__result.addr.07.i.i.i96.ph, %for.body.i.i.i94.preheader258 ], [ %incdec.ptr1.i.i.i98.prol, %for.body.i.i.i94.prol ]
   %82 = sub i64 %__first.addr.08.i.i.i95.ph263.pre-phi, %79
   %83 = icmp ugt i64 %82, -8
-  br i1 %83, label %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE10str_writerIcEclIRPcEEvOT_.exit101, label %for.body.i.i.i94
+  br i1 %83, label %if.then.i.i.i.i103, label %for.body.i.i.i94
 
 for.body.i.i.i94:                                 ; preds = %for.body.i.i.i94.prol.loopexit, %for.body.i.i.i94
   %__first.addr.08.i.i.i95 = phi ptr [ %incdec.ptr.i.i.i97.7, %for.body.i.i.i94 ], [ %__first.addr.08.i.i.i95.unr, %for.body.i.i.i94.prol.loopexit ]
@@ -123317,14 +123197,10 @@ for.body.i.i.i94:                                 ; preds = %for.body.i.i.i94.pr
   %incdec.ptr.i.i.i97.7 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i95, i64 8
   %incdec.ptr1.i.i.i98.7 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i96, i64 8
   %cmp.not.i.i.i99.7 = icmp eq ptr %incdec.ptr.i.i.i97.7, %add.ptr.i92
-  br i1 %cmp.not.i.i.i99.7, label %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE10str_writerIcEclIRPcEEvOT_.exit101, label %for.body.i.i.i94, !llvm.loop !2508
+  br i1 %cmp.not.i.i.i99.7, label %if.then.i.i.i.i103, label %for.body.i.i.i94, !llvm.loop !2508
 
-_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE10str_writerIcEclIRPcEEvOT_.exit101: ; preds = %for.body.i.i.i94, %for.body.i.i.i94.prol.loopexit, %middle.block171, %_ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit90
+if.then.i.i.i.i103:                               ; preds = %for.body.i.i.i94, %_ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit90, %middle.block171, %for.body.i.i.i94.prol.loopexit
   %__result.addr.0.lcssa.i.i.i100 = phi ptr [ %retval.0.i.i89, %_ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit90 ], [ %ind.end179, %middle.block171 ], [ %incdec.ptr1.i.i.i98.lcssa.unr, %for.body.i.i.i94.prol.loopexit ], [ %incdec.ptr1.i.i.i98.7, %for.body.i.i.i94 ]
-  %cmp.i.i102 = icmp eq i64 %sub13, %div61
-  br i1 %cmp.i.i102, label %cleanup, label %if.then.i.i.i.i103
-
-if.then.i.i.i.i103:                               ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE10str_writerIcEclIRPcEEvOT_.exit101
   %sub24 = sub i64 %sub13, %div61
   tail call void @llvm.memset.p0.i64(ptr align 1 %__result.addr.0.lcssa.i.i.i100, i8 %48, i64 %sub24, i1 false)
   br label %cleanup
@@ -123448,7 +123324,7 @@ if.then.i.i.i.i119:                               ; preds = %for.body.i.i.i110, 
   tail call void @llvm.memset.p0.i64(ptr align 1 %__result.addr.0.lcssa.i.i.i116, i8 %48, i64 %sub13, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %for.body.i.i.i, %for.body.i.i.i79, %if.then.i.i.i.i119, %if.then.i.i.i.i103, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE10str_writerIcEclIRPcEEvOT_.exit101, %for.body.i.i.i79.prol.loopexit, %vec.epilog.middle.block213, %middle.block193, %if.then.i.i.i.i74, %for.body.i.i.i.prol.loopexit, %vec.epilog.middle.block, %middle.block138, %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit
+cleanup:                                          ; preds = %for.body.i.i.i, %for.body.i.i.i79, %if.then.i.i.i.i119, %if.then.i.i.i.i103, %for.body.i.i.i79.prol.loopexit, %vec.epilog.middle.block213, %middle.block193, %if.then.i.i.i.i74, %for.body.i.i.i.prol.loopexit, %vec.epilog.middle.block, %middle.block138, %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit
   ret void
 }
 
@@ -123687,7 +123563,7 @@ if.then.i.i.i.i76.i:                              ; preds = %if.then22.i
 _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit79.i:          ; preds = %if.then.i.i.i.i76.i, %if.then22.i
   %retval.0.i.i78.i = phi ptr [ %add.ptr.i.i68.i, %if.then22.i ], [ %add.ptr.i.i77.i, %if.then.i.i.i.i76.i ]
   store i8 %value, ptr %retval.0.i.i78.i, align 1, !tbaa !35
-  %cmp.i.i81.i = icmp eq i64 %sub13.i, %div61.i
+  %cmp.i.i81.i = icmp eq i64 %sub13.i, 0
   br i1 %cmp.i.i81.i, label %if.end, label %if.then.i.i.i.i82.i
 
 if.then.i.i.i.i82.i:                              ; preds = %_ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit79.i
@@ -125320,10 +125196,6 @@ _ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_w
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp4.i.i121)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %group.i.i123) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %digit_index.i.i122) #22
-  %cmp.i.i161 = icmp eq i64 %sub13, %div61
-  br i1 %cmp.i.i161, label %cleanup, label %if.then.i.i.i.i162
-
-if.then.i.i.i.i162:                               ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIcNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit160
   %sub24 = sub i64 %sub13, %div61
   call void @llvm.memset.p0.i64(ptr align 1 %__result.addr.0.lcssa.i.i.i.i.i159, i8 %39, i64 %sub24, i1 false)
   br label %cleanup
@@ -125504,7 +125376,7 @@ _ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_w
   call void @llvm.memset.p0.i64(ptr align 1 %__result.addr.0.lcssa.i.i.i.i.i205, i8 %39, i64 %sub13, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIcNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit206, %if.then.i.i.i.i162, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIcNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit160, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIcNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIcNS0_18basic_format_specsIcEEE10num_writerEEclIPcEEvOT_.exit
+cleanup:                                          ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIcNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit206, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIcNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit160, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIcNS0_18basic_format_specsIcEEE10num_writerEEclIRPcEEvOT_.exit, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIcNS0_18basic_format_specsIcEEE10num_writerEEclIPcEEvOT_.exit
   ret void
 }
 
@@ -126409,10 +126281,6 @@ for.body.i.i.preheader.i.i.i.i187:                ; preds = %_ZN10duckdb_fmt2v68
 _ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIcNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit206: ; preds = %for.body.i.i.preheader.i.i.i.i187, %_ZN10duckdb_fmt2v68internal14format_decimalIjcZNS1_14format_decimalIcPcjEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i182
   %__result.addr.0.lcssa.i.i.i.i.i.i189 = phi ptr [ %retval.0.i.i.i164, %_ZN10duckdb_fmt2v68internal14format_decimalIjcZNS1_14format_decimalIcPcjEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i182 ], [ %scevgep.i.i.i.i188, %for.body.i.i.preheader.i.i.i.i187 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %buffer.i.i.i.i143) #22
-  %cmp.i.i207 = icmp eq i64 %sub13, %div61
-  br i1 %cmp.i.i207, label %cleanup, label %if.then.i.i.i.i208
-
-if.then.i.i.i.i208:                               ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIcNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit206
   %sub24 = sub i64 %sub13, %div61
   tail call void @llvm.memset.p0.i64(ptr align 1 %__result.addr.0.lcssa.i.i.i.i.i.i189, i8 %41, i64 %sub24, i1 false)
   br label %cleanup
@@ -126622,7 +126490,7 @@ _ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_w
   tail call void @llvm.memset.p0.i64(ptr align 1 %__result.addr.0.lcssa.i.i.i.i.i.i258, i8 %41, i64 %sub13, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIcNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit275, %if.then.i.i.i.i208, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIcNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit206, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIcNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIcNS0_18basic_format_specsIcEEE10dec_writerEEclIPcEEvOT_.exit
+cleanup:                                          ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIcNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit275, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIcNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit206, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIcNS0_18basic_format_specsIcEEE10dec_writerEEclIRPcEEvOT_.exit, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIcNS0_18basic_format_specsIcEEE10dec_writerEEclIPcEEvOT_.exit
   ret void
 }
 
@@ -127177,13 +127045,9 @@ do.body.i.i.i149:                                 ; preds = %do.body.i.i.i149, %
   store i8 %100, ptr %incdec.ptr.i.i14.i155, align 1, !tbaa !35
   %shr.i.i.i156 = lshr i32 %value.addr.0.i.i.i150, 4
   %cmp.not.i.i15.i157 = icmp ult i32 %value.addr.0.i.i.i150, 16
-  br i1 %cmp.not.i.i15.i157, label %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIcNS0_18basic_format_specsIcEEE10hex_writerEEclIRPcEEvOT_.exit158, label %do.body.i.i.i149, !llvm.loop !1913
+  br i1 %cmp.not.i.i15.i157, label %if.then.i.i.i.i160, label %do.body.i.i.i149, !llvm.loop !1913
 
-_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIcNS0_18basic_format_specsIcEEE10hex_writerEEclIRPcEEvOT_.exit158: ; preds = %do.body.i.i.i149
-  %cmp.i.i159 = icmp eq i64 %sub13, %div61
-  br i1 %cmp.i.i159, label %cleanup, label %if.then.i.i.i.i160
-
-if.then.i.i.i.i160:                               ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIcNS0_18basic_format_specsIcEEE10hex_writerEEclIRPcEEvOT_.exit158
+if.then.i.i.i.i160:                               ; preds = %do.body.i.i.i149
   %sub24 = sub i64 %sub13, %div61
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i13.i147, i8 %40, i64 %sub24, i1 false)
   br label %cleanup
@@ -127353,7 +127217,7 @@ if.then.i.i.i.i205:                               ; preds = %do.body.i.i.i194
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i13.i192, i8 %40, i64 %sub13, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %do.body.i.i.i, %do.body.i.i.i105, %if.then.i.i.i.i205, %if.then.i.i.i.i160, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIcNS0_18basic_format_specsIcEEE10hex_writerEEclIRPcEEvOT_.exit158
+cleanup:                                          ; preds = %do.body.i.i.i, %do.body.i.i.i105, %if.then.i.i.i.i205, %if.then.i.i.i.i160
   ret void
 }
 
@@ -127881,13 +127745,9 @@ do.body.i.i.i137:                                 ; preds = %do.body.i.i.i137, %
   store i8 %conv.i.i.i140, ptr %incdec.ptr.i.i14.i141, align 1, !tbaa !35
   %shr.i.i.i142 = lshr i32 %value.addr.0.i.i.i138, 1
   %cmp.not.i.i15.i143 = icmp ult i32 %value.addr.0.i.i.i138, 2
-  br i1 %cmp.not.i.i15.i143, label %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIcNS0_18basic_format_specsIcEEE10bin_writerILi1EEEEclIRPcEEvOT_.exit144, label %do.body.i.i.i137, !llvm.loop !1928
+  br i1 %cmp.not.i.i15.i143, label %if.then.i.i.i.i146, label %do.body.i.i.i137, !llvm.loop !1928
 
-_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIcNS0_18basic_format_specsIcEEE10bin_writerILi1EEEEclIRPcEEvOT_.exit144: ; preds = %do.body.i.i.i137
-  %cmp.i.i145 = icmp eq i64 %sub13, %div61
-  br i1 %cmp.i.i145, label %cleanup, label %if.then.i.i.i.i146
-
-if.then.i.i.i.i146:                               ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIcNS0_18basic_format_specsIcEEE10bin_writerILi1EEEEclIRPcEEvOT_.exit144
+if.then.i.i.i.i146:                               ; preds = %do.body.i.i.i137
   %sub24 = sub i64 %sub13, %div61
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i13.i136, i8 %38, i64 %sub24, i1 false)
   br label %cleanup
@@ -128048,7 +127908,7 @@ if.then.i.i.i.i184:                               ; preds = %do.body.i.i.i175
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i13.i174, i8 %38, i64 %sub13, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %do.body.i.i.i, %do.body.i.i.i100, %if.then.i.i.i.i184, %if.then.i.i.i.i146, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIcNS0_18basic_format_specsIcEEE10bin_writerILi1EEEEclIRPcEEvOT_.exit144
+cleanup:                                          ; preds = %do.body.i.i.i, %do.body.i.i.i100, %if.then.i.i.i.i184, %if.then.i.i.i.i146
   ret void
 }
 
@@ -128576,13 +128436,9 @@ do.body.i.i.i137:                                 ; preds = %do.body.i.i.i137, %
   store i8 %conv.i.i.i140, ptr %incdec.ptr.i.i14.i141, align 1, !tbaa !35
   %shr.i.i.i142 = lshr i32 %value.addr.0.i.i.i138, 3
   %cmp.not.i.i15.i143 = icmp ult i32 %value.addr.0.i.i.i138, 8
-  br i1 %cmp.not.i.i15.i143, label %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIcNS0_18basic_format_specsIcEEE10bin_writerILi3EEEEclIRPcEEvOT_.exit144, label %do.body.i.i.i137, !llvm.loop !1943
+  br i1 %cmp.not.i.i15.i143, label %if.then.i.i.i.i146, label %do.body.i.i.i137, !llvm.loop !1943
 
-_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIcNS0_18basic_format_specsIcEEE10bin_writerILi3EEEEclIRPcEEvOT_.exit144: ; preds = %do.body.i.i.i137
-  %cmp.i.i145 = icmp eq i64 %sub13, %div61
-  br i1 %cmp.i.i145, label %cleanup, label %if.then.i.i.i.i146
-
-if.then.i.i.i.i146:                               ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIcNS0_18basic_format_specsIcEEE10bin_writerILi3EEEEclIRPcEEvOT_.exit144
+if.then.i.i.i.i146:                               ; preds = %do.body.i.i.i137
   %sub24 = sub i64 %sub13, %div61
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i13.i136, i8 %38, i64 %sub24, i1 false)
   br label %cleanup
@@ -128743,7 +128599,7 @@ if.then.i.i.i.i184:                               ; preds = %do.body.i.i.i175
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i13.i174, i8 %38, i64 %sub13, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %do.body.i.i.i, %do.body.i.i.i100, %if.then.i.i.i.i184, %if.then.i.i.i.i146, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE17padded_int_writerINS5_10int_writerIcNS0_18basic_format_specsIcEEE10bin_writerILi3EEEEclIRPcEEvOT_.exit144
+cleanup:                                          ; preds = %do.body.i.i.i, %do.body.i.i.i100, %if.then.i.i.i.i184, %if.then.i.i.i.i146
   ret void
 }
 
@@ -129468,10 +129324,6 @@ _ZNK10duckdb_fmt2v68internal16nonfinite_writerIcEclIRPcEEvOT_.exit102: ; preds =
   %__first.addr.08.i.i.ptr.2.i100 = getelementptr inbounds i8, ptr %23, i64 2
   %26 = load i8, ptr %__first.addr.08.i.i.ptr.2.i100, align 1, !tbaa !35
   store i8 %26, ptr %incdec.ptr1.i.i.1.i99, align 1, !tbaa !35
-  %cmp.i.i103 = icmp eq i64 %sub13, %div61
-  br i1 %cmp.i.i103, label %cleanup, label %if.then.i.i.i.i104
-
-if.then.i.i.i.i104:                               ; preds = %_ZNK10duckdb_fmt2v68internal16nonfinite_writerIcEclIRPcEEvOT_.exit102
   %sub24 = sub nsw i64 %sub13, %div61
   %incdec.ptr1.i.i.2.i101 = getelementptr inbounds i8, ptr %ref.tmp7.1, i64 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr1.i.i.2.i101, i8 %14, i64 %sub24, i1 false)
@@ -129508,7 +129360,7 @@ _ZNK10duckdb_fmt2v68internal16nonfinite_writerIcEclIRPcEEvOT_.exit119: ; preds =
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr1.i.i.2.i118, i8 %14, i64 %sub13, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNK10duckdb_fmt2v68internal16nonfinite_writerIcEclIRPcEEvOT_.exit119, %if.then.i.i.i.i104, %_ZNK10duckdb_fmt2v68internal16nonfinite_writerIcEclIRPcEEvOT_.exit102, %_ZNK10duckdb_fmt2v68internal16nonfinite_writerIcEclIRPcEEvOT_.exit, %_ZNK10duckdb_fmt2v68internal16nonfinite_writerIcEclIPcEEvOT_.exit
+cleanup:                                          ; preds = %_ZNK10duckdb_fmt2v68internal16nonfinite_writerIcEclIRPcEEvOT_.exit119, %_ZNK10duckdb_fmt2v68internal16nonfinite_writerIcEclIRPcEEvOT_.exit102, %_ZNK10duckdb_fmt2v68internal16nonfinite_writerIcEclIRPcEEvOT_.exit, %_ZNK10duckdb_fmt2v68internal16nonfinite_writerIcEclIPcEEvOT_.exit
   ret void
 }
 
@@ -129647,10 +129499,6 @@ if.then.i94:                                      ; preds = %_ZSt6fill_nIPcmcET_
 _ZN10duckdb_fmt2v68internal12float_writerIcEclIRPcEEvOT_.exit99: ; preds = %if.then.i94, %_ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit88
   %ref.tmp7.1 = phi ptr [ %retval.0.i.i87, %_ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit88 ], [ %incdec.ptr.i97, %if.then.i94 ]
   %call.i98 = tail call noundef ptr @_ZNK10duckdb_fmt2v68internal12float_writerIcE8prettifyIPcEET_S6_(ptr noundef nonnull align 8 dereferenceable(33) %f, ptr noundef %ref.tmp7.1)
-  %cmp.i.i100 = icmp eq i64 %sub13, %div61
-  br i1 %cmp.i.i100, label %cleanup, label %if.then.i.i.i.i101
-
-if.then.i.i.i.i101:                               ; preds = %_ZN10duckdb_fmt2v68internal12float_writerIcEclIRPcEEvOT_.exit99
   %sub24 = sub i64 %sub13, %div61
   tail call void @llvm.memset.p0.i64(ptr align 1 %call.i98, i8 %9, i64 %sub24, i1 false)
   br label %cleanup
@@ -129677,7 +129525,7 @@ _ZN10duckdb_fmt2v68internal12float_writerIcEclIRPcEEvOT_.exit115: ; preds = %if.
   tail call void @llvm.memset.p0.i64(ptr align 1 %call.i114, i8 %9, i64 %sub13, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN10duckdb_fmt2v68internal12float_writerIcEclIRPcEEvOT_.exit115, %if.then.i.i.i.i101, %_ZN10duckdb_fmt2v68internal12float_writerIcEclIRPcEEvOT_.exit99, %_ZN10duckdb_fmt2v68internal12float_writerIcEclIRPcEEvOT_.exit, %_ZN10duckdb_fmt2v68internal12float_writerIcEclIPcEEvOT_.exit
+cleanup:                                          ; preds = %_ZN10duckdb_fmt2v68internal12float_writerIcEclIRPcEEvOT_.exit115, %_ZN10duckdb_fmt2v68internal12float_writerIcEclIRPcEEvOT_.exit99, %_ZN10duckdb_fmt2v68internal12float_writerIcEclIRPcEEvOT_.exit, %_ZN10duckdb_fmt2v68internal12float_writerIcEclIPcEEvOT_.exit
   ret void
 }
 
@@ -132139,13 +131987,9 @@ do.body.i.i101:                                   ; preds = %do.body.i.i101, %_Z
   store i8 %17, ptr %incdec.ptr.i.i106, align 1, !tbaa !35
   %shr.i.i107 = lshr i64 %value.addr.0.i.i102, 4
   %cmp.not.i.i108 = icmp ult i64 %value.addr.0.i.i102, 16
-  br i1 %cmp.not.i.i108, label %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE14pointer_writerImEclIRPcEEvOT_.exit109, label %do.body.i.i101, !llvm.loop !2132
+  br i1 %cmp.not.i.i108, label %if.then.i.i.i.i111, label %do.body.i.i101, !llvm.loop !2132
 
-_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE14pointer_writerImEclIRPcEEvOT_.exit109: ; preds = %do.body.i.i101
-  %cmp.i.i110 = icmp eq i64 %sub13, %div61
-  br i1 %cmp.i.i110, label %cleanup, label %if.then.i.i.i.i111
-
-if.then.i.i.i.i111:                               ; preds = %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE14pointer_writerImEclIRPcEEvOT_.exit109
+if.then.i.i.i.i111:                               ; preds = %do.body.i.i101
   %sub24 = sub i64 %sub13, %div61
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr.i.i100, i8 %11, i64 %sub24, i1 false)
   br label %cleanup
@@ -132177,7 +132021,7 @@ if.then.i.i.i.i130:                               ; preds = %do.body.i.i120
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr.i.i119, i8 %11, i64 %sub13, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %do.body.i.i, %do.body.i.i83, %if.then.i.i.i.i130, %if.then.i.i.i.i111, %_ZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE14pointer_writerImEclIRPcEEvOT_.exit109
+cleanup:                                          ; preds = %do.body.i.i, %do.body.i.i83, %if.then.i.i.i.i130, %if.then.i.i.i.i111
   ret void
 }
 

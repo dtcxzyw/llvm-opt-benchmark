@@ -6302,13 +6302,13 @@ define hidden noundef i32 @"_ZN5tokio7runtime9scheduler12multi_thread5queue14Ste
   %18 = phi i32 [ %39, %36 ], [ %16, %3 ]
   %19 = phi i32 [ %40, %36 ], [ %17, %3 ]
   %.02447 = phi i64 [ %.sroa.07.0.i, %36 ], [ %12, %3 ]
-  %20 = sub i32 %19, %18
-  %21 = lshr i32 %20, 1
-  %22 = icmp eq i32 %20, %21
-  br i1 %22, label %._crit_edge, label %23
+  %20 = icmp eq i32 %19, %18
+  br i1 %20, label %._crit_edge, label %21
 
-23:                                               ; preds = %.lr.ph
-  %24 = sub i32 %20, %21
+21:                                               ; preds = %.lr.ph
+  %22 = sub i32 %19, %18
+  %23 = lshr i32 %22, 1
+  %24 = sub i32 %22, %23
   %25 = add i32 %24, %18
   %26 = zext i32 %25 to i64
   %27 = zext i32 %18 to i64
@@ -6318,7 +6318,7 @@ define hidden noundef i32 @"_ZN5tokio7runtime9scheduler12multi_thread5queue14Ste
   %.sroa.18.0.in.i = extractvalue { i64, i1 } %30, 1
   br i1 %.sroa.18.0.in.i, label %31, label %36
 
-31:                                               ; preds = %23
+31:                                               ; preds = %21
   store i32 %24, ptr %9, align 4
   %32 = icmp ult i32 %24, 129
   br i1 %32, label %.lr.ph50, label %41
@@ -6330,7 +6330,7 @@ define hidden noundef i32 @"_ZN5tokio7runtime9scheduler12multi_thread5queue14Ste
   %umax = tail call i32 @llvm.umax.i32(i32 %24, i32 1)
   br label %49
 
-36:                                               ; preds = %23
+36:                                               ; preds = %21
   %.sroa.07.0.i = extractvalue { i64, i1 } %30, 0
   %37 = lshr i64 %.sroa.07.0.i, 32
   %38 = trunc i64 %37 to i32

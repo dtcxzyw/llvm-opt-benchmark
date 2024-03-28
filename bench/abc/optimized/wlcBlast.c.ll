@@ -1854,7 +1854,7 @@ define void @Wlc_BlastAdderFast_int(ptr noundef %0, ptr nocapture noundef %1, pt
 
 .preheader170:                                    ; preds = %.lr.ph176
   %37 = icmp sgt i32 %3, 2
-  br i1 %37, label %.lr.ph181.preheader, label %._crit_edge182
+  br i1 %37, label %.lr.ph181.preheader, label %.lr.ph186.preheader
 
 .lr.ph181.preheader:                              ; preds = %22, %.preheader171, %.preheader170
   %38 = add nsw i32 %3, -1
@@ -1915,18 +1915,17 @@ define void @Wlc_BlastAdderFast_int(ptr noundef %0, ptr nocapture noundef %1, pt
   %exitcond206.not = icmp eq i64 %indvars.iv.next203, %wide.trip.count205
   br i1 %exitcond206.not, label %._crit_edge182, label %.lr.ph181, !llvm.loop !37
 
-._crit_edge182:                                   ; preds = %._crit_edge, %.preheader170
-  %65 = sdiv i32 %7, 2
-  %.not163183.not = icmp slt i32 %65, %7
-  br i1 %.not163183.not, label %.lr.ph186.preheader, label %.preheader169
+._crit_edge182:                                   ; preds = %._crit_edge
+  br i1 %.not172, label %._crit_edge192, label %.lr.ph186.preheader
 
-.lr.ph186.preheader:                              ; preds = %._crit_edge182
+.lr.ph186.preheader:                              ; preds = %.preheader170, %._crit_edge182
+  %65 = sdiv i32 %7, 2
   %66 = sext i32 %65 to i64
   %67 = add nsw i64 %66, 1
   %68 = sext i32 %7 to i64
   br label %.lr.ph186
 
-.preheader169:                                    ; preds = %.lr.ph186, %._crit_edge182
+.preheader169:                                    ; preds = %.lr.ph186
   %.not164187 = icmp slt i32 %7, 2
   br i1 %.not164187, label %.preheader, label %.lr.ph189.preheader
 
@@ -1995,7 +1994,7 @@ define void @Wlc_BlastAdderFast_int(ptr noundef %0, ptr nocapture noundef %1, pt
   %exitcond218.not = icmp eq i64 %indvars.iv.next214, %wide.trip.count217
   br i1 %exitcond218.not, label %._crit_edge192, label %.lr.ph191, !llvm.loop !40
 
-._crit_edge192:                                   ; preds = %.lr.ph191, %.preheader
+._crit_edge192:                                   ; preds = %.lr.ph191, %._crit_edge182, %.preheader
   %100 = sext i32 %7 to i64
   %101 = getelementptr inbounds i32, ptr %10, i64 %100
   %102 = load i32, ptr %101, align 4

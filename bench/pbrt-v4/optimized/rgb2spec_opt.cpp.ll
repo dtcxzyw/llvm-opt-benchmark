@@ -3012,11 +3012,11 @@ for.body.i.i.i:                                   ; preds = %for.inc140.i.i.i, %
   %div6.i.i.i = fdiv double %conv3.i.i.i, %conv5.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %coeffs.i.i.i, i8 0, i64 24, i1 false)
   %div7.i.i.i = sdiv i32 %10, 5
-  %cmp942.i.i.i = icmp slt i32 %div7.i.i.i, %10
+  %cmp942.i.i.i = icmp sgt i32 %10, 0
   br i1 %cmp942.i.i.i, label %for.body10.preheader.i.i.i, label %for.end.i.i.i
 
 for.body10.preheader.i.i.i:                       ; preds = %for.body.i.i.i
-  %11 = sext i32 %div7.i.i.i to i64
+  %11 = zext nneg i32 %div7.i.i.i to i64
   br label %for.body10.i.i.i
 
 for.body10.i.i.i:                                 ; preds = %for.body10.i.i.i, %for.body10.preheader.i.i.i
@@ -3088,7 +3088,7 @@ for.body10.i.i.i:                                 ; preds = %for.body10.i.i.i, %
   %34 = getelementptr float, ptr %33, i64 %idxprom41.i.i.i
   %arrayidx65.i.i.i = getelementptr i8, ptr %34, i64 8
   store float %conv61.i.i.i, ptr %arrayidx65.i.i.i, align 4
-  %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, 1
+  %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %35 = load ptr, ptr %__functor.val, align 8
   %36 = load i32, ptr %35, align 4
   %37 = sext i32 %36 to i64

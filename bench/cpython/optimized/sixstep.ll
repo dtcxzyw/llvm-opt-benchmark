@@ -77,7 +77,7 @@ if.end14:                                         ; preds = %for.end
   %arrayidx.i = getelementptr [0 x i64], ptr @mpd_moduli, i64 0, i64 %idxprom.i
   %0 = load i64, ptr %arrayidx.i, align 8
   %call15 = tail call i64 @_mpd_getkernel(i64 noundef %n, i32 noundef -1, i32 noundef %modnum) #4
-  %cmp17555.not = icmp eq i64 %div54, %conv
+  %cmp17555.not = icmp eq i32 %sub.i, 0
   br i1 %cmp17555.not, label %for.end41, label %for.body19.lr.ph
 
 for.body19.lr.ph:                                 ; preds = %if.end14
@@ -954,7 +954,7 @@ for.end:                                          ; preds = %for.body, %for.cond
   %arrayidx.i = getelementptr [0 x i64], ptr @mpd_moduli, i64 0, i64 %idxprom.i
   %0 = load i64, ptr %arrayidx.i, align 8
   %call8 = tail call i64 @_mpd_getkernel(i64 noundef %n, i32 noundef 1, i32 noundef %modnum) #4
-  %cmp10555.not = icmp eq i64 %div54, %conv
+  %cmp10555.not = icmp eq i32 %sub.i, 0
   br i1 %cmp10555.not, label %for.end34, label %for.body12.lr.ph
 
 for.body12.lr.ph:                                 ; preds = %for.end
