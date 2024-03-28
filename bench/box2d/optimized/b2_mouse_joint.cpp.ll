@@ -246,53 +246,54 @@ entry:
   %cmp.i = fcmp une float %37, 0.000000e+00
   %div.i = fdiv float 1.000000e+00, %37
   %det.0.i = select i1 %cmp.i, float %div.i, float %37
-  %mul.i = fmul float %add55, %det.0.i
-  %retval.sroa.0.0.vec.insert.i21 = insertelement <2 x float> poison, float %mul.i, i64 0
   %fneg.i = fneg float %det.0.i
-  %mul9.i = fmul float %mul40, %fneg.i
-  %retval.sroa.3.8.vec.insert.i = insertelement <2 x float> poison, float %mul9.i, i64 0
-  %retval.sroa.0.4.vec.insert.i22 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i21, float %mul9.i, i64 1
+  %38 = insertelement <2 x float> poison, float %add55, i64 0
+  %39 = insertelement <2 x float> %38, float %mul40, i64 1
+  %40 = insertelement <2 x float> poison, float %det.0.i, i64 0
+  %41 = insertelement <2 x float> %40, float %fneg.i, i64 1
+  %42 = fmul <2 x float> %39, %41
+  %43 = shufflevector <2 x float> %42, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %mul16.i = fmul float %add, %det.0.i
-  %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> %retval.sroa.3.8.vec.insert.i, float %mul16.i, i64 1
-  store <2 x float> %retval.sroa.0.4.vec.insert.i22, ptr %m_mass, align 4
+  %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> %43, float %mul16.i, i64 1
+  store <2 x float> %42, ptr %m_mass, align 4
   store <2 x float> %retval.sroa.3.12.vec.insert.i, ptr %ref.tmp58.sroa.2.0.m_mass.sroa_idx, align 4
-  %38 = fadd <2 x float> %10, %29
-  %39 = load <2 x float>, ptr %m_targetA, align 8
-  %40 = fsub <2 x float> %38, %39
-  %41 = insertelement <2 x float> poison, float %mul22, i64 0
-  %42 = shufflevector <2 x float> %41, <2 x float> poison, <2 x i32> zeroinitializer
-  %43 = fmul <2 x float> %42, %40
-  store <2 x float> %43, ptr %m_C, align 4
-  %44 = load float, ptr %data, align 8
-  %mul69 = fmul float %44, 6.000000e+01
-  %45 = tail call float @llvm.fmuladd.f32(float %mul69, float 0xBF947AE140000000, float 1.000000e+00)
-  %cmp.i35 = fcmp olt float %45, 0.000000e+00
-  %cond.i = select i1 %cmp.i35, float 0.000000e+00, float %45
+  %44 = fadd <2 x float> %10, %29
+  %45 = load <2 x float>, ptr %m_targetA, align 8
+  %46 = fsub <2 x float> %44, %45
+  %47 = insertelement <2 x float> poison, float %mul22, i64 0
+  %48 = shufflevector <2 x float> %47, <2 x float> poison, <2 x i32> zeroinitializer
+  %49 = fmul <2 x float> %48, %46
+  store <2 x float> %49, ptr %m_C, align 4
+  %50 = load float, ptr %data, align 8
+  %mul69 = fmul float %50, 6.000000e+01
+  %51 = tail call float @llvm.fmuladd.f32(float %mul69, float 0xBF947AE140000000, float 1.000000e+00)
+  %cmp.i35 = fcmp olt float %51, 0.000000e+00
+  %cond.i = select i1 %cmp.i35, float 0.000000e+00, float %51
   %mul72 = fmul float %9, %cond.i
   %warmStarting = getelementptr inbounds i8, ptr %data, i64 20
-  %46 = load i8, ptr %warmStarting, align 4
-  %47 = and i8 %46, 1
-  %tobool.not = icmp eq i8 %47, 0
+  %52 = load i8, ptr %warmStarting, align 4
+  %53 = and i8 %52, 1
+  %tobool.not = icmp eq i8 %53, 0
   br i1 %tobool.not, label %if.else, label %if.then74
 
 if.then74:                                        ; preds = %entry
   %dtRatio = getelementptr inbounds i8, ptr %data, i64 8
-  %48 = load <4 x float>, ptr %dtRatio, align 8
+  %54 = load <4 x float>, ptr %dtRatio, align 8
   %m_impulse = getelementptr inbounds i8, ptr %this, i64 156
-  %49 = load <2 x float>, ptr %m_impulse, align 4
-  %50 = shufflevector <4 x float> %48, <4 x float> poison, <2 x i32> zeroinitializer
-  %51 = fmul <2 x float> %50, %49
-  store <2 x float> %51, ptr %m_impulse, align 4
-  %52 = insertelement <2 x float> poison, float %30, i64 0
-  %53 = shufflevector <2 x float> %52, <2 x float> poison, <2 x i32> zeroinitializer
-  %54 = fmul <2 x float> %53, %51
-  %55 = fadd <2 x float> %8, %54
-  %56 = fneg float %32
-  %57 = extractelement <2 x float> %51, i64 0
-  %neg.i46 = fmul float %57, %56
-  %58 = extractelement <2 x float> %51, i64 1
-  %59 = tail call noundef float @llvm.fmuladd.f32(float %34, float %58, float %neg.i46)
-  %60 = tail call float @llvm.fmuladd.f32(float %31, float %59, float %mul72)
+  %55 = load <2 x float>, ptr %m_impulse, align 4
+  %56 = shufflevector <4 x float> %54, <4 x float> poison, <2 x i32> zeroinitializer
+  %57 = fmul <2 x float> %56, %55
+  store <2 x float> %57, ptr %m_impulse, align 4
+  %58 = insertelement <2 x float> poison, float %30, i64 0
+  %59 = shufflevector <2 x float> %58, <2 x float> poison, <2 x i32> zeroinitializer
+  %60 = fmul <2 x float> %59, %57
+  %61 = fadd <2 x float> %8, %60
+  %62 = fneg float %32
+  %63 = extractelement <2 x float> %57, i64 0
+  %neg.i46 = fmul float %63, %62
+  %64 = extractelement <2 x float> %57, i64 1
+  %65 = tail call noundef float @llvm.fmuladd.f32(float %34, float %64, float %neg.i46)
+  %66 = tail call float @llvm.fmuladd.f32(float %31, float %65, float %mul72)
   br label %if.end86
 
 if.else:                                          ; preds = %entry
@@ -301,17 +302,17 @@ if.else:                                          ; preds = %entry
   br label %if.end86
 
 if.end86:                                         ; preds = %if.else, %if.then74
-  %wB.0 = phi float [ %mul72, %if.else ], [ %60, %if.then74 ]
-  %61 = phi <2 x float> [ %8, %if.else ], [ %55, %if.then74 ]
-  %62 = load ptr, ptr %velocities, align 8
-  %63 = load i32, ptr %m_indexB, align 8
-  %idxprom89 = sext i32 %63 to i64
-  %arrayidx90 = getelementptr inbounds %struct.b2Velocity, ptr %62, i64 %idxprom89
-  store <2 x float> %61, ptr %arrayidx90, align 4
-  %64 = load ptr, ptr %velocities, align 8
-  %65 = load i32, ptr %m_indexB, align 8
-  %idxprom94 = sext i32 %65 to i64
-  %w96 = getelementptr inbounds %struct.b2Velocity, ptr %64, i64 %idxprom94, i32 1
+  %wB.0 = phi float [ %mul72, %if.else ], [ %66, %if.then74 ]
+  %67 = phi <2 x float> [ %8, %if.else ], [ %61, %if.then74 ]
+  %68 = load ptr, ptr %velocities, align 8
+  %69 = load i32, ptr %m_indexB, align 8
+  %idxprom89 = sext i32 %69 to i64
+  %arrayidx90 = getelementptr inbounds %struct.b2Velocity, ptr %68, i64 %idxprom89
+  store <2 x float> %67, ptr %arrayidx90, align 4
+  %70 = load ptr, ptr %velocities, align 8
+  %71 = load i32, ptr %m_indexB, align 8
+  %idxprom94 = sext i32 %71 to i64
+  %w96 = getelementptr inbounds %struct.b2Velocity, ptr %70, i64 %idxprom94, i32 1
   store float %wB.0, ptr %w96, align 4
   ret void
 }
@@ -525,22 +526,22 @@ declare float @cosf(float noundef) local_unnamed_addr #14
 define linkonce_odr hidden void @_Z5b2LogPKcz(ptr noundef %string, ...) local_unnamed_addr #12 comdat {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %args)
+  call void @llvm.va_start.p0(ptr nonnull %args)
   call void @_Z13b2Log_DefaultPKcP13__va_list_tag(ptr noundef %string, ptr noundef nonnull %args)
-  call void @llvm.va_end(ptr nonnull %args)
+  call void @llvm.va_end.p0(ptr nonnull %args)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #15
-
 declare void @_Z13b2Log_DefaultPKcP13__va_list_tag(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #15
-
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #16
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #16
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #17
@@ -563,8 +564,8 @@ attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #12 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #16 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { nounwind }
 attributes #19 = { builtin nounwind }

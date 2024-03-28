@@ -12147,33 +12147,36 @@ entry:
   %22 = extractelement <2 x float> %17, i64 0
   %.sroa.speculated = select i1 %21, float 1.000000e+03, float %22
   store float %.sroa.speculated, ptr %minorlength, align 4
-  %conv25 = fptrunc double %mul7 to float
-  %conv27 = fptrunc double %sub to float
-  %23 = tail call float @llvm.fabs.f32(float %conv27)
-  %24 = tail call float @llvm.fabs.f32(float %conv25)
-  %cmp.i51 = fcmp ogt float %24, %23
-  %cmp1.i = fcmp oeq float %conv25, 0.000000e+00
+  %23 = insertelement <2 x double> poison, double %mul7, i64 0
+  %24 = insertelement <2 x double> %23, double %sub, i64 1
+  %25 = fptrunc <2 x double> %24 to <2 x float>
+  %26 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %25)
+  %27 = extractelement <2 x float> %26, i64 0
+  %28 = extractelement <2 x float> %26, i64 1
+  %cmp.i51 = fcmp ogt float %27, %28
+  %29 = extractelement <2 x float> %25, i64 0
+  %cmp1.i = fcmp oeq float %29, 0.000000e+00
   br i1 %cmp1.i, label %cond.end11.i, label %cond.false.i52
 
 cond.false.i52:                                   ; preds = %entry
-  %cmp2.i = fcmp oeq float %23, %24
+  %cmp2.i = fcmp oeq float %28, %27
   br i1 %cmp2.i, label %cond.end11.i, label %cond.false4.i
 
 cond.false4.i:                                    ; preds = %cond.false.i52
   br i1 %cmp.i51, label %cond.true6.i, label %cond.false7.i
 
 cond.true6.i:                                     ; preds = %cond.false4.i
-  %div.i = fdiv float %23, %24
+  %div.i = fdiv float %28, %27
   br label %cond.end11.i
 
 cond.false7.i:                                    ; preds = %cond.false4.i
-  %div8.i = fdiv float %24, %23
+  %div8.i = fdiv float %27, %28
   br label %cond.end11.i
 
 cond.end11.i:                                     ; preds = %cond.false.i52, %cond.false7.i, %cond.true6.i, %entry
   %cond12.i = phi float [ 0.000000e+00, %entry ], [ 1.000000e+00, %cond.false.i52 ], [ %div.i, %cond.true6.i ], [ %div8.i, %cond.false7.i ]
-  %25 = fadd float %cond12.i, -1.000000e+00
-  %sub13.i = fadd float %25, 1.000000e+00
+  %30 = fadd float %cond12.i, -1.000000e+00
+  %sub13.i = fadd float %30, 1.000000e+00
   %mul.i = fmul float %sub13.i, %sub13.i
   %mul.i65 = fmul contract float %mul.i, 0x3FDB87D5A0000000
   %add.i66 = fadd contract float %mul.i65, 1.000000e+00
@@ -12185,32 +12188,32 @@ cond.end11.i:                                     ; preds = %cond.false.i52, %co
   %div17.i = fdiv float %mul14.i, %add.i
   %sub18.i = fsub float 0x3FF921FB60000000, %div17.i
   %r.i.0 = select i1 %cmp.i51, float %sub18.i, float %div17.i
-  %26 = bitcast double %sub to i64
+  %31 = bitcast double %sub to i64
   %sub22.i = fsub float 0x400921FB60000000, %r.i.0
-  %tobool20.i.not56 = icmp slt i64 %26, 0
+  %tobool20.i.not56 = icmp slt i64 %31, 0
   %r.i.1 = select i1 %tobool20.i.not56, float %sub22.i, float %r.i.0
-  %27 = tail call noundef float @llvm.copysign.f32(float %r.i.1, float %conv25)
-  %28 = tail call float @llvm.fmuladd.f32(float %27, float 5.000000e-01, float 0x3FF921FB60000000)
-  store float %28, ptr %theta, align 4
+  %32 = tail call noundef float @llvm.copysign.f32(float %r.i.1, float %29)
+  %33 = tail call float @llvm.fmuladd.f32(float %32, float 5.000000e-01, float 0x3FF921FB60000000)
+  store float %33, ptr %theta, align 4
   %tobool.not = icmp eq ptr %ABCF, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %cond.end11.i
   %mul31 = fmul double %mul7, %mul7
   %neg = fmul double %mul31, -2.500000e-01
-  %29 = tail call double @llvm.fmuladd.f64(double %10, double %9, double %neg)
-  %div = fdiv double 1.000000e+00, %29
-  %30 = insertelement <2 x double> poison, double %div, i64 0
-  %31 = shufflevector <2 x double> %30, <2 x double> poison, <2 x i32> zeroinitializer
-  %32 = shufflevector <2 x double> %8, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %33 = insertelement <2 x double> %32, double %mul7, i64 1
-  %34 = fmul <2 x double> %31, %33
+  %34 = tail call double @llvm.fmuladd.f64(double %10, double %9, double %neg)
+  %div = fdiv double 1.000000e+00, %34
+  %35 = insertelement <2 x double> poison, double %div, i64 0
+  %36 = shufflevector <2 x double> %35, <2 x double> poison, <2 x i32> zeroinitializer
+  %37 = shufflevector <2 x double> %8, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %38 = insertelement <2 x double> %37, double %mul7, i64 1
+  %39 = fmul <2 x double> %36, %38
   %mul38 = fmul double %div, %9
-  %35 = shufflevector <2 x double> %34, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %36 = insertelement <4 x double> %35, double %mul38, i64 2
-  %37 = insertelement <4 x double> %36, double %29, i64 3
-  %38 = fptrunc <4 x double> %37 to <4 x float>
-  store <4 x float> %38, ptr %ABCF, align 4
+  %40 = shufflevector <2 x double> %39, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %41 = insertelement <4 x double> %40, double %mul38, i64 2
+  %42 = insertelement <4 x double> %41, double %34, i64 3
+  %43 = fptrunc <4 x double> %42 to <4 x float>
+  store <4 x float> %43, ptr %ABCF, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %cond.end11.i

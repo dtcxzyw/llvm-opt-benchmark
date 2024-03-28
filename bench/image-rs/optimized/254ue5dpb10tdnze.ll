@@ -17665,7 +17665,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h747a5d022d393d27E(pt
   tail call void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.c564382f77062b0983ee7bf00026c29e.116.llvm.1814251078191383949, i64 noundef 51, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.117.llvm.1814251078191383949) #18, !noalias !1712
   unreachable
 
-.loopexit.split-lp:                               ; preds = %16, %58, %63, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17ha222e1d4aa55372eE.llvm.1814251078191383949.exit.i", %118
+.loopexit.split-lp:                               ; preds = %16, %55, %60, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17ha222e1d4aa55372eE.llvm.1814251078191383949.exit.i", %118
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %15
@@ -17689,75 +17689,72 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h747a5d022d393d27E(pt
   %23 = tail call double @llvm.sin.f64(double %21)
   %24 = fmul double %22, 0x3FB26E978D4FDF3B
   %25 = fsub double 0x3FB26E978D4FDF3B, %24
-  %26 = insertelement <2 x double> poison, double %22, i64 0
-  %27 = shufflevector <2 x double> %26, <2 x double> poison, <2 x i32> zeroinitializer
-  %28 = fmul <2 x double> %27, <double 2.850000e-01, double 7.870000e-01>
-  %29 = fadd <2 x double> %28, <double 7.150000e-01, double 2.130000e-01>
-  %30 = insertelement <2 x double> poison, double %23, i64 0
-  %31 = shufflevector <2 x double> %30, <2 x double> poison, <2 x i32> zeroinitializer
-  %32 = fmul <2 x double> %31, <double 1.400000e-01, double 2.130000e-01>
-  %33 = fmul <2 x double> %27, <double 2.130000e-01, double 7.150000e-01>
-  %34 = fsub <2 x double> <double 2.130000e-01, double 7.150000e-01>, %33
-  %35 = fmul <2 x double> %31, <double 1.430000e-01, double 7.150000e-01>
-  %36 = fmul <2 x double> %31, <double 2.830000e-01, double 9.280000e-01>
-  %37 = fsub <2 x double> %34, %35
-  %38 = fadd <2 x double> %34, %35
-  %39 = shufflevector <2 x double> %38, <2 x double> %37, <2 x i32> <i32 0, i32 3>
-  %40 = fsub <2 x double> %29, %32
-  %41 = fadd <2 x double> %29, %32
-  %42 = shufflevector <2 x double> %41, <2 x double> %40, <2 x i32> <i32 0, i32 3>
-  %43 = insertelement <2 x double> poison, double %25, i64 0
-  %44 = shufflevector <2 x double> %43, <2 x double> poison, <2 x i32> zeroinitializer
-  %45 = fadd <2 x double> %44, %36
-  %46 = fsub <2 x double> %44, %36
-  %47 = shufflevector <2 x double> %46, <2 x double> %45, <2 x i32> <i32 0, i32 3>
-  %48 = fmul double %23, 7.870000e-01
-  %49 = insertelement <2 x double> %35, double %48, i64 0
-  %50 = fsub <2 x double> %34, %49
-  %51 = fadd <2 x double> %34, %49
-  %52 = shufflevector <2 x double> %50, <2 x double> %51, <2 x i32> <i32 0, i32 3>
-  %53 = fmul double %22, 9.280000e-01
-  %54 = fadd double %53, 0x3FB26E978D4FDF3B
-  %55 = fmul double %23, 0x3FB26E978D4FDF3B
-  %56 = fadd double %55, %54
+  %26 = fmul double %23, 9.280000e-01
+  %27 = fadd double %26, %25
+  %28 = insertelement <2 x double> poison, double %22, i64 0
+  %29 = shufflevector <2 x double> %28, <2 x double> poison, <2 x i32> zeroinitializer
+  %30 = fmul <2 x double> %29, <double 2.850000e-01, double 7.870000e-01>
+  %31 = fadd <2 x double> %30, <double 7.150000e-01, double 2.130000e-01>
+  %32 = insertelement <2 x double> poison, double %23, i64 0
+  %33 = shufflevector <2 x double> %32, <2 x double> poison, <2 x i32> zeroinitializer
+  %34 = fmul <2 x double> %33, <double 1.400000e-01, double 2.130000e-01>
+  %35 = fmul <2 x double> %29, <double 2.130000e-01, double 7.150000e-01>
+  %36 = fsub <2 x double> <double 2.130000e-01, double 7.150000e-01>, %35
+  %37 = fmul <2 x double> %33, <double 1.430000e-01, double 7.150000e-01>
+  %38 = fsub <2 x double> %36, %37
+  %39 = fadd <2 x double> %36, %37
+  %40 = shufflevector <2 x double> %39, <2 x double> %38, <2 x i32> <i32 0, i32 3>
+  %41 = fsub <2 x double> %31, %34
+  %42 = fadd <2 x double> %31, %34
+  %43 = shufflevector <2 x double> %42, <2 x double> %41, <2 x i32> <i32 0, i32 3>
+  %44 = fmul double %23, 2.830000e-01
+  %45 = fsub double %25, %44
+  %46 = fmul double %23, 7.870000e-01
+  %47 = extractelement <2 x double> %36, i64 0
+  %48 = fsub double %47, %46
+  %49 = fadd <2 x double> %37, %36
+  %50 = fmul double %22, 9.280000e-01
+  %51 = fadd double %50, 0x3FB26E978D4FDF3B
+  %52 = fmul double %23, 0x3FB26E978D4FDF3B
+  %53 = fadd double %52, %51
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1715)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7), !noalias !1718
-  %57 = invoke { i64, i64 } @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16image_buffer_len17h411f9370e69a129bE.llvm.1814251078191383949"(i32 noundef %10, i32 noundef %12)
+  %54 = invoke { i64, i64 } @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16image_buffer_len17h411f9370e69a129bE.llvm.1814251078191383949"(i32 noundef %10, i32 noundef %12)
           to label %.noexc44 unwind label %.loopexit.split-lp
 
 .noexc44:                                         ; preds = %16
-  %.fca.0.extract.i.i = extractvalue { i64, i64 } %57, 0
+  %.fca.0.extract.i.i = extractvalue { i64, i64 } %54, 0
   %switch.i.i = icmp eq i64 %.fca.0.extract.i.i, 0
-  br i1 %switch.i.i, label %58, label %59
+  br i1 %switch.i.i, label %55, label %56
 
-58:                                               ; preds = %.noexc44
+55:                                               ; preds = %.noexc44
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.c564382f77062b0983ee7bf00026c29e.55.llvm.1814251078191383949, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.111.llvm.1814251078191383949) #18
           to label %.noexc45 unwind label %.loopexit.split-lp
 
-.noexc45:                                         ; preds = %58
+.noexc45:                                         ; preds = %55
   unreachable
 
-59:                                               ; preds = %.noexc44
-  %.fca.1.extract.i.i = extractvalue { i64, i64 } %57, 1
-  %60 = getelementptr inbounds i8, ptr %8, i64 16
-  %61 = load i64, ptr %60, align 8, !alias.scope !1720, !noalias !1725, !noundef !4
-  %62 = icmp ugt i64 %.fca.1.extract.i.i, %61
-  br i1 %62, label %63, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17ha222e1d4aa55372eE.llvm.1814251078191383949.exit.i"
+56:                                               ; preds = %.noexc44
+  %.fca.1.extract.i.i = extractvalue { i64, i64 } %54, 1
+  %57 = getelementptr inbounds i8, ptr %8, i64 16
+  %58 = load i64, ptr %57, align 8, !alias.scope !1720, !noalias !1725, !noundef !4
+  %59 = icmp ugt i64 %.fca.1.extract.i.i, %58
+  br i1 %59, label %60, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17ha222e1d4aa55372eE.llvm.1814251078191383949.exit.i"
 
-63:                                               ; preds = %59
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %.fca.1.extract.i.i, i64 noundef %61, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.112.llvm.1814251078191383949) #18
+60:                                               ; preds = %56
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %.fca.1.extract.i.i, i64 noundef %58, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.112.llvm.1814251078191383949) #18
           to label %.noexc46 unwind label %.loopexit.split-lp
 
-.noexc46:                                         ; preds = %63
+.noexc46:                                         ; preds = %60
   unreachable
 
-"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17ha222e1d4aa55372eE.llvm.1814251078191383949.exit.i": ; preds = %59
-  %64 = getelementptr inbounds i8, ptr %8, i64 8
-  %65 = load ptr, ptr %64, align 8, !alias.scope !1720, !noalias !1725, !nonnull !4, !noundef !4
-  invoke void @"_ZN4core5slice4iter23ChunksExactMut$LT$T$GT$3new17hb0e8a1395d1042dfE.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { ptr, i64 }, { ptr, i64 }, i64, {} }) align 8 dereferenceable(40) %7, ptr noalias noundef nonnull align 4 %65, i64 noundef %.fca.1.extract.i.i, i64 noundef 4)
-          to label %66 unwind label %.loopexit.split-lp
+"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17ha222e1d4aa55372eE.llvm.1814251078191383949.exit.i": ; preds = %56
+  %61 = getelementptr inbounds i8, ptr %8, i64 8
+  %62 = load ptr, ptr %61, align 8, !alias.scope !1720, !noalias !1725, !nonnull !4, !noundef !4
+  invoke void @"_ZN4core5slice4iter23ChunksExactMut$LT$T$GT$3new17hb0e8a1395d1042dfE.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { ptr, i64 }, { ptr, i64 }, i64, {} }) align 8 dereferenceable(40) %7, ptr noalias noundef nonnull align 4 %62, i64 noundef %.fca.1.extract.i.i, i64 noundef 4)
+          to label %63 unwind label %.loopexit.split-lp
 
-66:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17ha222e1d4aa55372eE.llvm.1814251078191383949.exit.i"
+63:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17ha222e1d4aa55372eE.llvm.1814251078191383949.exit.i"
   %.sroa.469.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
   %.sroa.469.0.copyload = load ptr, ptr %.sroa.469.0..sroa_idx, align 8, !noalias !1715
   %.sroa.570.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 24
@@ -17766,24 +17763,27 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h747a5d022d393d27E(pt
   %.sroa.671.0.copyload = load i64, ptr %.sroa.671.0..sroa_idx, align 8, !noalias !1715
   %.sroa.671.0.copyload.fr = freeze i64 %.sroa.671.0.copyload
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7), !noalias !1718
-  %67 = icmp ult i64 %.sroa.570.0.copyload, %.sroa.671.0.copyload.fr
-  br i1 %67, label %.noexc.thread, label %.noexc.lr.ph
+  %64 = icmp ult i64 %.sroa.570.0.copyload, %.sroa.671.0.copyload.fr
+  br i1 %64, label %.noexc.thread, label %.noexc.lr.ph
 
-.noexc.lr.ph:                                     ; preds = %66
-  %68 = icmp eq i64 %.sroa.671.0.copyload.fr, 4
-  %69 = getelementptr inbounds i8, ptr %4, i64 8
-  %70 = getelementptr inbounds i8, ptr %4, i64 12
-  br i1 %68, label %.noexc.us.preheader, label %.noexc
+.noexc.lr.ph:                                     ; preds = %63
+  %65 = icmp eq i64 %.sroa.671.0.copyload.fr, 4
+  %66 = getelementptr inbounds i8, ptr %4, i64 8
+  %67 = getelementptr inbounds i8, ptr %4, i64 12
+  br i1 %65, label %.noexc.us.preheader, label %.noexc
 
 .noexc.us.preheader:                              ; preds = %.noexc.lr.ph
   %.not.i90 = icmp eq i32 %10, 0
-  %71 = zext i1 %.not.i90 to i32
+  %68 = zext i1 %.not.i90 to i32
+  %69 = insertelement <2 x double> poison, double %45, i64 0
+  %70 = insertelement <2 x double> %69, double %27, i64 1
+  %71 = insertelement <2 x double> %49, double %48, i64 0
   br label %.noexc.us
 
 .noexc.us:                                        ; preds = %.noexc.us.preheader, %83
   %72 = phi i32 [ %115, %83 ], [ 1, %.noexc.us.preheader ]
   %spec.select8994.us = phi i32 [ %spec.select89.us, %83 ], [ 0, %.noexc.us.preheader ]
-  %spec.select93.us = phi i32 [ %spec.select.us, %83 ], [ %71, %.noexc.us.preheader ]
+  %spec.select93.us = phi i32 [ %spec.select.us, %83 ], [ %68, %.noexc.us.preheader ]
   %.sroa.3.092.us = phi ptr [ %73, %83 ], [ %.sroa.469.0.copyload, %.noexc.us.preheader ]
   %.sroa.5.091.us = phi i64 [ %74, %83 ], [ %.sroa.570.0.copyload, %.noexc.us.preheader ]
   %73 = getelementptr inbounds i8, ptr %.sroa.3.092.us, i64 16
@@ -17809,10 +17809,10 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h747a5d022d393d27E(pt
 
 83:                                               ; preds = %79
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %77, i64 16, i1 false)
-  %84 = load float, ptr %69, align 8, !noalias !1726, !noundef !4
-  %85 = load float, ptr %70, align 4, !noalias !1726, !noundef !4
+  %84 = load float, ptr %66, align 8, !noalias !1726, !noundef !4
+  %85 = load float, ptr %67, align 4, !noalias !1726, !noundef !4
   %86 = fpext float %84 to double
-  %87 = fmul double %56, %86
+  %87 = fmul double %53, %86
   %88 = fcmp olt float %85, 0.000000e+00
   %89 = fcmp ogt float %85, 2.550000e+02
   %narrow.sel.us = select i1 %89, float 2.550000e+02, float %85
@@ -17820,15 +17820,15 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h747a5d022d393d27E(pt
   %91 = load <2 x float>, ptr %4, align 8, !noalias !1726
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !1726
   %92 = fpext <2 x float> %91 to <2 x double>
-  %93 = fmul <2 x double> %39, %92
+  %93 = fmul <2 x double> %40, %92
   %94 = shufflevector <2 x double> %92, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %95 = fmul <2 x double> %42, %94
+  %95 = fmul <2 x double> %43, %94
   %96 = fadd <2 x double> %93, %95
   %97 = insertelement <2 x double> poison, double %86, i64 0
   %98 = shufflevector <2 x double> %97, <2 x double> poison, <2 x i32> zeroinitializer
-  %99 = fmul <2 x double> %47, %98
+  %99 = fmul <2 x double> %70, %98
   %100 = fadd <2 x double> %96, %99
-  %101 = fmul <2 x double> %52, %92
+  %101 = fmul <2 x double> %71, %92
   %shift = shufflevector <2 x double> %101, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %102 = fadd <2 x double> %101, %shift
   %103 = extractelement <2 x double> %102, i64 0
@@ -17877,7 +17877,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h747a5d022d393d27E(pt
 .noexc48:                                         ; preds = %118
   unreachable
 
-.noexc.thread:                                    ; preds = %.noexc.us, %83, %.noexc, %66
+.noexc.thread:                                    ; preds = %.noexc.us, %83, %.noexc, %63
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   ret void
@@ -19220,7 +19220,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17hd6fc99e0678652b0E(pt
   tail call void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.c564382f77062b0983ee7bf00026c29e.116.llvm.1814251078191383949, i64 noundef 51, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.117.llvm.1814251078191383949) #18, !noalias !1830
   unreachable
 
-.loopexit.split-lp:                               ; preds = %16, %58, %63, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17h04a8529955451ebfE.llvm.1814251078191383949.exit.i", %113
+.loopexit.split-lp:                               ; preds = %16, %55, %60, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17h04a8529955451ebfE.llvm.1814251078191383949.exit.i", %113
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %15
@@ -19244,75 +19244,72 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17hd6fc99e0678652b0E(pt
   %23 = tail call double @llvm.sin.f64(double %21)
   %24 = fmul double %22, 0x3FB26E978D4FDF3B
   %25 = fsub double 0x3FB26E978D4FDF3B, %24
-  %26 = insertelement <2 x double> poison, double %22, i64 0
-  %27 = shufflevector <2 x double> %26, <2 x double> poison, <2 x i32> zeroinitializer
-  %28 = fmul <2 x double> %27, <double 2.850000e-01, double 7.870000e-01>
-  %29 = fadd <2 x double> %28, <double 7.150000e-01, double 2.130000e-01>
-  %30 = insertelement <2 x double> poison, double %23, i64 0
-  %31 = shufflevector <2 x double> %30, <2 x double> poison, <2 x i32> zeroinitializer
-  %32 = fmul <2 x double> %31, <double 1.400000e-01, double 2.130000e-01>
-  %33 = fmul <2 x double> %27, <double 2.130000e-01, double 7.150000e-01>
-  %34 = fsub <2 x double> <double 2.130000e-01, double 7.150000e-01>, %33
-  %35 = fmul <2 x double> %31, <double 1.430000e-01, double 7.150000e-01>
-  %36 = fmul <2 x double> %31, <double 2.830000e-01, double 9.280000e-01>
-  %37 = fsub <2 x double> %34, %35
-  %38 = fadd <2 x double> %34, %35
-  %39 = shufflevector <2 x double> %38, <2 x double> %37, <2 x i32> <i32 0, i32 3>
-  %40 = fsub <2 x double> %29, %32
-  %41 = fadd <2 x double> %29, %32
-  %42 = shufflevector <2 x double> %41, <2 x double> %40, <2 x i32> <i32 0, i32 3>
-  %43 = insertelement <2 x double> poison, double %25, i64 0
-  %44 = shufflevector <2 x double> %43, <2 x double> poison, <2 x i32> zeroinitializer
-  %45 = fadd <2 x double> %44, %36
-  %46 = fsub <2 x double> %44, %36
-  %47 = shufflevector <2 x double> %46, <2 x double> %45, <2 x i32> <i32 0, i32 3>
-  %48 = fmul double %23, 7.870000e-01
-  %49 = insertelement <2 x double> %35, double %48, i64 0
-  %50 = fsub <2 x double> %34, %49
-  %51 = fadd <2 x double> %34, %49
-  %52 = shufflevector <2 x double> %50, <2 x double> %51, <2 x i32> <i32 0, i32 3>
-  %53 = fmul double %22, 9.280000e-01
-  %54 = fadd double %53, 0x3FB26E978D4FDF3B
-  %55 = fmul double %23, 0x3FB26E978D4FDF3B
-  %56 = fadd double %55, %54
+  %26 = fmul double %23, 9.280000e-01
+  %27 = fadd double %26, %25
+  %28 = insertelement <2 x double> poison, double %22, i64 0
+  %29 = shufflevector <2 x double> %28, <2 x double> poison, <2 x i32> zeroinitializer
+  %30 = fmul <2 x double> %29, <double 2.850000e-01, double 7.870000e-01>
+  %31 = fadd <2 x double> %30, <double 7.150000e-01, double 2.130000e-01>
+  %32 = insertelement <2 x double> poison, double %23, i64 0
+  %33 = shufflevector <2 x double> %32, <2 x double> poison, <2 x i32> zeroinitializer
+  %34 = fmul <2 x double> %33, <double 1.400000e-01, double 2.130000e-01>
+  %35 = fmul <2 x double> %29, <double 2.130000e-01, double 7.150000e-01>
+  %36 = fsub <2 x double> <double 2.130000e-01, double 7.150000e-01>, %35
+  %37 = fmul <2 x double> %33, <double 1.430000e-01, double 7.150000e-01>
+  %38 = fsub <2 x double> %36, %37
+  %39 = fadd <2 x double> %36, %37
+  %40 = shufflevector <2 x double> %39, <2 x double> %38, <2 x i32> <i32 0, i32 3>
+  %41 = fsub <2 x double> %31, %34
+  %42 = fadd <2 x double> %31, %34
+  %43 = shufflevector <2 x double> %42, <2 x double> %41, <2 x i32> <i32 0, i32 3>
+  %44 = fmul double %23, 2.830000e-01
+  %45 = fsub double %25, %44
+  %46 = fmul double %23, 7.870000e-01
+  %47 = extractelement <2 x double> %36, i64 0
+  %48 = fsub double %47, %46
+  %49 = fadd <2 x double> %37, %36
+  %50 = fmul double %22, 9.280000e-01
+  %51 = fadd double %50, 0x3FB26E978D4FDF3B
+  %52 = fmul double %23, 0x3FB26E978D4FDF3B
+  %53 = fadd double %52, %51
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1833)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7), !noalias !1836
-  %57 = invoke { i64, i64 } @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16image_buffer_len17h1e060a8d46891164E.llvm.1814251078191383949"(i32 noundef %10, i32 noundef %12)
+  %54 = invoke { i64, i64 } @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16image_buffer_len17h1e060a8d46891164E.llvm.1814251078191383949"(i32 noundef %10, i32 noundef %12)
           to label %.noexc44 unwind label %.loopexit.split-lp
 
 .noexc44:                                         ; preds = %16
-  %.fca.0.extract.i.i = extractvalue { i64, i64 } %57, 0
+  %.fca.0.extract.i.i = extractvalue { i64, i64 } %54, 0
   %switch.i.i = icmp eq i64 %.fca.0.extract.i.i, 0
-  br i1 %switch.i.i, label %58, label %59
+  br i1 %switch.i.i, label %55, label %56
 
-58:                                               ; preds = %.noexc44
+55:                                               ; preds = %.noexc44
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.c564382f77062b0983ee7bf00026c29e.55.llvm.1814251078191383949, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.111.llvm.1814251078191383949) #18
           to label %.noexc45 unwind label %.loopexit.split-lp
 
-.noexc45:                                         ; preds = %58
+.noexc45:                                         ; preds = %55
   unreachable
 
-59:                                               ; preds = %.noexc44
-  %.fca.1.extract.i.i = extractvalue { i64, i64 } %57, 1
-  %60 = getelementptr inbounds i8, ptr %8, i64 16
-  %61 = load i64, ptr %60, align 8, !alias.scope !1838, !noalias !1843, !noundef !4
-  %62 = icmp ugt i64 %.fca.1.extract.i.i, %61
-  br i1 %62, label %63, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17h04a8529955451ebfE.llvm.1814251078191383949.exit.i"
+56:                                               ; preds = %.noexc44
+  %.fca.1.extract.i.i = extractvalue { i64, i64 } %54, 1
+  %57 = getelementptr inbounds i8, ptr %8, i64 16
+  %58 = load i64, ptr %57, align 8, !alias.scope !1838, !noalias !1843, !noundef !4
+  %59 = icmp ugt i64 %.fca.1.extract.i.i, %58
+  br i1 %59, label %60, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17h04a8529955451ebfE.llvm.1814251078191383949.exit.i"
 
-63:                                               ; preds = %59
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %.fca.1.extract.i.i, i64 noundef %61, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.112.llvm.1814251078191383949) #18
+60:                                               ; preds = %56
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %.fca.1.extract.i.i, i64 noundef %58, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.112.llvm.1814251078191383949) #18
           to label %.noexc46 unwind label %.loopexit.split-lp
 
-.noexc46:                                         ; preds = %63
+.noexc46:                                         ; preds = %60
   unreachable
 
-"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17h04a8529955451ebfE.llvm.1814251078191383949.exit.i": ; preds = %59
-  %64 = getelementptr inbounds i8, ptr %8, i64 8
-  %65 = load ptr, ptr %64, align 8, !alias.scope !1838, !noalias !1843, !nonnull !4, !noundef !4
-  invoke void @"_ZN4core5slice4iter23ChunksExactMut$LT$T$GT$3new17hb0e8a1395d1042dfE.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { ptr, i64 }, { ptr, i64 }, i64, {} }) align 8 dereferenceable(40) %7, ptr noalias noundef nonnull align 4 %65, i64 noundef %.fca.1.extract.i.i, i64 noundef 3)
-          to label %66 unwind label %.loopexit.split-lp
+"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17h04a8529955451ebfE.llvm.1814251078191383949.exit.i": ; preds = %56
+  %61 = getelementptr inbounds i8, ptr %8, i64 8
+  %62 = load ptr, ptr %61, align 8, !alias.scope !1838, !noalias !1843, !nonnull !4, !noundef !4
+  invoke void @"_ZN4core5slice4iter23ChunksExactMut$LT$T$GT$3new17hb0e8a1395d1042dfE.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { ptr, i64 }, { ptr, i64 }, i64, {} }) align 8 dereferenceable(40) %7, ptr noalias noundef nonnull align 4 %62, i64 noundef %.fca.1.extract.i.i, i64 noundef 3)
+          to label %63 unwind label %.loopexit.split-lp
 
-66:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17h04a8529955451ebfE.llvm.1814251078191383949.exit.i"
+63:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17h04a8529955451ebfE.llvm.1814251078191383949.exit.i"
   %.sroa.468.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
   %.sroa.468.0.copyload = load ptr, ptr %.sroa.468.0..sroa_idx, align 8, !noalias !1833
   %.sroa.569.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 24
@@ -19321,23 +19318,26 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17hd6fc99e0678652b0E(pt
   %.sroa.670.0.copyload = load i64, ptr %.sroa.670.0..sroa_idx, align 8, !noalias !1833
   %.sroa.670.0.copyload.fr = freeze i64 %.sroa.670.0.copyload
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7), !noalias !1836
-  %67 = icmp ult i64 %.sroa.569.0.copyload, %.sroa.670.0.copyload.fr
-  br i1 %67, label %.noexc.thread, label %.noexc.lr.ph
+  %64 = icmp ult i64 %.sroa.569.0.copyload, %.sroa.670.0.copyload.fr
+  br i1 %64, label %.noexc.thread, label %.noexc.lr.ph
 
-.noexc.lr.ph:                                     ; preds = %66
-  %68 = icmp eq i64 %.sroa.670.0.copyload.fr, 3
-  %69 = getelementptr inbounds i8, ptr %4, i64 8
-  br i1 %68, label %.noexc.us.preheader, label %.noexc
+.noexc.lr.ph:                                     ; preds = %63
+  %65 = icmp eq i64 %.sroa.670.0.copyload.fr, 3
+  %66 = getelementptr inbounds i8, ptr %4, i64 8
+  br i1 %65, label %.noexc.us.preheader, label %.noexc
 
 .noexc.us.preheader:                              ; preds = %.noexc.lr.ph
   %.not.i89 = icmp eq i32 %10, 0
-  %70 = zext i1 %.not.i89 to i32
+  %67 = zext i1 %.not.i89 to i32
+  %68 = insertelement <2 x double> poison, double %45, i64 0
+  %69 = insertelement <2 x double> %68, double %27, i64 1
+  %70 = insertelement <2 x double> %49, double %48, i64 0
   br label %.noexc.us
 
 .noexc.us:                                        ; preds = %.noexc.us.preheader, %82
   %71 = phi i32 [ %110, %82 ], [ 1, %.noexc.us.preheader ]
   %spec.select8893.us = phi i32 [ %spec.select88.us, %82 ], [ 0, %.noexc.us.preheader ]
-  %spec.select92.us = phi i32 [ %spec.select.us, %82 ], [ %70, %.noexc.us.preheader ]
+  %spec.select92.us = phi i32 [ %spec.select.us, %82 ], [ %67, %.noexc.us.preheader ]
   %.sroa.3.091.us = phi ptr [ %72, %82 ], [ %.sroa.468.0.copyload, %.noexc.us.preheader ]
   %.sroa.5.090.us = phi i64 [ %73, %82 ], [ %.sroa.569.0.copyload, %.noexc.us.preheader ]
   %72 = getelementptr inbounds i8, ptr %.sroa.3.091.us, i64 12
@@ -19363,21 +19363,21 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17hd6fc99e0678652b0E(pt
 
 82:                                               ; preds = %78
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %76, i64 12, i1 false)
-  %83 = load float, ptr %69, align 8, !noalias !1844, !noundef !4
+  %83 = load float, ptr %66, align 8, !noalias !1844, !noundef !4
   %84 = fpext float %83 to double
-  %85 = fmul double %56, %84
+  %85 = fmul double %53, %84
   %86 = load <2 x float>, ptr %4, align 8, !noalias !1844
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !1844
   %87 = fpext <2 x float> %86 to <2 x double>
-  %88 = fmul <2 x double> %39, %87
+  %88 = fmul <2 x double> %40, %87
   %89 = shufflevector <2 x double> %87, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %90 = fmul <2 x double> %42, %89
+  %90 = fmul <2 x double> %43, %89
   %91 = fadd <2 x double> %88, %90
   %92 = insertelement <2 x double> poison, double %84, i64 0
   %93 = shufflevector <2 x double> %92, <2 x double> poison, <2 x i32> zeroinitializer
-  %94 = fmul <2 x double> %47, %93
+  %94 = fmul <2 x double> %69, %93
   %95 = fadd <2 x double> %91, %94
-  %96 = fmul <2 x double> %52, %87
+  %96 = fmul <2 x double> %70, %87
   %shift = shufflevector <2 x double> %96, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %97 = fadd <2 x double> %96, %shift
   %98 = extractelement <2 x double> %97, i64 0
@@ -19424,7 +19424,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17hd6fc99e0678652b0E(pt
 .noexc48:                                         ; preds = %113
   unreachable
 
-.noexc.thread:                                    ; preds = %.noexc.us, %82, %.noexc, %66
+.noexc.thread:                                    ; preds = %.noexc.us, %82, %.noexc, %63
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   ret void

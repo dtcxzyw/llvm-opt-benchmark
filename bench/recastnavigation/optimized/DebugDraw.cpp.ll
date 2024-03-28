@@ -512,21 +512,21 @@ define void @_Z11duAppendArcP11duDebugDrawfffffffffj(ptr noundef %0, float nound
   br i1 %.not, label %72, label %16
 
 16:                                               ; preds = %11
-  %17 = fsub float %5, %2
-  %18 = fsub float %6, %3
-  %19 = fmul float %17, %17
-  %20 = fsub float %4, %1
-  %21 = tail call float @llvm.fmuladd.f32(float %20, float %20, float %19)
-  %22 = tail call float @llvm.fmuladd.f32(float %18, float %18, float %21)
+  %17 = fsub float %4, %1
+  %18 = fsub float %5, %2
+  %19 = fsub float %6, %3
+  %20 = fmul float %18, %18
+  %21 = tail call float @llvm.fmuladd.f32(float %17, float %17, float %20)
+  %22 = tail call float @llvm.fmuladd.f32(float %19, float %19, float %21)
   %sqrt = tail call float @llvm.sqrt.f32(float %22)
   %23 = fmul float %sqrt, %7
-  %24 = tail call float @llvm.fmuladd.f32(float %17, float 0x3FA99999A0000000, float %2)
-  %25 = insertelement <2 x float> poison, float %20, i64 0
+  %24 = tail call float @llvm.fmuladd.f32(float %18, float 0x3FA99999A0000000, float %2)
+  %25 = insertelement <2 x float> poison, float %17, i64 0
   %26 = insertelement <2 x float> %25, float %23, i64 1
   %27 = insertelement <2 x float> poison, float %1, i64 0
   %28 = insertelement <2 x float> %27, float %24, i64 1
   %29 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %26, <2 x float> <float 0x3FA99999A0000000, float 0x3FC851EBE0000000>, <2 x float> %28)
-  %30 = tail call float @llvm.fmuladd.f32(float %18, float 0x3FA99999A0000000, float %3)
+  %30 = tail call float @llvm.fmuladd.f32(float %19, float 0x3FA99999A0000000, float %3)
   %31 = extractelement <2 x float> %29, i64 0
   %32 = extractelement <2 x float> %29, i64 1
   br label %33
@@ -538,13 +538,13 @@ define void @_Z11duAppendArcP11duDebugDrawfffffffffj(ptr noundef %0, float nound
   %.sroa.082.085 = phi float [ %31, %16 ], [ %36, %33 ]
   %34 = sitofp i32 %.088 to float
   %35 = tail call float @llvm.fmuladd.f32(float %34, float 0x3FBCCCCCC0000000, float 0x3FA99999A0000000)
-  %36 = tail call float @llvm.fmuladd.f32(float %20, float %35, float %1)
-  %37 = tail call float @llvm.fmuladd.f32(float %17, float %35, float %2)
+  %36 = tail call float @llvm.fmuladd.f32(float %17, float %35, float %1)
+  %37 = tail call float @llvm.fmuladd.f32(float %18, float %35, float %2)
   %38 = tail call float @llvm.fmuladd.f32(float %35, float 2.000000e+00, float -1.000000e+00)
   %39 = fneg float %38
   %40 = tail call float @llvm.fmuladd.f32(float %39, float %38, float 1.000000e+00)
   %41 = tail call float @llvm.fmuladd.f32(float %23, float %40, float %37)
-  %42 = tail call float @llvm.fmuladd.f32(float %18, float %35, float %3)
+  %42 = tail call float @llvm.fmuladd.f32(float %19, float %35, float %3)
   %43 = load ptr, ptr %0, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 48
   %45 = load ptr, ptr %44, align 8
@@ -565,11 +565,11 @@ define void @_Z11duAppendArcP11duDebugDrawfffffffffj(ptr noundef %0, float nound
   store <2 x float> %29, ptr %12, align 8
   %53 = getelementptr inbounds i8, ptr %12, i64 8
   store float %30, ptr %53, align 8
-  %54 = tail call float @llvm.fmuladd.f32(float %17, float 0x3FB99999A0000000, float %2)
+  %54 = tail call float @llvm.fmuladd.f32(float %18, float 0x3FB99999A0000000, float %2)
   %55 = insertelement <2 x float> %27, float %54, i64 1
   %56 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %26, <2 x float> <float 0x3FB99999A0000000, float 0x3FD70A3D60000000>, <2 x float> %55)
   store <2 x float> %56, ptr %13, align 8
-  %57 = tail call float @llvm.fmuladd.f32(float %18, float 0x3FB99999A0000000, float %3)
+  %57 = tail call float @llvm.fmuladd.f32(float %19, float 0x3FB99999A0000000, float %3)
   %58 = getelementptr inbounds i8, ptr %13, i64 8
   store float %57, ptr %58, align 8
   call void @_Z15appendArrowHeadP11duDebugDrawPKfS2_fj(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull %13, float noundef %8, i32 noundef %10)
@@ -580,18 +580,18 @@ define void @_Z11duAppendArcP11duDebugDrawfffffffffj(ptr noundef %0, float nound
   br i1 %60, label %61, label %72
 
 61:                                               ; preds = %59
-  %62 = call float @llvm.fmuladd.f32(float %17, float 0x3FEE666660000000, float %2)
+  %62 = call float @llvm.fmuladd.f32(float %18, float 0x3FEE666660000000, float %2)
   %63 = insertelement <2 x float> %27, float %62, i64 1
   %64 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %26, <2 x float> <float 0x3FEE666660000000, float 0x3FC851EBE0000000>, <2 x float> %63)
   store <2 x float> %64, ptr %14, align 8
-  %65 = call float @llvm.fmuladd.f32(float %18, float 0x3FEE666660000000, float %3)
+  %65 = call float @llvm.fmuladd.f32(float %19, float 0x3FEE666660000000, float %3)
   %66 = getelementptr inbounds i8, ptr %14, i64 8
   store float %65, ptr %66, align 8
-  %67 = call float @llvm.fmuladd.f32(float %17, float 0x3FECCCCCC0000000, float %2)
+  %67 = call float @llvm.fmuladd.f32(float %18, float 0x3FECCCCCC0000000, float %2)
   %68 = insertelement <2 x float> %27, float %67, i64 1
   %69 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %26, <2 x float> <float 0x3FECCCCCC0000000, float 0x3FD70A3DC0000000>, <2 x float> %68)
   store <2 x float> %69, ptr %15, align 8
-  %70 = call float @llvm.fmuladd.f32(float %18, float 0x3FECCCCCC0000000, float %3)
+  %70 = call float @llvm.fmuladd.f32(float %19, float 0x3FECCCCCC0000000, float %3)
   %71 = getelementptr inbounds i8, ptr %15, i64 8
   store float %70, ptr %71, align 8
   call void @_Z15appendArrowHeadP11duDebugDrawPKfS2_fj(ptr noundef nonnull %0, ptr noundef nonnull %14, ptr noundef nonnull %15, float noundef %9, i32 noundef %10)

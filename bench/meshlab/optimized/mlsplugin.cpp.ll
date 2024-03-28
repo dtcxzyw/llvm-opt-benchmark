@@ -32163,7 +32163,7 @@ define linkonce_odr void @_ZNK3vcg9implicits13WeingartenMapIfE8updateKpEv(ptr no
   %4 = load i8, ptr %3, align 2
   %5 = and i8 %4, 1
   %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %84, label %6
+  br i1 %.not, label %88, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 125
@@ -32271,28 +32271,31 @@ _ZNK3vcg9implicits13WeingartenMapIfE14GaussCurvatureEv.exit: ; preds = %._crit_e
   %71 = fptrunc double %70 to float
   %72 = load float, ptr %21, align 4
   %73 = fadd float %72, %71
-  %74 = fmul float %73, 5.000000e-01
-  %75 = getelementptr inbounds i8, ptr %0, i64 116
-  store float %74, ptr %75, align 4
-  %76 = fsub float %72, %71
-  %77 = fmul float %76, 5.000000e-01
-  %78 = getelementptr inbounds i8, ptr %0, i64 120
-  store float %77, ptr %78, align 4
-  %79 = tail call noundef float @llvm.fabs.f32(float %74)
-  %80 = tail call noundef float @llvm.fabs.f32(float %77)
-  %81 = fcmp olt float %79, %80
-  br i1 %81, label %82, label %83
+  %74 = getelementptr inbounds i8, ptr %0, i64 116
+  %75 = fsub float %72, %71
+  %76 = insertelement <2 x float> poison, float %75, i64 0
+  %77 = insertelement <2 x float> %76, float %73, i64 1
+  %78 = fmul <2 x float> %77, <float 5.000000e-01, float 5.000000e-01>
+  %79 = extractelement <2 x float> %78, i64 1
+  store float %79, ptr %74, align 4
+  %80 = getelementptr inbounds i8, ptr %0, i64 120
+  %81 = extractelement <2 x float> %78, i64 0
+  store float %81, ptr %80, align 4
+  %82 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %78)
+  %83 = extractelement <2 x float> %82, i64 0
+  %84 = extractelement <2 x float> %82, i64 1
+  %85 = fcmp olt float %84, %83
+  br i1 %85, label %86, label %87
 
-82:                                               ; preds = %_ZNK3vcg9implicits13WeingartenMapIfE14GaussCurvatureEv.exit
-  store float %77, ptr %75, align 4
-  store float %74, ptr %78, align 4
-  br label %83
+86:                                               ; preds = %_ZNK3vcg9implicits13WeingartenMapIfE14GaussCurvatureEv.exit
+  store <2 x float> %78, ptr %74, align 4
+  br label %87
 
-83:                                               ; preds = %82, %_ZNK3vcg9implicits13WeingartenMapIfE14GaussCurvatureEv.exit
+87:                                               ; preds = %86, %_ZNK3vcg9implicits13WeingartenMapIfE14GaussCurvatureEv.exit
   store i8 0, ptr %3, align 2
-  br label %84
+  br label %88
 
-84:                                               ; preds = %83, %1
+88:                                               ; preds = %87, %1
   ret void
 }
 

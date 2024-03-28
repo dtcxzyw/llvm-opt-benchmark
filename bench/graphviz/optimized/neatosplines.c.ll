@@ -745,7 +745,7 @@ gv_calloc.exit302:                                ; preds = %gv_alloc.exit301
   %261 = getelementptr inbounds i8, ptr %255, i64 104
   %262 = load double, ptr %261, align 8
   %263 = fneg double %262
-  br i1 %.not, label %304, label %264
+  br i1 %.not, label %303, label %264
 
 264:                                              ; preds = %gv_calloc.exit302
   %265 = getelementptr inbounds i8, ptr %255, i64 96
@@ -761,81 +761,80 @@ gv_calloc.exit302:                                ; preds = %gv_alloc.exit301
   %274 = getelementptr inbounds i8, ptr %249, i64 16
   %275 = load double, ptr %261, align 8
   %276 = fneg double %275
-  %277 = load double, ptr %265, align 8
-  %278 = insertelement <2 x double> poison, double %276, i64 0
-  %279 = insertelement <2 x double> %278, double %277, i64 1
-  %280 = fsub <2 x double> %279, %269
-  %281 = fadd <2 x double> %279, %269
-  %282 = shufflevector <2 x double> %280, <2 x double> %281, <2 x i32> <i32 0, i32 3>
-  %283 = fadd <2 x double> %257, %282
-  store <2 x double> %283, ptr %274, align 8
-  %284 = getelementptr inbounds i8, ptr %249, i64 32
-  %285 = getelementptr inbounds i8, ptr %255, i64 112
-  %286 = load double, ptr %285, align 8
-  %287 = load double, ptr %265, align 8
-  %288 = insertelement <2 x double> poison, double %286, i64 0
-  %289 = insertelement <2 x double> %288, double %287, i64 1
-  %290 = fadd <2 x double> %289, %269
-  %291 = fadd <2 x double> %257, %290
-  store <2 x double> %291, ptr %284, align 8
-  %292 = getelementptr inbounds i8, ptr %249, i64 48
-  %293 = load double, ptr %285, align 8
-  %294 = extractelement <2 x double> %269, i64 0
-  %295 = fadd double %293, %294
+  %277 = extractelement <2 x double> %269, i64 0
+  %278 = fsub double %276, %277
+  %279 = load double, ptr %265, align 8
+  %280 = extractelement <2 x double> %269, i64 1
+  %281 = fadd double %279, %280
+  %282 = insertelement <2 x double> poison, double %278, i64 0
+  %283 = insertelement <2 x double> %282, double %281, i64 1
+  %284 = fadd <2 x double> %257, %283
+  store <2 x double> %284, ptr %274, align 8
+  %285 = getelementptr inbounds i8, ptr %249, i64 32
+  %286 = getelementptr inbounds i8, ptr %255, i64 112
+  %287 = load double, ptr %286, align 8
+  %288 = load double, ptr %265, align 8
+  %289 = insertelement <2 x double> poison, double %287, i64 0
+  %290 = insertelement <2 x double> %289, double %288, i64 1
+  %291 = fadd <2 x double> %290, %269
+  %292 = fadd <2 x double> %257, %291
+  store <2 x double> %292, ptr %285, align 8
+  %293 = getelementptr inbounds i8, ptr %249, i64 48
+  %294 = load double, ptr %286, align 8
+  %295 = fadd double %294, %277
   %296 = load double, ptr %265, align 8
   %297 = fneg double %296
-  %298 = extractelement <2 x double> %269, i64 1
-  %299 = fsub double %297, %298
-  %300 = extractelement <2 x double> %257, i64 0
-  %301 = fadd double %300, %295
-  %302 = extractelement <2 x double> %257, i64 1
-  %303 = fadd double %302, %299
-  store double %301, ptr %292, align 8
+  %298 = fsub double %297, %280
+  %299 = extractelement <2 x double> %257, i64 0
+  %300 = fadd double %299, %295
+  %301 = extractelement <2 x double> %257, i64 1
+  %302 = fadd double %301, %298
+  store double %300, ptr %293, align 8
   br label %.loopexit.sink.split
 
-304:                                              ; preds = %gv_calloc.exit302
-  %305 = getelementptr inbounds i8, ptr %255, i64 96
-  %306 = load double, ptr %305, align 8
-  %307 = fneg double %306
-  %308 = load <2 x float>, ptr %1, align 4
-  %309 = fpext <2 x float> %308 to <2 x double>
-  %310 = insertelement <2 x double> poison, double %263, i64 0
-  %311 = insertelement <2 x double> %310, double %307, i64 1
-  %312 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %311, <2 x double> %309, <2 x double> %257)
-  store <2 x double> %312, ptr %249, align 8
-  %313 = getelementptr inbounds i8, ptr %249, i64 16
-  %314 = load double, ptr %261, align 8
-  %315 = fneg double %314
-  %316 = load double, ptr %305, align 8
-  %317 = insertelement <2 x double> poison, double %315, i64 0
-  %318 = insertelement <2 x double> %317, double %316, i64 1
-  %319 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %318, <2 x double> %309, <2 x double> %257)
-  store <2 x double> %319, ptr %313, align 8
-  %320 = getelementptr inbounds i8, ptr %249, i64 32
-  %321 = getelementptr inbounds i8, ptr %255, i64 112
-  %322 = load double, ptr %321, align 8
-  %323 = load double, ptr %305, align 8
-  %324 = insertelement <2 x double> poison, double %322, i64 0
-  %325 = insertelement <2 x double> %324, double %323, i64 1
-  %326 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %325, <2 x double> %309, <2 x double> %257)
-  store <2 x double> %326, ptr %320, align 8
-  %327 = getelementptr inbounds i8, ptr %249, i64 48
-  %328 = load double, ptr %321, align 8
-  %329 = load double, ptr %305, align 8
-  %330 = fneg double %329
-  %331 = extractelement <2 x double> %309, i64 0
-  %332 = extractelement <2 x double> %257, i64 0
-  %333 = tail call double @llvm.fmuladd.f64(double %328, double %331, double %332)
-  %334 = extractelement <2 x double> %309, i64 1
-  %335 = extractelement <2 x double> %257, i64 1
-  %336 = tail call double @llvm.fmuladd.f64(double %330, double %334, double %335)
-  store double %333, ptr %327, align 8
+303:                                              ; preds = %gv_calloc.exit302
+  %304 = getelementptr inbounds i8, ptr %255, i64 96
+  %305 = load double, ptr %304, align 8
+  %306 = fneg double %305
+  %307 = load <2 x float>, ptr %1, align 4
+  %308 = fpext <2 x float> %307 to <2 x double>
+  %309 = insertelement <2 x double> poison, double %263, i64 0
+  %310 = insertelement <2 x double> %309, double %306, i64 1
+  %311 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %310, <2 x double> %308, <2 x double> %257)
+  store <2 x double> %311, ptr %249, align 8
+  %312 = getelementptr inbounds i8, ptr %249, i64 16
+  %313 = load double, ptr %261, align 8
+  %314 = fneg double %313
+  %315 = load double, ptr %304, align 8
+  %316 = insertelement <2 x double> poison, double %314, i64 0
+  %317 = insertelement <2 x double> %316, double %315, i64 1
+  %318 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %317, <2 x double> %308, <2 x double> %257)
+  store <2 x double> %318, ptr %312, align 8
+  %319 = getelementptr inbounds i8, ptr %249, i64 32
+  %320 = getelementptr inbounds i8, ptr %255, i64 112
+  %321 = load double, ptr %320, align 8
+  %322 = load double, ptr %304, align 8
+  %323 = insertelement <2 x double> poison, double %321, i64 0
+  %324 = insertelement <2 x double> %323, double %322, i64 1
+  %325 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %324, <2 x double> %308, <2 x double> %257)
+  store <2 x double> %325, ptr %319, align 8
+  %326 = getelementptr inbounds i8, ptr %249, i64 48
+  %327 = load double, ptr %320, align 8
+  %328 = load double, ptr %304, align 8
+  %329 = fneg double %328
+  %330 = extractelement <2 x double> %308, i64 0
+  %331 = extractelement <2 x double> %257, i64 0
+  %332 = tail call double @llvm.fmuladd.f64(double %327, double %330, double %331)
+  %333 = extractelement <2 x double> %308, i64 1
+  %334 = extractelement <2 x double> %257, i64 1
+  %335 = tail call double @llvm.fmuladd.f64(double %329, double %333, double %334)
+  store double %332, ptr %326, align 8
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %231, %217, %304, %264
-  %.sink336 = phi ptr [ %249, %264 ], [ %249, %304 ], [ %207, %217 ], [ %207, %231 ]
-  %.sink = phi double [ %303, %264 ], [ %336, %304 ], [ %230, %217 ], [ %241, %231 ]
-  %.0.ph = phi ptr [ %243, %264 ], [ %243, %304 ], [ %201, %217 ], [ %201, %231 ]
+.loopexit.sink.split:                             ; preds = %231, %217, %303, %264
+  %.sink336 = phi ptr [ %249, %264 ], [ %249, %303 ], [ %207, %217 ], [ %207, %231 ]
+  %.sink = phi double [ %302, %264 ], [ %335, %303 ], [ %230, %217 ], [ %241, %231 ]
+  %.0.ph = phi ptr [ %243, %264 ], [ %243, %303 ], [ %201, %217 ], [ %201, %231 ]
   %.sroa.28.0..sroa_idx = getelementptr inbounds i8, ptr %.sink336, i64 56
   store double %.sink, ptr %.sroa.28.0..sroa_idx, align 8
   br label %.loopexit

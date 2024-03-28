@@ -15396,7 +15396,7 @@ define void @_ZN13IOGraphDialog13getZoomRangesE5QRect(ptr dead_on_unwind noalias
   %19 = add i32 %18, 1
   %20 = sub i32 %19, %16
   %21 = icmp slt i32 %20, 20
-  br i1 %21, label %84, label %22
+  br i1 %21, label %83, label %22
 
 22:                                               ; preds = %14, %4
   %23 = getelementptr inbounds i8, ptr %1, i64 136
@@ -15414,7 +15414,7 @@ define void @_ZN13IOGraphDialog13getZoomRangesE5QRect(ptr dead_on_unwind noalias
   %33 = load <2 x i64>, ptr %32, align 4
   store <2 x i64> %33, ptr %7, align 16
   %34 = call noundef zeroext i1 @_ZNK5QRect10intersectsERKS_(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %6) #26
-  br i1 %34, label %35, label %84
+  br i1 %34, label %35, label %83
 
 35:                                               ; preds = %22
   %36 = getelementptr inbounds i8, ptr %7, i64 8
@@ -15430,54 +15430,54 @@ define void @_ZN13IOGraphDialog13getZoomRangesE5QRect(ptr dead_on_unwind noalias
   %.sroa.2.0..sroa_idx.i11 = getelementptr inbounds i8, ptr %41, i64 312
   %.sroa.2.0.copyload.i12 = load double, ptr %.sroa.2.0..sroa_idx.i11, align 8
   %43 = load i32, ptr %7, align 16
-  %44 = getelementptr inbounds i8, ptr %0, i64 16
-  %45 = getelementptr inbounds i8, ptr %26, i64 48
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 304
-  %.sroa.0.0.copyload.i25 = load double, ptr %47, align 8
-  %.sroa.2.0..sroa_idx.i26 = getelementptr inbounds i8, ptr %46, i64 312
+  %44 = load i32, ptr %36, align 8
+  %reass.sub = sub i32 %44, %43
+  %45 = add i32 %reass.sub, 1
+  %46 = getelementptr inbounds i8, ptr %0, i64 16
+  %47 = getelementptr inbounds i8, ptr %26, i64 48
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 304
+  %.sroa.0.0.copyload.i25 = load double, ptr %49, align 8
+  %.sroa.2.0..sroa_idx.i26 = getelementptr inbounds i8, ptr %48, i64 312
   %.sroa.2.0.copyload.i27 = load double, ptr %.sroa.2.0..sroa_idx.i26, align 8
-  %48 = getelementptr inbounds i8, ptr %7, i64 4
-  %49 = load i32, ptr %48, align 4
-  %50 = insertelement <2 x double> poison, double %.sroa.2.0.copyload.i12, i64 0
-  %51 = insertelement <2 x double> %50, double %.sroa.2.0.copyload.i27, i64 1
-  %52 = insertelement <2 x double> poison, double %.sroa.0.0.copyload.i10, i64 0
-  %53 = insertelement <2 x double> %52, double %.sroa.0.0.copyload.i25, i64 1
-  %54 = fsub <2 x double> %51, %53
-  %55 = load <2 x i32>, ptr %36, align 8
-  %56 = insertelement <2 x i32> <i32 poison, i32 1>, i32 %43, i64 0
-  %57 = sub <2 x i32> %55, %56
-  %58 = add <2 x i32> %55, %56
-  %59 = shufflevector <2 x i32> %57, <2 x i32> %58, <2 x i32> <i32 0, i32 3>
-  %60 = insertelement <2 x i32> <i32 1, i32 poison>, i32 %49, i64 1
-  %61 = add <2 x i32> %59, %60
-  %62 = sub <2 x i32> %59, %60
-  %63 = shufflevector <2 x i32> %61, <2 x i32> %62, <2 x i32> <i32 0, i32 3>
-  %64 = sitofp <2 x i32> %63 to <2 x double>
-  %65 = insertelement <2 x i64> poison, i64 %38, i64 0
-  %66 = insertelement <2 x i64> %65, i64 %.sroa.3.0.extract.shift, i64 1
-  %67 = trunc <2 x i64> %66 to <2 x i32>
-  %68 = insertelement <2 x i64> poison, i64 %39, i64 0
-  %69 = insertelement <2 x i64> %68, i64 %.sroa.6.8.extract.shift, i64 1
-  %70 = trunc <2 x i64> %69 to <2 x i32>
-  %71 = shufflevector <2 x i32> %67, <2 x i32> %55, <2 x i32> <i32 0, i32 3>
-  %72 = insertelement <2 x i32> %70, i32 %43, i64 0
-  %73 = sub <2 x i32> %71, %72
-  %74 = sitofp <2 x i32> %73 to <2 x double>
-  %75 = fmul <2 x double> %54, %74
-  %76 = fdiv <2 x double> %75, %64
-  %77 = fadd <2 x double> %53, %76
-  %78 = fadd <2 x double> %77, zeroinitializer
-  store <2 x double> %78, ptr %0, align 8
-  %79 = add <2 x i32> %70, <i32 1, i32 1>
-  %80 = sub <2 x i32> %79, %67
-  %81 = sitofp <2 x i32> %80 to <2 x double>
-  %82 = fmul <2 x double> %54, %81
-  %83 = fdiv <2 x double> %82, %64
-  store <2 x double> %83, ptr %44, align 8
-  br label %84
+  %50 = getelementptr inbounds i8, ptr %7, i64 12
+  %51 = load i32, ptr %50, align 4
+  %52 = getelementptr inbounds i8, ptr %7, i64 4
+  %53 = load i32, ptr %52, align 4
+  %54 = add i32 %51, 1
+  %55 = sub i32 %54, %53
+  %56 = insertelement <2 x double> poison, double %.sroa.2.0.copyload.i12, i64 0
+  %57 = insertelement <2 x double> %56, double %.sroa.2.0.copyload.i27, i64 1
+  %58 = insertelement <2 x double> poison, double %.sroa.0.0.copyload.i10, i64 0
+  %59 = insertelement <2 x double> %58, double %.sroa.0.0.copyload.i25, i64 1
+  %60 = fsub <2 x double> %57, %59
+  %61 = insertelement <2 x i32> poison, i32 %45, i64 0
+  %62 = insertelement <2 x i32> %61, i32 %55, i64 1
+  %63 = sitofp <2 x i32> %62 to <2 x double>
+  %64 = insertelement <2 x i64> poison, i64 %38, i64 0
+  %65 = insertelement <2 x i64> %64, i64 %.sroa.3.0.extract.shift, i64 1
+  %66 = trunc <2 x i64> %65 to <2 x i32>
+  %67 = insertelement <2 x i64> poison, i64 %39, i64 0
+  %68 = insertelement <2 x i64> %67, i64 %.sroa.6.8.extract.shift, i64 1
+  %69 = trunc <2 x i64> %68 to <2 x i32>
+  %70 = insertelement <2 x i32> %66, i32 %51, i64 1
+  %71 = insertelement <2 x i32> %69, i32 %43, i64 0
+  %72 = sub <2 x i32> %70, %71
+  %73 = sitofp <2 x i32> %72 to <2 x double>
+  %74 = fmul <2 x double> %60, %73
+  %75 = fdiv <2 x double> %74, %63
+  %76 = fadd <2 x double> %59, %75
+  %77 = fadd <2 x double> %76, zeroinitializer
+  store <2 x double> %77, ptr %0, align 8
+  %78 = add <2 x i32> %69, <i32 1, i32 1>
+  %79 = sub <2 x i32> %78, %66
+  %80 = sitofp <2 x i32> %79 to <2 x double>
+  %81 = fmul <2 x double> %60, %80
+  %82 = fdiv <2 x double> %81, %63
+  store <2 x double> %82, ptr %46, align 8
+  br label %83
 
-84:                                               ; preds = %22, %35, %14
+83:                                               ; preds = %22, %35, %14
   ret void
 }
 
