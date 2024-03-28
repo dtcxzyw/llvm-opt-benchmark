@@ -9793,9 +9793,9 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i:      ; preds = %341
   %348 = load i64, ptr %.sink63.i.i.i.i, align 8, !noalias !234
   %349 = getelementptr inbounds i64, ptr %317, i64 %.056.i.i.i.i
   store i64 %348, ptr %349, align 8, !noalias !234
-  %350 = shl i64 %.1.i.i.i.i, 1
+  %350 = shl nuw nsw i64 %.1.i.i.i.i, 1
   %351 = or disjoint i64 %350, 1
-  %352 = icmp ugt i64 %350, 4
+  %352 = icmp ugt i64 %.1.i.i.i.i, 2
   br i1 %352, label %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i223.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !208
 
 _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i223.i.i: ; preds = %346, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i, %341, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i226.i.i, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.i.i225.i.i
@@ -10914,9 +10914,9 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i179:   ; preds = %847
   %854 = load i64, ptr %.sink63.i.i.i.i181, align 8, !noalias !327
   %855 = getelementptr inbounds i64, ptr %823, i64 %.056.i.i.i.i177
   store i64 %854, ptr %855, align 8, !noalias !327
-  %856 = shl i64 %.1.i.i.i.i182, 1
+  %856 = shl nuw nsw i64 %.1.i.i.i.i182, 1
   %857 = or disjoint i64 %856, 1
-  %858 = icmp ugt i64 %856, 4
+  %858 = icmp ugt i64 %.1.i.i.i.i182, 2
   br i1 %858, label %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i223.i.i183, label %.lr.ph.i.i.i.i176, !llvm.loop !208
 
 _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i223.i.i183: ; preds = %852, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i179, %847, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i226.i.i186, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.i.i225.i.i185
@@ -12044,9 +12044,9 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i342:   ; preds = %1363
   %1370 = load i64, ptr %.sink63.i.i.i.i344, align 8, !noalias !419
   %1371 = getelementptr inbounds i64, ptr %1339, i64 %.056.i.i.i.i340
   store i64 %1370, ptr %1371, align 8, !noalias !419
-  %1372 = shl i64 %.1.i.i.i.i345, 1
+  %1372 = shl nuw nsw i64 %.1.i.i.i.i345, 1
   %1373 = or disjoint i64 %1372, 1
-  %1374 = icmp ugt i64 %1372, 4
+  %1374 = icmp ugt i64 %.1.i.i.i.i345, 2
   br i1 %1374, label %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i225.i.i, label %.lr.ph.i.i.i.i339, !llvm.loop !208
 
 _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i225.i.i: ; preds = %1368, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i342, %1363, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i228.i.i, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.i.i227.i.i
@@ -13145,9 +13145,9 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i472:   ; preds = %1881
   %1888 = load i64, ptr %.sink63.i.i.i.i474, align 8, !noalias !511
   %1889 = getelementptr inbounds i64, ptr %1857, i64 %.056.i.i.i.i470
   store i64 %1888, ptr %1889, align 8, !noalias !511
-  %1890 = shl i64 %.1.i.i.i.i475, 1
+  %1890 = shl nuw nsw i64 %.1.i.i.i.i475, 1
   %1891 = or disjoint i64 %1890, 1
-  %1892 = icmp ugt i64 %1890, 4
+  %1892 = icmp ugt i64 %.1.i.i.i.i475, 2
   br i1 %1892, label %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i227.i.i, label %.lr.ph.i.i.i.i469, !llvm.loop !208
 
 _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i227.i.i: ; preds = %1886, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i472, %1881, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i230.i.i, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.i.i229.i.i
@@ -14236,9 +14236,9 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i606:   ; preds = %2390
   %2397 = load i64, ptr %.sink63.i.i.i.i608, align 8, !noalias !603
   %2398 = getelementptr inbounds i64, ptr %2366, i64 %.056.i.i.i.i604
   store i64 %2397, ptr %2398, align 8, !noalias !603
-  %2399 = shl i64 %.1.i.i.i.i609, 1
+  %2399 = shl nuw nsw i64 %.1.i.i.i.i609, 1
   %2400 = or disjoint i64 %2399, 1
-  %2401 = icmp ugt i64 %2399, 4
+  %2401 = icmp ugt i64 %.1.i.i.i.i609, 2
   br i1 %2401, label %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i229.i.i, label %.lr.ph.i.i.i.i603, !llvm.loop !208
 
 _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i229.i.i: ; preds = %2395, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i606, %2390, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i232.i.i, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.i.i231.i.i
@@ -15338,9 +15338,9 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i715:   ; preds = %2893
   %2900 = load i64, ptr %.sink63.i.i.i.i717, align 8, !noalias !695
   %2901 = getelementptr inbounds i64, ptr %2869, i64 %.056.i.i.i.i713
   store i64 %2900, ptr %2901, align 8, !noalias !695
-  %2902 = shl i64 %.1.i.i.i.i718, 1
+  %2902 = shl nuw nsw i64 %.1.i.i.i.i718, 1
   %2903 = or disjoint i64 %2902, 1
-  %2904 = icmp ugt i64 %2902, 4
+  %2904 = icmp ugt i64 %.1.i.i.i.i718, 2
   br i1 %2904, label %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i237.i.i, label %.lr.ph.i.i.i.i712, !llvm.loop !208
 
 _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i237.i.i: ; preds = %2898, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i715, %2893, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i240.i.i, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.i.i239.i.i
@@ -16405,9 +16405,9 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i831:   ; preds = %3369
   %3376 = load i64, ptr %.sink63.i.i.i.i833, align 8, !noalias !777
   %3377 = getelementptr inbounds i64, ptr %3345, i64 %.056.i.i.i.i829
   store i64 %3376, ptr %3377, align 8, !noalias !777
-  %3378 = shl i64 %.1.i.i.i.i834, 1
+  %3378 = shl nuw nsw i64 %.1.i.i.i.i834, 1
   %3379 = or disjoint i64 %3378, 1
-  %3380 = icmp ugt i64 %3378, 4
+  %3380 = icmp ugt i64 %.1.i.i.i.i834, 2
   br i1 %3380, label %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i227.i.i835, label %.lr.ph.i.i.i.i828, !llvm.loop !208
 
 _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i227.i.i835: ; preds = %3374, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i831, %3369, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i230.i.i838, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.i.i229.i.i837
